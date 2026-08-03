@@ -1,0 +1,523 @@
+[
+  {
+    "title": "General Surgery",
+    "slug": "general-surgery",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
+    "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "General Surgery",
+      "tagline": "Comprehensive Surgical Care",
+      "taglineVariant": "body",
+      "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.\n\nOur team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/general-surgery-department-banner.webp",
+        "alt": "General Surgery"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "title": "Our Surgical Services",
+        "description": "The department performs a broad range of surgical procedures, including:",
+        "groups": [
+          {
+            "title": "General Surgery",
+            "items": [
+              {
+                "label": "Appendectomy"
+              },
+              {
+                "label": "Herniotomy and Hernia Repair (including Mesh Repair)"
+              },
+              {
+                "label": "Laparotomy"
+              },
+              {
+                "label": "Splenectomy"
+              },
+              {
+                "label": "Hemorrhoidectomy"
+              },
+              {
+                "label": "Thyroidectomy/Excision athyro gland cyst"
+              },
+              {
+                "label": "Excision of Breast Lumps"
+              },
+              {
+                "label": "Drainage of Appendicular Abscess"
+              },
+              {
+                "label": "Drainage of Liver Abscess"
+              },
+              {
+                "label": "Excision of Lump"
+              },
+              {
+                "label": "Modified Radical Mastectomy"
+              }
+            ]
+          },
+          {
+            "title": "Minimally Invasive (Laparoscopic) Surgery",
+            "items": [
+              {
+                "label": "Diagnostic and Therapeutic Laparoscopy"
+              },
+              {
+                "label": "Laparoscopic Cholecystectomy"
+              },
+              {
+                "label": "Lap Appendectomy"
+              },
+              {
+                "label": "Lap Hernia Repair"
+              }
+            ]
+          },
+          {
+            "title": "Hepatobiliary & Gastrointestinal Surgery",
+            "items": [
+              {
+                "label": "Open Cholecystectomy"
+              },
+              {
+                "label": "Choledocholithotomy"
+              },
+              {
+                "label": "Choledochoduodenostomy"
+              },
+              {
+                "label": "Whipple Procedure (Pancreaticoduodenectomy)"
+              },
+              {
+                "label": "Hydatid Cyst Excision"
+              }
+            ]
+          },
+          {
+            "title": "Colorectal Surgery",
+            "items": [
+              {
+                "label": "Fistula Surgery (Fistulotomy, pile, Fissure, pilonidal sinus both open& laser)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "title": "Why Choose Hijaz Hospital General Surgery?",
+        "items": [
+          {
+            "icon": "check-circle",
+            "label": "Experienced general surgeons and multidisciplinary surgical team"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Modern operation theatres equipped for elective and emergency surgery"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Advanced laparoscopic (minimally invasive) surgical techniques"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Comprehensive preoperative and postoperative care"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Strict infection prevention and patient safety protocols"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Affordable treatment with welfare support for eligible patients"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Orthopedics",
+    "slug": "orthopedics",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
+    "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Orthopedics",
+      "tagline": "Comprehensive Bone, Joint & Trauma Care",
+      "taglineVariant": "body",
+      "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine. Supported by experienced orthopedic surgeons, consultants, nursing staff, and rehabilitation professionals, the department offers comprehensive care for patients of all ages, from emergency trauma management to advanced orthopedic surgery and postoperative rehabilitation.\n\nThe department provides outpatient consultations, emergency trauma care, elective orthopedic procedures, and rehabilitation services using modern surgical techniques, advanced implants, and dedicated physiotherapy support.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/orthopedics-department-banner.webp",
+        "alt": "Orthopedics"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "title": "Our Orthopedic Services",
+        "description": "Our department offers a wide range of orthopedic services, including:",
+        "groups": [
+          {
+            "title": "Trauma & Fracture Care",
+            "items": [
+              {
+                "label": "Emergency management of fractures and traumatic injuries"
+              },
+              {
+                "label": "Internal and external fracture fixation"
+              },
+              {
+                "label": "Management of complex orthopedic trauma"
+              },
+              {
+                "label": "Post-fracture rehabilitation"
+              }
+            ]
+          },
+          {
+            "title": "Joint Replacement Surgery",
+            "items": [
+              {
+                "label": "Total Hip Replacement"
+              },
+              {
+                "label": "Total Knee Replacement"
+              },
+              {
+                "label": "Revision joint replacement procedures"
+              },
+              {
+                "label": "Comprehensive preoperative and postoperative care"
+              }
+            ]
+          },
+          {
+            "title": "Sports Injury Management",
+            "items": [
+              {
+                "label": "Arthroscopic procedures"
+              },
+              {
+                "label": "Ligament reconstruction"
+              },
+              {
+                "label": "Tendon repair"
+              },
+              {
+                "label": "Treatment of sports-related musculoskeletal injuries"
+              }
+            ]
+          },
+          {
+            "title": "Pediatric Orthopedics",
+            "items": [
+              {
+                "label": "Management of fractures in children"
+              },
+              {
+                "label": "Treatment of congenital and developmental deformities"
+              },
+              {
+                "label": "Correction of neuromuscular and orthopedic disorders"
+              },
+              {
+                "label": "Splinting and corrective surgical procedures"
+              }
+            ]
+          },
+          {
+            "title": "Spine Care",
+            "items": [
+              {
+                "label": "Evaluation and treatment of spinal disorders"
+              },
+              {
+                "label": "Conservative management of back and neck conditions"
+              },
+              {
+                "label": "Surgical treatment for selected spinal fractures and conditions"
+              }
+            ]
+          },
+          {
+            "title": "Reconstructive Orthopedic Surgery",
+            "items": [
+              {
+                "label": "Limb reconstruction"
+              },
+              {
+                "label": "Bone grafting procedures"
+              },
+              {
+                "label": "Soft tissue reconstruction"
+              },
+              {
+                "label": "Treatment of deformities resulting from trauma or congenital conditions"
+              }
+            ]
+          },
+          {
+            "title": "Minimally Invasive Orthopedic Procedures",
+            "items": [
+              {
+                "label": "Where appropriate, minimally invasive surgical techniques are used to reduce tissue damage, promote faster recovery, and shorten hospital stays."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "title": "Why Choose Hijaz Hospital Orthopedics?",
+        "items": [
+          {
+            "icon": "check-circle",
+            "label": "Experienced orthopedic consultants and surgeons"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Comprehensive trauma and fracture care"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Modern operation theatres and advanced surgical equipment"
+          },
+          {
+            "icon": "check-circle",
+            "label": "High-quality implants and diagnostic support"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Dedicated physiotherapy and rehabilitation services"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Infection prevention protocols and modern postoperative care"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Affordable treatment options with financial assistance for eligible patients"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Urology",
+    "slug": "urology",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
+    "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Urology",
+      "tagline": "Comprehensive Care for Urinary Tract & Male Reproductive Disorders",
+      "taglineVariant": "body",
+      "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system. Our experienced urologists offer both minimally invasive and open surgical procedures using modern techniques to deliver safe, effective, and patient-centered care.\n\nThe department manages a wide range of urological conditions, including urinary stone disease, prostate disorders, urinary tract abnormalities, male reproductive conditions, and urological cancers.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/urology-department-banner.webp",
+        "alt": "Urology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "title": "Our Urology Services",
+        "groups": [
+          {
+            "title": "Endourology & Minimally Invasive Procedures",
+            "items": [
+              {
+                "label": "Cystoscopy"
+              },
+              {
+                "label": "Ureterorenoscopy (URS) with or without DJ Stenting"
+              },
+              {
+                "label": "Retrograde Intrarenal Surgery (RIRS) with or without DJ Stenting"
+              },
+              {
+                "label": "Percutaneous Nephrolithotomy (PCNL) with or without DJ Stenting"
+              },
+              {
+                "label": "Percutaneous Nephrostomy (PCN)"
+              },
+              {
+                "label": "Cystolitholapaxy"
+              },
+              {
+                "label": "Direct Vision Internal Urethrotomy (DVIU)"
+              },
+              {
+                "label": "DJ Stent Insertion and Removal"
+              }
+            ]
+          },
+          {
+            "title": "Stone Surgery",
+            "items": [
+              {
+                "label": "Pyelolithotomy"
+              },
+              {
+                "label": "Ureterolithotomy"
+              },
+              {
+                "label": "Vesicolithotomy"
+              }
+            ]
+          },
+          {
+            "title": "Prostate Surgery",
+            "items": [
+              {
+                "label": "Transurethral Resection of the Prostate (TURP – Monopolar & Bipolar)"
+              },
+              {
+                "label": "Transvesical Prostatectomy (TVP)"
+              }
+            ]
+          },
+          {
+            "title": "Bladder Surgery",
+            "items": [
+              {
+                "label": "Transurethral Resection of Bladder Tumor (TURBT – Monopolar & Bipolar)"
+              },
+              {
+                "label": "Vesicovaginal Fistula (VVF) Repair"
+              }
+            ]
+          },
+          {
+            "title": "Kidney Surgery",
+            "items": [
+              {
+                "label": "Open Pyeloplasty"
+              },
+              {
+                "label": "Simple Nephrostomy"
+              },
+              {
+                "label": "Open Simple Nephrectomy"
+              },
+              {
+                "label": "Open Radical Nephrectomy"
+              }
+            ]
+          },
+          {
+            "title": "Reconstructive Urology",
+            "items": [
+              {
+                "label": "Urethroplasty"
+              },
+              {
+                "label": "Urethrocutaneous Fistula (UCF) Closure"
+              },
+              {
+                "label": "Ureteral Reimplantation"
+              },
+              {
+                "label": "Closure of Urethral Fistula"
+              }
+            ]
+          },
+          {
+            "title": "Andrology & Male Reproductive Surgery",
+            "items": [
+              {
+                "label": "Hydrocelectomy"
+              },
+              {
+                "label": "Varicocelectomy"
+              },
+              {
+                "label": "Orchidopexy"
+              },
+              {
+                "label": "Orchidectomy (Simple & Radical)"
+              },
+              {
+                "label": "Epididymal Cyst Excision"
+              },
+              {
+                "label": "Spermatocele Excision"
+              },
+              {
+                "label": "Chordee Correction"
+              }
+            ]
+          },
+          {
+            "title": "Pediatric Urology",
+            "items": [
+              {
+                "label": "Posterior Urethral Valve (PUV) Ablation"
+              },
+              {
+                "label": "Orchidopexy"
+              },
+              {
+                "label": "Management of Congenital Urological Disorders"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "title": "Why Choose Hijaz Hospital Urology?",
+        "items": [
+          {
+            "icon": "check-circle",
+            "label": "Experienced urologists and multidisciplinary surgical team"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Advanced endourology and minimally invasive procedures"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Comprehensive treatment for urinary stone disease"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Specialized care for prostate, bladder, kidney, and male reproductive disorders"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Modern operation theatre facilities and diagnostic support"
+          },
+          {
+            "icon": "check-circle",
+            "label": "Patient-centered care with comprehensive preoperative and postoperative management"
+          }
+        ]
+      }
+    ]
+  }
+]

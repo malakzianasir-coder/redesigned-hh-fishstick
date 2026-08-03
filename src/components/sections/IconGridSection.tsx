@@ -19,13 +19,15 @@ export function IconGridSection({ section }: { section: IconGridSectionData }) {
         <div className="flex flex-col gap-[6px] text-center">
           {kicker ? <p className="kicker">{kicker}</p> : null}
           <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-          {intro?.map((paragraph, index) => (
-            <p key={index} className="text-b16 text-primary-blue/85">
-              {paragraph}
-            </p>
-          ))}
+          {(Array.isArray(intro) ? intro : typeof intro === 'string' ? [intro] : []).map(
+            (paragraph, index) => (
+              <p key={index} className="text-b16 text-primary-blue/85">
+                {paragraph}
+              </p>
+            ),
+          )}
         </div>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="card-grid card-grid--6 card-grid--gap-4">
           {items.map((item, index) => (
             <article
               key={item.label}

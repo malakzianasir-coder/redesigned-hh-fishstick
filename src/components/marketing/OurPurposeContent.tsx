@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { User, UserTie } from '@phosphor-icons/react/dist/ssr'
+import { User } from '@phosphor-icons/react/dist/ssr'
 
 import { JourneyTimeline } from '@/components/marketing/JourneyTimeline'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
@@ -31,7 +31,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
             <p className="kicker">Vision & Mission</p>
             <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Vision & Mission</h2>
           </div>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="card-grid card-grid--2 mx-auto max-w-5xl">
             <article className="card-interactive flex flex-col gap-3 p-6 lg:p-8">
               <div className="flex items-center gap-3">
                 <span className="icon-tile">
@@ -94,7 +94,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
             <p className="kicker">Our Approach</p>
             <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Approach</h2>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="card-grid card-grid--4">
             {page.approach.map((item) => {
               const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
               return (
@@ -122,7 +122,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
           </div>
           <div>
             <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">Our Core Values</h3>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="card-grid card-grid--3">
               {page.values.map((item) => {
                 const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
                 return (
@@ -167,7 +167,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                     ) : null}
                     <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">{group.kicker}</h3>
                   </div>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="card-grid card-grid--2">
                     {group.items.map((item) => (
                       <div key={item.title} className="flex flex-col gap-2 rounded-2xl border border-dark-gray/15 bg-white p-5">
                         {item.logo ? (
@@ -195,7 +195,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
               <p className="kicker">Leadership & Governance</p>
               <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Founders</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="card-grid card-grid--2 mx-auto max-w-5xl">
               {page.foundersTeaser.map((founder) => (
                 <article key={founder.name} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
                   <div className="flex items-start gap-4">
@@ -252,12 +252,12 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
               <p className="kicker">{page.leadershipMessagesTeaser.kicker}</p>
               <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{page.leadershipMessagesTeaser.title}</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="card-grid card-grid--2 mx-auto max-w-5xl">
               {page.leadershipMessagesTeaser.items.map((item) => (
                 <article key={item.title} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
                   <div className="flex items-start gap-4">
                     <div className="logo-slot">
-                      <UserTie size={24} weight="duotone" />
+                      <User size={24} weight="duotone" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
@@ -296,7 +296,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                 <p className="text-b16 text-primary-blue/85">{page.consultants.lede}</p>
               ) : null}
             </div>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="card-grid card-grid--6 card-grid--gap-4">
               {page.consultants.items.map((doctor) => (
                 <Link
                   key={doctor.name}
@@ -326,7 +326,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
               <p className="kicker">{page.impactTeaser.kicker}</p>
               <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{page.impactTeaser.title}</h2>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="card-grid card-grid--2-md">
               {page.impactTeaser.cards.map((card) => (
                 <article key={card.title} className="card-interactive flex flex-col gap-3 p-6">
                   <h3 className="text-h6 font-bold text-primary-blue">{card.title}</h3>
@@ -358,7 +358,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                 <p className="text-b16 text-primary-blue/85">{page.departmentsTeaser.lede}</p>
               ) : null}
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="card-grid card-grid--4">
               {page.departmentsTeaser.items.map((dept) => (
                 <Link key={dept.title} href={dept.href} className="card-interactive flex flex-col gap-2 p-5">
                   <h3 className="text-h6 font-bold text-primary-blue">{dept.title}</h3>

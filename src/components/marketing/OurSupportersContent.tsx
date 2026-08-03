@@ -39,12 +39,12 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
               <p className="text-b16 text-primary-blue/85">{page.donorWallLede}</p>
             ) : null}
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="card-grid card-grid--4">
             {page.donors.map((donor) => {
               const inner = (
                 <>
                   <div className="flex w-full items-center justify-between gap-2">
-                    <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-redbg text-b12 font-bold text-primary-red">
+                    <span className="num-badge">
                       {donor.sn}
                     </span>
                     {donor.href ? (

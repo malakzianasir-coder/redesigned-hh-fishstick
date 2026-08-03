@@ -24,12 +24,12 @@ const FOOTER_COLUMNS = [
     title: 'Patient Care',
     ariaLabel: 'Patient Care',
     links: [
-      { label: 'Emergency (24/7)', href: '/patient-care/emergency' },
+      { label: 'Emergency (24/7)', href: '/services/emergency' },
       { label: 'Outpatient (OPD)', href: '/services' },
       { label: 'Inpatient (IPD)', href: '/services/ipd' },
       { label: 'Laboratory & Diagnostics', href: '/lab-reports' },
       { label: 'Find a Doctor', href: '/doctors' },
-      { label: 'Patient Welfare', href: '/patient-care' },
+      { label: 'Patient Welfare', href: '/patient-welfare' },
     ],
   },
   {
@@ -264,7 +264,7 @@ export function SiteFooter() {
             © 2026 Hijaz Social Welfare Society (Hijaz Hospital). All rights reserved.
           </span>
           <div className="flex flex-col gap-4 lg:flex-row lg:gap-6">
-            <Link href="/patient-care/patient-rights" className="footer-link text-b14 leading-[150%]">
+            <Link href="/patient-welfare/patient-rights" className="footer-link text-b14 leading-[150%]">
               Patient Rights
             </Link>
             <Link href="/departments" className="footer-link text-b14 leading-[150%]">

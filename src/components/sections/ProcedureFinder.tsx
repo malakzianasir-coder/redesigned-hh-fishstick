@@ -65,7 +65,7 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
       },
       ...groups.map((group) => ({
         ...group,
-        slug: group.slug || group.heading.toLowerCase().replace(/\s+/g, '-'),
+        slug: group.slug || (group.heading ?? '').toLowerCase().replace(/\s+/g, '-'),
       })),
     ]
   }, [groups])

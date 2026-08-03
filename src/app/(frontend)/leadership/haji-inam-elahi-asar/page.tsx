@@ -4,27 +4,15 @@ import { notFound } from 'next/navigation'
 import { ProfileContent } from '@/components/marketing/ProfileContent'
 import { getProfile } from '@/lib/content/loaders'
 
-type Args = {
-  params: Promise<{ slug: string }>
+const SLUG = 'haji-inam-elahi-asar'
+
+export const metadata: Metadata = {
+  title: 'Haji Inam Elahi Asar | Hijaz Hospital',
+  description: 'Founder & Honorary Project Director of Hijaz Hospital — biography and leadership roles.',
 }
 
-export async function generateMetadata({ params }: Args): Promise<Metadata> {
-  const { slug } = await params
-  const profile = getProfile(slug)
-
-  if (!profile) {
-    return { title: 'Profile Not Found' }
-  }
-
-  return {
-    title: `${profile.name} | Hijaz Hospital`,
-    description: profile.description,
-  }
-}
-
-export default async function ProfilePage({ params }: Args) {
-  const { slug } = await params
-  const profile = getProfile(slug)
+export default function HajiInamElahiAsarPage() {
+  const profile = getProfile(SLUG)
 
   if (!profile) {
     notFound()

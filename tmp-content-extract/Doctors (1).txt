@@ -1,0 +1,171 @@
+Doctors
+Need a pic for each one with a link to their profile
+Our Consultants
+Dr. Faisal Farrukh Rana
+Anesthetist
+Ok
+Dr. Hani Gul
+Anesthetist
+?
+Dr. Mehmood Ul Hassan
+Anesthetist
+Ok
+Dr. Najam-us-Saher
+Anesthetist
+Ok
+Dr. Nighat Yasmin
+Anesthetist
+Ok
+Dr. Sheikh Ziarat Ali
+Anesthetist
+Ok
+Dr. Aftab Ahmad Tarique
+Cardiologist
+Ok
+Dr. Fawad Tariq
+Dental Surgeon
+Ok
+Dr. Muhammad Hamza Khan
+Dental Surgeon
+Ok
+Dr. Damish Arsalan
+ENT Consultant
+Ok
+Dr. Attique Abou Bakr
+Gastroenterologist
+?
+Dr. Ahsan Masud Chaudhary
+General Surgeon
+Ok
+Dr. Farrukh Shahzad
+General Surgeon
+Ok
+Dr. Wajahat Ameer
+General Surgeon
+Ok
+Dr. Ambreen Ijaz
+Gynecologist
+Ok
+Dr. Ambreen Rafiq
+Gynecologist
+Ok
+Dr. Syeda Aneeqa Bano
+Gynecologist
+Ok
+Dr. Tasmeen Afridi
+Gynecologist
+Ok
+Vacant
+Medical Specialist
+?
+Dr. Fatima Zubair
+Gynecologist Consultant
+?
+Dr. Hafiza Sadia Jafar
+Jr. Consultant Anesthesia
+?
+Dr. Iffat Niazi
+Jr. Consultant Obs & Gynae
+?
+Dr. Saima Afzal
+Jr. Consultant Obs & Gynae
+?
+Dr. Uzma Hanif
+Jr. Consultant Obs & Gynae
+?
+Dr. Muhammad Hasan
+Junior Consultant Ortho
+?
+Dr. Ayesha Azhar
+Nephrologist
+?
+Dr. Jawad Bin Yameen Butt
+Ophthalmologist
+Ok
+Dr. Maqsood Ahmad
+Orthopedic Surgeon
+Ok
+Dr. Muhammad Afaq
+Orthopedic Surgeon
+Ok
+Dr. Hashmat Mumtaz Rao
+Pathologist
+Ok
+Dr. Fozia Shareef
+Pediatric Consultant
+Ok
+Dr. Muhammad Amir Ishaq
+Pediatric Surgeon
+Ok
+Dr. Hussan Ali Sarwar
+Pediatrician
+OK
+Dr. Amna Faisal
+Radiologist
+Ok
+Dr. Muhammad Jamil Akhtar
+Radiologist
+Ok
+Dr. Najma Naeem Qaiser
+Radiologist
+Ok
+Dr. Sara Salman
+Radiologist
+Ok
+Dr. Wajid Ali
+Urologist
+Ok
+Dr. M.Asad Ullah Khawaja
+General Surgeon (Visiting)
+Ok
+Prof Farooq Hameed
+Urologist
+?
+Dr. Agha Nasarullah Khan
+Dermatologist (Visiting)
+?
+Dr. Nabiha Rizvi
+Nephrologist (Visiting)
+?
+Visiting Consultants (FMH Faculty)
+Dr. Muhammad Ali
+Senior Registrar Medicine, FMH
+Dr. Fatima Kamran
+Senior Registrar General Surgery, FMH
+Dr. Anum
+Senior Registrar Ophthalmology, FMH
+Dr. Unsia Rao
+Senior Registrar Ophthalmology, FMH
+Head of Departments
+Dr. Sheikh Ziarat Ali
+Anesthetist
+Dr. Aftab Ahmad Tarique
+Cardiologist
+Dr. Fawad Tariq
+Dental Surgeon
+Dr. Damish Arsalan
+ENT Consultant
+Dr. Attique Abou Bakr
+Gastroenterologist
+Dr. Farrukh Shahzad
+General Surgeon
+Dr. Ambreen Ijaz
+Gynecologist
+Vacant
+Medical Specialist
+Dr. Ayesha Azhar
+Nephrologist
+Dr. Jawad Bin Yameen Butt
+Ophthalmologist
+Dr. Muhammad Afaq
+Orthopedics Surgeon
+Dr. Hashmat Mumtaz Rao
+Pathologist
+Dr. Fozia Shareef
+Pediatric Consultant
+Dr. Muhammad Amir Ishaq
+Pediatric Surgeon
+Dr. Muhammad Jamil Akhtar
+Radiologist
+Dr. Wajid Ali
+Urologist

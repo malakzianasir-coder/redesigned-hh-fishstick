@@ -79,7 +79,7 @@ export function ServiceStatsGrid({ stats }: { stats: OurImpactRecord['serviceSta
   }, [])
 
   return (
-    <div ref={statsRef} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div ref={statsRef} className="card-grid card-grid--4">
       {stats.map((stat) => (
         <ServiceStatCard
           key={stat.key}

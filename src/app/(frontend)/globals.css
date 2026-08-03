@@ -350,6 +350,76 @@ html[data-theme='light'] {
     @apply rounded-2xl border border-dark-gray/15 bg-white shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-e2;
   }
 
+  /* Centered card grids — incomplete rows center as a group */
+  .card-grid {
+    @apply flex flex-wrap justify-center gap-6;
+  }
+
+  .card-grid--gap-4 {
+    @apply gap-4;
+  }
+
+  .card-grid > * {
+    @apply w-full shrink-0;
+  }
+
+  @screen sm {
+    .card-grid--2 > *,
+    .card-grid--3 > *,
+    .card-grid--4 > *,
+    .card-grid--3-xl4 > * {
+      width: calc(50% - 0.75rem);
+      max-width: calc(50% - 0.75rem);
+    }
+
+    .card-grid--6 > * {
+      width: calc(50% - 0.5rem);
+      max-width: calc(50% - 0.5rem);
+    }
+  }
+
+  @screen md {
+    .card-grid--2-md > * {
+      width: calc(50% - 0.75rem);
+      max-width: calc(50% - 0.75rem);
+    }
+  }
+
+  @screen lg {
+    .card-grid--2 > * {
+      width: calc(50% - 0.75rem);
+      max-width: calc(50% - 0.75rem);
+    }
+
+    .card-grid--3 > * {
+      width: calc(33.333% - 1rem);
+      max-width: calc(33.333% - 1rem);
+    }
+
+    .card-grid--4 > * {
+      width: calc(25% - 1.125rem);
+      max-width: calc(25% - 1.125rem);
+    }
+
+    .card-grid--3-xl4 > * {
+      width: calc(33.333% - 1rem);
+      max-width: calc(33.333% - 1rem);
+    }
+
+    .card-grid--6 > * {
+      width: calc(16.666% - 1.067rem);
+      max-width: 11.25rem;
+      min-width: 8.75rem;
+    }
+  }
+
+  @screen xl {
+    .card-grid--3-xl4 > * {
+      width: calc(25% - 1.125rem);
+      max-width: calc(25% - 1.125rem);
+    }
+  }
+
   .btn-on-dark {
     @apply inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full bg-white px-6 text-b16 font-bold text-primary-blue transition-colors duration-300 hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
   }
@@ -517,6 +587,18 @@ html[data-theme='light'] {
 
   .signature-name {
     @apply font-display;
+  }
+
+  .cms-note {
+    @apply flex items-start gap-2.5 rounded-xl border border-dashed border-dark-gray/45 bg-whitebg p-3 text-b14 leading-[150%] text-dark-gray;
+  }
+
+  .cms-note .tag {
+    @apply mt-[1px] inline-flex shrink-0 items-center rounded-full bg-redbg px-2.5 py-[2px] text-[11px] font-bold uppercase tracking-[0.08em] text-primary-red;
+  }
+
+  .num-badge {
+    @apply inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-redbg text-b12 font-bold text-primary-red;
   }
 
   .section-anchor {

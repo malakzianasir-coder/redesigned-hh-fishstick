@@ -1169,6 +1169,76 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
       "first-aid"
     ]
   },
+  "page/dialysis-support": {
+    "collection": "pages",
+    "slug": "dialysis-support",
+    "title": "Dialysis Patient Support",
+    "icon": "drop",
+    "motif": "pulse",
+    "accent": "#144CD9",
+    "soft": "#DCE7FD",
+    "satellites": [
+      "heartbeat",
+      "hand-heart",
+      "first-aid"
+    ]
+  },
+  "page/free-medicines": {
+    "collection": "pages",
+    "slug": "free-medicines",
+    "title": "Free Medicines",
+    "icon": "pill",
+    "motif": "breathe",
+    "accent": "#7C3AED",
+    "soft": "#EDE9FE",
+    "satellites": [
+      "first-aid",
+      "hand-heart",
+      "sparkle"
+    ]
+  },
+  "page/free-meals": {
+    "collection": "pages",
+    "slug": "free-meals",
+    "title": "Free Meals",
+    "icon": "bowl-food",
+    "motif": "breathe",
+    "accent": "#D97706",
+    "soft": "#FDEBD3",
+    "satellites": [
+      "heart",
+      "users",
+      "hand-heart"
+    ]
+  },
+  "page/sehat-sahulat": {
+    "collection": "pages",
+    "slug": "sehat-sahulat",
+    "title": "Sehat Sahulat Program",
+    "icon": "shield-check",
+    "motif": "orbit",
+    "accent": "#059669",
+    "soft": "#D1FAE5",
+    "satellites": [
+      "identification-badge",
+      "hospital",
+      "handshake"
+    ]
+  },
+  "page/patient-information-guide": {
+    "collection": "pages",
+    "slug": "patient-information-guide",
+    "title": "Patient Information Guide",
+    "icon": "clipboard-text",
+    "motif": "orbit",
+    "accent": "#475569",
+    "soft": "#E2E8F0",
+    "satellites": [
+      "info",
+      "calendar-check",
+      "files"
+    ]
+  },
   "page/donate": {
     "collection": "pages",
     "slug": "donate",

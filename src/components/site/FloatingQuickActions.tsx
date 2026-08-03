@@ -22,7 +22,7 @@ const FLOAT_ACTIONS = [
     key: 'emergency',
     label: 'Emergency',
     shortLabel: 'SOS',
-    href: '/patient-care/emergency',
+    href: '/services/emergency',
     Icon: Ambulance,
     variant: 'emergency' as const,
     pulse: true,

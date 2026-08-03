@@ -20,7 +20,7 @@ export function PatientStoriesSection({ section }: { section: PatientStoriesSect
           <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
           {intro ? <p className="text-b16 text-primary-blue/85">{intro}</p> : null}
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="card-grid card-grid--3">
           <article className="card flex flex-col items-start gap-3 border-dashed p-6">
             <span className="group-badge">CMS placeholder</span>
             <p className="text-b14 text-dark-gray">

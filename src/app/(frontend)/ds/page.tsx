@@ -24,7 +24,7 @@ export default function DsIndexPage() {
       <p className="mt-2 max-w-2xl text-b16 text-primary-blue/85">
         Static reference pages ported from the hijaz design-system HTML mockups.
       </p>
-      <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <ul className="card-grid card-grid--3 mt-8">
         {CATALOGS.map((catalog) => (
           <li key={catalog.href}>
             <a href={catalog.href} className="card-interactive flex flex-col gap-2 p-6">

@@ -104,6 +104,7 @@
     },
     "bankAccounts": [
       {
+        "key": "zakat",
         "title": "Zakat",
         "bank": "Meezan Bank",
         "logo": "/media/meezan-bank-logo.webp",
@@ -115,6 +116,7 @@
         ]
       },
       {
+        "key": "general",
         "title": "General Donation",
         "bank": "Meezan Bank",
         "logo": "/media/meezan-bank-logo.webp",
@@ -126,12 +128,14 @@
         ]
       },
       {
-        "title": "In the Way of Allah",
+        "key": "itw",
+        "title": "Construction of \"ITW\" Medical Tower",
         "bank": "BANKISLAMI",
         "fields": [
           { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-          { "label": "Account Number", "value": "2001-0000000000", "copyValue": "20010000000000" },
-          { "label": "IBAN", "value": "PK00BKIP0002001000000000", "copyValue": "PK00BKIP0002001000000000" }
+          { "label": "Account Number", "value": "2053-5690439-0201", "copyValue": "205356904390201" },
+          { "label": "IBAN", "value": "PK87BKIP0205356904390201", "copyValue": "PK87BKIP0205356904390201" },
+          { "label": "Swift Code", "value": "BKIPPKKA" }
         ]
       }
     ],

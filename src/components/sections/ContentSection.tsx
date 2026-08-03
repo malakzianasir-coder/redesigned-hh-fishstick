@@ -33,13 +33,17 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
             {kicker && (
               <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">{kicker}</p>
             )}
-            <h2 className="text-h3M lg:text-h3 font-bold text-primary-blue">{heading}</h2>
+            {heading ? (
+              <h2 className="text-h3M lg:text-h3 font-bold text-primary-blue">{heading}</h2>
+            ) : null}
             <div className={cn('flex flex-col gap-4', image ? '' : 'max-w-3xl mx-auto')}>
-              {body.map((paragraph, index) => (
-                <p key={index} className="text-b16 text-primary-blue/85">
-                  {paragraph}
-                </p>
-              ))}
+              {(Array.isArray(body) ? body : typeof body === 'string' ? [body] : []).map(
+                (paragraph, index) => (
+                  <p key={index} className="text-b16 text-primary-blue/85">
+                    {paragraph}
+                  </p>
+                ),
+              )}
             </div>
           </div>
           {image && (
@@ -47,7 +51,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
               <div className="relative overflow-hidden rounded-xl aspect-video max-h-[320px]">
                 <Image
                   src={image.src}
-                  alt={image.alt || heading}
+                  alt={image.alt ?? heading ?? ''}
                   fill
                   className="object-cover"
                 />

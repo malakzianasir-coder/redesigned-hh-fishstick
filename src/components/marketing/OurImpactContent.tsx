@@ -92,7 +92,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                   ))}
                   {group.partners && group.partners.length > 0 ? (
                     <div
-                      className={`mt-2 grid grid-cols-1 gap-4 ${group.partners.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}
+                      className={`card-grid mt-2 ${group.partners.length === 2 ? 'card-grid--2' : 'card-grid--3'}`}
                     >
                       {group.partners.map((partner) => {
                         const PartnerIcon = partner.icon
@@ -212,7 +212,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
               <p className="text-b16 text-primary-blue/85">{page.highlightsLede}</p>
             ) : null}
           </div>
-          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="card-grid card-grid--3">
             {page.highlights.map((item) => (
               <Link
                 key={item.title}

@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
-          <FloatingQuickActions />
+          {/* <FloatingQuickActions /> */}
         </Providers>
       </body>
     </html>

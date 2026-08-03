@@ -12,13 +12,13 @@
       "placeholderLabel": "Chairman & President photograph placeholder"
     },
     "links": [
-      { "label": "Chairman's Message", "href": "#chairmans-message", "variant": "primary" },
-      { "label": "President's Message", "href": "#presidents-message", "variant": "ghost" }
+      { "label": "Chairman's Message", "href": "/leadership/messages/chairman", "variant": "primary" },
+      { "label": "President's Message", "href": "/leadership/messages/president", "variant": "ghost" }
     ]
   },
   "jumpLinks": [
-    { "label": "Chairman's Message", "href": "#chairmans-message" },
-    { "label": "President's Message", "href": "#presidents-message" }
+    { "label": "Chairman's Message", "href": "/leadership/messages/chairman" },
+    { "label": "President's Message", "href": "/leadership/messages/president" }
   ],
   "messages": [
     {
@@ -28,6 +28,7 @@
       "name": "Mian Muhammad Asif Waheed",
       "role": "Chairman",
       "organization": "Hijaz Hospital",
+      "href": "/leadership/messages/chairman",
       "body": [
         "Welcome to Hijaz Hospital, where our commitment to excellence is matched by our dedication to serving humanity.",
         "Since its humble beginnings as a small dispensary, Hijaz Hospital has grown into a modern, multidisciplinary healthcare institution. This progress reflects the vision of our founders, the trust of our community, and the unwavering dedication of our doctors, nurses, and staff, who work tirelessly to deliver safe, compassionate, and high-quality care.",
@@ -38,7 +39,9 @@
       ],
       "signOff": "With sincere appreciation,",
       "signature": "Mian Muhammad Asif Waheed",
-      "roleLine": "Chairman, Hijaz Hospital"
+      "roleLine": "Chairman",
+      "organizationLine": "Hijaz Hospital",
+      "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial."
     },
     {
       "id": "presidents-message",
@@ -47,6 +50,7 @@
       "name": "Sohail Iqbal",
       "role": "President",
       "organization": "Hijaz Hospital Trust",
+      "href": "/leadership/messages/president",
       "body": [
         "It is a privilege to welcome you to Hijaz Hospital Trust, where faith, compassion, and service come together to bring hope and healing to those in need.",
         "Our Trust was founded on the inspiring vision of Haji Inam Ellahi Asar (Late) and Alhaj Mian Abdul Waheed (Late), who believed that quality healthcare should never be beyond the reach of anyone because of financial hardship. Their legacy continues to inspire our mission of serving humanity with dignity, compassion, and excellence.",
@@ -57,11 +61,13 @@
       ],
       "signOff": "With heartfelt gratitude,",
       "signature": "Sohail Iqbal",
-      "roleLine": "President, Hijaz Hospital Trust",
+      "roleLine": "President",
+      "organizationLine": "Hijaz Hospital Trust",
+      "editorialNote": "Source extraction joins name and role without line breaks (“Sohail IqbalPresidentHijaz Hospital Trust”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial.",
       "verse": {
         "arabic": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
         "translation": "And when I am ill, it is He (Allah) who cures me.",
-        "citation": "Surah Ash-Shu'ara 26:80"
+        "citation": "(Surah Ash-Shu‘ara 26:80)"
       }
     }
   ]

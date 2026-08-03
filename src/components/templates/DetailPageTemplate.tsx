@@ -9,7 +9,11 @@ import { ContentSection } from '@/components/sections/ContentSection'
 import { DetailJumpNav } from '@/components/sections/DetailJumpNav'
 import { GlobalCtaSection } from '@/components/sections/GlobalCtaSection'
 import { IconGridSection } from '@/components/sections/IconGridSection'
+import { NumberedListSection } from '@/components/sections/NumberedListSection'
+import { ImpactTableSection } from '@/components/sections/ImpactTableSection'
 import { PatientStoriesSection } from '@/components/sections/PatientStoriesSection'
+import { ProcessStepsSection } from '@/components/sections/ProcessStepsSection'
+import { StatsRowSection } from '@/components/sections/StatsRowSection'
 import { ServiceGroupsSection } from '@/components/sections/ServiceGroupsSection'
 import type { PageRecord, Section } from '@/lib/content/types'
 
@@ -43,6 +47,14 @@ function renderSection(section: Section, index: number) {
       return <ClosingBandSection key={section.id || index} section={section} />
     case 'patientStories':
       return <PatientStoriesSection key={section.id || index} section={section} />
+    case 'numberedList':
+      return <NumberedListSection key={section.id || index} section={section} />
+    case 'processSteps':
+      return <ProcessStepsSection key={section.id || index} section={section} />
+    case 'stats':
+      return <StatsRowSection key={section.id || index} section={section} />
+    case 'impactTable':
+      return <ImpactTableSection key={section.id || index} section={section} />
     case 'cta':
       return <GlobalCtaSection key={`cta-${index}`} section={section} />
     default:

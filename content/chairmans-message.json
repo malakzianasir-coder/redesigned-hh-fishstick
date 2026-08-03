@@ -1,0 +1,49 @@
+{
+  "slug": "chairman",
+  "title": "Chairman's Message",
+  "description": "Personal message from Mian Muhammad Asif Waheed, Chairman of Hijaz Hospital — presented in full, exactly as written.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "Chairman's Message",
+    "excerpt": "Personal message from Mian Muhammad Asif Waheed, Chairman of Hijaz Hospital — presented in full, exactly as written.",
+    "media": {
+      "type": "placeholder",
+      "icon": "EnvelopeOpen",
+      "placeholderLabel": "Chairman photograph placeholder"
+    },
+    "links": [
+      { "label": "President's Message", "href": "/leadership/messages/president", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Chairman's Message", "href": "#chairmans-message" },
+    { "label": "President's Message", "href": "/leadership/messages/president" }
+  ],
+  "message": {
+    "id": "chairmans-message",
+    "kicker": "Messages",
+    "title": "Chairman's Message",
+    "name": "Mian Muhammad Asif Waheed",
+    "role": "Chairman",
+    "organization": "Hijaz Hospital",
+    "body": [
+      "Welcome to Hijaz Hospital, where our commitment to excellence is matched by our dedication to serving humanity.",
+      "Since its humble beginnings as a small dispensary, Hijaz Hospital has grown into a modern, multidisciplinary healthcare institution. This progress reflects the vision of our founders, the trust of our community, and the unwavering dedication of our doctors, nurses, and staff, who work tirelessly to deliver safe, compassionate, and high-quality care.",
+      "As Chairman, my priority is to ensure that Hijaz Hospital continues to evolve with the changing needs of healthcare. We are committed to strengthening our clinical services, investing in advanced medical technology, expanding specialized care, and upholding the highest standards of patient safety and excellence. Every step we take is guided by our belief that quality healthcare should be accessible, ethical, and patient-centered.",
+      "Our achievements would not have been possible without the confidence and generosity of our donors, partners, and well-wishers. Your continued support enables us to invest in better facilities, enhance our services, and extend quality healthcare to those who need it most.",
+      "As we look ahead, we remain focused on building a stronger, more innovative healthcare institution—one that continues to earn the trust of our patients while making a lasting contribution to the health and well-being of our communities.",
+      "Thank you for being part of this journey. Together, we will continue to build a healthier future with compassion, excellence, and purpose."
+    ],
+    "signOff": "With sincere appreciation,",
+    "signature": "Mian Muhammad Asif Waheed",
+    "roleLine": "Chairman",
+    "organizationLine": "Hijaz Hospital",
+    "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial."
+  },
+  "otherMessage": {
+    "title": "President's Message",
+    "name": "Sohail Iqbal",
+    "role": "President, Hijaz Hospital Trust",
+    "href": "/leadership/messages/president"
+  }
+}

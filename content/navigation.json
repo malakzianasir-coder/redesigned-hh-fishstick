@@ -23,7 +23,7 @@
             { "label": "Our Presidents", "href": "/leadership#our-presidents" },
             { "label": "Senior Management", "href": "/leadership#senior-management" },
             { "label": "Executive Committee", "href": "/leadership#executive-committee" },
-            { "label": "Core Working Committees", "href": "/leadership#core-working-committees" }
+            { "label": "Core Working Committees", "href": "/leadership#core-committees" }
           ]
         },
         {
@@ -50,38 +50,38 @@
           "heading": "Surgery & Allied Specialties",
           "links": [
             { "label": "General Surgery", "href": "/departments/general-surgery" },
-            { "label": "Orthopedics", "href": "/departments" },
-            { "label": "Urology", "href": "/departments" },
-            { "label": "Plastic & Reconstructive Surgery", "href": "/departments" },
-            { "label": "Ophthalmology", "href": "/departments" },
-            { "label": "ENT (Ear, Nose & Throat)", "href": "/departments" },
-            { "label": "Dentistry", "href": "/departments" }
+            { "label": "Orthopedics", "href": "/departments/orthopedics" },
+            { "label": "Urology", "href": "/departments/urology" },
+            { "label": "Plastic & Reconstructive Surgery", "href": "/departments/plastic-reconstructive-surgery" },
+            { "label": "Ophthalmology", "href": "/departments/ophthalmology" },
+            { "label": "ENT (Ear, Nose & Throat)", "href": "/departments/ent-ear-nose-throat" },
+            { "label": "Dentistry", "href": "/departments/dentistry" }
           ]
         },
         {
           "heading": "Internal Medicine & Allied Specialties",
           "links": [
-            { "label": "General Medicine", "href": "/departments" },
-            { "label": "Gastroenterology", "href": "/departments" },
-            { "label": "Nephrology", "href": "/departments" },
-            { "label": "Cardiology", "href": "/departments" },
-            { "label": "Pulmonology", "href": "/departments" },
-            { "label": "Endocrinology", "href": "/departments" },
-            { "label": "Dermatology", "href": "/departments" }
+            { "label": "General Medicine", "href": "/departments/general-medicine" },
+            { "label": "Gastroenterology", "href": "/departments/gastroenterology" },
+            { "label": "Nephrology", "href": "/departments/nephrology" },
+            { "label": "Cardiology", "href": "/departments/cardiology" },
+            { "label": "Pulmonology", "href": "/departments/pulmonology" },
+            { "label": "Endocrinology", "href": "/departments/endocrinology" },
+            { "label": "Dermatology", "href": "/departments/dermatology" }
           ]
         },
         {
           "heading": "Mother & Child",
           "links": [
-            { "label": "Gynaecology & Obstetrics", "href": "/departments" },
-            { "label": "Pediatrics", "href": "/departments" }
+            { "label": "Gynaecology & Obstetrics", "href": "/departments/gynaecology-obstetrics" },
+            { "label": "Pediatrics", "href": "/departments/pediatrics-neonatology" }
           ]
         },
         {
           "heading": "Specialized Care",
           "links": [
-            { "label": "Dietetics & Nutrition", "href": "/departments" },
-            { "label": "Physiotherapy", "href": "/departments" }
+            { "label": "Dietetics & Nutrition", "href": "/departments/dietetics-nutrition" },
+            { "label": "Physiotherapy", "href": "/departments/physiotherapy-rehabilitation" }
           ]
         }
       ]
@@ -121,28 +121,28 @@
         {
           "heading": "Hospital Facilities",
           "links": [
-            { "label": "OPD", "href": "/services" },
+            { "label": "OPD", "href": "/services/opd" },
             { "label": "IPD", "href": "/services/ipd" },
-            { "label": "ICU", "href": "/services" },
-            { "label": "Emergency Department", "href": "/patient-care/emergency" },
-            { "label": "Operation Theatre Complex", "href": "/services" }
+            { "label": "ICU", "href": "/services/icu" },
+            { "label": "Emergency Department", "href": "/services/emergency" },
+            { "label": "Operation Theatre Complex", "href": "/services/ot-complex" }
           ]
         },
         {
           "heading": "Clinical Support",
           "links": [
-            { "label": "Nursing", "href": "/services" },
-            { "label": "Anesthesia", "href": "/services" },
-            { "label": "Ambulance Services", "href": "/services" },
-            { "label": "Dialysis Care Unit", "href": "/services" }
+            { "label": "Nursing", "href": "/services/nursing" },
+            { "label": "Anesthesia", "href": "/services/anesthesia" },
+            { "label": "Ambulance Services", "href": "/services/ambulance" },
+            { "label": "Dialysis Care Unit", "href": "/services/dialysis" }
           ]
         },
         {
           "heading": "Support Services",
           "links": [
-            { "label": "Pharmacy", "href": "/services" },
-            { "label": "Blood Bank", "href": "/services" },
-            { "label": "Cafeteria", "href": "/services" }
+            { "label": "Pharmacy", "href": "/services/pharmacy" },
+            { "label": "Blood Bank", "href": "/services/blood-bank" },
+            { "label": "Cafeteria", "href": "/services/cafeteria" }
           ]
         }
       ]
@@ -155,18 +155,18 @@
         {
           "heading": "Pathology / Clinical Laboratory",
           "links": [
-            { "label": "Clinical Laboratory Overview", "href": "/services" },
-            { "label": "Accreditation / Quality Certificates", "href": "/services" },
+            { "label": "Clinical Laboratory Overview", "href": "/services/pathology" },
+            { "label": "Accreditation / Quality Certificates", "href": "/our-purpose#our-compliance" },
             { "label": "List of Tests Available", "href": "/lab-tests" }
           ]
         },
         {
           "heading": "Radiology & Imaging",
-          "links": [{ "label": "Radiology & Imaging", "href": "/services" }]
+          "links": [{ "label": "Radiology & Imaging", "href": "/services/radiology" }]
         },
         {
           "heading": "Cardiac Diagnostics",
-          "links": [{ "label": "Cardiac Diagnostics", "href": "/services" }]
+          "links": [{ "label": "Cardiac Diagnostics", "href": "/services/cardiac-diagnostics" }]
         }
       ]
     },
@@ -179,10 +179,10 @@
           "heading": "Financial & Community Support",
           "links": [
             { "label": "Zakat & Financial Assistance", "href": "/patient-care/financial-assistance" },
-            { "label": "Dialysis Patient Support", "href": "/patient-care" },
-            { "label": "Free Medicines", "href": "/patient-care" },
-            { "label": "Free Meals", "href": "/patient-care" },
-            { "label": "Sehat Sahulat Program", "href": "/patient-care" },
+            { "label": "Dialysis Patient Support", "href": "/patient-care/dialysis-support" },
+            { "label": "Free Medicines", "href": "/patient-care/free-medicines" },
+            { "label": "Free Meals", "href": "/patient-care/free-meals" },
+            { "label": "Sehat Sahulat Program", "href": "/patient-care/sehat-sahulat" },
             { "label": "Free Medical Camps & Flood Relief", "href": "/patient-care/free-medical-camps" }
           ]
         },
@@ -192,8 +192,8 @@
             { "label": "Admission Process", "href": "/patient-care/admission-process" },
             { "label": "Rights & Responsibilities", "href": "/patient-care/patient-rights" },
             { "label": "Patient Stories", "href": "/success-stories" },
-            { "label": "Forms", "href": "/patient-care" },
-            { "label": "Online Services", "href": "/patient-care" }
+            { "label": "Forms", "href": "/patient-care/patient-information-guide" },
+            { "label": "Online Services", "href": "/patient-care/patient-information-guide" }
           ]
         }
       ]
@@ -249,16 +249,16 @@
         {
           "heading": "Our Impact",
           "links": [
-            { "label": "Awards & Recognitions", "href": "/our-impact#awards" },
-            { "label": "Health & Academic Partners", "href": "/our-impact#partners" },
-            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-impact#sharia-audit" },
-            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts" }
+            { "label": "Awards & Recognitions", "href": "/our-impact#award" },
+            { "label": "Health & Academic Partners", "href": "/our-impact#health-partners" },
+            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-purpose#our-compliance" },
+            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts-statistics" }
           ]
         },
         {
           "heading": "Supporters & Reports",
           "links": [
-            { "label": "ITW Medical Tower Project", "href": "/our-impact#itw-medical-tower" },
+            { "label": "ITW Medical Tower Project", "href": "/our-impact#medical-tower" },
             { "label": "Our Friends / Supporters (Donor List)", "href": "/our-supporters" },
             { "label": "Impact Reports", "href": "/reports" }
           ]

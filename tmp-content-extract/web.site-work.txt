@@ -1,0 +1,45 @@
+=== SHEET: Exectuive Members ===
+Sn.	EXECUTIVE MEMBERS OF HIJAZ SOCIAL WELFARE SOCIETY
+1	Sofia Asif
+2	Lubna Ghaffar
+3	Mian Muhammad Azam Waheed
+4	Mian Muhammad ShahJahan Waheed
+5	Khawaja Motahhir Nabi
+6	Waqas Usmani 
+7	Nadeem Ahmed
+8	Col. Abdul Quyyum
+9	Nazia Ahsan
+10	Brig. Retd. Ashfaq Ahmad
+11	Farooq Aslam
+12	Nadeem Aftab
+13	Imran Aftab
+14	Waqas Mushtaq
+15	Khushnood Ahmad Sheikh
+16	S.M. Ashfaq
+17	Anwer Ali Sheikh
+18	Prof. Muhammad Muzzammil Ahsan Sh.
+19	Ilyas Sethi
+20	Shahnaz Abdul Saeed
+21	Komal Raheel
+22	Muhammad Raheel Anwar
+23	Abdul  Rasheed Khan
+24	Muhammad  Ishaq Sheikh
+25	Sheikh Muhammad Altaf Hussain
+
+=== SHEET: committees ===
+	Hijaz Welfare Society
+                Sub-Committees for the Term 2024–2026
+Sr. No.	Committees Names	Convener 	Co-Convener 	Members
+1	Constitution Committee	Col. Abdul Qayyum	Engineer Abdur Raoof Shahzada.	Sheikh Altaf Hussain. Muhammad Naeem
+2	Audit Committee	S. M. Ashfaq	Muhammad Naeem	Engineer Abdur Raoof Shahzada. Sheikh Abdul Ghaffar. Mussarat Qayyum. Sheikh Altaf Hussain. Khushnood Ahmed Sheikh. Nazia Ahsan.
+3	HR / Fundraising Marketing /& Event Management	Sohail Iqbal	Sheikh Abdul Ghaffar	Mussarat Qayyum
+4	Finance Committee	Saqib Aftab	Shahid Ismail	Ch. Azmatullah Warraich, Imran Aftab
+5	Property Affairs/ Construction Committee	Mian Muhammad Asif Waheed	Sheikh Abdul Ghaffar	Sohail Iqbal
+6	Central Purchase.
+Machinery/Disposable Wastage & Leakage, Machinery & quipment, Maintenance	Sheikh Abdul Ghaffar	Sohail Iqbal	Shahid Ismail. Saqib Aftab.Ch. Azmatullah Warraich.
+7	Medicine Committee	Engineer Abdur Raoof Shahzada	Farrukh Imitiaz Sheikh	Sh. Abdul Ghaffar, Saqib Aftab, S. M. Ashfaq
+8	Inspection Committee	Sheikh Abdul Ghaffar	Mussarat Qayyum	Shahid Ismail
+9	Hijaz Mosque	Sheikh Abdul Ghaffar	Kawaja Muthair Nabi	Waqas Usmani. Nadeem Ata Sheikh.
+10	MIS Committee	Saima Raoof Shaikh	Saqib Aftab	Sofia Asif Waheed. S. M. Ashfaq
+11	Mother & Child Care	Mussarat Qayyum	Nazia Ahsan	Sonia Shahzad,Saima Shaikh. Sofia Asif Waheed
+12	Information & Publications	Ch. Azmatullah Warraich	Saqib Aftab	Abdul Rasheed

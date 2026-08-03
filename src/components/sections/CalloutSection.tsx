@@ -31,11 +31,13 @@ export function CalloutSection({ section }: { section: CalloutSectionData }) {
             {kicker ? <p className="kicker">{kicker}</p> : null}
             <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">{heading}</h2>
             <div className="flex max-w-3xl flex-col gap-4">
-              {body.map((paragraph, index) => (
-                <p key={index} className="text-b16 text-primary-blue/85">
-                  {paragraph}
-                </p>
-              ))}
+              {(Array.isArray(body) ? body : typeof body === 'string' ? [body] : []).map(
+                (paragraph, index) => (
+                  <p key={index} className="text-b16 text-primary-blue/85">
+                    {paragraph}
+                  </p>
+                ),
+              )}
             </div>
           </div>
         </article>

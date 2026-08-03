@@ -1,0 +1,118 @@
+{
+    "financial_highlights_rs_in_millions": {
+      "2021-22": {
+        "income": 661.46,
+        "expense": 506.56
+      },
+      "2022-23": {
+        "income": 936.38,
+        "expense": 636.29
+      },
+      "2023-24": {
+        "income": 971.78,
+        "expense": 752.45
+      },
+      "2024-25": {
+        "income": 1315.52,
+        "expense": 888.06
+      }
+    },
+    "yearly_metrics": {
+      "2021": {
+        "opd_patients_served": 191847,
+        "ipd_patients_served": 7740,
+        "dialysis_performed": 17770,
+        "surgeries_performed": {
+          "total": 7744,
+          "free_percentage": 83,
+          "paid_percentage": 17
+        },
+        "gynae_patients_served": 35953,
+        "eye_patients_served": 6596,
+        "dental_patients_served": 9708
+      },
+      "2022": {
+        "opd_patients_served": 209208,
+        "ipd_patients_served": 9234,
+        "dialysis_performed": 16885,
+        "surgeries_performed": {
+          "total": 9237,
+          "free_percentage": 85,
+          "paid_percentage": 15
+        },
+        "gynae_patients_served": 37422,
+        "eye_patients_served": 8926,
+        "dental_patients_served": 9852
+      },
+      "2023": {
+        "opd_patients_served": 211108,
+        "ipd_patients_served": 9506,
+        "dialysis_performed": 14418,
+        "surgeries_performed": {
+          "total": 9510,
+          "free_percentage": 85,
+          "paid_percentage": 15
+        },
+        "gynae_patients_served": 37705,
+        "eye_patients_served": 8616,
+        "dental_patients_served": 10975
+      },
+      "2024": {
+        "opd_patients_served": 229200,
+        "ipd_patients_served": 9977,
+        "dialysis_performed": 16042,
+        "surgeries_performed": {
+          "total": 9984,
+          "free_percentage": 87,
+          "paid_percentage": 13
+        },
+        "gynae_patients_served": 32542,
+        "eye_patients_served": 9139,
+        "dental_patients_served": 12283
+      },
+      "2025": {
+        "opd_patients_served": 259484,
+        "ipd_patients_served": 10217,
+        "dialysis_performed": 17388,
+        "surgeries_performed": {
+          "total": 10224,
+          "free_percentage": 80,
+          "paid_percentage": 20
+        },
+        "gynae_patients_served": 39637,
+        "eye_patients_served": 8926,
+        "dental_patients_served": 11858
+      }
+    },
+    "5_year_totals_and_breakdowns_2021_2025": {
+      "opd_patients_served_total": 1257793,
+      "ipd_patients_served_total": 46674,
+      "dialysis_performed_total": 99747,
+      "surgeries_performed_total": 46699,
+      "gynae_patients_served_total": 180259,
+      "eye_patients_served_total": 42203,
+      "dental_patients_served_total": 54676,
+      "services_rendered_2021_2025": {
+        "laboratory": {
+          "total": 269590,
+          "free_percentage": 94,
+          "paid_percentage": 6
+        },
+        "ultrasound": {
+          "total": 118276,
+          "free_percentage": 91,
+          "paid_percentage": 9
+        },
+        "x_ray": {
+          "total": 43585,
+          "free_percentage": 99.8,
+          "paid_percentage": 0.2
+        },
+        "misc": {
+          "total": 99159,
+          "free_percentage": 99.7,
+          "paid_percentage": 0.3
+        }
+      }
+    }
+  }

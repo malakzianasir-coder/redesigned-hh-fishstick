@@ -1,0 +1,96 @@
+=== SHEET: Sheet1 ===
+List of Test with Turnaround Reporting Time					
+Routine  Chemistry					
+SR NUM	Test Name	Rate	Reporting time		specimen	
+1	Liver function test	2100	24 Hrs		Serum (clotted vial)	
+2	Bilirubin Total	350	24 Hrs		Serum (clotted vial)	
+3	ALT	350	24 Hrs		Serum (clotted vial)	
+4	AST	350	24 Hrs		Serum (clotted vial)	
+5	ALP	350	24 Hrs		Serum (clotted vial)	
+6	Albumin	350	24 Hrs		Serum (clotted vial)	
+7	Renal function test	1000	24 Hrs		Serum (clotted vial)	
+8	Urea	450	24 Hrs		Serum (clotted vial)	
+9	Uric Acid	500	24 Hrs		Serum (clotted vial)	
+10	Creatine	700	24 Hrs		Serum (clotted vial)	
+11	Lipid Profile	1200	24 Hrs		Serum (clotted vial)	
+12	Cholesterol	400	24 Hrs		Serum (clotted vial)	
+13	Triglyceride	400	24 Hrs		Serum (clotted vial)	
+14	HDL	500	24 Hrs		Serum (clotted vial)	
+15	LDL	500	24 Hrs		Serum (clotted vial)	
+16	Serum Electrolytes	1000	24 Hrs		Serum (clotted vial)	
+17	sodium	500	24 Hrs		Serum (clotted vial)	
+18	potasium	500	24 Hrs		Serum (clotted vial)	
+19	chloride	500	24 Hrs		Serum (clotted vial)	
+20	Calcium	400	24 Hrs		Serum (clotted vial)	
+21	Phosphate	450	24 Hrs		Serum (clotted vial)	
+Glucose profile					
+22	Glucose Fasting	200	24 Hrs		Serum (clotted vial)	
+23	GTT	1000	24 Hrs		Serum (clotted vial)	
+24	Glucose Random	200	24 Hrs		Serum (clotted vial)	
+25	HBAic	1200	24 Hrs		EDTA blood sample	
+Other					
+26	CRP	1200	24 Hrs		Serum (clotted vial)	
+27	RA Factor	500	24 Hrs		Serum (clotted vial)	
+28	Amylase	350	24 Hrs		Serum (clotted vial)	
+Special chemistry						
+29	Anti HCV	1500	24 Hrs		Serum (clotted vial)	
+30	HBsAg	1000	24 Hrs		Serum (clotted vial)	
+31	HIV by Elisa	650	24 Hrs		Serum (clotted vial)	
+32	VDRL Syphilis	1000	24 Hrs		Serum (clotted vial)	
+33	Screening Profile(Anti HCV,HBsAg)	2500	24 Hrs		Serum (clotted vial)	
+34	Thyroid Profile	2800	24 Hrs		Serum (clotted vial)	
+35	T3	1000	24 Hrs		Serum (clotted vial)	
+36	T4	1000	24 Hrs		Serum (clotted vial)	
+37	Fertility Profile	3600	24 Hrs		Serum (clotted vial)	
+38	TSH	1000	24 Hrs		Serum (clotted vial)	
+39	FSH	1200	24 Hrs		Serum (clotted vial)	
+40	LH	1200	24 Hrs		Serum (clotted vial)	
+41	Prolactin	1200	24 Hrs		Serum (clotted vial)	
+42	Beta Hcg	1500	24 Hrs		Serum (clotted vial)	
+43	Vitamin D	2000	24 Hrs		Serum (clotted vial)	
+44	PTH	1500	24 Hrs		Serum (clotted vial)	
+45	Trop i	500	24 Hrs		Serum (clotted vial)	
+Microbiology						
+46	Stool C/E	350	24 Hrs		Stool	
+47	Semen examination	600	24 Hrs		Semen	
+48	Urine complete examination	200	24 Hrs		Urine	
+49	Stool occult blood	360	24 Hrs		Stool	
+50	UPT	250	24 Hrs		Urine	
+51	H pylori stool Antigen	400	24 Hrs		stool	
+52	Urine for C/S	700	72 Hrs		Urine	
+53	PUS for C/S	700	72 Hrs		Swab/Syringe	
+54	Stool for c/s	700	72 Hrs		stool	
+55	hvs for c/s	700	72 Hrs		HVS Swab	
+56	Specimen For c/s	700	72 Hrs		Any specimen	
+Haematology						
+57	CBC	500	24 Hrs		EDTA blood sample	
+58	HB	150	24 Hrs		EDTA blood sample	
+59	DLC	200	24 Hrs		EDTA blood sample	
+60	TLC	250	24 Hrs		EDTA blood sample	
+61	Platelet count	200	24 Hrs		EDTA blood sample	
+62	cbc for dengue	90	2 Hrs		EDTA blood sample	
+63	Peripheral smear	250	24 Hrs		EDTA blood sample	
+64	Reticulocyte count(Retic count)	250	24 Hrs		EDTA blood sample	
+65	MP	500	24 Hrs		EDTA blood sample	
+66	ESR	200	24 Hrs		EDTA blood sample	
+67	Blood grouping	300	24 Hrs		EDTA blood sample	
+	Coagulation profile					
+68	APTT	400	24 Hrs		Sodium citrate blood	
+69	PT	350	24 Hrs		Sodium citrate blood	
+70	Bleeding time	200	24 Hrs			
+71	Clotting time	150	24 Hrs			
+
+=== SHEET: Sheet3 ===
+Reporting time of Dengue Tests	
+Test conducted in the lab
+Test Name	Rate in Rupees	Reporting time
+Cbc for Dengue	90	8 hours
+Outsourced Dengue Tests rates and reporting Time					
+Tests outsourced
+Test Name	Rate in Rupees	Reporting time
+Dengune Ns 1 antigen	3000	24 Hours
+Dengue IgG	3000	24 Hours
+Dengue IgM	3000	24 Hours
+
+=== SHEET: Sheet2 ===
+

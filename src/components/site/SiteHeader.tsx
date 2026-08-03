@@ -38,10 +38,16 @@ function getPanelGridClasses(item: NavTopLevelItem) {
   return 'grid-cols-1 gap-8'
 }
 
-function DescribedLink({ link }: { link: NavTopLevelItem['groups'][number]['links'][number] }) {
+function DescribedLink({
+  link,
+  onNavigate,
+}: {
+  link: NavTopLevelItem['groups'][number]['links'][number]
+  onNavigate?: () => void
+}) {
   return (
     <div>
-      <Link href={link.href} className="mega-link !text-b16 font-bold">
+      <Link href={link.href} className="mega-link !text-b16 font-bold" onClick={onNavigate}>
         {link.label}
       </Link>
       {link.description ? (
@@ -108,10 +114,12 @@ function MegaPanel({
   item,
   panelId,
   triggerId,
+  onNavigate,
 }: {
   item: NavTopLevelItem
   panelId: string
   triggerId: string
+  onNavigate?: () => void
 }) {
   const gridClasses = getPanelGridClasses(item)
   const doctorsGroup = item.id === 'doctors' ? item.groups[0] : null
@@ -129,22 +137,22 @@ function MegaPanel({
             <p className="field-label-text mb-3">{doctorsGroup.heading}</p>
             <div className="grid grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-10">
               {doctorsGroup.links.map((link) => (
-                <DescribedLink key={link.href + link.label} link={link} />
+                <DescribedLink key={link.href + link.label} link={link} onNavigate={onNavigate} />
               ))}
             </div>
           </>
         ) : (
           <div className={cn('grid', gridClasses)}>
             {item.groups.map((group) => (
-              <GroupColumn key={group.heading} group={group} />
+              <GroupColumn key={group.heading} group={group} onNavigate={onNavigate} />
             ))}
-            {item.featured ? <FeaturedSlot featured={item.featured} /> : null}
+            {item.featured ? <FeaturedSlot featured={item.featured} onNavigate={onNavigate} /> : null}
           </div>
         )}
 
         {item.moreLink ? (
           <div className="mt-6 flex justify-end border-t border-dark-gray/10 pt-4">
-            <Link href={item.moreLink.href} className="mega-more">
+            <Link href={item.moreLink.href} className="mega-more" onClick={onNavigate}>
               {item.moreLink.label}
             </Link>
           </div>
@@ -327,7 +335,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/patient-care/emergency"
+              href="/services/emergency"
               className="inline-flex h-9 items-center rounded-full bg-primary-red px-4 text-b14 font-bold text-white transition-colors duration-300 hover:bg-primary-blue lg:h-11 lg:px-5"
             >
               Emergency
@@ -393,7 +401,12 @@ export function SiteHeader() {
                     {item.label}
                     <CaretDown size={14} aria-hidden className="shrink-0 transition-transform duration-200" />
                   </button>
-                  <MegaPanel item={item} panelId={panelId} triggerId={triggerId} />
+                  <MegaPanel
+                    item={item}
+                    panelId={panelId}
+                    triggerId={triggerId}
+                    onNavigate={() => closeMegaMenu(false)}
+                  />
                 </li>
               )
             })}
@@ -449,7 +462,7 @@ export function SiteHeader() {
 
         <div className="border-t border-dark-gray/15 px-6 py-4">
           <Link
-            href="/patient-care/emergency"
+            href="/services/emergency"
             className="btn-primary flex w-full min-h-[48px] items-center justify-center text-b14"
             onClick={() => setDrawerOpen(false)}
           >

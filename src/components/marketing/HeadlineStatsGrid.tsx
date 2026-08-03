@@ -70,13 +70,13 @@ export function HeadlineStatsGrid({
 
   return (
     <div ref={ref} className="flex flex-col gap-6">
-      <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+      <div className="card-grid card-grid--4">
         {primary.map((stat) => (
           <CountUpStat key={stat.label} {...stat} active={active} />
         ))}
       </div>
       {secondary && secondary.length > 0 ? (
-        <div className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="card-grid card-grid--3 mx-auto max-w-3xl">
           {secondary.map((stat) => (
             <CountUpStat key={stat.label} {...stat} size="md" active={active} />
           ))}

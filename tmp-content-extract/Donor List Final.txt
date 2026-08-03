@@ -1,0 +1,32 @@
+=== SHEET: Sheet1 ===
+Sn.	Name of the Donor	Link	Logo
+1	Naeem Trading Company	https://naeemtrading.com	ok
+2	Waheed Sons	https://waheedsons.com	ok
+3	Al-Fatah Stores	https://alfatah.pk	ok
+4	Infaq Foundation	https://infaq.org.pk	ok
+5	Ehsan Chappal Store	https://shopecs.com	ok
+6	Stylo Shoes	https://stylo.pk	ok
+7	Ravi Chemicals	ok
+8	Dalda Foundation	https://daldafoundation.pk	ok
+9	Paul Industries	https://www.tuplastic.com	ok
+10	Siddiq Shafi Trust / Siddiq Leatherworks (Pvt.) Ltd.	https://siddiqshafi.com	ok
+11	AHN Colloids Chemical (Pvt.) Ltd.	https://chemicalonline.pk	ok
+12	Northstar Textile Mills (Pvt.) Ltd.	ok
+13	National Distributors	ok
+14	Kohat Cement (Pvt.) Ltd.	https://www.kohatcement.com	ok
+15	Shahid Builders (Pvt.) Ltd.	https://shahidbuilders.com.pk	ok
+16	Mughal-e-Azam Banquet Hall	https://mughaleazambanquet.com	ok
+17	Zafar Catering	youtube.com/c/ZAFARBANQUETS	ok
+18	Ayesha Siddiq Memorial Trust	https://www.fountainhouse.com.pk	ok
+19	Eiffel Industries (Pvt.) Limited	ok
+20	Jillani Poly Industries (Pvt.) Ltd.	https://jilaniplastic.com	ok
+21	Fatima Enterprises	https://www.fatima.com.pk	ok
+22	Astron Chemicals (Pvt.) Limited	ok
+23	Cannon Foam (Pvt.) Ltd.	https://cannonfoam.com	ok
+24	Peridot Products (Pvt.) Ltd.	https://peridotproducts.com	ok
+25	Modern Electronic Karachi	https://modernelectronics.pk	ok
+26	Textile Testing International	https://ttilabs.net	ok
+27	Masha Trading Co., China	ok
+28	Kit Shoes	https://kitshoes.com	ok
+29	Starlet Innovations (Pvt.) Ltd.	https://starletinnovations.com	ok
+30	Unze London	https://unze.com.pk	ok

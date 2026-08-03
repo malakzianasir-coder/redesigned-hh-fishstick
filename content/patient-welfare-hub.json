@@ -1,0 +1,120 @@
+{
+  "slug": "patient-welfare",
+  "title": "Patient Welfare",
+  "description": "Financial assistance, admission guidance, welfare programs, and patient rights at Hijaz Hospital.",
+  "hero": {
+    "kicker": "Patient Welfare",
+    "title": "Financial & Community Support",
+    "excerpt": "Hijaz Hospital is committed to ensuring that financial hardship does not prevent deserving patients from receiving essential medical care. Through its Shariah-Compliant Zakat Management System and charitable welfare programs, the hospital provides financial assistance to eligible patients with fairness, dignity, and compassion.",
+    "variant": "white",
+    "media": {
+      "type": "illustration",
+      "preset": "page/patient-welfare"
+    },
+    "links": [
+      { "label": "Financial Assistance", "href": "/patient-welfare/financial-assistance", "variant": "primary" },
+      { "label": "Patient Resources", "href": "#patient-resources", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Hub", "href": "#hub" },
+    { "label": "Financial Assistance", "href": "/patient-welfare/financial-assistance" },
+    { "label": "Welfare Programs", "href": "/patient-welfare/dialysis-support" },
+    { "label": "Admission", "href": "/patient-welfare/admission-process" },
+    { "label": "Rights", "href": "/patient-welfare/patient-rights" },
+    { "label": "Medical Camps", "href": "/patient-welfare/free-medical-camps" },
+    { "label": "Stories", "href": "/success-stories" }
+  ],
+  "hub": {
+    "kicker": "Patient Welfare Hub",
+    "heading": "How We Support Patients & Families",
+    "lede": "Explore financial assistance, welfare programs, admission guidance, and patient rights — all designed to ensure dignified, accessible care.",
+    "groups": [
+      {
+        "label": "Financial & Community Support",
+        "cards": [
+          {
+            "slug": "financial-assistance",
+            "title": "Zakat & Financial Assistance",
+            "excerpt": "Shariah-Compliant Zakat Management System and charitable welfare programs for eligible patients.",
+            "icon": "HandCoins",
+            "href": "/patient-welfare/financial-assistance"
+          },
+          {
+            "slug": "dialysis-support",
+            "title": "Dialysis Patient Support",
+            "excerpt": "Monthly financial assistance, ration support, and essential family needs for dialysis patients.",
+            "icon": "Heartbeat",
+            "href": "/patient-welfare/dialysis-support"
+          },
+          {
+            "slug": "free-medicines",
+            "title": "Free Medicines",
+            "excerpt": "Prescribed medicines free of charge to eligible outpatient patients through the Pharmacy Department.",
+            "icon": "Pill",
+            "href": "/patient-welfare/free-medicines"
+          },
+          {
+            "slug": "free-meals",
+            "title": "Free Meals",
+            "excerpt": "Three nutritious meals daily to admitted patients and their attendants.",
+            "icon": "BowlFood",
+            "href": "/patient-welfare/free-meals"
+          },
+          {
+            "slug": "sehat-sahulat",
+            "title": "Sehat Sahulat Program",
+            "excerpt": "Government-supported healthcare initiative improving access to medical treatment.",
+            "icon": "ShieldCheck",
+            "href": "/patient-welfare/sehat-sahulat"
+          },
+          {
+            "slug": "free-medical-camps",
+            "title": "Free Medical Camps & Flood Relief",
+            "excerpt": "Community outreach and humanitarian assistance during times of hardship.",
+            "icon": "Tent",
+            "href": "/patient-welfare/free-medical-camps"
+          }
+        ]
+      },
+      {
+        "label": "Patient Resources",
+        "id": "patient-resources",
+        "cards": [
+          {
+            "slug": "admission-process",
+            "title": "Admission Process",
+            "excerpt": "Hijaz Hospital follows a structured admission process to ensure smooth coordination, timely treatment, and quality patient care.",
+            "icon": "ClipboardText",
+            "href": "/patient-welfare/admission-process",
+            "linkLabel": "View steps"
+          },
+          {
+            "slug": "patient-rights",
+            "title": "Patient Rights & Responsibilities",
+            "excerpt": "Hijaz Hospital is committed to protecting the rights, dignity, and well-being of every patient.",
+            "icon": "Scales",
+            "href": "/patient-welfare/patient-rights",
+            "linkLabel": "View rights"
+          },
+          {
+            "slug": "patient-information-guide",
+            "title": "Patient Information Guide",
+            "excerpt": "A comprehensive guide to patient services, care, facilities, forms, and online services.",
+            "icon": "ClipboardText",
+            "href": "/patient-welfare/patient-information-guide",
+            "linkLabel": "View guide"
+          },
+          {
+            "slug": "patient-stories",
+            "title": "Patient Stories",
+            "excerpt": "Real stories of healing, hope, and recovery from patients who received care at Hijaz Hospital.",
+            "icon": "Heart",
+            "href": "/success-stories",
+            "linkLabel": "Read stories"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -4,54 +4,30 @@
     "title": "General Surgery",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "Comprehensive surgical care for elective and emergency procedures at Hijaz Hospital.",
-    "excerpt": "The General Surgery Department provides comprehensive surgical care supported by experienced surgeons, anesthetists, and modern operation theatre facilities.",
+    "description": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
+    "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "General Surgery",
       "tagline": "Comprehensive Surgical Care",
       "taglineVariant": "body",
-      "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.",
+      "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.\n\nOur team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery.",
       "variant": "white",
       "media": {
         "type": "image",
         "src": "/media/general-surgery-department-banner.webp",
-        "alt": "General Surgery at Hijaz Hospital"
+        "alt": "General Surgery"
       },
-      "links": [
-        { "label": "View Our Services", "href": "#surgical-services", "variant": "primary" },
-        { "label": "Why Choose Us", "href": "#why-choose", "variant": "ghost" }
-      ]
+      "links": []
     },
-    "jumpLinks": [
-      { "label": "Overview", "href": "#overview" },
-      { "label": "Surgical Services", "href": "#surgical-services" },
-      { "label": "Why Choose", "href": "#why-choose" },
-      { "label": "Patient Stories", "href": "#patient-stories" }
-    ],
+    "jumpLinks": [],
     "sections": [
       {
-        "type": "content",
-        "id": "overview",
-        "kicker": "Overview",
-        "heading": "Overview",
-        "body": [
-          "Our team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery."
-        ],
-        "background": "white"
-      },
-      {
         "type": "serviceGroups",
-        "id": "surgical-services",
-        "kicker": "Our Surgical Services",
-        "heading": "Our Surgical Services",
-        "intro": "The department performs a broad range of surgical procedures, including:",
-        "background": "muted",
         "layout": "finder",
+        "heading": "Our Surgical Services",
         "groups": [
           {
-            "slug": "general-surgery",
-            "icon": "knife",
             "heading": "General Surgery",
             "items": [
               "Appendectomy",
@@ -68,8 +44,6 @@
             ]
           },
           {
-            "slug": "laparoscopic",
-            "icon": "scan",
             "heading": "Minimally Invasive (Laparoscopic) Surgery",
             "items": [
               "Diagnostic and Therapeutic Laparoscopy",
@@ -79,8 +53,6 @@
             ]
           },
           {
-            "slug": "hepatobiliary",
-            "icon": "drop",
             "heading": "Hepatobiliary & Gastrointestinal Surgery",
             "items": [
               "Open Cholecystectomy",
@@ -91,8 +63,6 @@
             ]
           },
           {
-            "slug": "colorectal",
-            "icon": "rows",
             "heading": "Colorectal Surgery",
             "items": [
               "Fistula Surgery (Fistulotomy, pile, Fissure, pilonidal sinus both open& laser)"
@@ -101,35 +71,1604 @@
         ]
       },
       {
-        "type": "bullets",
-        "id": "why-choose",
-        "kicker": "Why Choose",
+        "type": "iconGrid",
         "heading": "Why Choose Hijaz Hospital General Surgery?",
-        "background": "white",
         "items": [
-          { "icon": "users-three", "text": "Experienced general surgeons and multidisciplinary surgical team" },
-          { "icon": "hospital", "text": "Modern operation theatres equipped for elective and emergency surgery" },
-          { "icon": "knife", "text": "Advanced laparoscopic (minimally invasive) surgical techniques" },
-          { "icon": "clipboard-text", "text": "Comprehensive preoperative and postoperative care" },
-          { "icon": "shield-check", "text": "Strict infection prevention and patient safety protocols" },
-          { "icon": "hand-coins", "text": "Affordable treatment with welfare support for eligible patients" }
+          { "icon": "check-circle", "label": "Experienced general surgeons and multidisciplinary surgical team" },
+          { "icon": "check-circle", "label": "Modern operation theatres equipped for elective and emergency surgery" },
+          { "icon": "check-circle", "label": "Advanced laparoscopic (minimally invasive) surgical techniques" },
+          { "icon": "check-circle", "label": "Comprehensive preoperative and postoperative care" },
+          { "icon": "check-circle", "label": "Strict infection prevention and patient safety protocols" },
+          { "icon": "check-circle", "label": "Affordable treatment with welfare support for eligible patients" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "orthopedics",
+    "title": "Orthopedics",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
+    "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Orthopedics",
+      "tagline": "Comprehensive Bone, Joint & Trauma Care",
+      "taglineVariant": "body",
+      "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine. Supported by experienced orthopedic surgeons, consultants, nursing staff, and rehabilitation professionals, the department offers comprehensive care for patients of all ages, from emergency trauma management to advanced orthopedic surgery and postoperative rehabilitation.\n\nThe department provides outpatient consultations, emergency trauma care, elective orthopedic procedures, and rehabilitation services using modern surgical techniques, advanced implants, and dedicated physiotherapy support.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/orthopedics-department-banner.webp",
+        "alt": "Orthopedics"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Orthopedic Services",
+        "groups": [
+          {
+            "heading": "Trauma & Fracture Care",
+            "items": [
+              "Emergency management of fractures and traumatic injuries",
+              "Internal and external fracture fixation",
+              "Management of complex orthopedic trauma",
+              "Post-fracture rehabilitation"
+            ]
+          },
+          {
+            "heading": "Joint Replacement Surgery",
+            "items": [
+              "Total Hip Replacement",
+              "Total Knee Replacement",
+              "Revision joint replacement procedures",
+              "Comprehensive preoperative and postoperative care"
+            ]
+          },
+          {
+            "heading": "Sports Injury Management",
+            "items": [
+              "Arthroscopic procedures",
+              "Ligament reconstruction",
+              "Tendon repair",
+              "Treatment of sports-related musculoskeletal injuries"
+            ]
+          },
+          {
+            "heading": "Pediatric Orthopedics",
+            "items": [
+              "Management of fractures in children",
+              "Treatment of congenital and developmental deformities",
+              "Correction of neuromuscular and orthopedic disorders",
+              "Splinting and corrective surgical procedures"
+            ]
+          },
+          {
+            "heading": "Spine Care",
+            "items": [
+              "Evaluation and treatment of spinal disorders",
+              "Conservative management of back and neck conditions",
+              "Surgical treatment for selected spinal fractures and conditions"
+            ]
+          },
+          {
+            "heading": "Reconstructive Orthopedic Surgery",
+            "items": [
+              "Limb reconstruction",
+              "Bone grafting procedures",
+              "Soft tissue reconstruction",
+              "Treatment of deformities resulting from trauma or congenital conditions"
+            ]
+          },
+          {
+            "heading": "Minimally Invasive Orthopedic Procedures",
+            "items": [
+              "Where appropriate, minimally invasive surgical techniques are used to reduce tissue damage, promote faster recovery, and shorten hospital stays."
+            ]
+          }
         ]
       },
       {
-        "type": "patientStories",
-        "id": "patient-stories",
-        "kicker": "Patient Stories",
-        "heading": "Patient Stories",
-        "intro": "Real recoveries from our surgical patients.",
-        "departmentName": "General Surgery",
-        "background": "muted"
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Orthopedics?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced orthopedic consultants and surgeons" },
+          { "icon": "check-circle", "label": "Comprehensive trauma and fracture care" },
+          { "icon": "check-circle", "label": "Modern operation theatres and advanced surgical equipment" },
+          { "icon": "check-circle", "label": "High-quality implants and diagnostic support" },
+          { "icon": "check-circle", "label": "Dedicated physiotherapy and rehabilitation services" },
+          { "icon": "check-circle", "label": "Infection prevention protocols and modern postoperative care" },
+          { "icon": "check-circle", "label": "Affordable treatment options with financial assistance for eligible patients" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "urology",
+    "title": "Urology",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
+    "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Urology",
+      "tagline": "Comprehensive Care for Urinary Tract & Male Reproductive Disorders",
+      "taglineVariant": "body",
+      "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system. Our experienced urologists offer both minimally invasive and open surgical procedures using modern techniques to deliver safe, effective, and patient-centered care.\n\nThe department manages a wide range of urological conditions, including urinary stone disease, prostate disorders, urinary tract abnormalities, male reproductive conditions, and urological cancers.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/urology-department-banner.webp",
+        "alt": "Urology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Urology Services",
+        "groups": [
+          {
+            "heading": "Endourology & Minimally Invasive Procedures",
+            "items": [
+              "Cystoscopy",
+              "Ureterorenoscopy (URS) with or without DJ Stenting",
+              "Retrograde Intrarenal Surgery (RIRS) with or without DJ Stenting",
+              "Percutaneous Nephrolithotomy (PCNL) with or without DJ Stenting",
+              "Percutaneous Nephrostomy (PCN)",
+              "Cystolitholapaxy",
+              "Direct Vision Internal Urethrotomy (DVIU)",
+              "DJ Stent Insertion and Removal"
+            ]
+          },
+          {
+            "heading": "Stone Surgery",
+            "items": [
+              "Pyelolithotomy",
+              "Ureterolithotomy",
+              "Vesicolithotomy"
+            ]
+          },
+          {
+            "heading": "Prostate Surgery",
+            "items": [
+              "Transurethral Resection of the Prostate (TURP – Monopolar & Bipolar)",
+              "Transvesical Prostatectomy (TVP)"
+            ]
+          },
+          {
+            "heading": "Bladder Surgery",
+            "items": [
+              "Transurethral Resection of Bladder Tumor (TURBT – Monopolar & Bipolar)",
+              "Vesicovaginal Fistula (VVF) Repair"
+            ]
+          },
+          {
+            "heading": "Kidney Surgery",
+            "items": [
+              "Open Pyeloplasty",
+              "Simple Nephrostomy",
+              "Open Simple Nephrectomy",
+              "Open Radical Nephrectomy"
+            ]
+          },
+          {
+            "heading": "Reconstructive Urology",
+            "items": [
+              "Urethroplasty",
+              "Urethrocutaneous Fistula (UCF) Closure",
+              "Ureteral Reimplantation",
+              "Closure of Urethral Fistula"
+            ]
+          },
+          {
+            "heading": "Andrology & Male Reproductive Surgery",
+            "items": [
+              "Hydrocelectomy",
+              "Varicocelectomy",
+              "Orchidopexy",
+              "Orchidectomy (Simple & Radical)",
+              "Epididymal Cyst Excision",
+              "Spermatocele Excision",
+              "Chordee Correction"
+            ]
+          },
+          {
+            "heading": "Pediatric Urology",
+            "items": [
+              "Posterior Urethral Valve (PUV) Ablation",
+              "Orchidopexy",
+              "Management of Congenital Urological Disorders"
+            ]
+          }
+        ]
       },
       {
-        "type": "cta",
-        "kicker": "Support Our Mission",
-        "heading": "Help Us Keep Surgical Care Within Reach for Every Patient",
-        "body": "Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.",
-        "button": { "label": "Donate Now", "href": "/donate" }
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Urology?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced urologists and multidisciplinary surgical team" },
+          { "icon": "check-circle", "label": "Advanced endourology and minimally invasive procedures" },
+          { "icon": "check-circle", "label": "Comprehensive treatment for urinary stone disease" },
+          { "icon": "check-circle", "label": "Specialized care for prostate, bladder, kidney, and male reproductive disorders" },
+          { "icon": "check-circle", "label": "Modern operation theatre facilities and diagnostic support" },
+          { "icon": "check-circle", "label": "Patient-centered care with comprehensive preoperative and postoperative management" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "plastic-reconstructive-surgery",
+    "title": "Plastic & Reconstructive Surgery",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures.",
+    "excerpt": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Plastic & Reconstructive Surgery",
+      "tagline": "Restoring Form, Function & Confidence",
+      "taglineVariant": "body",
+      "excerpt": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures. Our experienced surgical team is committed to restoring function, improving appearance, and enhancing quality of life through safe, evidence-based surgical techniques.\n\nThe department offers individualized treatment plans supported by modern surgical facilities and comprehensive postoperative care.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/plastic-reconstructive-surgery-department-banner.webp",
+        "alt": "Plastic & Reconstructive Surgery"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Services",
+        "groups": [
+          {
+            "heading": "Reconstructive Surgery",
+            "items": [
+              "Facial Reconstruction",
+              "Hand Surgery",
+              "Ear Reconstruction",
+              "Treatment of Traumatic Deformities",
+              "Corrective Surgery for Facial Paralysis",
+              "Scar Revision and Removal of Old Scars"
+            ]
+          },
+          {
+            "heading": "Burn Care & Reconstruction",
+            "items": [
+              "Post-Burn Contracture Release",
+              "Reconstruction of Post-Burn Deformities"
+            ]
+          },
+          {
+            "heading": "Congenital & Pediatric Reconstructive Surgery",
+            "items": [
+              "Cleft Lip and Cleft Palate Repair",
+              "Congenital Facial and Limb Abnormalities",
+              "Hemangioma (Vascular Birthmarks) Management",
+              "Treatment of Giant Congenital Nevi",
+              "Ear Reconstruction for Congenital Deformities"
+            ]
+          },
+          {
+            "heading": "Cosmetic & Aesthetic Procedures",
+            "items": [
+              "Blepharoplasty (Eyelid Surgery)",
+              "Rhinoplasty (Nose Reshaping)",
+              "Facelift (Rhytidectomy)",
+              "Otoplasty (Ear Reshaping)",
+              "Liposuction",
+              "Fat Transfer",
+              "Platelet-Rich Plasma (PRP) Therapy for Face and Scalp"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Plastic & Reconstructive Surgery?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced plastic and reconstructive surgeons" },
+          { "icon": "check-circle", "label": "Comprehensive reconstructive and aesthetic surgical services" },
+          { "icon": "check-circle", "label": "Modern surgical facilities and advanced techniques" },
+          { "icon": "check-circle", "label": "Personalized treatment planning and postoperative care" },
+          { "icon": "check-circle", "label": "Patient-centered approach focused on safety, function, and cosmetic outcomes" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ophthalmology",
+    "title": "Ophthalmology",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery.",
+    "excerpt": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Ophthalmology",
+      "tagline": "Comprehensive Eye Care & Vision Services",
+      "taglineVariant": "body",
+      "excerpt": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery. Our experienced ophthalmologists are committed to preserving and restoring vision through modern diagnostic techniques and evidence-based treatment.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/ophthalmology-department-banner.webp",
+        "alt": "Ophthalmology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Ophthalmology Services",
+        "groups": [
+          {
+            "heading": "Comprehensive Eye Examinations",
+            "items": [
+              "Vision Assessment and Refraction",
+              "Retinoscopy",
+              "Indirect Ophthalmoscopy",
+              "Tonometry (Eye Pressure Measurement)",
+              "Biometry and Keratometry"
+            ]
+          },
+          {
+            "heading": "Diagnostic & Outpatient Procedures",
+            "items": [
+              "Syringing and Probing of the Lacrimal System",
+              "Removal of Corneal and Conjunctival Foreign Bodies",
+              "Subconjunctival and Retrobulbar Injections",
+              "Suture Removal",
+              "Epilation (Removal of Misdirected Eyelashes)",
+              "Management of Stye (Hordeolum)"
+            ]
+          },
+          {
+            "heading": "Minor Surgical Procedures",
+            "items": [
+              "Incision and Drainage of Lid Abscess",
+              "Incision and Curettage of Chalazion",
+              "Excision of Small Eyelid Tumors",
+              "Pterygium Excision",
+              "Conjunctival Cyst Excision",
+              "Conjunctival Resuturing"
+            ]
+          },
+          {
+            "heading": "Major Ophthalmic Surgery",
+            "items": [
+              "Cataract Surgery with Intraocular Lens (IOL) Implantation",
+              "Trabeculectomy for Glaucoma",
+              "Anterior Chamber Wash",
+              "Paracentesis",
+              "Repair of Iris Prolapse"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Ophthalmology?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced ophthalmologists and trained eye care professionals" },
+          { "icon": "check-circle", "label": "Comprehensive diagnostic and surgical eye care" },
+          { "icon": "check-circle", "label": "Modern ophthalmic diagnostic equipment" },
+          { "icon": "check-circle", "label": "Advanced cataract and glaucoma surgery" },
+          { "icon": "check-circle", "label": "Prompt management of eye emergencies and injuries" },
+          { "icon": "check-circle", "label": "Patient-centered care with comprehensive follow-up services" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "ent-ear-nose-throat",
+    "title": "ENT (Ear, Nose & Throat)",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck.",
+    "excerpt": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "ENT (Ear, Nose & Throat)",
+      "tagline": "Comprehensive Ear, Nose & Throat Care",
+      "taglineVariant": "body",
+      "excerpt": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck. The department offers both outpatient and surgical services, supported by experienced ENT specialists and modern operating theatre facilities.\n\nOur team manages a wide range of conditions, including ear diseases, sinus disorders, nasal problems, throat conditions, voice disorders, thyroid and salivary gland diseases, and head & neck cancers.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/ent-ear-nose-throat-department-banner.webp",
+        "alt": "ENT (Ear, Nose & Throat)"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our ENT Services",
+        "groups": [
+          {
+            "heading": "Ear Procedures & Surgeries",
+            "items": [
+              "Myringotomy with Grommet Insertion",
+              "Tympanoplasty",
+              "Myringoplasty",
+              "Stapedotomy / Stapedectomy",
+              "Mastoidectomy",
+              "Tympanostomy (Tyr Tube)",
+              "Foreign Body Removal from Ear"
+            ]
+          },
+          {
+            "heading": "Nose & Sinus Procedures",
+            "items": [
+              "Septoplasty",
+              "Sept rhinoplasty",
+              "Functional Endoscopic Sinus Surgery (FESS)",
+              "Endoscopic Dacryocystorhinostomy (DCR)",
+              "Nasal Turbinectomy / Turbinoplasty",
+              "Nasal Fractures Reduction",
+              "Midline skull base Lesion",
+              "Foreign Body Removal from Nose"
+            ]
+          },
+          {
+            "heading": "Neck / Throat & Tonsil Procedures",
+            "items": [
+              "Tonsillectomy",
+              "Adenoidectomy (Adenoid Curettage)",
+              "Microlaryngeal Surgery",
+              "Total Laryngectomy / Neck dissection",
+              "Uvulopalatopharyngoplasty (UPPP)",
+              "Foreign Body Removal from Throat"
+            ]
+          },
+          {
+            "heading": "Head & Neck Surgery",
+            "items": [
+              "Superficial Parotidectomy",
+              "Total Parotidectomy",
+              "Submandibular Gland Excision",
+              "Sublingual Gland Excision",
+              "Hemiglossectomy",
+              "Neck Dissection",
+              "Cervical Lymph Node Excision",
+              "Sistrunk Operation"
+            ]
+          },
+          {
+            "heading": "Thyroid Surgery",
+            "items": [
+              "Total Thyroidectomy",
+              "Hemithyroidectomy"
+            ]
+          },
+          {
+            "heading": "Pediatric & Minor ENT Procedures",
+            "items": [
+              "Lop Ear Repair",
+              "Wax Removal",
+              "Foreign Body ENT Removal",
+              "Intralesional Steroid Injection",
+              "Stitch Removal",
+              "Nasal Splint Removal"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital ENT?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced ENT surgeons and multidisciplinary care team" },
+          { "icon": "check-circle", "label": "Comprehensive ear, nose, throat, and head & neck services" },
+          { "icon": "check-circle", "label": "Advanced surgical procedures and modern operation theatre support" },
+          { "icon": "check-circle", "label": "Management of both routine and complex ENT conditions" },
+          { "icon": "check-circle", "label": "Patient-focused care with appropriate preoperative and postoperative support" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dentistry",
+    "title": "Dentistry",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments.",
+    "excerpt": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "Dentistry",
+      "tagline": "Comprehensive Dental Care",
+      "taglineVariant": "body",
+      "excerpt": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments. The department focuses on maintaining oral health, restoring dental function, and improving the overall well-being of patients through quality dental care.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/dentistry-department-banner.webp",
+        "alt": "Dentistry"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Dental Services",
+        "groups": [
+          {
+            "heading": "Restorative & General Dentistry",
+            "items": [
+              "Dental Restorations",
+              "Management of Dental Cavities",
+              "Preventive Dental Care",
+              "Oral Health Assessment",
+              "Aesthetic Fillings"
+            ]
+          },
+          {
+            "heading": "Prosthodontics & Dental Prosthetics",
+            "items": [
+              "Dental Prosthetics",
+              "Crowns and Bridges",
+              "Dentures and Oral Rehabilitation"
+            ]
+          },
+          {
+            "heading": "Periodontology",
+            "items": [
+              "Scaling & Polishing",
+              "Management of Periodontitis",
+              "Gingival Surgical Procedure"
+            ]
+          },
+          {
+            "heading": "Endodontics",
+            "items": [
+              "Root Canal Treatment",
+              "Management of Dental Pulp Conditions"
+            ]
+          },
+          {
+            "heading": "Orthodontics",
+            "items": [
+              "Diagnosis and correction of dental alignment and bite problems",
+              "Orthodontic treatment planning"
+            ]
+          },
+          {
+            "heading": "Dental Surgery",
+            "items": [
+              "Minor Oral Surgical Procedures",
+              "Dental Extractions",
+              "Management of Oral Surgical Conditions",
+              "Wisdom teeth extraction (Surgical and non-Surgical)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Dentistry?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced dental professionals" },
+          { "icon": "check-circle", "label": "Comprehensive dental services under one roof" },
+          { "icon": "check-circle", "label": "Modern dental care facilities" },
+          { "icon": "check-circle", "label": "Patient-focused treatment approach" },
+          { "icon": "check-circle", "label": "Focus on preventive care and long-term oral health" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "general-medicine",
+    "title": "General Medicine",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions.",
+    "excerpt": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "General Medicine",
+      "tagline": "Comprehensive Internal Medicine Care",
+      "taglineVariant": "body",
+      "excerpt": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions. The department is supported by experienced physicians and healthcare professionals who provide patient-centered care for acute illnesses, chronic diseases, and complex medical conditions.\n\nThe department focuses on prevention, early diagnosis, disease management, and coordination of care with other specialties whenever required.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/general-medicine-department-banner.webp",
+        "alt": "General Medicine"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Medical Services",
+        "groups": [
+          {
+            "heading": "Respiratory & Pulmonary Care",
+            "items": [
+              "Pulmonary Medicine",
+              "Diagnosis and management of respiratory diseases",
+              "Acute and chronic lung conditions"
+            ]
+          },
+          {
+            "heading": "Diabetes & Endocrine Care",
+            "items": [
+              "Diabetes and its complications",
+              "Endocrine disorders",
+              "Hypertension and related complications"
+            ]
+          },
+          {
+            "heading": "Kidney & Renal Care",
+            "items": [
+              "Acute and chronic kidney diseases",
+              "Kidney infections",
+              "Coordination with specialized renal care services"
+            ]
+          },
+          {
+            "heading": "Gastrointestinal & Liver Care",
+            "items": [
+              "Liver disorders",
+              "Management of digestive system-related conditions"
+            ]
+          },
+          {
+            "heading": "General Medical Care",
+            "items": [
+              "Infectious diseases"
+            ]
+          },
+          {
+            "heading": "Musculoskeletal & Geriatric Care",
+            "items": [
+              "Joint and rheumatic disorders",
+              "Degenerative bone diseases",
+              "Geriatric care for elderly patients"
+            ]
+          },
+          {
+            "heading": "Supportive & Critical Care Services",
+            "items": [
+              "Critical care support",
+              "Hospice and supportive care services"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Medicine Department?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced physicians and multidisciplinary healthcare team" },
+          { "icon": "check-circle", "label": "Management of acute and chronic medical conditions" },
+          { "icon": "check-circle", "label": "Comprehensive diagnosis and treatment planning" },
+          { "icon": "check-circle", "label": "Coordination with specialist departments when required" },
+          { "icon": "check-circle", "label": "Patient-focused care with continuous monitoring and follow-up" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gastroenterology",
+    "title": "Gastroenterology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system.",
+    "excerpt": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Gastroenterology",
+      "tagline": "Comprehensive Digestive & Liver Care",
+      "taglineVariant": "body",
+      "excerpt": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system. The department offers advanced diagnostic and therapeutic procedures supported by experienced specialists and modern facilities.\n\nOur services provide timely and effective care for patients.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/gastroenterology-department-banner.webp",
+        "alt": "Gastroenterology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Gastroenterology Services",
+        "groups": [
+          {
+            "heading": "Gastrointestinal Disorders",
+            "items": [
+              "Peptic ulcer disease (PUD)",
+              "Irritable Bowel Syndrome (IBS)",
+              "Inflammatory Bowel Disease (IBD)",
+              "Esophageal disorders",
+              "Esophageal stricture management",
+              "Achalasia management"
+            ]
+          },
+          {
+            "heading": "Liver & Biliary Care",
+            "items": [
+              "Hepatitis and its various forms",
+              "Chronic liver disease and cirrhosis management",
+              "Hepatocellular carcinoma (Liver Cancer) care",
+              "Pancreatic and biliary tract disorders",
+              "Common Bile Duct (CBD) stone management"
+            ]
+          },
+          {
+            "heading": "Gastrointestinal Bleeding & Emergency Care",
+            "items": [
+              "Upper Gastrointestinal Bleeding Management",
+              "Lower Gastrointestinal Bleeding Management",
+              "Tumor / Cancers of Gastrointestinal tract and Hepto – pancreatic biliary system"
+            ]
+          },
+          {
+            "heading": "Endoscopic Procedures",
+            "items": [
+              "Upper Gastrointestinal Endoscopy",
+              "Colonoscopy",
+              "Sigmoidoscopy",
+              "Endoscopic Retrograde Cholangiopancreatography (ERCP)",
+              "Common Bile Duct (CBD) Stone Extraction",
+              "Esophageal Foreign Body Removal",
+              "Stomach Foreign Body Removal",
+              "Esophageal stenting",
+              "Duodenal Stenting",
+              "Colonic Stenting",
+              "CBD & Pancreatic Duct Stenting"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Gastroenterology?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced gastroenterologists and multidisciplinary care team" },
+          { "icon": "check-circle", "label": "Advanced diagnostic and therapeutic endoscopy services" },
+          { "icon": "check-circle", "label": "Comprehensive management of digestive and liver diseases" },
+          { "icon": "check-circle", "label": "Support for both routine and emergency gastrointestinal conditions" },
+          { "icon": "check-circle", "label": "Patient-focused care with modern diagnostic facilities" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "nephrology",
+    "title": "Nephrology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders.",
+    "excerpt": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Nephrology",
+      "tagline": "Comprehensive Kidney Care Services",
+      "taglineVariant": "body",
+      "excerpt": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders. The department offers evaluation, treatment, and long-term management of kidney conditions through experienced nephrology specialists and a multidisciplinary healthcare team.\n\nOur services include management of acute and chronic kidney diseases, dialysis care, interventional nephrology procedures, transplant support, and critical care renal management.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/nephrology-department-banner.webp",
+        "alt": "Nephrology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Nephrology Services",
+        "groups": [
+          {
+            "heading": "Clinical Nephrology",
+            "items": [
+              "Diagnosis and management of:",
+              "Acute Kidney Injury (AKI)",
+              "Chronic Kidney Disease (CKD)",
+              "Glomerular diseases",
+              "Diabetic and hypertensive kidney disease",
+              "Electrolyte and acid-base disorders",
+              "Resistant hypertension"
+            ]
+          },
+          {
+            "heading": "Dialysis Services",
+            "items": [
+              "Maintenance Hemodialysis",
+              "Ongoing monitoring and management of dialysis patients"
+            ]
+          },
+          {
+            "heading": "Interventional Nephrology",
+            "items": [
+              "Temporary dialysis catheter insertion",
+              "Renal biopsy",
+              "AV fistula assessment and coordination"
+            ]
+          },
+          {
+            "heading": "Kidney Transplant Support",
+            "items": [
+              "Pre-transplant evaluation",
+              "Post-transplant follow-up",
+              "Monitoring of immunosuppressive therapy"
+            ]
+          },
+          {
+            "heading": "Critical Care Nephrology",
+            "items": [
+              "Renal support for critically ill patients",
+              "Management of fluid balance",
+              "Electrolyte and acid-base management"
+            ]
+          },
+          {
+            "heading": "Preventive & Supportive Kidney Care",
+            "items": [
+              "Chronic Kidney Disease (CKD) screening and counseling",
+              "Nutrition and fluid management guidance",
+              "Patient and family education"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Nephrology?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced nephrology specialists and multidisciplinary care team" },
+          { "icon": "check-circle", "label": "Comprehensive kidney disease management" },
+          { "icon": "check-circle", "label": "Dedicated dialysis support services" },
+          { "icon": "check-circle", "label": "Coordination with critical care and other specialties" },
+          { "icon": "check-circle", "label": "Focus on prevention, patient education, and long-term kidney health" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cardiology",
+    "title": "Cardiology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases.",
+    "excerpt": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Cardiology",
+      "tagline": "Comprehensive Cardiac Assessment & Outpatient Care",
+      "taglineVariant": "body",
+      "excerpt": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases. The department also plays an important role in pre-operative cardiac assessment, helping ensure that patients are medically fit for anesthesia and surgical procedures.\n\nWorking in close coordination with other clinical departments, our cardiologist provides timely consultations, risk assessment, and treatment recommendations to support safe and effective patient care.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/cardiology-department-banner.webp",
+        "alt": "Cardiology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Cardiology Services",
+        "groups": [
+          {
+            "heading": "Outpatient Cardiology Care",
+            "items": [
+              "Cardiology consultations",
+              "Diagnosis and medical management of heart diseases",
+              "Hypertension evaluation and treatment",
+              "Follow-up care and ongoing monitoring",
+              "Cardiac risk assessment and preventive counseling"
+            ]
+          },
+          {
+            "heading": "Conditions We Manage",
+            "items": [
+              "Valvular Heart Diseases",
+              "Cardiomyopathy",
+              "Heart Failure",
+              "Cardiac Arrhythmias",
+              "Pericardial Diseases",
+              "Rheumatic Heart Diseases",
+              "Congenital Heart Diseases",
+              "Hypertension (High Blood Pressure)"
+            ]
+          },
+          {
+            "heading": "Pre-Surgical Cardiac Assessment",
+            "items": [
+              "The Cardiology Department provides cardiac fitness evaluation and medical clearance for patients undergoing:",
+              "General Surgery",
+              "Gynaecological and Obstetric Procedures",
+              "Urological Surgery",
+              "Orthopedic Surgery",
+              "Other elective surgical procedures, where required",
+              "These evaluations help assess cardiac risk before anesthesia and surgery, supporting safe surgical outcomes."
+            ]
+          },
+          {
+            "heading": "Referral for Advanced Cardiac Care",
+            "items": [
+              "Patients requiring specialized cardiac interventions, emergency cardiac procedures, or advanced investigations are referred to appropriate tertiary care hospitals to ensure timely access to comprehensive cardiac services."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Cardiology?",
+        "items": [
+          { "icon": "check-circle", "label": "Qualified cardiologist providing specialized outpatient care" },
+          { "icon": "check-circle", "label": "Comprehensive evaluation and management of heart diseases" },
+          { "icon": "check-circle", "label": "Reliable pre-operative cardiac assessment and fitness evaluation" },
+          { "icon": "check-circle", "label": "Essential diagnostic support available on-site" },
+          { "icon": "check-circle", "label": "Close coordination with surgical and medical specialties" },
+          { "icon": "check-circle", "label": "Affordable, accessible, and patient-centered care" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pulmonology",
+    "title": "Pulmonology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases.",
+    "excerpt": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Pulmonology",
+      "tagline": "Comprehensive Respiratory Care",
+      "taglineVariant": "body",
+      "excerpt": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases. Our experienced pulmonology team offers comprehensive evaluation, diagnosis, treatment, and follow-up for both acute and chronic lung conditions.\n\nThe department works closely with other clinical specialties to provide coordinated care and ensure timely management of patients with respiratory illnesses.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/pulmonology-department-banner.webp",
+        "alt": "Pulmonology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Pulmonology Services",
+        "groups": [
+          {
+            "heading": "Outpatient & Inpatient Care",
+            "items": [
+              "Pulmonology consultations for OPD patients",
+              "Management of admitted patients with respiratory diseases",
+              "Emergency evaluation and treatment of critical respiratory conditions",
+              "Consultation for patients referred from other hospital departments"
+            ]
+          },
+          {
+            "heading": "Conditions We Manage",
+            "items": [
+              "Bronchial Asthma",
+              "Chronic Obstructive Pulmonary Disease (COPD)",
+              "Pulmonary Tuberculosis (TB)",
+              "Respiratory Infections",
+              "Other acute and chronic lung diseases"
+            ]
+          },
+          {
+            "heading": "Diagnostic Support",
+            "items": [
+              "The department is supported by essential diagnostic services, including:",
+              "Chest X-ray",
+              "Pulmonary investigations, as clinically indicated",
+              "Ongoing monitoring and follow-up of respiratory conditions"
+            ]
+          },
+          {
+            "heading": "Tuberculosis (TB) Care",
+            "items": [
+              "Hijaz Hospital is committed to supporting patients with pulmonary tuberculosis by providing comprehensive evaluation, treatment, and follow-up. Eligible patients receive anti-tuberculosis treatment free of charge in accordance with hospital policies and national treatment guidelines."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Pulmonology?",
+        "items": [
+          { "icon": "check-circle", "label": "Specialized care for respiratory and chest diseases" },
+          { "icon": "check-circle", "label": "Outpatient, inpatient, and emergency pulmonology services" },
+          { "icon": "check-circle", "label": "Integrated diagnostic support" },
+          { "icon": "check-circle", "label": "Coordinated care with other clinical departments" },
+          { "icon": "check-circle", "label": "Free treatment for eligible tuberculosis patients" },
+          { "icon": "check-circle", "label": "Patient-focused care with emphasis on long-term respiratory health" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "endocrinology",
+    "title": "Endocrinology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders.",
+    "excerpt": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Endocrinology",
+      "tagline": "Comprehensive Hormonal & Metabolic Care",
+      "taglineVariant": "body",
+      "excerpt": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders. Our endocrinology services focus on accurate diagnosis, evidence-based treatment, and long-term management to help patients achieve better health and improved quality of life.\n\nThe department works closely with other clinical specialties to provide coordinated care for patients with complex endocrine and metabolic conditions.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/endocrinology-department-banner.webp",
+        "alt": "Endocrinology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Endocrinology Services",
+        "groups": [
+          {
+            "heading": "Diagnosis and Management of:",
+            "items": [
+              "Diabetes Mellitus",
+              "Thyroid Disorders",
+              "Polycystic Ovary Syndrome (PCOS)",
+              "Dyslipidemia (Disorders of Blood Lipids)",
+              "Hypertension related to endocrine disorders",
+              "Obesity and Weight Management",
+              "Adrenal Gland Disorders",
+              "Pituitary Gland Disorders",
+              "Parathyroid Gland Disorders",
+              "Growth Disorders, including Short Stature",
+              "Delayed Puberty",
+              "Precocious Puberty (Early Puberty)"
+            ]
+          },
+          {
+            "heading": "Patient Care & Follow-Up",
+            "items": [
+              "Comprehensive endocrine evaluation",
+              "Individualized treatment plans",
+              "Long-term disease monitoring and follow-up",
+              "Lifestyle and dietary counseling in coordination with the Dietetics & Nutrition Department",
+              "Patient education for chronic endocrine conditions"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Endocrinology?",
+        "items": [
+          { "icon": "check-circle", "label": "Specialized care for hormonal and metabolic disorders" },
+          { "icon": "check-circle", "label": "Evidence-based diagnosis and treatment" },
+          { "icon": "check-circle", "label": "Personalized long-term disease management" },
+          { "icon": "check-circle", "label": "Multidisciplinary care with other medical specialties" },
+          { "icon": "check-circle", "label": "Patient-centered approach focused on improving long-term health outcomes" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dermatology",
+    "title": "Dermatology",
+    "category": "Internal Medicine & Allied Specialties",
+    "categorySlug": "internal-medicine",
+    "description": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails.",
+    "excerpt": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails.",
+    "hero": {
+      "kicker": "Internal Medicine & Allied Specialties",
+      "title": "Dermatology",
+      "tagline": "Expert Skin, Hair & Nail Care",
+      "taglineVariant": "body",
+      "excerpt": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails. Serving both outpatient (OPD) and referred inpatient (IPD) patients, our experienced dermatologist is committed to delivering high-quality, evidence-based, and patient-centered care in a safe and compassionate environment",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/dermatology-department-banner.webp",
+        "alt": "Dermatology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Services",
+        "groups": [
+          {
+            "heading": "Our Dermatology Department offers specialized consultation, diagnosis, and treatment for a wide range of dermatological conditions, including:",
+            "items": [
+              "Acne and acne scars",
+              "Eczema (Dermatitis)",
+              "Psoriasis",
+              "Fungal skin infections",
+              "Bacterial and viral skin infections",
+              "Allergic skin disorders",
+              "Vitiligo",
+              "Pigmentation disorders",
+              "Hair fall and scalp diseases",
+              "Alopecia (Hair Loss)",
+              "Nail disorders",
+              "Keloids and hypertrophic scars",
+              "Warts, moles, and skin tags",
+              "Chronic itching and rashes",
+              "Lichen Planus and other inflammatory skin diseases"
+            ]
+          },
+          {
+            "heading": "Minor Dermatological Procedures",
+            "items": [
+              "Where clinically indicated, our dermatologist performs a variety of minor dermatological procedures, including:",
+              "Electrocautery and cauterization",
+              "Intralesional steroid injections for conditions such as:",
+              "Keloids",
+              "Alopecia Areata",
+              "Hypertrophic scars",
+              "Lichen Planus",
+              "Platelet-Rich Plasma (PRP) Therapy for selected hair loss conditions",
+              "Assessment and management of benign skin lesions",
+              "Removal of warts and skin tags"
+            ]
+          },
+          {
+            "heading": "Patient Education & Preventive Care",
+            "items": [
+              "Patient education is an integral part of our dermatology services. We provide guidance on:",
+              "Daily skincare routines",
+              "Prevention of common skin infections",
+              "Sun protection and UV safety",
+              "Hair and scalp care",
+              "Long-term management of chronic skin diseases",
+              "Lifestyle and dietary measures that support healthy skin"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Dermatology?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced dermatologist" },
+          { "icon": "check-circle", "label": "Evidence-based diagnosis and treatment" },
+          { "icon": "check-circle", "label": "Management of common and chronic skin, hair, and nail disorders" },
+          { "icon": "check-circle", "label": "Minor dermatological procedures performed where clinically indicated" },
+          { "icon": "check-circle", "label": "Personalized patient education and preventive care" },
+          { "icon": "check-circle", "label": "Compassionate, patient-centered healthcare" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gynaecology-obstetrics",
+    "title": "Gynaecology & Obstetrics",
+    "category": "Mother & Child Care",
+    "categorySlug": "mother-child",
+    "description": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment.",
+    "excerpt": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment.",
+    "hero": {
+      "kicker": "Mother & Child Care",
+      "title": "Gynaecology & Obstetrics",
+      "tagline": "Comprehensive Women’s Healthcare Services",
+      "taglineVariant": "body",
+      "excerpt": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment. The department is supported by experienced gynecologists, obstetricians, nursing staff, and modern hospital facilities to provide safe and patient-centered care.\n\nThe department offers management of routine and high-risk pregnancies, gynecological disorders, reproductive health conditions, and advanced surgical procedures.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/gynaecology-obstetrics-department-banner.webp",
+        "alt": "Gynaecology & Obstetrics"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Services",
+        "groups": [
+          {
+            "heading": "Obstetric Services & Procedures",
+            "items": [
+              "Cesarean Section (LSCS)",
+              "Cesarean Hysterectomy",
+              "Obstetric Hysterectomy",
+              "Exploratory Laparotomy for Ruptured Uterus",
+              "Repair of Uterine Rupture",
+              "Cervical Cerclage Insertion",
+              "Management Surgery for Postpartum Hemorrhage (PPH)",
+              "Episiotomy and Repair",
+              "Perineal Tear Repair",
+              "Exploratory laparotomy for ectopic pregnancy)",
+              "Cervical Cerclage Removal",
+              "Manual Removal of Placenta",
+              "Vacuum-Assisted Vaginal Delivery",
+              "Forceps Delivery"
+            ]
+          },
+          {
+            "heading": "Major Gynecological Surgeries",
+            "items": [
+              "Total Abdominal Hysterectomy (TAH)",
+              "Vaginal Hysterectomy (VH)",
+              "Oophorectomy",
+              "Salpingectomy",
+              "Myomectomy",
+              "Ovarian Cystectomy",
+              "Manchester Repair",
+              "Anterior Colporrhaphy",
+              "Poster Colporrhaphy"
+            ]
+          },
+          {
+            "heading": "Gynecological Diagnostic & Minor Procedures",
+            "items": [
+              "Pap Smear",
+              "Cervical Biopsy",
+              "Endometrial Biopsy",
+              "Dilatation and Curettage (D&C)",
+              "Dilatation and Evacuation (D&E)",
+              "Bartholin Cyst Incision and Drainage",
+              "Marsupialization of Bartholin Cyst",
+              "Cauterization of Cervical Erosion",
+              "Removal of Cervical Polyp",
+              "Bilateral Tubal Ligation (BTL)",
+              "Manual Vacuum Aspiration (MVA)",
+              "Insertion and Removal of Intrauterine Contraceptive Device (IUCD)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Gynaecology & Obstetrics?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced gynecologists and obstetricians" },
+          { "icon": "check-circle", "label": "Comprehensive maternity and women’s healthcare services" },
+          { "icon": "check-circle", "label": "Management of routine and high-risk pregnancies" },
+          { "icon": "check-circle", "label": "Advanced gynecological surgical procedures" },
+          { "icon": "check-circle", "label": "Support from modern operation theatre and hospital facilities" },
+          { "icon": "check-circle", "label": "Patient-focused care with emphasis on safety and dignity" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pediatrics-neonatology",
+    "title": "Pediatrics & Neonatology",
+    "category": "Mother & Child Care",
+    "categorySlug": "mother-child",
+    "description": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents.",
+    "excerpt": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents.",
+    "hero": {
+      "kicker": "Mother & Child Care",
+      "title": "Pediatrics & Neonatology",
+      "tagline": "Comprehensive Healthcare for Infants, Children & Adolescents",
+      "taglineVariant": "body",
+      "excerpt": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents. Our pediatric team is committed to delivering compassionate, evidence-based medical care, focusing on early diagnosis, effective treatment, and healthy growth and development.\n\nThe department manages a wide range of childhood illnesses while providing ongoing monitoring and follow-up to support long-term health.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/pediatrics-neonatology-department-banner.webp",
+        "alt": "Pediatrics & Neonatology"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Pediatric Services",
+        "groups": [
+          {
+            "heading": "Outpatient & Inpatient Care",
+            "items": [
+              "Pediatric outpatient (OPD) consultations",
+              "Management of admitted pediatric patients",
+              "Emergency assessment and treatment for acutely ill children",
+              "Well-baby nursery care"
+            ]
+          },
+          {
+            "heading": "Conditions We Manage",
+            "items": [
+              "Pneumonia",
+              "Diarrheal diseases",
+              "Bronchiolitis",
+              "Bronchial Asthma",
+              "Enteric Fever (Typhoid)",
+              "Urinary Tract Infections (UTIs)",
+              "Recurrent febrile illnesses",
+              "Other common childhood medical conditions"
+            ]
+          },
+          {
+            "heading": "Diagnostic Support",
+            "items": [
+              "The department is supported by essential diagnostic services, including:",
+              "Pediatric laboratory investigations",
+              "Pediatric X-ray services",
+              "Clinical evaluation and ongoing follow-up"
+            ]
+          },
+          {
+            "heading": "Emergency Pediatric Care",
+            "items": [
+              "Children requiring urgent medical attention receive prompt assessment and emergency management. Critically ill patients are stabilized and managed according to their clinical condition, with referral to higher-level pediatric care when specialized services are required."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Pediatrics?",
+        "items": [
+          { "icon": "check-circle", "label": "Comprehensive outpatient, inpatient, and emergency pediatric care" },
+          { "icon": "check-circle", "label": "Well-baby nursery services" },
+          { "icon": "check-circle", "label": "Experienced pediatric healthcare team" },
+          { "icon": "check-circle", "label": "Diagnostic support for timely evaluation" },
+          { "icon": "check-circle", "label": "Patient-centered care with emphasis on prevention, treatment, and regular follow-up" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dietetics-nutrition",
+    "title": "Dietetics & Nutrition",
+    "category": "Specialized Care & Allied Health",
+    "categorySlug": "specialized",
+    "description": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions.",
+    "excerpt": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions.",
+    "hero": {
+      "kicker": "Specialized Care & Allied Health",
+      "title": "Dietetics & Nutrition",
+      "tagline": "Personalized Nutrition Care for Better Health",
+      "taglineVariant": "body",
+      "excerpt": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions. Our qualified nutrition professionals work closely with medical teams to develop personalized dietary plans that support treatment, recovery, and long-term health.\n\nThe department provides nutrition services for OPD patients, admitted patients, critically ill patients, and individuals requiring lifestyle and disease-specific dietary management.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/dietetics-nutrition-department-banner.webp",
+        "alt": "Dietetics & Nutrition"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Nutrition Services",
+        "groups": [
+          {
+            "heading": "Clinical Nutrition & Medical Nutrition Therapy",
+            "items": [
+              "Nutrition OPD consultations",
+              "In-ward patient nutritional assessment and counseling",
+              "Medical Nutrition Therapy (MNT)",
+              "Malnutrition assessment and management",
+              "Nutrition education and follow-up"
+            ]
+          },
+          {
+            "heading": "Disease-Specific Diet Counseling",
+            "items": [
+              "Diabetes dietary counseling",
+              "Mounted / Standing in Kids",
+              "Hypertension and cardiac diet counseling",
+              "Renal diet planning for kidney disease and dialysis patients",
+              "Nutritional guidance for critically ill patients in ICU"
+            ]
+          },
+          {
+            "heading": "Weight & Lifestyle Management",
+            "items": [
+              "Obesity management",
+              "Weight management programs",
+              "Body composition and nutrition assessment",
+              "Lifestyle modification counseling"
+            ]
+          },
+          {
+            "heading": "Women’s Health Nutrition",
+            "items": [
+              "Antenatal patient nutrition assessment and counseling",
+              "Postnatal patient nutrition assessment and counseling",
+              "PCOS dietary management"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Dietetics & Nutrition?",
+        "items": [
+          { "icon": "check-circle", "label": "Qualified nutrition professionals and patient-centered counseling" },
+          { "icon": "check-circle", "label": "Personalized diet plans based on individual health needs" },
+          { "icon": "check-circle", "label": "Support for medical conditions through evidence-based nutrition care" },
+          { "icon": "check-circle", "label": "Coordination with doctors and clinical departments" },
+          { "icon": "check-circle", "label": "Continuous monitoring and follow-up for better outcomes" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "physiotherapy-rehabilitation",
+    "title": "Physiotherapy & Rehabilitation",
+    "category": "Specialized Care & Allied Health",
+    "categorySlug": "specialized",
+    "description": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life.",
+    "excerpt": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life.",
+    "hero": {
+      "kicker": "Specialized Care & Allied Health",
+      "title": "Physiotherapy & Rehabilitation",
+      "tagline": "Rehabilitation, Recovery & Functional Improvement",
+      "taglineVariant": "body",
+      "excerpt": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life. Our trained physiotherapists use evidence-based techniques, modern rehabilitation equipment, and personalized exercise programs to support recovery from injuries, surgeries, neurological conditions, and chronic disorders.\n\nThe department provides rehabilitation services for orthopedic, neurological, pediatric, gynecological, and general medical conditions.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/physiotherapy-rehabilitation-department-banner.webp",
+        "alt": "Physiotherapy & Rehabilitation"
+      },
+      "links": []
+    },
+    "jumpLinks": [],
+    "sections": [
+      {
+        "type": "serviceGroups",
+        "layout": "finder",
+        "heading": "Our Physiotherapy Services",
+        "groups": [
+          {
+            "heading": "Electrotherapy & Pain Management Modalities",
+            "items": [
+              "Short Wave Diathermy (SWD)",
+              "Ultrasound Therapy",
+              "Electrical Muscle Stimulation (EMS)",
+              "Transcutaneous Electrical Nerve Stimulation (TENS)",
+              "Electrical Stimulation Therapy",
+              "Heat Therapy",
+              "Cold Therapy",
+              "Vibrator Therapy",
+              "Pain Management Modalities"
+            ]
+          },
+          {
+            "heading": "Manual Therapy & Rehabilitation",
+            "items": [
+              "Range of Motion (ROM) Exercises",
+              "Strengthening Exercises",
+              "Stretching Exercises",
+              "Aerobic Exercises",
+              "Balance and Coordination Training",
+              "Postural Correction",
+              "Gait Training",
+              "Functional Rehabilitation",
+              "Manual Mobilization Techniques",
+              "Exercise Therapy Programs",
+              "Cervical and Lumbar Traction"
+            ]
+          },
+          {
+            "heading": "Specialized Rehabilitation Programs",
+            "items": [
+              "Gym-based therapeutic exercises",
+              "Dumbbell and gym ball exercises",
+              "TheraBand exercises",
+              "Cupping Therapy",
+              "Dry Needling"
+            ]
+          },
+          {
+            "heading": "Conditions We Treat",
+            "items": [
+              "Orthopedic Physiotherapy",
+              "Back Pain",
+              "Neck Pain",
+              "Shoulder Pain",
+              "Knee Pain",
+              "Arthritis",
+              "Frozen Shoulder",
+              "Sports Injuries",
+              "Fracture Rehabilitation",
+              "Joint Stiffness",
+              "Muscle Spasm",
+              "Spinal Spondylosis",
+              "PIVD (Prolapsed Intervertebral Disc)",
+              "Tennis Elbow",
+              "Post-operative Rehabilitation"
+            ]
+          },
+          {
+            "heading": "Neurological Physiotherapy",
+            "items": [
+              "Bell’s Palsy",
+              "Facial Palsy",
+              "Stroke Rehabilitation",
+              "Paralysis Rehabilitation",
+              "Neuromuscular Weakness",
+              "Balance Disorders",
+              "Nerve Injuries"
+            ]
+          },
+          {
+            "heading": "Women’s Health Physiotherapy",
+            "items": [
+              "Postpartum Rehabilitation",
+              "Pelvic Floor Rehabilitation",
+              "Pregnancy-related Back Pain",
+              "Post-Cesarean Section Recovery"
+            ]
+          },
+          {
+            "heading": "Pediatric Physiotherapy",
+            "items": [
+              "Developmental Delays",
+              "Pediatric Weakness",
+              "Postural Problems in Children"
+            ]
+          },
+          {
+            "heading": "General Rehabilitation",
+            "items": [
+              "Pain Management",
+              "Muscle Weakness",
+              "Mobility Training"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "iconGrid",
+        "heading": "Why Choose Hijaz Hospital Physiotherapy?",
+        "items": [
+          { "icon": "check-circle", "label": "Experienced physiotherapists and rehabilitation team" },
+          { "icon": "check-circle", "label": "Comprehensive rehabilitation programs" },
+          { "icon": "check-circle", "label": "Modern physiotherapy modalities and equipment" },
+          { "icon": "check-circle", "label": "Personalized treatment plans based on patient needs" },
+          { "icon": "check-circle", "label": "Support for postoperative and chronic condition recovery" },
+          { "icon": "check-circle", "label": "Focus on improving mobility, independence, and quality of life" }
+        ]
       }
     ]
   }

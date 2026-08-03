@@ -32,7 +32,7 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero }) => {
   return (
     <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBg)}>
       <div className={cn('container mx-auto px-6 lg:px-[30px]', sectionPadding)}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div className="lg:col-span-6 flex flex-col gap-[6px] text-center lg:text-start">
             {kicker && (
               <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">{kicker}</p>
@@ -67,6 +67,11 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero }) => {
                 {excerpt}
               </p>
             )}
+            {hero.quote && !isDark && (
+              <blockquote className="mx-auto mt-2 max-w-xl border-l-4 border-primary-red pl-4 text-b18 italic text-primary-blue/85 lg:mx-0">
+                {hero.quote}
+              </blockquote>
+            )}
             {stat && (
               <div className="pt-3 flex justify-center lg:justify-start">
                 <div className="card inline-flex items-baseline gap-2 px-5 py-3">
@@ -98,8 +103,12 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero }) => {
           </div>
           <div className="lg:col-span-6">
             {media?.type === 'illustration' ? (
-              <div className="w-full max-w-[520px] mx-auto">
-                <Illustration preset={media.preset} tone={isDark ? 'dark' : 'light'} />
+              <div className="mx-auto w-full max-w-[320px] aspect-square lg:max-h-[320px]">
+                <Illustration
+                  preset={media.preset}
+                  tone={isDark ? 'dark' : 'light'}
+                  className="h-full w-full"
+                />
               </div>
             ) : media?.type === 'image' ? (
               <div

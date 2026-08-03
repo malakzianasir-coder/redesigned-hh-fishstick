@@ -1,0 +1,54 @@
+{
+  "slug": "president",
+  "title": "President's Message",
+  "description": "Personal message from Sohail Iqbal, President of Hijaz Hospital Trust — presented in full, exactly as written.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "President's Message",
+    "excerpt": "Personal message from Sohail Iqbal, President of Hijaz Hospital Trust — presented in full, exactly as written.",
+    "media": {
+      "type": "placeholder",
+      "icon": "EnvelopeOpen",
+      "placeholderLabel": "President photograph placeholder"
+    },
+    "links": [
+      { "label": "Chairman's Message", "href": "/leadership/messages/chairman", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "President's Message", "href": "#presidents-message" },
+    { "label": "Chairman's Message", "href": "/leadership/messages/chairman" }
+  ],
+  "message": {
+    "id": "presidents-message",
+    "kicker": "Messages",
+    "title": "President's Message",
+    "name": "Sohail Iqbal",
+    "role": "President",
+    "organization": "Hijaz Hospital Trust",
+    "body": [
+      "It is a privilege to welcome you to Hijaz Hospital Trust, where faith, compassion, and service come together to bring hope and healing to those in need.",
+      "Our Trust was founded on the inspiring vision of Haji Inam Ellahi Asar (Late) and Alhaj Mian Abdul Waheed (Late), who believed that quality healthcare should never be beyond the reach of anyone because of financial hardship. Their legacy continues to inspire our mission of serving humanity with dignity, compassion, and excellence.",
+      "Every day, our dedicated doctors, nurses, and healthcare professionals care for patients with the understanding that while we provide treatment, true healing comes from Allah.",
+      "This belief reminds us that healthcare is not only a profession but also a responsibility and a trust. Through the generosity of our donors, the support of our well-wishers, and the dedication of our team, we are able to provide compassionate care and bring hope to thousands of patients and their families each year.",
+      "I extend my heartfelt gratitude to everyone who supports Hijaz Hospital Trust. Your trust, generosity, and prayers empower us to continue this noble mission and make a meaningful difference in countless lives.",
+      "Together, we remain committed to serving humanity with compassion, integrity, and faith. May Allah (SWT) bless our collective efforts and reward all those who contribute to this mission."
+    ],
+    "signOff": "With heartfelt gratitude,",
+    "signature": "Sohail Iqbal",
+    "roleLine": "President",
+    "organizationLine": "Hijaz Hospital Trust",
+    "editorialNote": "Source extraction joins name and role without line breaks (“Sohail IqbalPresidentHijaz Hospital Trust”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial.",
+    "verse": {
+      "arabic": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
+      "translation": "And when I am ill, it is He (Allah) who cures me.",
+      "citation": "(Surah Ash-Shu‘ara 26:80)"
+    }
+  },
+  "otherMessage": {
+    "title": "Chairman's Message",
+    "name": "Mian Muhammad Asif Waheed",
+    "role": "Chairman, Hijaz Hospital",
+    "href": "/leadership/messages/chairman"
+  }
+}

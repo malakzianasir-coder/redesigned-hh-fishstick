@@ -26,6 +26,7 @@ export type HeroConfig = {
   title: string
   tagline?: string
   excerpt?: string
+  quote?: string
   variant?: 'white' | 'navy' | 'red'
   media?: HeroMedia
   stat?: HeroStat
@@ -37,8 +38,8 @@ export type ContentSectionData = {
   type: 'content'
   id?: string
   kicker?: string
-  heading: string
-  body: string[]
+  heading?: string
+  body: string | string[]
   image?: {
     src: string
     alt?: string
@@ -58,7 +59,9 @@ export type BulletsSectionData = {
   id?: string
   kicker?: string
   heading: string
+  intro?: string
   items: BulletItem[]
+  layout?: 'cards' | 'chips'
   background?: 'white' | 'muted'
 }
 
@@ -92,7 +95,7 @@ export type IconGridSectionData = {
   id?: string
   kicker?: string
   heading: string
-  intro?: string[]
+  intro?: string | string[]
   items: IconGridItem[]
   background?: 'white' | 'muted'
 }
@@ -102,7 +105,7 @@ export type CalloutSectionData = {
   id?: string
   kicker?: string
   heading: string
-  body: string[]
+  body: string | string[]
   logo?: {
     src?: string
     alt?: string
@@ -124,7 +127,7 @@ export type AccommodationSectionData = {
   id?: string
   kicker?: string
   heading: string
-  intro?: string[]
+  intro?: string | string[]
   rooms: AccommodationRoom[]
   background?: 'white' | 'muted'
 }
@@ -157,6 +160,67 @@ export type CtaSectionData = {
   }
 }
 
+export type NumberedListItem = {
+  title: string
+  content: string
+  bullets?: string[]
+}
+
+export type NumberedListSectionData = {
+  type: 'numberedList'
+  id?: string
+  kicker?: string
+  heading: string
+  intro?: string
+  items: NumberedListItem[]
+  background?: 'white' | 'muted'
+}
+
+export type ProcessStep = {
+  title: string
+  items: string[]
+}
+
+export type ProcessStepsSectionData = {
+  type: 'processSteps'
+  id?: string
+  kicker?: string
+  heading: string
+  intro?: string
+  steps: ProcessStep[]
+  background?: 'white' | 'muted'
+}
+
+export type StatItem = {
+  value: string
+  label: string
+}
+
+export type StatsRowSectionData = {
+  type: 'stats'
+  id?: string
+  kicker?: string
+  heading?: string
+  stats: StatItem[]
+  background?: 'white' | 'muted'
+}
+
+export type ImpactTableRow = {
+  amount: string
+  impact: string
+}
+
+export type ImpactTableSectionData = {
+  type: 'impactTable'
+  id?: string
+  kicker?: string
+  heading: string
+  intro?: string
+  rows: ImpactTableRow[]
+  note?: string
+  background?: 'white' | 'muted'
+}
+
 export type Section =
   | ContentSectionData
   | BulletsSectionData
@@ -167,6 +231,10 @@ export type Section =
   | ClosingBandSectionData
   | PatientStoriesSectionData
   | CtaSectionData
+  | NumberedListSectionData
+  | ProcessStepsSectionData
+  | StatsRowSectionData
+  | ImpactTableSectionData
 
 export type PageRecord = {
   slug: string
@@ -187,6 +255,73 @@ export type DepartmentRecord = PageRecord & {
 export type ServiceRecord = PageRecord
 
 export type PatientCareRecord = PageRecord
+
+export type PatientCareHubCard = {
+  slug?: string
+  title: string
+  excerpt: string
+  icon: string
+  href: string
+  linkLabel?: string
+}
+
+export type PatientCareHubGroup = {
+  label: string
+  id?: string
+  cards: PatientCareHubCard[]
+}
+
+export type PatientCareHubRecord = {
+  slug: string
+  title: string
+  description?: string
+  hero: HeroConfig
+  jumpLinks: JumpLink[]
+  hub: {
+    kicker: string
+    heading: string
+    lede: string
+    groups: PatientCareHubGroup[]
+  }
+}
+
+export type DonationCauseCard = {
+  slug: string
+  title: string
+  excerpt: string
+  icon: string
+  href: string
+  linkLabel?: string
+  meta?: string
+}
+
+export type DonateHubContent = {
+  slug: string
+  title: string
+  description?: string
+  hero: HeroConfig
+  jumpLinks: JumpLink[]
+  givingTypes: DonationCauseCard[]
+  supportCauses: DonationCauseCard[]
+  waysToGive: HomeWaysToGive
+  receiptsNote: string
+  contact: {
+    uan: string
+    phone: string
+    email: string
+  }
+  zakatCalculator: {
+    enabled: boolean
+    heading: string
+    body: string
+  }
+}
+
+export type DonationCauseRecord = PageRecord & {
+  kind: 'general' | 'cause'
+  bankAccountKeys?: string[]
+  amounts?: number[]
+}
 
 export type JumpLink = {
   label: string
@@ -288,6 +423,7 @@ export type PersonCard = {
   body: string[]
   href?: string
   image?: string
+  editorialNote?: string
 }
 
 export type TenureEntry = {
@@ -321,6 +457,8 @@ export type MessageArticle = {
   signature?: string
   signOff?: string
   roleLine?: string
+  organizationLine?: string
+  editorialNote?: string
   verse?: {
     arabic: string
     translation: string
@@ -411,11 +549,15 @@ export type LeadershipRecord = {
   jumpLinks: JumpLink[]
   founders: PersonCard[]
   chairpersons: TenureEntry[]
+  chairpersonsNote?: string
   presidents: TenureEntry[]
+  presidentsNote?: string
   seniorManagement: PersonGridMember[]
+  seniorManagementNote?: string
   executiveCommittee: string[]
   executiveCommitteeLede?: string
   coreCommittees: CommitteeCard[]
+  coreCommitteesNote?: string
 }
 
 export type LeadershipMessagesRecord = {
@@ -425,6 +567,21 @@ export type LeadershipMessagesRecord = {
   hero: MarketingHero
   jumpLinks: JumpLink[]
   messages: MessageArticle[]
+}
+
+export type SingleMessagePageRecord = {
+  slug: string
+  title: string
+  description?: string
+  hero: MarketingHero
+  jumpLinks: JumpLink[]
+  message: MessageArticle
+  otherMessage?: {
+    title: string
+    name: string
+    role: string
+    href: string
+  }
 }
 
 export type ServiceStatCard = {
@@ -498,6 +655,7 @@ export type HomeBankField = {
 }
 
 export type HomeBankAccount = {
+  key?: string
   title: string
   bank: string
   logo?: string
@@ -640,4 +798,39 @@ export type HomeContent = {
     lede: string
     slides: { src: string; title: string; href: string }[]
   }
+}
+
+export type DoctorTag = 'visiting' | 'head-of-department' | 'fmh-faculty' | 'photo-needed'
+
+export type DoctorRecord = {
+  slug: string
+  name: string
+  specialty: string
+  department: string
+  tags: DoctorTag[]
+  image: string | null
+}
+
+export type DoctorsHubContent = {
+  kicker: string
+  heading: string
+  lede: string
+  doctors: DoctorRecord[]
+}
+
+export type LabTestRecord = {
+  slug: string
+  name: string
+  category: string
+  reportingTime: string
+  specimen: string
+  isOutsourced?: boolean
+}
+
+export type LabTestsHubContent = {
+  kicker: string
+  heading: string
+  lede: string
+  categories: string[]
+  tests: LabTestRecord[]
 }

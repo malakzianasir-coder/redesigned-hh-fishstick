@@ -20,18 +20,20 @@ export function AccommodationSection({ section }: { section: AccommodationSectio
         <div className="flex flex-col gap-[6px] text-center">
           {kicker ? <p className="kicker">{kicker}</p> : null}
           <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-          {intro?.map((paragraph, index) => (
-            <p key={index} className="text-b16 text-primary-blue/85">
-              {paragraph}
-            </p>
-          ))}
+          {(Array.isArray(intro) ? intro : typeof intro === 'string' ? [intro] : []).map(
+            (paragraph, index) => (
+              <p key={index} className="text-b16 text-primary-blue/85">
+                {paragraph}
+              </p>
+            ),
+          )}
         </div>
 
         <div>
           <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">
             Accommodation Options
           </h3>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="card-grid card-grid--4">
             {rooms.map((room, index) => (
               <article
                 key={room.label}

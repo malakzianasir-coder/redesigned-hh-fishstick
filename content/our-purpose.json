@@ -31,38 +31,66 @@
   "mission": "To care for the ailing with compassion, respect, dignity, and professional excellence, while ensuring that financial hardship never stands in the way of receiving care",
   "journey": [
     {
+      "year": "1968",
+      "title": "Trial & Perseverance",
+      "body": [
+        "In 1968, when the author initiated the construction of Hijaz Mosque, a truck belonging to the Lahore Encroachment arrived and, within moments, demolished the mosque walls, reducing them to rubble. Upon learning of this incident, Mr. Mir Salahuddin, whose residence was adjacent to the mosque, was deeply distressed. He accompanied me to meet the Trust’s Town Planner, Mr. Irshad Ahmed, and requested his cooperation in the construction of the mosque. However, he categorically stated that he would never allow a mosque to be built during his lifetime, though he would fully support the construction of a park or a fire brigade station. Shortly thereafter, the said Town Planner was suspended."
+      ]
+    },
+    {
+      "year": "1970",
+      "title": "Completion of Hijaz Mosque",
+      "body": [
+        "In 1970, with the wholehearted support of Begum Ehsan Qadir (Principal, Government Girls College), M. Hussain Chaudhry (Chartered Accountant), and the late Mir Salahuddin, the construction of the mosque was successfully completed."
+      ]
+    },
+    {
       "year": "1979",
-      "title": "A humble beginning",
+      "title": "Proposal for Hijaz Hospital",
       "body": [
-        "Hijaz Hospital began as a small dispensary in Lahore, founded on the principle that quality healthcare should be accessible to all, regardless of financial means."
+        "In 1979, the author proposed the establishment of a hospital on the land adjacent to the mosque. Although the proposal was accepted in principle, approvals from the Corporation and the LDA remained elusive for seven years. Eventually, through the efforts of the late Mian Zaka-ur-Rehman and with the facilitation of General Ansari, approval was secured within just seven days."
       ]
     },
     {
-      "year": "1990",
-      "title": "Expanding services",
+      "year": "1986",
+      "title": "Foundation Stone & Dispensary",
       "body": [
-        "The institution grew to include outpatient and inpatient services, establishing itself as a trusted welfare healthcare provider in the community."
+        "In 1986, the foundation stone of the hospital was laid by the renowned scholar Dr. Israr Ahmed (RA). On 15 January 1988, my respected elder and close friend, Maulana Muhammad Malik Kandhlavi (RA), inaugurated the dispensary. In the early stages, my long-standing associates—Mian Muhammad Aslam (Chairman, Sargodha Group) and Mahmood Ali Bhatti (Chairman, Punjab Steel)—stood by me as pillars of support."
       ]
     },
     {
-      "year": "2000",
-      "title": "Modern facilities",
+      "year": "Build",
+      "title": "Structural Construction",
       "body": [
-        "Major expansion brought modern operation theatres, diagnostic facilities, and specialized departments under one roof."
+        "After the completion of the underground structure, Mian Abdul Waheed single-handedly constructed the ground floor. The first floor was completed with the special cooperation of Chaudhry Muhammad Rasheed, Engineer Rasheed, and Mujahid Butt. The contributions of the Chiniot community and members of the Chamber are also gratefully acknowledged."
       ]
     },
     {
-      "year": "2010",
-      "title": "200-bed hospital",
+      "year": "1988",
+      "title": "Formal Registration & Expansion",
       "body": [
-        "Hijaz Hospital evolved into a 200-bedded charitable healthcare institution, serving thousands of patients with dignity and care."
+        "On 13 December 1988, Hijaz Hospital Welfare was formally registered. By 1994, medical and surgical equipment worth one Crore rupees was acquired for a building of equivalent value, and an additional property worth one crore rupees was purchased to generate rental income."
       ]
     },
     {
-      "year": "2025",
-      "title": "Continuing the mission",
+      "year": "1993",
+      "title": "Governance & Executive Expansion",
       "body": [
-        "Today, more than 90% of patients receive treatment completely free of cost, fulfilling the founders' vision of compassionate, accessible healthcare for all."
+        "In 1993, Sheikh Habibullah, former Chairman of the Pakistan Hardware Merchants Association, assumed the role of General Secretary. In 1995, the Executive Committee was expanded, and regular monthly meetings of the governing body commenced."
+      ]
+    },
+    {
+      "year": "Leaders",
+      "title": "Leadership & Academic Contributors",
+      "body": [
+        "Several distinguished individuals contributed selflessly to the hospital’s administration and development, including Sheikh Taimur-ul-Haq, Tauqeer Ahmed Sharifi, Al-Haj Mian Abdul Waheed, Aziz A. Mughal, and Sheikh Khushnood Ahmed. Eminent scholars and intellectuals associated with the institution include Dr. Naseem Hassan Shah, Dr. Ikram H. Syed, Professor Altaf Ali Qureshi, and Chaudhry Muhammad Rasheed Khan."
+      ]
+    },
+    {
+      "year": "Advisor",
+      "title": "Medical Advisory Leadership",
+      "body": [
+        "Dr. M. Afzal Sheikh, Chief Executive of Shalamar Hospital and Medical Advisor to Hijaz Hospital, has proven to be a valuable asset for the institution."
       ]
     }
   ],
@@ -189,8 +217,8 @@
         "title": "Chairman's Message",
         "name": "Mian Muhammad Asif Waheed",
         "role": "Chairman, Hijaz Hospital",
-        "href": "/leadership/messages#chairmans-message",
-        "icon": "UserTie",
+        "href": "/leadership/messages/chairman",
+        "icon": "User",
         "body": [
           "Welcome to Hijaz Hospital, where our commitment to excellence is matched by our dedication to serving humanity.",
           "Since its humble beginnings as a small dispensary, Hijaz Hospital has grown into a modern, multidisciplinary healthcare institution."
@@ -200,8 +228,8 @@
         "title": "President's Message",
         "name": "Sohail Iqbal",
         "role": "President, Hijaz Hospital Trust",
-        "href": "/leadership/messages#presidents-message",
-        "icon": "UserTie",
+        "href": "/leadership/messages/president",
+        "icon": "User",
         "body": [
           "It is a privilege to welcome you to Hijaz Hospital Trust, where faith, compassion, and service come together to bring hope and healing to those in need.",
           "Our Trust was founded on the inspiring vision of Haji Inam Ellahi Asar (Late) and Alhaj Mian Abdul Waheed (Late), who believed that quality healthcare should never be beyond the reach of anyone because of financial hardship."

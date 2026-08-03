@@ -1,0 +1,208 @@
+{
+  "slug": "donate",
+  "title": "Donate",
+  "description": "Donate to Hijaz Hospital Trust — Zakat, Sadaqah, general donations, and support programs for deserving patients.",
+  "hero": {
+    "kicker": "Ways to Give",
+    "title": "Donate to Hijaz Hospital Trust",
+    "quote": "\"Whoever saves one life, it is as if he has saved all mankind.\" (Qur'an 5:32)",
+    "excerpt": "Every act of giving helps save lives. Whether you choose to give Zakat, Sadaqah, General Donation, Eidi, or Fitrana, your generosity enables Hijaz Hospital Trust to provide quality healthcare to deserving patients who cannot afford treatment. Explore the different ways you can support our mission and make a lasting impact.",
+    "variant": "white",
+    "media": {
+      "type": "illustration",
+      "preset": "page/donate"
+    },
+    "links": [
+      { "label": "How to Donate", "href": "#how-to-donate", "variant": "primary" },
+      { "label": "Ways to Give", "href": "#ways-to-give", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Ways to Give", "href": "#ways-to-give" },
+    { "label": "What You Can Support", "href": "#what-you-can-support" },
+    { "label": "How to Donate", "href": "#how-to-donate" },
+    { "label": "Zakat Calculator", "href": "#zakat-calculator" }
+  ],
+  "givingTypes": [
+    {
+      "slug": "zakat",
+      "title": "Zakat",
+      "excerpt": "Let Your Zakat Become a Source of Healing. Zakat is a sacred obligation and an opportunity to bring hope to those in need.",
+      "icon": "MoonStars",
+      "href": "/donations/zakat",
+      "linkLabel": "Give Zakat"
+    },
+    {
+      "slug": "general",
+      "title": "General Donation",
+      "excerpt": "Every Donation Makes a Difference. Your generosity helps Hijaz Hospital Trust provide quality healthcare to patients who cannot afford the cost of treatment.",
+      "icon": "Heart",
+      "href": "/donations/general",
+      "linkLabel": "Donate Now"
+    },
+    {
+      "slug": "sadaqah",
+      "title": "Sadaqah",
+      "excerpt": "Turn Your Sadaqah into Healing and Hope. Beyond Zakat, Sadaqah reflects gratitude, kindness, and compassion.",
+      "icon": "HandsPraying",
+      "href": "/donations/sadaqah",
+      "linkLabel": "Give Sadaqah"
+    },
+    {
+      "slug": "eidi-fitrana",
+      "title": "Eidi & Fitrana",
+      "excerpt": "Share the Blessings of Eid. Eid is a time of joy, gratitude, and compassion.",
+      "icon": "Gift",
+      "href": "/donations/eidi-fitrana",
+      "linkLabel": "Give Eidi"
+    }
+  ],
+  "supportCauses": [
+    {
+      "slug": "donate-a-meal",
+      "title": "Donate a Meal",
+      "excerpt": "Nourish a Patient. Support Their Recovery. Through our Donate a Meal initiative, you can help provide meals to deserving patients.",
+      "icon": "BowlFood",
+      "href": "/donations/donate-a-meal",
+      "meta": "PKR 500 · 1,500 · 3,500 · 15,000 impact tiers"
+    },
+    {
+      "slug": "donate-in-kind",
+      "title": "Donate in Kind",
+      "excerpt": "Support Patient Care Through Essential Supplies. Medicines, equipment, hospital beds, wheelchairs, and more.",
+      "icon": "Package",
+      "href": "/donations/donate-in-kind"
+    },
+    {
+      "slug": "sponsor-a-patient",
+      "title": "Sponsor a Patient",
+      "excerpt": "Become a Source of Healing and Hope. Sponsor hepatitis treatment, dialysis care, gynae & maternity care, or medical treatment based on patient need.",
+      "icon": "UserCircle",
+      "href": "/donations/sponsor-a-patient"
+    },
+    {
+      "slug": "sponsor-free-surgeries",
+      "title": "Sponsor Free Surgeries",
+      "excerpt": "Support Life-Changing Surgical Care. General surgery, urology, eye surgery, and specialized procedures.",
+      "icon": "Scissors",
+      "href": "/donations/sponsor-free-surgeries"
+    },
+    {
+      "slug": "itw-medical-tower",
+      "title": "Support a Project — ITW Medical Tower",
+      "excerpt": "Help Build the Future of Healthcare. Construction of new patient wards, ICU development, and facility expansion.",
+      "icon": "Buildings",
+      "href": "/donations/itw-medical-tower"
+    }
+  ],
+  "waysToGive": {
+    "kicker": "How to Donate",
+    "heading": "Choose Your Donation Method",
+    "lede": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Your contribution helps us provide quality healthcare to deserving patients and strengthens our mission of serving humanity with compassion and dignity. Choose the donation method that is most convenient for you.",
+    "cta": { "label": "Contact Donations Office", "href": "mailto:Donations@hijazhospital.org.pk" },
+    "online": {
+      "kicker": "Online Donation",
+      "heading": "Donate securely via JazzCash",
+      "body": "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided.",
+      "amounts": [
+        { "value": "500", "label": "PKR 500" },
+        { "value": "1000", "label": "PKR 1,000" },
+        { "value": "1500", "label": "PKR 1,500" },
+        { "value": "custom", "label": "Custom…" }
+      ],
+      "ctaLabel": "Donate Now",
+      "ctaHref": "/donate#how-to-donate"
+    },
+    "jazzcash": {
+      "kicker": "Mobile Wallet",
+      "heading": "JazzCash Till",
+      "body": "Donate quickly and conveniently through mobile payment services.",
+      "accountTitle": "Hijaz Hospital",
+      "tillId": "981444144",
+      "qrNote": "QR Code · add JazzCash QR in Admin (donationMethods)"
+    },
+    "bankAccounts": [
+      {
+        "key": "zakat",
+        "title": "Zakat",
+        "bank": "Meezan Bank",
+        "logo": "/media/meezan-bank-logo.webp",
+        "fields": [
+          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+          { "label": "Account Number", "value": "0201-0100642701", "copyValue": "0201-0100642701" },
+          { "label": "IBAN", "value": "PK33MEZN000201-0100642701", "copyValue": "PK33MEZN0002010100642701" },
+          { "label": "Swift Code", "value": "MEZNPKKA" }
+        ]
+      },
+      {
+        "key": "general",
+        "title": "General Donation",
+        "bank": "Meezan Bank",
+        "logo": "/media/meezan-bank-logo.webp",
+        "fields": [
+          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+          { "label": "Account Number", "value": "0221-0101345166", "copyValue": "0221-0101345166" },
+          { "label": "IBAN", "value": "PK33MEZN000221-0101345166", "copyValue": "PK33MEZN0002210101345166" },
+          { "label": "Swift Code", "value": "MEZNPKKA" }
+        ]
+      },
+      {
+        "key": "itw",
+        "title": "Construction of \"ITW\" Medical Tower",
+        "bank": "BANKISLAMI",
+        "fields": [
+          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+          { "label": "Account Number", "value": "2053-5690439-0201", "copyValue": "205356904390201" },
+          { "label": "IBAN", "value": "PK87BKIP0205356904390201", "copyValue": "PK87BKIP0205356904390201" },
+          { "label": "Swift Code", "value": "BKIPPKKA" }
+        ]
+      }
+    ],
+    "otherWays": [
+      {
+        "icon": "EnvelopeOpen",
+        "title": "Cheque or Bank Draft",
+        "body": "Donations may also be made through cheque or bank draft payable to: Hijaz Social Welfare Society (Hijaz Hospital). Address: 27-D-1, Sir Syed Road, Gulberg III, Lahore Pakistan",
+        "href": "/donate",
+        "linkLabel": "View details"
+      },
+      {
+        "icon": "Truck",
+        "title": "Pick-Up Donation Service",
+        "body": "For your convenience, our authorized representatives can collect donations from your home or office.",
+        "href": "/donate",
+        "linkLabel": "View details"
+      },
+      {
+        "icon": "DeviceMobile",
+        "title": "Meezan Mobile App",
+        "body": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
+        "href": "/donate",
+        "linkLabel": "View details"
+      },
+      {
+        "icon": "QrCode",
+        "title": "QR Code Donation",
+        "body": "Scan the QR code using your banking or mobile wallet application to make a secure donation in just a few simple steps.",
+        "href": "/donate",
+        "linkLabel": "View details"
+      }
+    ],
+    "contact": {
+      "uan": "+92 42 111 044 529",
+      "phone": "0321-4045125",
+      "email": "Donations@hijazhospital.org.pk"
+    }
+  },
+  "receiptsNote": "Official donation receipts are issued for all contributions. Please share your payment details with our Donations Office to receive your acknowledgement and receipt.",
+  "contact": {
+    "uan": "+92 42 111 044 529",
+    "phone": "0321-4045125",
+    "email": "Donations@hijazhospital.org.pk"
+  },
+  "zakatCalculator": {
+    "enabled": true,
+    "heading": "Calculate Your Zakat",
+    "body": "Use our Zakat Calculator to calculate your Zakat before making your donation."
+  }
+}

@@ -1,12 +1,12 @@
 import {
   Baby,
-  Balance,
   BookOpenText,
   Buildings,
   Certificate,
   ClipboardText,
   Cpu,
   Ear,
+  EnvelopeOpen,
   Eye,
   Gavel,
   GlobeHemisphereWest,
@@ -36,7 +36,6 @@ import {
   UsersThree,
   User,
   UserCircleGear,
-  UserTie,
 } from '@phosphor-icons/react/dist/ssr'
 
 export const MARKETING_ICON_MAP = {
@@ -45,6 +44,7 @@ export const MARKETING_ICON_MAP = {
   HandHeart,
   UsersThree,
   Scales,
+  Balance: Scales,
   Star,
   Users,
   Lightbulb,
@@ -60,7 +60,6 @@ export const MARKETING_ICON_MAP = {
   Ear,
   HeartStraight,
   Handshake,
-  Balance,
   GlobeHemisphereWest,
   Gavel,
   Medal,
@@ -71,7 +70,7 @@ export const MARKETING_ICON_MAP = {
   Microscope,
   Buildings,
   User,
-  UserTie,
+  UserTie: User,
   Baby,
   Package,
   Scroll,
@@ -81,7 +80,7 @@ export const MARKETING_ICON_MAP = {
   Pill,
   MoonStars,
   Trophy: Medal,
-  EnvelopeOpen: Newspaper,
+  EnvelopeOpen,
 } as const
 
 export type MarketingIconName = keyof typeof MARKETING_ICON_MAP

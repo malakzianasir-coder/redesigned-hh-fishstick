@@ -1,0 +1,617 @@
+{
+  "kicker": "Diagnostics",
+  "heading": "List of Tests Available",
+  "lede": "Search our laboratory test directory. Reporting times and specimen requirements shown — rates withheld from public UI per project policy.",
+  "categories": [
+    "Coagulation profile",
+    "Dengue",
+    "Glucose profile",
+    "Hematology",
+    "Microbiology",
+    "Other",
+    "Routine Chemistry",
+    "Special chemistry"
+  ],
+  "tests": [
+    {
+      "slug": "liver-function-test",
+      "name": "Liver function test",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "bilirubin-total",
+      "name": "Bilirubin Total",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "alt",
+      "name": "ALT",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "ast",
+      "name": "AST",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "alp",
+      "name": "ALP",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "albumin",
+      "name": "Albumin",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "renal-function-test",
+      "name": "Renal function test",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "urea",
+      "name": "Urea",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "uric-acid",
+      "name": "Uric Acid",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "creatine",
+      "name": "Creatine",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "lipid-profile",
+      "name": "Lipid Profile",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "cholesterol",
+      "name": "Cholesterol",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "triglyceride",
+      "name": "Triglyceride",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hdl",
+      "name": "HDL",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "ldl",
+      "name": "LDL",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "serum-electrolytes",
+      "name": "Serum Electrolytes",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "sodium",
+      "name": "sodium",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "potasium",
+      "name": "potasium",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "chloride",
+      "name": "chloride",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "calcium",
+      "name": "Calcium",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "phosphate",
+      "name": "Phosphate",
+      "category": "Routine Chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "glucose-fasting",
+      "name": "Glucose Fasting",
+      "category": "Glucose profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "gtt",
+      "name": "GTT",
+      "category": "Glucose profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "glucose-random",
+      "name": "Glucose Random",
+      "category": "Glucose profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hbaic",
+      "name": "HBAic",
+      "category": "Glucose profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "crp",
+      "name": "CRP",
+      "category": "Other",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "ra-factor",
+      "name": "RA Factor",
+      "category": "Other",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "amylase",
+      "name": "Amylase",
+      "category": "Other",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "anti-hcv",
+      "name": "Anti HCV",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hbsag",
+      "name": "HBsAg",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hiv-by-elisa",
+      "name": "HIV by Elisa",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "vdrl-syphilis",
+      "name": "VDRL Syphilis",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "screening-profile-anti-hcv-hbsag",
+      "name": "Screening Profile(Anti HCV,HBsAg)",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "thyroid-profile",
+      "name": "Thyroid Profile",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "t3",
+      "name": "T3",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "t4",
+      "name": "T4",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "fertility-profile",
+      "name": "Fertility Profile",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "tsh",
+      "name": "TSH",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "fsh",
+      "name": "FSH",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "lh",
+      "name": "LH",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "prolactin",
+      "name": "Prolactin",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "beta-hcg",
+      "name": "Beta Hcg",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "vitamin-d",
+      "name": "Vitamin D",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "pth",
+      "name": "PTH",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "trop-i",
+      "name": "Trop i",
+      "category": "Special chemistry",
+      "reportingTime": "24 Hrs",
+      "specimen": "Serum (clotted vial)",
+      "isOutsourced": false
+    },
+    {
+      "slug": "stool-c-e",
+      "name": "Stool C/E",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "Stool",
+      "isOutsourced": false
+    },
+    {
+      "slug": "semen-examination",
+      "name": "Semen examination",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "Semen",
+      "isOutsourced": false
+    },
+    {
+      "slug": "urine-complete-examination",
+      "name": "Urine complete examination",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "Urine",
+      "isOutsourced": false
+    },
+    {
+      "slug": "stool-occult-blood",
+      "name": "Stool occult blood",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "Stool",
+      "isOutsourced": false
+    },
+    {
+      "slug": "upt",
+      "name": "UPT",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "Urine",
+      "isOutsourced": false
+    },
+    {
+      "slug": "h-pylori-stool-antigen",
+      "name": "H pylori stool Antigen",
+      "category": "Microbiology",
+      "reportingTime": "24 Hrs",
+      "specimen": "stool",
+      "isOutsourced": false
+    },
+    {
+      "slug": "urine-for-c-s",
+      "name": "Urine for C/S",
+      "category": "Microbiology",
+      "reportingTime": "72 Hrs",
+      "specimen": "Urine",
+      "isOutsourced": false
+    },
+    {
+      "slug": "pus-for-c-s",
+      "name": "PUS for C/S",
+      "category": "Microbiology",
+      "reportingTime": "72 Hrs",
+      "specimen": "Swab/Syringe",
+      "isOutsourced": false
+    },
+    {
+      "slug": "stool-for-c-s",
+      "name": "Stool for c/s",
+      "category": "Microbiology",
+      "reportingTime": "72 Hrs",
+      "specimen": "stool",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hvs-for-c-s",
+      "name": "hvs for c/s",
+      "category": "Microbiology",
+      "reportingTime": "72 Hrs",
+      "specimen": "HVS Swab",
+      "isOutsourced": false
+    },
+    {
+      "slug": "specimen-for-c-s",
+      "name": "Specimen For c/s",
+      "category": "Microbiology",
+      "reportingTime": "72 Hrs",
+      "specimen": "Any specimen",
+      "isOutsourced": false
+    },
+    {
+      "slug": "cbc",
+      "name": "CBC",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "hb",
+      "name": "HB",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "dlc",
+      "name": "DLC",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "tlc",
+      "name": "TLC",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "platelet-count",
+      "name": "Platelet count",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "cbc-for-dengue",
+      "name": "cbc for dengue",
+      "category": "Hematology",
+      "reportingTime": "2 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "peripheral-smear",
+      "name": "Peripheral smear",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "reticulocyte-count-retic-count",
+      "name": "Reticulocyte count(Retic count)",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "mp",
+      "name": "MP",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "esr",
+      "name": "ESR",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "blood-grouping",
+      "name": "Blood grouping",
+      "category": "Hematology",
+      "reportingTime": "24 Hrs",
+      "specimen": "EDTA blood sample",
+      "isOutsourced": false
+    },
+    {
+      "slug": "aptt",
+      "name": "APTT",
+      "category": "Coagulation profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "Sodium citrate blood",
+      "isOutsourced": false
+    },
+    {
+      "slug": "pt",
+      "name": "PT",
+      "category": "Coagulation profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "Sodium citrate blood",
+      "isOutsourced": false
+    },
+    {
+      "slug": "bleeding-time",
+      "name": "Bleeding time",
+      "category": "Coagulation profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "",
+      "isOutsourced": false
+    },
+    {
+      "slug": "clotting-time",
+      "name": "Clotting time",
+      "category": "Coagulation profile",
+      "reportingTime": "24 Hrs",
+      "specimen": "",
+      "isOutsourced": false
+    },
+    {
+      "slug": "cbc-for-dengue",
+      "name": "Cbc for Dengue",
+      "category": "Dengue",
+      "reportingTime": "8 hours",
+      "specimen": "",
+      "isOutsourced": false
+    },
+    {
+      "slug": "dengune-ns-1-antigen",
+      "name": "Dengune Ns 1 antigen",
+      "category": "Dengue",
+      "reportingTime": "24 Hours",
+      "specimen": "",
+      "isOutsourced": true
+    },
+    {
+      "slug": "dengue-igg",
+      "name": "Dengue IgG",
+      "category": "Dengue",
+      "reportingTime": "24 Hours",
+      "specimen": "",
+      "isOutsourced": true
+    },
+    {
+      "slug": "dengue-igm",
+      "name": "Dengue IgM",
+      "category": "Dengue",
+      "reportingTime": "24 Hours",
+      "specimen": "",
+      "isOutsourced": true
+    }
+  ]
+}

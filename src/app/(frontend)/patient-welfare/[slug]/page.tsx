@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { DetailPageTemplate } from '@/components/templates/DetailPageTemplate'
-import { getPatientCare, getPatientCarePages } from '@/lib/content/loaders'
+import { getPatientWelfare, getPatientWelfarePages } from '@/lib/content/loaders'
 
 type Args = {
   params: Promise<{
@@ -13,12 +13,12 @@ type Args = {
 }
 
 export async function generateStaticParams() {
-  return getPatientCarePages().map(({ slug }) => ({ slug }))
+  return getPatientWelfarePages().map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
-  const page = getPatientCare(slug)
+  const page = getPatientWelfare(slug)
 
   if (!page) {
     return { title: 'Page Not Found' }
@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   }
 }
 
-export default async function PatientCarePage({ params }: Args) {
+export default async function PatientWelfarePage({ params }: Args) {
   const { slug } = await params
-  const page = getPatientCare(slug)
+  const page = getPatientWelfare(slug)
 
   if (!page) {
     notFound()
@@ -51,10 +51,10 @@ export default async function PatientCarePage({ params }: Args) {
             <li className="text-dark-gray/40">/</li>
             <li>
               <Link
-                href="/patient-care"
+                href="/patient-welfare"
                 className="text-primary-blue hover:text-primary-red transition-colors"
               >
-                Patient Care
+                Patient Welfare
               </Link>
             </li>
             <li className="text-dark-gray/40">/</li>
