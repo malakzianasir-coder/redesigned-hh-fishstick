@@ -1,0 +1,991 @@
+<!doctype html>
+<!--
+  HIJAZ HOSPITAL — SVG ILLUSTRATION SYSTEM v1 (static mockup)
+  ───────────────────────────────────────────────────────────
+  Purpose: a config-driven illustration engine for heroes & section art.
+  Every illustration is pure JSON (CMS-friendly) → rendered by renderIllustration(cfg).
+
+  CMS mapping (Payload):
+    scene      → select  ('emblem' | 'rack' | 'vitals')
+    theme      → select  (preset token, keeps brand consistency)
+    accent     → text    (optional hex override of theme accent)
+    emblem     → group   { icon, weight, shape, anim, sizePct, tone }
+    satellites → array   { icon, weight, x, y, sizePct, anim, delay, tone } (max 4)
+    decor      → group   { dots, blobs, ring, particles }
+    motion     → select  ('auto' | 'off')  — a11y / performance switch
+
+  Icons: Phosphor web font (@phosphor-icons/web@2). CMS stores only the icon
+  NAME string (e.g. "heartbeat") + weight ("duotone"). Renderer maps to <i class>.
+
+  Scenes: 'emblem' is fully compositional (works for ANY department with zero
+  design work). 'rack' / 'vitals' are registered bespoke scenes a content editor
+  can pick from a dropdown; they still honour theme + satellites + decor.
+
+  Everything in this file is framework-free — the same cfg JSON + markup maps
+  1:1 onto a React component (see CMS Spec section at the bottom).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Illustration System | Hijaz Hospital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <!-- Phosphor icons: regular / bold / fill / duotone -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441', 'primary-red': '#E30016', 'dark-gray': '#6B7183',
+            'light-blue': '#144CD9', whitebg: '#F8F8F9', cardbg: '#F4F4F4',
+          },
+          fontSize: {
+            h1: '42px', h2: '34px', h3: '30px', h4: '28px',
+            b18: '18px', b16: '16px', b14: '14px', b12: '12px',
+            h1M: '32px', h3M: '24px', h4M: '22px',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
+    h1, h2, h3, .font-serif { font-family: 'Libre Baskerville', Georgia, serif; }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 10px 24px; border-radius: 36px;
+      border: 1px solid #1B2441; color: #1B2441; font-weight: 700; font-size: 16px;
+      box-shadow: inset 0 -8px 0 0 #E30016; transition: all .3s; text-decoration: none;
+    }
+    .btn-outline:hover { color: #fff; box-shadow: inset 0 -100px 0 0 #E30016; }
+    .btn-red {
+      display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px;
+      border-radius: 36px; background: #E30016; color: #fff; font-weight: 700;
+      font-size: 16px; text-decoration: none;
+    }
+    section { scroll-margin-top: 90px; }
+
+    /* ════════════════════════════════════════════════════════════════
+       ILLUSTRATION ENGINE — this <style> block + renderIllustration()
+       is the whole runtime. Lift both into the frontend as-is.
+       ════════════════════════════════════════════════════════════════ */
+    .illus {
+      --from: #DCEBFF; --to: #F4F9FF; --accent: #144CD9; --soft: #BBD5FF; --deep: #1B2441;
+      position: relative; width: 100%; border-radius: 28px; overflow: hidden;
+      container-type: inline-size; isolation: isolate;
+      box-shadow: 0 24px 60px -24px rgba(27, 36, 65, .28);
+    }
+    .illus-ratio-43  { aspect-ratio: 4 / 3; }
+    .illus-ratio-169 { aspect-ratio: 16 / 9; }
+    .illus-ratio-11  { aspect-ratio: 1 / 1; }
+    .illus-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+
+    /* center stage */
+    .illus-stage { position: absolute; inset: 0; display: grid; place-items: center; z-index: 1; }
+    .illus-emblem {
+      position: relative; display: grid; place-items: center;
+      width: calc(var(--es, 34) * 1cqw); aspect-ratio: 1;
+      background: rgba(255,255,255,.88); border: 2px solid rgba(255,255,255,.95);
+      box-shadow: 0 18px 40px -14px rgba(27,36,65,.35);
+      color: var(--tone-c, var(--accent));
+    }
+    .illus-emblem i { font-size: calc(var(--es, 34) * .52 * 1cqw); line-height: 1; }
+    .shape-circle { border-radius: 50%; }
+    .shape-blob   { border-radius: 46% 54% 55% 45% / 48% 45% 55% 52%; }
+    .shape-square { border-radius: 22%; }
+    .shape-hex    { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }
+    .illus-ring {
+      position: absolute; inset: -9cqw; z-index: -1; border-radius: 50%;
+      border: 2px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+
+    /* satellite chips */
+    .illus-chip {
+      position: absolute; display: grid; place-items: center;
+      width: calc(var(--ss, 13) * 1cqw); aspect-ratio: 1; border-radius: 26%;
+      background: #fff; box-shadow: 0 10px 26px -10px rgba(27,36,65,.35);
+      color: var(--tone-c, var(--accent)); z-index: 2;
+    }
+    .illus-chip i { font-size: calc(var(--ss, 13) * .56 * 1cqw); line-height: 1; }
+
+    /* particles */
+    .illus-dot { position: absolute; border-radius: 50%; z-index: 1; }
+    .illus-plus { position: absolute; z-index: 1; font-weight: 800; line-height: 1; font-family: 'Open Sans', sans-serif; }
+
+    /* ── bespoke scene: vitals monitor ─────────────────────────────── */
+    .vital-card {
+      width: 64cqw; border-radius: 5cqw; background: rgba(255,255,255,.92);
+      border: 2px solid rgba(255,255,255,.95); box-shadow: 0 22px 48px -18px rgba(27,36,65,.4);
+      padding: 4.5cqw;
+    }
+    .vital-top { display: flex; align-items: center; gap: 2.6cqw; margin-bottom: 3cqw; }
+    .vital-top > i { font-size: 8cqw; color: var(--accent); }
+    .vital-num { font-size: 8.5cqw; font-weight: 800; color: var(--deep); line-height: 1; }
+    .vital-num small { font-size: 2.6cqw; font-weight: 700; color: var(--deep); opacity: .55; margin-left: 1cqw; }
+    .vital-tag {
+      margin-left: auto; font-size: 2.2cqw; font-weight: 800; letter-spacing: .12em;
+      color: #fff; background: var(--accent); border-radius: 999px; padding: 1.1cqw 2.6cqw;
+    }
+    .vital-ecg { width: 100%; height: auto; display: block; }
+    .vital-ecg polyline {
+      fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 460; animation: illusEcg 3.2s linear infinite;
+    }
+    .vital-strip { display: flex; gap: 1.4cqw; margin-top: 3cqw; }
+    .vital-strip span { height: 1.6cqw; border-radius: 999px; background: var(--soft); flex: 1; }
+    .vital-strip span:first-child { background: var(--accent); flex: .6; }
+
+    /* ── bespoke scene: test-tube rack ─────────────────────────────── */
+    .rack-svg { width: 74cqw; height: auto; display: block; overflow: visible; }
+    .rack-bubble { animation: illusRise var(--dur, 2.6s) ease-in var(--d, 0s) infinite; opacity: 0; }
+
+    /* ── animation library (CMS 'anim' select maps to these classes) ── */
+    @keyframes illusFloat   { 0%,100% { transform: translateY(0); }      50% { transform: translateY(-9%); } }
+    @keyframes illusBob     { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-5%) scale(1.03); } }
+    @keyframes illusPulse   { 0%,100% { transform: scale(1); } 14% { transform: scale(1.1); } 28% { transform: scale(1); } 42% { transform: scale(1.07); } 56% { transform: scale(1); } }
+    @keyframes illusBreathe { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: .94; } }
+    @keyframes illusDrift   { 0%,100% { transform: translate(0,0); } 33% { transform: translate(6%, -8%); } 66% { transform: translate(-5%, 4%); } }
+    @keyframes illusSway    { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+    @keyframes illusSpin    { to { transform: rotate(360deg); } }
+    @keyframes illusEcg     { 0% { stroke-dashoffset: 460; } 100% { stroke-dashoffset: -460; } }
+    @keyframes illusRise    { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-34px); opacity: 0; } }
+    .anim-none    { animation: none !important; }
+    .anim-float   { animation: illusFloat   var(--dur, 5s)   ease-in-out var(--d, 0s) infinite; }
+    .anim-bob     { animation: illusBob     var(--dur, 4s)   ease-in-out var(--d, 0s) infinite; }
+    .anim-pulse   { animation: illusPulse   var(--dur, 1.8s) ease-in-out var(--d, 0s) infinite; }
+    .anim-breathe { animation: illusBreathe var(--dur, 4.5s) ease-in-out var(--d, 0s) infinite; }
+    .anim-drift   { animation: illusDrift   var(--dur, 7s)   ease-in-out var(--d, 0s) infinite; }
+    .anim-sway    { animation: illusSway    var(--dur, 4s)   ease-in-out var(--d, 0s) infinite; }
+    .anim-spin    { animation: illusSpin    var(--dur, 36s)  linear      var(--d, 0s) infinite; }
+
+    /* motion kill-switch (CMS 'motion' field + prefers-reduced-motion) */
+    body.no-anim .illus *, .illus[data-motion="off"] * { animation-play-state: paused !important; }
+    @media (prefers-reduced-motion: reduce) { .illus * { animation: none !important; } }
+
+    /* anatomy labels */
+    .anat-tag {
+      position: absolute; z-index: 5; font-size: 11px; font-weight: 800; letter-spacing: .06em;
+      background: #1B2441; color: #fff; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+    }
+    .anat-tag::after {
+      content: ''; position: absolute; left: 50%; top: 100%; width: 2px; height: var(--ln, 26px);
+      border-left: 2px dashed #1B2441; transform: translateX(-50%);
+    }
+    .anat-tag.below::after { top: auto; bottom: 100%; }
+
+    /* playground */
+    .pg-field label { display: block; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #6B7183; margin-bottom: 4px; }
+    .pg-field select, .pg-field input[type="number"], .pg-field input[type="text"] {
+      width: 100%; border: 1px solid #d6dae4; border-radius: 10px; padding: 8px 10px;
+      font-size: 14px; color: #1B2441; background: #fff;
+    }
+    .pg-field input[type="range"] { width: 100%; accent-color: #E30016; }
+    .pg-field input[type="color"] { width: 100%; height: 36px; border: 1px solid #d6dae4; border-radius: 10px; background: #fff; padding: 2px; }
+    .pg-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #1B2441; }
+    .pg-chip input { accent-color: #E30016; }
+    pre.json-out {
+      background: #0f1730; color: #b8e0ff; border-radius: 16px; padding: 18px;
+      font-size: 12.5px; line-height: 1.6; overflow: auto; max-height: 420px;
+      font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+    }
+    .code-sample {
+      background: #0f1730; color: #d7e6ff; border-radius: 16px; padding: 22px;
+      font-size: 13px; line-height: 1.65; overflow: auto;
+      font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; white-space: pre;
+    }
+    .icon-swatch { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: #fff; box-shadow: 0 4px 12px -4px rgba(27,36,65,.25); font-size: 19px; }
+  </style>
+</head>
+<body class="bg-whitebg text-primary-blue antialiased">
+
+  <!-- ══════════ NAV ══════════ -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+    <div class="container lg:px-[30px] px-[20px] flex items-center gap-6 h-[64px]">
+      <a href="#top" class="flex items-center gap-2 font-serif font-bold text-[18px]">
+        <span class="icon-swatch !bg-primary-red !text-white"><i class="ph-duotone ph-palette"></i></span>
+        Illustration System <span class="text-primary-red">v1</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-5 text-b14 font-bold ml-auto">
+        <a class="hover:text-primary-red" href="#hero-demo">Hero demo</a>
+        <a class="hover:text-primary-red" href="#anatomy">Anatomy</a>
+        <a class="hover:text-primary-red" href="#gallery">Department gallery</a>
+        <a class="hover:text-primary-red" href="#playground">Playground</a>
+        <a class="hover:text-primary-red" href="#cms-spec">CMS spec</a>
+      </nav>
+      <button id="motionToggle" class="ml-auto md:ml-0 text-b12 font-bold border border-primary-blue rounded-full px-4 py-2 hover:bg-primary-blue hover:text-white transition-colors">
+        Motion: ON
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════ HERO DEMO (Lab Tests — mirrors current hero) ══════════ -->
+  <section id="hero-demo" class="container lg:px-[30px] px-[20px] lg:pt-[70px] pt-[40px] lg:pb-[40px] pb-[24px]">
+    <p class="text-b12 font-bold tracking-[0.22em] text-primary-red mb-3">01 — HERO DEMO · SCENE "RACK"</p>
+    <div class="grid lg:grid-cols-2 gap-[40px] items-center">
+      <div>
+        <p class="text-b14 font-bold tracking-[0.2em] text-light-blue mb-4">DIAGNOSTICS</p>
+        <h1 class="text-h1M lg:text-h1 mb-5">Lab Tests</h1>
+        <p class="text-b16 text-dark-gray leading-[170%] mb-8 max-w-[46ch]">
+          Accurate, timely and affordable diagnostic testing — from routine blood work
+          to specialised pathology, processed in our ISO-certified laboratory.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#gallery" class="btn-red">Find a test</a>
+          <a href="#playground" class="btn-outline">Contact the lab</a>
+        </div>
+        <details class="mt-8 text-b14">
+          <summary class="cursor-pointer font-bold text-light-blue">View the JSON that renders this illustration →</summary>
+          <pre id="heroCfg" class="json-out mt-4"></pre>
+        </details>
+      </div>
+      <div id="heroIllus"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ ANATOMY ══════════ -->
+  <section id="anatomy" class="container lg:px-[30px] px-[20px] lg:py-[60px] py-[36px]">
+    <p class="text-b12 font-bold tracking-[0.22em] text-primary-red mb-3">02 — SYSTEM ANATOMY</p>
+    <h2 class="text-h3M lg:text-h2 mb-4">One recipe, five ingredients</h2>
+    <p class="text-b16 text-dark-gray max-w-[70ch] leading-[170%] mb-10">
+      Every illustration is the same composable stack. Content editors only pick
+      <b>names from dropdowns</b> — icon, theme, animation — and the renderer assembles the scene.
+      No designer needed for a new department page.
+    </p>
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-[40px] items-start">
+      <div class="relative">
+        <div id="anatomyIllus"></div>
+        <span class="anat-tag" style="left:6%;top:6%">1 · THEME BACKDROP</span>
+        <span class="anat-tag" style="left:50%;top:-14px;transform:translateX(-50%);--ln:40px">2 · EMBLEM (icon + shape + anim)</span>
+        <span class="anat-tag below" style="right:4%;top:14%;--ln:22px">3 · SATELLITE CHIP</span>
+        <span class="anat-tag below" style="left:12%;bottom:16%;--ln:18px">4 · PARTICLES</span>
+        <span class="anat-tag" style="right:6%;bottom:-14px;--ln:30px">5 · DASHED RING</span>
+      </div>
+      <div class="space-y-5">
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <h3 class="text-b16 font-bold mb-1 flex items-center gap-3"><span class="text-primary-red font-serif">1</span> Theme backdrop <code class="text-b12 bg-cardbg rounded px-2 py-0.5">theme</code></h3>
+          <p class="text-b14 text-dark-gray">Gradient pair + accent + soft tint + ink colour, chosen from 12 brand presets. Dot grid and soft blobs toggle via <code>decor</code>.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <h3 class="text-b16 font-bold mb-1 flex items-center gap-3"><span class="text-primary-red font-serif">2</span> Emblem <code class="text-b12 bg-cardbg rounded px-2 py-0.5">emblem.{icon, shape, anim}</code></h3>
+          <p class="text-b14 text-dark-gray">The hero Phosphor icon on a disc — circle, blob, squircle or hex — with its own animation (e.g. <b>pulse</b> for cardiology).</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <h3 class="text-b16 font-bold mb-1 flex items-center gap-3"><span class="text-primary-red font-serif">3</span> Satellite chips <code class="text-b12 bg-cardbg rounded px-2 py-0.5">satellites[]</code></h3>
+          <p class="text-b14 text-dark-gray">Up to 4 floating white chips with secondary icons. Position is <b>x/y percent</b> so scenes stay composed at any viewport.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <h3 class="text-b16 font-bold mb-1 flex items-center gap-3"><span class="text-primary-red font-serif">4</span> Particles &amp; ring <code class="text-b12 bg-cardbg rounded px-2 py-0.5">decor</code></h3>
+          <p class="text-b14 text-dark-gray">Ambient dots and plus-marks (deterministic — same config, same layout, every render) plus an optional slowly-spinning dashed ring.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <h3 class="text-b16 font-bold mb-1 flex items-center gap-3"><span class="text-primary-red font-serif">5</span> Animations <code class="text-b12 bg-cardbg rounded px-2 py-0.5">anim</code></h3>
+          <p class="text-b14 text-dark-gray flex flex-wrap gap-2">
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">float</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">bob</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">pulse</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">breathe</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">drift</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">sway</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">spin</span>
+            <span class="bg-cardbg rounded-full px-3 py-1 font-bold text-b12">none</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ GALLERY ══════════ -->
+  <section id="gallery" class="container lg:px-[30px] px-[20px] lg:py-[60px] py-[36px]">
+    <p class="text-b12 font-bold tracking-[0.22em] text-primary-red mb-3">03 — DEPARTMENT GALLERY</p>
+    <h2 class="text-h3M lg:text-h2 mb-4">18 departments, zero custom artwork</h2>
+    <p class="text-b16 text-dark-gray max-w-[72ch] leading-[170%] mb-10">
+      Every card below is the <b>same engine</b> with a different JSON config — the exact configs
+      an editor would save in the CMS. Lab Tests and Cardiology use registered bespoke scenes
+      (<code>rack</code>, <code>vitals</code>); all others are pure <code>emblem</code> compositions.
+    </p>
+    <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-[28px]"></div>
+  </section>
+
+  <!-- ══════════ PLAYGROUND ══════════ -->
+  <section id="playground" class="container lg:px-[30px] px-[20px] lg:py-[60px] py-[36px]">
+    <p class="text-b12 font-bold tracking-[0.22em] text-primary-red mb-3">04 — PLAYGROUND (= CMS FIELDS, LIVE)</p>
+    <h2 class="text-h3M lg:text-h2 mb-4">Customise it like an editor would</h2>
+    <p class="text-b16 text-dark-gray max-w-[72ch] leading-[170%] mb-10">
+      Every control maps 1:1 to a Payload field. The JSON on the right is exactly what the CMS
+      would store — copy it into any gallery config to reproduce your scene.
+    </p>
+    <div class="grid lg:grid-cols-[380px_1fr] gap-[32px] items-start">
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-6 lg:sticky lg:top-[84px]">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="pg-field"><label>Scene</label>
+            <select id="pgScene">
+              <option value="emblem">Emblem (generic)</option>
+              <option value="rack">Test-tube rack</option>
+              <option value="vitals">Vitals monitor</option>
+            </select>
+          </div>
+          <div class="pg-field"><label>Theme preset</label>
+            <select id="pgTheme"></select>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="pg-field"><label>From</label><input type="color" id="pgFrom" value="#DCEBFF" /></div>
+          <div class="pg-field"><label>To</label><input type="color" id="pgTo" value="#F4F9FF" /></div>
+          <div class="pg-field"><label>Accent</label><input type="color" id="pgAccent" value="#144CD9" /></div>
+        </div>
+        <fieldset id="pgEmblemSet" class="border-t border-gray-100 pt-5 space-y-4">
+          <legend class="text-b12 font-bold tracking-[0.15em] text-primary-red uppercase px-1">Emblem</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="pg-field"><label>Icon</label><select id="pgIcon"></select></div>
+            <div class="pg-field"><label>Weight</label>
+              <select id="pgWeight">
+                <option value="duotone">duotone</option><option value="regular">regular</option>
+                <option value="bold">bold</option><option value="fill">fill</option>
+              </select>
+            </div>
+            <div class="pg-field"><label>Shape</label>
+              <select id="pgShape">
+                <option value="circle">circle</option><option value="blob">blob</option>
+                <option value="square">squircle</option><option value="hex">hex</option>
+              </select>
+            </div>
+            <div class="pg-field"><label>Animation</label>
+              <select id="pgEmblemAnim">
+                <option>float</option><option>bob</option><option selected>pulse</option>
+                <option>breathe</option><option>drift</option><option>sway</option><option>none</option>
+              </select>
+            </div>
+          </div>
+          <div class="pg-field"><label>Emblem size — <span id="pgESizeVal">34</span>%</label>
+            <input type="range" id="pgESize" min="24" max="48" value="34" />
+          </div>
+        </fieldset>
+        <fieldset class="border-t border-gray-100 pt-5 space-y-5">
+          <legend class="text-b12 font-bold tracking-[0.15em] text-primary-red uppercase px-1">Satellite chips</legend>
+          <div class="sat-row space-y-2" data-sat="0"></div>
+          <div class="sat-row space-y-2" data-sat="1"></div>
+          <div class="sat-row space-y-2" data-sat="2"></div>
+        </fieldset>
+        <fieldset class="border-t border-gray-100 pt-5">
+          <legend class="text-b12 font-bold tracking-[0.15em] text-primary-red uppercase px-1">Decor &amp; motion</legend>
+          <div class="flex flex-wrap gap-x-5 gap-y-3">
+            <label class="pg-chip"><input type="checkbox" id="pgDots" checked /> Dot grid</label>
+            <label class="pg-chip"><input type="checkbox" id="pgBlobs" checked /> Soft blobs</label>
+            <label class="pg-chip"><input type="checkbox" id="pgRing" checked /> Dashed ring</label>
+            <label class="pg-chip"><input type="checkbox" id="pgMotion" checked /> Motion</label>
+          </div>
+          <div class="pg-field mt-4"><label>Particles — <span id="pgParticlesVal">8</span></label>
+            <input type="range" id="pgParticles" min="0" max="14" value="8" />
+          </div>
+        </fieldset>
+      </div>
+      <div class="space-y-6">
+        <div class="max-w-[560px] mx-auto w-full" id="pgPreview"></div>
+        <div class="relative">
+          <button id="pgCopy" class="absolute right-3 top-3 z-10 text-b12 font-bold bg-white/10 hover:bg-white/20 text-white rounded-full px-4 py-1.5 transition-colors">Copy JSON</button>
+          <pre id="pgJson" class="json-out !max-h-[460px]"></pre>
+        </div>
+        <p class="text-b14 text-dark-gray">Saved to CMS → rendered by the same engine on the Next.js frontend. Icon = one select, animation = one select, theme = one select. That's the whole editor experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CMS SPEC ══════════ -->
+  <section id="cms-spec" class="container lg:px-[30px] px-[20px] lg:py-[60px] py-[36px]">
+    <p class="text-b12 font-bold tracking-[0.22em] text-primary-red mb-3">05 — CMS INTEGRATION SPEC</p>
+    <h2 class="text-h3M lg:text-h2 mb-4">From this mockup to Payload</h2>
+    <p class="text-b16 text-dark-gray max-w-[72ch] leading-[170%] mb-10">
+      Suggested implementation: an <code>illustration</code> group field added to the shared
+      <code>hero</code> config (or any block), plus one React component that mirrors
+      <code>renderIllustration()</code>. Editors never touch SVG or CSS.
+    </p>
+    <div class="grid lg:grid-cols-2 gap-[28px] items-start">
+      <div>
+        <h3 class="text-b16 font-bold mb-3">Payload field config <span class="text-dark-gray font-normal">— src/fields/illustration.ts</span></h3>
+        <div id="codeFields" class="code-sample"></div>
+      </div>
+      <div class="space-y-[28px]">
+        <div>
+          <h3 class="text-b16 font-bold mb-3">Frontend renderer sketch <span class="text-dark-gray font-normal">— components/Illustration/index.tsx</span></h3>
+          <div id="codeReact" class="code-sample"></div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-b16 font-bold mb-3">Ground rules</h3>
+          <ul class="text-b14 text-dark-gray space-y-2 list-disc list-inside marker:text-primary-red">
+            <li>CMS stores <b>strings and numbers only</b> — icon names, enum selects, x/y percents. Never raw SVG.</li>
+            <li>Icon options come from a curated allow-list (~54 icons below) so editors can't break brand consistency.</li>
+            <li>Themes are <b>presets</b>, not free colours — the optional accent hex override is the escape hatch.</li>
+            <li>Positions are percent-based and sizes use container query units (<code>cqw</code>) — one config renders correctly from 320px to 1440px.</li>
+            <li><code>motion: 'off'</code> and <code>prefers-reduced-motion</code> both freeze every animation.</li>
+            <li>New bespoke scenes (like <code>rack</code>) are dev-registered, then instantly selectable by editors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-[28px]">
+      <h3 class="text-b16 font-bold mb-3">Curated Phosphor allow-list (dropdown options in CMS)</h3>
+      <div id="iconIndex" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-wrap gap-x-6 gap-y-4"></div>
+    </div>
+  </section>
+
+  <footer class="container lg:px-[30px] px-[20px] py-[40px] text-b14 text-dark-gray border-t border-gray-200 mt-[20px]">
+    Hijaz Hospital — Illustration System v1 · engine: ~90 lines of CSS + one render function · icons: Phosphor 2.1 · ready to port into <code>src/components/Illustration</code>.
+  </footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   ENGINE — everything below renders JSON configs into illustrations.
+   Port target: src/components/Illustration/ (React) + illustration.css
+   ════════════════════════════════════════════════════════════════════ */
+
+/* 1 · Theme presets (CMS 'theme' select options) */
+const THEMES = {
+  sky:     { from: '#DCEBFF', to: '#F4F9FF', accent: '#144CD9', soft: '#BBD5FF', deep: '#1B2441' },
+  aqua:    { from: '#D8F4F2', to: '#F2FBFA', accent: '#0E9488', soft: '#A9E6E0', deep: '#123B3A' },
+  cyan:    { from: '#DDF4FB', to: '#F2FBFE', accent: '#0E8FB5', soft: '#B4E6F5', deep: '#0E3A4A' },
+  rose:    { from: '#FFE3E8', to: '#FFF5F6', accent: '#E30016', soft: '#FFC3CC', deep: '#4A1420' },
+  crimson: { from: '#FFE1E1', to: '#FFF4F4', accent: '#C01414', soft: '#FFB8B8', deep: '#401313' },
+  indigo:  { from: '#E2E6FF', to: '#F5F6FF', accent: '#4F46E5', soft: '#C6CCFF', deep: '#23234F' },
+  violet:  { from: '#EFE4FF', to: '#F9F5FF', accent: '#7C3AED', soft: '#DAC3FF', deep: '#331B54' },
+  pink:    { from: '#FFE4F1', to: '#FFF6FA', accent: '#DB2777', soft: '#FFC0DF', deep: '#4A1230' },
+  emerald: { from: '#DFF7E8', to: '#F4FBF6', accent: '#1E9E5A', soft: '#B8EBCB', deep: '#14392A' },
+  lime:    { from: '#E9F8DC', to: '#F7FCF1', accent: '#5FA80E', soft: '#D2F0B4', deep: '#253A0E' },
+  amber:   { from: '#FFF0D9', to: '#FFF9F0', accent: '#E08700', soft: '#FFDDA6', deep: '#4A2F0B' },
+  peach:   { from: '#FFE9DC', to: '#FFF6F0', accent: '#E2622B', soft: '#FFCFAE', deep: '#4A2412' },
+  sunny:   { from: '#FFF6D6', to: '#FFFCF0', accent: '#E2A100', soft: '#FFECA6', deep: '#4A360B' },
+  slate:   { from: '#E8ECF3', to: '#F6F8FB', accent: '#475569', soft: '#CBD5E1', deep: '#1B2441' },
+}
+
+/* 2 · Curated icon allow-list (CMS icon select options) */
+const ICONS = [
+  'ambulance','atom','baby','baby-carriage','balloon','band-aid','barbell','bed','bone',
+  'brain','cake','clipboard-text','coffee','dna','drop','ear','eye','eyeglasses',
+  'first-aid-kit','flask','fork-knife','gender-female','hand','hand-heart','heart','heartbeat',
+  'hospital','lightning','lungs','microscope','monitor','person-simple-walk','phone','pill',
+  'prescription','scan','siren','smiley','sparkle','speaker-high','stethoscope','storefront',
+  'sun','syringe','test-tube','thermometer','tooth','virus','waves','wheelchair',
+  'wheelchair-motion','wind','x-ray','user-plus',
+]
+
+/* 3 · Bespoke scene registry (dev-owned, editor-selectable) */
+let __uid = 0
+function sceneRack (t, uid) {
+  const liquids = [t.accent, '#7C6FF0', '#26B8C7', '#3B82F6', '#E30016']
+  const tubes = liquids.map((c, i) => {
+    const x = 58 + i * 42, top = 62 + (i % 2) * 8, h = 116, w = 24
+    const liqTop = top + 34 + ((i * 13) % 26), liqH = top + h - liqTop - 4
+    const bubbles = [0, 1].map(b =>
+      '<circle class="rack-bubble" cx="' + (x + 8 + b * 8) + '" cy="' + (liqTop + liqH - 6) + '" r="' + (2.4 + b) + '" fill="#fff" opacity=".8" style="--d:' + (i * 0.5 + b * 1.1).toFixed(1) + 's"/>'
+    ).join('')
+    return (
+      '<g transform="rotate(' + ((i - 2) * 2.4) + ' ' + (x + w / 2) + ' ' + (top + h) + ')">' +
+        '<path d="M' + (x + 3) + ' ' + liqTop + ' h' + (w - 6) + ' v' + liqH + ' a' + (w / 2 - 3) + ' ' + (w / 2 - 3) + ' 0 0 1 -' + (w - 6) + ' 0 z" fill="' + c + '"/>' +
+        bubbles +
+        '<path d="M' + x + ' ' + top + ' h' + w + ' v' + (h - 12) + ' a' + w / 2 + ' ' + w / 2 + ' 0 0 1 -' + w + ' 0 z" fill="rgba(255,255,255,.38)" stroke="' + t.deep + '" stroke-width="3"/>' +
+        '<line x1="' + (x + 5) + '" y1="' + (top + 10) + '" x2="' + (x + 5) + '" y2="' + (top + h - 26) + '" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>' +
+        '<rect x="' + (x - 3) + '" y="' + (top - 6) + '" width="' + (w + 6) + '" height="9" rx="4.5" fill="' + t.deep + '"/>' +
+      '</g>'
+    )
+  }).join('')
+  const floaters = [
+    { cx: 52, cy: 44, r: 7, d: 0 }, { cx: 262, cy: 40, r: 9, d: .8 },
+    { cx: 288, cy: 96, r: 5, d: 1.6 }, { cx: 34, cy: 110, r: 4, d: .4 },
+  ].map(b =>
+    '<circle class="anim-float" cx="' + b.cx + '" cy="' + b.cy + '" r="' + b.r + '" fill="#fff" stroke="' + t.soft + '" stroke-width="2.5" style="--d:' + b.d + 's;--dur:4.5s"/>'
+  ).join('')
+  return '<svg class="rack-svg" viewBox="0 0 320 212" fill="none" aria-hidden="true">' +
+    '<circle cx="160" cy="118" r="96" fill="#fff" opacity=".32"/>' + floaters + tubes +
+    '<rect x="40" y="180" width="240" height="15" rx="7.5" fill="' + t.deep + '"/>' +
+    '<rect x="52" y="195" width="14" height="12" rx="4" fill="' + t.deep + '"/>' +
+    '<rect x="254" y="195" width="14" height="12" rx="4" fill="' + t.deep + '"/>' +
+  '</svg>'
+}
+function sceneVitals (t) {
+  return '<div class="vital-card">' +
+    '<div class="vital-top"><i class="ph-duotone ph-heartbeat anim-pulse"></i>' +
+      '<div class="vital-num">72<small>bpm</small></div><div class="vital-tag">LIVE ECG</div></div>' +
+    '<svg class="vital-ecg" viewBox="0 0 220 60" aria-hidden="true"><polyline points="0,32 28,32 38,32 46,14 54,46 62,32 92,32 100,24 108,40 114,32 146,32 156,32 164,10 172,48 180,32 220,32"/></svg>' +
+    '<div class="vital-strip"><span></span><span></span><span></span><span></span><span></span></div>' +
+  '</div>'
+}
+const SCENES = { rack: sceneRack, vitals: sceneVitals }
+
+/* 4 · Deterministic pseudo-random (stable particles per config) */
+function mulberry32 (a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+/* 5 · The one render function — JSON in, illustration out */
+function renderIllustration (cfg) {
+  const uid = ++__uid
+  const base = THEMES[cfg.theme] || THEMES.sky
+  const t = { ...base, ...(cfg.accent ? { accent: cfg.accent } : {}),
+    ...(cfg.from ? { from: cfg.from } : {}), ...(cfg.to ? { to: cfg.to } : {}) }
+  const decor = { dots: true, blobs: true, ring: true, particles: 8, ...(cfg.decor || {}) }
+  const w = (weight) => weight === 'regular' ? 'ph' : 'ph-' + (weight || 'duotone')
+  const tone = (tn) => tn === 'white' ? '#fff' : tn === 'deep' ? t.deep : t.accent
+
+  /* backdrop svg */
+  const bg =
+    '<svg class="illus-bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<defs>' +
+        '<linearGradient id="lg' + uid + '" x1="0" y1="0" x2="1" y2="1">' +
+          '<stop offset="0" stop-color="' + t.from + '"/><stop offset="1" stop-color="' + t.to + '"/>' +
+        '</linearGradient>' +
+        '<pattern id="dp' + uid + '" width="20" height="20" patternUnits="userSpaceOnUse">' +
+          '<circle cx="2.5" cy="2.5" r="1.7" fill="' + t.deep + '" opacity="0.13"/>' +
+        '</pattern>' +
+      '</defs>' +
+      '<rect width="400" height="300" fill="url(#lg' + uid + ')"/>' +
+      (decor.blobs
+        ? '<circle cx="348" cy="16" r="132" fill="#ffffff" opacity="0.42"/>' +
+          '<circle cx="28" cy="302" r="112" fill="' + t.soft + '" opacity="0.5"/>' +
+          '<circle cx="398" cy="288" r="62" fill="' + t.accent + '" opacity="0.08"/>'
+        : '') +
+      (decor.dots ? '<rect width="400" height="300" fill="url(#dp' + uid + ')"/>' : '') +
+    '</svg>'
+
+  /* center stage */
+  let stage = ''
+  if (cfg.scene && SCENES[cfg.scene]) {
+    stage = SCENES[cfg.scene](t, uid)
+  } else {
+    const e = { icon: 'heartbeat', weight: 'duotone', shape: 'circle', anim: 'float', sizePct: 34, tone: 'accent', ...(cfg.emblem || {}) }
+    stage =
+      '<div class="illus-emblem shape-' + e.shape + ' anim-' + e.anim + '" style="--es:' + e.sizePct + ';--tone-c:' + tone(e.tone) + ';--d:' + (e.delay || 0) + 's">' +
+        (decor.ring ? '<span class="illus-ring anim-spin"></span>' : '') +
+        '<i class="' + w(e.weight) + ' ph-' + e.icon + '"></i>' +
+      '</div>'
+  }
+
+  /* satellite chips */
+  const chips = (cfg.satellites || []).slice(0, 4).map(s => {
+    const o = { weight: 'duotone', x: 14, y: 20, sizePct: 13, anim: 'float', delay: 0, tone: 'accent', ...s }
+    return '<div class="illus-chip anim-' + o.anim + '" style="left:' + o.x + '%;top:' + o.y + '%;--ss:' + o.sizePct + ';--tone-c:' + tone(o.tone) + ';--d:' + o.delay + 's">' +
+      '<i class="' + w(o.weight) + ' ph-' + o.icon + '"></i></div>'
+  }).join('')
+
+  /* particles — deterministic from config hash */
+  const seed = JSON.stringify(cfg).split('').reduce((a, c) => a + c.charCodeAt(0), 7)
+  const rnd = mulberry32(seed)
+  const cols = [t.accent, t.deep, t.soft, '#ffffff']
+  let particles = ''
+  for (let i = 0; i < (decor.particles || 0); i++) {
+    const x = Math.round(rnd() * 92 + 2), y = Math.round(rnd() * 88 + 4)
+    const c = cols[Math.floor(rnd() * cols.length)]
+    const anim = ['anim-float', 'anim-drift', 'anim-bob'][Math.floor(rnd() * 3)]
+    const d = (rnd() * 2.4).toFixed(1)
+    if (rnd() > 0.72) {
+      particles += '<span class="illus-plus ' + anim + '" style="left:' + x + '%;top:' + y + '%;font-size:' + Math.round(rnd() * 8 + 11) + 'px;color:' + c + ';opacity:.55;--d:' + d + 's">+</span>'
+    } else {
+      particles += '<span class="illus-dot ' + anim + '" style="left:' + x + '%;top:' + y + '%;width:' + Math.round(rnd() * 6 + 5) + 'px;height:' + Math.round(rnd() * 6 + 5) + 'px;background:' + c + ';opacity:.6;--d:' + d + 's"></span>'
+    }
+  }
+
+  const motion = cfg.motion === 'off' ? ' data-motion="off"' : ''
+  const ratio = 'illus-ratio-' + (cfg.ratio ? cfg.ratio.replace(':', '') : '43')
+  return '<div class="illus ' + ratio + '"' + motion +
+    ' style="--from:' + t.from + ';--to:' + t.to + ';--accent:' + t.accent + ';--soft:' + t.soft + ';--deep:' + t.deep + '" role="img" aria-label="' + (cfg.label || 'illustration') + '">' +
+    bg + particles + '<div class="illus-stage">' + stage + '</div>' + chips +
+  '</div>'
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CONTENT — the configs a CMS would store
+   ════════════════════════════════════════════════════════════════════ */
+
+const HERO_CFG = {
+  label: 'Laboratory test tubes', scene: 'rack', theme: 'sky', ratio: '4:3',
+  satellites: [
+    { icon: 'microscope', x: 8, y: 12, sizePct: 15, anim: 'float', delay: 0 },
+    { icon: 'flask', x: 82, y: 8, sizePct: 13, anim: 'drift', delay: .6 },
+    { icon: 'drop', x: 78, y: 66, sizePct: 12, anim: 'bob', delay: 1.1, tone: 'accent' },
+  ],
+  decor: { dots: true, blobs: true, ring: false, particles: 10 },
+}
+
+const GALLERY = [
+  { name: 'Lab Tests', cfg: HERO_CFG },
+  { name: 'Cardiology', cfg: {
+    scene: 'vitals', theme: 'rose',
+    satellites: [
+      { icon: 'stethoscope', x: 9, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'heart', x: 81, y: 10, sizePct: 12, anim: 'pulse', delay: .4, weight: 'fill' },
+      { icon: 'clipboard-text', x: 80, y: 68, sizePct: 13, anim: 'drift', delay: .9 },
+    ],
+    decor: { particles: 9 },
+  }},
+  { name: 'Pulmonology', cfg: {
+    theme: 'aqua',
+    emblem: { icon: 'lungs', anim: 'breathe' },
+    satellites: [
+      { icon: 'wind', x: 10, y: 16, sizePct: 14, anim: 'drift' },
+      { icon: 'thermometer', x: 80, y: 12, sizePct: 12, anim: 'float', delay: .5 },
+      { icon: 'pill', x: 79, y: 68, sizePct: 13, anim: 'bob', delay: 1 },
+    ],
+  }},
+  { name: 'Radiology & Imaging', cfg: {
+    theme: 'indigo',
+    emblem: { icon: 'x-ray', anim: 'float' },
+    satellites: [
+      { icon: 'scan', x: 9, y: 14, sizePct: 14, anim: 'spin', delay: 0 },
+      { icon: 'monitor', x: 81, y: 12, sizePct: 13, anim: 'float', delay: .5 },
+      { icon: 'waves', x: 79, y: 66, sizePct: 12, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Pharmacy', cfg: {
+    theme: 'emerald',
+    emblem: { icon: 'pill', anim: 'sway' },
+    satellites: [
+      { icon: 'prescription', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'first-aid-kit', x: 80, y: 12, sizePct: 13, anim: 'bob', delay: .6 },
+      { icon: 'storefront', x: 78, y: 66, sizePct: 13, anim: 'drift', delay: 1.1 },
+    ],
+  }},
+  { name: 'Hospital Café', cfg: {
+    theme: 'amber',
+    emblem: { icon: 'coffee', anim: 'sway' },
+    satellites: [
+      { icon: 'fork-knife', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'cake', x: 81, y: 12, sizePct: 13, anim: 'bob', delay: .5 },
+      { icon: 'storefront', x: 79, y: 68, sizePct: 12, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Dental Care', cfg: {
+    theme: 'cyan',
+    emblem: { icon: 'tooth', anim: 'float' },
+    satellites: [
+      { icon: 'sparkle', x: 12, y: 14, sizePct: 12, anim: 'bob' },
+      { icon: 'syringe', x: 80, y: 12, sizePct: 13, anim: 'float', delay: .5 },
+      { icon: 'clipboard-text', x: 79, y: 68, sizePct: 13, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Eye Centre', cfg: {
+    theme: 'sky',
+    emblem: { icon: 'eye', anim: 'breathe' },
+    satellites: [
+      { icon: 'eyeglasses', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'drop', x: 81, y: 12, sizePct: 12, anim: 'bob', delay: .5 },
+      { icon: 'sun', x: 79, y: 66, sizePct: 13, anim: 'spin', delay: 0 },
+    ],
+  }},
+  { name: 'Orthopedics', cfg: {
+    theme: 'slate', accent: '#E2622B',
+    emblem: { icon: 'bone', anim: 'sway' },
+    satellites: [
+      { icon: 'wheelchair', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'band-aid', x: 81, y: 12, sizePct: 13, anim: 'bob', delay: .5 },
+      { icon: 'person-simple-walk', x: 79, y: 66, sizePct: 13, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Pediatrics', cfg: {
+    theme: 'sunny',
+    emblem: { icon: 'baby', shape: 'blob', anim: 'bob' },
+    satellites: [
+      { icon: 'balloon', x: 10, y: 12, sizePct: 13, anim: 'float' },
+      { icon: 'smiley', x: 81, y: 14, sizePct: 13, anim: 'sway', delay: .5 },
+      { icon: 'baby-carriage', x: 78, y: 66, sizePct: 14, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Mother & Child', cfg: {
+    theme: 'pink',
+    emblem: { icon: 'gender-female', anim: 'breathe' },
+    satellites: [
+      { icon: 'heart', x: 11, y: 14, sizePct: 12, anim: 'pulse', weight: 'fill' },
+      { icon: 'baby', x: 81, y: 12, sizePct: 13, anim: 'bob', delay: .5 },
+      { icon: 'hand-heart', x: 79, y: 66, sizePct: 13, anim: 'float', delay: 1 },
+    ],
+  }},
+  { name: 'Neurology', cfg: {
+    theme: 'violet',
+    emblem: { icon: 'brain', anim: 'breathe' },
+    satellites: [
+      { icon: 'lightning', x: 10, y: 14, sizePct: 13, anim: 'bob' },
+      { icon: 'waves', x: 81, y: 12, sizePct: 13, anim: 'drift', delay: .5 },
+      { icon: 'atom', x: 79, y: 66, sizePct: 13, anim: 'spin', delay: 0 },
+    ],
+  }},
+  { name: 'Dermatology', cfg: {
+    theme: 'peach',
+    emblem: { icon: 'hand', anim: 'float' },
+    satellites: [
+      { icon: 'sun', x: 11, y: 13, sizePct: 13, anim: 'spin' },
+      { icon: 'drop', x: 81, y: 12, sizePct: 12, anim: 'bob', delay: .5 },
+      { icon: 'sparkle', x: 79, y: 66, sizePct: 12, anim: 'float', delay: 1 },
+    ],
+  }},
+  { name: 'ENT', cfg: {
+    theme: 'indigo', accent: '#7C3AED',
+    emblem: { icon: 'ear', anim: 'float' },
+    satellites: [
+      { icon: 'speaker-high', x: 10, y: 14, sizePct: 14, anim: 'bob' },
+      { icon: 'thermometer', x: 81, y: 12, sizePct: 12, anim: 'float', delay: .5 },
+      { icon: 'waves', x: 79, y: 66, sizePct: 13, anim: 'drift', delay: 1 },
+    ],
+  }},
+  { name: 'Physiotherapy & Rehab', cfg: {
+    theme: 'lime',
+    emblem: { icon: 'person-simple-walk', anim: 'drift' },
+    satellites: [
+      { icon: 'barbell', x: 10, y: 14, sizePct: 14, anim: 'sway' },
+      { icon: 'wheelchair-motion', x: 80, y: 12, sizePct: 13, anim: 'float', delay: .5 },
+      { icon: 'heartbeat', x: 79, y: 66, sizePct: 13, anim: 'pulse', delay: 1 },
+    ],
+  }},
+  { name: 'Emergency', cfg: {
+    theme: 'crimson',
+    emblem: { icon: 'ambulance', anim: 'drift', sizePct: 38 },
+    satellites: [
+      { icon: 'siren', x: 11, y: 13, sizePct: 13, anim: 'pulse', weight: 'fill' },
+      { icon: 'first-aid-kit', x: 81, y: 12, sizePct: 13, anim: 'float', delay: .5 },
+      { icon: 'phone', x: 79, y: 66, sizePct: 12, anim: 'sway', delay: 1 },
+    ],
+  }},
+  { name: 'Blood Bank', cfg: {
+    theme: 'rose', accent: '#C01414',
+    emblem: { icon: 'drop', shape: 'blob', anim: 'bob' },
+    satellites: [
+      { icon: 'hand-heart', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'flask', x: 81, y: 12, sizePct: 13, anim: 'drift', delay: .5 },
+      { icon: 'heartbeat', x: 79, y: 66, sizePct: 13, anim: 'pulse', delay: 1 },
+    ],
+  }},
+  { name: 'ICU & Critical Care', cfg: {
+    theme: 'slate', accent: '#144CD9',
+    emblem: { icon: 'bed', anim: 'breathe' },
+    satellites: [
+      { icon: 'monitor', x: 10, y: 14, sizePct: 14, anim: 'float' },
+      { icon: 'heartbeat', x: 81, y: 12, sizePct: 13, anim: 'pulse', delay: .5 },
+      { icon: 'syringe', x: 79, y: 66, sizePct: 12, anim: 'bob', delay: 1 },
+    ],
+  }},
+]
+
+/* ════════════════════════════════════════════════════════════════════
+   PAGE WIRING
+   ════════════════════════════════════════════════════════════════════ */
+
+/* hero demo + anatomy */
+document.getElementById('heroIllus').innerHTML = renderIllustration(HERO_CFG)
+document.getElementById('heroCfg').textContent = JSON.stringify(HERO_CFG, null, 2)
+document.getElementById('anatomyIllus').innerHTML = renderIllustration({
+  label: 'Anatomy of an illustration', theme: 'sky',
+  emblem: { icon: 'heartbeat', anim: 'pulse' },
+  satellites: [{ icon: 'stethoscope', x: 12, y: 14, sizePct: 14, anim: 'float' }],
+  decor: { particles: 10 },
+})
+
+/* gallery */
+document.getElementById('galleryGrid').innerHTML = GALLERY.map(d =>
+  '<figure class="group">' +
+    renderIllustration({ ...d.cfg, label: d.name }) +
+    '<figcaption class="flex items-center gap-2 mt-3 px-1">' +
+      '<span class="text-b16 font-bold">' + d.name + '</span>' +
+      '<span class="ml-auto text-[11px] font-bold uppercase tracking-wider text-dark-gray bg-cardbg rounded-full px-3 py-1">' + (d.cfg.scene || 'emblem') + '</span>' +
+      '<span class="text-[11px] font-bold uppercase tracking-wider text-dark-gray bg-cardbg rounded-full px-3 py-1">' + d.cfg.theme + '</span>' +
+    '</figcaption>' +
+  '</figure>'
+).join('')
+
+/* icon index */
+document.getElementById('iconIndex').innerHTML = ICONS.map(n =>
+  '<span class="flex items-center gap-2 text-b14"><span class="icon-swatch"><i class="ph-duotone ph-' + n + '"></i></span><code class="text-b12">' + n + '</code></span>'
+).join('')
+
+/* ── playground ── */
+const $ = (id) => document.getElementById(id)
+const iconOpts = ICONS.map(n => '<option value="' + n + '">' + n + '</option>').join('')
+$('pgIcon').innerHTML = iconOpts
+$('pgIcon').value = 'heartbeat'
+$('pgTheme').innerHTML = Object.keys(THEMES).map(k => '<option value="' + k + '">' + k + '</option>').join('')
+
+const ANIM_OPTS = ['float', 'bob', 'pulse', 'breathe', 'drift', 'sway', 'spin', 'none']
+const animOpts = ANIM_OPTS.map(a => '<option>' + a + '</option>').join('')
+const SAT_DEFAULTS = [
+  { icon: 'stethoscope', x: 10, y: 14, size: 14, anim: 'float', delay: 0, on: true },
+  { icon: 'heart', x: 80, y: 12, size: 13, anim: 'pulse', delay: .5, on: true },
+  { icon: 'clipboard-text', x: 79, y: 66, size: 13, anim: 'drift', delay: 1, on: false },
+]
+document.querySelectorAll('.sat-row').forEach((row, i) => {
+  const d = SAT_DEFAULTS[i]
+  row.innerHTML =
+    '<label class="pg-chip"><input type="checkbox" class="sat-on" ' + (d.on ? 'checked' : '') + ' /> Chip ' + (i + 1) + '</label>' +
+    '<div class="grid grid-cols-2 gap-3">' +
+      '<div class="pg-field"><select class="sat-icon">' + iconOpts + '</select></div>' +
+      '<div class="pg-field"><select class="sat-anim">' + animOpts + '</select></div>' +
+    '</div>' +
+    '<div class="grid grid-cols-4 gap-3 items-end">' +
+      '<div class="pg-field"><label>x <span class="sat-x-v">' + d.x + '</span>%</label><input type="range" class="sat-x" min="2" max="88" value="' + d.x + '"></div>' +
+      '<div class="pg-field"><label>y <span class="sat-y-v">' + d.y + '</span>%</label><input type="range" class="sat-y" min="2" max="80" value="' + d.y + '"></div>' +
+      '<div class="pg-field"><label>size <span class="sat-s-v">' + d.size + '</span></label><input type="range" class="sat-s" min="8" max="20" value="' + d.size + '"></div>' +
+      '<div class="pg-field"><label>delay <span class="sat-d-v">' + d.delay + '</span>s</label><input type="range" class="sat-d" min="0" max="2.5" step="0.1" value="' + d.delay + '"></div>' +
+    '</div>'
+  row.querySelector('.sat-icon').value = d.icon
+  row.querySelector('.sat-anim').value = d.anim
+})
+
+function readPlayground () {
+  const sats = [...document.querySelectorAll('.sat-row')].map(row => {
+    const q = (c) => row.querySelector(c)
+    q('.sat-x-v').textContent = q('.sat-x').value
+    q('.sat-y-v').textContent = q('.sat-y').value
+    q('.sat-s-v').textContent = q('.sat-s').value
+    q('.sat-d-v').textContent = q('.sat-d').value
+    if (!q('.sat-on').checked) return null
+    return {
+      icon: q('.sat-icon').value, x: +q('.sat-x').value, y: +q('.sat-y').value,
+      sizePct: +q('.sat-s').value, anim: q('.sat-anim').value, delay: +q('.sat-d').value,
+    }
+  }).filter(Boolean)
+  $('pgESizeVal').textContent = $('pgESize').value
+  $('pgParticlesVal').textContent = $('pgParticles').value
+  const scene = $('pgScene').value
+  const cfg = {
+    label: 'Playground illustration',
+    scene,
+    theme: $('pgTheme').value,
+    from: $('pgFrom').value, to: $('pgTo').value, accent: $('pgAccent').value,
+    satellites: sats,
+    decor: {
+      dots: $('pgDots').checked, blobs: $('pgBlobs').checked,
+      ring: scene === 'emblem' ? $('pgRing').checked : false,
+      particles: +$('pgParticles').value,
+    },
+    motion: $('pgMotion').checked ? 'auto' : 'off',
+  }
+  if (scene === 'emblem') {
+    cfg.emblem = {
+      icon: $('pgIcon').value, weight: $('pgWeight').value, shape: $('pgShape').value,
+      anim: $('pgEmblemAnim').value, sizePct: +$('pgESize').value,
+    }
+  }
+  return cfg
+}
+
+function syncThemeSwatches () {
+  const t = THEMES[$('pgTheme').value]
+  $('pgFrom').value = t.from; $('pgTo').value = t.to; $('pgAccent').value = t.accent
+}
+function renderPlayground () {
+  $('pgEmblemSet').style.opacity = $('pgScene').value === 'emblem' ? 1 : .45
+  const cfg = readPlayground()
+  $('pgPreview').innerHTML = renderIllustration(cfg)
+  $('pgJson').textContent = JSON.stringify(cfg, null, 2)
+}
+$('pgTheme').addEventListener('change', () => { syncThemeSwatches(); renderPlayground() })
+document.querySelectorAll('#playground select, #playground input').forEach(el => {
+  if (el.id !== 'pgTheme') el.addEventListener('input', renderPlayground)
+})
+$('pgCopy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText($('pgJson').textContent); $('pgCopy').textContent = 'Copied!' }
+  catch { $('pgCopy').textContent = 'Select + Ctrl+C' }
+  setTimeout(() => { $('pgCopy').textContent = 'Copy JSON' }, 1600)
+})
+renderPlayground()
+
+/* global motion toggle */
+$('motionToggle').addEventListener('click', () => {
+  const off = document.body.classList.toggle('no-anim')
+  $('motionToggle').textContent = off ? 'Motion: OFF' : 'Motion: ON'
+})
+
+/* ── CMS spec code samples (injected as text to avoid escaping) ── */
+$('codeFields').textContent =
+`import type { Field } from 'payload'
+import { PHOSPHOR_OPTIONS, ANIM_OPTIONS, THEME_OPTIONS } from './illustrationOptions'
+
+// Add to hero config or any block: { ...illustrationField }
+export const illustrationField: Field = {
+  name: 'illustration',
+  type: 'group',
+  fields: [
+    { name: 'scene', type: 'select', defaultValue: 'emblem',
+      options: ['emblem', 'rack', 'vitals'] },          // dev-registered scenes
+    { name: 'theme', type: 'select', required: true,
+      defaultValue: 'sky', options: THEME_OPTIONS },     // brand presets
+    { name: 'accent', type: 'text',                      // optional hex override
+      admin: { description: 'e.g. #E30016 — overrides theme accent' } },
+    {
+      name: 'emblem', type: 'group',
+      admin: { condition: (_, s) => s?.scene === 'emblem' },
+      fields: [
+        { name: 'icon', type: 'select', required: true,
+          options: PHOSPHOR_OPTIONS },                   // ~54 curated icons
+        { name: 'weight', type: 'select', defaultValue: 'duotone',
+          options: ['regular', 'bold', 'fill', 'duotone'] },
+        { name: 'shape', type: 'select', defaultValue: 'circle',
+          options: ['circle', 'blob', 'square', 'hex'] },
+        { name: 'anim', type: 'select', defaultValue: 'float',
+          options: ANIM_OPTIONS },
+        { name: 'sizePct', type: 'number', min: 24, max: 48, defaultValue: 34 },
+      ],
+    },
+    {
+      name: 'satellites', type: 'array', maxRows: 4,
+      fields: [
+        { name: 'icon', type: 'select', required: true, options: PHOSPHOR_OPTIONS },
+        { name: 'x', type: 'number', min: 0, max: 100, required: true }, // % from left
+        { name: 'y', type: 'number', min: 0, max: 100, required: true }, // % from top
+        { name: 'sizePct', type: 'number', min: 8, max: 22, defaultValue: 13 },
+        { name: 'anim', type: 'select', defaultValue: 'float', options: ANIM_OPTIONS },
+        { name: 'delay', type: 'number', min: 0, max: 3, defaultValue: 0 },
+        { name: 'tone', type: 'select', defaultValue: 'accent',
+          options: ['accent', 'deep', 'white'] },
+      ],
+    },
+    {
+      name: 'decor', type: 'group',
+      fields: [
+        { name: 'dots', type: 'checkbox', defaultValue: true },
+        { name: 'blobs', type: 'checkbox', defaultValue: true },
+        { name: 'ring', type: 'checkbox', defaultValue: true },
+        { name: 'particles', type: 'number', min: 0, max: 14, defaultValue: 8 },
+      ],
+    },
+    { name: 'motion', type: 'select', defaultValue: 'auto', options: ['auto', 'off'] },
+    { name: 'ratio', type: 'select', defaultValue: '4:3', options: ['4:3', '16:9', '1:1'] },
+  ],
+}`
+
+$('codeReact').textContent =
+`import { PHOSPHOR_ICONS } from './iconMap' // name -> Phosphor React component
+import './illustration.css'                 // the <style> block from this mockup
+
+export function Illustration({ cfg }: { cfg: IllustrationConfig }) {
+  const t = resolveTheme(cfg)               // preset + accent/from/to overrides
+  return (
+    <div className={\`illus illus-ratio-\${ratioKey(cfg.ratio)}\`}
+         data-motion={cfg.motion}
+         style={{ '--from': t.from, '--to': t.to, '--accent': t.accent,
+                  '--soft': t.soft, '--deep': t.deep } as CSSProperties}>
+      <Backdrop theme={t} decor={cfg.decor} />
+      <Particles theme={t} count={cfg.decor?.particles ?? 8} seed={cfg} />
+      <div className="illus-stage">
+        {cfg.scene && SCENES[cfg.scene]
+          ? SCENES[cfg.scene](t)                       // bespoke scene registry
+          : <Emblem cfg={cfg.emblem} theme={t} />}     // compositional default
+      </div>
+      {cfg.satellites?.map((s, i) => <Chip key={i} cfg={s} theme={t} />)}
+    </div>
+  )
+}
+
+// Icon rendering — CMS stored "heartbeat" + "duotone":
+const Icon = PHOSPHOR_ICONS[cfg.icon] ?? Heartbeat    // safe fallback
+<Icon size="52%" weight={cfg.weight} />               // @phosphor-icons/react`
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+[
+  {
+    "slug": "general-surgery",
+    "title": "General Surgery",
+    "category": "Surgery & Allied Specialties",
+    "categorySlug": "surgery-allied",
+    "description": "Comprehensive surgical care for elective and emergency procedures at Hijaz Hospital.",
+    "excerpt": "The General Surgery Department provides comprehensive surgical care supported by experienced surgeons, anesthetists, and modern operation theatre facilities.",
+    "hero": {
+      "kicker": "Surgery & Allied Specialties",
+      "title": "General Surgery",
+      "tagline": "Comprehensive Surgical Care",
+      "taglineVariant": "body",
+      "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/general-surgery-department-banner.webp",
+        "alt": "General Surgery at Hijaz Hospital"
+      },
+      "links": [
+        { "label": "View Our Services", "href": "#surgical-services", "variant": "primary" },
+        { "label": "Why Choose Us", "href": "#why-choose", "variant": "ghost" }
+      ]
+    },
+    "jumpLinks": [
+      { "label": "Overview", "href": "#overview" },
+      { "label": "Surgical Services", "href": "#surgical-services" },
+      { "label": "Why Choose", "href": "#why-choose" },
+      { "label": "Patient Stories", "href": "#patient-stories" }
+    ],
+    "sections": [
+      {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Overview",
+        "body": [
+          "Our team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery."
+        ],
+        "background": "white"
+      },
+      {
+        "type": "serviceGroups",
+        "id": "surgical-services",
+        "kicker": "Our Surgical Services",
+        "heading": "Our Surgical Services",
+        "intro": "The department performs a broad range of surgical procedures, including:",
+        "background": "muted",
+        "layout": "finder",
+        "groups": [
+          {
+            "slug": "general-surgery",
+            "icon": "knife",
+            "heading": "General Surgery",
+            "items": [
+              "Appendectomy",
+              "Herniotomy and Hernia Repair (including Mesh Repair)",
+              "Laparotomy",
+              "Splenectomy",
+              "Hemorrhoidectomy",
+              "Thyroidectomy/Excision athyro gland cyst",
+              "Excision of Breast Lumps",
+              "Drainage of Appendicular Abscess",
+              "Drainage of Liver Abscess",
+              "Excision of Lump",
+              "Modified Radical Mastectomy"
+            ]
+          },
+          {
+            "slug": "laparoscopic",
+            "icon": "scan",
+            "heading": "Minimally Invasive (Laparoscopic) Surgery",
+            "items": [
+              "Diagnostic and Therapeutic Laparoscopy",
+              "Laparoscopic Cholecystectomy",
+              "Lap Appendectomy",
+              "Lap Hernia Repair"
+            ]
+          },
+          {
+            "slug": "hepatobiliary",
+            "icon": "drop",
+            "heading": "Hepatobiliary & Gastrointestinal Surgery",
+            "items": [
+              "Open Cholecystectomy",
+              "Choledocholithotomy",
+              "Choledochoduodenostomy",
+              "Whipple Procedure (Pancreaticoduodenectomy)",
+              "Hydatid Cyst Excision"
+            ]
+          },
+          {
+            "slug": "colorectal",
+            "icon": "rows",
+            "heading": "Colorectal Surgery",
+            "items": [
+              "Fistula Surgery (Fistulotomy, pile, Fissure, pilonidal sinus both open& laser)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "kicker": "Why Choose",
+        "heading": "Why Choose Hijaz Hospital General Surgery?",
+        "background": "white",
+        "items": [
+          { "icon": "users-three", "text": "Experienced general surgeons and multidisciplinary surgical team" },
+          { "icon": "hospital", "text": "Modern operation theatres equipped for elective and emergency surgery" },
+          { "icon": "knife", "text": "Advanced laparoscopic (minimally invasive) surgical techniques" },
+          { "icon": "clipboard-text", "text": "Comprehensive preoperative and postoperative care" },
+          { "icon": "shield-check", "text": "Strict infection prevention and patient safety protocols" },
+          { "icon": "hand-coins", "text": "Affordable treatment with welfare support for eligible patients" }
+        ]
+      },
+      {
+        "type": "patientStories",
+        "id": "patient-stories",
+        "kicker": "Patient Stories",
+        "heading": "Patient Stories",
+        "intro": "Real recoveries from our surgical patients.",
+        "departmentName": "General Surgery",
+        "background": "muted"
+      },
+      {
+        "type": "cta",
+        "kicker": "Support Our Mission",
+        "heading": "Help Us Keep Surgical Care Within Reach for Every Patient",
+        "body": "Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.",
+        "button": { "label": "Donate Now", "href": "/donate" }
+      }
+    ]
+  }
+]

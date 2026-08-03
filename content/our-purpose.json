@@ -1,0 +1,280 @@
+{
+  "slug": "our-purpose",
+  "title": "Our Purpose",
+  "description": "Vision, mission, journey, philosophy, values, and compliance — the foundations that guide Hijaz Hospital's commitment to compassionate, accessible healthcare for all.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "Our Purpose",
+    "excerpt": "Vision, mission, journey, philosophy, values, and compliance — the foundations that guide Hijaz Hospital's commitment to compassionate, accessible healthcare for all.",
+    "media": {
+      "type": "image",
+      "src": "/media/about-page-hero-banner.webp",
+      "alt": "Hijaz Hospital — Our Purpose"
+    },
+    "links": [
+      { "label": "Vision & Mission", "href": "#vision-mission", "variant": "primary" },
+      { "label": "Our Journey", "href": "#our-journey", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Vision & Mission", "href": "#vision-mission" },
+    { "label": "Journey", "href": "#our-journey" },
+    { "label": "Philosophy", "href": "#our-philosophy" },
+    { "label": "Values", "href": "#our-values" },
+    { "label": "Compliance", "href": "#our-compliance" },
+    { "label": "Founders", "href": "#our-founders" },
+    { "label": "Messages", "href": "#leadership-messages" },
+    { "label": "Doctors", "href": "#our-doctors" },
+    { "label": "Impact", "href": "#our-impact" }
+  ],
+  "vision": "To develop Hijaz Hospital into a state-of-the-art secondary-level healthcare institution that serves all strata of society with excellence and compassion",
+  "mission": "To care for the ailing with compassion, respect, dignity, and professional excellence, while ensuring that financial hardship never stands in the way of receiving care",
+  "journey": [
+    {
+      "year": "1979",
+      "title": "A humble beginning",
+      "body": [
+        "Hijaz Hospital began as a small dispensary in Lahore, founded on the principle that quality healthcare should be accessible to all, regardless of financial means."
+      ]
+    },
+    {
+      "year": "1990",
+      "title": "Expanding services",
+      "body": [
+        "The institution grew to include outpatient and inpatient services, establishing itself as a trusted welfare healthcare provider in the community."
+      ]
+    },
+    {
+      "year": "2000",
+      "title": "Modern facilities",
+      "body": [
+        "Major expansion brought modern operation theatres, diagnostic facilities, and specialized departments under one roof."
+      ]
+    },
+    {
+      "year": "2010",
+      "title": "200-bed hospital",
+      "body": [
+        "Hijaz Hospital evolved into a 200-bedded charitable healthcare institution, serving thousands of patients with dignity and care."
+      ]
+    },
+    {
+      "year": "2025",
+      "title": "Continuing the mission",
+      "body": [
+        "Today, more than 90% of patients receive treatment completely free of cost, fulfilling the founders' vision of compassionate, accessible healthcare for all."
+      ]
+    }
+  ],
+  "philosophy": {
+    "heading": "A Legacy of Faith, Service, and Compassion",
+    "body": "Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients.",
+    "image": "/media/about-hijaz-section-banner.webp"
+  },
+  "approach": [
+    {
+      "icon": "Heart",
+      "title": "Patient-Centered Care",
+      "body": "Every decision is guided by the needs, dignity, and comfort of our patients."
+    },
+    {
+      "icon": "ShieldCheck",
+      "title": "Quality & Safety",
+      "body": "Evidence-based practices and continuous improvement ensure safe, effective treatment."
+    },
+    {
+      "icon": "HandHeart",
+      "title": "Compassionate Service",
+      "body": "Healthcare delivered with empathy, respect, and cultural sensitivity."
+    },
+    {
+      "icon": "UsersThree",
+      "title": "Community Partnership",
+      "body": "Working with donors, partners, and volunteers to extend our reach."
+    }
+  ],
+  "valuesIntro": "At Hijaz Hospital Trust, our work is guided by compassion, integrity, excellence, and a commitment to serving humanity. We believe quality healthcare should be accessible to all, especially the deserving and underserved.",
+  "values": [
+    { "icon": "Heart", "title": "Compassion", "body": "Treating every patient with empathy and kindness." },
+    { "icon": "Scales", "title": "Integrity", "body": "Upholding honesty and transparency in all we do." },
+    { "icon": "Star", "title": "Excellence", "body": "Striving for the highest standards of medical care." },
+    { "icon": "HandHeart", "title": "Service", "body": "Dedicated to serving humanity without discrimination." },
+    { "icon": "Users", "title": "Respect", "body": "Honoring the dignity of every individual." },
+    { "icon": "Lightbulb", "title": "Innovation", "body": "Embracing modern medicine to improve outcomes." }
+  ],
+  "valuesOutro": "These values shape our culture, guide our decisions, and inspire our commitment to improving lives and serving our community.",
+  "complianceIntro": "Hijaz Hospital is committed to adhere to all applicable healthcare regulations, quality standards, ethical practices, and governance requirements, ensuring safe, transparent, and accountable healthcare services for all.",
+  "compliance": [
+    {
+      "kicker": "Regulatory",
+      "icon": "ShieldCheck",
+      "items": [
+        {
+          "label": "Regulatory",
+          "title": "Punjab Healthcare Commission — Licensed",
+          "detail": "Hospital Registration No. DDS-WELD/88-219 · FBR NPO exemption under Section 2 (36)",
+          "logo": "/compliance-logos/punjab-health-care-commission-seeklogo.png"
+        },
+        {
+          "label": "Tax",
+          "title": "FBR Pakistan — NPO Exemption",
+          "detail": "Registered non-profit organization with tax exemption status",
+          "logo": "/compliance-logos/fbr-pakistan-seeklogo.png"
+        }
+      ]
+    },
+    {
+      "kicker": "Quality",
+      "icon": "Certificate",
+      "items": [
+        {
+          "label": "Quality",
+          "title": "ISO 9001:2008 — TÜV Austria (QMS)",
+          "detail": "Quality management system certification",
+          "logo": "/compliance-logos/tuv-austria-9001-seeklogo.png"
+        },
+        {
+          "label": "Philanthropy",
+          "title": "Pakistan Centre for Philanthropy (PCP)",
+          "detail": "Member organization committed to transparency and accountability",
+          "logo": "/compliance-logos/PCP.png"
+        }
+      ]
+    },
+    {
+      "kicker": "Shariah & Welfare",
+      "icon": "HandsPraying",
+      "items": [
+        {
+          "label": "Shariah",
+          "title": "Welfare Sharia Board Certificate",
+          "detail": "Certified for Zakat and welfare fund utilization",
+          "logo": "/compliance-logos/social-welfare.png"
+        },
+        {
+          "label": "Welfare",
+          "title": "Social Welfare Agencies Ordinance 1961",
+          "detail": "Registered under Social Welfare Agencies Ordinance 1961",
+          "logo": "/compliance-logos/social-welfare.png"
+        }
+      ]
+    }
+  ],
+  "foundersTeaser": [
+    {
+      "name": "Haji Inam Ellahi Asar (Late)",
+      "role": "Founder and Honorary Project Director",
+      "href": "/leadership/haji-inam-elahi-asar",
+      "body": [
+        "Born in October 1927 in Chiniot, he devoted more than five decades of his life to the service of humanity, earning deep respect as a distinguished social worker and philanthropist.",
+        "A highly successful businessman, he was recognized among the highest taxpayers in Pakistan during his prime years, reflecting his integrity, vision, and contribution to the nation's economy."
+      ]
+    },
+    {
+      "name": "Mian Abdul Waheed (Late)",
+      "role": "Founding member",
+      "href": "/leadership#our-founders",
+      "body": [
+        "Born in April 1931 in East Punjab, he was a distinguished humanitarian admired for his integrity, humility, and lifelong dedication to public welfare and community service.",
+        "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Haji Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service."
+      ]
+    }
+  ],
+  "foundersCta": { "label": "View all founders & governance", "href": "/leadership" },
+  "leadershipMessagesTeaser": {
+    "kicker": "Messages",
+    "title": "Leadership Messages",
+    "items": [
+      {
+        "title": "Chairman's Message",
+        "name": "Mian Muhammad Asif Waheed",
+        "role": "Chairman, Hijaz Hospital",
+        "href": "/leadership/messages#chairmans-message",
+        "icon": "UserTie",
+        "body": [
+          "Welcome to Hijaz Hospital, where our commitment to excellence is matched by our dedication to serving humanity.",
+          "Since its humble beginnings as a small dispensary, Hijaz Hospital has grown into a modern, multidisciplinary healthcare institution."
+        ]
+      },
+      {
+        "title": "President's Message",
+        "name": "Sohail Iqbal",
+        "role": "President, Hijaz Hospital Trust",
+        "href": "/leadership/messages#presidents-message",
+        "icon": "UserTie",
+        "body": [
+          "It is a privilege to welcome you to Hijaz Hospital Trust, where faith, compassion, and service come together to bring hope and healing to those in need.",
+          "Our Trust was founded on the inspiring vision of Haji Inam Ellahi Asar (Late) and Alhaj Mian Abdul Waheed (Late), who believed that quality healthcare should never be beyond the reach of anyone because of financial hardship."
+        ]
+      }
+    ]
+  },
+  "consultants": {
+    "kicker": "Our Consultants",
+    "title": "Our Consultants",
+    "lede": "Need a pic for each one with a link to their profile",
+    "items": [
+      { "name": "Dr. Faisal Farrukh Rana", "role": "Anesthetist", "href": "/doctors" },
+      { "name": "Dr. Aftab Ahmad Tarique", "role": "Cardiologist", "href": "/doctors" },
+      { "name": "Dr. Ahsan Masud Chaudhary", "role": "General Surgeon", "href": "/doctors" },
+      { "name": "Dr. Ambreen Ijaz", "role": "Gynecologist", "href": "/doctors" },
+      { "name": "Dr. Fozia Shareef", "role": "Pediatric Consultant", "href": "/doctors" },
+      { "name": "Dr. Hashmat Mumtaz Rao", "role": "Pathologist", "href": "/doctors" }
+    ],
+    "cta": { "label": "View all consultants", "href": "/doctors" }
+  },
+  "impactTeaser": {
+    "kicker": "Our Impact",
+    "title": "Our Impact",
+    "cards": [
+      {
+        "title": "Awards",
+        "subtitle": "Tamgha-e-Imtiaz – Government of Pakistan",
+        "body": "In recognition of his lifelong dedication to serving the sick and underprivileged, the Founder of Hijaz Hospital, Haji Inam Elahi Asar (Late), was honored with the prestigious Tamgha-e-Imtiaz by the Government of Pakistan for his outstanding humanitarian and social welfare services."
+      },
+      {
+        "title": "Medical College Affiliation",
+        "subtitle": "Fatima Memorial Medical & Dental College, Lahore",
+        "body": "Hijaz Hospital is proud to maintain a strong academic and clinical affiliation with Fatima Memorial Hospital, Lahore, one of Pakistan's leading teaching hospitals."
+      },
+      {
+        "title": "Our Trusted Healthcare Partners",
+        "subtitle": "Chughtai Healthcare | Al-Noor Diagnostic Centre | Harmone Lab",
+        "body": "To ensure that no deserving patient is deprived of essential diagnostic services, Hijaz Hospital has established strategic partnerships with Chughtai Healthcare, Al-Noor Diagnostic Centre, and Harmone Lab at specially negotiated rates."
+      },
+      {
+        "title": "Welfare Sharia",
+        "body": "Hijaz Hospital operates a well-structured Welfare Sharia Department, which is certified and supervised by Jamia Ashrafia, Lahore, ensuring that all welfare and Zakat assistance is administered in strict accordance with Islamic Shariah principles."
+      }
+    ],
+    "cta": { "label": "Explore impact reports", "href": "/reports" }
+  },
+  "departmentsTeaser": {
+    "kicker": "Departments",
+    "title": "Medical Departments",
+    "lede": "Hijaz Hospital offers comprehensive medical and surgical care across a wide range of specialties.",
+    "items": [
+      {
+        "title": "Surgery & Allied Specialties",
+        "body": "General Surgery, Orthopedics, Urology, and allied surgical specialties.",
+        "href": "/departments#surgery-allied"
+      },
+      {
+        "title": "Internal Medicine & Allied",
+        "body": "Medicine, gastroenterology, nephrology, cardiology, dermatology.",
+        "href": "/departments#internal-medicine"
+      },
+      {
+        "title": "Mother & Child",
+        "body": "Gynaecology & Obstetrics, Pediatrics.",
+        "href": "/departments#mother-child"
+      },
+      {
+        "title": "Specialized Care",
+        "body": "Dietetics & Nutrition, Physiotherapy.",
+        "href": "/departments#specialized-care"
+      }
+    ],
+    "cta": { "label": "View all departments", "href": "/departments" }
+  }
+}

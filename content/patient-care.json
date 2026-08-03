@@ -1,0 +1,184 @@
+[
+  {
+    "slug": "financial-assistance",
+    "title": "Financial Assistance & Welfare",
+    "description": "Zakat and welfare support for patients who cannot afford essential medical care.",
+    "excerpt": "Hijaz Hospital provides financial assistance to eligible patients through its Shariah-Compliant Zakat Management System and charitable welfare programs.",
+    "hero": {
+      "kicker": "Patient Care",
+      "title": "Financial Assistance & Welfare",
+      "tagline": "Care Without Financial Barriers",
+      "excerpt": "Hijaz Hospital is committed to ensuring that financial hardship does not prevent deserving patients from receiving essential medical care. Through its Shariah-Compliant Zakat Management System and charitable welfare programs, the hospital provides financial assistance to eligible patients with fairness, dignity, and compassion.",
+      "variant": "white",
+      "media": {
+        "type": "illustration",
+        "preset": "page/financial-assistance"
+      }
+    },
+    "sections": [
+      {
+        "type": "content",
+        "id": "zakat",
+        "kicker": "Zakat Management",
+        "heading": "Shariah-Compliant Zakat Management System",
+        "body": [
+          "Hijaz Hospital has established a Shariah-Compliant Zakat Management System (ZMS) under the supervision of qualified Islamic scholars and respected Muftis. The system ensures that Zakat donations are received, managed, and utilized strictly in accordance with the teachings of the Qur'an and Sunnah.",
+          "All Zakat contributions are maintained in a dedicated account separate from other hospital funds. Patient eligibility is assessed by the Welfare Shariah Department, where each case is reviewed with complete confidentiality and respect for the patient's dignity."
+        ],
+        "background": "white"
+      },
+      {
+        "type": "content",
+        "id": "assistance",
+        "kicker": "Support Programs",
+        "heading": "Financial Assistance for Deserving Patients",
+        "body": [
+          "Hijaz Hospital provides financial assistance to patients who are unable to afford medical treatment. Depending on eligibility, support may be provided through Zakat and Sadqat-e-Wajiba funds, general donations, or other charitable welfare resources.",
+          "Each application is assessed individually based on the patient's financial circumstances, medical needs, and the availability of assistance."
+        ],
+        "background": "muted"
+      },
+      {
+        "type": "bullets",
+        "id": "application",
+        "kicker": "How to Apply",
+        "heading": "Eligibility & Application Process",
+        "background": "white",
+        "items": [
+          "Contact the Welfare Shariah Department for guidance",
+          "Submit an application for financial assistance",
+          "Assessment of financial circumstances and medical requirements",
+          "Review by the Welfare Department and, where applicable, the Welfare Shariah Department",
+          "Approval in accordance with applicable welfare or Zakat criteria"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "admission-process",
+    "title": "Patient Admission Process",
+    "description": "A structured admission process for smooth coordination and timely treatment.",
+    "excerpt": "Hijaz Hospital follows a structured admission process to ensure smooth coordination, timely treatment, and quality patient care.",
+    "hero": {
+      "kicker": "Patient Care",
+      "title": "Patient Admission Process",
+      "tagline": "Your Journey from Consultation to Care",
+      "excerpt": "Hijaz Hospital follows a structured admission process to ensure smooth coordination, timely treatment, and quality patient care from your first consultation through discharge.",
+      "variant": "white",
+      "media": {
+        "type": "illustration",
+        "preset": "page/admission-process"
+      }
+    },
+    "sections": [
+      {
+        "type": "content",
+        "id": "step-1",
+        "kicker": "Step 1",
+        "heading": "OPD Consultation & Assessment",
+        "body": [
+          "Patients visit the OPD Registration Counter for registration and consultation. A department-wise token is issued, and the patient meets the relevant consultant. The consultant evaluates the patient and determines whether admission is required."
+        ],
+        "background": "white"
+      },
+      {
+        "type": "content",
+        "id": "step-2",
+        "kicker": "Step 2",
+        "heading": "Admission & Eligibility Verification",
+        "body": [
+          "If admission is advised, the patient proceeds to the relevant admission desk for further processing. For patients registered under the Sehat Sahulat Program (SSP), eligibility verification and required approvals are completed through the SSP system. Necessary admission documentation is completed, and the patient file is prepared."
+        ],
+        "background": "muted"
+      },
+      {
+        "type": "content",
+        "id": "step-3",
+        "kicker": "Step 3",
+        "heading": "Pre-Procedure Assessment",
+        "body": [
+          "Patients requiring surgery or procedures undergo assessment by the Anesthesia Department. The anesthesia consultant evaluates the patient's fitness for the planned procedure."
+        ],
+        "background": "white"
+      },
+      {
+        "type": "content",
+        "id": "step-4",
+        "kicker": "Step 4",
+        "heading": "Financial Assistance & Category Assessment",
+        "body": [
+          "Patient category and financial arrangements are confirmed according to hospital policy. Eligible patients may receive assistance through applicable support programs, including welfare and financial assistance services."
+        ],
+        "background": "muted"
+      },
+      {
+        "type": "content",
+        "id": "step-5",
+        "kicker": "Step 5",
+        "heading": "Admission, Treatment & Discharge",
+        "body": [
+          "After completion of admission formalities, the patient is shifted to the relevant ward. Treatment, surgery, or medical management is provided according to the consultant's advice. During the hospital stay, patient care, medicines, investigations, and treatment records are managed through the inpatient care system.",
+          "After completion of treatment, the final bill and discharge documentation are prepared. The patient receives a discharge summary and necessary instructions before leaving the hospital."
+        ],
+        "background": "white"
+      }
+    ]
+  },
+  {
+    "slug": "patient-rights",
+    "title": "Patient Rights & Responsibilities",
+    "description": "Your rights, dignity, and responsibilities as a patient at Hijaz Hospital.",
+    "excerpt": "Hijaz Hospital is committed to protecting the rights, dignity, and well-being of every patient while fostering cooperation between patients, attendants, and healthcare teams.",
+    "hero": {
+      "kicker": "Patient Care",
+      "title": "Patient Rights & Responsibilities",
+      "tagline": "Partnership in Compassionate Care",
+      "excerpt": "Hijaz Hospital is committed to protecting the rights, dignity, and well-being of every patient. Quality healthcare is achieved through mutual respect, cooperation, and partnership between patients, attendants, and healthcare teams.",
+      "variant": "white",
+      "media": {
+        "type": "illustration",
+        "preset": "page/patient-rights"
+      }
+    },
+    "sections": [
+      {
+        "type": "bullets",
+        "id": "rights",
+        "kicker": "Patient Rights",
+        "heading": "Your Rights as a Patient",
+        "background": "white",
+        "items": [
+          "Right to Respect & Dignity — treated with respect, compassion, and dignity regardless of religion, gender, age, or financial status",
+          "Right to Quality Healthcare — safe, appropriate, and professional medical care according to established hospital standards",
+          "Right to Privacy & Confidentiality — personal information, medical records, and treatment details are kept confidential",
+          "Right to Information — clear information regarding diagnosis, treatment plan, medicines, and possible risks and benefits",
+          "Right to Informed Consent — information and consent before major procedures or surgeries, except in emergencies",
+          "Right to Emergency Care — emergency medical care without unnecessary delay",
+          "Right to Respectful Communication — ask questions and receive understandable explanations",
+          "Right to Second Opinion — seek a second medical opinion from another qualified healthcare professional",
+          "Right to Complaint & Feedback — share concerns or suggestions without fear of discrimination",
+          "Right to Financial Transparency — clear information regarding treatment costs and available welfare assistance"
+        ]
+      },
+      {
+        "type": "bullets",
+        "id": "responsibilities",
+        "kicker": "Patient Responsibilities",
+        "heading": "Your Responsibilities as a Patient",
+        "background": "muted",
+        "items": [
+          "Provide accurate and complete medical history, medications, allergies, and personal details",
+          "Follow treatment plans, medication instructions, and guidance from healthcare professionals",
+          "Treat doctors, nurses, and hospital staff with respect and cooperation",
+          "Follow hospital policies including visiting hours, cleanliness standards, and safety protocols",
+          "Use hospital facilities, equipment, and resources responsibly",
+          "Complete necessary financial requirements or contact the welfare department if assistance is required",
+          "Follow hygiene instructions and infection control guidelines",
+          "Maintain a respectful environment — violence, aggressive behavior, and smoking are not permitted",
+          "Attend scheduled follow-up appointments and investigations as advised",
+          "Cooperate with healthcare teams to ensure safe and effective treatment outcomes"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+{
+  "slug": "leadership",
+  "title": "Leadership & Governance",
+  "description": "Founders, chairpersons, presidents, senior management, and committees — the people entrusted with Hijaz Hospital's mission of compassionate, accessible healthcare for all.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "Leadership & Governance",
+    "excerpt": "Founders, chairpersons, presidents, senior management, and committees — the people entrusted with Hijaz Hospital's mission of compassionate, accessible healthcare for all.",
+    "media": {
+      "type": "placeholder",
+      "icon": "UsersFour",
+      "placeholderLabel": "Leadership group photograph placeholder"
+    },
+    "links": [
+      { "label": "Our Founders", "href": "#our-founders", "variant": "primary" },
+      { "label": "Senior Management", "href": "#senior-management", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Founders", "href": "#our-founders" },
+    { "label": "Chairpersons", "href": "#our-chairpersons" },
+    { "label": "Presidents", "href": "#our-presidents" },
+    { "label": "Senior Management", "href": "#senior-management" },
+    { "label": "Executive Committee", "href": "#executive-committee" },
+    { "label": "Core Committees", "href": "#core-committees" }
+  ],
+  "founders": [
+    {
+      "name": "Haji Inam Ellahi Asar (Late)",
+      "role": "Founder and Honorary Project Director",
+      "href": "/leadership/haji-inam-elahi-asar",
+      "body": [
+        "Born in October 1927 in Chiniot, he devoted more than five decades of his life to the service of humanity, earning deep respect as a distinguished social worker and philanthropist.",
+        "A highly successful businessman, he was recognized among the highest taxpayers in Pakistan during his prime years, reflecting his integrity, vision, and contribution to the nation's economy.",
+        "As the Founder and Honorary Project Director of Hijaz Hospital, he transformed his lifelong commitment to compassion and public welfare into a lasting institution dedicated to healthcare and human service.",
+        "With a generous contribution exceeding PKR 500 million — including valuable personal properties — he selflessly supported numerous welfares, healthcare, and charitable initiatives for the betterment of society.",
+        "He remained actively associated with more than 30 welfare organizations, serving in leadership, advisory, and guiding roles with remarkable dedication and sincerity.",
+        "In recognition of his extraordinary humanitarian services and lifelong devotion to social welfare, the Hijaz Welfare Society proudly recommended his name for a prestigious Civil Award."
+      ]
+    },
+    {
+      "name": "Mian Abdul Waheed (Late)",
+      "role": "Founding member",
+      "href": "/leadership#our-founders",
+      "body": [
+        "Born in April 1931 in East Punjab, he was a distinguished humanitarian admired for his integrity, humility, and lifelong dedication to public welfare and community service.",
+        "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Haji Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service.",
+        "From its humble beginning as a dispensary in 1979, he remained actively and personally involved in every stage of the hospital's journey — from planning and construction to its continuous growth and expansion.",
+        "Through his visionary leadership, tireless efforts, and unwavering commitment, Hijaz Hospital evolved into a modern 200-bedded healthcare institution serving thousands with dignity and care.",
+        "Beyond healthcare, he was actively associated with several renowned welfare organizations, including Defence Welfare Society, Fountain House, Lions Club, and Akhuwat, contributing generously through leadership, guidance, and humanitarian support.",
+        "Today, Hijaz Hospital stands as a lasting symbol of his vision, dedication, and extraordinary service to humanity — a legacy that continues to inspire generations."
+      ]
+    }
+  ],
+  "chairpersons": [
+    { "years": "1994 – 2010", "name": "Alhaj Mian Abdul Waheed", "role": "Chairperson" },
+    {
+      "years": "2010 – 2020",
+      "name": "Mrs Tasneem Firdous Waheed",
+      "role": "Chairperson",
+      "note": "Source reads \"Tenure 20110 to 2020\" — rendered here as 2010 – 2020."
+    },
+    { "years": "2020 – till now", "name": "Mian Muhammad Asif Waheed", "role": "Chairperson" }
+  ],
+  "presidents": [
+    {
+      "years": "1990 – 2004",
+      "name": "Haji Inam Elahi Asar",
+      "role": "President",
+      "href": "/leadership/haji-inam-elahi-asar",
+      "note": "Source spells the name \"Hahi Inam Elahi Asar\" — confirm canonical spelling."
+    },
+    { "years": "2004 – till now", "name": "Sohail Iqbal", "role": "President" }
+  ],
+  "seniorManagement": [
+    { "name": "Sheikh Naeem Anwar", "role": "Patron of Chief" },
+    { "name": "Mian Muhammad Asif Waheed", "role": "Chairman" },
+    { "name": "Engr. Abdur Raoof Shahzada", "role": "Vice Chairman" },
+    { "name": "Sohail Iqbal", "role": "President" },
+    { "name": "Haji Abdul Ghaffar", "role": "Senior Vice President" },
+    { "name": "Mussarat Qayyum", "role": "Vice President" },
+    { "name": "Shahid Ismail", "role": "Vice President" },
+    { "name": "Mian Shahzad Waheed", "role": "Vice President" },
+    { "name": "Mohammad Naeem", "role": "General Secretary" },
+    { "name": "Ch. Azmat Ullah Warraich", "role": "Information Secretary" },
+    { "name": "Saqib Aftab", "role": "Finance Secretary" }
+  ],
+  "executiveCommitteeLede": "Twenty-five members serve on the Executive Committee of Hijaz Hospital.",
+  "executiveCommittee": [
+    "Sofia Asif",
+    "Lubna Ghaffar",
+    "Mian Muhammad Azam Waheed",
+    "Mian Muhammad ShahJahan Waheed",
+    "Khawaja Motahhir Nabi",
+    "Waqas Usmani",
+    "Nadeem Ahmed",
+    "Col. Abdul Quyyum",
+    "Nazia Ahsan",
+    "Brig. Retd. Ashfaq Ahmad",
+    "Farooq Aslam",
+    "Nadeem Aftab",
+    "Imran Aftab",
+    "Waqas Mushtaq",
+    "Khushnood Ahmad Sheikh",
+    "S.M. Ashfaq",
+    "Anwer Ali Sheikh",
+    "Prof. Muhammad Muzzammil Ahsan Sh.",
+    "Ilyas Sethi",
+    "Shahnaz Abdul Saeed",
+    "Komal Raheel",
+    "Muhammad Raheel Anwar",
+    "Abdul Rasheed Khan",
+    "Muhammad Ishaq Sheikh",
+    "Sheikh Muhammad Altaf Hussain"
+  ],
+  "coreCommittees": [
+    { "icon": "Scales", "name": "Audit" },
+    { "icon": "Package", "name": "Central Purchase & Machinery/ Disposable, Wastage and Leakage/ Machinery & Equipment Maintenance" },
+    { "icon": "Scroll", "name": "Constitution" },
+    { "icon": "HandCoins", "name": "Finance" },
+    { "icon": "Megaphone", "name": "HR/Fund Raising/Marketing & Event Management" },
+    { "icon": "Newspaper", "name": "Information & Publications" },
+    { "icon": "ClipboardText", "name": "Inspection" },
+    { "icon": "Pill", "name": "Medicine" },
+    { "icon": "Cpu", "name": "MIS" },
+    { "icon": "MoonStars", "name": "Mosque" },
+    { "icon": "Baby", "name": "Mother & Child Care" },
+    { "icon": "Buildings", "name": "Property Affairs & Construction" }
+  ]
+}

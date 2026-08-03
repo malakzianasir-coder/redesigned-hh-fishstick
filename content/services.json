@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "ipd",
+    "title": "Inpatient Department (IPD)",
+    "category": "Services",
+    "description": "Comprehensive inpatient medical and surgical care with compassionate support for every patient.",
+    "excerpt": "The Inpatient Department provides comprehensive medical and surgical care for patients requiring hospitalization, continuous monitoring, and postoperative recovery.",
+    "hero": {
+      "id": "overview",
+      "kicker": "Services",
+      "title": "Inpatient Department (IPD)",
+      "tagline": "\"Compassionate Inpatient Care, Accessible to All.\"",
+      "excerpt": "The Inpatient Department (IPD) at Hijaz Hospital provides comprehensive medical and surgical care for patients requiring hospitalization, continuous monitoring, specialized treatment, and postoperative recovery. With an average of 25–35 daily admissions, our IPD is equipped to deliver quality care through experienced consultants, skilled nursing staff, and modern medical facilities.",
+      "variant": "white",
+      "media": {
+        "type": "image",
+        "src": "/media/services-hero-banner.webp",
+        "alt": "Inpatient Department at Hijaz Hospital"
+      },
+      "stat": {
+        "value": "25–35",
+        "label": "daily admissions"
+      },
+      "links": [
+        { "label": "Plan Your Admission", "href": "/patient-care/admission-process", "variant": "primary" },
+        { "label": "Accommodation Options", "href": "#accommodation", "variant": "ghost" }
+      ]
+    },
+    "jumpLinks": [
+      { "label": "Overview", "href": "#overview" },
+      { "label": "Your Stay", "href": "#your-stay" },
+      { "label": "Sehat Sahulat", "href": "#sehat-sahulat" },
+      { "label": "Surgical Care", "href": "#surgical-care" },
+      { "label": "Accommodation", "href": "#accommodation" }
+    ],
+    "sections": [
+      {
+        "type": "iconGrid",
+        "id": "your-stay",
+        "kicker": "Your Stay",
+        "heading": "Accessible Healthcare for All",
+        "intro": [
+          "Many of our admitted patients come from underprivileged backgrounds and rely on charitable support to access essential healthcare services. As a charitable healthcare institution, Hijaz Hospital is committed to ensuring that no patient is denied treatment due to financial hardship.",
+          "Through donor-supported welfare programs, deserving and critically ill patients receive free treatment, including:"
+        ],
+        "background": "muted",
+        "items": [
+          { "icon": "hospital", "label": "Hospitalization" },
+          { "icon": "knife", "label": "Surgical Procedures" },
+          { "icon": "pill", "label": "Medications" },
+          { "icon": "microscope", "label": "Diagnostic Investigations" },
+          { "icon": "first-aid", "label": "Nursing Care" },
+          { "icon": "clipboard-text", "label": "Follow-up Services" }
+        ]
+      },
+      {
+        "type": "callout",
+        "id": "sehat-sahulat",
+        "kicker": "Government Coverage",
+        "heading": "Sehat Sahulat Program",
+        "body": [
+          "Hijaz Hospital is also enlisted under the Government of Pakistan's Sehat Sahulat Program, enabling eligible patients to receive medical and surgical treatment through government-sponsored healthcare coverage. This initiative helps reduce financial burdens while ensuring access to quality healthcare services."
+        ],
+        "background": "white"
+      },
+      {
+        "type": "serviceGroups",
+        "id": "surgical-care",
+        "kicker": "Surgical Services",
+        "heading": "Surgical Services",
+        "intro": "Our hospital performs a wide range of surgical procedures across multiple specialties, including:",
+        "background": "muted",
+        "layout": "links",
+        "footer": "All procedures are supported by qualified surgeons, experienced consultants, dedicated nursing teams, and advanced medical infrastructure.",
+        "groups": [
+          {
+            "slug": "orthopedic-surgery",
+            "icon": "bone",
+            "heading": "Orthopedic Surgery",
+            "href": "/departments",
+            "items": []
+          },
+          {
+            "slug": "general-surgery",
+            "icon": "knife",
+            "heading": "General Surgery",
+            "href": "/departments/general-surgery",
+            "items": []
+          },
+          {
+            "slug": "ent-surgery",
+            "icon": "ear",
+            "heading": "ENT Surgery",
+            "href": "/departments",
+            "items": []
+          },
+          {
+            "slug": "urology",
+            "icon": "drop",
+            "heading": "Urology",
+            "href": "/departments",
+            "items": []
+          },
+          {
+            "slug": "gynecology-obstetrics",
+            "icon": "gender-female",
+            "heading": "Gynecology & Obstetrics",
+            "href": "/departments",
+            "items": []
+          },
+          {
+            "slug": "gastroenterology",
+            "icon": "pulse",
+            "heading": "Gastroenterology Procedures",
+            "href": "/departments",
+            "items": []
+          }
+        ]
+      },
+      {
+        "type": "accommodation",
+        "id": "accommodation",
+        "kicker": "Accommodation",
+        "heading": "Private & VIP Accommodation",
+        "intro": [
+          "For patients seeking additional privacy and comfort, Hijaz Hospital offers private accommodation options with the same high standard of medical care provided throughout the hospital. These rooms feature modern amenities and personalized support while remaining available at subsidized rates to make quality healthcare more accessible."
+        ],
+        "background": "white",
+        "rooms": [
+          { "count": "4", "label": "Private Gynecology Rooms" },
+          { "count": "2", "label": "VIP Rooms" },
+          { "count": "1", "label": "Semi-VIP Room" },
+          { "count": "1", "label": "VVIP Room" }
+        ]
+      },
+      {
+        "type": "closingBand",
+        "id": "closing",
+        "kicker": "Compassionate Inpatient Care",
+        "quote": "From admission to recovery, our IPD team is dedicated to providing safe, dignified, and patient-centered care, ensuring every patient receives the treatment and support they need throughout their hospital stay."
+      },
+      {
+        "type": "cta",
+        "kicker": "Support Our Mission",
+        "heading": "Help Us Keep Care Within Reach for Every Patient",
+        "body": "Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.",
+        "button": { "label": "Donate Now", "href": "/donate" }
+      }
+    ]
+  }
+]

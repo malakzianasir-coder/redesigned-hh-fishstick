@@ -1,0 +1,1331 @@
+<!doctype html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  DEPARTMENT & SERVICE UI PATTERN CATALOG — DESIGN-SYSTEM.md aligned
+  Purpose: inventory of every distinct UI pattern needed to recreate all
+  department / patient-care / patient-welfare static pages as CMS-editable
+  components. Catalog chrome/labels are editorial; all example content is
+  VERBATIM from:
+    • archive/tmp-content-extract/Medical Departments (2).txt
+    • archive/tmp-docx-extract/patient-care.txt  (== Patient Care (2).txt)
+    • archive/tmp-content-extract/Patient Welfare.txt
+
+  ─────────────────────────────────────────────────────────────────────────
+  PATTERN INVENTORY (id · name · used by · data shape · CMS mapping)
+  ─────────────────────────────────────────────────────────────────────────
+  CORE TEMPLATE
+  P00 template-chrome   · breadcrumb + sticky jump-nav + section header + reveal
+                        · all pages · {crumbs[], chips[{id,label}]}
+                        · template-level (no CMS block)
+  P01 hero-base         · kicker/h1/tagline/excerpt/CTAs/banner
+                        · all 14 departments + all patient-care pages
+                        · {kicker,title,tagline,excerpt,media,links[]}
+                        · hero group (mediumImpact, white) — fixed field
+  P02 hero-stat         · stat card in hero
+                        · IPD (25–35), OPD (40+), ICU (6), Dialysis (30),
+                          Emergency (24/7), Nursing (50+)
+                        · {value,label}[]
+                        · PROPOSED hero.stats[] extension
+  P03 hero-quote-tagline· quotation-style tagline lead
+                        · OPD, IPD, Nursing, Pathology, Radiology, Cardiac Dx
+                        · string · hero.tagline (existing)
+  P04 overview-prose    · overview paragraphs
+                        · all pages · richText
+                        · fixed overview field (FixedDepartmentServiceContent)
+
+  LIST & EXPLORER PATTERNS
+  P05 grouped-explorer  · master-detail group rail + search + check-list panel
+                        · 11 of 14 departments + Pathology
+                        · serviceGroups[{icon,heading,items[]}]
+                        · departmentServices block (existing)
+  P06 flat-check-list   · ungrouped check list, no rail
+                        · ICU, Emergency, Nursing, Anesthesia, Pharmacy,
+                          Blood Bank, Dialysis, Dermatology, Endocrinology
+                        · {heading?,items[]}
+                        · content block (2-col) OR serviceGroups single group
+  P07 flat-chip-list    · "Conditions We Manage" chips
+                        · Cardiology, Pulmonology, Pediatrics, Cardiac Dx,
+                          welfare Free Medicines dept list
+                        · {heading,items[]}
+                        · NEW block (proposed: chipList)
+  P08 nested-sub-list   · list items with children ("…such as:" → sub-items)
+                        · Dermatology, Nephrology, Patient Right #4,
+                          Responsibility #4
+                        · items[{text,children[]}]
+                        · SCHEMA EXTENSION: serviceGroups items children[]
+  P09 group-framing     · list with intro + outro framing prose
+                        · Cardiology (pre-surgical), Pathology, Radiology,
+                          OT Complex
+                        · {intro,items,outro}
+                        · content block OR group.description richText
+
+  GRIDS
+  P10 why-choose-grid   · why-choose icon card grid
+                        · all 14 departments + OPD, Pathology, Radiology,
+                          Cardiac Dx
+                        · {icon,text}[] · fixed whyChoose[] field
+  P11 free-treatment-grid· free-treatment icon tile grid
+                        · IPD only
+                        · {icon,label}[]
+                        · fixed freeTreatment[] field (reuses P10 visual)
+
+  CALLOUTS & BANDS
+  P12 program-callout   · program card w/ logo slot (Sehat Sahulat)
+                        · IPD, Patient Welfare (2×)
+                        · {logo,title,body}
+                        · NEW block (proposed: programCallout)
+  P13 referral-callout  · referral/partner callout
+                        · Cardiology, Radiology, Pathology, OPD ext-lab note
+                        · {title,body}
+                        · NEW block (proposed: calloutCard) or content
+  P14 welfare-note-band · free-care / welfare note band
+                        · Emergency, Ambulance, Dialysis, Pharmacy, OPD,
+                          Blood Bank, Pulmonology (free TB treatment)
+                        · richText · PROPOSED fixed welfareNote field
+  P15 numeral-cards     · big-numeral cards
+                        · IPD rooms (4/2/1/1), OT theatres (3/1/1/1)
+                        · {count,label,photo?}[]
+                        · NEW block (proposed: numeralCards) or fixed rooms[]
+  P16 timings-card      · clinic timings
+                        · OPD only · {label,time}[]
+                        · PROPOSED fixed timings[] field
+  P17 stat-counters     · animated counters
+                        · Emergency, ICU, Dialysis, OPD, Flood Relief (50+)
+                        · {value,label}[] · counters block (existing)
+  P22 closing-band      · commitment / closing quote band
+                        · Cardiology, IPD, OPD, Cafeteria, most services
+                        · richText · fixed closing field
+  P24 cta-band          · navy donate CTA
+                        · all pages · global · global CTA settings
+
+  WELFARE & PROCESS
+  P18 steps-process     · numbered steps w/ sub-bullets
+                        · Admission Process (6 steps), welfare eligibility (4)
+                        · steps[{title,items[]}]
+                        · NEW block (proposed: processSteps)
+  P19 numbered-rights   · numbered rights/responsibilities
+                        · Patient Rights (10) & Responsibilities (10)
+                        · {title,body,children?}[]
+                        · NEW block (proposed: numberedList) or content
+  P20 specialty-link-cards· specialty link cards
+                        · IPD (6), OT Complex (11)
+                        · {icon,label,href}[]
+                        · PROPOSED fixed relatedDepartments relationship
+
+  META / ADMIN
+  P21 editorial-note    · dashed CMS-note callout (never public)
+                        · Pediatrics, welfare Sehat Sahulat, admission step 4
+                        · text · admin-only _contentNote field
+  P23 patient-stories-slot· success stories slot
+                        · dept/service detail pages
+                        · relationship · successStories block (context prop)
+  P25 cert-logo-popup   · compliance logo card + certificate lightbox
+                        · Pathology "Accreditation/Quality Certificates",
+                          Our Purpose compliance
+                        · {logo,issuer,title,body,certImage?}[]
+                        · NEW block (proposed: complianceLogos)
+
+  PROFILES & IMPACT (added from Profiles.txt + updated Our Impact.txt)
+  P26 person-profile    · 4 leader profiles (Founder, Lifetime Chairman,
+                          Chairperson, President)
+                        · {portrait,name,lifespan,role,org,bio richText,
+                          roles[],closingLine}
+                        · NEW collection (proposed: profiles) · full demo at
+                          /profile-design-system.html
+  P27 events-calendar-rows· Our Impact events calendar (17 rows)
+                        · {date,label}[]
+                        · RECOMMENDED array field calendarEvents[] on impact
+                          page (static annual observances; alt: events coll.)
+  P28 dated-highlight-cards· Our Impact highlights (5 articles)
+                        · {title,date,body}
+                        · EXISTING newsCarousel / newsList — covered
+  P29 grouped-bar-chart · Our Impact Facts & Statistics — financial
+                          highlights (4 fiscal years, income vs expense)
+                        · {periods[],series[{key,label,values[]}]}
+                        · EXISTING reportFigure (bar) / reports dataset —
+                          covered, no new block
+                        · NOTE: yearly-metrics explorer reuses P05
+                          (journey-scrubber pattern) — no new entry
+  P30 split-percent-bar · Our Impact Facts & Statistics — surgeries
+                          free/paid split + services rendered (4)
+                        · {total,splits[{label,percent}]}
+                        · NEW: splitBar field on dataset metrics OR
+                          statSplit block
+
+  DRIFT NOTE: the updated Our Impact.txt REMOVED the Welfare Sharia section —
+  the About page impact teaser still shows it. Flagged for reconciliation.
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Department & Service UI Catalog | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+            label: ['11px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+          zIndex: { sticky: '30', header: '40', overlay: '50' },
+          aspectRatio: { card: '3 / 2' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .card { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 4px 12px -2px rgb(27 36 65 / .12); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .sticky-bar {
+      position: sticky; top: 73px; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #E30016; color: #fff; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out;
+    }
+    .btn-primary:hover { background: #1B2441; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(27 36 65 / .25); background: transparent;
+      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
+    .btn-on-dark {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #fff; color: #1B2441; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    }
+    .btn-on-dark:hover { background: #E30016; color: #fff; }
+    .btn-on-dark:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
+    .btn-on-dark-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(255 255 255 / .25); background: transparent;
+      color: #fff; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-on-dark-ghost:hover { background: #fff; border-color: #fff; color: #1B2441; }
+    .btn-on-dark-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
+
+    .section-anchor { scroll-margin-top: 150px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease-out, transform .5s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+    .card-interactive:hover .icon-tile { transform: scale(1.08); }
+
+    .group-badge {
+      display: inline-flex; align-items: center;
+      border-radius: 999px; background: #F1EAEB; color: #E30016;
+      padding: 2px 10px; font-size: 12px; font-weight: 700;
+    }
+    .pattern-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    }
+
+    /* P29 — grouped bar chart */
+    .legend-swatch { width: 14px; height: 14px; border-radius: 4px; display: inline-block; flex-shrink: 0; }
+    .bar-chart { display: flex; align-items: flex-end; justify-content: space-around; gap: 16px; height: 220px; border-bottom: 2px solid rgb(107 113 131 / .25); padding: 0 8px; }
+    .bar-group { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; flex: 1; max-width: 140px; height: 100%; }
+    .bar-group .bars { display: flex; align-items: flex-end; justify-content: center; gap: 8px; height: 100%; }
+    .bar-wrap { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; width: 36px; }
+    .bar { width: 100%; border-radius: 8px 8px 0 0; height: 0; transition: height .9s ease-out; }
+    .reveal.in .bar { height: var(--h); }
+    .bar-gray { background: rgb(107 113 131 / .45); }
+    .bar-value { font-size: 12px; font-weight: 700; color: #1B2441; }
+    .bar-label { font-size: 12px; font-weight: 600; color: #6B7183; }
+
+    /* P30 — free/paid split bar */
+    .split-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: #F4F4F4; }
+    .split-bar .free { background: #E30016; }
+    .split-bar .paid { background: #1B2441; }
+
+    .proc-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 10px; border-radius: 10px;
+      font-size: 16px; line-height: 150%; color: rgb(27 36 65 / .85);
+      transition: background .2s ease-out;
+    }
+    .proc-item:hover { background: #F4F4F4; }
+    .proc-item::before {
+      content: ""; width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23E30016' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .proc-sub { margin-left: 28px; display: flex; align-items: flex-start; gap: 10px; padding: 6px 10px; font-size: 14px; line-height: 150%; color: #6B7183; }
+    .proc-sub::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: #E30016; flex-shrink: 0; margin-top: 9px; }
+
+    .logo-slot {
+      width: 56px; height: 56px; border-radius: 12px;
+      border: 1px dashed rgb(107 113 131 / .4);
+      background: #F8F8F9; color: #6B7183;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .logo-slot-lg { width: 84px; height: 68px; }
+    .photo-slot {
+      width: 100%; aspect-ratio: 3 / 2; border-radius: 12px;
+      border: 1px dashed rgb(107 113 131 / .4); background: #F8F8F9; color: #6B7183;
+      display: flex; align-items: center; justify-content: center; font-size: 26px;
+    }
+
+    .room-numeral { font-family: 'Zodiak', Georgia, serif; font-size: 42px; line-height: 110%; font-weight: 700; color: #E30016; }
+    @media (min-width: 1024px) { .room-numeral { font-size: 52px; } }
+
+    .step-numeral {
+      width: 40px; height: 40px; border-radius: 999px; flex-shrink: 0;
+      background: #E30016; color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Zodiak', Georgia, serif; font-size: 18px; font-weight: 700;
+    }
+    .note-callout {
+      border: 1px dashed rgb(107 113 131 / .5); border-radius: 12px;
+      background: #F8F8F9; padding: 16px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+
+    .summary-row { display: grid; grid-template-columns: 56px 1.2fr 1.4fr 1.4fr; gap: 12px; padding: 12px 20px; align-items: baseline; }
+    .summary-row + .summary-row { border-top: 1px solid rgb(107 113 131 / .12); }
+    @media (max-width: 1023px) { .summary-row { grid-template-columns: 48px 1fr; row-gap: 4px; } }
+  </style>
+</head>
+<body class="bg-white text-primary-blue antialiased font-sans">
+
+  <nav aria-label="Breadcrumb" class="bg-white border-b border-dark-gray/15">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <ol class="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
+        <li><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li><a href="/ds" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Design System</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li aria-current="page" class="font-semibold text-primary-blue">UI Catalog</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Catalog hero -->
+  <section class="bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Design System</p>
+        <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Department &amp; Service UI Catalog</h1>
+        <p class="text-b16 text-primary-blue/85 mt-2 max-w-[720px] mx-auto">
+          Every distinct UI pattern needed to rebuild the department, patient-care, and patient-welfare pages as CMS-editable components. Each entry shows the live pattern with verbatim example content, who uses it, and how it maps to the CMS. Internal reference — not patient-facing.
+        </p>
+        <div class="pt-4 flex flex-wrap gap-2 justify-center">
+          <span class="chip">30 patterns</span>
+          <span class="chip">14 departments</span>
+          <span class="chip">12 patient-care facilities</span>
+          <span class="chip">8 welfare resources</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="sticky-bar" aria-label="Patterns">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <div class="flex flex-wrap items-center gap-2" id="jump-chips">
+        <span class="field-label-text mr-1">Patterns</span>
+        <a href="#p01" data-section="p01" class="chip">P01 Hero</a>
+        <a href="#p02" data-section="p02" class="chip">P02 Stat</a>
+        <a href="#p03" data-section="p03" class="chip">P03 Tagline</a>
+        <a href="#p04" data-section="p04" class="chip">P04 Overview</a>
+        <a href="#p05" data-section="p05" class="chip">P05 Explorer</a>
+        <a href="#p06" data-section="p06" class="chip">P06 Check list</a>
+        <a href="#p07" data-section="p07" class="chip">P07 Chips</a>
+        <a href="#p08" data-section="p08" class="chip">P08 Nested</a>
+        <a href="#p09" data-section="p09" class="chip">P09 Framing</a>
+        <a href="#p10" data-section="p10" class="chip">P10 Why Choose</a>
+        <a href="#p11" data-section="p11" class="chip">P11 Free care</a>
+        <a href="#p12" data-section="p12" class="chip">P12 Program</a>
+        <a href="#p13" data-section="p13" class="chip">P13 Referral</a>
+        <a href="#p14" data-section="p14" class="chip">P14 Welfare</a>
+        <a href="#p15" data-section="p15" class="chip">P15 Numerals</a>
+        <a href="#p16" data-section="p16" class="chip">P16 Timings</a>
+        <a href="#p17" data-section="p17" class="chip">P17 Counters</a>
+        <a href="#p18" data-section="p18" class="chip">P18 Steps</a>
+        <a href="#p19" data-section="p19" class="chip">P19 Rights</a>
+        <a href="#p20" data-section="p20" class="chip">P20 Links</a>
+        <a href="#p21" data-section="p21" class="chip">P21 CMS note</a>
+        <a href="#p22" data-section="p22" class="chip">P22 Closing</a>
+        <a href="#p23" data-section="p23" class="chip">P23 Stories</a>
+        <a href="#p24" data-section="p24" class="chip">P24 CTA</a>
+        <a href="#p25" data-section="p25" class="chip">P25 Certs</a>
+        <a href="#p26" data-section="p26" class="chip">P26 Profile</a>
+        <a href="#p27" data-section="p27" class="chip">P27 Calendar</a>
+        <a href="#p28" data-section="p28" class="chip">P28 Highlights</a>
+        <a href="#p29" data-section="p29" class="chip">P29 Chart</a>
+        <a href="#p30" data-section="p30" class="chip">P30 Split bar</a>
+        <a href="#summary" data-section="summary" class="chip">Summary</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ P01 · HERO BASE ═══════════ -->
+  <section id="p01" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P01</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Hero — base</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">All 14 departments</span><span class="chip">All patient-care pages</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → hero group (mediumImpact, white variant) · fixed field · {kicker, title, tagline, excerpt, media, links[]}</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 flex flex-col gap-[6px]">
+            <p class="kicker">Surgery &amp; Allied Specialties</p>
+            <p class="text-h3M lg:text-h3 font-bold tracking-display text-primary-blue">General Surgery</p>
+            <p class="text-b18 font-semibold text-primary-blue">Comprehensive Surgical Care</p>
+            <p class="text-b16 text-primary-blue/85 mt-1 max-w-[560px]">The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.</p>
+            <div class="pt-3 flex flex-wrap gap-3">
+              <span class="btn-primary text-b14 min-h-[44px] px-5">View Our Services</span>
+              <span class="btn-ghost">Why Choose Us</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="photo-slot"><i class="ph ph-image-square"></i></div>
+          </div>
+        </div>
+        <p class="text-b12 text-dark-gray mt-4">Trimmed static snapshot — live on the <a href="/department-page-design-system-general-surgery.html" class="font-semibold text-primary-blue hover:text-primary-red transition-colors duration-200">General Surgery page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P02 · HERO STAT ═══════════ -->
+  <section id="p02" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P02</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Hero — stat card</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">IPD · 25–35</span><span class="chip">OPD · 40+</span><span class="chip">ICU · 6 beds</span><span class="chip">Dialysis · 30</span><span class="chip">Emergency · 24/7</span><span class="chip">Nursing · 50+</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → PROPOSED hero.stats[] extension · {value, label}[]</p>
+      <div class="flex flex-wrap gap-4 reveal">
+        <div class="card inline-flex items-baseline gap-2 px-5 py-3">
+          <span class="text-h3M lg:text-h3 font-bold text-primary-red font-display">25–35</span>
+          <span class="text-b14 text-dark-gray">daily admissions</span>
+        </div>
+        <div class="card inline-flex items-baseline gap-2 px-5 py-3">
+          <span class="text-h3M lg:text-h3 font-bold text-primary-red font-display">6</span>
+          <span class="text-b14 text-dark-gray">fully equipped beds</span>
+        </div>
+        <div class="card inline-flex items-baseline gap-2 px-5 py-3">
+          <span class="text-h3M lg:text-h3 font-bold text-primary-red font-display">30</span>
+          <span class="text-b14 text-dark-gray">fully equipped dialysis machines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P03 · QUOTE TAGLINE ═══════════ -->
+  <section id="p03" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P03</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Hero — quote tagline</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">OPD</span><span class="chip">IPD</span><span class="chip">Nursing</span><span class="chip">Pathology</span><span class="chip">Radiology</span><span class="chip">Cardiac Diagnostics</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → hero.tagline (existing field) · string</p>
+      <div class="card p-6 lg:p-8 flex flex-col gap-4 reveal">
+        <p class="text-h5M lg:text-h5 font-bold text-primary-blue font-display">“Expert Consultations. Comprehensive Care. Free Medicines for Every OPD Patient.”</p>
+        <p class="text-b16 text-primary-blue/85 font-display">“Caring hands, compassionate hearts, and professional excellence”</p>
+        <p class="text-b16 text-primary-blue/85 font-display">“Accurate Diagnostics. Reliable Results.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P04 · OVERVIEW PROSE ═══════════ -->
+  <section id="p04" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P04</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Overview — prose</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal"><span class="chip">All pages</span></div>
+      <p class="cms-note text-center reveal">CMS → fixed overview richText (FixedDepartmentServiceContent) · richText</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <p class="kicker mb-1">Overview</p>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl">Our team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P05 · GROUPED EXPLORER ═══════════ -->
+  <section id="p05" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P05</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Grouped procedure explorer</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">11 of 14 departments</span><span class="chip">Pathology</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → departmentServices block (existing) · serviceGroups[{icon, heading, items[]}] · includes live search + empty state</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-4 flex flex-col gap-1">
+            <span class="card-interactive p-3 flex items-center gap-3 text-b14"><span class="icon-tile !w-9 !h-9 !text-lg"><i class="ph ph-list-checks"></i></span><span class="font-bold text-primary-blue">All Procedures</span><span class="ml-auto text-b12 font-bold text-primary-red">21</span></span>
+            <span class="p-3 flex items-center gap-3 text-b14 text-dark-gray"><span class="icon-tile !w-9 !h-9 !text-lg"><i class="ph ph-knife"></i></span><span class="font-semibold">General Surgery</span><span class="ml-auto text-b12">11</span></span>
+            <span class="p-3 flex items-center gap-3 text-b14 text-dark-gray"><span class="icon-tile !w-9 !h-9 !text-lg"><i class="ph ph-scan"></i></span><span class="font-semibold">Minimally Invasive (Laparoscopic) Surgery</span><span class="ml-auto text-b12">4</span></span>
+            <span class="p-3 flex items-center gap-3 text-b14 text-dark-gray"><span class="icon-tile !w-9 !h-9 !text-lg"><i class="ph ph-drop"></i></span><span class="font-semibold">Hepatobiliary &amp; Gastrointestinal Surgery</span><span class="ml-auto text-b12">5</span></span>
+          </div>
+          <div class="lg:col-span-8 card p-5">
+            <p class="kicker mb-2">Service group</p>
+            <p class="text-h6 font-bold text-primary-blue mb-3">Minimally Invasive (Laparoscopic) Surgery</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+              <div class="proc-item">Diagnostic and Therapeutic Laparoscopy</div>
+              <div class="proc-item">Laparoscopic Cholecystectomy</div>
+              <div class="proc-item">Lap Appendectomy</div>
+              <div class="proc-item">Lap Hernia Repair</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-b12 text-dark-gray mt-4">Static snapshot — interactive version (search, rail, deep-links) live on the <a href="/department-page-design-system-general-surgery.html#surgical-services" class="font-semibold text-primary-blue hover:text-primary-red transition-colors duration-200">General Surgery page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P06 · FLAT CHECK LIST ═══════════ -->
+  <section id="p06" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P06</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Flat check list (ungrouped)</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">ICU</span><span class="chip">Emergency</span><span class="chip">Nursing</span><span class="chip">Anesthesia</span><span class="chip">Pharmacy</span><span class="chip">Blood Bank</span><span class="chip">Dialysis</span><span class="chip">Dermatology</span><span class="chip">Endocrinology</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → content block (2-col) OR serviceGroups single group · {heading?, items[]}</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <p class="kicker mb-1">Facilities and Services</p>
+        <p class="text-b16 text-primary-blue/85 mb-3">The ICU consists of 6 fully equipped beds and offers:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+          <div class="proc-item">Continuous 24/7 patient monitoring</div>
+          <div class="proc-item">Postoperative critical care</div>
+          <div class="proc-item">Ventilator and respiratory support</div>
+          <div class="proc-item">Emergency stabilization and resuscitation</div>
+          <div class="proc-item">Critical care and anesthesia consultations</div>
+          <div class="proc-item">Management of high-risk surgical and medical patients</div>
+          <div class="proc-item">Round-the-clock nursing care</div>
+          <div class="proc-item">Multidisciplinary treatment planning</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P07 · FLAT CHIP LIST ═══════════ -->
+  <section id="p07" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P07</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Flat chip list — “Conditions We Manage”</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Cardiology</span><span class="chip">Pulmonology</span><span class="chip">Pediatrics</span><span class="chip">Cardiac Diagnostics</span><span class="chip">Welfare · Free Medicines</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: chipList) · {heading, items[]} · example below is Cardiology, verbatim</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <p class="text-h6 font-bold text-primary-blue mb-4">Conditions We Manage</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">Valvular Heart Diseases</span>
+          <span class="chip">Cardiomyopathy</span>
+          <span class="chip">Heart Failure</span>
+          <span class="chip">Cardiac Arrhythmias</span>
+          <span class="chip">Pericardial Diseases</span>
+          <span class="chip">Rheumatic Heart Diseases</span>
+          <span class="chip">Congenital Heart Diseases</span>
+          <span class="chip">Hypertension (High Blood Pressure)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P08 · NESTED SUB-LIST ═══════════ -->
+  <section id="p08" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P08</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Nested sub-list</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Dermatology</span><span class="chip">Nephrology</span><span class="chip">Patient Right #4</span><span class="chip">Responsibility #4</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → SCHEMA EXTENSION: serviceGroups items children[] · items[{text, children[]}] · example below is Dermatology, verbatim</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <div class="proc-item">Electrocautery and cauterization</div>
+        <div class="proc-item">Intralesional steroid injections for conditions such as:</div>
+        <div class="proc-sub">Keloids</div>
+        <div class="proc-sub">Alopecia Areata</div>
+        <div class="proc-sub">Hypertrophic scars</div>
+        <div class="proc-sub">Lichen Planus</div>
+        <div class="proc-item">Platelet-Rich Plasma (PRP) Therapy for selected hair loss conditions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P09 · GROUP FRAMING ═══════════ -->
+  <section id="p09" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P09</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">List with intro / outro framing prose</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Cardiology</span><span class="chip">Pathology</span><span class="chip">Radiology</span><span class="chip">OT Complex</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → content block OR group.description richText · {intro, items, outro} · example below is Cardiology “Pre-Surgical Cardiac Assessment”, verbatim</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <p class="text-b16 text-primary-blue/85 mb-3">The Cardiology Department provides cardiac fitness evaluation and medical clearance for patients undergoing:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 mb-3">
+          <div class="proc-item">General Surgery</div>
+          <div class="proc-item">Gynaecological and Obstetric Procedures</div>
+          <div class="proc-item">Urological Surgery</div>
+          <div class="proc-item">Orthopedic Surgery</div>
+          <div class="proc-item">Other elective surgical procedures, where required</div>
+        </div>
+        <p class="text-b14 text-dark-gray">These evaluations help assess cardiac risk before anesthesia and surgery, supporting safe surgical outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P10 · WHY CHOOSE GRID ═══════════ -->
+  <section id="p10" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P10</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Why-choose icon grid</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">All 14 departments</span><span class="chip">OPD</span><span class="chip">Pathology</span><span class="chip">Radiology</span><span class="chip">Cardiac Diagnostics</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → fixed whyChoose[] field · {icon, text}[] · examples below are General Surgery, verbatim</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <article class="card-interactive p-5 flex flex-col gap-2 reveal">
+          <span class="icon-tile"><i class="ph ph-users-three"></i></span>
+          <p class="text-b16 font-semibold text-primary-blue">Experienced general surgeons and multidisciplinary surgical team</p>
+        </article>
+        <article class="card-interactive p-5 flex flex-col gap-2 reveal" style="transition-delay:.05s">
+          <span class="icon-tile"><i class="ph ph-hospital"></i></span>
+          <p class="text-b16 font-semibold text-primary-blue">Modern operation theatres equipped for elective and emergency surgery</p>
+        </article>
+        <article class="card-interactive p-5 flex flex-col gap-2 reveal" style="transition-delay:.1s">
+          <span class="icon-tile"><i class="ph ph-knife"></i></span>
+          <p class="text-b16 font-semibold text-primary-blue">Advanced laparoscopic (minimally invasive) surgical techniques</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P11 · FREE-TREATMENT GRID ═══════════ -->
+  <section id="p11" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P11</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Free-treatment icon tile grid</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal"><span class="chip">IPD only</span></div>
+      <p class="cms-note text-center reveal">CMS → fixed freeTreatment[] field (reuses P10 visual, different semantic) · {icon, label}[] · example verbatim from IPD</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal"><span class="icon-tile"><i class="ph ph-hospital"></i></span><p class="text-b14 font-semibold text-primary-blue">Hospitalization</p></article>
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal" style="transition-delay:.05s"><span class="icon-tile"><i class="ph ph-knife"></i></span><p class="text-b14 font-semibold text-primary-blue">Surgical Procedures</p></article>
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal" style="transition-delay:.1s"><span class="icon-tile"><i class="ph ph-pill"></i></span><p class="text-b14 font-semibold text-primary-blue">Medications</p></article>
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal" style="transition-delay:.15s"><span class="icon-tile"><i class="ph ph-microscope"></i></span><p class="text-b14 font-semibold text-primary-blue">Diagnostic Investigations</p></article>
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal" style="transition-delay:.2s"><span class="icon-tile"><i class="ph ph-first-aid"></i></span><p class="text-b14 font-semibold text-primary-blue">Nursing Care</p></article>
+        <article class="card-interactive p-4 flex flex-col items-center text-center gap-2 reveal" style="transition-delay:.25s"><span class="icon-tile"><i class="ph ph-clipboard-text"></i></span><p class="text-b14 font-semibold text-primary-blue">Follow-up Services</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P12 · PROGRAM CALLOUT ═══════════ -->
+  <section id="p12" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P12</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Program callout (logo slot)</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">IPD · Sehat Sahulat</span><span class="chip">Patient Welfare · Sehat Sahulat</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: programCallout) · {logo, title, body} · body verbatim from patient-care.txt</p>
+      <article class="card bg-redbg border-primary-red/30 p-6 lg:p-8 flex flex-col sm:flex-row items-start gap-5 reveal">
+        <div class="logo-slot logo-slot-lg" aria-label="Sehat Sahulat Program logo placeholder"><i class="ph ph-image-square"></i></div>
+        <div class="flex-1 flex flex-col gap-2">
+          <p class="kicker">Government Coverage</p>
+          <p class="text-h5M lg:text-h5 font-bold text-primary-blue">Sehat Sahulat Program</p>
+          <p class="text-b16 text-primary-blue/85 max-w-3xl">Hijaz Hospital is also enlisted under the Government of Pakistan's Sehat Sahulat Program, enabling eligible patients to receive medical and surgical treatment through government-sponsored healthcare coverage. This initiative helps reduce financial burdens while ensuring access to quality healthcare services.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ P13 · REFERRAL CALLOUT ═══════════ -->
+  <section id="p13" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P13</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Referral / partner callout</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Cardiology</span><span class="chip">Radiology</span><span class="chip">Pathology</span><span class="chip">OPD · external labs</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: calloutCard) or content · {title, body} · example verbatim from Cardiology “Referral for Advanced Cardiac Care”</p>
+      <article class="card border-l-4 border-l-primary-red p-6 lg:p-8 flex items-start gap-4 reveal">
+        <span class="icon-tile"><i class="ph ph-arrow-square-out"></i></span>
+        <div class="flex-1">
+          <p class="text-h6 font-bold text-primary-blue mb-2">Referral for Advanced Cardiac Care</p>
+          <p class="text-b16 text-primary-blue/85">Patients requiring specialized cardiac interventions, emergency cardiac procedures, or advanced investigations are referred to appropriate tertiary care hospitals to ensure timely access to comprehensive cardiac services.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ P14 · WELFARE NOTE BAND ═══════════ -->
+  <section id="p14" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P14</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Welfare / free-care note band</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Emergency</span><span class="chip">Ambulance</span><span class="chip">Dialysis</span><span class="chip">Pharmacy</span><span class="chip">OPD</span><span class="chip">Blood Bank</span><span class="chip">Pulmonology · free TB</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → PROPOSED fixed welfareNote field · richText · example verbatim from Emergency “Affordable and Accessible Care”</p>
+      <div class="bg-redbg rounded-2xl p-6 lg:p-8 reveal">
+        <div class="flex items-start gap-4 max-w-3xl">
+          <span class="icon-tile"><i class="ph ph-hand-heart"></i></span>
+          <p class="text-b16 text-primary-blue/85">Hijaz Hospital is committed to ensuring access to quality healthcare for all. Medicines administered during emergency treatment are provided free of charge, and financially disadvantaged patients may receive free medical care based on eligibility and need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P15 · NUMERAL CARDS ═══════════ -->
+  <section id="p15" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P15</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Big-numeral cards</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">IPD · rooms 4/2/1/1</span><span class="chip">OT Complex · theatres 3/1/1/1</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: numeralCards) or fixed rooms[] field · {count, label, photo?}[] · labels verbatim from IPD “Accommodation Options”</p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="card-interactive p-5 flex flex-col gap-3 reveal"><div class="photo-slot"><i class="ph ph-image-square"></i></div><div class="flex items-end gap-3"><span class="room-numeral">4</span><p class="text-b14 font-semibold text-primary-blue pb-1">Private Gynecology Rooms</p></div></article>
+        <article class="card-interactive p-5 flex flex-col gap-3 reveal" style="transition-delay:.05s"><div class="photo-slot"><i class="ph ph-image-square"></i></div><div class="flex items-end gap-3"><span class="room-numeral">2</span><p class="text-b14 font-semibold text-primary-blue pb-1">VIP Rooms</p></div></article>
+        <article class="card-interactive p-5 flex flex-col gap-3 reveal" style="transition-delay:.1s"><div class="photo-slot"><i class="ph ph-image-square"></i></div><div class="flex items-end gap-3"><span class="room-numeral">1</span><p class="text-b14 font-semibold text-primary-blue pb-1">Semi-VIP Room</p></div></article>
+        <article class="card-interactive p-5 flex flex-col gap-3 reveal" style="transition-delay:.15s"><div class="photo-slot"><i class="ph ph-image-square"></i></div><div class="flex items-end gap-3"><span class="room-numeral">1</span><p class="text-b14 font-semibold text-primary-blue pb-1">VVIP Room</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P16 · TIMINGS CARD ═══════════ -->
+  <section id="p16" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P16</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Clinic timings card</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal"><span class="chip">OPD only</span></div>
+      <p class="cms-note text-center reveal">CMS → PROPOSED fixed timings[] field · {label, time}[] · verbatim from OPD “OPD Timings”</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+        <article class="card p-5 flex items-center gap-4 reveal">
+          <span class="icon-tile"><i class="ph ph-sun"></i></span>
+          <div><p class="text-b14 text-dark-gray">Morning Clinic</p><p class="text-h6 font-bold text-primary-blue">8:00 AM – 2:00 PM</p></div>
+        </article>
+        <article class="card p-5 flex items-center gap-4 reveal" style="transition-delay:.05s">
+          <span class="icon-tile"><i class="ph ph-moon-stars"></i></span>
+          <div><p class="text-b14 text-dark-gray">Evening Clinic</p><p class="text-h6 font-bold text-primary-blue">2:00 PM – 8:00 PM</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P17 · STAT COUNTERS ═══════════ -->
+  <section id="p17" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P17</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Stat counters</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Emergency</span><span class="chip">ICU</span><span class="chip">Dialysis</span><span class="chip">OPD</span><span class="chip">Flood Relief · 50+ houses</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → counters block (existing — animates on scroll) · {value, label}[] · labels traced to source lines</p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="card p-5 text-center reveal"><p class="text-h2M lg:text-h2 font-bold text-primary-red font-display">40+</p><p class="text-b14 text-dark-gray">Specialized Consultants</p></article>
+        <article class="card p-5 text-center reveal" style="transition-delay:.05s"><p class="text-h2M lg:text-h2 font-bold text-primary-red font-display">6</p><p class="text-b14 text-dark-gray">fully equipped beds</p></article>
+        <article class="card p-5 text-center reveal" style="transition-delay:.1s"><p class="text-h2M lg:text-h2 font-bold text-primary-red font-display">30</p><p class="text-b14 text-dark-gray">fully equipped dialysis machines</p></article>
+        <article class="card p-5 text-center reveal" style="transition-delay:.15s"><p class="text-h2M lg:text-h2 font-bold text-primary-red font-display">24/7</p><p class="text-b14 text-dark-gray">emergency medical care</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P18 · STEPS PROCESS ═══════════ -->
+  <section id="p18" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P18</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Numbered steps process</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Admission Process · 6 steps</span><span class="chip">Welfare eligibility · 4 steps</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: processSteps) · steps[{title, items[]}] · example verbatim from Patient Admission Process (first 2 of 6 steps)</p>
+      <div class="flex flex-col gap-4 max-w-3xl">
+        <article class="card p-6 flex items-start gap-4 reveal">
+          <span class="step-numeral">1</span>
+          <div class="flex-1">
+            <p class="text-h6 font-bold text-primary-blue mb-2">OPD Consultation &amp; Assessment</p>
+            <div class="proc-item">Patients visit the OPD Registration Counter for registration and consultation.</div>
+            <div class="proc-item">A department-wise token is issued, and the patient meets the relevant consultant.</div>
+            <div class="proc-item">The consultant evaluates the patient and determines whether admission is required.</div>
+          </div>
+        </article>
+        <article class="card p-6 flex items-start gap-4 reveal" style="transition-delay:.08s">
+          <span class="step-numeral">2</span>
+          <div class="flex-1">
+            <p class="text-h6 font-bold text-primary-blue mb-2">Admission &amp; Eligibility Verification</p>
+            <div class="proc-item">If admission is advised, the patient proceeds to the relevant admission desk for further processing.</div>
+            <div class="proc-item">For patients to be registered under the Sehat Sahulat Program (SSP), eligibility verification and required approvals are completed through the SSP system.</div>
+            <div class="proc-item">Necessary admission documentation is completed, and the patient file is prepared.</div>
+          </div>
+        </article>
+        <span class="chip self-start reveal">+ 4 more steps · Pre-Procedure Assessment → Discharge Process</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P19 · NUMBERED RIGHTS ═══════════ -->
+  <section id="p19" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P19</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Numbered rights / responsibilities</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Patient Rights · 10</span><span class="chip">Responsibilities · 10</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: numberedList) or content richText · {title, body, children?}[] · example verbatim from Patient Rights (first 3 of 10)</p>
+      <div class="flex flex-col gap-3 max-w-3xl">
+        <article class="card p-5 flex items-start gap-4 reveal">
+          <span class="step-numeral">1</span>
+          <div><p class="text-b16 font-bold text-primary-blue">Right to Respect &amp; Dignity</p><p class="text-b14 text-primary-blue/85">Every patient has the right to be treated with respect, compassion, and dignity regardless of religion, gender, age, or financial status.</p></div>
+        </article>
+        <article class="card p-5 flex items-start gap-4 reveal" style="transition-delay:.05s">
+          <span class="step-numeral">2</span>
+          <div><p class="text-b16 font-bold text-primary-blue">Right to Quality Healthcare</p><p class="text-b14 text-primary-blue/85">Patients have the right to receive safe, appropriate, and professional medical care according to established hospital standards.</p></div>
+        </article>
+        <article class="card p-5 flex items-start gap-4 reveal" style="transition-delay:.1s">
+          <span class="step-numeral">3</span>
+          <div><p class="text-b16 font-bold text-primary-blue">Right to Privacy &amp; Confidentiality</p><p class="text-b14 text-primary-blue/85">Patients have the right to privacy. All personal information, medical records, and treatment details are kept confidential.</p></div>
+        </article>
+        <span class="chip self-start reveal">+ 7 more rights · 10 responsibilities mirror this pattern</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P20 · SPECIALTY LINK CARDS ═══════════ -->
+  <section id="p20" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P20</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Specialty link cards</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">IPD · 6 specialties</span><span class="chip">OT Complex · 11</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → PROPOSED fixed relatedDepartments relationship · {icon, label, href}[] · labels verbatim from IPD “Surgical Services”</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <a href="/departments" class="card-interactive p-5 flex items-center gap-3 reveal">
+          <span class="icon-tile"><i class="ph ph-bone"></i></span>
+          <span class="flex-1 text-b16 font-bold text-primary-blue">Orthopedic Surgery</span>
+          <i class="ph ph-arrow-up-right text-dark-gray"></i>
+        </a>
+        <a href="/department-page-design-system-general-surgery.html" class="card-interactive p-5 flex items-center gap-3 reveal" style="transition-delay:.05s">
+          <span class="icon-tile"><i class="ph ph-knife"></i></span>
+          <span class="flex-1 text-b16 font-bold text-primary-blue">General Surgery</span>
+          <i class="ph ph-arrow-up-right text-dark-gray"></i>
+        </a>
+        <a href="/departments" class="card-interactive p-5 flex items-center gap-3 reveal" style="transition-delay:.1s">
+          <span class="icon-tile"><i class="ph ph-ear"></i></span>
+          <span class="flex-1 text-b16 font-bold text-primary-blue">ENT Surgery</span>
+          <i class="ph ph-arrow-up-right text-dark-gray"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P21 · EDITORIAL CMS NOTE ═══════════ -->
+  <section id="p21" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P21</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Editorial CMS note (never public)</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Pediatrics</span><span class="chip">Welfare · Sehat Sahulat</span><span class="chip">Admission step 4</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → admin-only _contentNote field (stripped from public render) · text · example verbatim from Pediatrics</p>
+      <div class="note-callout max-w-3xl reveal">
+        <span class="icon-tile !w-9 !h-9 !text-lg"><i class="ph ph-note-pencil"></i></span>
+        <div>
+          <p class="field-label-text mb-1">Content note — editors only</p>
+          <p class="text-b14 text-dark-gray">if Hijaz Hospital offers newborn immunization, vaccination services, newborn screening, or neonatal care (beyond the well-baby nursery), those should be added.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P22 · CLOSING BAND ═══════════ -->
+  <section id="p22" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P22</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Commitment / closing quote band</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Cardiology</span><span class="chip">IPD</span><span class="chip">OPD</span><span class="chip">Cafeteria</span><span class="chip">Most services</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → fixed closing richText field · richText · example verbatim from IPD “Compassionate Inpatient Care”</p>
+      <div class="bg-redbg rounded-2xl p-6 lg:p-10 reveal">
+        <div class="flex flex-col gap-4 items-center text-center max-w-3xl mx-auto">
+          <p class="kicker">Compassionate Inpatient Care</p>
+          <p class="text-h5M lg:text-h5 font-bold text-primary-blue font-display">From admission to recovery, our IPD team is dedicated to providing safe, dignified, and patient-centered care, ensuring every patient receives the treatment and support they need throughout their hospital stay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P23 · PATIENT STORIES SLOT ═══════════ -->
+  <section id="p23" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P23</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Patient stories slot</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal"><span class="chip">Dept / service detail pages</span></div>
+      <p class="cms-note text-center reveal">CMS → successStories block (existing, context prop) · relationship to success-stories collection</p>
+      <article class="card p-6 border-dashed flex flex-col gap-3 items-start max-w-xl reveal">
+        <span class="group-badge">CMS placeholder</span>
+        <p class="text-b14 text-dark-gray">Auto-pulls published success stories filtered to the page's department (<code>successStories</code> block, <code>context</code> prop). Story cards appear here once stories are tagged in Admin.</p>
+        <a href="/success-stories" class="text-b14 font-semibold text-primary-blue hover:text-primary-red transition-colors duration-200 mt-auto">Browse all success stories →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ P24 · CTA BAND ═══════════ -->
+  <section id="p24" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P24</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Navy donate CTA band</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal"><span class="chip">All pages</span></div>
+      <p class="cms-note text-center reveal">CMS → global CTA settings (per-document override toggle) · global</p>
+      <div class="bg-primary-blue rounded-2xl relative overflow-hidden reveal">
+        <div class="absolute w-[250px] aspect-square rounded-full blur-[200px] bg-light-blue bottom-0 left-1/4 opacity-40 pointer-events-none"></div>
+        <div class="p-6 lg:p-10 relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 text-center lg:text-start">
+          <div class="flex flex-col gap-[6px] max-w-xl">
+            <p class="kicker">Support Our Mission</p>
+            <p class="text-h4M lg:text-h4 font-bold text-white">Help Us Keep Care Within Reach for Every Patient</p>
+            <p class="text-b16 text-white/85">Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.</p>
+          </div>
+          <span class="btn-on-dark shrink-0 mx-auto lg:mx-0">Donate Now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P25 · CERT LOGO POPUP ═══════════ -->
+  <section id="p25" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P25</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Compliance logo card + certificate popup</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Pathology · accreditations</span><span class="chip">Our Purpose · compliance</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW block (proposed: complianceLogos) · {logo, issuer, title, body, certImage?}[] · click behavior demoed on Our Purpose page</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+        <article class="card-interactive p-5 flex items-start gap-4 reveal">
+          <div class="logo-slot !border-solid !bg-white p-1.5"><img src="/compliance-logos/fbr-pakistan-seeklogo.png" alt="Federal Board of Revenue logo" class="max-h-[44px] max-w-[52px] object-contain" /></div>
+          <div class="flex-1">
+            <p class="text-b16 font-bold text-primary-blue mb-1">Hospital Registration</p>
+            <p class="text-b14 text-primary-blue/85">Hospital Registration No. DDS-WELD/88-219 Exempted from income tax</p>
+            <span class="text-b14 font-semibold text-primary-red inline-flex items-center gap-1 mt-2"><i class="ph ph-magnifying-glass-plus"></i> View certificate</span>
+          </div>
+        </article>
+        <article class="card p-5 border-dashed flex flex-col gap-2 reveal" style="transition-delay:.05s">
+          <span class="group-badge">Behavior</span>
+          <p class="text-b14 text-dark-gray">Card opens a fullscreen lightbox (blurred backdrop, Esc/backdrop close, focus return). Certificate scans attach via <code>certImage</code>. Live demo: <a href="/about-our-purpose-design-system.html#our-compliance" class="font-semibold text-primary-blue hover:text-primary-red transition-colors duration-200">Our Purpose → Compliance</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P26 · PERSON PROFILE ═══════════ -->
+  <section id="p26" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P26</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Person profile template</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Founder</span><span class="chip">Lifetime Chairman</span><span class="chip">Chairperson</span><span class="chip">President</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW collection (proposed: profiles) · {portrait, name, lifespan, role, org, bio richText, roles[], closingLine} · linked from leadership/founders sections · example verbatim from Profiles.txt (Haji Inam Elahi Asar)</p>
+      <div class="card p-6 lg:p-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-3 flex flex-col items-center gap-3">
+            <div class="photo-slot" style="aspect-ratio:3/4; max-width:180px" aria-label="Portrait photo placeholder"><i class="ph ph-user"></i></div>
+            <span class="group-badge">portrait media</span>
+          </div>
+          <div class="lg:col-span-9 flex flex-col gap-4">
+            <div>
+              <p class="text-h5M lg:text-h5 font-bold text-primary-blue">Haji Inam Elahi Asar <span class="text-dark-gray font-normal">(1927–2016)</span></p>
+              <p class="text-b14 text-dark-gray">Founder &amp; Honorary Project Director · Hijaz Hospital</p>
+            </div>
+            <p class="text-b16 text-primary-blue/85">Haji Inam Elahi Asar was born on 15 October 1927 in Chiniot, Pakistan. After completing his matriculation, he began his professional career in Kolkata before returning to Pakistan in 1947. He established his business in Karachi and later moved to Lahore in 1953, where he built a successful business while dedicating his life to humanitarian and welfare work.</p>
+            <p class="text-b16 text-primary-blue/85">His enduring legacy is Hijaz Hospital, a charitable healthcare institution founded on the principles of compassion, dignity, and service. In a remarkable act of selflessness, he donated virtually all of his personal assets—including his residence—to support the hospital's mission. His vision laid the foundation for a modern healthcare facility committed to providing high-quality medical care, particularly to those who cannot afford it.</p>
+            <div>
+              <p class="text-h6 font-bold text-primary-blue mb-2">Leadership &amp; Community Service</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1">
+                <div class="proc-item">Founder &amp; Honorary Project Director, Hijaz Hospital</div>
+                <div class="proc-item">Former President, Pakistan Education Society</div>
+                <div class="proc-item">Executive Member &amp; Former President, Chiniot Sheikh Association</div>
+                <div class="proc-item">Executive Member, Jinnah Hospital</div>
+                <div class="proc-item">Lifetime Member, Isha Haroon Hospital, Gulab Devi Hospital, and The Trust School</div>
+                <div class="proc-item">Founder, Defence Welfare Society</div>
+              </div>
+            </div>
+            <div class="bg-redbg rounded-2xl p-5 text-center">
+              <p class="text-b16 text-primary-blue font-display font-bold">May Almighty Allah (SWT) bless him with eternal peace and reward his lifelong service to humanity. Ameen.</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-b12 text-dark-gray mt-4 text-center">Trimmed demo — full standalone profile page at <a href="/profile-design-system.html" class="font-semibold text-primary-blue hover:text-primary-red transition-colors duration-200">/profile-design-system.html</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P27 · EVENTS CALENDAR ROWS ═══════════ -->
+  <section id="p27" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P27</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Events calendar date-row list</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Our Impact · 17 rows</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → RECOMMENDED array field calendarEvents[{date, label}] on the impact page (static annual observances, not event articles) · alternative: events collection · rows verbatim from Our Impact.txt</p>
+      <div class="card p-6 lg:p-8 max-w-3xl mx-auto w-full reveal">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-4 py-3 border-b border-dark-gray/12">
+            <span class="group-badge min-w-[130px] justify-center text-center">13th March</span>
+            <p class="text-b16 font-semibold text-primary-blue">World Kidney Day</p>
+          </div>
+          <div class="flex items-center gap-4 py-3 border-b border-dark-gray/12">
+            <span class="group-badge min-w-[130px] justify-center text-center">23rd March</span>
+            <p class="text-b16 font-semibold text-primary-blue">Youm-e-Pakistan</p>
+          </div>
+          <div class="flex items-center gap-4 py-3 border-b border-dark-gray/12">
+            <span class="group-badge min-w-[130px] justify-center text-center">24th March</span>
+            <p class="text-b16 font-semibold text-primary-blue">TB Day</p>
+          </div>
+          <div class="flex items-center gap-4 py-3 border-b border-dark-gray/12">
+            <span class="group-badge min-w-[130px] justify-center text-center">3rd April</span>
+            <p class="text-b16 font-semibold text-primary-blue">World Health Day</p>
+          </div>
+          <div class="flex items-center gap-4 py-3 border-b border-dark-gray/12">
+            <span class="group-badge min-w-[130px] justify-center text-center">25th April</span>
+            <p class="text-b16 font-semibold text-primary-blue">Malaria Day</p>
+          </div>
+          <div class="flex items-center gap-4 py-3">
+            <span class="group-badge min-w-[130px] justify-center text-center">20th to 30th April</span>
+            <p class="text-b16 font-semibold text-primary-blue">Immunization Week</p>
+          </div>
+        </div>
+        <p class="text-b12 text-dark-gray mt-4 text-center">+ 11 more rows · Labour Day → Diabetic Day</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P28 · DATED HIGHLIGHT CARDS ═══════════ -->
+  <section id="p28" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P28</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Dated highlight cards</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Our Impact · 5 articles</span><span class="chip">Covered by existing</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → EXISTING newsCarousel / newsList block (news/events relationship) — no new block needed · {title, date, body} · cards verbatim from Our Impact.txt highlights</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <article class="card-interactive p-6 flex flex-col gap-3 reveal">
+          <span class="group-badge self-start">15 June 2026</span>
+          <p class="text-h6 font-bold text-primary-blue">Dengue Awareness Campaign 2026</p>
+          <p class="text-b14 text-primary-blue/85">Hijaz Hospital organized a dengue awareness campaign featuring an awareness walk led by MS Dr. Arfan Ishaque and hospital staff, followed by an educational session on dengue symptoms, prevention, and precautionary measures.</p>
+        </article>
+        <article class="card-interactive p-6 flex flex-col gap-3 reveal" style="transition-delay:.08s">
+          <span class="group-badge self-start">18 May 2026</span>
+          <p class="text-h6 font-bold text-primary-blue">International Nurses Day 2026</p>
+          <p class="text-b14 text-primary-blue/85">Hijaz Hospital celebrated International Nurses Day to honor the dedication, compassion, and tireless efforts of its nursing staff. The event recognized their vital role in delivering quality healthcare and supporting patients around the clock.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P29 · GROUPED BAR CHART (DATASET-DRIVEN) ═══════════ -->
+  <section id="p29" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P29</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Grouped bar chart (dataset-driven)</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Our Impact · Financial highlights</span><span class="chip">Covered by existing</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → EXISTING reportFigure (bar) / reports collection dataset (metrics + periods) — no new block needed · note: the yearly-metrics explorer on the impact page reuses P05 (journey-scrubber pattern) — no new entry · data provided for Our Impact Facts &amp; Statistics</p>
+      <div class="card p-6 lg:p-8 max-w-4xl mx-auto w-full reveal">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="flex flex-col gap-1">
+            <p class="kicker">Financial Highlights</p>
+            <p class="text-h6 font-bold text-primary-blue">Income vs expense by fiscal year</p>
+            <p class="text-b14 text-dark-gray">Rs in millions</p>
+          </div>
+          <div class="flex items-center gap-4 text-b14 font-semibold text-primary-blue">
+            <span class="inline-flex items-center gap-2"><span class="legend-swatch bg-primary-blue"></span>Income</span>
+            <span class="inline-flex items-center gap-2"><span class="legend-swatch" style="background:rgb(107 113 131 / .45)"></span>Expense</span>
+          </div>
+        </div>
+        <div class="bar-chart">
+          <div class="bar-group">
+            <div class="bars">
+              <div class="bar-wrap"><span class="bar-value">661.46</span><span class="bar bg-primary-blue" style="--h:50.3%"></span></div>
+              <div class="bar-wrap"><span class="bar-value">506.56</span><span class="bar bar-gray" style="--h:38.5%"></span></div>
+            </div>
+            <span class="bar-label">2021-22</span>
+          </div>
+          <div class="bar-group">
+            <div class="bars">
+              <div class="bar-wrap"><span class="bar-value">936.38</span><span class="bar bg-primary-blue" style="--h:71.2%"></span></div>
+              <div class="bar-wrap"><span class="bar-value">636.29</span><span class="bar bar-gray" style="--h:48.4%"></span></div>
+            </div>
+            <span class="bar-label">2022-23</span>
+          </div>
+          <div class="bar-group">
+            <div class="bars">
+              <div class="bar-wrap"><span class="bar-value">971.78</span><span class="bar bg-primary-blue" style="--h:73.9%"></span></div>
+              <div class="bar-wrap"><span class="bar-value">752.45</span><span class="bar bar-gray" style="--h:57.2%"></span></div>
+            </div>
+            <span class="bar-label">2023-24</span>
+          </div>
+          <div class="bar-group">
+            <div class="bars">
+              <div class="bar-wrap"><span class="bar-value">1315.52</span><span class="bar bg-primary-blue" style="--h:100%"></span></div>
+              <div class="bar-wrap"><span class="bar-value">888.06</span><span class="bar bar-gray" style="--h:67.5%"></span></div>
+            </div>
+            <span class="bar-label">2024-25</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ P30 · FREE/PAID SPLIT-PERCENTAGE BAR ═══════════ -->
+  <section id="p30" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">P30</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Free/paid split-percentage bar</h2>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">Our Impact · Surgeries split</span><span class="chip">Our Impact · Services rendered ×4</span><span class="chip">NEW micro-pattern</span>
+      </div>
+      <p class="cms-note text-center reveal">CMS → NEW micro-pattern · PROPOSED splitBar field on dataset metrics {total, splits[{label, percent}]} OR a statSplit block · red = free %, navy = paid % · data provided for Our Impact Facts &amp; Statistics</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
+        <article class="card p-5 flex flex-col gap-3 reveal">
+          <p class="text-h4M lg:text-h4 font-bold text-primary-red font-display">10,224</p>
+          <p class="text-b14 font-semibold text-primary-blue">Surgeries performed — 2025</p>
+          <div class="split-bar"><span class="free" style="width:80%"></span><span class="paid" style="width:20%"></span></div>
+          <div class="flex justify-between text-b12">
+            <span class="font-semibold text-primary-red">80% Free</span>
+            <span class="font-semibold text-primary-blue">20% Paid</span>
+          </div>
+        </article>
+        <article class="card p-5 flex flex-col gap-3 reveal" style="transition-delay:.08s">
+          <p class="text-h4M lg:text-h4 font-bold text-primary-red font-display">43,585</p>
+          <p class="text-b14 font-semibold text-primary-blue">X-Ray — services rendered 2021–2025</p>
+          <div class="split-bar"><span class="free" style="width:99.8%"></span><span class="paid" style="width:0.2%"></span></div>
+          <div class="flex justify-between text-b12">
+            <span class="font-semibold text-primary-red">99.8% Free</span>
+            <span class="font-semibold text-primary-blue">0.2% Paid</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SUMMARY TABLE ═══════════ -->
+  <section id="summary" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">Σ</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Pattern → CMS mapping summary</h2>
+      </div>
+      <div class="card overflow-hidden reveal">
+        <div class="summary-row bg-whitebg">
+          <span class="field-label-text">ID</span><span class="field-label-text">Pattern</span><span class="field-label-text">Used by</span><span class="field-label-text">CMS mapping</span>
+        </div>
+        <div id="summary-rows"></div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 reveal">
+        <span class="chip">8 NEW blocks proposed</span>
+        <span class="chip">1 NEW collection (profiles)</span>
+        <span class="chip">7 schema/field extensions</span>
+        <span class="chip">7 existing blocks reused</span>
+        <span class="chip">7 fixed fields</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-blue">
+    <div class="container mx-auto px-6 lg:px-[30px] py-10 flex flex-col gap-4 items-center text-center">
+      <img src="/hijaz-hospital-logo-light.svg" alt="Hijaz Hospital" class="h-12 w-auto" />
+      <p class="text-white/55 text-b12">Department &amp; Service UI Catalog · internal design-system reference</p>
+    </div>
+  </footer>
+
+  <script>
+    const SUMMARY = [
+      ['P00', 'Template chrome (breadcrumb, jump-nav)', 'All pages', 'Template-level — no CMS block'],
+      ['P01', 'Hero — base', 'All 14 depts + patient-care', 'hero group (mediumImpact) — fixed'],
+      ['P02', 'Hero — stat card', 'IPD, OPD, ICU, Dialysis, Emergency, Nursing', 'PROPOSED hero.stats[] extension'],
+      ['P03', 'Hero — quote tagline', 'OPD, IPD, Nursing, Pathology, Radiology, Cardiac Dx', 'hero.tagline — existing'],
+      ['P04', 'Overview — prose', 'All pages', 'fixed overview richText'],
+      ['P05', 'Grouped procedure explorer', '11 of 14 depts, Pathology', 'departmentServices block — existing'],
+      ['P06', 'Flat check list', 'ICU, Emergency, Nursing, Anesthesia, Pharmacy, Blood Bank, Dialysis, Dermatology, Endocrinology', 'content block (2-col) or single serviceGroup'],
+      ['P07', 'Flat chip list (conditions)', 'Cardiology, Pulmonology, Pediatrics, Cardiac Dx, welfare', 'NEW block — chipList'],
+      ['P08', 'Nested sub-list', 'Dermatology, Nephrology, Rights #4, Resp. #4', 'SCHEMA EXT. — items children[]'],
+      ['P09', 'List + intro/outro framing', 'Cardiology, Pathology, Radiology, OT Complex', 'content block or group.description'],
+      ['P10', 'Why-choose icon grid', 'All 14 depts, OPD, Pathology, Radiology, Cardiac Dx', 'fixed whyChoose[] field'],
+      ['P11', 'Free-treatment tile grid', 'IPD only', 'fixed freeTreatment[] field'],
+      ['P12', 'Program callout (logo)', 'IPD, Patient Welfare', 'NEW block — programCallout'],
+      ['P13', 'Referral / partner callout', 'Cardiology, Radiology, Pathology, OPD', 'NEW block — calloutCard'],
+      ['P14', 'Welfare / free-care note', 'Emergency, Ambulance, Dialysis, Pharmacy, OPD, Blood Bank, Pulmonology', 'PROPOSED fixed welfareNote field'],
+      ['P15', 'Big-numeral cards', 'IPD rooms, OT theatres', 'NEW block — numeralCards'],
+      ['P16', 'Clinic timings card', 'OPD only', 'PROPOSED fixed timings[] field'],
+      ['P17', 'Stat counters', 'Emergency, ICU, Dialysis, OPD, Flood Relief', 'counters block — existing'],
+      ['P18', 'Numbered steps process', 'Admission Process, welfare eligibility', 'NEW block — processSteps'],
+      ['P19', 'Numbered rights / responsibilities', 'Patient Rights & Responsibilities', 'NEW block — numberedList'],
+      ['P20', 'Specialty link cards', 'IPD, OT Complex', 'PROPOSED relatedDepartments relationship'],
+      ['P21', 'Editorial CMS note', 'Pediatrics, welfare SSP, admission step 4', 'admin-only _contentNote field'],
+      ['P22', 'Closing quote band', 'Cardiology, IPD, OPD, Cafeteria, most services', 'fixed closing richText'],
+      ['P23', 'Patient stories slot', 'Dept/service detail pages', 'successStories block — existing'],
+      ['P24', 'Navy donate CTA band', 'All pages', 'global CTA settings'],
+      ['P25', 'Compliance logo + cert popup', 'Pathology, Our Purpose', 'NEW block — complianceLogos'],
+      ['P26', 'Person profile template', '4 leader profiles (Founder, Chairman, Chairperson, President)', 'NEW collection — profiles'],
+      ['P27', 'Events calendar date-rows', 'Our Impact · 17 rows', 'RECOMMENDED calendarEvents[] array field'],
+      ['P28', 'Dated highlight cards', 'Our Impact · 5 articles', 'newsCarousel / newsList — existing'],
+      ['P29', 'Grouped bar chart (dataset)', 'Our Impact · financial highlights', 'reportFigure (bar) / reports dataset — existing'],
+      ['P30', 'Free/paid split-percentage bar', 'Our Impact · surgeries + services rendered', 'NEW — splitBar on dataset metrics OR statSplit block'],
+    ]
+    document.getElementById('summary-rows').innerHTML = SUMMARY.map((r) => `
+      <div class="summary-row">
+        <span class="group-badge">${r[0]}</span>
+        <span class="text-b14 font-semibold text-primary-blue">${r[1]}</span>
+        <span class="text-b14 text-dark-gray">${r[2]}</span>
+        <span class="cms-note">${r[3]}</span>
+      </div>
+    `).join('')
+
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') })
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    document.querySelectorAll('.reveal').forEach((el) => ro.observe(el))
+
+    const sections = ['p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p14','p15','p16','p17','p18','p19','p20','p21','p22','p23','p24','p25','p26','p27','p28','p29','p30','summary']
+    const chips = document.querySelectorAll('#jump-chips .chip')
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return
+        chips.forEach((c) => c.classList.toggle('is-active', c.dataset.section === e.target.id))
+      })
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 })
+    sections.forEach((id) => { const el = document.getElementById(id); if (el) so.observe(el) })
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "slug": "our-supporters",
+  "title": "Our Friends / Supporters",
+  "description": "The generous organizations standing behind Hijaz Hospital's welfare mission — our friends and supporters on the donor wall.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "Our Friends / Supporters",
+    "excerpt": "The generous organizations standing behind Hijaz Hospital's welfare mission — our friends and supporters on the donor wall.",
+    "media": {
+      "type": "placeholder",
+      "icon": "HandHeart",
+      "placeholderLabel": "Donor wall banner photograph placeholder"
+    },
+    "links": [
+      { "label": "View the Donor Wall", "href": "#donor-wall", "variant": "primary" },
+      { "label": "Support Our Mission", "href": "#support", "variant": "ghost" }
+    ]
+  },
+  "jumpLinks": [
+    { "label": "Our Friends / Supporters", "href": "#our-friends" },
+    { "label": "Donor Wall", "href": "#donor-wall" },
+    { "label": "Support Our Mission", "href": "#support" }
+  ],
+  "intro": "Hijaz Hospital is deeply grateful to the individuals, families, and organizations whose generosity sustains our mission. The donor wall recognizes friends and supporters who have contributed to building and maintaining our charitable healthcare institution.",
+  "donorWallHeading": "Name of the Donor",
+  "donorWallLede": "Thirty organizations are honoured on the donor wall, numbered as in the source list.",
+  "donors": [
+    { "sn": 1, "name": "Naeem Trading Company", "href": "https://naeemtrading.com" },
+    { "sn": 2, "name": "Waheed Sons", "href": "https://waheedsons.com" },
+    { "sn": 3, "name": "Al-Fatah Stores", "href": "https://alfatah.pk" },
+    { "sn": 4, "name": "Infaq Foundation", "href": "https://infaq.org.pk" },
+    { "sn": 5, "name": "Ehsan Chappal Store", "href": "https://shopecs.com" },
+    { "sn": 6, "name": "Stylo Shoes", "href": "https://stylo.pk" },
+    { "sn": 7, "name": "Ravi Chemicals" },
+    { "sn": 8, "name": "Dalda Foundation", "href": "https://daldafoundation.pk" },
+    { "sn": 9, "name": "Paul Industries", "href": "https://www.tuplastic.com" },
+    { "sn": 10, "name": "Siddiq Shafi Trust / Siddiq Leatherworks (Pvt.) Ltd.", "href": "https://siddiqshafi.com" },
+    { "sn": 11, "name": "AHN Colloids Chemical (Pvt.) Ltd.", "href": "https://chemicalonline.pk" },
+    { "sn": 12, "name": "Northstar Textile Mills (Pvt.) Ltd." },
+    { "sn": 13, "name": "National Distributors" },
+    { "sn": 14, "name": "Kohat Cement (Pvt.) Ltd.", "href": "https://www.kohatcement.com" },
+    { "sn": 15, "name": "Shahid Builders (Pvt.) Ltd.", "href": "https://shahidbuilders.com.pk" },
+    { "sn": 16, "name": "Mughal-e-Azam Banquet Hall", "href": "https://mughaleazambanquet.com" },
+    { "sn": 17, "name": "Zafar Catering", "href": "https://youtube.com/c/ZAFARBANQUETS" },
+    { "sn": 18, "name": "Ayesha Siddiq Memorial Trust", "href": "https://www.fountainhouse.com.pk" },
+    { "sn": 19, "name": "Eiffel Industries (Pvt.) Limited" },
+    { "sn": 20, "name": "Jillani Poly Industries (Pvt.) Ltd.", "href": "https://jilaniplastic.com" },
+    { "sn": 21, "name": "Fatima Enterprises", "href": "https://www.fatima.com.pk" },
+    { "sn": 22, "name": "Astron Chemicals (Pvt.) Limited" },
+    { "sn": 23, "name": "Cannon Foam (Pvt.) Ltd.", "href": "https://cannonfoam.com" },
+    { "sn": 24, "name": "Peridot Products (Pvt.) Ltd.", "href": "https://peridotproducts.com" },
+    { "sn": 25, "name": "Modern Electronic Karachi", "href": "https://modernelectronics.pk" },
+    { "sn": 26, "name": "Textile Testing International", "href": "https://ttilabs.net" },
+    { "sn": 27, "name": "Masha Trading Co., China" },
+    { "sn": 28, "name": "Kit Shoes", "href": "https://kitshoes.com" },
+    { "sn": 29, "name": "Starlet Innovations (Pvt.) Ltd.", "href": "https://starletinnovations.com" },
+    { "sn": 30, "name": "Unze London", "href": "https://unze.com.pk" }
+  ]
+}

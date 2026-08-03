@@ -1,0 +1,269 @@
+{
+  "topLevel": [
+    {
+      "id": "about",
+      "label": "About us",
+      "moreLink": { "label": "About Hijaz Hospital →", "href": "/our-purpose" },
+      "groups": [
+        {
+          "heading": "Our Purpose",
+          "links": [
+            { "label": "Vision & Mission", "href": "/our-purpose#vision-mission" },
+            { "label": "Our Journey", "href": "/our-purpose#our-journey" },
+            { "label": "Our Philosophy", "href": "/our-purpose#our-philosophy" },
+            { "label": "Our Approach & Core Values", "href": "/our-purpose#our-approach" },
+            { "label": "Our Compliance & Governance", "href": "/our-purpose#our-compliance" }
+          ]
+        },
+        {
+          "heading": "Leadership & Governance",
+          "links": [
+            { "label": "Our Founders", "href": "/leadership#our-founders" },
+            { "label": "Our Chairpersons", "href": "/leadership#our-chairpersons" },
+            { "label": "Our Presidents", "href": "/leadership#our-presidents" },
+            { "label": "Senior Management", "href": "/leadership#senior-management" },
+            { "label": "Executive Committee", "href": "/leadership#executive-committee" },
+            { "label": "Core Working Committees", "href": "/leadership#core-working-committees" }
+          ]
+        },
+        {
+          "heading": "Messages",
+          "links": [
+            { "label": "Chairman's Message", "href": "/leadership/messages#chairmans-message" },
+            { "label": "President's Message", "href": "/leadership/messages#presidents-message" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "departments",
+      "label": "Departments",
+      "moreLink": { "label": "View all departments →", "href": "/departments" },
+      "featured": {
+        "title": "Featured: General Surgery",
+        "description": "24/7 surgical care — from emergency procedures to planned operations.",
+        "ctaLabel": "Explore department",
+        "href": "/departments/general-surgery"
+      },
+      "groups": [
+        {
+          "heading": "Surgery & Allied Specialties",
+          "links": [
+            { "label": "General Surgery", "href": "/departments/general-surgery" },
+            { "label": "Orthopedics", "href": "/departments" },
+            { "label": "Urology", "href": "/departments" },
+            { "label": "Plastic & Reconstructive Surgery", "href": "/departments" },
+            { "label": "Ophthalmology", "href": "/departments" },
+            { "label": "ENT (Ear, Nose & Throat)", "href": "/departments" },
+            { "label": "Dentistry", "href": "/departments" }
+          ]
+        },
+        {
+          "heading": "Internal Medicine & Allied Specialties",
+          "links": [
+            { "label": "General Medicine", "href": "/departments" },
+            { "label": "Gastroenterology", "href": "/departments" },
+            { "label": "Nephrology", "href": "/departments" },
+            { "label": "Cardiology", "href": "/departments" },
+            { "label": "Pulmonology", "href": "/departments" },
+            { "label": "Endocrinology", "href": "/departments" },
+            { "label": "Dermatology", "href": "/departments" }
+          ]
+        },
+        {
+          "heading": "Mother & Child",
+          "links": [
+            { "label": "Gynaecology & Obstetrics", "href": "/departments" },
+            { "label": "Pediatrics", "href": "/departments" }
+          ]
+        },
+        {
+          "heading": "Specialized Care",
+          "links": [
+            { "label": "Dietetics & Nutrition", "href": "/departments" },
+            { "label": "Physiotherapy", "href": "/departments" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doctors",
+      "label": "Doctors",
+      "moreLink": { "label": "Find a doctor →", "href": "/doctors" },
+      "groups": [
+        {
+          "heading": "Our Doctors",
+          "links": [
+            {
+              "label": "Our Consultants",
+              "href": "/doctors",
+              "description": "Browse all Hijaz Hospital consultants by specialty."
+            },
+            {
+              "label": "Visiting Consultants (FMH Faculty)",
+              "href": "/doctors/visiting-consultants",
+              "description": "Fatima Memorial Hospital faculty consulting at Hijaz."
+            },
+            {
+              "label": "Head of Departments",
+              "href": "/doctors/heads-of-departments",
+              "description": "Clinical leadership across our departments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patient-care",
+      "label": "Patient Care",
+      "moreLink": { "label": "View all services →", "href": "/services" },
+      "groups": [
+        {
+          "heading": "Hospital Facilities",
+          "links": [
+            { "label": "OPD", "href": "/services" },
+            { "label": "IPD", "href": "/services/ipd" },
+            { "label": "ICU", "href": "/services" },
+            { "label": "Emergency Department", "href": "/patient-care/emergency" },
+            { "label": "Operation Theatre Complex", "href": "/services" }
+          ]
+        },
+        {
+          "heading": "Clinical Support",
+          "links": [
+            { "label": "Nursing", "href": "/services" },
+            { "label": "Anesthesia", "href": "/services" },
+            { "label": "Ambulance Services", "href": "/services" },
+            { "label": "Dialysis Care Unit", "href": "/services" }
+          ]
+        },
+        {
+          "heading": "Support Services",
+          "links": [
+            { "label": "Pharmacy", "href": "/services" },
+            { "label": "Blood Bank", "href": "/services" },
+            { "label": "Cafeteria", "href": "/services" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnostics",
+      "label": "Diagnostics",
+      "moreLink": { "label": "All diagnostic services →", "href": "/services" },
+      "groups": [
+        {
+          "heading": "Pathology / Clinical Laboratory",
+          "links": [
+            { "label": "Clinical Laboratory Overview", "href": "/services" },
+            { "label": "Accreditation / Quality Certificates", "href": "/services" },
+            { "label": "List of Tests Available", "href": "/lab-tests" }
+          ]
+        },
+        {
+          "heading": "Radiology & Imaging",
+          "links": [{ "label": "Radiology & Imaging", "href": "/services" }]
+        },
+        {
+          "heading": "Cardiac Diagnostics",
+          "links": [{ "label": "Cardiac Diagnostics", "href": "/services" }]
+        }
+      ]
+    },
+    {
+      "id": "patient-welfare",
+      "label": "Patient Welfare",
+      "moreLink": { "label": "Patient welfare hub →", "href": "/patient-care" },
+      "groups": [
+        {
+          "heading": "Financial & Community Support",
+          "links": [
+            { "label": "Zakat & Financial Assistance", "href": "/patient-care/financial-assistance" },
+            { "label": "Dialysis Patient Support", "href": "/patient-care" },
+            { "label": "Free Medicines", "href": "/patient-care" },
+            { "label": "Free Meals", "href": "/patient-care" },
+            { "label": "Sehat Sahulat Program", "href": "/patient-care" },
+            { "label": "Free Medical Camps & Flood Relief", "href": "/patient-care/free-medical-camps" }
+          ]
+        },
+        {
+          "heading": "Patient Resources",
+          "links": [
+            { "label": "Admission Process", "href": "/patient-care/admission-process" },
+            { "label": "Rights & Responsibilities", "href": "/patient-care/patient-rights" },
+            { "label": "Patient Stories", "href": "/success-stories" },
+            { "label": "Forms", "href": "/patient-care" },
+            { "label": "Online Services", "href": "/patient-care" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donate",
+      "label": "Donate",
+      "moreLink": { "label": "Ways to give hub →", "href": "/donate" },
+      "featured": {
+        "title": "Inam Tasneem Waheed Medical Tower",
+        "description": "Help us build the next chapter of compassionate care at Hijaz.",
+        "ctaLabel": "Support the project",
+        "href": "/donate"
+      },
+      "groups": [
+        {
+          "heading": "Ways to Give",
+          "links": [
+            { "label": "Zakat + Calculator", "href": "/donate" },
+            { "label": "General Donation", "href": "/donate" },
+            { "label": "Sadaqah", "href": "/donations/sadaqah" },
+            { "label": "Eidi & Fitrana", "href": "/donations/eidi-fitrana" }
+          ]
+        },
+        {
+          "heading": "What You Can Support",
+          "links": [
+            { "label": "Donate a Meal", "href": "/donations/donate-a-meal" },
+            { "label": "Donate in Kind", "href": "/donations/donate-in-kind" },
+            { "label": "Sponsor a Patient", "href": "/donations/sponsor-a-patient" },
+            { "label": "Sponsor Free Surgeries", "href": "/donations/sponsor-free-surgeries" },
+            { "label": "Support a Project — ITW Medical Tower", "href": "/donations/itw-medical-tower" }
+          ]
+        },
+        {
+          "heading": "How to Donate",
+          "links": [
+            { "label": "Online", "href": "/donate" },
+            { "label": "Mobile Wallet", "href": "/donate" },
+            { "label": "Bank Transfer", "href": "/donate" },
+            { "label": "Meezan App & QR", "href": "/donate" },
+            { "label": "Cheque / Bank Draft", "href": "/donate" },
+            { "label": "Pick-Up Service", "href": "/donate" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impact",
+      "label": "Our Impact",
+      "moreLink": { "label": "Explore impact reports →", "href": "/reports" },
+      "groups": [
+        {
+          "heading": "Our Impact",
+          "links": [
+            { "label": "Awards & Recognitions", "href": "/our-impact#awards" },
+            { "label": "Health & Academic Partners", "href": "/our-impact#partners" },
+            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-impact#sharia-audit" },
+            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts" }
+          ]
+        },
+        {
+          "heading": "Supporters & Reports",
+          "links": [
+            { "label": "ITW Medical Tower Project", "href": "/our-impact#itw-medical-tower" },
+            { "label": "Our Friends / Supporters (Donor List)", "href": "/our-supporters" },
+            { "label": "Impact Reports", "href": "/reports" }
+          ]
+        }
+      ]
+    }
+  ]
+}

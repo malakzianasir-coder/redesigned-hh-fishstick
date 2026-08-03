@@ -1,0 +1,494 @@
+<!doctype html>
+<!--
+  ============================================================================
+  MEGA MENU — DESIGN-SYSTEM.md aligned demo (site header navigation)
+  ============================================================================
+
+  MENU MODEL (4 levels)
+    Top-level item (8, verbatim labels)
+      -> Panel column(s)
+        -> Group (heading in .field-label-text style)
+          -> Links (text-b14, hover primary-red)
+    Featured slot (right column) only in: Medical Departments, Donate / Ways to Give.
+    Each panel also has a footer "view all" link (not counted as a nav link).
+
+  TOP-LEVEL IA + LINK COUNTS
+    1. Our Purpose / About Us .......... 3 groups, 13 links
+    2. Medical Departments ............. 4 groups, 18 links, featured
+    3. Doctors ......................... 1 group, 3 links
+    4. Patient Care & Facilities ....... 3 groups, 12 links
+    5. Diagnostics ..................... 3 groups, 5 links
+    6. Patient Welfare & Resources ..... 2 groups, 11 links
+    7. Donate / Ways to Give ........... 3 groups, 15 links, featured
+    8. Our Impact & Supporters ......... 2 groups, 7 links
+    Total: 8 items / 21 groups / 84 links (+2 featured slots, +8 footer links)
+
+  ROUTE MAPPING (menu -> CMS)
+    Our Purpose anchors ....... /about-our-purpose-design-system.html#.. (mockup; proposed pages slug)
+    Leadership & Governance ... /leadership-governance-design-system.html#.. (mockup; GAP - no CMS route)
+    Messages .................. /leadership-messages-design-system.html (mockup; about page references /chairmans-message + /presidents-message)
+    Medical Departments ....... /departments + /departments/{slug} (departments collection) - MAPPED
+      General Surgery ......... /department-page-design-system-general-surgery.html (mockup of /departments/general-surgery)
+    Doctors ................... /doctors, /doctors/visiting-consultants, /doctors/heads-of-departments - MAPPED
+    Patient Care & Facilities . /services + /services/{slug} (services collection) - MAPPED
+      IPD ..................... /service-page-design-system-ipd.html (mockup of /services/ipd)
+    Diagnostics ............... /services; List of Tests -> /lab-tests (lab-tests collection) - MAPPED
+      Accreditation/Quality ... /services placeholder - GAP (no dedicated CMS route)
+    Patient Welfare ........... /patient-welfare whitelist: financial-assistance, admission-process,
+                                patient-rights, free-medical-camps - MAPPED
+                                Patient Stories -> /success-stories - MAPPED
+      GAPS: Dialysis Patient Support, Free Medicines, Free Meals, Sehat Sahulat Program,
+            Forms, Online Services (no whitelisted slug yet)
+    Donate / Ways to Give ..... /donate (WaysToDonatePanel hub) - MAPPED
+      Cause links ............. /donations/{slug} pattern (donations collection; slugs must exist)
+      Zakat + Calculator ...... zakatCalculator block exists - GAP: needs page/placement
+    Our Impact & Supporters ... /our-impact-design-system.html (mockup; GAP - no CMS route)
+      Donor wall .............. /donor-wall-design-system.html (mockup; GAP - no CMS route)
+      Impact reports .......... /reports (reports collection) - MAPPED
+
+  CMS-EDITABILITY PROPOSAL
+    A (recommended): Payload `navigation` global (same pattern as bankDetails / donationMethods):
+       topLevel[] -> label, groups[] -> heading + links[] { label, link (src/fields/link) },
+       optional featured { image, line, link }, optional moreLink. SiteHeader renders the global
+       with a hardcoded snapshot fallback.
+    B (interim): hardcoded IA const in SiteHeader - zero CMS work, but every change needs a deploy.
+
+  A11Y NOTES
+    Triggers are buttons (aria-expanded/aria-haspopup/aria-controls); panels role=region
+    labelled by trigger. Hover AND focus-within parity. Esc closes + returns focus to trigger.
+    One panel at a time; closed panels are visibility:hidden (out of tab order). Chevron
+    aria-hidden, rotated when open. Focus-visible rings. Drawer: focus moves to close button,
+    body scroll locked, accordions are aria-expanded buttons. prefers-reduced-motion honored.
+
+  Icon policy: ph-caret-down on triggers/accordions, ph-list/ph-x for the drawer ONLY.
+  No icons on individual links.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mega Menu | Hijaz Hospital — Design System Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+            label: ['11px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+          boxShadow: {
+            e1: '0 1px 2px rgba(27,36,65,0.06)',
+            e2: '0 12px 32px rgba(27,36,65,0.12)',
+            e3: '0 10px 40px -15px rgba(27,36,65,0.25)',
+          },
+          zIndex: { sticky: '30', header: '40', overlay: '50' },
+          aspectRatio: { card: '3 / 2' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .card { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgb(27 36 65 / .12); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .sticky-bar {
+      position: sticky; top: 73px; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #E30016; color: #fff; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out;
+    }
+    .btn-primary:hover { background: #1B2441; }
+    .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(27 36 65 / .25); background: transparent;
+      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease-out, transform .5s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ===== Mega menu ===== */
+    .mega-trigger {
+      display: flex; align-items: center; gap: 4px; height: 100%;
+      padding: 12px 8px; background: transparent; border: none; cursor: pointer;
+      font-size: 12px; line-height: 150%; font-weight: 600; color: #1B2441; white-space: nowrap;
+      transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
+    }
+    @media (min-width: 1536px) { .mega-trigger { font-size: 14px; padding: 12px 12px; } }
+    .mega-trigger:hover { color: #E30016; }
+    .mega-trigger:focus-visible { outline: none; box-shadow: inset 0 0 0 2px rgb(227 0 22 / .4); border-radius: 4px; }
+    .mega-trigger i { font-size: 14px; transition: transform .2s ease-out; }
+    .mega-item.is-open .mega-trigger { color: #E30016; box-shadow: inset 0 2px 0 #E30016; }
+    .mega-item.is-open .mega-trigger i { transform: rotate(180deg); }
+
+    .mega-panel {
+      position: absolute; left: 0; right: 0; top: 100%;
+      background: #fff; border-top: 1px solid rgb(107 113 131 / .15);
+      box-shadow: 0 12px 32px rgb(27 36 65 / .12); /* shadow-e2 */
+      opacity: 0; transform: translateY(8px);
+      visibility: hidden; pointer-events: none;
+      transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear .2s;
+      max-height: calc(100vh - 120px); overflow-y: auto;
+    }
+    .mega-item.is-open .mega-panel {
+      opacity: 1; transform: none; visibility: visible; pointer-events: auto;
+      transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s;
+    }
+    .mega-link {
+      display: block; padding: 5px 0;
+      font-size: 14px; line-height: 150%; font-weight: 600; color: #1B2441;
+      transition: color .2s ease-in-out;
+    }
+    .mega-link:hover { color: #E30016; }
+    .mega-link:focus-visible,
+    .mega-more:focus-visible,
+    .drawer-panel a:focus-visible {
+      outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); border-radius: 4px;
+    }
+    .mega-more { font-size: 14px; line-height: 150%; font-weight: 700; color: #1B2441; transition: color .2s ease-in-out; }
+    .mega-more:hover { color: #E30016; }
+    .featured-slot { border-radius: 12px; background: #F4F4F4; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .featured-img {
+      aspect-ratio: 3 / 2; border-radius: 8px;
+      border: 1px dashed rgb(107 113 131 / .4); background: #F8F8F9;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ===== Mobile drawer ===== */
+    #mobile-drawer { position: fixed; inset: 0; z-index: 50; background: #fff; display: flex; flex-direction: column; box-shadow: 0 10px 40px -15px rgb(27 36 65 / .25); }
+    #mobile-drawer[hidden] { display: none; }
+    .drawer-trigger {
+      display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 0; background: transparent; border: none; cursor: pointer; text-align: left;
+      font-size: 16px; line-height: 150%; font-weight: 700; color: #1B2441;
+      transition: color .2s ease-in-out;
+    }
+    .drawer-trigger:hover { color: #E30016; }
+    .drawer-trigger:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); border-radius: 4px; }
+    .drawer-trigger i { font-size: 18px; flex-shrink: 0; transition: transform .2s ease-out; }
+    .drawer-trigger[aria-expanded="true"] { color: #E30016; }
+    .drawer-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
+    .drawer-panel a {
+      display: block; padding: 8px 0;
+      font-size: 14px; line-height: 150%; font-weight: 600; color: #1B2441;
+      transition: color .2s ease-in-out;
+    }
+    .drawer-panel a:hover { color: #E30016; }
+    body.drawer-open { overflow: hidden; }
+
+    /* ===== Inventory tables / tags ===== */
+    .inv-scroll { overflow-x: auto; }
+    .inv-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+    .inv-table th {
+      text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .08em; color: rgb(27 36 65 / .55);
+      padding: 8px 12px; border-bottom: 1px solid rgb(107 113 131 / .25);
+    }
+    .inv-table td {
+      padding: 10px 12px; font-size: 14px; line-height: 150%; color: #1B2441;
+      border-bottom: 1px solid rgb(107 113 131 / .12); vertical-align: top;
+    }
+    .inv-table tbody tr:last-child td { border-bottom: none; }
+    .inv-table td.dim { color: #6B7183; }
+    .tag { display: inline-flex; align-items: center; border-radius: 999px; padding: 2px 10px; font-size: 12px; line-height: 150%; font-weight: 700; white-space: nowrap; }
+    .tag-mapped { background: #F4F4F4; color: #1B2441; }
+    .tag-mockup { background: rgb(20 76 217 / .08); color: #144CD9; }
+    .tag-gap { background: #F1EAEB; color: #E30016; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mega-panel, .mega-trigger, .mega-trigger i, .drawer-trigger i, .reveal { transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="bg-white text-primary-blue antialiased font-sans">
+
+  <!-- Site chrome provided by React SiteHeader + UtilityTopBar -->
+
+  <!-- ================= BREADCRUMB ================= -->
+  <nav aria-label="Breadcrumb" class="bg-white border-b border-dark-gray/15">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <ol class="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
+        <li><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li><a href="/ds" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Design System</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li aria-current="page" class="font-semibold text-primary-blue">Mega Menu</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ================= DEMO HERO STRIP ================= -->
+  <section class="bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+      <div class="flex flex-col gap-[6px] max-w-2xl reveal">
+        <p class="kicker">Design System</p>
+        <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Header Mega Menu</h1>
+        <p class="text-b16 text-primary-blue/85 mt-2">
+          Reference for the Hijaz Hospital site-header mega menu implemented in React
+          (<code>SiteHeader</code> + <code>UtilityTopBar</code>). Eight top-level sections open full-width
+          dropdowns with grouped links and featured slots — use the live navigation in the site header
+          (desktop xl and up) or the hamburger drawer on smaller screens.
+          The inventory, route mapping, and CMS proposal are below.
+        </p>
+        <div class="pt-4 flex flex-wrap gap-3">
+          <a href="#inventory" class="btn-primary text-b14 min-h-[44px] px-5">View inventory</a>
+          <a href="/ds/elements" class="btn-ghost">Elements inventory</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTION CHECKLIST ================= -->
+  <section class="bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start reveal">
+        <p class="kicker">Try It</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Interaction checklist</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="card p-5 flex flex-col gap-2 reveal">
+          <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Hover &amp; focus parity</h3>
+          <p class="text-b14 text-primary-blue/85">Mouse hover and keyboard focus both open the same full-width panel under the header. Only one panel is open at a time.</p>
+        </article>
+        <article class="card p-5 flex flex-col gap-2 reveal" style="transition-delay:.06s">
+          <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Esc to close</h3>
+          <p class="text-b14 text-primary-blue/85">Pressing Esc closes the open panel and returns focus to its trigger. The active trigger shows a 2px red top border and a rotated chevron.</p>
+        </article>
+        <article class="card p-5 flex flex-col gap-2 reveal" style="transition-delay:.12s">
+          <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Featured slots</h3>
+          <p class="text-b14 text-primary-blue/85">Medical Departments and Donate / Ways to Give include a right-side featured card with image slot and a ghost-button link.</p>
+        </article>
+        <article class="card p-5 flex flex-col gap-2 reveal" style="transition-delay:.18s">
+          <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Mobile drawer</h3>
+          <p class="text-b14 text-primary-blue/85">Below xl, the hamburger opens a full-screen drawer where each section expands as an accordion. Esc closes it and returns focus.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INVENTORY ================= -->
+  <section id="inventory" class="bg-white scroll-mt-24">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-10">
+      <div class="flex flex-col gap-[6px] text-center lg:w-2/3 lg:text-start reveal">
+        <p class="kicker">Inventory</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Mega menu inventory</h2>
+        <p class="text-b16 text-primary-blue/85">
+          Menu model, route mapping against the current CMS, an editability proposal, and accessibility notes.
+          Items with no current CMS route are flagged as gaps.
+        </p>
+      </div>
+
+      <!-- A. Menu model -->
+      <div class="card p-6 lg:p-8 flex flex-col gap-4 reveal">
+        <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">A. Menu model</h3>
+        <p class="text-b14 text-primary-blue/85">
+          Four levels: <strong>top-level item (8)</strong> → <strong>panel columns</strong> → <strong>groups</strong> (heading in
+          <code>.field-label-text</code> style) → <strong>links</strong> (<code>.mega-link</code>, hover → primary-red).
+          Featured slots (image + line + ghost link) appear only in Medical Departments and Donate / Ways to Give.
+          Each panel ends with a footer “view all” link (not counted below).
+        </p>
+        <div class="inv-scroll">
+          <table class="inv-table">
+            <thead>
+              <tr>
+                <th scope="col">Top-level item</th>
+                <th scope="col">Groups</th>
+                <th scope="col">Links</th>
+                <th scope="col">Featured slot</th>
+                <th scope="col">Panel footer link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1. Our Purpose / About Us</td><td>3 — Our Purpose · Leadership &amp; Governance · Messages</td><td>13</td><td class="dim">—</td><td class="dim">About Hijaz Hospital</td></tr>
+              <tr><td>2. Medical Departments</td><td>4 — Surgery &amp; Allied · Internal Medicine &amp; Allied · Mother &amp; Child · Specialized Care</td><td>18</td><td>General Surgery</td><td class="dim">View all departments</td></tr>
+              <tr><td>3. Doctors</td><td>1 — Our Doctors</td><td>3</td><td class="dim">—</td><td class="dim">Find a doctor</td></tr>
+              <tr><td>4. Patient Care &amp; Facilities</td><td>3 — Hospital Facilities · Clinical Support · Support Services</td><td>12</td><td class="dim">—</td><td class="dim">View all services</td></tr>
+              <tr><td>5. Diagnostics</td><td>3 — Pathology / Clinical Laboratory · Radiology &amp; Imaging · Cardiac Diagnostics</td><td>5</td><td class="dim">—</td><td class="dim">All diagnostic services</td></tr>
+              <tr><td>6. Patient Welfare &amp; Resources</td><td>2 — Financial &amp; Community Support · Patient Resources</td><td>11</td><td class="dim">—</td><td class="dim">Patient welfare hub</td></tr>
+              <tr><td>7. Donate / Ways to Give</td><td>3 — Ways to Give · What You Can Support · How to Donate</td><td>15</td><td>Inam Tasneem Waheed Medical Tower</td><td class="dim">Ways to give hub</td></tr>
+              <tr><td>8. Our Impact &amp; Supporters</td><td>2 — Our Impact · Supporters &amp; Reports</td><td>7</td><td class="dim">—</td><td class="dim">Explore impact reports</td></tr>
+              <tr><td class="font-bold">Total</td><td class="font-bold">21 groups</td><td class="font-bold">84</td><td class="font-bold">2</td><td class="dim">8 footer links</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- B. Route mapping -->
+      <div class="card p-6 lg:p-8 flex flex-col gap-4 reveal">
+        <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">B. Route mapping (menu → CMS)</h3>
+        <p class="text-b14 text-primary-blue/85">
+          Status legend:
+          <span class="tag tag-mapped">Mapped</span> real CMS route exists ·
+          <span class="tag tag-mockup">Mockup</span> DS mockup HTML page (CMS page proposed) ·
+          <span class="tag tag-gap">Gap</span> no current CMS route.
+        </p>
+        <div class="inv-scroll">
+          <table class="inv-table">
+            <thead>
+              <tr>
+                <th scope="col">Menu item</th>
+                <th scope="col">Demo target</th>
+                <th scope="col">CMS route / collection</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Our Purpose (5 anchors)</td><td class="dim">/about-our-purpose-design-system.html#…</td><td>pages — proposed slug (e.g. /our-purpose)</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
+              <tr><td>Leadership &amp; Governance (6 anchors)</td><td class="dim">/leadership-governance-design-system.html#…</td><td>No CMS route — proposed pages children (founders, chairpersons, presidents, management, committees)</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>Messages (2)</td><td class="dim">/leadership-messages-design-system.html</td><td>pages slugs /chairmans-message + /presidents-message referenced from about page</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
+              <tr><td>Medical Departments</td><td class="dim">/departments</td><td>departments collection + hub (categories)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>— General Surgery</td><td class="dim">/department-page-design-system-general-surgery.html</td><td>/departments/{general-surgery}</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
+              <tr><td>Doctors (3 links)</td><td class="dim">/doctors · /doctors/visiting-consultants · /doctors/heads-of-departments</td><td>doctors collection hubs (+ legacy redirects)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Patient Care &amp; Facilities</td><td class="dim">/services</td><td>services collection + hub</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>— IPD</td><td class="dim">/service-page-design-system-ipd.html</td><td>/services/{ipd}</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
+              <tr><td>Diagnostics — List of Tests Available</td><td class="dim">/lab-tests</td><td>lab-tests collection hub</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Diagnostics — Accreditation / Quality Certificates</td><td class="dim">/services (placeholder)</td><td>No dedicated CMS route (could live on a laboratory service page)</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>Welfare — Zakat &amp; Financial Assistance</td><td class="dim">/patient-welfare/financial-assistance</td><td>pages — whitelisted patient-welfare child</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Welfare — Free Medical Camps &amp; Flood Relief</td><td class="dim">/patient-welfare/free-medical-camps</td><td>pages — whitelisted patient-welfare child</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Welfare — Admission Process · Rights &amp; Responsibilities</td><td class="dim">/patient-welfare/admission-process · /patient-welfare/patient-rights</td><td>pages — whitelisted patient-welfare children</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Welfare — Patient Stories</td><td class="dim">/success-stories</td><td>success-stories collection hub (whitelist also has /patient-welfare/patient-stories)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Welfare — Dialysis Patient Support · Free Medicines · Free Meals · Sehat Sahulat Program · Forms · Online Services</td><td class="dim">/patient-welfare (placeholder)</td><td>Not in patient-welfare slug whitelist — needs new pages or whitelist extension</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>Donate — hub &amp; How to Donate methods</td><td class="dim">/donate</td><td>pages slug donate + WaysToDonatePanel + donationMethods global</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Donate — causes (Sadaqah, Eidi &amp; Fitrana, Donate a Meal, Donate in Kind, Sponsor a Patient, Sponsor Free Surgeries, ITW Medical Tower)</td><td class="dim">/donations/{slug} (pattern)</td><td>donations collection — each slug must exist as a published doc</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Donate — Zakat + Calculator</td><td class="dim">/donate (placeholder)</td><td>zakatCalculator block exists but needs a page or /donate section placement</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>Our Impact &amp; Supporters (4 anchors + ITW project)</td><td class="dim">/our-impact-design-system.html (not built)</td><td>No CMS route — proposed pages slug /our-impact</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>— Our Friends / Supporters (Donor List)</td><td class="dim">/donor-wall-design-system.html (not built)</td><td>No CMS route — proposed pages slug /donor-wall</td><td><span class="tag tag-gap">Gap</span></td></tr>
+              <tr><td>— Impact Reports</td><td class="dim">/reports</td><td>reports collection hub</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- C. CMS editability -->
+      <div class="flex flex-col gap-4 reveal">
+        <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">C. CMS-editability proposal</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <article class="card p-6 flex flex-col gap-3">
+            <p class="kicker">Option A — recommended</p>
+            <h4 class="text-h6M lg:text-h6 font-bold text-primary-blue">Payload <code>navigation</code> global</h4>
+            <p class="text-b14 text-primary-blue/85">
+              A new global (same pattern as <code>bankDetails</code> / <code>donationMethods</code>):
+              <code>topLevel[]</code> → <code>label</code> + <code>groups[]</code> → <code>heading</code> +
+              <code>links[]</code> (<code>label</code> + <code>link</code>, reusing <code>src/fields/link</code>),
+              plus optional <code>featured</code> (<code>image</code>, <code>line</code>, <code>link</code>) and
+              optional <code>moreLink</code> per panel. <code>SiteHeader</code> renders the global with a hardcoded
+              snapshot as build-time fallback. Editors can reorder, relabel, and re-point links without a deploy;
+              global versions/drafts give a review flow.
+            </p>
+          </article>
+          <article class="card p-6 flex flex-col gap-3">
+            <p class="kicker">Option B — interim</p>
+            <h4 class="text-h6M lg:text-h6 font-bold text-primary-blue">Hardcoded IA in <code>SiteHeader</code></h4>
+            <p class="text-b14 text-primary-blue/85">
+              The IA above ships as a typed const next to the header component. Zero CMS work and type-safe, but every
+              wording/order/link change requires a code change and deploy, and labels can drift from CMS slugs.
+              Sensible until the IA is approved; this mockup is the spec.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <!-- D. A11y notes -->
+      <div class="card p-6 lg:p-8 flex flex-col gap-4 reveal">
+        <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">D. Accessibility notes</h3>
+        <ul class="flex flex-col gap-2 text-b14 text-primary-blue/85 list-disc ps-5">
+          <li>Top-level triggers are real <code>&lt;button&gt;</code>s with <code>aria-expanded</code>, <code>aria-haspopup</code>, and <code>aria-controls</code>; panels are <code>role="region"</code> labelled by their trigger (<code>aria-labelledby</code>).</li>
+          <li>Hover/focus parity: panels open on <code>mouseenter</code> (pointer) and <code>focusin</code> (keyboard) — anything reachable by mouse is reachable by keyboard.</li>
+          <li>Esc closes the open panel and returns focus to its trigger; Esc also closes the mobile drawer (focus returns to the hamburger).</li>
+          <li>Only one panel open at a time; closed panels use <code>visibility: hidden</code> so their links stay out of the tab order.</li>
+          <li>Chevrons (<code>ph-caret-down</code>) are decorative (<code>aria-hidden</code>) and rotate 180° when open; the active trigger also gets a 2px red top border.</li>
+          <li>Visible <code>focus-visible</code> ring (primary-red/40) on triggers, panel links, and drawer controls.</li>
+          <li>Mobile drawer: focus moves to the close button on open, body scroll is locked, and accordions are buttons with <code>aria-expanded</code> + <code>aria-controls</code>.</li>
+          <li><code>prefers-reduced-motion: reduce</code> disables the 200ms panel/drawer animation and smooth scrolling.</li>
+          <li>Panels are capped at viewport height with internal scroll, so long link lists never trap content below the fold.</li>
+        </ul>
+      </div>
+
+      <!-- E. Gaps -->
+      <div class="card p-6 lg:p-8 flex flex-col gap-4 border-primary-red/30 reveal">
+        <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">E. Gaps — no current CMS route</h3>
+        <ul class="flex flex-col gap-2 text-b14 text-primary-blue/85 list-disc ps-5">
+          <li><strong>Leadership &amp; Governance</strong> — founders, chairpersons, presidents, senior management, executive committee, core working committees need CMS pages (or a grouped page with anchors).</li>
+          <li><strong>Diagnostics — Accreditation / Quality Certificates</strong> — no dedicated route; candidate home is a laboratory service page section.</li>
+          <li><strong>Patient Welfare</strong> — Dialysis Patient Support, Free Medicines, Free Meals, Sehat Sahulat Program, Forms, Online Services are outside the current patient-welfare slug whitelist (financial-assistance, admission-process, patient-stories, free-medical-camps, patient-rights).</li>
+          <li><strong>Zakat + Calculator</strong> — the <code>zakatCalculator</code> block exists but has no dedicated page or anchored section on /donate yet.</li>
+          <li><strong>Donate cause slugs</strong> — sadaqah, eidi-fitrana, donate-a-meal, donate-in-kind, sponsor-a-patient, sponsor-free-surgeries, itw-medical-tower must exist as published <code>donations</code> docs (pattern routes).</li>
+          <li><strong>Our Impact &amp; Donor Wall</strong> — mockups only; need proposed pages slugs /our-impact and /donor-wall. /reports already covers Impact Reports.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-blue">
+    <div class="container mx-auto px-6 lg:px-[30px] py-10 flex flex-col gap-4 items-center text-center">
+      <img src="/hijaz-hospital-logo-light.svg" alt="Hijaz Hospital" class="h-12 w-auto" />
+      <p class="text-white/55 text-b12">Mega Menu · design system demo · Home / Design System / Mega Menu</p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal')
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('in') })
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    reveals.forEach((el) => ro.observe(el))
+  </script>
+</body>
+</html>

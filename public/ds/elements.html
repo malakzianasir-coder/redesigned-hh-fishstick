@@ -1,0 +1,552 @@
+<!doctype html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  SHARED ELEMENTS INVENTORY — DESIGN-SYSTEM.md aligned
+  Normalized element set sourced from the DS mockup family:
+    about-our-purpose-design-system.html · department-page-design-system-
+    general-surgery.html · service-page-design-system-ipd.html ·
+    dept-service-ui-catalog.html · (legacy reference: about-our-purpose-mockup.html)
+
+  ELEMENT INVENTORY (element · classes · states · where used)
+  ─────────────────────────────────────────────────────────────────────────
+  Buttons
+    btn-primary        · default / hover(bg→primary-blue) / focus-visible(ring primary-red/40) / disabled · light bg CTAs, all pages
+    btn-primary small  · + text-b14 min-h-[44px] px-5 · hero secondary CTAs
+    btn-ghost          · default / hover(bg→primary-red) / focus-visible / disabled · light bg secondary actions
+    btn-on-dark        · default(white bg) / hover(bg→primary-red, white text) / focus-visible(ring white/40) / disabled · navy CTA bands
+    btn-on-dark-ghost  · default(white/25 border) / hover(white bg, blue text) / focus-visible · navy bands, secondary
+  Labels & chips
+    kicker             · static · section headers, all pages
+    field-label-text   · static · form labels, sticky-bar prefix, CMS notes
+    chip               · default / hover / is-active · jump nav, conditions lists, used-by tags
+    group-badge        · static · result group tags, CMS placeholder tags
+  Form elements (normalized here — proposed recipes)
+    input              · default / focus(ring primary-red/40) / error(is-error) / disabled
+    search-input       · default / focus · procedure finder (GS page)
+    textarea           · default / focus / error / disabled
+    select             · default / focus / disabled
+    check / radio      · default / checked(accent primary-red) / disabled
+  Cards & tiles
+    card               · static (shadow-e1) · panels, stat cards
+    card-interactive   · default / hover(lift + shadow-e2) · clickable cards, grids
+    icon-tile          · default / parent-hover scale(1.08) · inside cards only
+    logo-slot          · dashed placeholder · program/compliance logos
+    card dashed        · CMS placeholder variant · patient stories slot
+  Navigation
+    breadcrumb         · link / current · all pages
+    sticky-bar + chips · sticky top-73px, chip is-active tracking · all DS pages
+    site header        · sticky, blur, emergency pill · all pages
+  Motion
+    reveal             · opacity 0→1, translateY 16px→0, .5s ease-out · all sections
+    panel              · cross-fade .4s ease-out, translateY 10px · journey, explorer
+    progress-track     · width .45s ease-out · journey scrubber
+    icon-tile hover    · scale .3s ease-out · card grids
+    image hover        · scale-105 .5s · hero/banner images
+  CTA bands
+    navy band          · bg-primary-blue + light-blue blur blob + btn-on-dark · all pages
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elements Inventory | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+            label: ['11px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+          zIndex: { sticky: '30', header: '40', overlay: '50' },
+          aspectRatio: { card: '3 / 2' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .card { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 4px 12px -2px rgb(27 36 65 / .12); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover, button.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .sticky-bar {
+      position: sticky; top: 73px; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #E30016; color: #fff; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out;
+    }
+    .btn-primary:hover { background: #1B2441; }
+    .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(27 36 65 / .25); background: transparent;
+      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
+    .btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
+    .btn-on-dark {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #fff; color: #1B2441; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    }
+    .btn-on-dark:hover { background: #E30016; color: #fff; }
+    .btn-on-dark:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
+    .btn-on-dark-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(255 255 255 / .25); background: transparent;
+      color: #fff; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-on-dark-ghost:hover { background: #fff; border-color: #fff; color: #1B2441; }
+    .btn-on-dark-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
+    .btn-disabled, [data-disabled] { opacity: .5; pointer-events: none; }
+
+    .section-anchor { scroll-margin-top: 150px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease-out, transform .5s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+    .card-interactive:hover .icon-tile { transform: scale(1.08); }
+
+    .group-badge {
+      display: inline-flex; align-items: center;
+      border-radius: 999px; background: #F1EAEB; color: #E30016;
+      padding: 2px 10px; font-size: 12px; font-weight: 700;
+    }
+    .logo-slot {
+      width: 56px; height: 56px; border-radius: 12px;
+      border: 1px dashed rgb(107 113 131 / .4);
+      background: #F8F8F9; color: #6B7183;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+
+    /* Form elements — normalized DS recipes */
+    .input, .textarea, .select {
+      width: 100%; min-height: 50px; border-radius: 12px;
+      border: 1px solid rgb(107 113 131 / .25); background: #fff;
+      padding: 0 16px; font-size: 16px; line-height: 150%; color: #1B2441;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .textarea { min-height: 120px; padding: 12px 16px; resize: vertical; }
+    .input::placeholder, .textarea::placeholder { color: #6B7183; }
+    .input:focus, .textarea:focus, .select:focus {
+      outline: none; border-color: #E30016;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4);
+    }
+    .input:disabled, .textarea:disabled, .select:disabled { background: #F4F4F4; color: #6B7183; cursor: not-allowed; }
+    .is-error { border-color: #E30016 !important; }
+    .error-text { font-size: 12px; line-height: 150%; color: #E30016; font-weight: 600; }
+    .search-input {
+      width: 100%; min-height: 44px; border-radius: 999px;
+      border: 1px solid rgb(107 113 131 / .25); background: #fff;
+      padding: 0 16px 0 42px; font-size: 14px; color: #1B2441;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .search-input::placeholder { color: #6B7183; }
+    .search-input:focus { outline: none; border-color: #E30016; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
+    .check, .radio { width: 20px; height: 20px; accent-color: #E30016; flex-shrink: 0; }
+
+    /* Motion demos */
+    .panel { opacity: 0; transform: translateY(10px); transition: opacity .4s ease-out, transform .4s ease-out; pointer-events: none; position: absolute; inset: 0; }
+    .panel.is-active { opacity: 1; transform: none; pointer-events: auto; position: relative; }
+    .progress-track { height: 3px; border-radius: 999px; background: #F4F4F4; overflow: hidden; }
+    .progress-track > span { display: block; height: 100%; width: 0; background: #E30016; transition: width .45s ease-out; }
+  </style>
+</head>
+<body class="bg-white text-primary-blue antialiased font-sans">
+
+  <nav aria-label="Breadcrumb" class="bg-white border-b border-dark-gray/15">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <ol class="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
+        <li><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li><a href="/ds" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Design System</a></li>
+        <li class="text-dark-gray/40">/</li>
+        <li aria-current="page" class="font-semibold text-primary-blue">Elements</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Design System</p>
+        <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Shared Elements Inventory</h1>
+        <p class="text-b16 text-primary-blue/85 mt-2 max-w-[720px] mx-auto">
+          The normalized building blocks shared by the design-system mockup family — buttons, chips, forms, cards, navigation, and motion — rendered live with their states and class recipes. Internal reference — not patient-facing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="sticky-bar" aria-label="Elements">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <div class="flex flex-wrap items-center justify-center gap-2" id="jump-chips">
+        <span class="field-label-text mr-1">Elements</span>
+        <a href="#buttons" data-section="buttons" class="chip">Buttons</a>
+        <a href="#labels-chips" data-section="labels-chips" class="chip">Labels &amp; Chips</a>
+        <a href="#forms" data-section="forms" class="chip">Forms</a>
+        <a href="#cards" data-section="cards" class="chip">Cards &amp; Tiles</a>
+        <a href="#navigation" data-section="navigation" class="chip">Navigation</a>
+        <a href="#motion" data-section="motion" class="chip">Motion</a>
+        <a href="#cta-bands" data-section="cta-bands" class="chip">CTA Bands</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ BUTTONS ═══════════ -->
+  <section id="buttons" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Buttons</h2>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl mx-auto">Pill buttons. Red recipes live on light backgrounds; on-dark recipes live on navy. Hover swaps red ↔ navy on light, white ↔ red on dark.</p>
+      </div>
+
+      <div class="card p-6 lg:p-8 flex flex-col gap-6 reveal">
+        <p class="cms-note text-center">.btn-primary · default → hover bg primary-blue · focus-visible ring primary-red/40 · transition background-color .3s ease-in-out</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button type="button" class="btn-primary">Donate Now</button>
+          <button type="button" class="btn-primary text-b14 min-h-[44px] px-5">Small · 44px</button>
+          <button type="button" class="btn-primary" data-disabled>Disabled</button>
+        </div>
+        <p class="cms-note text-center">.btn-ghost · default → hover bg primary-red + white text · min-h 44px</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button type="button" class="btn-ghost">Why Choose Us</button>
+          <button type="button" class="btn-ghost" data-disabled>Disabled</button>
+        </div>
+      </div>
+
+      <div class="bg-primary-blue rounded-2xl p-6 lg:p-8 flex flex-col gap-6 relative overflow-hidden reveal">
+        <div class="absolute w-[200px] aspect-square rounded-full blur-[160px] bg-light-blue top-0 right-0 opacity-40 pointer-events-none"></div>
+        <p class="cms-note text-center !text-white/60 relative">.btn-on-dark · white bg + blue text → hover bg primary-red + white text · focus-visible ring white/40</p>
+        <div class="relative flex flex-wrap items-center justify-center gap-4">
+          <button type="button" class="btn-on-dark">Donate Now</button>
+          <button type="button" class="btn-on-dark text-b14 min-h-[44px] px-5">Small · 44px</button>
+          <button type="button" class="btn-on-dark" data-disabled>Disabled</button>
+        </div>
+        <p class="cms-note text-center !text-white/60 relative">.btn-on-dark-ghost · border white/25 + white text → hover white bg + blue text</p>
+        <div class="relative flex flex-wrap items-center justify-center gap-4">
+          <button type="button" class="btn-on-dark-ghost">Learn More</button>
+          <button type="button" class="btn-on-dark-ghost" data-disabled>Disabled</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ LABELS & CHIPS ═══════════ -->
+  <section id="labels-chips" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Labels &amp; Chips</h2>
+      </div>
+      <div class="card p-6 lg:p-8 flex flex-col items-center gap-6 reveal">
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">.kicker — 12px · 700 · uppercase · tracking .12em · primary-red</p>
+          <p class="kicker">Section Kicker</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">.field-label-text — 11px · 600 · uppercase · tracking .08em · blue/55</p>
+          <p class="field-label-text">Field label</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">.chip — default / hover (redbg + red text) / .is-active (red bg) · transition .2s</p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <button type="button" class="chip">Default</button>
+            <button type="button" class="chip is-active">Active</button>
+            <span class="chip">Static tag</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">.group-badge — redbg pill · 12px · 700 · used for group + CMS tags</p>
+          <span class="group-badge">General Surgery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FORMS ═══════════ -->
+  <section id="forms" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Form Elements</h2>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl mx-auto">Focus ring everywhere: 2px white offset + 4px primary-red/40 halo. Error: primary-red border + 12px red message. Disabled: cardbg fill, no pointer.</p>
+      </div>
+      <div class="card p-6 lg:p-8 reveal">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-name">Text input · .input</label>
+            <input id="f-name" type="text" class="input" placeholder="Full name" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-search">Search · .search-input (leading icon)</label>
+            <div class="relative">
+              <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-dark-gray text-lg pointer-events-none"></i>
+              <input id="f-search" type="search" class="search-input" placeholder="Search procedures…" />
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-select">Select · .select</label>
+            <select id="f-select" class="select">
+              <option>General Surgery</option>
+              <option>Orthopedics</option>
+              <option>Urology</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-phone">Error state · .is-error</label>
+            <input id="f-phone" type="text" class="input is-error" value="03" aria-invalid="true" />
+            <p class="error-text">Please enter a valid phone number.</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-msg">Textarea · .textarea</label>
+            <textarea id="f-msg" class="textarea" placeholder="Your message"></textarea>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="field-label-text" for="f-disabled">Disabled</label>
+            <input id="f-disabled" type="text" class="input" placeholder="Not editable" disabled />
+          </div>
+          <div class="flex items-center gap-3">
+            <input id="f-check" type="checkbox" class="check" checked />
+            <label for="f-check" class="text-b14 text-primary-blue">Checkbox · .check (accent primary-red)</label>
+          </div>
+          <div class="flex items-center gap-6">
+            <span class="flex items-center gap-3"><input id="f-r1" name="f-radio" type="radio" class="radio" checked /><label for="f-r1" class="text-b14 text-primary-blue">Morning</label></span>
+            <span class="flex items-center gap-3"><input id="f-r2" name="f-radio" type="radio" class="radio" /><label for="f-r2" class="text-b14 text-primary-blue">Evening</label></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CARDS & TILES ═══════════ -->
+  <section id="cards" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Cards &amp; Tiles</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="card p-5 flex flex-col gap-2 reveal">
+          <p class="text-b16 font-bold text-primary-blue">.card</p>
+          <p class="text-b14 text-dark-gray">rounded-2xl · border dark-gray/15 · shadow-e1 · static panel surface.</p>
+        </article>
+        <article class="card-interactive p-5 flex flex-col gap-2 reveal" style="transition-delay:.05s">
+          <span class="icon-tile"><i class="ph ph-cursor-click"></i></span>
+          <p class="text-b16 font-bold text-primary-blue">.card-interactive</p>
+          <p class="text-b14 text-dark-gray">Hover: −2px lift + shadow-e2 · icon-tile scales 1.08 · transition .3s.</p>
+        </article>
+        <article class="card p-5 flex flex-col gap-2 items-start reveal" style="transition-delay:.1s">
+          <div class="logo-slot"><i class="ph ph-image-square"></i></div>
+          <p class="text-b16 font-bold text-primary-blue">.logo-slot</p>
+          <p class="text-b14 text-dark-gray">Dashed placeholder for logos/photos awaiting CMS media.</p>
+        </article>
+        <article class="card p-5 border-dashed flex flex-col gap-2 items-start reveal" style="transition-delay:.15s">
+          <span class="group-badge">CMS placeholder</span>
+          <p class="text-b16 font-bold text-primary-blue">Dashed card</p>
+          <p class="text-b14 text-dark-gray">Marks CMS-driven slots (e.g. patient stories) in mockups.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <section id="navigation" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Navigation</h2>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl mx-auto">This page's own header and sticky bar are the live demos — scroll to watch the active chip track sections.</p>
+      </div>
+      <div class="card p-6 lg:p-8 flex flex-col items-center gap-6 reveal">
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">breadcrumb — b14 dark-gray · links blue → hover red · current: semibold blue</p>
+          <ol class="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
+            <li><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+            <li class="text-dark-gray/40">/</li>
+            <li><a href="/departments" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Medical Departments</a></li>
+            <li class="text-dark-gray/40">/</li>
+            <li aria-current="page" class="font-semibold text-primary-blue">General Surgery</li>
+          </ol>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">.sticky-bar — sticky top 73px · z-sticky · white/95 + blur · jump chips with .is-active tracking</p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="chip is-active">Overview</span>
+            <span class="chip">Surgical Services</span>
+            <span class="chip">Why Choose</span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <p class="cms-note">site header — sticky · z-header · logo + nav + emergency pill (red → hover navy)</p>
+          <a href="/patient-care/emergency" class="inline-flex h-9 items-center rounded-full bg-primary-red px-4 text-b14 font-bold text-white transition-colors duration-300 ease-in-out hover:bg-primary-blue">Emergency</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MOTION ═══════════ -->
+  <section id="motion" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">Motion</h2>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl mx-auto">Every card on this page scroll-reveals — that's the live .reveal demo. Durations and easings below.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="card p-6 flex flex-col gap-4 reveal">
+          <p class="cms-note">.reveal — opacity 0→1 · translateY 16px→0 · .5s ease-out · threshold .12, rootMargin −40px · stagger via transition-delay .05–.25s</p>
+          <p class="cms-note">.panel cross-fade — opacity + translateY 10px · .4s ease-out · used by journey scrubber + procedure explorer</p>
+          <div class="relative min-h-[120px]" id="motion-panels">
+            <article class="panel is-active card !shadow-none border p-4">
+              <p class="text-b14 font-bold text-primary-blue">Panel A</p>
+              <p class="text-b14 text-dark-gray">Cross-fades with Panel B on toggle.</p>
+            </article>
+            <article class="panel card !shadow-none border p-4">
+              <p class="text-b14 font-bold text-primary-blue">Panel B</p>
+              <p class="text-b14 text-dark-gray">Same .4s ease-out cross-fade as the explorer.</p>
+            </article>
+          </div>
+          <button type="button" id="motion-toggle" class="btn-ghost self-center">Toggle panels</button>
+        </div>
+        <div class="card p-6 flex flex-col gap-4 reveal" style="transition-delay:.08s">
+          <p class="cms-note">.progress-track — width 0→100% · .45s ease-out · journey scrubber progress</p>
+          <div class="progress-track"><span id="motion-bar"></span></div>
+          <p class="cms-note">.icon-tile hover — scale 1→1.08 · .3s ease-out (hover the card)</p>
+          <div class="card-interactive p-4 flex items-center gap-3">
+            <span class="icon-tile"><i class="ph ph-heartbeat"></i></span>
+            <p class="text-b14 text-dark-gray">Hover me — the tile scales.</p>
+          </div>
+          <p class="cms-note">image hover — scale-105 · .5s · hero/banner images</p>
+          <button type="button" id="motion-play" class="btn-ghost self-center">Play progress</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BANDS ═══════════ -->
+  <section id="cta-bands" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Elements</p>
+        <h2 class="text-h3M lg:text-h3 font-bold text-primary-blue">CTA Bands</h2>
+        <p class="text-b16 text-primary-blue/85 max-w-3xl mx-auto">Navy band with light-blue blur blob. Buttons use the on-dark recipes — never red-on-navy.</p>
+      </div>
+      <div class="bg-primary-blue rounded-2xl relative overflow-hidden reveal">
+        <div class="absolute w-[250px] aspect-square rounded-full blur-[200px] bg-light-blue bottom-0 left-1/4 opacity-40 pointer-events-none"></div>
+        <div class="p-6 lg:p-10 relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 text-center lg:text-start">
+          <div class="flex flex-col gap-[6px] max-w-xl">
+            <p class="kicker">Support Our Mission</p>
+            <p class="text-h4M lg:text-h4 font-bold text-white">Help Us Keep Care Within Reach for Every Patient</p>
+            <p class="text-b16 text-white/85">Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.</p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0 justify-center lg:justify-end">
+            <a href="/donate" class="btn-on-dark">Donate Now</a>
+            <a href="/reports" class="btn-on-dark-ghost">Our Impact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-blue">
+    <div class="container mx-auto px-6 lg:px-[30px] py-10 flex flex-col gap-4 items-center text-center">
+      <img src="/hijaz-hospital-logo-light.svg" alt="Hijaz Hospital" class="h-12 w-auto" />
+      <p class="text-white/55 text-b12">Shared Elements Inventory · internal design-system reference</p>
+    </div>
+  </footer>
+
+  <script>
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') })
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    document.querySelectorAll('.reveal').forEach((el) => ro.observe(el))
+
+    const sections = ['buttons', 'labels-chips', 'forms', 'cards', 'navigation', 'motion', 'cta-bands']
+    const chips = document.querySelectorAll('#jump-chips .chip')
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return
+        chips.forEach((c) => c.classList.toggle('is-active', c.dataset.section === e.target.id))
+      })
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 })
+    sections.forEach((id) => { const el = document.getElementById(id); if (el) so.observe(el) })
+
+    const motionPanels = document.querySelectorAll('#motion-panels .panel')
+    let motionIdx = 0
+    document.getElementById('motion-toggle').addEventListener('click', () => {
+      motionIdx = (motionIdx + 1) % motionPanels.length
+      motionPanels.forEach((p, i) => p.classList.toggle('is-active', i === motionIdx))
+    })
+    document.getElementById('motion-play').addEventListener('click', () => {
+      const bar = document.getElementById('motion-bar')
+      bar.style.width = '0'
+      requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.width = '100%' }))
+    })
+  </script>
+</body>
+</html>

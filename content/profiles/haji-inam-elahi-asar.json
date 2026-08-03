@@ -1,0 +1,40 @@
+{
+  "slug": "haji-inam-elahi-asar",
+  "title": "Haji Inam Elahi Asar",
+  "description": "Founder & Honorary Project Director of Hijaz Hospital — biography and leadership roles.",
+  "kicker": "Leadership Profile",
+  "name": "Haji Inam Elahi Asar",
+  "role": "Founder & Honorary Project Director",
+  "organization": "Hijaz Hospital",
+  "years": "1927–2016",
+  "image": "/media/founder-image.webp",
+  "jumpLinks": [
+    { "label": "Biography", "href": "#biography" },
+    { "label": "Leadership & Community Service", "href": "#leadership-roles" },
+    { "label": "Tribute", "href": "#tribute" }
+  ],
+  "biography": [
+    "Haji Inam Elahi Asar was born on 15 October 1927 in Chiniot, Pakistan. After completing his matriculation, he began his professional career in Kolkata before returning to Pakistan in 1947. He established his business in Karachi and later moved to Lahore in 1953, where he built a successful business while dedicating his life to humanitarian and welfare work.",
+    "Inspired by the teachings and noble character of the Holy Prophet Muhammad (ﷺ), Haji Inam Elahi Asar believed that serving humanity was one of the highest forms of worship. His integrity, generosity, and commitment to social welfare earned him recognition as one of Pakistan's leading businessmen and among the country's highest taxpayers during the peak of his career.",
+    "His enduring legacy is Hijaz Hospital, a charitable healthcare institution founded on the principles of compassion, dignity, and service. In a remarkable act of selflessness, he donated virtually all of his personal assets—including his residence—to support the hospital's mission.",
+    "In addition to Hijaz Hospital, Haji Inam Elahi Asar served numerous educational, healthcare, and welfare organizations across Pakistan, reflecting his lifelong commitment to community development and public service.",
+    "His vision and values continue to guide Hijaz Hospital's mission of delivering compassionate, accessible, and quality healthcare."
+  ],
+  "roles": [
+    "Founder & Honorary Project Director, Hijaz Hospital",
+    "Former President, Pakistan Education Society",
+    "Executive Member & Former President, Chiniot Sheikh Association",
+    "Executive Member, Jinnah Hospital",
+    "Lifetime Member, Isha Haroon Hospital, Gulab Devi Hospital, and The Trust School",
+    "Member, Anjuman-e-Himayat-e-Islam",
+    "Advisor, Al-Falah Quran-o-Sunnah Academy",
+    "Founder, Defence Welfare Society",
+    "Convener, Lahore Mental Health Association",
+    "Chairman, Fundraising Committee, Foundation House",
+    "Finance Secretary, Government Dr. Maqbool Hospital"
+  ],
+  "tribute": {
+    "quote": "May Almighty Allah (SWT) bless him with eternal peace and reward his lifelong service to humanity. Ameen.",
+    "label": "Closing tribute"
+  }
+}
