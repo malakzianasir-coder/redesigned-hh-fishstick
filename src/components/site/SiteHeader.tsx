@@ -330,6 +330,7 @@ export function SiteHeader() {
               height={48}
               className="h-12 w-auto"
               priority
+              unoptimized
             />
           </Link>
 
@@ -430,6 +431,7 @@ export function SiteHeader() {
               width={160}
               height={40}
               className="h-10 w-auto"
+              unoptimized
             />
           </Link>
           <button

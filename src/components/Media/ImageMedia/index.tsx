@@ -47,6 +47,9 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     src = getMediaUrl(url, cacheTag)
   }
 
+  if (!src) return null
+
+  const isSvg = typeof src === 'string' && (src.endsWith('.svg') || src.includes('.svg?'))
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
@@ -63,13 +66,14 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         className={cn(imgClassName)}
         fill={fill}
         height={!fill ? height : undefined}
-        placeholder="blur"
-        blurDataURL={placeholderBlur}
+        placeholder={isSvg ? undefined : 'blur'}
+        blurDataURL={isSvg ? undefined : placeholderBlur}
         priority={priority}
         quality={100}
         loading={loading}
         sizes={sizes}
         src={src}
+        unoptimized={isSvg}
         width={!fill ? width : undefined}
       />
     </picture>

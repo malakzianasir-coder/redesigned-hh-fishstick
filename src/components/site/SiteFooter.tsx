@@ -122,6 +122,7 @@ export function SiteFooter() {
                   width={260}
                   height={60}
                   className="h-auto max-h-[60px] w-[230px] lg:w-[260px]"
+                  unoptimized
                 />
               </Link>
               <p className="mt-2 text-b14 leading-[150%] text-primary-blue/85">
