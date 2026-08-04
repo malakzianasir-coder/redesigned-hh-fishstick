@@ -1,5 +1,7 @@
 'use client'
 
+import 'lenis/dist/lenis.css'
+
 import { ReactLenis } from 'lenis/react'
 import { type ReactNode, useEffect, useMemo, useState } from 'react'
 
@@ -11,12 +13,14 @@ type LenisProviderProps = {
 }
 
 export function LenisProvider({ children, settings }: LenisProviderProps) {
+  const [ready, setReady] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     const sync = () => setReducedMotion(media.matches)
     sync()
+    setReady(true)
     media.addEventListener('change', sync)
     return () => media.removeEventListener('change', sync)
   }, [])
@@ -33,7 +37,8 @@ export function LenisProvider({ children, settings }: LenisProviderProps) {
     [settings],
   )
 
-  if (!settings.enabled || reducedMotion) {
+  // Wait for client mount so we can honor prefers-reduced-motion without hydration mismatch.
+  if (!ready || !settings.enabled || reducedMotion) {
     return <>{children}</>
   }
 

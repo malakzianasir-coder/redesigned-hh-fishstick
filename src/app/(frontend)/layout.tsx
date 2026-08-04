@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className="bg-white text-primary-blue antialiased font-sans">
+      <body className="bg-white font-sans text-primary-blue antialiased">
         <Providers>
           <LenisProvider settings={settings.lenis}>
             <SiteHeader />
