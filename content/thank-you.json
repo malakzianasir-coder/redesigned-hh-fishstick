@@ -1,0 +1,33 @@
+{
+  "slug": "thank-you",
+  "title": "Thank You",
+  "kicker": "Donation received",
+  "heading": "Thank you for your generosity",
+  "lede": "Your contribution helps Hijaz Hospital Trust provide quality healthcare to deserving patients and strengthens our mission of serving humanity with compassion and dignity.",
+  "quote": "\"Whoever saves one life, it is as if he has saved all mankind.\" (Qur'an 5:32)",
+  "body": [
+    "Every act of giving helps save lives. Whether you chose Zakat, Sadaqah, a general donation, or another way to give, your support enables free and subsidized care for patients who cannot afford treatment.",
+    "Official donation receipts are issued for all contributions. Please share your payment details with our Donations Office to receive your acknowledgement and receipt."
+  ],
+  "illustrationPreset": "page/thank-you",
+  "nextSteps": [
+    {
+      "title": "Need a receipt?",
+      "body": "Contact the Donations Office with your payment reference so we can issue your official acknowledgement."
+    },
+    {
+      "title": "Continue supporting",
+      "body": "Explore other ways to give — sponsor a patient, donate a meal, or support hospital projects."
+    }
+  ],
+  "contact": {
+    "uan": "+92 42 111 044 529",
+    "phone": "0321-4045125",
+    "email": "Donations@hijazhospital.org.pk"
+  },
+  "links": [
+    { "label": "Donate again", "href": "/donate", "variant": "primary" },
+    { "label": "Back to home", "href": "/", "variant": "ghost" },
+    { "label": "Contact us", "href": "/contact", "variant": "ghost" }
+  ]
+}

@@ -1254,6 +1254,22 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
     ],
     "mainAnim": "a-beat"
   },
+  "page/thank-you": {
+    "collection": "pages",
+    "slug": "thank-you",
+    "title": "Thank You",
+    "icon": "seal-check",
+    "motif": "breathe",
+    "accent": "#E30016",
+    "soft": "#FBE0E2",
+    "ink": "#1B2441",
+    "satellites": [
+      "hand-heart",
+      "sparkle",
+      "heartbeat"
+    ],
+    "mainAnim": "a-beat"
+  },
   "page/donations": {
     "collection": "pages",
     "slug": "donations",

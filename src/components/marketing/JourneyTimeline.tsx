@@ -28,8 +28,9 @@ export function JourneyTimeline({ milestones }: { milestones: JourneyMilestone[]
   const progressPercent = ((activeIndex + 1) / milestones.length) * 100
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="rounded-2xl border border-dark-gray/15 bg-whitebg p-3">
+    <div className="card overflow-hidden shadow-e1">
+      {/* Step rail */}
+      <div className="border-b border-dark-gray/15 bg-whitebg p-3">
         <div className="mb-2 flex items-center gap-2">
           <span className="shrink-0 rounded-full bg-redbg px-2.5 py-0.5 text-b12 font-bold text-primary-red">
             {String(activeIndex + 1).padStart(2, '0')} /{' '}
@@ -60,7 +61,6 @@ export function JourneyTimeline({ milestones }: { milestones: JourneyMilestone[]
           </div>
         </div>
 
-        {/* Mobile: compact dots only */}
         <div className="relative px-1 lg:hidden">
           <div className="pointer-events-none absolute inset-x-4 top-1/2 h-px -translate-y-1/2 overflow-hidden rounded-full bg-dark-gray/15">
             <div
@@ -106,7 +106,6 @@ export function JourneyTimeline({ milestones }: { milestones: JourneyMilestone[]
           </div>
         </div>
 
-        {/* Desktop: numbered nodes + year labels, compact */}
         <div className="relative hidden lg:block">
           <div className="pointer-events-none absolute inset-x-5 top-[11px] h-px overflow-hidden rounded-full bg-dark-gray/15">
             <div
@@ -160,7 +159,8 @@ export function JourneyTimeline({ milestones }: { milestones: JourneyMilestone[]
         </div>
       </div>
 
-      <article className="card relative overflow-hidden p-4 shadow-e1 lg:p-5">
+      {/* Detail content */}
+      <div className="relative bg-white p-4 lg:p-5">
         <div className="absolute inset-x-0 top-0 h-0.5 bg-primary-red" />
 
         <div className="flex flex-col gap-4">
@@ -203,7 +203,7 @@ export function JourneyTimeline({ milestones }: { milestones: JourneyMilestone[]
             </button>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   )
 }
