@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  EnvelopeOpen,
   FacebookLogo,
   LinkedinLogo,
   XLogo,
   YoutubeLogo,
 } from '@phosphor-icons/react/dist/ssr'
+import { NewsletterSignup } from '@/components/forms/NewsletterSignup'
+import { getSiteSettings } from '@/lib/content/loaders'
 
 const FOOTER_COLUMNS = [
   {
@@ -108,6 +109,9 @@ const COMPLIANCE_LOGOS = [
 ] as const
 
 export function SiteFooter() {
+  const settings = getSiteSettings()
+  const newsletter = settings.newsletter
+
   return (
     <footer className="site-footer bg-whitebg text-primary-blue">
       <div className="site-footer-glow" aria-hidden="true" />
@@ -132,27 +136,15 @@ export function SiteFooter() {
               <p className="mt-1 text-b12 font-semibold uppercase tracking-wider text-dark-gray">
                 Excellence in Care · Dignity in Service · Access for All
               </p>
-              <div className="mt-3 flex w-full flex-col items-center gap-1 lg:items-start">
-                <label
-                  htmlFor="footer-email"
-                  className="text-b12 font-semibold uppercase tracking-wider text-dark-gray"
-                >
-                  Stay connected
-                </label>
-                <div className="flex w-full flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
-                  <input
-                    id="footer-email"
-                    type="email"
-                    placeholder="Enter your email"
-                    className="footer-newsletter-input"
-                    autoComplete="email"
-                  />
-                  <button type="button" className="footer-subscribe" aria-label="Subscribe to newsletter">
-                    <EnvelopeOpen size={18} weight="regular" aria-hidden />
-                    Subscribe
-                  </button>
-                </div>
-              </div>
+              {newsletter.enabled ? (
+                <NewsletterSignup
+                  label={newsletter.label}
+                  placeholder={newsletter.placeholder}
+                  buttonLabel={newsletter.buttonLabel}
+                  successMessage={newsletter.successMessage}
+                  errorMessage={newsletter.errorMessage}
+                />
+              ) : null}
             </div>
 
             <div className="flex w-full flex-col flex-wrap gap-9 text-center lg:flex-row lg:justify-end lg:text-start">

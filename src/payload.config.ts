@@ -7,7 +7,10 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
+import { FormDefinitions } from './collections/FormDefinitions'
+import { LandingPages } from './collections/LandingPages'
 import { Media } from './collections/Media'
+import { NewsletterSubmissions } from './collections/NewsletterSubmissions'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
@@ -64,7 +67,16 @@ export default buildConfig({
     url: process.env.DATABASE_URI,
   }),
   // database-adapter-config-end
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [
+    Pages,
+    Posts,
+    LandingPages,
+    FormDefinitions,
+    NewsletterSubmissions,
+    Media,
+    Categories,
+    Users,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

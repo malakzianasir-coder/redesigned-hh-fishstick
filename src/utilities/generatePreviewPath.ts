@@ -1,12 +1,15 @@
 import { PayloadRequest, CollectionSlug } from 'payload'
 
-const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
+const collectionPrefixMap = {
+  'landing-pages': '/lp',
   posts: '/posts',
   pages: '',
-}
+} as const satisfies Partial<Record<CollectionSlug, string>>
+
+type PreviewCollection = keyof typeof collectionPrefixMap
 
 type Props = {
-  collection: keyof typeof collectionPrefixMap
+  collection: PreviewCollection
   slug: string
   req: PayloadRequest
 }

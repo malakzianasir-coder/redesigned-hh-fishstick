@@ -1,0 +1,26 @@
+{
+  "newsletter": {
+    "enabled": true,
+    "label": "Stay connected",
+    "placeholder": "Enter your email",
+    "buttonLabel": "Subscribe",
+    "successMessage": "Thanks for subscribing. We will keep you updated.",
+    "errorMessage": "Please enter a valid email address.",
+    "source": "site-footer"
+  },
+  "forms": {
+    "recaptcha": {
+      "enabled": false,
+      "provider": "google-v2",
+      "siteKey": ""
+    }
+  },
+  "lenis": {
+    "enabled": false,
+    "duration": 1,
+    "lerp": 0.1,
+    "smoothWheel": true,
+    "syncTouch": false,
+    "anchors": true
+  }
+}

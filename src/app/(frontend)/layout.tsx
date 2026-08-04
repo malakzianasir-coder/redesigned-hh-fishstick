@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import React from 'react'
 
-import { FloatingQuickActions } from '@/components/site/FloatingQuickActions'
+import { LenisProvider } from '@/components/providers/LenisProvider'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { SiteHeader } from '@/components/site/SiteHeader'
+import { getSiteSettings } from '@/lib/content/loaders'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
@@ -12,6 +13,8 @@ import { getServerSideURL } from '@/utilities/getURL'
 import './globals.css'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const settings = getSiteSettings()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -27,10 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-white text-primary-blue antialiased font-sans">
         <Providers>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-          {/* <FloatingQuickActions /> */}
+          <LenisProvider settings={settings.lenis}>
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+            {/* <FloatingQuickActions /> */}
+          </LenisProvider>
         </Providers>
       </body>
     </html>

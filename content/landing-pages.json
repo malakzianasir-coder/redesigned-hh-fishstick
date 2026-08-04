@@ -1,0 +1,39 @@
+{
+  "pages": [
+    {
+      "slug": "fb-cardiology-checkup",
+      "title": "Cardiology Checkup Program",
+      "_status": "published",
+      "publishedAt": "2026-08-01",
+      "meta": {
+        "title": "Cardiology Checkup | Hijaz Hospital",
+        "description": "Book a cardiology checkup package with specialist consultation."
+      },
+      "headerVariant": "minimal",
+      "footerVariant": "minimal",
+      "hero": {
+        "kicker": "Special Program",
+        "heading": "Comprehensive Cardiology Checkup",
+        "body": "Consultation, baseline investigations, and follow-up guidance in one streamlined visit.",
+        "primaryCta": { "label": "Book Appointment", "href": "/services/cardiology" },
+        "secondaryCta": { "label": "Call UAN", "href": "tel:+9242111044529" }
+      },
+      "sections": [
+        {
+          "heading": "What is included",
+          "body": "Initial consultant review, ECG, selected blood tests, and personalized recommendations."
+        },
+        {
+          "heading": "Why Hijaz Hospital",
+          "body": "Compassionate care team, quality standards, and patient-first follow-up support."
+        }
+      ],
+      "ctaBand": {
+        "kicker": "Need help choosing a package?",
+        "heading": "Talk to our team today",
+        "body": "Our coordinators can guide you to the most suitable option.",
+        "button": { "label": "Contact Us", "href": "/search?q=contact" }
+      }
+    }
+  ]
+}

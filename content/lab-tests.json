@@ -19,7 +19,48 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Liver function test is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "Bilirubin Total"
+        },
+        {
+          "name": "ALT"
+        },
+        {
+          "name": "AST"
+        },
+        {
+          "name": "ALP"
+        },
+        {
+          "name": "Albumin"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "bilirubin-total",
@@ -27,7 +68,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Bilirubin Total is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "alt",
@@ -35,7 +101,39 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "SGPT"
+        },
+        {
+          "name": "Alanine Aminotransferase"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "ALT is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "ast",
@@ -43,7 +141,39 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "SGOT"
+        },
+        {
+          "name": "Aspartate Aminotransferase"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "AST is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "alp",
@@ -51,7 +181,36 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Alkaline Phosphatase"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "ALP is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "albumin",
@@ -59,7 +218,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Albumin is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "renal-function-test",
@@ -67,7 +251,42 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Renal function test is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "Urea"
+        },
+        {
+          "name": "Creatine"
+        },
+        {
+          "name": "Uric Acid"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "urea",
@@ -75,7 +294,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Urea is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "uric-acid",
@@ -83,7 +327,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Uric Acid is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "creatine",
@@ -91,7 +360,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Creatine is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "lipid-profile",
@@ -99,7 +393,45 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Lipid Profile is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "Cholesterol"
+        },
+        {
+          "name": "Triglyceride"
+        },
+        {
+          "name": "HDL"
+        },
+        {
+          "name": "LDL"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "cholesterol",
@@ -107,7 +439,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Cholesterol is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "triglyceride",
@@ -115,7 +472,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Triglyceride is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hdl",
@@ -123,7 +505,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "HDL is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "ldl",
@@ -131,7 +538,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "LDL is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "serum-electrolytes",
@@ -139,7 +571,42 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Serum Electrolytes is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "Sodium"
+        },
+        {
+          "name": "Potassium"
+        },
+        {
+          "name": "Chloride"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "sodium",
@@ -147,7 +614,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "sodium is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "potasium",
@@ -155,7 +647,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "potasium is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "chloride",
@@ -163,7 +680,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "chloride is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "calcium",
@@ -171,7 +713,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Calcium is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "phosphate",
@@ -179,7 +746,32 @@
       "category": "Routine Chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Phosphate is a laboratory investigation used to support metabolic and organ function. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "glucose-fasting",
@@ -187,7 +779,32 @@
       "category": "Glucose profile",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Glucose Fasting is a laboratory investigation used to support blood sugar control and diabetes screening. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "gtt",
@@ -195,7 +812,39 @@
       "category": "Glucose profile",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Glucose Tolerance Test"
+        },
+        {
+          "name": "OGTT"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "GTT is a laboratory investigation used to support blood sugar control and diabetes screening. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Fast for 10–12 hours before sample collection. Water is permitted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid alcohol and heavy meals the evening before the test."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "glucose-random",
@@ -203,7 +852,32 @@
       "category": "Glucose profile",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Glucose Random is a laboratory investigation used to support blood sugar control and diabetes screening. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hbaic",
@@ -211,7 +885,39 @@
       "category": "Glucose profile",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "HbA1c"
+        },
+        {
+          "name": "Glycated Hemoglobin"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "HBAic is a laboratory investigation used to support blood sugar control and diabetes screening. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "crp",
@@ -219,7 +925,36 @@
       "category": "Other",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "C-Reactive Protein"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "CRP is a laboratory investigation used to support general diagnostic assessment. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "ra-factor",
@@ -227,7 +962,36 @@
       "category": "Other",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Rheumatoid Factor"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "RA Factor is a laboratory investigation used to support general diagnostic assessment. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "amylase",
@@ -235,7 +999,32 @@
       "category": "Other",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Amylase is a laboratory investigation used to support general diagnostic assessment. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "anti-hcv",
@@ -243,7 +1032,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Hepatitis C Antibody"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Anti HCV is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hbsag",
@@ -251,7 +1069,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Hepatitis B Surface Antigen"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "HBsAg is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hiv-by-elisa",
@@ -259,7 +1106,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "HIV Screening"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "HIV by Elisa is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "vdrl-syphilis",
@@ -267,7 +1143,39 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "VDRL"
+        },
+        {
+          "name": "Syphilis Screen"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "VDRL Syphilis is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "screening-profile-anti-hcv-hbsag",
@@ -275,7 +1183,39 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Screening Profile(Anti HCV,HBsAg) is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "Anti HCV"
+        },
+        {
+          "name": "HBsAg"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "thyroid-profile",
@@ -283,7 +1223,42 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Thyroid Profile is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "T3"
+        },
+        {
+          "name": "T4"
+        },
+        {
+          "name": "TSH"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "t3",
@@ -291,7 +1266,32 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "T3 is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "t4",
@@ -299,7 +1299,32 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "T4 is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "fertility-profile",
@@ -307,7 +1332,45 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Fertility Profile is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "FSH"
+        },
+        {
+          "name": "LH"
+        },
+        {
+          "name": "Prolactin"
+        },
+        {
+          "name": "TSH"
+        }
+      ],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "tsh",
@@ -315,7 +1378,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Thyroid Stimulating Hormone"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "TSH is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "fsh",
@@ -323,7 +1415,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Follicle Stimulating Hormone"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "FSH is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "lh",
@@ -331,7 +1452,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Luteinizing Hormone"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "LH is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "prolactin",
@@ -339,7 +1489,32 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Prolactin is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "beta-hcg",
@@ -347,7 +1522,39 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "β-hCG"
+        },
+        {
+          "name": "Pregnancy Test (Quantitative)"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Beta Hcg is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "vitamin-d",
@@ -355,7 +1562,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "25-OH Vitamin D"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Vitamin D is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "pth",
@@ -363,7 +1599,36 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Parathyroid Hormone"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "PTH is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "trop-i",
@@ -371,7 +1636,39 @@
       "category": "Special chemistry",
       "reportingTime": "24 Hrs",
       "specimen": "Serum (clotted vial)",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Troponin I"
+        },
+        {
+          "name": "Cardiac Marker"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Trop i is a laboratory investigation used to support hormone, immunology, and specialised markers. The test is performed on serum (clotted vial)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Blood is drawn into a clotted (gold/red-top) tube, allowed to clot, then centrifuged for serum separation.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "stool-c-e",
@@ -379,7 +1676,36 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "Stool",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Stool Routine Examination"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Stool C/E is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on stool."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a fresh stool sample in the sterile container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid mixing with urine or toilet water."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Transfer a walnut-sized portion into the sterile stool pot. Label with name, date, and time of collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "semen-examination",
@@ -387,7 +1713,32 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "Semen",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Semen examination is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on semen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Abstain from ejaculation for 2–5 days before collection unless advised otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Collect the sample at the laboratory or as directed by staff."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: Semen. Staff will guide you through labelling and handling.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "urine-complete-examination",
@@ -395,7 +1746,39 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "Urine",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Urine R/E"
+        },
+        {
+          "name": "Urinalysis"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Urine complete examination is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on urine."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a clean-catch midstream urine sample in the container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid contamination from skin or external surfaces."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Use the sterile container provided. A midstream clean-catch sample is preferred unless a timed collection is ordered.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "stool-occult-blood",
@@ -403,7 +1786,32 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "Stool",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Stool occult blood is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on stool."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a fresh stool sample in the sterile container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid mixing with urine or toilet water."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Transfer a walnut-sized portion into the sterile stool pot. Label with name, date, and time of collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "upt",
@@ -411,7 +1819,39 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "Urine",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Urine Pregnancy Test"
+        },
+        {
+          "name": "UPT"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "UPT is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on urine."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a clean-catch midstream urine sample in the container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid contamination from skin or external surfaces."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Use the sterile container provided. A midstream clean-catch sample is preferred unless a timed collection is ordered.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "h-pylori-stool-antigen",
@@ -419,7 +1859,36 @@
       "category": "Microbiology",
       "reportingTime": "24 Hrs",
       "specimen": "stool",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "H. pylori Antigen"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "H pylori stool Antigen is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on stool."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a fresh stool sample in the sterile container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid mixing with urine or toilet water."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Transfer a walnut-sized portion into the sterile stool pot. Label with name, date, and time of collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "urine-for-c-s",
@@ -427,7 +1896,32 @@
       "category": "Microbiology",
       "reportingTime": "72 Hrs",
       "specimen": "Urine",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Urine for C/S is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on urine."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a clean-catch midstream urine sample in the container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid contamination from skin or external surfaces."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Use the sterile container provided. A midstream clean-catch sample is preferred unless a timed collection is ordered.",
+      "reportDelivery": "Results are usually available within 72 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "pus-for-c-s",
@@ -435,7 +1929,32 @@
       "category": "Microbiology",
       "reportingTime": "72 Hrs",
       "specimen": "Swab/Syringe",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "PUS for C/S is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on swab/syringe."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Specimen is collected using a sterile swab or syringe as appropriate. Follow staff instructions for site preparation.",
+      "reportDelivery": "Results are usually available within 72 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "stool-for-c-s",
@@ -443,7 +1962,32 @@
       "category": "Microbiology",
       "reportingTime": "72 Hrs",
       "specimen": "stool",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Stool for c/s is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on stool."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "Collect a fresh stool sample in the sterile container provided."
+        },
+        {
+          "type": "paragraph",
+          "text": "Avoid mixing with urine or toilet water."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Transfer a walnut-sized portion into the sterile stool pot. Label with name, date, and time of collection.",
+      "reportDelivery": "Results are usually available within 72 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hvs-for-c-s",
@@ -451,7 +1995,32 @@
       "category": "Microbiology",
       "reportingTime": "72 Hrs",
       "specimen": "HVS Swab",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "hvs for c/s is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on hvs swab."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Specimen is collected using a sterile swab or syringe as appropriate. Follow staff instructions for site preparation.",
+      "reportDelivery": "Results are usually available within 72 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "specimen-for-c-s",
@@ -459,7 +2028,32 @@
       "category": "Microbiology",
       "reportingTime": "72 Hrs",
       "specimen": "Any specimen",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Specimen For c/s is a laboratory investigation used to support infection detection and culture sensitivity. The test is performed on any specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: Any specimen. Staff will guide you through labelling and handling.",
+      "reportDelivery": "Results are usually available within 72 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "cbc",
@@ -467,7 +2061,39 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Complete Blood Count"
+        },
+        {
+          "name": "Full Blood Count"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "CBC is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "hb",
@@ -475,7 +2101,36 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Hemoglobin"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "HB is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "dlc",
@@ -483,7 +2138,36 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Differential Leukocyte Count"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "DLC is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "tlc",
@@ -491,7 +2175,36 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Total Leukocyte Count"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "TLC is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "platelet-count",
@@ -499,7 +2212,32 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Platelet count is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "cbc-for-dengue",
@@ -507,7 +2245,39 @@
       "category": "Hematology",
       "reportingTime": "2 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "cbc for dengue is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "CBC"
+        },
+        {
+          "name": "Platelet count"
+        }
+      ],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 2 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "peripheral-smear",
@@ -515,7 +2285,32 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Peripheral smear is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "reticulocyte-count-retic-count",
@@ -523,7 +2318,32 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Reticulocyte count(Retic count) is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "mp",
@@ -531,7 +2351,39 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Malaria Parasite"
+        },
+        {
+          "name": "Peripheral Smear for MP"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "MP is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "esr",
@@ -539,7 +2391,36 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Erythrocyte Sedimentation Rate"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "ESR is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "blood-grouping",
@@ -547,7 +2428,32 @@
       "category": "Hematology",
       "reportingTime": "24 Hrs",
       "specimen": "EDTA blood sample",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Blood grouping is a laboratory investigation used to support blood cell counts and morphology. The test is performed on edta blood sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "An EDTA (purple-top) blood tube is required. Hand the labelled sample to laboratory staff immediately after collection.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "aptt",
@@ -555,7 +2461,36 @@
       "category": "Coagulation profile",
       "reportingTime": "24 Hrs",
       "specimen": "Sodium citrate blood",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Activated Partial Thromboplastin Time"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "APTT is a laboratory investigation used to support clotting function and bleeding risk. The test is performed on sodium citrate blood."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Collect blood in a sodium citrate (blue-top) tube. Fill the tube to the marked line and invert gently 3–4 times.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "pt",
@@ -563,7 +2498,36 @@
       "category": "Coagulation profile",
       "reportingTime": "24 Hrs",
       "specimen": "Sodium citrate blood",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [
+        {
+          "name": "Prothrombin Time"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "PT is a laboratory investigation used to support clotting function and bleeding risk. The test is performed on sodium citrate blood."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Collect blood in a sodium citrate (blue-top) tube. Fill the tube to the marked line and invert gently 3–4 times.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "bleeding-time",
@@ -571,7 +2535,32 @@
       "category": "Coagulation profile",
       "reportingTime": "24 Hrs",
       "specimen": "",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Bleeding time is a laboratory investigation used to support clotting function and bleeding risk. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "clotting-time",
@@ -579,15 +2568,70 @@
       "category": "Coagulation profile",
       "reportingTime": "24 Hrs",
       "specimen": "",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Clotting time is a laboratory investigation used to support clotting function and bleeding risk. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "Results are usually available within 24 Hrs during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
-      "slug": "cbc-for-dengue",
-      "name": "Cbc for Dengue",
-      "category": "Dengue",
+      "slug": "cbc-for-dengue-dengue",
       "reportingTime": "8 hours",
       "specimen": "",
-      "isOutsourced": false
+      "isOutsourced": false,
+      "alsoKnownAs": [],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Cbc for Dengue is a laboratory investigation used to support dengue fever diagnosis and monitoring. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [
+        {
+          "name": "CBC"
+        },
+        {
+          "name": "Platelet count"
+        }
+      ],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "Results are usually available within 8 hours during routine working hours. Urgent or critical results are communicated directly to the referring clinician.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 10:00 PM. Reporting times may vary on Sundays and public holidays."
     },
     {
       "slug": "dengune-ns-1-antigen",
@@ -595,7 +2639,36 @@
       "category": "Dengue",
       "reportingTime": "24 Hours",
       "specimen": "",
-      "isOutsourced": true
+      "isOutsourced": true,
+      "alsoKnownAs": [
+        {
+          "name": "Dengue NS1 Antigen"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Dengune Ns 1 antigen is a laboratory investigation used to support dengue fever diagnosis and monitoring. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "This test is processed by a partner reference laboratory. Results are typically available within 24 Hours and will be shared once verified by our pathology team.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 8:00 PM. Outsourced processing may extend turnaround on weekends and public holidays."
     },
     {
       "slug": "dengue-igg",
@@ -603,7 +2676,36 @@
       "category": "Dengue",
       "reportingTime": "24 Hours",
       "specimen": "",
-      "isOutsourced": true
+      "isOutsourced": true,
+      "alsoKnownAs": [
+        {
+          "name": "Dengue IgG Antibody"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Dengue IgG is a laboratory investigation used to support dengue fever diagnosis and monitoring. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "This test is processed by a partner reference laboratory. Results are typically available within 24 Hours and will be shared once verified by our pathology team.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 8:00 PM. Outsourced processing may extend turnaround on weekends and public holidays."
     },
     {
       "slug": "dengue-igm",
@@ -611,7 +2713,36 @@
       "category": "Dengue",
       "reportingTime": "24 Hours",
       "specimen": "",
-      "isOutsourced": true
+      "isOutsourced": true,
+      "alsoKnownAs": [
+        {
+          "name": "Dengue IgM Antibody"
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Dengue IgM is a laboratory investigation used to support dengue fever diagnosis and monitoring. The test is performed on the required specimen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your clinician may order this test to help diagnose, monitor, or rule out conditions related to your symptoms and medical history."
+        }
+      ],
+      "preparation": [
+        {
+          "type": "paragraph",
+          "text": "No special preparation is usually required unless your doctor advises otherwise."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inform the phlebotomist of any medications, supplements, or recent illness."
+        }
+      ],
+      "includedTests": [],
+      "sampleInstructions": "Present at the sample collection area with the required specimen: as directed. Staff will guide you through labelling and handling.",
+      "reportDelivery": "This test is processed by a partner reference laboratory. Results are typically available within 24 Hours and will be shared once verified by our pathology team.",
+      "availability": "Sample collection: Monday–Saturday, 7:00 AM – 8:00 PM. Outsourced processing may extend turnaround on weekends and public holidays."
     }
   ]
 }

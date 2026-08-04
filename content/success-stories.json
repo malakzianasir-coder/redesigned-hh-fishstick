@@ -1,0 +1,263 @@
+{
+  "hub": {
+    "kicker": "Patient Stories",
+    "heading": "Success Stories",
+    "lede": "Featured stories of hope, recovery, and compassionate care from Hijaz Hospital patients and families."
+  },
+  "stories": [
+    {
+      "slug": "life-saving-emergency-surgery",
+      "title": "Life-Saving Emergency Surgery",
+      "heading": "Emergency Surgery Saved My Father's Life",
+      "subHeading": "A family's gratitude after urgent general surgery at Hijaz Hospital's emergency department.",
+      "category": "life-saving-treatments",
+      "format": "article",
+      "thumbnail": "/media/pexels-rdne-6129574.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "When my father collapsed with acute abdominal pain, we rushed him to Hijaz Hospital's emergency department. Within hours, the surgical team diagnosed a life-threatening condition and performed emergency surgery."
+        },
+        {
+          "type": "paragraph",
+          "text": "The doctors explained every step to our family. Because we could not afford the full cost of treatment, the patient welfare team guided us through financial assistance. My father recovered and returned home — a outcome we had feared we would not see."
+        },
+        {
+          "type": "quote",
+          "text": "They treated my father as if he were their own family.",
+          "attribution": "Patient's son"
+        }
+      ],
+      "publishedDate": "2026-02-10",
+      "featured": true,
+      "departments": ["general-surgery"],
+      "services": ["emergency", "ot-complex"],
+      "_status": "published",
+      "publishedAt": "2026-02-10",
+      "meta": {
+        "title": "Life-Saving Emergency Surgery | Hijaz Hospital Success Stories",
+        "description": "Patient story of emergency surgery at Hijaz Hospital.",
+        "image": "/media/pexels-rdne-6129574.webp"
+      }
+    },
+    {
+      "slug": "dialysis-journey-recovery",
+      "title": "Dialysis Journey Recovery",
+      "heading": "Dialysis Gave Me Hope Again",
+      "subHeading": "A dialysis patient shares how welfare support made ongoing treatment possible.",
+      "category": "dialysis-recovery",
+      "format": "video",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "thumbnail": "/media/Dialysis.webp",
+      "publishedDate": "2026-01-15",
+      "featured": true,
+      "departments": ["nephrology"],
+      "services": ["dialysis"],
+      "_status": "published",
+      "publishedAt": "2026-01-15",
+      "meta": {
+        "title": "Dialysis Journey Recovery | Hijaz Hospital Success Stories",
+        "description": "Dialysis patient recovery story with welfare support.",
+        "image": "/media/Dialysis.webp"
+      }
+    },
+    {
+      "slug": "successful-orthopedic-surgery",
+      "title": "Successful Orthopedic Surgery",
+      "heading": "Walking Again After Orthopedic Surgery",
+      "subHeading": "Recovery after complex orthopedic procedure and physiotherapy rehabilitation.",
+      "category": "successful-surgeries",
+      "format": "article",
+      "thumbnail": "/media/pexels-rdne-6129115.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "After a serious leg injury, I was unable to walk without assistance. The orthopedic team at Hijaz Hospital performed surgery and coordinated physiotherapy rehabilitation over several months."
+        },
+        {
+          "type": "paragraph",
+          "text": "Today I walk independently and have returned to daily activities. The combined care from surgery and rehabilitation teams made recovery possible."
+        }
+      ],
+      "publishedDate": "2025-11-28",
+      "featured": false,
+      "departments": ["orthopedics", "physiotherapy-rehabilitation"],
+      "services": ["ipd", "ot-complex"],
+      "_status": "published",
+      "publishedAt": "2025-11-28",
+      "meta": {
+        "title": "Orthopedic Surgery Recovery | Hijaz Hospital Success Stories",
+        "description": "Orthopedic surgery and rehabilitation success story.",
+        "image": "/media/pexels-rdne-6129115.webp"
+      }
+    },
+    {
+      "slug": "cardiac-care-recovery",
+      "title": "Cardiac Care Recovery",
+      "heading": "Cardiac Team Saved My Mother's Life",
+      "subHeading": "Critical cardiac care and ICU support for a heart attack patient.",
+      "category": "life-saving-treatments",
+      "format": "article",
+      "thumbnail": "/media/anesthesiology-details-banner.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "My mother suffered a severe cardiac event and was admitted to Hijaz Hospital's ICU. The cardiology and anesthesia teams stabilized her condition and provided round-the-clock monitoring."
+        },
+        {
+          "type": "paragraph",
+          "text": "She spent weeks recovering under specialist care. We are deeply grateful for the nurses who never stopped encouraging us during the hardest days."
+        }
+      ],
+      "publishedDate": "2025-10-20",
+      "featured": false,
+      "departments": ["cardiology"],
+      "services": ["icu", "emergency"],
+      "_status": "published",
+      "publishedAt": "2025-10-20",
+      "meta": {
+        "title": "Cardiac Care Recovery | Hijaz Hospital Success Stories",
+        "description": "Cardiac ICU recovery patient story.",
+        "image": "/media/anesthesiology-details-banner.webp"
+      }
+    },
+    {
+      "slug": "free-cataract-surgery",
+      "title": "Free Cataract Surgery",
+      "heading": "I Can See My Grandchildren Again",
+      "subHeading": "Welfare-funded cataract surgery restored vision for an elderly patient.",
+      "category": "successful-surgeries",
+      "format": "article",
+      "thumbnail": "/media/pexels-mart-production-7089623.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "Cataracts had left me nearly blind. Through Hijaz Hospital's welfare program, I received cataract surgery at no cost. The ophthalmology team treated me with kindness throughout."
+        },
+        {
+          "type": "quote",
+          "text": "The first time I saw my grandchildren's faces clearly again, I cried.",
+          "attribution": "Patient"
+        }
+      ],
+      "publishedDate": "2025-09-14",
+      "featured": false,
+      "departments": ["ophthalmology"],
+      "services": ["opd", "ot-complex"],
+      "_status": "published",
+      "publishedAt": "2025-09-14",
+      "meta": {
+        "title": "Free Cataract Surgery | Hijaz Hospital Success Stories",
+        "description": "Welfare-funded cataract surgery patient story.",
+        "image": "/media/pexels-mart-production-7089623.webp"
+      }
+    },
+    {
+      "slug": "neonatal-intensive-care",
+      "title": "Neonatal Intensive Care",
+      "heading": "Our Baby's Fight in the NICU",
+      "subHeading": "Premature birth care in pediatrics and neonatology with family-centered support.",
+      "category": "life-saving-treatments",
+      "format": "video",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "thumbnail": "/media/476945069_970781975161220_6789087496260085071_n.webp",
+      "publishedDate": "2025-08-22",
+      "featured": false,
+      "departments": ["pediatrics-neonatology"],
+      "services": ["icu", "ipd"],
+      "_status": "published",
+      "publishedAt": "2025-08-22",
+      "meta": {
+        "title": "Neonatal Intensive Care | Hijaz Hospital Success Stories",
+        "description": "NICU premature baby care success story.",
+        "image": "/media/476945069_970781975161220_6789087496260085071_n.webp"
+      }
+    },
+    {
+      "slug": "dialysis-welfare-support",
+      "title": "Dialysis Welfare Support",
+      "heading": "Welfare Support for Dialysis Treatment",
+      "subHeading": "How zakat and donor support sustain long-term dialysis for deserving patients.",
+      "category": "dialysis-recovery",
+      "format": "article",
+      "thumbnail": "/media/dialysis-care-unit-content-banner.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "When I was diagnosed with end-stage kidney disease, I could not afford regular dialysis. Hijaz Hospital's patient welfare team enrolled me in a support program covering treatment costs and ration assistance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Three years later, I continue dialysis at the hospital with dignity. Donors who support Hijaz make this possible for patients like me."
+        }
+      ],
+      "publishedDate": "2025-07-05",
+      "featured": false,
+      "departments": ["nephrology"],
+      "services": ["dialysis"],
+      "_status": "published",
+      "publishedAt": "2025-07-05",
+      "meta": {
+        "title": "Dialysis Welfare Support | Hijaz Hospital Success Stories",
+        "description": "Dialysis welfare support patient story.",
+        "image": "/media/dialysis-care-unit-content-banner.webp"
+      }
+    },
+    {
+      "slug": "urology-surgery-success",
+      "title": "Urology Surgery Success",
+      "heading": "Successful Urology Procedure",
+      "subHeading": "Minimally invasive urology surgery with rapid recovery.",
+      "category": "successful-surgeries",
+      "format": "article",
+      "thumbnail": "/media/DSC_0076.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "The urology team performed a minimally invasive procedure that resolved chronic symptoms I had endured for years. Recovery was faster than I expected, and follow-up care was thorough."
+        }
+      ],
+      "publishedDate": "2025-06-18",
+      "featured": false,
+      "departments": ["urology"],
+      "services": ["ot-complex", "ipd"],
+      "_status": "published",
+      "publishedAt": "2025-06-18",
+      "meta": {
+        "title": "Urology Surgery Success | Hijaz Hospital Success Stories",
+        "description": "Urology surgery patient success story.",
+        "image": "/media/DSC_0076.webp"
+      }
+    },
+    {
+      "slug": "gynaecology-safe-delivery",
+      "title": "Safe Delivery Story",
+      "heading": "A Safe Delivery at Hijaz Hospital",
+      "subHeading": "Comprehensive maternity care for a high-risk pregnancy.",
+      "category": "life-saving-treatments",
+      "format": "article",
+      "thumbnail": "/media/pexels-rdne-6129574.webp",
+      "articleContent": [
+        {
+          "type": "paragraph",
+          "text": "My pregnancy was classified as high-risk. The gynaecology team monitored me closely through OPD visits and admitted me when complications arose. Both mother and baby were safe after delivery."
+        },
+        {
+          "type": "paragraph",
+          "text": "The nursing staff on the maternity ward supported our family with warmth and professionalism throughout our stay."
+        }
+      ],
+      "publishedDate": "2025-05-30",
+      "featured": false,
+      "departments": ["gynaecology-obstetrics"],
+      "services": ["ipd", "opd"],
+      "_status": "published",
+      "publishedAt": "2025-05-30",
+      "meta": {
+        "title": "Safe Delivery Story | Hijaz Hospital Success Stories",
+        "description": "High-risk maternity care success story.",
+        "image": "/media/pexels-rdne-6129574.webp"
+      }
+    }
+  ]
+}

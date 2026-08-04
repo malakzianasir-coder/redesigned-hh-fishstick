@@ -1,0 +1,253 @@
+{
+  "hub": {
+    "kicker": "Events",
+    "heading": "Hospital Events & Calendar",
+    "lede": "Hospital events, awareness campaigns, and the annual observance calendar at Hijaz Hospital."
+  },
+  "hospitalEvents": [
+    {
+      "slug": "dengue-awareness-walk-2026",
+      "title": "Dengue Awareness Walk 2026",
+      "tagLine": "Awareness Campaign",
+      "shortDescription": "Community awareness walk and educational session on dengue prevention led by hospital leadership and staff.",
+      "heroImage": "/media/first-news-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital staff and community members participated in a dengue awareness walk followed by an educational briefing on symptoms, prevention, and early treatment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Medical Superintendent Dr. Arfan Ishaque addressed participants on the importance of community vigilance during peak mosquito season."
+        }
+      ],
+      "categories": ["Awareness"],
+      "eventType": "Awareness Campaign",
+      "eventDate": "2026-06-15",
+      "eventTime": "10:00 AM",
+      "eventVenue": "Hijaz Hospital Campus",
+      "eventEntry": "Open to all",
+      "featured": true,
+      "_status": "published",
+      "publishedAt": "2026-06-15",
+      "meta": {
+        "title": "Dengue Awareness Walk 2026 | Hijaz Hospital Events",
+        "description": "Dengue awareness walk and education session at Hijaz Hospital.",
+        "image": "/media/first-news-banner.webp"
+      }
+    },
+    {
+      "slug": "paramedics-farewell-dinner-2026",
+      "title": "Paramedics Annual Farewell Dinner",
+      "tagLine": "Ceremony",
+      "shortDescription": "Annual farewell dinner for graduating paramedic students at Haji Inam Elahi School of Paramedics.",
+      "heroImage": "/media/news-two-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The Haji Inam Elahi School of Paramedics hosted its Annual Farewell Dinner, celebrating graduating students and their commitment to healthcare service."
+        }
+      ],
+      "categories": ["Ceremony"],
+      "eventType": "Ceremony",
+      "eventDate": "2026-06-10",
+      "eventTime": "7:00 PM",
+      "eventVenue": "Hijaz Hospital Auditorium",
+      "eventEntry": "Invited guests",
+      "featured": true,
+      "_status": "published",
+      "publishedAt": "2026-06-10",
+      "meta": {
+        "title": "Paramedics Farewell Dinner 2026 | Hijaz Hospital Events",
+        "description": "Annual farewell dinner for paramedic graduates.",
+        "image": "/media/news-two-banner.webp"
+      }
+    },
+    {
+      "slug": "international-nurses-day-celebration-2026",
+      "title": "International Nurses Day Celebration",
+      "tagLine": "Staff Recognition",
+      "shortDescription": "Hospital ceremony recognizing nursing staff for compassionate patient care.",
+      "heroImage": "/media/event-one-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital celebrated International Nurses Day with a ceremony honoring the dedication of nursing staff across all departments."
+        }
+      ],
+      "categories": ["Ceremony"],
+      "eventType": "Ceremony",
+      "eventDate": "2026-05-12",
+      "eventTime": "11:00 AM",
+      "eventVenue": "Hijaz Hospital Main Hall",
+      "eventEntry": "Staff event",
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-05-12",
+      "meta": {
+        "title": "International Nurses Day 2026 | Hijaz Hospital Events",
+        "description": "Nurses Day celebration at Hijaz Hospital.",
+        "image": "/media/event-one-banner.webp"
+      }
+    },
+    {
+      "slug": "free-medical-camp-sheikhupura-march-2026",
+      "title": "Free Medical Camp — Sheikhupura",
+      "tagLine": "Medical Camp",
+      "shortDescription": "Outreach medical camp with free consultations, diagnostics, and medicines.",
+      "heroImage": "/media/pexels-rdne-6129115.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital's welfare outreach team conducted a free medical camp in Sheikhupura with multi-specialty consultations and free medicines for deserving patients."
+        }
+      ],
+      "categories": ["Medical Camp"],
+      "eventType": "Medical Camp",
+      "eventDate": "2026-03-22",
+      "eventTime": "9:00 AM – 3:00 PM",
+      "eventVenue": "Sheikhupura Community Center",
+      "eventEntry": "Free — open to all",
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-03-22",
+      "meta": {
+        "title": "Free Medical Camp Sheikhupura | Hijaz Hospital Events",
+        "description": "Free medical camp outreach in Sheikhupura.",
+        "image": "/media/pexels-rdne-6129115.webp"
+      }
+    },
+    {
+      "slug": "world-kidney-day-session-2026",
+      "title": "World Kidney Day Awareness Session",
+      "tagLine": "Awareness",
+      "shortDescription": "Nephrology-led patient education on kidney health and dialysis programs.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nephrology consultants led an awareness session for patients and attendants on kidney disease prevention and Hijaz Hospital's dialysis welfare support."
+        }
+      ],
+      "categories": ["Awareness"],
+      "eventType": "Awareness Campaign",
+      "eventDate": "2026-03-13",
+      "eventTime": "2:00 PM",
+      "eventVenue": "Nephrology OPD Wing",
+      "eventEntry": "Open to patients & attendants",
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-03-13",
+      "meta": {
+        "title": "World Kidney Day Session | Hijaz Hospital Events",
+        "description": "Kidney health awareness session on World Kidney Day."
+      }
+    },
+    {
+      "slug": "breast-cancer-awareness-week-2025",
+      "title": "Breast Cancer Awareness Week",
+      "tagLine": "Awareness",
+      "shortDescription": "Pink October awareness talks and screening guidance across OPD areas.",
+      "heroImage": "/media/pexels-mart-production-7089623.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Throughout Pink October, gynecology consultants delivered awareness talks and distributed educational materials on early detection and screening."
+        }
+      ],
+      "categories": ["Awareness"],
+      "eventType": "Awareness Campaign",
+      "eventDate": "2025-10-08",
+      "eventTime": "10:00 AM – 4:00 PM",
+      "eventVenue": "OPD Waiting Areas",
+      "eventEntry": "Open to all",
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-10-08",
+      "meta": {
+        "title": "Breast Cancer Awareness Week | Hijaz Hospital Events",
+        "description": "Pink October awareness week at Hijaz Hospital.",
+        "image": "/media/pexels-mart-production-7089623.webp"
+      }
+    }
+  ],
+  "holidayCalendar": [
+    {
+      "date": "1 January",
+      "title": "New Year's Day",
+      "type": "Public Holiday",
+      "description": "National public holiday — OPD schedules may vary."
+    },
+    {
+      "date": "5 February",
+      "title": "Kashmir Day",
+      "type": "National Day",
+      "description": "Observed as a national day across Pakistan."
+    },
+    {
+      "date": "23 March",
+      "title": "Pakistan Day (Youm-e-Pakistan)",
+      "type": "National Day",
+      "description": "Commemoration of the Lahore Resolution — hospital flag ceremony and staff observance."
+    },
+    {
+      "date": "13 March",
+      "title": "World Kidney Day",
+      "type": "Celebration",
+      "description": "Annual health observance — Nephrology awareness activities at Hijaz Hospital."
+    },
+    {
+      "date": "3 April",
+      "title": "World Health Day",
+      "type": "Celebration",
+      "description": "WHO World Health Day — staff health education and community messaging."
+    },
+    {
+      "date": "1 May",
+      "title": "Labour Day",
+      "type": "Public Holiday",
+      "description": "International Workers' Day — public holiday."
+    },
+    {
+      "date": "12 May",
+      "title": "International Nurses Day",
+      "type": "Celebration",
+      "description": "Annual celebration honoring nursing staff at Hijaz Hospital."
+    },
+    {
+      "date": "October",
+      "title": "Breast Cancer Awareness Month (Pink October)",
+      "type": "Celebration",
+      "description": "Month-long awareness campaign on breast cancer screening and education."
+    },
+    {
+      "date": "14 August",
+      "title": "Independence Day",
+      "type": "National Day",
+      "description": "Pakistan Independence Day — national celebration."
+    },
+    {
+      "date": "9 November",
+      "title": "Allama Iqbal Day",
+      "type": "National Day",
+      "description": "Birth anniversary of Allama Muhammad Iqbal."
+    },
+    {
+      "date": "25 December",
+      "title": "Quaid-e-Azam Day / Christmas",
+      "type": "Public Holiday",
+      "description": "Birth anniversary of Quaid-e-Azam Muhammad Ali Jinnah — public holiday."
+    },
+    {
+      "date": "Eid ul-Fitr",
+      "title": "Eid ul-Fitr",
+      "type": "Public Holiday",
+      "description": "Islamic festival — dates vary by lunar calendar; emergency services remain available."
+    },
+    {
+      "date": "Eid ul-Adha",
+      "title": "Eid ul-Adha",
+      "type": "Public Holiday",
+      "description": "Islamic festival — dates vary by lunar calendar; emergency services remain available."
+    }
+  ]
+}

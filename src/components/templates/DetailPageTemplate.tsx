@@ -7,6 +7,7 @@ import { CalloutSection } from '@/components/sections/CalloutSection'
 import { ClosingBandSection } from '@/components/sections/ClosingBandSection'
 import { ContentSection } from '@/components/sections/ContentSection'
 import { DetailJumpNav } from '@/components/sections/DetailJumpNav'
+import { DynamicFormSection } from '@/components/sections/DynamicFormSection'
 import { GlobalCtaSection } from '@/components/sections/GlobalCtaSection'
 import { IconGridSection } from '@/components/sections/IconGridSection'
 import { NumberedListSection } from '@/components/sections/NumberedListSection'
@@ -55,6 +56,8 @@ function renderSection(section: Section, index: number) {
       return <StatsRowSection key={section.id || index} section={section} />
     case 'impactTable':
       return <ImpactTableSection key={section.id || index} section={section} />
+    case 'dynamicForm':
+      return <DynamicFormSection key={section.id || index} section={section} />
     case 'cta':
       return <GlobalCtaSection key={`cta-${index}`} section={section} />
     default:

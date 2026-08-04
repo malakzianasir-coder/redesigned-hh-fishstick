@@ -1,0 +1,396 @@
+{
+  "hub": {
+    "kicker": "Newsroom",
+    "heading": "Latest News",
+    "lede": "Stay updated with the latest developments, announcements, and health insights from Hijaz Hospital."
+  },
+  "articles": [
+    {
+      "slug": "dengue-awareness-campaign-2026",
+      "title": "Dengue Awareness Campaign 2026",
+      "tagLine": "Community Health",
+      "shortDescription": "Hijaz Hospital organized a dengue awareness campaign featuring an awareness walk and educational session on prevention and precautionary measures.",
+      "heroImage": "/media/first-news-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital organized a dengue awareness campaign featuring an awareness walk led by Medical Superintendent Dr. Arfan Ishaque and hospital staff, followed by an educational session on dengue symptoms, prevention, and precautionary measures."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Prevention Measures"
+        },
+        {
+          "type": "paragraph",
+          "text": "Staff and community members were briefed on eliminating stagnant water, using mosquito repellents, and recognizing early symptoms such as high fever, headache, and body aches. Early diagnosis and timely treatment remain critical during the monsoon season."
+        },
+        {
+          "type": "quote",
+          "text": "Community awareness is the first line of defense against dengue.",
+          "attribution": "Dr. Arfan Ishaque, Medical Superintendent"
+        }
+      ],
+      "categories": ["Community"],
+      "tags": ["awareness", "dengue", "public-health"],
+      "author": { "name": "Hijaz Hospital Communications", "slug": "communications" },
+      "featured": true,
+      "_status": "published",
+      "publishedAt": "2026-06-15",
+      "meta": {
+        "title": "Dengue Awareness Campaign 2026 | Hijaz Hospital",
+        "description": "Hijaz Hospital dengue awareness walk and educational session for community prevention.",
+        "image": "/media/first-news-banner.webp"
+      }
+    },
+    {
+      "slug": "annual-farewell-dinner-2026",
+      "title": "Annual Farewell Dinner 2026",
+      "tagLine": "Education",
+      "shortDescription": "Haji Inam Elahi School of Paramedics celebrated graduating students at its Annual Farewell Dinner.",
+      "heroImage": "/media/news-two-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hosted by Haji Inam Elahi School of Paramedics, the Annual Farewell Dinner celebrated graduating students and their academic achievements, reflecting the institution's commitment to developing skilled healthcare professionals for Pakistan."
+        },
+        {
+          "type": "paragraph",
+          "text": "Senior hospital leadership attended the ceremony and encouraged graduates to uphold Hijaz Hospital's values of compassion, service, and professional excellence as they enter the healthcare workforce."
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["education", "paramedics", "ceremony"],
+      "author": { "name": "Hijaz Hospital Communications" },
+      "featured": true,
+      "_status": "published",
+      "publishedAt": "2026-06-10",
+      "meta": {
+        "title": "Annual Farewell Dinner 2026 | Hijaz Hospital",
+        "description": "Paramedic school farewell dinner celebrating graduating healthcare professionals.",
+        "image": "/media/news-two-banner.webp"
+      }
+    },
+    {
+      "slug": "international-nurses-day-2026",
+      "title": "International Nurses Day 2026",
+      "tagLine": "Recognition",
+      "shortDescription": "Hijaz Hospital celebrated International Nurses Day honoring the dedication and compassion of its nursing staff.",
+      "heroImage": "/media/event-one-banner.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital celebrated International Nurses Day to honor the dedication, compassion, and tireless efforts of its nursing staff. The event recognized their vital role in delivering quality healthcare and supporting patients around the clock."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "A Culture of Care"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nursing leadership shared messages of appreciation and highlighted how bedside care, patient advocacy, and teamwork sustain Hijaz Hospital's mission of compassionate, accessible healthcare."
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["nursing", "recognition", "staff"],
+      "author": { "name": "Hijaz Hospital Communications" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-05-18",
+      "meta": {
+        "title": "International Nurses Day 2026 | Hijaz Hospital",
+        "description": "Celebrating Hijaz Hospital nurses on International Nurses Day 2026.",
+        "image": "/media/event-one-banner.webp"
+      }
+    },
+    {
+      "slug": "visit-dr-muhammad-iqbal-hussain",
+      "title": "Visit of Dr. Muhammad Iqbal Hussain",
+      "tagLine": "Distinguished Guest",
+      "shortDescription": "Hijaz Hospital welcomed Dr. Muhammad Iqbal Hussain, a distinguished medical specialist and humanitarian from the United States.",
+      "heroImage": "/media/DSC_0076.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital had the honor of welcoming Dr. Muhammad Iqbal Hussain, who was received by the Chairman and senior executive members. A distinguished medical specialist practicing in the United States, Dr. Hussain is recognized for his lifelong humanitarian services through the International Trust Bait-ul-Maal."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dr. Hussain maintains a continued association with PKLI, where he provides voluntary medical services annually. His visit reinforced Hijaz Hospital's connections with global humanitarian healthcare networks."
+        }
+      ],
+      "categories": ["Announcements"],
+      "tags": ["guest", "humanitarian"],
+      "author": { "name": "Hijaz Hospital Communications" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-06-06",
+      "meta": {
+        "title": "Visit of Dr. Muhammad Iqbal Hussain | Hijaz Hospital",
+        "description": "Distinguished guest visit by Dr. Muhammad Iqbal Hussain at Hijaz Hospital.",
+        "image": "/media/DSC_0076.webp"
+      }
+    },
+    {
+      "slug": "farewell-dr-nadeem-iqbal",
+      "title": "Farewell Ceremony for Dr. Nadeem Iqbal",
+      "tagLine": "Recognition",
+      "shortDescription": "Hijaz Hospital honored Dr. Nadeem Iqbal upon completion of 15 years of dedicated service.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital honored Dr. Nadeem Iqbal upon the completion of his remarkable 15 years of dedicated service. The farewell ceremony recognized his professional excellence, unwavering commitment to patient care, and invaluable contributions to the hospital."
+        },
+        {
+          "type": "quote",
+          "text": "Your dedication has touched countless lives and strengthened our institution.",
+          "attribution": "Hospital Management"
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["staff", "recognition"],
+      "author": { "name": "Hijaz Hospital Communications" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-04-10",
+      "meta": {
+        "title": "Farewell Ceremony for Dr. Nadeem Iqbal | Hijaz Hospital",
+        "description": "Farewell honoring Dr. Nadeem Iqbal after 15 years of service at Hijaz Hospital."
+      }
+    },
+    {
+      "slug": "free-medical-camp-sheikhupura-2026",
+      "title": "Free Medical Camp in Sheikhupura",
+      "tagLine": "Community Outreach",
+      "shortDescription": "Hijaz Hospital conducted a free medical camp providing consultations, diagnostics, and medicines to underserved communities.",
+      "heroImage": "/media/pexels-rdne-6129115.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital's welfare outreach team conducted a free medical camp in Sheikhupura, offering consultations across general medicine, pediatrics, and gynecology. Patients received free medicines and referrals for follow-up care at the hospital."
+        },
+        {
+          "type": "paragraph",
+          "text": "The camp aligns with Hijaz Hospital's mission to extend compassionate care beyond hospital walls and reach patients who cannot afford treatment."
+        }
+      ],
+      "categories": ["Community"],
+      "tags": ["medical-camp", "outreach", "welfare"],
+      "author": { "name": "Patient Welfare Team" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-03-22",
+      "meta": {
+        "title": "Free Medical Camp Sheikhupura | Hijaz Hospital",
+        "description": "Free medical camp outreach by Hijaz Hospital in Sheikhupura.",
+        "image": "/media/pexels-rdne-6129115.webp"
+      }
+    },
+    {
+      "slug": "world-kidney-day-awareness-2026",
+      "title": "World Kidney Day Awareness Session",
+      "tagLine": "Health Education",
+      "shortDescription": "Nephrology department led an awareness session on kidney health, early detection, and dialysis support programs.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "On World Kidney Day, Hijaz Hospital's Nephrology department organized an awareness session for patients and attendants on kidney disease prevention, early warning signs, and the importance of regular screening for at-risk individuals."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Dialysis Support at Hijaz"
+        },
+        {
+          "type": "paragraph",
+          "text": "The session highlighted Hijaz Hospital's dialysis care unit and welfare support available for deserving dialysis patients, including stipends and ration assistance through the patient welfare program."
+        }
+      ],
+      "categories": ["Health Education"],
+      "tags": ["kidney", "awareness", "nephrology", "blog"],
+      "author": { "name": "Nephrology Department" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-03-13",
+      "meta": {
+        "title": "World Kidney Day Awareness | Hijaz Hospital",
+        "description": "Kidney health awareness session by Hijaz Hospital Nephrology department."
+      }
+    },
+    {
+      "slug": "breast-cancer-awareness-october-2025",
+      "title": "Breast Cancer Awareness Month",
+      "tagLine": "Health Education",
+      "shortDescription": "Pink October campaign with awareness talks, screening guidance, and community education on early detection.",
+      "heroImage": "/media/pexels-mart-production-7089623.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Throughout Pink October, Hijaz Hospital ran a breast cancer awareness campaign with educational talks for staff, patients, and community members. Gynecology consultants emphasized self-examination, clinical screening, and timely medical consultation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Information booths in the OPD area provided printed resources and answered questions about screening pathways and support services available at the hospital."
+        }
+      ],
+      "categories": ["Health Education"],
+      "tags": ["cancer", "awareness", "blog", "women-health"],
+      "author": { "name": "Gynaecology Department" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-10-15",
+      "meta": {
+        "title": "Breast Cancer Awareness Month | Hijaz Hospital",
+        "description": "Pink October breast cancer awareness campaign at Hijaz Hospital.",
+        "image": "/media/pexels-mart-production-7089623.webp"
+      }
+    },
+    {
+      "slug": "iso-quality-audit-2025",
+      "title": "ISO 9001 Quality Audit Completed",
+      "tagLine": "Quality & Compliance",
+      "shortDescription": "Hijaz Hospital successfully completed its ISO 9001:2008 quality management audit conducted by TÜV Austria.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital successfully completed its ISO 9001:2008 quality management system audit conducted by TÜV Austria. The audit reviewed clinical processes, documentation, patient safety protocols, and continuous improvement practices across departments."
+        },
+        {
+          "type": "paragraph",
+          "text": "Maintaining ISO certification reflects Hijaz Hospital's commitment to standardized, accountable healthcare delivery for every patient."
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["quality", "compliance", "iso"],
+      "author": { "name": "Quality Assurance" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-11-20",
+      "meta": {
+        "title": "ISO 9001 Quality Audit | Hijaz Hospital",
+        "description": "Hijaz Hospital ISO 9001 quality audit completion by TÜV Austria."
+      }
+    },
+    {
+      "slug": "dialysis-unit-expansion-2025",
+      "title": "Dialysis Unit Capacity Expansion",
+      "tagLine": "Infrastructure",
+      "shortDescription": "Hijaz Hospital expanded dialysis unit capacity to serve more patients with free and subsidized haemodialysis.",
+      "heroImage": "/media/Dialysis.webp",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital expanded its dialysis care unit with additional haemodialysis machines and upgraded monitoring equipment. The expansion increases daily treatment capacity for patients requiring regular dialysis sessions."
+        },
+        {
+          "type": "paragraph",
+          "text": "A significant proportion of dialysis patients at Hijaz receive treatment through welfare and zakat-supported programs, ensuring financial hardship does not prevent access to life-sustaining care."
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["dialysis", "infrastructure"],
+      "author": { "name": "Hospital Administration" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-09-08",
+      "meta": {
+        "title": "Dialysis Unit Expansion | Hijaz Hospital",
+        "description": "Dialysis unit capacity expansion at Hijaz Hospital.",
+        "image": "/media/Dialysis.webp"
+      }
+    },
+    {
+      "slug": "winter-patient-welfare-drive-2025",
+      "title": "Winter Patient Welfare Drive",
+      "tagLine": "Patient Welfare",
+      "shortDescription": "Seasonal welfare drive distributed warm clothing, meals, and medicines to in-patients and attendants.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital's patient welfare team launched a winter drive distributing warm clothing, blankets, and additional meal support to in-patients and their attendants during the cold season."
+        },
+        {
+          "type": "paragraph",
+          "text": "Donor contributions through the hospital's welfare fund made it possible to extend comfort and dignity to families staying at the hospital during treatment."
+        }
+      ],
+      "categories": ["Community"],
+      "tags": ["welfare", "donations"],
+      "author": { "name": "Patient Welfare Team" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-12-05",
+      "meta": {
+        "title": "Winter Patient Welfare Drive | Hijaz Hospital",
+        "description": "Winter welfare drive for patients and attendants at Hijaz Hospital."
+      }
+    },
+    {
+      "slug": "lab-accreditation-renewal-2025",
+      "title": "Clinical Laboratory Accreditation Renewed",
+      "tagLine": "Diagnostics",
+      "shortDescription": "Pathology laboratory accreditation renewed, affirming quality standards for diagnostic testing.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hijaz Hospital's clinical pathology laboratory renewed its quality accreditation, confirming adherence to national standards for specimen handling, test accuracy, and report delivery timelines."
+        },
+        {
+          "type": "paragraph",
+          "text": "Patients can browse the full list of available laboratory tests, reporting times, and specimen requirements on the hospital's lab tests directory."
+        }
+      ],
+      "categories": ["Hospital Updates"],
+      "tags": ["laboratory", "diagnostics"],
+      "author": { "name": "Pathology Department" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2025-08-14",
+      "meta": {
+        "title": "Lab Accreditation Renewed | Hijaz Hospital",
+        "description": "Clinical laboratory accreditation renewal at Hijaz Hospital."
+      }
+    },
+    {
+      "slug": "understanding-hypertension-blog",
+      "title": "Understanding Hypertension: A Patient Guide",
+      "tagLine": "Health Education",
+      "shortDescription": "A longer-form health article on blood pressure management, lifestyle changes, and when to seek care.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Hypertension, or high blood pressure, is one of the most common conditions treated at Hijaz Hospital's general medicine and cardiology clinics. Left unmanaged, it increases risk of stroke, heart disease, and kidney problems."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Lifestyle Steps"
+        },
+        {
+          "type": "paragraph",
+          "text": "Patients are encouraged to reduce salt intake, maintain regular physical activity, manage stress, and take prescribed medications consistently. Regular follow-up appointments help clinicians adjust treatment as needed."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to Seek Care"
+        },
+        {
+          "type": "paragraph",
+          "text": "Seek urgent care for severe headache, chest pain, shortness of breath, or vision changes with elevated blood pressure. Routine OPD visits are available for ongoing management and screening."
+        }
+      ],
+      "categories": ["Health Education"],
+      "tags": ["blog", "cardiology", "patient-guide"],
+      "author": { "name": "Cardiology Department" },
+      "featured": false,
+      "_status": "published",
+      "publishedAt": "2026-01-28",
+      "meta": {
+        "title": "Understanding Hypertension | Hijaz Hospital",
+        "description": "Patient guide to understanding and managing hypertension."
+      }
+    }
+  ]
+}

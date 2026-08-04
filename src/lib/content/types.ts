@@ -221,6 +221,48 @@ export type ImpactTableSectionData = {
   background?: 'white' | 'muted'
 }
 
+export type RecaptchaConfig = {
+  enabled: boolean
+  provider?: 'google-v2' | 'google-v3' | 'hcaptcha' | string
+  siteKey?: string
+}
+
+export type FormFieldDefinition = {
+  name: string
+  label: string
+  type: 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'radio' | 'checkbox'
+  required?: boolean
+  placeholder?: string
+  width?: 'full' | 'half'
+  options?: { label: string; value: string }[]
+}
+
+export type FormDefinition = {
+  id: string
+  title: string
+  description?: string
+  submitLabel: string
+  successMessage: string
+  fields: FormFieldDefinition[]
+  recaptcha?: RecaptchaConfig
+}
+
+export type FormSubmissionDraft = {
+  formId: string
+  values: Record<string, string | boolean>
+  recaptchaToken?: string
+}
+
+export type DynamicFormSectionData = {
+  type: 'dynamicForm'
+  id?: string
+  kicker?: string
+  heading?: string
+  intro?: string
+  formId: string
+  background?: 'white' | 'muted'
+}
+
 export type Section =
   | ContentSectionData
   | BulletsSectionData
@@ -235,6 +277,7 @@ export type Section =
   | ProcessStepsSectionData
   | StatsRowSectionData
   | ImpactTableSectionData
+  | DynamicFormSectionData
 
 export type PageRecord = {
   slug: string
@@ -809,6 +852,12 @@ export type DoctorRecord = {
   department: string
   tags: DoctorTag[]
   image: string | null
+  bio?: string
+  qualifications?: string[]
+  experienceYears?: number
+  clinicHours?: string
+  languages?: string[]
+  services?: string[]
 }
 
 export type DoctorsHubContent = {
@@ -818,6 +867,70 @@ export type DoctorsHubContent = {
   doctors: DoctorRecord[]
 }
 
+export type SiteSettings = {
+  newsletter: {
+    enabled: boolean
+    label: string
+    placeholder: string
+    buttonLabel: string
+    successMessage: string
+    errorMessage: string
+    source: string
+  }
+  forms: {
+    recaptcha: RecaptchaConfig
+  }
+  lenis: {
+    enabled: boolean
+    duration: number
+    lerp: number
+    smoothWheel: boolean
+    syncTouch: boolean
+    anchors: boolean
+  }
+}
+
+export type FormsContent = {
+  forms: FormDefinition[]
+}
+
+export type LandingPageMockup = {
+  slug: string
+  title: string
+  _status: 'published' | 'draft'
+  publishedAt: string
+  headerVariant: 'minimal'
+  footerVariant: 'minimal'
+  meta?: ArticleMeta
+  hero: {
+    kicker?: string
+    heading: string
+    body?: string
+    primaryCta?: { label: string; href: string }
+    secondaryCta?: { label: string; href: string }
+  }
+  sections: { heading: string; body: string }[]
+  ctaBand?: CtaSectionData
+}
+
+export type LandingPagesContent = {
+  pages: LandingPageMockup[]
+}
+
+export type ContentBlock =
+  | { type: 'paragraph'; text: string }
+  | { type: 'heading'; level: 3 | 4; text: string }
+  | { type: 'image'; src: string; alt?: string }
+  | { type: 'quote'; text: string }
+
+export type LabTestAlias = {
+  name: string
+}
+
+export type LabTestIncludedItem = {
+  name: string
+}
+
 export type LabTestRecord = {
   slug: string
   name: string
@@ -825,6 +938,13 @@ export type LabTestRecord = {
   reportingTime: string
   specimen: string
   isOutsourced?: boolean
+  alsoKnownAs?: LabTestAlias[]
+  description?: ContentBlock[]
+  preparation?: ContentBlock[]
+  includedTests?: LabTestIncludedItem[]
+  sampleInstructions?: string
+  reportDelivery?: string
+  availability?: string
 }
 
 export type LabTestsHubContent = {
@@ -833,4 +953,136 @@ export type LabTestsHubContent = {
   lede: string
   categories: string[]
   tests: LabTestRecord[]
+}
+
+export type ArticleBlock =
+  | { type: 'paragraph'; text: string }
+  | { type: 'heading'; level?: 2 | 3 | 4; text: string }
+  | { type: 'image'; src: string; alt?: string; caption?: string }
+  | { type: 'quote'; text: string; attribution?: string }
+
+export type ArticleMeta = {
+  title?: string
+  description?: string
+  image?: string
+}
+
+export type ArticleAuthor = {
+  name: string
+  slug?: string
+}
+
+export type NewsArticle = {
+  slug: string
+  title: string
+  tagLine?: string
+  shortDescription?: string
+  heroImage?: string
+  content: ArticleBlock[]
+  categories: string[]
+  tags: string[]
+  author?: ArticleAuthor
+  featured?: boolean
+  _status: 'published' | 'draft'
+  publishedAt: string
+  meta?: ArticleMeta
+}
+
+export type NewsHubContent = {
+  kicker: string
+  heading: string
+  lede: string
+}
+
+export type HospitalEvent = {
+  slug: string
+  title: string
+  tagLine?: string
+  shortDescription?: string
+  heroImage?: string
+  content: ArticleBlock[]
+  categories: string[]
+  tags?: string[]
+  eventType: string
+  eventDate: string
+  eventTime?: string
+  eventVenue?: string
+  eventEntry?: string
+  featured?: boolean
+  _status: 'published' | 'draft'
+  publishedAt: string
+  meta?: ArticleMeta
+}
+
+export type HolidayEntry = {
+  date: string
+  title: string
+  type: 'Public Holiday' | 'Celebration' | 'National Day' | string
+  description?: string
+}
+
+export type EventsHubContent = {
+  kicker: string
+  heading: string
+  lede: string
+}
+
+export type SuccessStoryCategory =
+  | 'successful-surgeries'
+  | 'life-saving-treatments'
+  | 'dialysis-recovery'
+
+export type SuccessStory = {
+  slug: string
+  title: string
+  heading: string
+  subHeading?: string
+  category: SuccessStoryCategory
+  format: 'video' | 'article'
+  videoUrl?: string
+  articleContent?: ArticleBlock[]
+  thumbnail?: string
+  publishedDate: string
+  featured?: boolean
+  departments?: string[]
+  services?: string[]
+  _status: 'published' | 'draft'
+  publishedAt: string
+  meta?: ArticleMeta
+}
+
+export type SuccessStoriesHubContent = {
+  kicker: string
+  heading: string
+  lede: string
+}
+
+export type PaginatedResult<T> = {
+  items: T[]
+  page: number
+  pageSize: number
+  totalItems: number
+  totalPages: number
+}
+
+export type RelatedArticleItem = {
+  slug: string
+  title: string
+  excerpt: string
+  href: string
+  image?: string
+  date?: string
+  category?: string
+  variant: 'news' | 'event' | 'story'
+}
+
+export type ArticleSearchEntry = {
+  slug: string
+  title: string
+  excerpt: string
+  href: string
+  type: 'news' | 'event' | 'story'
+  image?: string
+  date?: string
+  categories?: string[]
 }

@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     pages: Page;
     posts: Post;
+    'landing-pages': LandingPage;
+    'form-definitions': FormDefinition;
+    'newsletter-submissions': NewsletterSubmission;
     media: Media;
     categories: Category;
     users: User;
@@ -85,6 +88,9 @@ export interface Config {
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    'landing-pages': LandingPagesSelect<false> | LandingPagesSelect<true>;
+    'form-definitions': FormDefinitionsSelect<false> | FormDefinitionsSelect<true>;
+    'newsletter-submissions': NewsletterSubmissionsSelect<false> | NewsletterSubmissionsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -729,6 +735,92 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-pages".
+ */
+export interface LandingPage {
+  id: string;
+  title: string;
+  kicker?: string | null;
+  heroHeading: string;
+  heroBody?: string | null;
+  heroImage?: (string | null) | Media;
+  sections?:
+    | {
+        heading: string;
+        body: string;
+        id?: string | null;
+      }[]
+    | null;
+  cta: {
+    label: string;
+    href: string;
+  };
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-definitions".
+ */
+export interface FormDefinition {
+  id: string;
+  title: string;
+  description?: string | null;
+  submitLabel: string;
+  successMessage: string;
+  fields: {
+    name: string;
+    label: string;
+    fieldType: 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'radio' | 'checkbox';
+    placeholder?: string | null;
+    required?: boolean | null;
+    width?: ('full' | 'half') | null;
+    options?:
+      | {
+          label: string;
+          value: string;
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+  }[];
+  recaptcha?: {
+    enabled?: boolean | null;
+    provider?: ('google-v2' | 'google-v3' | 'hcaptcha') | null;
+    siteKey?: string | null;
+  };
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsletter-submissions".
+ */
+export interface NewsletterSubmission {
+  id: string;
+  email: string;
+  source: string;
+  status: 'subscribed' | 'unsubscribed';
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -907,6 +999,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: 'landing-pages';
+        value: string | LandingPage;
+      } | null)
+    | ({
+        relationTo: 'form-definitions';
+        value: string | FormDefinition;
+      } | null)
+    | ({
+        relationTo: 'newsletter-submissions';
+        value: string | NewsletterSubmission;
       } | null)
     | ({
         relationTo: 'media';
@@ -1147,6 +1251,94 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-pages_select".
+ */
+export interface LandingPagesSelect<T extends boolean = true> {
+  title?: T;
+  kicker?: T;
+  heroHeading?: T;
+  heroBody?: T;
+  heroImage?: T;
+  sections?:
+    | T
+    | {
+        heading?: T;
+        body?: T;
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form-definitions_select".
+ */
+export interface FormDefinitionsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  submitLabel?: T;
+  successMessage?: T;
+  fields?:
+    | T
+    | {
+        name?: T;
+        label?: T;
+        fieldType?: T;
+        placeholder?: T;
+        required?: T;
+        width?: T;
+        options?:
+          | T
+          | {
+              label?: T;
+              value?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  recaptcha?:
+    | T
+    | {
+        enabled?: T;
+        provider?: T;
+        siteKey?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newsletter-submissions_select".
+ */
+export interface NewsletterSubmissionsSelect<T extends boolean = true> {
+  email?: T;
+  source?: T;
+  status?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

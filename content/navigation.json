@@ -173,27 +173,27 @@
     {
       "id": "patient-welfare",
       "label": "Patient Welfare",
-      "moreLink": { "label": "Patient welfare hub →", "href": "/patient-care" },
+      "moreLink": { "label": "Patient welfare hub →", "href": "/patient-welfare" },
       "groups": [
         {
           "heading": "Financial & Community Support",
           "links": [
-            { "label": "Zakat & Financial Assistance", "href": "/patient-care/financial-assistance" },
-            { "label": "Dialysis Patient Support", "href": "/patient-care/dialysis-support" },
-            { "label": "Free Medicines", "href": "/patient-care/free-medicines" },
-            { "label": "Free Meals", "href": "/patient-care/free-meals" },
-            { "label": "Sehat Sahulat Program", "href": "/patient-care/sehat-sahulat" },
-            { "label": "Free Medical Camps & Flood Relief", "href": "/patient-care/free-medical-camps" }
+            { "label": "Zakat & Financial Assistance", "href": "/patient-welfare/financial-assistance" },
+            { "label": "Dialysis Patient Support", "href": "/patient-welfare/dialysis-support" },
+            { "label": "Free Medicines", "href": "/patient-welfare/free-medicines" },
+            { "label": "Free Meals", "href": "/patient-welfare/free-meals" },
+            { "label": "Sehat Sahulat Program", "href": "/patient-welfare/sehat-sahulat" },
+            { "label": "Free Medical Camps & Flood Relief", "href": "/patient-welfare/free-medical-camps" }
           ]
         },
         {
           "heading": "Patient Resources",
           "links": [
-            { "label": "Admission Process", "href": "/patient-care/admission-process" },
-            { "label": "Rights & Responsibilities", "href": "/patient-care/patient-rights" },
+            { "label": "Admission Process", "href": "/patient-welfare/admission-process" },
+            { "label": "Rights & Responsibilities", "href": "/patient-welfare/patient-rights" },
             { "label": "Patient Stories", "href": "/success-stories" },
-            { "label": "Forms", "href": "/patient-care/patient-information-guide" },
-            { "label": "Online Services", "href": "/patient-care/patient-information-guide" }
+            { "label": "Forms", "href": "/patient-welfare/patient-information-guide" },
+            { "label": "Online Services", "href": "/patient-welfare/patient-information-guide" }
           ]
         }
       ]
