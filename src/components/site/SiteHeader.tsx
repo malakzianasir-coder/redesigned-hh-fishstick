@@ -397,7 +397,7 @@ export function SiteHeader() {
   }, [openItemId, closeMegaMenu])
 
   useEffect(() => {
-    const onPointerDown = (event: MouseEvent) => {
+    const onPointerDown = (event: globalThis.MouseEvent) => {
       if (!openItemId) return
       const target = event.target
       if (target instanceof Element && target.closest('.mega-item')) return
