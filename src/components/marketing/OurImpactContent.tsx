@@ -1,10 +1,7 @@
 import {
   Buildings,
-  GraduationCap,
   Hospital,
   Medal,
-  Microscope,
-  Student,
   Trophy,
 } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'

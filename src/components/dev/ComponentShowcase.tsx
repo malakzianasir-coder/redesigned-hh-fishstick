@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import { ArticleHero } from '@/components/articles/ArticleHero'
 import { CategoryHubGrid, type HubCardItem, type HubFilterCategory } from '@/components/hub/CategoryHubGrid'
@@ -662,18 +663,18 @@ export function ComponentShowcase() {
             <div className="container mx-auto px-6 lg:px-[30px] py-3">
               <ol className="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
                 <li>
-                  <a href="/" className="text-primary-blue hover:text-primary-red transition-colors">
+                  <Link href="/" className="text-primary-blue hover:text-primary-red transition-colors">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-dark-gray/40">/</li>
                 <li>
-                  <a
+                  <Link
                     href="/services"
                     className="text-primary-blue hover:text-primary-red transition-colors"
                   >
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li className="text-dark-gray/40">/</li>
                 <li aria-current="page" className="font-semibold text-primary-blue">
