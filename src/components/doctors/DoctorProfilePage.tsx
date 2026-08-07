@@ -1,10 +1,9 @@
 import { User } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
-import Link from 'next/link'
-
 import { isHeadOfDepartment, isVisitingDoctor } from '@/components/hub/doctorTags'
 import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { GlobalCtaSection } from '@/components/sections/GlobalCtaSection'
+import { BackButton } from '@/components/ui/BackButton'
 import type { DoctorRecord } from '@/lib/content/types'
 
 const DEFAULT_CTA = {
@@ -130,9 +129,9 @@ export function DoctorProfilePage({ doctor }: { doctor: DoctorRecord }) {
                     </p>
                   </div>
                   <div className="mt-6">
-                    <Link href="/doctors" className="btn-primary">
-                      Back to Doctors
-                    </Link>
+                    <BackButton fallbackHref="/doctors" className="btn-primary">
+                      Back
+                    </BackButton>
                   </div>
                 </div>
               </div>
