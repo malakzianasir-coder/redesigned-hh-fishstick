@@ -4,28 +4,64 @@
     "title": "General Surgery",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
-    "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures.",
+    "description": "Elective and emergency surgical care with modern techniques, experienced teams, and support before, during, and after surgery.",
+    "excerpt": "Elective and emergency surgical care with modern techniques, experienced teams, and support before, during, and after surgery.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "General Surgery",
-      "tagline": "Comprehensive Surgical Care",
-      "taglineVariant": "body",
-      "excerpt": "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.\n\nOur team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery.",
-      "variant": "white",
+      "excerpt": "Elective and emergency surgical care with modern techniques, experienced teams, and support before, during, and after surgery.",
       "media": {
         "type": "image",
         "src": "/media/general-surgery-department-banner.webp",
         "alt": "General Surgery"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Surgical Care",
+        "background": "white",
+        "body": [
+          "The General Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring elective and emergency procedures. Supported by experienced surgeons, anesthetists, nursing staff, and modern operation theatre facilities, the department delivers safe, effective, and patient-centered surgical care using modern surgical techniques and evidence-based practices.",
+          "Our team manages a wide range of surgical conditions, from common general surgical procedures to complex gastrointestinal and hepatobiliary surgeries, ensuring quality care before, during, and after surgery."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Surgical Services",
+        "intro": "The department performs a broad range of surgical procedures, including:",
         "groups": [
           {
             "heading": "General Surgery",
@@ -71,15 +107,19 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital General Surgery?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced general surgeons and multidisciplinary surgical team" },
-          { "icon": "check-circle", "label": "Modern operation theatres equipped for elective and emergency surgery" },
-          { "icon": "check-circle", "label": "Advanced laparoscopic (minimally invasive) surgical techniques" },
-          { "icon": "check-circle", "label": "Comprehensive preoperative and postoperative care" },
-          { "icon": "check-circle", "label": "Strict infection prevention and patient safety protocols" },
-          { "icon": "check-circle", "label": "Affordable treatment with welfare support for eligible patients" }
+          "Experienced general surgeons and multidisciplinary surgical team",
+          "Modern operation theatres equipped for elective and emergency surgery",
+          "Advanced laparoscopic (minimally invasive) surgical techniques",
+          "Comprehensive preoperative and postoperative care",
+          "Strict infection prevention and patient safety protocols",
+          "Affordable treatment with welfare support for eligible patients"
         ]
       }
     ]
@@ -89,28 +129,64 @@
     "title": "Orthopedics",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
-    "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine.",
+    "description": "Bone, joint, trauma, and spine care — from emergency fractures and joint replacement to rehabilitation for patients of all ages.",
+    "excerpt": "Bone, joint, trauma, and spine care — from emergency fractures and joint replacement to rehabilitation for patients of all ages.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "Orthopedics",
-      "tagline": "Comprehensive Bone, Joint & Trauma Care",
-      "taglineVariant": "body",
-      "excerpt": "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine. Supported by experienced orthopedic surgeons, consultants, nursing staff, and rehabilitation professionals, the department offers comprehensive care for patients of all ages, from emergency trauma management to advanced orthopedic surgery and postoperative rehabilitation.\n\nThe department provides outpatient consultations, emergency trauma care, elective orthopedic procedures, and rehabilitation services using modern surgical techniques, advanced implants, and dedicated physiotherapy support.",
-      "variant": "white",
+      "excerpt": "Bone, joint, trauma, and spine care — from emergency fractures and joint replacement to rehabilitation for patients of all ages.",
       "media": {
         "type": "image",
         "src": "/media/orthopedics-department-banner.webp",
         "alt": "Orthopedics"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Bone, Joint & Trauma Care",
+        "background": "white",
+        "body": [
+          "The Orthopedics Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and rehabilitation for disorders and injuries affecting the bones, joints, muscles, ligaments, tendons, and spine. Supported by experienced orthopedic surgeons, consultants, nursing staff, and rehabilitation professionals, the department offers comprehensive care for patients of all ages, from emergency trauma management to advanced orthopedic surgery and postoperative rehabilitation.",
+          "The department provides outpatient consultations, emergency trauma care, elective orthopedic procedures, and rehabilitation services using modern surgical techniques, advanced implants, and dedicated physiotherapy support."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Orthopedic Services",
+        "intro": "Our department offers a wide range of orthopedic services, including:",
         "groups": [
           {
             "heading": "Trauma & Fracture Care",
@@ -164,26 +240,35 @@
               "Soft tissue reconstruction",
               "Treatment of deformities resulting from trauma or congenital conditions"
             ]
-          },
-          {
-            "heading": "Minimally Invasive Orthopedic Procedures",
-            "items": [
-              "Where appropriate, minimally invasive surgical techniques are used to reduce tissue damage, promote faster recovery, and shorten hospital stays."
-            ]
           }
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "content",
+        "id": "minimally-invasive",
+        "kicker": "Techniques",
+        "heading": "Minimally Invasive Orthopedic Procedures",
+        "background": "white",
+        "body": [
+          "Where appropriate, minimally invasive surgical techniques are used to reduce tissue damage, promote faster recovery, and shorten hospital stays."
+        ],
+        "align": "start"
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Orthopedics?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced orthopedic consultants and surgeons" },
-          { "icon": "check-circle", "label": "Comprehensive trauma and fracture care" },
-          { "icon": "check-circle", "label": "Modern operation theatres and advanced surgical equipment" },
-          { "icon": "check-circle", "label": "High-quality implants and diagnostic support" },
-          { "icon": "check-circle", "label": "Dedicated physiotherapy and rehabilitation services" },
-          { "icon": "check-circle", "label": "Infection prevention protocols and modern postoperative care" },
-          { "icon": "check-circle", "label": "Affordable treatment options with financial assistance for eligible patients" }
+          "Experienced orthopedic consultants and surgeons",
+          "Comprehensive trauma and fracture care",
+          "Modern operation theatres and advanced surgical equipment",
+          "High-quality implants and diagnostic support",
+          "Dedicated physiotherapy and rehabilitation services",
+          "Infection prevention protocols and modern postoperative care",
+          "Affordable treatment options with financial assistance for eligible patients"
         ]
       }
     ]
@@ -193,27 +278,62 @@
     "title": "Urology",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
-    "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system.",
+    "description": "Specialist care for kidney, bladder, prostate, and male reproductive conditions using minimally invasive and open surgical techniques.",
+    "excerpt": "Specialist care for kidney, bladder, prostate, and male reproductive conditions using minimally invasive and open surgical techniques.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "Urology",
-      "tagline": "Comprehensive Care for Urinary Tract & Male Reproductive Disorders",
-      "taglineVariant": "body",
-      "excerpt": "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system. Our experienced urologists offer both minimally invasive and open surgical procedures using modern techniques to deliver safe, effective, and patient-centered care.\n\nThe department manages a wide range of urological conditions, including urinary stone disease, prostate disorders, urinary tract abnormalities, male reproductive conditions, and urological cancers.",
-      "variant": "white",
+      "excerpt": "Specialist care for kidney, bladder, prostate, and male reproductive conditions using minimally invasive and open surgical techniques.",
       "media": {
         "type": "image",
         "src": "/media/urology-department-banner.webp",
         "alt": "Urology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Care for Urinary Tract & Male Reproductive Disorders",
+        "background": "white",
+        "body": [
+          "The Urology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and surgical care for diseases affecting the kidneys, ureters, bladder, urethra, and male reproductive system. Our experienced urologists offer both minimally invasive and open surgical procedures using modern techniques to deliver safe, effective, and patient-centered care.",
+          "The department manages a wide range of urological conditions, including urinary stone disease, prostate disorders, urinary tract abnormalities, male reproductive conditions, and urological cancers."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Urology Services",
         "groups": [
           {
@@ -292,15 +412,19 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Urology?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced urologists and multidisciplinary surgical team" },
-          { "icon": "check-circle", "label": "Advanced endourology and minimally invasive procedures" },
-          { "icon": "check-circle", "label": "Comprehensive treatment for urinary stone disease" },
-          { "icon": "check-circle", "label": "Specialized care for prostate, bladder, kidney, and male reproductive disorders" },
-          { "icon": "check-circle", "label": "Modern operation theatre facilities and diagnostic support" },
-          { "icon": "check-circle", "label": "Patient-centered care with comprehensive preoperative and postoperative management" }
+          "Experienced urologists and multidisciplinary surgical team",
+          "Advanced endourology and minimally invasive procedures",
+          "Comprehensive treatment for urinary stone disease",
+          "Specialized care for prostate, bladder, kidney, and male reproductive disorders",
+          "Modern operation theatre facilities and diagnostic support",
+          "Patient-centered care with comprehensive preoperative and postoperative management"
         ]
       }
     ]
@@ -310,27 +434,62 @@
     "title": "Plastic & Reconstructive Surgery",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures.",
-    "excerpt": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures.",
+    "description": "Reconstructive, burn, congenital, and aesthetic surgery focused on restoring function, appearance, and quality of life.",
+    "excerpt": "Reconstructive, burn, congenital, and aesthetic surgery focused on restoring function, appearance, and quality of life.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "Plastic & Reconstructive Surgery",
-      "tagline": "Restoring Form, Function & Confidence",
-      "taglineVariant": "body",
-      "excerpt": "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures. Our experienced surgical team is committed to restoring function, improving appearance, and enhancing quality of life through safe, evidence-based surgical techniques.\n\nThe department offers individualized treatment plans supported by modern surgical facilities and comprehensive postoperative care.",
-      "variant": "white",
+      "excerpt": "Reconstructive, burn, congenital, and aesthetic surgery focused on restoring function, appearance, and quality of life.",
       "media": {
         "type": "image",
         "src": "/media/plastic-reconstructive-surgery-department-banner.webp",
         "alt": "Plastic & Reconstructive Surgery"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Restoring Form, Function & Confidence",
+        "background": "white",
+        "body": [
+          "The Plastic & Reconstructive Surgery Department at Hijaz Hospital provides comprehensive surgical care for patients requiring reconstructive, congenital, trauma-related, burn, and aesthetic procedures. Our experienced surgical team is committed to restoring function, improving appearance, and enhancing quality of life through safe, evidence-based surgical techniques.",
+          "The department offers individualized treatment plans supported by modern surgical facilities and comprehensive postoperative care."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Services",
         "groups": [
           {
@@ -376,14 +535,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Plastic & Reconstructive Surgery?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced plastic and reconstructive surgeons" },
-          { "icon": "check-circle", "label": "Comprehensive reconstructive and aesthetic surgical services" },
-          { "icon": "check-circle", "label": "Modern surgical facilities and advanced techniques" },
-          { "icon": "check-circle", "label": "Personalized treatment planning and postoperative care" },
-          { "icon": "check-circle", "label": "Patient-centered approach focused on safety, function, and cosmetic outcomes" }
+          "Experienced plastic and reconstructive surgeons",
+          "Comprehensive reconstructive and aesthetic surgical services",
+          "Modern surgical facilities and advanced techniques",
+          "Personalized treatment planning and postoperative care",
+          "Patient-centered approach focused on safety, function, and cosmetic outcomes"
         ]
       }
     ]
@@ -393,27 +556,61 @@
     "title": "Ophthalmology",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery.",
-    "excerpt": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery.",
+    "description": "Complete eye care — from routine exams and emergencies to cataract, glaucoma, and vision-restoring surgery.",
+    "excerpt": "Complete eye care — from routine exams and emergencies to cataract, glaucoma, and vision-restoring surgery.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "Ophthalmology",
-      "tagline": "Comprehensive Eye Care & Vision Services",
-      "taglineVariant": "body",
-      "excerpt": "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery. Our experienced ophthalmologists are committed to preserving and restoring vision through modern diagnostic techniques and evidence-based treatment.",
-      "variant": "white",
+      "excerpt": "Complete eye care — from routine exams and emergencies to cataract, glaucoma, and vision-restoring surgery.",
       "media": {
         "type": "image",
         "src": "/media/ophthalmology-department-banner.webp",
         "alt": "Ophthalmology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Eye Care & Vision Services",
+        "background": "white",
+        "body": [
+          "The Ophthalmology Department at Hijaz Hospital provides comprehensive eye care services, including routine eye examinations, diagnosis and treatment of eye diseases, emergency eye care, and advanced ophthalmic surgery. Our experienced ophthalmologists are committed to preserving and restoring vision through modern diagnostic techniques and evidence-based treatment."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Ophthalmology Services",
         "groups": [
           {
@@ -461,15 +658,19 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Ophthalmology?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced ophthalmologists and trained eye care professionals" },
-          { "icon": "check-circle", "label": "Comprehensive diagnostic and surgical eye care" },
-          { "icon": "check-circle", "label": "Modern ophthalmic diagnostic equipment" },
-          { "icon": "check-circle", "label": "Advanced cataract and glaucoma surgery" },
-          { "icon": "check-circle", "label": "Prompt management of eye emergencies and injuries" },
-          { "icon": "check-circle", "label": "Patient-centered care with comprehensive follow-up services" }
+          "Experienced ophthalmologists and trained eye care professionals",
+          "Comprehensive diagnostic and surgical eye care",
+          "Modern ophthalmic diagnostic equipment",
+          "Advanced cataract and glaucoma surgery",
+          "Prompt management of eye emergencies and injuries",
+          "Patient-centered care with comprehensive follow-up services"
         ]
       }
     ]
@@ -479,27 +680,62 @@
     "title": "ENT (Ear, Nose & Throat)",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck.",
-    "excerpt": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck.",
+    "description": "Medical and surgical treatment for ear, nose, throat, head, and neck conditions in adults and children.",
+    "excerpt": "Medical and surgical treatment for ear, nose, throat, head, and neck conditions in adults and children.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "ENT (Ear, Nose & Throat)",
-      "tagline": "Comprehensive Ear, Nose & Throat Care",
-      "taglineVariant": "body",
-      "excerpt": "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck. The department offers both outpatient and surgical services, supported by experienced ENT specialists and modern operating theatre facilities.\n\nOur team manages a wide range of conditions, including ear diseases, sinus disorders, nasal problems, throat conditions, voice disorders, thyroid and salivary gland diseases, and head & neck cancers.",
-      "variant": "white",
+      "excerpt": "Medical and surgical treatment for ear, nose, throat, head, and neck conditions in adults and children.",
       "media": {
         "type": "image",
         "src": "/media/ent-ear-nose-throat-department-banner.webp",
         "alt": "ENT (Ear, Nose & Throat)"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Ear, Nose & Throat Care",
+        "background": "white",
+        "body": [
+          "The ENT Department at Hijaz Hospital provides comprehensive diagnosis, medical management, and surgical treatment for disorders affecting the ear, nose, throat, head, and neck. The department offers both outpatient and surgical services, supported by experienced ENT specialists and modern operating theatre facilities.",
+          "Our team manages a wide range of conditions, including ear diseases, sinus disorders, nasal problems, throat conditions, voice disorders, thyroid and salivary gland diseases, and head & neck cancers."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our ENT Services",
         "groups": [
           {
@@ -572,14 +808,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital ENT?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced ENT surgeons and multidisciplinary care team" },
-          { "icon": "check-circle", "label": "Comprehensive ear, nose, throat, and head & neck services" },
-          { "icon": "check-circle", "label": "Advanced surgical procedures and modern operation theatre support" },
-          { "icon": "check-circle", "label": "Management of both routine and complex ENT conditions" },
-          { "icon": "check-circle", "label": "Patient-focused care with appropriate preoperative and postoperative support" }
+          "Experienced ENT surgeons and multidisciplinary care team",
+          "Comprehensive ear, nose, throat, and head & neck services",
+          "Advanced surgical procedures and modern operation theatre support",
+          "Management of both routine and complex ENT conditions",
+          "Patient-focused care with appropriate preoperative and postoperative support"
         ]
       }
     ]
@@ -589,27 +829,61 @@
     "title": "Dentistry",
     "category": "Surgery & Allied Specialties",
     "categorySlug": "surgery-allied",
-    "description": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments.",
-    "excerpt": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments.",
+    "description": "Preventive, restorative, surgical, and specialist dental care to protect oral health and restore function.",
+    "excerpt": "Preventive, restorative, surgical, and specialist dental care to protect oral health and restore function.",
     "hero": {
       "kicker": "Surgery & Allied Specialties",
       "title": "Dentistry",
-      "tagline": "Comprehensive Dental Care",
-      "taglineVariant": "body",
-      "excerpt": "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments. The department focuses on maintaining oral health, restoring dental function, and improving the overall well-being of patients through quality dental care.",
-      "variant": "white",
+      "excerpt": "Preventive, restorative, surgical, and specialist dental care to protect oral health and restore function.",
       "media": {
         "type": "image",
         "src": "/media/dentistry-department-banner.webp",
         "alt": "Dentistry"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Dental Care",
+        "background": "white",
+        "body": [
+          "The Dentistry Department at Hijaz Hospital provides comprehensive oral healthcare services, including preventive, restorative, surgical, and specialized dental treatments. The department focuses on maintaining oral health, restoring dental function, and improving the overall well-being of patients through quality dental care."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Dental Services",
         "groups": [
           {
@@ -664,14 +938,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Dentistry?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced dental professionals" },
-          { "icon": "check-circle", "label": "Comprehensive dental services under one roof" },
-          { "icon": "check-circle", "label": "Modern dental care facilities" },
-          { "icon": "check-circle", "label": "Patient-focused treatment approach" },
-          { "icon": "check-circle", "label": "Focus on preventive care and long-term oral health" }
+          "Experienced dental professionals",
+          "Comprehensive dental services under one roof",
+          "Modern dental care facilities",
+          "Patient-focused treatment approach",
+          "Focus on preventive care and long-term oral health"
         ]
       }
     ]
@@ -681,27 +959,62 @@
     "title": "General Medicine",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions.",
-    "excerpt": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions.",
+    "description": "Adult medical care for acute illness, chronic disease, and complex conditions — with prevention, early diagnosis, and coordinated specialist support.",
+    "excerpt": "Adult medical care for acute illness, chronic disease, and complex conditions — with prevention, early diagnosis, and coordinated specialist support.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "General Medicine",
-      "tagline": "Comprehensive Internal Medicine Care",
-      "taglineVariant": "body",
-      "excerpt": "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions. The department is supported by experienced physicians and healthcare professionals who provide patient-centered care for acute illnesses, chronic diseases, and complex medical conditions.\n\nThe department focuses on prevention, early diagnosis, disease management, and coordination of care with other specialties whenever required.",
-      "variant": "white",
+      "excerpt": "Adult medical care for acute illness, chronic disease, and complex conditions — with prevention, early diagnosis, and coordinated specialist support.",
       "media": {
         "type": "image",
         "src": "/media/general-medicine-department-banner.webp",
         "alt": "General Medicine"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Internal Medicine Care",
+        "background": "white",
+        "body": [
+          "The Medicine Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and ongoing management of a wide range of adult medical conditions. The department is supported by experienced physicians and healthcare professionals who provide patient-centered care for acute illnesses, chronic diseases, and complex medical conditions.",
+          "The department focuses on prevention, early diagnosis, disease management, and coordination of care with other specialties whenever required."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Medical Services",
         "groups": [
           {
@@ -759,14 +1072,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Medicine Department?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced physicians and multidisciplinary healthcare team" },
-          { "icon": "check-circle", "label": "Management of acute and chronic medical conditions" },
-          { "icon": "check-circle", "label": "Comprehensive diagnosis and treatment planning" },
-          { "icon": "check-circle", "label": "Coordination with specialist departments when required" },
-          { "icon": "check-circle", "label": "Patient-focused care with continuous monitoring and follow-up" }
+          "Experienced physicians and multidisciplinary healthcare team",
+          "Management of acute and chronic medical conditions",
+          "Comprehensive diagnosis and treatment planning",
+          "Coordination with specialist departments when required",
+          "Patient-focused care with continuous monitoring and follow-up"
         ]
       }
     ]
@@ -776,27 +1093,62 @@
     "title": "Gastroenterology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system.",
-    "excerpt": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system.",
+    "description": "Diagnosis and treatment for digestive, liver, pancreas, and biliary conditions — including advanced endoscopy and emergency GI care.",
+    "excerpt": "Diagnosis and treatment for digestive, liver, pancreas, and biliary conditions — including advanced endoscopy and emergency GI care.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Gastroenterology",
-      "tagline": "Comprehensive Digestive & Liver Care",
-      "taglineVariant": "body",
-      "excerpt": "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system. The department offers advanced diagnostic and therapeutic procedures supported by experienced specialists and modern facilities.\n\nOur services provide timely and effective care for patients.",
-      "variant": "white",
+      "excerpt": "Diagnosis and treatment for digestive, liver, pancreas, and biliary conditions — including advanced endoscopy and emergency GI care.",
       "media": {
         "type": "image",
         "src": "/media/gastroenterology-department-banner.webp",
         "alt": "Gastroenterology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Digestive & Liver Care",
+        "background": "white",
+        "body": [
+          "The Gastroenterology Department at Hijaz Hospital provides comprehensive diagnostic services, treatment, and management of diseases affecting the gastrointestinal tract, liver, pancreas, and biliary system. The department offers advanced diagnostic and therapeutic procedures supported by experienced specialists and modern facilities.",
+          "Our services provide timely and effective care for patients."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Gastroenterology Services",
         "groups": [
           {
@@ -847,14 +1199,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Gastroenterology?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced gastroenterologists and multidisciplinary care team" },
-          { "icon": "check-circle", "label": "Advanced diagnostic and therapeutic endoscopy services" },
-          { "icon": "check-circle", "label": "Comprehensive management of digestive and liver diseases" },
-          { "icon": "check-circle", "label": "Support for both routine and emergency gastrointestinal conditions" },
-          { "icon": "check-circle", "label": "Patient-focused care with modern diagnostic facilities" }
+          "Experienced gastroenterologists and multidisciplinary care team",
+          "Advanced diagnostic and therapeutic endoscopy services",
+          "Comprehensive management of digestive and liver diseases",
+          "Support for both routine and emergency gastrointestinal conditions",
+          "Patient-focused care with modern diagnostic facilities"
         ]
       }
     ]
@@ -864,27 +1220,62 @@
     "title": "Nephrology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders.",
-    "excerpt": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders.",
+    "description": "Preventive, diagnostic, and long-term kidney care — including dialysis, interventional procedures, transplant support, and critical renal management.",
+    "excerpt": "Preventive, diagnostic, and long-term kidney care — including dialysis, interventional procedures, transplant support, and critical renal management.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Nephrology",
-      "tagline": "Comprehensive Kidney Care Services",
-      "taglineVariant": "body",
-      "excerpt": "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders. The department offers evaluation, treatment, and long-term management of kidney conditions through experienced nephrology specialists and a multidisciplinary healthcare team.\n\nOur services include management of acute and chronic kidney diseases, dialysis care, interventional nephrology procedures, transplant support, and critical care renal management.",
-      "variant": "white",
+      "excerpt": "Preventive, diagnostic, and long-term kidney care — including dialysis, interventional procedures, transplant support, and critical renal management.",
       "media": {
         "type": "image",
         "src": "/media/nephrology-department-banner.webp",
         "alt": "Nephrology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Kidney Care Services",
+        "background": "white",
+        "body": [
+          "The Nephrology Department at Hijaz Hospital provides comprehensive preventive, diagnostic, therapeutic, and supportive care for patients with kidney diseases and related disorders. The department offers evaluation, treatment, and long-term management of kidney conditions through experienced nephrology specialists and a multidisciplinary healthcare team.",
+          "Our services include management of acute and chronic kidney diseases, dialysis care, interventional nephrology procedures, transplant support, and critical care renal management."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Nephrology Services",
         "groups": [
           {
@@ -941,14 +1332,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Nephrology?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced nephrology specialists and multidisciplinary care team" },
-          { "icon": "check-circle", "label": "Comprehensive kidney disease management" },
-          { "icon": "check-circle", "label": "Dedicated dialysis support services" },
-          { "icon": "check-circle", "label": "Coordination with critical care and other specialties" },
-          { "icon": "check-circle", "label": "Focus on prevention, patient education, and long-term kidney health" }
+          "Experienced nephrology specialists and multidisciplinary care team",
+          "Comprehensive kidney disease management",
+          "Dedicated dialysis support services",
+          "Coordination with critical care and other specialties",
+          "Focus on prevention, patient education, and long-term kidney health"
         ]
       }
     ]
@@ -958,27 +1353,62 @@
     "title": "Cardiology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases.",
-    "excerpt": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases.",
+    "description": "Outpatient heart disease evaluation and medical management, plus pre-operative cardiac assessment to support safe anesthesia and surgery.",
+    "excerpt": "Outpatient heart disease evaluation and medical management, plus pre-operative cardiac assessment to support safe anesthesia and surgery.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Cardiology",
-      "tagline": "Comprehensive Cardiac Assessment & Outpatient Care",
-      "taglineVariant": "body",
-      "excerpt": "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases. The department also plays an important role in pre-operative cardiac assessment, helping ensure that patients are medically fit for anesthesia and surgical procedures.\n\nWorking in close coordination with other clinical departments, our cardiologist provides timely consultations, risk assessment, and treatment recommendations to support safe and effective patient care.",
-      "variant": "white",
+      "excerpt": "Outpatient heart disease evaluation and medical management, plus pre-operative cardiac assessment to support safe anesthesia and surgery.",
       "media": {
         "type": "image",
         "src": "/media/cardiology-department-banner.webp",
         "alt": "Cardiology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Cardiac Assessment & Outpatient Care",
+        "background": "white",
+        "body": [
+          "The Cardiology Department at Hijaz Hospital provides specialized outpatient services for the diagnosis, evaluation, and medical management of heart diseases. The department also plays an important role in pre-operative cardiac assessment, helping ensure that patients are medically fit for anesthesia and surgical procedures.",
+          "Working in close coordination with other clinical departments, our cardiologist provides timely consultations, risk assessment, and treatment recommendations to support safe and effective patient care."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Cardiology Services",
         "groups": [
           {
@@ -1015,25 +1445,43 @@
               "Other elective surgical procedures, where required",
               "These evaluations help assess cardiac risk before anesthesia and surgery, supporting safe surgical outcomes."
             ]
-          },
-          {
-            "heading": "Referral for Advanced Cardiac Care",
-            "items": [
-              "Patients requiring specialized cardiac interventions, emergency cardiac procedures, or advanced investigations are referred to appropriate tertiary care hospitals to ensure timely access to comprehensive cardiac services."
-            ]
           }
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "content",
+        "id": "referral",
+        "kicker": "Advanced Care",
+        "heading": "Referral for Advanced Cardiac Care",
+        "background": "white",
+        "body": [
+          "Patients requiring specialized cardiac interventions, emergency cardiac procedures, or advanced investigations are referred to appropriate tertiary care hospitals to ensure timely access to comprehensive cardiac services."
+        ]
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Cardiology?",
         "items": [
-          { "icon": "check-circle", "label": "Qualified cardiologist providing specialized outpatient care" },
-          { "icon": "check-circle", "label": "Comprehensive evaluation and management of heart diseases" },
-          { "icon": "check-circle", "label": "Reliable pre-operative cardiac assessment and fitness evaluation" },
-          { "icon": "check-circle", "label": "Essential diagnostic support available on-site" },
-          { "icon": "check-circle", "label": "Close coordination with surgical and medical specialties" },
-          { "icon": "check-circle", "label": "Affordable, accessible, and patient-centered care" }
+          "Qualified cardiologist providing specialized outpatient care",
+          "Comprehensive evaluation and management of heart diseases",
+          "Reliable pre-operative cardiac assessment and fitness evaluation",
+          "Essential diagnostic support available on-site",
+          "Close coordination with surgical and medical specialties",
+          "Affordable, accessible, and patient-centered care"
+        ]
+      },
+      {
+        "type": "content",
+        "id": "commitment",
+        "kicker": "Our Commitment",
+        "heading": "Our Commitment",
+        "background": "muted",
+        "body": [
+          "Hijaz Hospital is committed to providing accurate, compassionate, and evidence-based cardiac care. Through timely diagnosis, careful evaluation, and coordinated clinical management, we strive to support the cardiovascular health and overall well-being of every patient."
         ]
       }
     ]
@@ -1043,27 +1491,62 @@
     "title": "Pulmonology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases.",
-    "excerpt": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases.",
+    "description": "Outpatient, inpatient, and emergency care for respiratory and chest diseases — including TB evaluation, treatment, and follow-up.",
+    "excerpt": "Outpatient, inpatient, and emergency care for respiratory and chest diseases — including TB evaluation, treatment, and follow-up.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Pulmonology",
-      "tagline": "Comprehensive Respiratory Care",
-      "taglineVariant": "body",
-      "excerpt": "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases. Our experienced pulmonology team offers comprehensive evaluation, diagnosis, treatment, and follow-up for both acute and chronic lung conditions.\n\nThe department works closely with other clinical specialties to provide coordinated care and ensure timely management of patients with respiratory illnesses.",
-      "variant": "white",
+      "excerpt": "Outpatient, inpatient, and emergency care for respiratory and chest diseases — including TB evaluation, treatment, and follow-up.",
       "media": {
         "type": "image",
         "src": "/media/pulmonology-department-banner.webp",
         "alt": "Pulmonology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Respiratory Care",
+        "background": "white",
+        "body": [
+          "The Pulmonology Department at Hijaz Hospital provides specialized outpatient, inpatient, and emergency care for patients with respiratory and chest diseases. Our experienced pulmonology team offers comprehensive evaluation, diagnosis, treatment, and follow-up for both acute and chronic lung conditions.",
+          "The department works closely with other clinical specialties to provide coordinated care and ensure timely management of patients with respiratory illnesses."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Pulmonology Services",
         "groups": [
           {
@@ -1093,25 +1576,33 @@
               "Pulmonary investigations, as clinically indicated",
               "Ongoing monitoring and follow-up of respiratory conditions"
             ]
-          },
-          {
-            "heading": "Tuberculosis (TB) Care",
-            "items": [
-              "Hijaz Hospital is committed to supporting patients with pulmonary tuberculosis by providing comprehensive evaluation, treatment, and follow-up. Eligible patients receive anti-tuberculosis treatment free of charge in accordance with hospital policies and national treatment guidelines."
-            ]
           }
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "content",
+        "id": "tb-care",
+        "kicker": "TB Care",
+        "heading": "Tuberculosis (TB) Care",
+        "background": "white",
+        "body": [
+          "Hijaz Hospital is committed to supporting patients with pulmonary tuberculosis by providing comprehensive evaluation, treatment, and follow-up. Eligible patients receive anti-tuberculosis treatment free of charge in accordance with hospital policies and national treatment guidelines."
+        ]
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Pulmonology?",
         "items": [
-          { "icon": "check-circle", "label": "Specialized care for respiratory and chest diseases" },
-          { "icon": "check-circle", "label": "Outpatient, inpatient, and emergency pulmonology services" },
-          { "icon": "check-circle", "label": "Integrated diagnostic support" },
-          { "icon": "check-circle", "label": "Coordinated care with other clinical departments" },
-          { "icon": "check-circle", "label": "Free treatment for eligible tuberculosis patients" },
-          { "icon": "check-circle", "label": "Patient-focused care with emphasis on long-term respiratory health" }
+          "Specialized care for respiratory and chest diseases",
+          "Outpatient, inpatient, and emergency pulmonology services",
+          "Integrated diagnostic support",
+          "Coordinated care with other clinical departments",
+          "Free treatment for eligible tuberculosis patients",
+          "Patient-focused care with emphasis on long-term respiratory health"
         ]
       }
     ]
@@ -1121,27 +1612,62 @@
     "title": "Endocrinology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders.",
-    "excerpt": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders.",
+    "description": "Specialist care for hormonal and metabolic disorders — including diabetes, thyroid disease, and long-term endocrine management.",
+    "excerpt": "Specialist care for hormonal and metabolic disorders — including diabetes, thyroid disease, and long-term endocrine management.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Endocrinology",
-      "tagline": "Comprehensive Hormonal & Metabolic Care",
-      "taglineVariant": "body",
-      "excerpt": "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders. Our endocrinology services focus on accurate diagnosis, evidence-based treatment, and long-term management to help patients achieve better health and improved quality of life.\n\nThe department works closely with other clinical specialties to provide coordinated care for patients with complex endocrine and metabolic conditions.",
-      "variant": "white",
+      "excerpt": "Specialist care for hormonal and metabolic disorders — including diabetes, thyroid disease, and long-term endocrine management.",
       "media": {
         "type": "image",
         "src": "/media/endocrinology-department-banner.webp",
         "alt": "Endocrinology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Hormonal & Metabolic Care",
+        "background": "white",
+        "body": [
+          "The Endocrinology Department at Hijaz Hospital provides specialized care for patients with hormonal, metabolic, and endocrine disorders. Our endocrinology services focus on accurate diagnosis, evidence-based treatment, and long-term management to help patients achieve better health and improved quality of life.",
+          "The department works closely with other clinical specialties to provide coordinated care for patients with complex endocrine and metabolic conditions."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Endocrinology Services",
         "groups": [
           {
@@ -1174,14 +1700,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Endocrinology?",
         "items": [
-          { "icon": "check-circle", "label": "Specialized care for hormonal and metabolic disorders" },
-          { "icon": "check-circle", "label": "Evidence-based diagnosis and treatment" },
-          { "icon": "check-circle", "label": "Personalized long-term disease management" },
-          { "icon": "check-circle", "label": "Multidisciplinary care with other medical specialties" },
-          { "icon": "check-circle", "label": "Patient-centered approach focused on improving long-term health outcomes" }
+          "Specialized care for hormonal and metabolic disorders",
+          "Evidence-based diagnosis and treatment",
+          "Personalized long-term disease management",
+          "Multidisciplinary care with other medical specialties",
+          "Patient-centered approach focused on improving long-term health outcomes"
         ]
       }
     ]
@@ -1191,31 +1721,67 @@
     "title": "Dermatology",
     "category": "Internal Medicine & Allied Specialties",
     "categorySlug": "internal-medicine",
-    "description": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails.",
-    "excerpt": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails.",
+    "description": "Diagnosis and treatment for skin, hair, and nail conditions — with OPD care, minor procedures, and preventive guidance.",
+    "excerpt": "Diagnosis and treatment for skin, hair, and nail conditions — with OPD care, minor procedures, and preventive guidance.",
     "hero": {
       "kicker": "Internal Medicine & Allied Specialties",
       "title": "Dermatology",
-      "tagline": "Expert Skin, Hair & Nail Care",
-      "taglineVariant": "body",
-      "excerpt": "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails. Serving both outpatient (OPD) and referred inpatient (IPD) patients, our experienced dermatologist is committed to delivering high-quality, evidence-based, and patient-centered care in a safe and compassionate environment",
-      "variant": "white",
+      "excerpt": "Diagnosis and treatment for skin, hair, and nail conditions — with OPD care, minor procedures, and preventive guidance.",
       "media": {
         "type": "image",
         "src": "/media/dermatology-department-banner.webp",
         "alt": "Dermatology"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Expert Skin, Hair & Nail Care",
+        "background": "white",
+        "body": [
+          "The Dermatology Department at Hijaz Hospital provides comprehensive diagnosis, treatment, and preventive care for a wide range of conditions affecting the skin, hair, and nails. Serving both outpatient (OPD) and referred inpatient (IPD) patients, our experienced dermatologist is committed to delivering high-quality, evidence-based, and patient-centered care in a safe and compassionate environment",
+          "With a commitment to clinical excellence and individualized care, the Dermatology Department at Hijaz Hospital helps patients achieve healthier skin, hair, and nails while improving their overall quality of life."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Services",
+        "intro": "Our Dermatology Department offers specialized consultation, diagnosis, and treatment for a wide range of dermatological conditions, including:",
         "groups": [
           {
-            "heading": "Our Dermatology Department offers specialized consultation, diagnosis, and treatment for a wide range of dermatological conditions, including:",
+            "heading": "Skin, Hair & Nail Conditions",
             "items": [
               "Acne and acne scars",
               "Eczema (Dermatitis)",
@@ -1237,7 +1803,6 @@
           {
             "heading": "Minor Dermatological Procedures",
             "items": [
-              "Where clinically indicated, our dermatologist performs a variety of minor dermatological procedures, including:",
               "Electrocautery and cauterization",
               "Intralesional steroid injections for conditions such as:",
               "Keloids",
@@ -1252,7 +1817,6 @@
           {
             "heading": "Patient Education & Preventive Care",
             "items": [
-              "Patient education is an integral part of our dermatology services. We provide guidance on:",
               "Daily skincare routines",
               "Prevention of common skin infections",
               "Sun protection and UV safety",
@@ -1264,15 +1828,19 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Dermatology?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced dermatologist" },
-          { "icon": "check-circle", "label": "Evidence-based diagnosis and treatment" },
-          { "icon": "check-circle", "label": "Management of common and chronic skin, hair, and nail disorders" },
-          { "icon": "check-circle", "label": "Minor dermatological procedures performed where clinically indicated" },
-          { "icon": "check-circle", "label": "Personalized patient education and preventive care" },
-          { "icon": "check-circle", "label": "Compassionate, patient-centered healthcare" }
+          "Experienced dermatologist",
+          "Evidence-based diagnosis and treatment",
+          "Management of common and chronic skin, hair, and nail disorders",
+          "Minor dermatological procedures performed where clinically indicated",
+          "Personalized patient education and preventive care",
+          "Compassionate, patient-centered healthcare"
         ]
       }
     ]
@@ -1282,27 +1850,62 @@
     "title": "Gynaecology & Obstetrics",
     "category": "Mother & Child Care",
     "categorySlug": "mother-child",
-    "description": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment.",
-    "excerpt": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment.",
+    "description": "Pregnancy, maternity, and women’s health care — from routine and high-risk obstetrics to gynecological diagnosis and surgery.",
+    "excerpt": "Pregnancy, maternity, and women’s health care — from routine and high-risk obstetrics to gynecological diagnosis and surgery.",
     "hero": {
       "kicker": "Mother & Child Care",
       "title": "Gynaecology & Obstetrics",
-      "tagline": "Comprehensive Women’s Healthcare Services",
-      "taglineVariant": "body",
-      "excerpt": "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment. The department is supported by experienced gynecologists, obstetricians, nursing staff, and modern hospital facilities to provide safe and patient-centered care.\n\nThe department offers management of routine and high-risk pregnancies, gynecological disorders, reproductive health conditions, and advanced surgical procedures.",
-      "variant": "white",
+      "excerpt": "Pregnancy, maternity, and women’s health care — from routine and high-risk obstetrics to gynecological diagnosis and surgery.",
       "media": {
         "type": "image",
         "src": "/media/gynaecology-obstetrics-department-banner.webp",
         "alt": "Gynaecology & Obstetrics"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Women’s Healthcare Services",
+        "background": "white",
+        "body": [
+          "The Gynaecology & Obstetrics Department at Hijaz Hospital provides comprehensive care for women through all stages of life, including pregnancy care, obstetric services, gynecological diagnosis, and surgical treatment. The department is supported by experienced gynecologists, obstetricians, nursing staff, and modern hospital facilities to provide safe and patient-centered care.",
+          "The department offers management of routine and high-risk pregnancies, gynecological disorders, reproductive health conditions, and advanced surgical procedures."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Services",
         "groups": [
           {
@@ -1335,7 +1938,7 @@
               "Ovarian Cystectomy",
               "Manchester Repair",
               "Anterior Colporrhaphy",
-              "Poster Colporrhaphy"
+              "Posterior Colporrhaphy"
             ]
           },
           {
@@ -1358,45 +1961,84 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Gynaecology & Obstetrics?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced gynecologists and obstetricians" },
-          { "icon": "check-circle", "label": "Comprehensive maternity and women’s healthcare services" },
-          { "icon": "check-circle", "label": "Management of routine and high-risk pregnancies" },
-          { "icon": "check-circle", "label": "Advanced gynecological surgical procedures" },
-          { "icon": "check-circle", "label": "Support from modern operation theatre and hospital facilities" },
-          { "icon": "check-circle", "label": "Patient-focused care with emphasis on safety and dignity" }
+          "Experienced gynecologists and obstetricians",
+          "Comprehensive maternity and women’s healthcare services",
+          "Management of routine and high-risk pregnancies",
+          "Advanced gynecological surgical procedures",
+          "Support from modern operation theatre and hospital facilities",
+          "Patient-focused care with emphasis on safety and dignity"
         ]
       }
     ]
   },
   {
     "slug": "pediatrics-neonatology",
-    "title": "Pediatrics & Neonatology",
+    "title": "Pediatrics",
     "category": "Mother & Child Care",
     "categorySlug": "mother-child",
-    "description": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents.",
-    "excerpt": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents.",
+    "description": "Outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents — with a focus on early diagnosis and healthy development.",
+    "excerpt": "Outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents — with a focus on early diagnosis and healthy development.",
     "hero": {
       "kicker": "Mother & Child Care",
-      "title": "Pediatrics & Neonatology",
-      "tagline": "Comprehensive Healthcare for Infants, Children & Adolescents",
-      "taglineVariant": "body",
-      "excerpt": "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents. Our pediatric team is committed to delivering compassionate, evidence-based medical care, focusing on early diagnosis, effective treatment, and healthy growth and development.\n\nThe department manages a wide range of childhood illnesses while providing ongoing monitoring and follow-up to support long-term health.",
-      "variant": "white",
+      "title": "Pediatrics",
+      "excerpt": "Outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents — with a focus on early diagnosis and healthy development.",
       "media": {
         "type": "image",
         "src": "/media/pediatrics-neonatology-department-banner.webp",
-        "alt": "Pediatrics & Neonatology"
+        "alt": "Pediatrics"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Healthcare for Infants, Children & Adolescents",
+        "background": "white",
+        "body": [
+          "The Pediatrics Department at Hijaz Hospital provides comprehensive outpatient, inpatient, emergency, and newborn care for infants, children, and adolescents. Our pediatric team is committed to delivering compassionate, evidence-based medical care, focusing on early diagnosis, effective treatment, and healthy growth and development.",
+          "The department manages a wide range of childhood illnesses while providing ongoing monitoring and follow-up to support long-term health."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Pediatric Services",
         "groups": [
           {
@@ -1424,29 +2066,36 @@
           {
             "heading": "Diagnostic Support",
             "items": [
-              "The department is supported by essential diagnostic services, including:",
               "Pediatric laboratory investigations",
               "Pediatric X-ray services",
               "Clinical evaluation and ongoing follow-up"
-            ]
-          },
-          {
-            "heading": "Emergency Pediatric Care",
-            "items": [
-              "Children requiring urgent medical attention receive prompt assessment and emergency management. Critically ill patients are stabilized and managed according to their clinical condition, with referral to higher-level pediatric care when specialized services are required."
             ]
           }
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "content",
+        "id": "emergency-pediatric-care",
+        "kicker": "Emergency Care",
+        "heading": "Emergency Pediatric Care",
+        "background": "white",
+        "body": [
+          "Children requiring urgent medical attention receive prompt assessment and emergency management. Critically ill patients are stabilized and managed according to their clinical condition, with referral to higher-level pediatric care when specialized services are required."
+        ]
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Pediatrics?",
         "items": [
-          { "icon": "check-circle", "label": "Comprehensive outpatient, inpatient, and emergency pediatric care" },
-          { "icon": "check-circle", "label": "Well-baby nursery services" },
-          { "icon": "check-circle", "label": "Experienced pediatric healthcare team" },
-          { "icon": "check-circle", "label": "Diagnostic support for timely evaluation" },
-          { "icon": "check-circle", "label": "Patient-centered care with emphasis on prevention, treatment, and regular follow-up" }
+          "Comprehensive outpatient, inpatient, and emergency pediatric care",
+          "Well-baby nursery services",
+          "Experienced pediatric healthcare team",
+          "Diagnostic support for timely evaluation",
+          "Patient-centered care with emphasis on prevention, treatment, and regular follow-up"
         ]
       }
     ]
@@ -1456,27 +2105,62 @@
     "title": "Dietetics & Nutrition",
     "category": "Specialized Care & Allied Health",
     "categorySlug": "specialized",
-    "description": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions.",
-    "excerpt": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions.",
+    "description": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
+    "excerpt": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
     "hero": {
       "kicker": "Specialized Care & Allied Health",
       "title": "Dietetics & Nutrition",
-      "tagline": "Personalized Nutrition Care for Better Health",
-      "taglineVariant": "body",
-      "excerpt": "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions. Our qualified nutrition professionals work closely with medical teams to develop personalized dietary plans that support treatment, recovery, and long-term health.\n\nThe department provides nutrition services for OPD patients, admitted patients, critically ill patients, and individuals requiring lifestyle and disease-specific dietary management.",
-      "variant": "white",
+      "excerpt": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
       "media": {
         "type": "image",
         "src": "/media/dietetics-nutrition-department-banner.webp",
         "alt": "Dietetics & Nutrition"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Personalized Nutrition Care for Better Health",
+        "background": "white",
+        "body": [
+          "The Dietetics & Nutrition Department at Hijaz Hospital provides comprehensive nutrition assessment, counseling, and medical nutrition therapy for patients with different health conditions. Our qualified nutrition professionals work closely with medical teams to develop personalized dietary plans that support treatment, recovery, and long-term health.",
+          "The department provides nutrition services for OPD patients, admitted patients, critically ill patients, and individuals requiring lifestyle and disease-specific dietary management."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Nutrition Services",
         "groups": [
           {
@@ -1519,44 +2203,83 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Dietetics & Nutrition?",
         "items": [
-          { "icon": "check-circle", "label": "Qualified nutrition professionals and patient-centered counseling" },
-          { "icon": "check-circle", "label": "Personalized diet plans based on individual health needs" },
-          { "icon": "check-circle", "label": "Support for medical conditions through evidence-based nutrition care" },
-          { "icon": "check-circle", "label": "Coordination with doctors and clinical departments" },
-          { "icon": "check-circle", "label": "Continuous monitoring and follow-up for better outcomes" }
+          "Qualified nutrition professionals and patient-centered counseling",
+          "Personalized diet plans based on individual health needs",
+          "Support for medical conditions through evidence-based nutrition care",
+          "Coordination with doctors and clinical departments",
+          "Continuous monitoring and follow-up for better outcomes"
         ]
       }
     ]
   },
   {
     "slug": "physiotherapy-rehabilitation",
-    "title": "Physiotherapy & Rehabilitation",
+    "title": "Physiotherapy",
     "category": "Specialized Care & Allied Health",
     "categorySlug": "specialized",
-    "description": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life.",
-    "excerpt": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life.",
+    "description": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
+    "excerpt": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
     "hero": {
       "kicker": "Specialized Care & Allied Health",
-      "title": "Physiotherapy & Rehabilitation",
-      "tagline": "Rehabilitation, Recovery & Functional Improvement",
-      "taglineVariant": "body",
-      "excerpt": "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life. Our trained physiotherapists use evidence-based techniques, modern rehabilitation equipment, and personalized exercise programs to support recovery from injuries, surgeries, neurological conditions, and chronic disorders.\n\nThe department provides rehabilitation services for orthopedic, neurological, pediatric, gynecological, and general medical conditions.",
-      "variant": "white",
+      "title": "Physiotherapy",
+      "excerpt": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
       "media": {
         "type": "image",
         "src": "/media/physiotherapy-rehabilitation-department-banner.webp",
-        "alt": "Physiotherapy & Rehabilitation"
+        "alt": "Physiotherapy"
       },
-      "links": []
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
     },
-    "jumpLinks": [],
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
     "sections": [
       {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Rehabilitation, Recovery & Functional Improvement",
+        "background": "white",
+        "body": [
+          "The Physiotherapy Department at Hijaz Hospital provides comprehensive rehabilitation services to help patients recover mobility, reduce pain, improve physical function, and enhance quality of life. Our trained physiotherapists use evidence-based techniques, modern rehabilitation equipment, and personalized exercise programs to support recovery from injuries, surgeries, neurological conditions, and chronic disorders.",
+          "The department provides rehabilitation services for orthopedic, neurological, pediatric, gynecological, and general medical conditions."
+        ]
+      },
+      {
         "type": "serviceGroups",
+        "id": "services",
         "layout": "finder",
+        "background": "muted",
+        "kicker": "Services",
         "heading": "Our Physiotherapy Services",
         "groups": [
           {
@@ -1600,9 +2323,8 @@
             ]
           },
           {
-            "heading": "Conditions We Treat",
+            "heading": "Orthopedic Physiotherapy",
             "items": [
-              "Orthopedic Physiotherapy",
               "Back Pain",
               "Neck Pain",
               "Shoulder Pain",
@@ -1659,15 +2381,19 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
         "heading": "Why Choose Hijaz Hospital Physiotherapy?",
         "items": [
-          { "icon": "check-circle", "label": "Experienced physiotherapists and rehabilitation team" },
-          { "icon": "check-circle", "label": "Comprehensive rehabilitation programs" },
-          { "icon": "check-circle", "label": "Modern physiotherapy modalities and equipment" },
-          { "icon": "check-circle", "label": "Personalized treatment plans based on patient needs" },
-          { "icon": "check-circle", "label": "Support for postoperative and chronic condition recovery" },
-          { "icon": "check-circle", "label": "Focus on improving mobility, independence, and quality of life" }
+          "Experienced physiotherapists and rehabilitation team",
+          "Comprehensive rehabilitation programs",
+          "Modern physiotherapy modalities and equipment",
+          "Personalized treatment plans based on patient needs",
+          "Support for postoperative and chronic condition recovery",
+          "Focus on improving mobility, independence, and quality of life"
         ]
       }
     ]

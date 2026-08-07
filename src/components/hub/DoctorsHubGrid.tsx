@@ -79,7 +79,7 @@ export function DoctorsHubGrid({
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-[var(--header-h)]">
       <section>
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[30px] lg:pt-[60px]">
           <div className="flex flex-col gap-[6px] text-center">

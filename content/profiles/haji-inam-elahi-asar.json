@@ -7,11 +7,20 @@
   "role": "Founder & Honorary Project Director",
   "organization": "Hijaz Hospital",
   "years": "1927–2016",
-  "image": "/media/founder-image.webp",
+  "image": "/media/haji-inam-elahi-asar.jpg",
   "jumpLinks": [
-    { "label": "Biography", "href": "#biography" },
-    { "label": "Leadership & Community Service", "href": "#leadership-roles" },
-    { "label": "Tribute", "href": "#tribute" }
+    {
+      "label": "Biography",
+      "href": "#biography"
+    },
+    {
+      "label": "Leadership & Community Service",
+      "href": "#leadership-roles"
+    },
+    {
+      "label": "Tribute",
+      "href": "#tribute"
+    }
   ],
   "biography": [
     "Haji Inam Elahi Asar was born on 15 October 1927 in Chiniot, Pakistan. After completing his matriculation, he began his professional career in Kolkata before returning to Pakistan in 1947. He established his business in Karachi and later moved to Lahore in 1953, where he built a successful business while dedicating his life to humanitarian and welfare work.",

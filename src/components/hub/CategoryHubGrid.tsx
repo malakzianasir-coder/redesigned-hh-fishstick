@@ -2,7 +2,7 @@
 
 import { ArrowRight } from '@phosphor-icons/react'
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { cn } from '@/utilities/ui'
 
@@ -42,11 +42,30 @@ function getFilterLabel(
   showCounts: boolean,
 ): string {
   if (!showCounts || filter.slug === 'all') {
-    const count = filter.slug === 'all' ? cards.length : cards.filter((c) => c.categorySlug === filter.slug).length
+    const count =
+      filter.slug === 'all'
+        ? cards.length
+        : cards.filter((c) => c.categorySlug === filter.slug).length
     return filter.slug === 'all' && showCounts ? `${filter.label} (${count})` : filter.label
   }
   const count = cards.filter((c) => c.categorySlug === filter.slug).length
   return `${filter.label} (${count})`
+}
+
+function readHashFilter(filters: HubFilterCategory[]): string {
+  if (typeof window === 'undefined') return 'all'
+  const hash = window.location.hash.replace(/^#/, '')
+  if (!hash || hash === 'all') return 'all'
+  return filters.some((filter) => filter.slug === hash) ? hash : 'all'
+}
+
+function writeHashFilter(slug: string) {
+  if (typeof window === 'undefined') return
+  const nextUrl =
+    slug === 'all'
+      ? `${window.location.pathname}${window.location.search}`
+      : `${window.location.pathname}${window.location.search}#${slug}`
+  window.history.pushState(null, '', nextUrl)
 }
 
 export function CategoryHubGrid({
@@ -59,6 +78,17 @@ export function CategoryHubGrid({
 }: CategoryHubGridProps) {
   const [activeFilter, setActiveFilter] = useState('all')
 
+  useEffect(() => {
+    const syncFromHash = () => setActiveFilter(readHashFilter(filters))
+    syncFromHash()
+    window.addEventListener('hashchange', syncFromHash)
+    window.addEventListener('popstate', syncFromHash)
+    return () => {
+      window.removeEventListener('hashchange', syncFromHash)
+      window.removeEventListener('popstate', syncFromHash)
+    }
+  }, [filters])
+
   const visibleCards = useMemo(
     () =>
       activeFilter === 'all'
@@ -67,8 +97,16 @@ export function CategoryHubGrid({
     [activeFilter, cards],
   )
 
+  const selectFilter = (slug: string) => {
+    setActiveFilter(slug)
+    writeHashFilter(slug)
+  }
+
   return (
-    <section className="bg-white">
+    <section
+      id="hub-filters"
+      className="section-anchor bg-white pt-[var(--header-h)] scroll-mt-[var(--header-h)]"
+    >
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="mb-10 flex flex-col gap-[6px] text-center">
           <p className="kicker">{kicker}</p>
@@ -76,15 +114,20 @@ export function CategoryHubGrid({
           <p className="mx-auto max-w-2xl text-b16 text-primary-blue/85">{lede}</p>
         </div>
 
-        <div className="mb-10 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Filter by category">
+        <div
+          className="mb-10 flex flex-wrap justify-center gap-2"
+          role="tablist"
+          aria-label="Filter by category"
+        >
           {filters.map((filter) => (
             <button
               key={filter.slug}
+              id={`filter-${filter.slug}`}
               type="button"
               role="tab"
               aria-selected={activeFilter === filter.slug}
               className={cn('chip', activeFilter === filter.slug && 'is-active')}
-              onClick={() => setActiveFilter(filter.slug)}
+              onClick={() => selectFilter(filter.slug)}
             >
               {getFilterLabel(filter, cards, showFilterCounts)}
             </button>

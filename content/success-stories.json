@@ -12,7 +12,7 @@
       "subHeading": "A family's gratitude after urgent general surgery at Hijaz Hospital's emergency department.",
       "category": "life-saving-treatments",
       "format": "article",
-      "thumbnail": "/media/pexels-rdne-6129574.webp",
+      "thumbnail": "/media/home-story-emergency.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -30,8 +30,13 @@
       ],
       "publishedDate": "2026-02-10",
       "featured": true,
-      "departments": ["general-surgery"],
-      "services": ["emergency", "ot-complex"],
+      "departments": [
+        "general-surgery"
+      ],
+      "services": [
+        "emergency",
+        "ot-complex"
+      ],
       "_status": "published",
       "publishedAt": "2026-02-10",
       "meta": {
@@ -48,11 +53,15 @@
       "category": "dialysis-recovery",
       "format": "video",
       "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "thumbnail": "/media/Dialysis.webp",
+      "thumbnail": "/media/home-story-dialysis.webp",
       "publishedDate": "2026-01-15",
       "featured": true,
-      "departments": ["nephrology"],
-      "services": ["dialysis"],
+      "departments": [
+        "nephrology"
+      ],
+      "services": [
+        "dialysis"
+      ],
       "_status": "published",
       "publishedAt": "2026-01-15",
       "meta": {
@@ -68,7 +77,7 @@
       "subHeading": "Recovery after complex orthopedic procedure and physiotherapy rehabilitation.",
       "category": "successful-surgeries",
       "format": "article",
-      "thumbnail": "/media/pexels-rdne-6129115.webp",
+      "thumbnail": "/media/news-gynae.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -81,8 +90,14 @@
       ],
       "publishedDate": "2025-11-28",
       "featured": false,
-      "departments": ["orthopedics", "physiotherapy-rehabilitation"],
-      "services": ["ipd", "ot-complex"],
+      "departments": [
+        "orthopedics",
+        "physiotherapy-rehabilitation"
+      ],
+      "services": [
+        "ipd",
+        "ot-complex"
+      ],
       "_status": "published",
       "publishedAt": "2025-11-28",
       "meta": {
@@ -98,7 +113,7 @@
       "subHeading": "Critical cardiac care and ICU support for a heart attack patient.",
       "category": "life-saving-treatments",
       "format": "article",
-      "thumbnail": "/media/anesthesiology-details-banner.webp",
+      "thumbnail": "/media/ot-complex-service-banner.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -111,8 +126,13 @@
       ],
       "publishedDate": "2025-10-20",
       "featured": false,
-      "departments": ["cardiology"],
-      "services": ["icu", "emergency"],
+      "departments": [
+        "cardiology"
+      ],
+      "services": [
+        "icu",
+        "emergency"
+      ],
       "_status": "published",
       "publishedAt": "2025-10-20",
       "meta": {
@@ -128,7 +148,7 @@
       "subHeading": "Welfare-funded cataract surgery restored vision for an elderly patient.",
       "category": "successful-surgeries",
       "format": "article",
-      "thumbnail": "/media/pexels-mart-production-7089623.webp",
+      "thumbnail": "/media/home-story-nursery.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -142,8 +162,13 @@
       ],
       "publishedDate": "2025-09-14",
       "featured": false,
-      "departments": ["ophthalmology"],
-      "services": ["opd", "ot-complex"],
+      "departments": [
+        "ophthalmology"
+      ],
+      "services": [
+        "opd",
+        "ot-complex"
+      ],
       "_status": "published",
       "publishedAt": "2025-09-14",
       "meta": {
@@ -160,11 +185,16 @@
       "category": "life-saving-treatments",
       "format": "video",
       "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "thumbnail": "/media/476945069_970781975161220_6789087496260085071_n.webp",
+      "thumbnail": "/media/news-visitors.webp",
       "publishedDate": "2025-08-22",
       "featured": false,
-      "departments": ["pediatrics-neonatology"],
-      "services": ["icu", "ipd"],
+      "departments": [
+        "pediatrics-neonatology"
+      ],
+      "services": [
+        "icu",
+        "ipd"
+      ],
       "_status": "published",
       "publishedAt": "2025-08-22",
       "meta": {
@@ -180,7 +210,7 @@
       "subHeading": "How zakat and donor support sustain long-term dialysis for deserving patients.",
       "category": "dialysis-recovery",
       "format": "article",
-      "thumbnail": "/media/dialysis-care-unit-content-banner.webp",
+      "thumbnail": "/media/dialysis-service-banner.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -193,8 +223,12 @@
       ],
       "publishedDate": "2025-07-05",
       "featured": false,
-      "departments": ["nephrology"],
-      "services": ["dialysis"],
+      "departments": [
+        "nephrology"
+      ],
+      "services": [
+        "dialysis"
+      ],
       "_status": "published",
       "publishedAt": "2025-07-05",
       "meta": {
@@ -210,7 +244,7 @@
       "subHeading": "Minimally invasive urology surgery with rapid recovery.",
       "category": "successful-surgeries",
       "format": "article",
-      "thumbnail": "/media/DSC_0076.webp",
+      "thumbnail": "/media/news-icu.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -219,8 +253,13 @@
       ],
       "publishedDate": "2025-06-18",
       "featured": false,
-      "departments": ["urology"],
-      "services": ["ot-complex", "ipd"],
+      "departments": [
+        "urology"
+      ],
+      "services": [
+        "ot-complex",
+        "ipd"
+      ],
       "_status": "published",
       "publishedAt": "2025-06-18",
       "meta": {
@@ -236,7 +275,7 @@
       "subHeading": "Comprehensive maternity care for a high-risk pregnancy.",
       "category": "life-saving-treatments",
       "format": "article",
-      "thumbnail": "/media/pexels-rdne-6129574.webp",
+      "thumbnail": "/media/emergency-service-banner.webp",
       "articleContent": [
         {
           "type": "paragraph",
@@ -249,8 +288,13 @@
       ],
       "publishedDate": "2025-05-30",
       "featured": false,
-      "departments": ["gynaecology-obstetrics"],
-      "services": ["ipd", "opd"],
+      "departments": [
+        "gynaecology-obstetrics"
+      ],
+      "services": [
+        "ipd",
+        "opd"
+      ],
       "_status": "published",
       "publishedAt": "2025-05-30",
       "meta": {

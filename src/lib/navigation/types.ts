@@ -7,14 +7,9 @@ export type NavLink = {
 
 export type NavGroup = {
   heading: string
+  /** When set, the group title links to this hub (or overview) page. */
+  href?: string
   links: NavLink[]
-}
-
-export type NavFeatured = {
-  title: string
-  description: string
-  ctaLabel: string
-  href: string
 }
 
 export type NavTopLevelItem = {
@@ -22,7 +17,6 @@ export type NavTopLevelItem = {
   label: string
   moreLink?: NavLink
   groups: NavGroup[]
-  featured?: NavFeatured
 }
 
 export type NavigationData = {

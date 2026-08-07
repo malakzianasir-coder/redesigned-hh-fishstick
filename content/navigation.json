@@ -7,6 +7,7 @@
       "groups": [
         {
           "heading": "Our Purpose",
+          "href": "/our-purpose",
           "links": [
             { "label": "Vision & Mission", "href": "/our-purpose#vision-mission" },
             { "label": "Our Journey", "href": "/our-purpose#our-journey" },
@@ -17,6 +18,7 @@
         },
         {
           "heading": "Leadership & Governance",
+          "href": "/leadership",
           "links": [
             { "label": "Our Founders", "href": "/leadership#our-founders" },
             { "label": "Our Chairpersons", "href": "/leadership#our-chairpersons" },
@@ -28,9 +30,21 @@
         },
         {
           "heading": "Messages",
+          "href": "/leadership/messages",
           "links": [
             { "label": "Chairman's Message", "href": "/leadership/messages#chairmans-message" },
             { "label": "President's Message", "href": "/leadership/messages#presidents-message" }
+          ]
+        },
+        {
+          "heading": "Our Impact",
+          "href": "/our-impact",
+          "links": [
+            { "label": "Awards & Recognitions", "href": "/our-impact#award" },
+            { "label": "Health & Academic Partners", "href": "/our-impact#health-partners" },
+            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-purpose#our-compliance" },
+            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts-statistics" },
+            { "label": "Our Supporters", "href": "/our-supporters" }
           ]
         }
       ]
@@ -39,15 +53,10 @@
       "id": "departments",
       "label": "Departments",
       "moreLink": { "label": "View all departments →", "href": "/departments" },
-      "featured": {
-        "title": "Featured: General Surgery",
-        "description": "24/7 surgical care — from emergency procedures to planned operations.",
-        "ctaLabel": "Explore department",
-        "href": "/departments/general-surgery"
-      },
       "groups": [
         {
           "heading": "Surgery & Allied Specialties",
+          "href": "/departments#surgery-allied",
           "links": [
             { "label": "General Surgery", "href": "/departments/general-surgery" },
             { "label": "Orthopedics", "href": "/departments/orthopedics" },
@@ -60,6 +69,7 @@
         },
         {
           "heading": "Internal Medicine & Allied Specialties",
+          "href": "/departments#internal-medicine",
           "links": [
             { "label": "General Medicine", "href": "/departments/general-medicine" },
             { "label": "Gastroenterology", "href": "/departments/gastroenterology" },
@@ -72,6 +82,7 @@
         },
         {
           "heading": "Mother & Child",
+          "href": "/departments#mother-child",
           "links": [
             { "label": "Gynaecology & Obstetrics", "href": "/departments/gynaecology-obstetrics" },
             { "label": "Pediatrics", "href": "/departments/pediatrics-neonatology" }
@@ -79,6 +90,7 @@
         },
         {
           "heading": "Specialized Care",
+          "href": "/departments#specialized",
           "links": [
             { "label": "Dietetics & Nutrition", "href": "/departments/dietetics-nutrition" },
             { "label": "Physiotherapy", "href": "/departments/physiotherapy-rehabilitation" }
@@ -93,6 +105,7 @@
       "groups": [
         {
           "heading": "Our Doctors",
+          "href": "/doctors",
           "links": [
             {
               "label": "Our Consultants",
@@ -120,6 +133,7 @@
       "groups": [
         {
           "heading": "Hospital Facilities",
+          "href": "/services#facilities",
           "links": [
             { "label": "OPD", "href": "/services/opd" },
             { "label": "IPD", "href": "/services/ipd" },
@@ -130,6 +144,7 @@
         },
         {
           "heading": "Clinical Support",
+          "href": "/services#clinical",
           "links": [
             { "label": "Nursing", "href": "/services/nursing" },
             { "label": "Anesthesia", "href": "/services/anesthesia" },
@@ -139,6 +154,7 @@
         },
         {
           "heading": "Support Services",
+          "href": "/services#support",
           "links": [
             { "label": "Pharmacy", "href": "/services/pharmacy" },
             { "label": "Blood Bank", "href": "/services/blood-bank" },
@@ -154,18 +170,20 @@
       "groups": [
         {
           "heading": "Pathology / Clinical Laboratory",
+          "href": "/services#diagnostics",
           "links": [
             { "label": "Clinical Laboratory Overview", "href": "/services/pathology" },
-            { "label": "Accreditation / Quality Certificates", "href": "/our-purpose#our-compliance" },
             { "label": "List of Tests Available", "href": "/lab-tests" }
           ]
         },
         {
           "heading": "Radiology & Imaging",
+          "href": "/services#diagnostics",
           "links": [{ "label": "Radiology & Imaging", "href": "/services/radiology" }]
         },
         {
           "heading": "Cardiac Diagnostics",
+          "href": "/services#diagnostics",
           "links": [{ "label": "Cardiac Diagnostics", "href": "/services/cardiac-diagnostics" }]
         }
       ]
@@ -177,6 +195,7 @@
       "groups": [
         {
           "heading": "Financial & Community Support",
+          "href": "/patient-welfare",
           "links": [
             { "label": "Zakat & Financial Assistance", "href": "/patient-welfare/financial-assistance" },
             { "label": "Dialysis Patient Support", "href": "/patient-welfare/dialysis-support" },
@@ -188,6 +207,7 @@
         },
         {
           "heading": "Patient Resources",
+          "href": "/patient-welfare",
           "links": [
             { "label": "Admission Process", "href": "/patient-welfare/admission-process" },
             { "label": "Rights & Responsibilities", "href": "/patient-welfare/patient-rights" },
@@ -202,65 +222,38 @@
       "id": "donate",
       "label": "Donate",
       "moreLink": { "label": "Ways to give hub →", "href": "/donate" },
-      "featured": {
-        "title": "Inam Tasneem Waheed Medical Tower",
-        "description": "Help us build the next chapter of compassionate care at Hijaz.",
-        "ctaLabel": "Support the project",
-        "href": "/donate"
-      },
       "groups": [
         {
           "heading": "Ways to Give",
+          "href": "/donate",
           "links": [
-            { "label": "Zakat + Calculator", "href": "/donate" },
-            { "label": "General Donation", "href": "/donate" },
-            { "label": "Sadaqah", "href": "/donations/sadaqah" },
-            { "label": "Eidi & Fitrana", "href": "/donations/eidi-fitrana" }
+            { "label": "Zakat + Calculator", "href": "/donate/zakat" },
+            { "label": "General Donation", "href": "/donate/general" },
+            { "label": "Sadaqah", "href": "/donate/sadaqah" },
+            { "label": "Eidi & Fitrana", "href": "/donate/eidi-fitrana" }
           ]
         },
         {
           "heading": "What You Can Support",
+          "href": "/donate/what-you-can-support",
           "links": [
-            { "label": "Donate a Meal", "href": "/donations/donate-a-meal" },
-            { "label": "Donate in Kind", "href": "/donations/donate-in-kind" },
-            { "label": "Sponsor a Patient", "href": "/donations/sponsor-a-patient" },
-            { "label": "Sponsor Free Surgeries", "href": "/donations/sponsor-free-surgeries" },
-            { "label": "Support a Project — ITW Medical Tower", "href": "/donations/itw-medical-tower" }
+            { "label": "Donate a Meal", "href": "/donate/what-you-can-support/donate-a-meal" },
+            { "label": "Donate in Kind", "href": "/donate/what-you-can-support/donate-in-kind" },
+            { "label": "Sponsor a Patient", "href": "/donate/what-you-can-support/sponsor-a-patient" },
+            { "label": "Sponsor Free Surgeries", "href": "/donate/what-you-can-support/sponsor-free-surgeries" },
+            { "label": "Support a Project", "href": "/donate/what-you-can-support/support-a-project" }
           ]
         },
         {
           "heading": "How to Donate",
+          "href": "/donate/how-to-donate",
           "links": [
-            { "label": "Online", "href": "/donate" },
-            { "label": "Mobile Wallet", "href": "/donate" },
-            { "label": "Bank Transfer", "href": "/donate" },
-            { "label": "Meezan App & QR", "href": "/donate" },
-            { "label": "Cheque / Bank Draft", "href": "/donate" },
-            { "label": "Pick-Up Service", "href": "/donate" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "impact",
-      "label": "Our Impact",
-      "moreLink": { "label": "Explore impact reports →", "href": "/reports" },
-      "groups": [
-        {
-          "heading": "Our Impact",
-          "links": [
-            { "label": "Awards & Recognitions", "href": "/our-impact#award" },
-            { "label": "Health & Academic Partners", "href": "/our-impact#health-partners" },
-            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-purpose#our-compliance" },
-            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts-statistics" }
-          ]
-        },
-        {
-          "heading": "Supporters & Reports",
-          "links": [
-            { "label": "ITW Medical Tower Project", "href": "/our-impact#medical-tower" },
-            { "label": "Our Friends / Supporters (Donor List)", "href": "/our-supporters" },
-            { "label": "Impact Reports", "href": "/reports" }
+            { "label": "Online", "href": "/donate/how-to-donate/online" },
+            { "label": "Mobile Wallet", "href": "/donate/how-to-donate/mobile-wallet" },
+            { "label": "Bank Transfer", "href": "/donate/how-to-donate/bank-transfer" },
+            { "label": "Meezan App & QR", "href": "/donate/how-to-donate/meezan-app" },
+            { "label": "Cheque / Bank Draft", "href": "/donate/how-to-donate/cheque" },
+            { "label": "Pick-Up Service", "href": "/donate/how-to-donate/pick-up" }
           ]
         }
       ]

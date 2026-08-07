@@ -1,35 +1,155 @@
 [
   {
+    "slug": "opd",
+    "title": "Outpatient Department (OPD)",
+    "category": "Hospital Facilities",
+    "categorySlug": "facilities",
+    "description": "Expert consultations across 40+ specialties, with free medicines for every OPD patient.",
+    "excerpt": "Expert consultations across 40+ specialties, with free medicines for every OPD patient.",
+    "hero": {
+      "kicker": "Hospital Facilities",
+      "title": "Outpatient Department (OPD)",
+      "quote": "Expert Consultations. Comprehensive Care. Free Medicines for Every OPD Patient.",
+      "excerpt": "Expert consultations across 40+ specialties, with free medicines for every OPD patient.",
+      "media": {
+        "type": "image",
+        "src": "/media/opd-service-banner.webp",
+        "alt": "Outpatient Department (OPD)"
+      },
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Why Choose Us",
+          "href": "#why-choose",
+          "variant": "ghost"
+        }
+      ]
+    },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Timings",
+        "href": "#timings"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Why Choose Us",
+        "href": "#why-choose"
+      }
+    ],
+    "sections": [
+      {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "First Point of Contact for Expert Care",
+        "background": "white",
+        "body": [
+          "The Outpatient Department (OPD) at Hijaz Hospital is the first point of contact for patients seeking expert medical consultation, diagnosis, treatment, and follow-up care. With over 40 experienced consultants across a wide range of medical and surgical specialties, we provide quality healthcare that is accessible, affordable, and compassionate.",
+          "As a charitable healthcare institution, Hijaz Hospital is committed to making quality healthcare accessible to everyone. Through our welfare and donor-supported programs, all OPD patients receive free medicines, ensuring that essential treatment remains within reach for individuals and families in need."
+        ]
+      },
+      {
+        "type": "content",
+        "id": "timings",
+        "kicker": "OPD Timings",
+        "heading": "OPD Timings",
+        "background": "muted",
+        "body": [
+          "Morning Clinic: 8:00 AM – 2:00 PM",
+          "Evening Clinic: 2:00 PM – 8:00 PM"
+        ]
+      },
+      {
+        "type": "content",
+        "id": "specialized-care",
+        "kicker": "Specialized Medical Care",
+        "heading": "Specialized Medical Care",
+        "background": "white",
+        "body": [
+          "Our consultants provide comprehensive evaluation and personalized treatment plans across multiple specialties, helping patients receive the right care at the right time."
+        ]
+      },
+      {
+        "type": "serviceGroups",
+        "id": "services",
+        "layout": "stack",
+        "background": "muted",
+        "kicker": "Diagnostic & Support Services",
+        "heading": "Diagnostic & Support Services",
+        "intro": "To support accurate diagnosis and effective treatment, OPD patients have access to:",
+        "groups": [
+          {
+            "heading": "Diagnostic & Support Services",
+            "icon": "microscope",
+            "items": [
+              "Laboratory Investigations",
+              "Radiology & Imaging Services",
+              "Pharmacy Support",
+              "Specialist Referrals"
+            ]
+          }
+        ],
+        "footer": "In situations where, certain specialized diagnostic tests or services are not available within the hospital, Hijaz Hospital coordinates these investigations through trusted external laboratories and diagnostic partners. This ensures that patients continue to receive timely, accurate, and uninterrupted medical care."
+      },
+      {
+        "type": "bullets",
+        "id": "why-choose",
+        "layout": "cards",
+        "background": "white",
+        "kicker": "Why Choose Us",
+        "heading": "Why Choose Hijaz Hospital OPD?",
+        "items": [
+          "40+ Specialized Consultants",
+          "Free Medicines for All OPD Patients",
+          "Comprehensive Diagnostic Support",
+          "Affordable and Accessible Healthcare",
+          "Convenient Morning & Evening Clinics"
+        ]
+      },
+      {
+        "type": "closingBand",
+        "id": "closing",
+        "kicker": "Compassionate Care",
+        "quote": "Dedicated to compassionate, patient-centered care, our OPD serves as a trusted gateway to quality healthcare for the community."
+      }
+    ]
+  },
+  {
     "slug": "ipd",
     "title": "Inpatient Department (IPD)",
     "category": "Hospital Facilities",
     "categorySlug": "facilities",
-    "description": "Comprehensive inpatient medical and surgical care with compassionate support for every patient.",
-    "excerpt": "The Inpatient Department provides comprehensive medical and surgical care for patients requiring hospitalization, continuous monitoring, and postoperative recovery.",
+    "description": "Compassionate inpatient care — hospitalization, surgery, and recovery, accessible to all.",
+    "excerpt": "Compassionate inpatient care — hospitalization, surgery, and recovery, accessible to all.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Hospital Facilities",
       "title": "Inpatient Department (IPD)",
-      "tagline": "\"Compassionate Inpatient Care, Accessible to All.\"",
-      "excerpt": "The Inpatient Department (IPD) at Hijaz Hospital provides comprehensive medical and surgical care for patients requiring hospitalization, continuous monitoring, specialized treatment, and postoperative recovery. With an average of 25–35 daily admissions, our IPD is equipped to deliver quality care through experienced consultants, skilled nursing staff, and modern medical facilities.",
-      "variant": "white",
+      "quote": "Compassionate Inpatient Care, Accessible to All.",
+      "excerpt": "Compassionate inpatient care — hospitalization, surgery, and recovery, accessible to all.",
       "media": {
         "type": "image",
-        "src": "/media/services-hero-banner.webp",
-        "alt": "Inpatient Department at Hijaz Hospital"
-      },
-      "stat": {
-        "value": "25–35",
-        "label": "daily admissions"
+        "src": "/media/ipd-service-banner.webp",
+        "alt": "Inpatient Department (IPD)"
       },
       "links": [
         {
-          "label": "Plan Your Admission",
-          "href": "/patient-welfare/admission-process",
+          "label": "Our Services",
+          "href": "#services",
           "variant": "primary"
         },
         {
-          "label": "Accommodation Options",
+          "label": "Accommodation",
           "href": "#accommodation",
           "variant": "ghost"
         }
@@ -41,16 +161,16 @@
         "href": "#overview"
       },
       {
-        "label": "Your Stay",
-        "href": "#your-stay"
+        "label": "Welfare Support",
+        "href": "#welfare"
       },
       {
         "label": "Sehat Sahulat",
         "href": "#sehat-sahulat"
       },
       {
-        "label": "Surgical Care",
-        "href": "#surgical-care"
+        "label": "Surgical Services",
+        "href": "#services"
       },
       {
         "label": "Accommodation",
@@ -59,39 +179,45 @@
     ],
     "sections": [
       {
-        "type": "iconGrid",
-        "id": "your-stay",
-        "kicker": "Your Stay",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Comprehensive Medical and Surgical Care",
+        "background": "white",
+        "body": [
+          "The Inpatient Department (IPD) at Hijaz Hospital provides comprehensive medical and surgical care for patients requiring hospitalization, continuous monitoring, specialized treatment, and postoperative recovery. With an average of 25–35 daily admissions, our IPD is equipped to deliver quality care through experienced consultants, skilled nursing staff, and modern medical facilities."
+        ]
+      },
+      {
+        "type": "content",
+        "id": "welfare",
+        "kicker": "Accessible Healthcare for All",
         "heading": "Accessible Healthcare for All",
-        "intro": [
-          "Many of our admitted patients come from underprivileged backgrounds and rely on charitable support to access essential healthcare services. As a charitable healthcare institution, Hijaz Hospital is committed to ensuring that no patient is denied treatment due to financial hardship.",
-          "Through donor-supported welfare programs, deserving and critically ill patients receive free treatment, including:"
-        ],
         "background": "muted",
-        "items": [
+        "body": [
+          "Many of our admitted patients come from underprivileged backgrounds and rely on charitable support to access essential healthcare services. As a charitable healthcare institution, Hijaz Hospital is committed to ensuring that no patient is denied treatment due to financial hardship."
+        ]
+      },
+      {
+        "type": "serviceGroups",
+        "id": "welfare-support",
+        "layout": "stack",
+        "background": "muted",
+        "kicker": "Welfare Support",
+        "heading": "Free Treatment Includes",
+        "intro": "Through donor-supported welfare programs, deserving and critically ill patients receive free treatment, including:",
+        "groups": [
           {
-            "icon": "hospital",
-            "label": "Hospitalization"
-          },
-          {
-            "icon": "knife",
-            "label": "Surgical Procedures"
-          },
-          {
-            "icon": "pill",
-            "label": "Medications"
-          },
-          {
-            "icon": "microscope",
-            "label": "Diagnostic Investigations"
-          },
-          {
-            "icon": "first-aid",
-            "label": "Nursing Care"
-          },
-          {
-            "icon": "clipboard-text",
-            "label": "Follow-up Services"
+            "heading": "Free Treatment Includes",
+            "icon": "hand-coins",
+            "items": [
+              "Hospitalization",
+              "Surgical Procedures",
+              "Medications",
+              "Diagnostic Investigations",
+              "Nursing Care",
+              "Follow-up Services"
+            ]
           }
         ]
       },
@@ -100,74 +226,44 @@
         "id": "sehat-sahulat",
         "kicker": "Government Coverage",
         "heading": "Sehat Sahulat Program",
+        "background": "white",
         "body": [
           "Hijaz Hospital is also enlisted under the Government of Pakistan's Sehat Sahulat Program, enabling eligible patients to receive medical and surgical treatment through government-sponsored healthcare coverage. This initiative helps reduce financial burdens while ensuring access to quality healthcare services."
-        ],
-        "background": "white"
+        ]
       },
       {
         "type": "serviceGroups",
-        "id": "surgical-care",
+        "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Surgical Services",
         "heading": "Surgical Services",
         "intro": "Our hospital performs a wide range of surgical procedures across multiple specialties, including:",
-        "background": "muted",
-        "layout": "links",
-        "footer": "All procedures are supported by qualified surgeons, experienced consultants, dedicated nursing teams, and advanced medical infrastructure.",
         "groups": [
           {
-            "slug": "orthopedic-surgery",
-            "icon": "bone",
-            "heading": "Orthopedic Surgery",
-            "href": "/departments",
-            "items": []
-          },
-          {
-            "slug": "general-surgery",
+            "heading": "Surgical Specialties",
             "icon": "knife",
-            "heading": "General Surgery",
-            "href": "/departments/general-surgery",
-            "items": []
-          },
-          {
-            "slug": "ent-surgery",
-            "icon": "ear",
-            "heading": "ENT Surgery",
-            "href": "/departments",
-            "items": []
-          },
-          {
-            "slug": "urology",
-            "icon": "drop",
-            "heading": "Urology",
-            "href": "/departments",
-            "items": []
-          },
-          {
-            "slug": "gynecology-obstetrics",
-            "icon": "gender-female",
-            "heading": "Gynecology & Obstetrics",
-            "href": "/departments",
-            "items": []
-          },
-          {
-            "slug": "gastroenterology",
-            "icon": "pulse",
-            "heading": "Gastroenterology Procedures",
-            "href": "/departments",
-            "items": []
+            "items": [
+              "Orthopedic Surgery",
+              "General Surgery",
+              "ENT Surgery",
+              "Urology",
+              "Gynecology & Obstetrics",
+              "Gastroenterology Procedures"
+            ]
           }
-        ]
+        ],
+        "footer": "All procedures are supported by qualified surgeons, experienced consultants, dedicated nursing teams, and advanced medical infrastructure."
       },
       {
         "type": "accommodation",
         "id": "accommodation",
         "kicker": "Accommodation",
         "heading": "Private & VIP Accommodation",
+        "background": "white",
         "intro": [
           "For patients seeking additional privacy and comfort, Hijaz Hospital offers private accommodation options with the same high standard of medical care provided throughout the hospital. These rooms feature modern amenities and personalized support while remaining available at subsidized rates to make quality healthcare more accessible."
         ],
-        "background": "white",
         "rooms": [
           {
             "count": "4",
@@ -192,95 +288,6 @@
         "id": "closing",
         "kicker": "Compassionate Inpatient Care",
         "quote": "From admission to recovery, our IPD team is dedicated to providing safe, dignified, and patient-centered care, ensuring every patient receives the treatment and support they need throughout their hospital stay."
-      },
-      {
-        "type": "cta",
-        "kicker": "Support Our Mission",
-        "heading": "Help Us Keep Care Within Reach for Every Patient",
-        "body": "Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.",
-        "button": {
-          "label": "Donate Now",
-          "href": "/donate"
-        }
-      }
-    ]
-  },
-  {
-    "slug": "opd",
-    "title": "Outpatient Department (OPD)",
-    "category": "Hospital Facilities",
-    "categorySlug": "facilities",
-    "description": "The Outpatient Department (OPD) at Hijaz Hospital is the first point of contact for patients seeking expert medical consultation, diagnosis, treatment, and follow-up care.",
-    "excerpt": "The Outpatient Department (OPD) at Hijaz Hospital is the first point of contact for patients seeking expert medical consultation, diagnosis, treatment, and follow-up care. With over 40 experienced consultants across a wide range of medical and surgical specialties, we provide quality healthcare that is accessible, affordable, and compassionate.",
-    "hero": {
-      "id": "overview",
-      "kicker": "Services",
-      "title": "Outpatient Department (OPD)",
-      "tagline": "\"Expert Consultations. Comprehensive Care. Free Medicines for Every OPD Patient.\"",
-      "excerpt": "The Outpatient Department (OPD) at Hijaz Hospital is the first point of contact for patients seeking expert medical consultation, diagnosis, treatment, and follow-up care. With over 40 experienced consultants across a wide range of medical and surgical specialties, we provide quality healthcare that is accessible, affordable, and compassionate.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Outpatient Department (OPD)" },
-      "stat": { "value": "40+", "label": "Specialized Consultants" }
-    },
-    "sections": [
-      {
-        "type": "content",
-        "id": "welfare",
-        "kicker": "Welfare",
-        "heading": "Accessible Healthcare for Everyone",
-        "body": ["As a charitable healthcare institution, Hijaz Hospital is committed to making quality healthcare accessible to everyone. Through our welfare and donor-supported programs, all OPD patients receive free medicines, ensuring that essential treatment remains within reach for individuals and families in need."],
-        "background": "white"
-      },
-      {
-        "type": "content",
-        "id": "timings",
-        "kicker": "OPD Timings",
-        "heading": "OPD Timings",
-        "body": ["Morning Clinic: 8:00 AM – 2:00 PM\nEvening Clinic: 2:00 PM – 8:00 PM"],
-        "background": "muted"
-      },
-      {
-        "type": "content",
-        "id": "specialized-care",
-        "kicker": "Specialized Medical Care",
-        "heading": "Specialized Medical Care",
-        "body": ["Our consultants provide comprehensive evaluation and personalized treatment plans across multiple specialties, helping patients receive the right care at the right time."],
-        "background": "white"
-      },
-      {
-        "type": "bullets",
-        "id": "diagnostic-support",
-        "kicker": "Diagnostic & Support Services",
-        "heading": "Diagnostic & Support Services",
-        "intro": "To support accurate diagnosis and effective treatment, OPD patients have access to:",
-        "items": [
-          "Laboratory Investigations",
-          "Radiology & Imaging Services",
-          "Pharmacy Support",
-          "Specialist Referrals"
-        ],
-        "footer": "In situations where, certain specialized diagnostic tests or services are not available within the hospital, Hijaz Hospital coordinates these investigations through trusted external laboratories and diagnostic partners. This ensures that patients continue to receive timely, accurate, and uninterrupted medical care.",
-        "background": "muted"
-      },
-      {
-        "type": "iconGrid",
-        "id": "why-choose",
-        "kicker": "Why Choose Hijaz Hospital OPD?",
-        "heading": "Why Choose Hijaz Hospital OPD?",
-        "items": [
-          { "icon": "check", "label": "40+ Specialized Consultants" },
-          { "icon": "check", "label": "Free Medicines for All OPD Patients" },
-          { "icon": "check", "label": "Comprehensive Diagnostic Support" },
-          { "icon": "check", "label": "Affordable and Accessible Healthcare" },
-          { "icon": "check", "label": "Convenient Morning & Evening Clinics" }
-        ],
-        "background": "white"
-      },
-      {
-        "type": "closingBand",
-        "id": "closing",
-        "kicker": "Compassionate Care",
-        "quote": "Dedicated to compassionate, patient-centered care, our OPD serves as a trusted gateway to quality healthcare for the community."
       }
     ]
   },
@@ -289,37 +296,78 @@
     "title": "Intensive Care Unit (ICU)",
     "category": "Hospital Facilities",
     "categorySlug": "facilities",
-    "description": "The Intensive Care Unit (ICU) at Hijaz Hospital provides specialized care for critically ill patients requiring continuous monitoring, advanced medical treatment, and life-support services.",
-    "excerpt": "The Intensive Care Unit (ICU) at Hijaz Hospital provides specialized care for critically ill patients requiring continuous monitoring, advanced medical treatment, and life-support services.",
+    "description": "24/7 critical care with continuous monitoring and life-support for the most seriously ill.",
+    "excerpt": "24/7 critical care with continuous monitoring and life-support for the most seriously ill.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Hospital Facilities",
       "title": "Intensive Care Unit (ICU)",
-      "tagline": "The Intensive Care Unit (ICU) at Hijaz Hospital provides specialized care for critically ill patients requiring continuous monitoring, advanced medical treatment, and life-support services.",
-      "excerpt": "The ICU operates 24 hours a day, 7 days a week, providing uninterrupted critical care for patients with severe medical and surgical conditions, postoperative complications, respiratory failure, and other life-threatening emergencies.\n\nThe unit is staffed by experienced doctors, nurses, anesthesia personnel, and critical care professionals who work together to deliver comprehensive, patient-centered care around the clock.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Intensive Care Unit (ICU)" },
-      "stat": { "value": "24/7", "label": "Critical Care" }
+      "excerpt": "24/7 critical care with continuous monitoring and life-support for the most seriously ill.",
+      "media": {
+        "type": "image",
+        "src": "/media/icu-service-banner.webp",
+        "alt": "Intensive Care Unit (ICU)"
+      },
+      "links": [
+        {
+          "label": "Facilities & Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Facilities & Services",
+        "href": "#services"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
-        "id": "facilities",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Specialized Care for Critically Ill Patients",
+        "background": "white",
+        "body": [
+          "The Intensive Care Unit (ICU) at Hijaz Hospital provides specialized care for critically ill patients requiring continuous monitoring, advanced medical treatment, and life-support services.",
+          "The ICU operates 24 hours a day, 7 days a week, providing uninterrupted critical care for patients with severe medical and surgical conditions, postoperative complications, respiratory failure, and other life-threatening emergencies.",
+          "The unit is staffed by experienced doctors, nurses, anesthesia personnel, and critical care professionals who work together to deliver comprehensive, patient-centered care around the clock."
+        ]
+      },
+      {
+        "type": "serviceGroups",
+        "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Facilities and Services",
         "heading": "Facilities and Services",
         "intro": "The ICU consists of 6 fully equipped beds and offers:",
-        "items": [
-          "Continuous 24/7 patient monitoring",
-          "Postoperative critical care",
-          "Ventilator and respiratory support",
-          "Emergency stabilization and resuscitation",
-          "Critical care and anesthesia consultations",
-          "Management of high-risk surgical and medical patients",
-          "Round-the-clock nursing care",
-          "Multidisciplinary treatment planning"
+        "groups": [
+          {
+            "heading": "ICU Facilities and Services",
+            "icon": "heartbeat",
+            "items": [
+              "Continuous 24/7 patient monitoring",
+              "Postoperative critical care",
+              "Ventilator and respiratory support",
+              "Emergency stabilization and resuscitation",
+              "Critical care and anesthesia consultations",
+              "Management of high-risk surgical and medical patients",
+              "Round-the-clock nursing care",
+              "Multidisciplinary treatment planning"
+            ]
+          }
         ],
-        "footer": "Equipped with advanced monitoring and life-support systems, the ICU is committed to providing timely, effective, and compassionate care in a safe and closely supervised environment.",
-        "background": "muted"
+        "footer": "Equipped with advanced monitoring and life-support systems, the ICU is committed to providing timely, effective, and compassionate care in a safe and closely supervised environment."
       }
     ]
   },
@@ -328,43 +376,90 @@
     "title": "Emergency Department",
     "category": "Hospital Facilities",
     "categorySlug": "facilities",
-    "description": "The Emergency Department at Hijaz Hospital provides immediate medical care for patients requiring urgent treatment and operates 24 hours a day, 7 days a week.",
-    "excerpt": "The Emergency Department at Hijaz Hospital provides immediate medical care for patients requiring urgent treatment and operates 24 hours a day, 7 days a week.",
+    "description": "Round-the-clock emergency care for acute illness, injury, and urgent medical needs.",
+    "excerpt": "Round-the-clock emergency care for acute illness, injury, and urgent medical needs.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Hospital Facilities",
       "title": "Emergency Department",
-      "tagline": "The Emergency Department at Hijaz Hospital provides immediate medical care for patients requiring urgent treatment and operates 24 hours a day, 7 days a week.",
-      "excerpt": "Our experienced team of physicians, nurses, and healthcare professionals is available around the clock to manage a wide range of emergencies, including acute illnesses, injuries, accidents, and other urgent medical conditions. Patients receive prompt assessment, stabilization, and treatment to ensure timely and effective care.\n\nServing hundreds of patients each day, the Emergency Department is a trusted source of emergency healthcare for the community.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Emergency Department" },
-      "stat": { "value": "24/7", "label": "Emergency Services" }
+      "excerpt": "Round-the-clock emergency care for acute illness, injury, and urgent medical needs.",
+      "media": {
+        "type": "image",
+        "src": "/media/emergency-service-banner.webp",
+        "alt": "Emergency Department"
+      },
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Accessible Care",
+        "href": "#accessible-care"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Immediate Care, Around the Clock",
+        "background": "white",
+        "body": [
+          "The Emergency Department at Hijaz Hospital provides immediate medical care for patients requiring urgent treatment and operates 24 hours a day, 7 days a week.",
+          "Our experienced team of physicians, nurses, and healthcare professionals is available around the clock to manage a wide range of emergencies, including acute illnesses, injuries, accidents, and other urgent medical conditions. Patients receive prompt assessment, stabilization, and treatment to ensure timely and effective care.",
+          "Serving hundreds of patients each day, the Emergency Department is a trusted source of emergency healthcare for the community."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Services",
         "heading": "Services",
-        "items": [
-          "24/7 emergency medical care",
-          "Initial assessment and triage",
-          "Management of acute illnesses and injuries",
-          "Emergency stabilization and treatment",
-          "Referral to specialist consultants when required",
-          "Continuous medical and nursing supervision",
-          "Coordination with inpatient, surgical, and critical care services",
-          "Minor surgical procedures, including wound management and other urgent surgical interventions"
-        ],
-        "background": "muted"
+        "groups": [
+          {
+            "heading": "Emergency Services",
+            "icon": "first-aid",
+            "items": [
+              "24/7 emergency medical care",
+              "Initial assessment and triage",
+              "Management of acute illnesses and injuries",
+              "Emergency stabilization and treatment",
+              "Referral to specialist consultants when required",
+              "Continuous medical and nursing supervision",
+              "Coordination with inpatient, surgical, and critical care services",
+              "Minor surgical procedures, including wound management and other urgent surgical interventions"
+            ]
+          }
+        ]
       },
       {
         "type": "content",
-        "id": "affordable",
+        "id": "accessible-care",
         "kicker": "Affordable and Accessible Care",
         "heading": "Affordable and Accessible Care",
-        "body": ["Hijaz Hospital is committed to ensuring access to quality healthcare for all. Medicines administered during emergency treatment are provided free of charge, and financially disadvantaged patients may receive free medical care based on eligibility and need."],
-        "background": "white"
+        "background": "white",
+        "body": [
+          "Hijaz Hospital is committed to ensuring access to quality healthcare for all. Medicines administered during emergency treatment are provided free of charge, and financially disadvantaged patients may receive free medical care based on eligibility and need."
+        ]
       },
       {
         "type": "closingBand",
@@ -379,61 +474,118 @@
     "title": "Operation Theatre Complex",
     "category": "Hospital Facilities",
     "categorySlug": "facilities",
-    "description": "The Operation Theatre Complex at Hijaz Hospital is a modern surgical facility designed to provide safe, efficient, and high-quality surgical care across multiple specialties.",
-    "excerpt": "The Operation Theatre Complex at Hijaz Hospital is a modern surgical facility designed to provide safe, efficient, and high-quality surgical care across multiple specialties.",
+    "description": "Modern theatres and multidisciplinary surgical teams for safe, high-quality procedures.",
+    "excerpt": "Modern theatres and multidisciplinary surgical teams for safe, high-quality procedures.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Hospital Facilities",
       "title": "Operation Theatre Complex",
-      "tagline": "The Operation Theatre Complex at Hijaz Hospital is a modern surgical facility designed to provide safe, efficient, and high-quality surgical care across multiple specialties.",
-      "excerpt": "The Operation Theatre Complex at Hijaz Hospital is a modern surgical facility designed to provide safe, efficient, and high-quality surgical care across multiple specialties.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Operation Theatre Complex" }
+      "excerpt": "Modern theatres and multidisciplinary surgical teams for safe, high-quality procedures.",
+      "media": {
+        "type": "image",
+        "src": "/media/ot-complex-service-banner.webp",
+        "alt": "Operation Theatre Complex"
+      },
+      "links": [
+        {
+          "label": "Surgical Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Facilities",
+          "href": "#facilities",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Facilities",
+        "href": "#facilities"
+      },
+      {
+        "label": "Surgical Services",
+        "href": "#services"
+      },
+      {
+        "label": "Patient Safety",
+        "href": "#safety"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Modern Surgical Facilities",
+        "background": "white",
+        "body": [
+          "The Operation Theatre Complex at Hijaz Hospital is a modern surgical facility designed to provide safe, efficient, and high-quality surgical care across multiple specialties."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "facilities",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Facilities",
         "heading": "Facilities",
         "intro": "The complex consists of three fully equipped operation theatres for General Surgery, one dedicated to Gynecology, one assigned for Eye Surgery, and one specialized for Gastroenterology procedures. These theatres are supported by essential facilities that ensure smooth surgical workflows and optimal patient care, including:",
-        "items": [
-          "Surgeons' Room",
-          "Patient Recovery Room",
-          "Central Sterile Supply Department (CSSD)",
-          "Dedicated Pharmacy Store",
-          "Preoperative and postoperative support areas"
-        ],
-        "background": "muted"
+        "groups": [
+          {
+            "heading": "Supporting Facilities",
+            "icon": "hospital",
+            "items": [
+              "Surgeons' Room",
+              "Patient Recovery Room",
+              "Central Sterile Supply Department (CSSD)",
+              "Dedicated Pharmacy Store",
+              "Preoperative and postoperative support areas"
+            ]
+          }
+        ]
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "white",
         "kicker": "Surgical Services",
         "heading": "Surgical Services",
         "intro": "The Operation Theatre Complex supports a wide range of surgical procedures, including:",
-        "items": [
-          "General Surgery",
-          "Orthopedic Surgery",
-          "Gynecological Surgery",
-          "Ophthalmic (Eye) Surgery",
-          "Urology Procedures",
-          "ENT (Ear, Nose and Throat) Surgery",
-          "Gastrointestinal Endoscopic Procedures (or Gastroenterology Procedures, as applicable)",
-          "Minor and major surgical procedures",
-          "Emergency surgical procedures",
-          "Laparoscopic (Minimally Invasive) Surgery",
-          "Plastic and Reconstructive Surgery"
-        ],
-        "background": "white"
+        "groups": [
+          {
+            "heading": "Surgical Procedures",
+            "icon": "knife",
+            "items": [
+              "General Surgery",
+              "Orthopedic Surgery",
+              "Gynecological Surgery",
+              "Ophthalmic (Eye) Surgery",
+              "Urology Procedures",
+              "ENT (Ear, Nose and Throat) Surgery",
+              "Gastrointestinal Endoscopic Procedures (or Gastroenterology Procedures, as applicable)",
+              "Minor and major surgical procedures",
+              "Emergency surgical procedures",
+              "Laparoscopic (Minimally Invasive) Surgery",
+              "Plastic and Reconstructive Surgery"
+            ]
+          }
+        ]
       },
       {
         "type": "content",
         "id": "safety",
         "kicker": "Quality and Patient Safety",
         "heading": "Quality and Patient Safety",
-        "body": ["Patient safety and infection prevention are central to all surgical services at Hijaz Hospital. The complex follows strict sterilization and infection control protocols and is supported by experienced surgeons, anesthetists, nurses, and operation theatre technicians who work together to deliver safe, effective, and high-quality surgical care."],
-        "background": "muted"
+        "background": "muted",
+        "body": [
+          "Patient safety and infection prevention are central to all surgical services at Hijaz Hospital. The complex follows strict sterilization and infection control protocols and is supported by experienced surgeons, anesthetists, nurses, and operation theatre technicians who work together to deliver safe, effective, and high-quality surgical care."
+        ]
       },
       {
         "type": "closingBand",
@@ -448,34 +600,75 @@
     "title": "Nursing Department",
     "category": "Clinical Support",
     "categorySlug": "clinical",
-    "description": "The Nursing Department at Hijaz Hospital plays a vital role in providing continuous, safe, and compassionate care to patients across all departments.",
-    "excerpt": "The Nursing Department at Hijaz Hospital plays a vital role in providing continuous, safe, and compassionate care to patients across all departments.",
+    "description": "Caring hands, compassionate hearts, and professional excellence — 50+ nurses around the clock.",
+    "excerpt": "Caring hands, compassionate hearts, and professional excellence — 50+ nurses around the clock.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Clinical Support",
       "title": "Nursing Department",
-      "tagline": "\"Caring hands, compassionate hearts, and professional excellence\"",
-      "excerpt": "The Nursing Department at Hijaz Hospital plays a vital role in providing continuous, safe, and compassionate care to patients across all departments.\n\nSupported by a team of more than 50 qualified and professionally trained nurses, the department works closely with doctors and healthcare teams to ensure effective treatment, patient comfort, and smooth recovery.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Nursing Department" },
-      "stat": { "value": "50+", "label": "qualified nurses" }
+      "quote": "Caring hands, compassionate hearts, and professional excellence",
+      "excerpt": "Caring hands, compassionate hearts, and professional excellence — 50+ nurses around the clock.",
+      "media": {
+        "type": "image",
+        "src": "/media/nursing-service-banner.webp",
+        "alt": "Nursing Department"
+      },
+      "links": [
+        {
+          "label": "Nursing Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Nursing Services",
+        "href": "#services"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Continuous, Safe, and Compassionate Care",
+        "background": "white",
+        "body": [
+          "The Nursing Department at Hijaz Hospital plays a vital role in providing continuous, safe, and compassionate care to patients across all departments.",
+          "Supported by a team of more than 50 qualified and professionally trained nurses, the department works closely with doctors and healthcare teams to ensure effective treatment, patient comfort, and smooth recovery."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Nursing Services",
         "heading": "Nursing Services",
         "intro": "Our nursing team provides:",
-        "items": [
-          "24/7 patient care and monitoring",
-          "Administration of medications and treatments",
-          "Monitoring of vital signs and patient conditions",
-          "Assistance with patient comfort and daily care needs",
-          "Infection prevention and patient safety practices",
-          "Support for treatment plans and clinical care coordination"
-        ],
-        "background": "muted"
+        "groups": [
+          {
+            "heading": "Nursing Services",
+            "icon": "heartbeat",
+            "items": [
+              "24/7 patient care and monitoring",
+              "Administration of medications and treatments",
+              "Monitoring of vital signs and patient conditions",
+              "Assistance with patient comfort and daily care needs",
+              "Infection prevention and patient safety practices",
+              "Support for treatment plans and clinical care coordination"
+            ]
+          }
+        ]
       },
       {
         "type": "closingBand",
@@ -490,33 +683,73 @@
     "title": "Anesthesia Department",
     "category": "Clinical Support",
     "categorySlug": "clinical",
-    "description": "The Anesthesia Department at Hijaz Hospital provides safe and specialized anesthesia care for patients undergoing surgical and diagnostic procedures.",
-    "excerpt": "The Anesthesia Department at Hijaz Hospital provides safe and specialized anesthesia care for patients undergoing surgical and diagnostic procedures. Our experienced team of anesthetists ensures comprehensive care before, during, and after surgery.",
+    "description": "Safe anesthesia care before, during, and after surgery — available 24/7.",
+    "excerpt": "Safe anesthesia care before, during, and after surgery — available 24/7.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Clinical Support",
       "title": "Anesthesia Department",
-      "tagline": "The Anesthesia Department at Hijaz Hospital provides safe and specialized anesthesia care for patients undergoing surgical and diagnostic procedures.",
-      "excerpt": "The Anesthesia Department at Hijaz Hospital provides safe and specialized anesthesia care for patients undergoing surgical and diagnostic procedures. Our experienced team of anesthetists ensures comprehensive care before, during, and after surgery.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Anesthesia Department" }
+      "excerpt": "Safe anesthesia care before, during, and after surgery — available 24/7.",
+      "media": {
+        "type": "image",
+        "src": "/media/anesthesia-service-banner.webp",
+        "alt": "Anesthesia Department"
+      },
+      "links": [
+        {
+          "label": "Our Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Safe and Specialized Anesthesia Care",
+        "background": "white",
+        "body": [
+          "The Anesthesia Department at Hijaz Hospital provides safe and specialized anesthesia care for patients undergoing surgical and diagnostic procedures. Our experienced team of anesthetists ensures comprehensive care before, during, and after surgery."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Services",
         "heading": "Anesthesia Services",
         "intro": "Working closely with surgeons, operation theatre teams, and the Intensive Care Unit (ICU), the department provides:",
-        "items": [
-          "Pre-anesthetic assessment and patient evaluation",
-          "Anesthesia management during surgical procedures",
-          "Postoperative monitoring and pain management",
-          "Critical care support when required",
-          "Continuous patient monitoring throughout procedures"
+        "groups": [
+          {
+            "heading": "Anesthesia Services",
+            "icon": "syringe",
+            "items": [
+              "Pre-anesthetic assessment and patient evaluation",
+              "Anesthesia management during surgical procedures",
+              "Postoperative monitoring and pain management",
+              "Critical care support when required",
+              "Continuous patient monitoring throughout procedures"
+            ]
+          }
         ],
-        "footer": "Using modern anesthesia techniques and evidence-based practices, our team delivers individualized care based on each patient's medical condition and surgical needs.",
-        "background": "muted"
+        "footer": "Using modern anesthesia techniques and evidence-based practices, our team delivers individualized care based on each patient's medical condition and surgical needs."
       },
       {
         "type": "closingBand",
@@ -531,32 +764,67 @@
     "title": "Ambulance Services",
     "category": "Clinical Support",
     "categorySlug": "clinical",
-    "description": "Hijaz Hospital provides 24/7 ambulance services to ensure timely transportation and emergency medical support for patients whenever required.",
-    "excerpt": "Hijaz Hospital provides 24/7 ambulance services to ensure timely transportation and emergency medical support for patients whenever required.",
+    "description": "24/7 ambulance transport with free service for deserving patients.",
+    "excerpt": "24/7 ambulance transport with free service for deserving patients.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Clinical Support",
       "title": "Ambulance Services",
-      "tagline": "Hijaz Hospital provides 24/7 ambulance services to ensure timely transportation and emergency medical support for patients whenever required.",
-      "excerpt": "Hijaz Hospital provides 24/7 ambulance services to ensure timely transportation and emergency medical support for patients whenever required.\n\nOur ambulance services are equipped to support safe patient transfers, including emergency transportation and the transfer of critically ill patients requiring medical assistance during transit.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Ambulance Services" },
-      "stat": { "value": "24/7", "label": "availability" }
+      "excerpt": "24/7 ambulance transport with free service for deserving patients.",
+      "media": {
+        "type": "image",
+        "src": "/media/ambulance-service-banner.webp",
+        "alt": "Ambulance Services"
+      },
+      "links": [
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "primary"
+        },
+        {
+          "label": "Accessible Care",
+          "href": "#accessible-care",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Accessible Care",
+        "href": "#accessible-care"
+      }
+    ],
     "sections": [
       {
         "type": "content",
-        "id": "accessible",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Timely Transportation and Emergency Support",
+        "background": "white",
+        "body": [
+          "Hijaz Hospital provides 24/7 ambulance services to ensure timely transportation and emergency medical support for patients whenever required.",
+          "Our ambulance services are equipped to support safe patient transfers, including emergency transportation and the transfer of critically ill patients requiring medical assistance during transit."
+        ]
+      },
+      {
+        "type": "content",
+        "id": "accessible-care",
         "kicker": "Accessible Healthcare",
         "heading": "Accessible Healthcare",
-        "body": ["As part of our commitment to accessible healthcare, ambulance services are provided free of charge to deserving patients, helping ensure that financial limitations do not prevent access to urgent medical care."],
-        "background": "muted"
+        "background": "muted",
+        "body": [
+          "As part of our commitment to accessible healthcare, ambulance services are provided free of charge to deserving patients, helping ensure that financial limitations do not prevent access to urgent medical care."
+        ]
       },
       {
         "type": "closingBand",
         "id": "closing",
         "kicker": "Emergency Assistance",
-        "quote": "With a focus on rapid response, safe transportation, and patient support, Hijaz Hospital’s ambulance services remain available whenever emergency assistance is needed."
+        "quote": "With a focus on rapid response, safe transportation, and patient support, Hijaz Hospital's ambulance services remain available whenever emergency assistance is needed."
       }
     ]
   },
@@ -565,48 +833,100 @@
     "title": "Dialysis Care Unit",
     "category": "Clinical Support",
     "categorySlug": "clinical",
-    "description": "Established in 2008, the Dialysis Care Unit at Hijaz Hospital provides safe, reliable, and high-quality dialysis services for patients living with kidney failure.",
-    "excerpt": "Established in 2008, the Dialysis Care Unit at Hijaz Hospital provides safe, reliable, and high-quality dialysis services for patients living with kidney failure. The unit is dedicated to delivering compassionate renal care, with a special commitment to serving deserving and underprivileged members of the community.",
+    "description": "Safe, reliable dialysis since 2008 — with free care for eligible patients.",
+    "excerpt": "Safe, reliable dialysis since 2008 — with free care for eligible patients.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Clinical Support",
       "title": "Dialysis Care Unit",
-      "tagline": "Established in 2008, the Dialysis Care Unit at Hijaz Hospital provides safe, reliable, and high-quality dialysis services for patients living with kidney failure.",
-      "excerpt": "Established in 2008, the Dialysis Care Unit at Hijaz Hospital provides safe, reliable, and high-quality dialysis services for patients living with kidney failure. The unit is dedicated to delivering compassionate renal care, with a special commitment to serving deserving and underprivileged members of the community.\n\nThe unit is equipped with advanced Fresenius dialysis machines and follows strict safety, infection control, and quality protocols to ensure effective and comfortable dialysis treatment.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Dialysis Care Unit" },
-      "stat": { "value": "30", "label": "dialysis machines" }
+      "excerpt": "Safe, reliable dialysis since 2008 — with free care for eligible patients.",
+      "media": {
+        "type": "image",
+        "src": "/media/dialysis-service-banner.webp",
+        "alt": "Dialysis Care Unit"
+      },
+      "links": [
+        {
+          "label": "Facilities & Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Facilities & Services",
+        "href": "#services"
+      },
+      {
+        "label": "Patient Support",
+        "href": "#support"
+      },
+      {
+        "label": "Access",
+        "href": "#access"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
-        "id": "facilities",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Compassionate Renal Care Since 2008",
+        "background": "white",
+        "body": [
+          "Established in 2008, the Dialysis Care Unit at Hijaz Hospital provides safe, reliable, and high-quality dialysis services for patients living with kidney failure. The unit is dedicated to delivering compassionate renal care, with a special commitment to serving deserving and underprivileged members of the community.",
+          "The unit is equipped with advanced Fresenius dialysis machines and follows strict safety, infection control, and quality protocols to ensure effective and comfortable dialysis treatment."
+        ]
+      },
+      {
+        "type": "serviceGroups",
+        "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Facilities and Services",
         "heading": "Facilities and Services",
-        "items": [
-          "30 fully equipped dialysis machines",
-          "Regular dialysis sessions through multiple daily shifts",
-          "Safe and closely monitored dialysis treatment",
-          "Experienced medical and nursing support",
-          "Continuous patient monitoring throughout each dialysis session"
-        ],
-        "background": "muted"
+        "groups": [
+          {
+            "heading": "Dialysis Facilities and Services",
+            "icon": "drop",
+            "items": [
+              "30 fully equipped dialysis machines",
+              "Regular dialysis sessions through multiple daily shifts",
+              "Safe and closely monitored dialysis treatment",
+              "Experienced medical and nursing support",
+              "Continuous patient monitoring throughout each dialysis session"
+            ]
+          }
+        ]
       },
       {
         "type": "content",
         "id": "support",
         "kicker": "Support for Deserving Patients",
         "heading": "Support for Deserving Patients",
-        "body": ["Hijaz Hospital is committed to making essential healthcare accessible to all. Eligible patients who are unable to afford treatment may receive dialysis services free of charge through the hospital’s support program."],
-        "background": "white"
+        "background": "white",
+        "body": [
+          "Hijaz Hospital is committed to making essential healthcare accessible to all. Eligible patients who are unable to afford treatment may receive dialysis services free of charge through the hospital's support program."
+        ]
       },
       {
         "type": "content",
         "id": "access",
         "kicker": "Accessing Dialysis Services",
         "heading": "Accessing Dialysis Services",
-        "body": ["Patients seeking dialysis care may contact the Dialysis Care Unit for medical evaluation and the availability of treatment slots. Dialysis services are provided based on the patient's medical needs and the available capacity of the unit."],
-        "background": "muted"
+        "background": "muted",
+        "body": [
+          "Patients seeking dialysis care may contact the Dialysis Care Unit for medical evaluation and the availability of treatment slots. Dialysis services are provided based on the patient's medical needs and the available capacity of the unit."
+        ]
       },
       {
         "type": "closingBand",
@@ -621,41 +941,88 @@
     "title": "Pharmacy",
     "category": "Support Services",
     "categorySlug": "support",
-    "description": "At Hijaz Hospital, the Pharmacy plays an important role in supporting patient care by ensuring the availability of safe, authentic, and quality medicines for patients.",
-    "excerpt": "At Hijaz Hospital, the Pharmacy plays an important role in supporting patient care by ensuring the availability of safe, authentic, and quality medicines for patients.",
+    "description": "Safe, authentic medicines with free dispensing for deserving patients.",
+    "excerpt": "Safe, authentic medicines with free dispensing for deserving patients.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Support Services",
       "title": "Pharmacy",
-      "tagline": "At Hijaz Hospital, the Pharmacy plays an important role in supporting patient care by ensuring the availability of safe, authentic, and quality medicines for patients.",
-      "excerpt": "At Hijaz Hospital, the Pharmacy plays an important role in supporting patient care by ensuring the availability of safe, authentic, and quality medicines for patients.\n\nOur pharmacy department focuses on responsible medicine procurement, proper storage, and safe dispensing practices, and regular audit processes to maintain quality, transparency, and patient safety.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Pharmacy" }
+      "excerpt": "Safe, authentic medicines with free dispensing for deserving patients.",
+      "media": {
+        "type": "image",
+        "src": "/media/pharmacy-service-banner.webp",
+        "alt": "Pharmacy"
+      },
+      "links": [
+        {
+          "label": "Pharmacy Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Pharmacy Services",
+        "href": "#services"
+      },
+      {
+        "label": "Accessible Care",
+        "href": "#accessible-care"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Safe, Authentic, and Quality Medicines",
+        "background": "white",
+        "body": [
+          "At Hijaz Hospital, the Pharmacy plays an important role in supporting patient care by ensuring the availability of safe, authentic, and quality medicines for patients.",
+          "Our pharmacy department focuses on responsible medicine procurement, proper storage, and safe dispensing practices, and regular audit processes to maintain quality, transparency, and patient safety."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Pharmacy Services",
         "heading": "Pharmacy Services",
         "intro": "These mainly include",
-        "items": [
-          "Availability of quality medicines for patients",
-          "Safe dispensing according to physicians' prescriptions",
-          "Support for OPD, admitted patients, surgical, and specialized care services",
-          "Proper medicine storage and quality control practices",
-          "Efficient medicine management and patient support",
-          "Regular audits for ensuring quality standards and transparency"
-        ],
-        "background": "muted"
+        "groups": [
+          {
+            "heading": "Pharmacy Services",
+            "icon": "pill",
+            "items": [
+              "Availability of quality medicines for patients",
+              "Safe dispensing according to physicians' prescriptions",
+              "Support for OPD, admitted patients, surgical, and specialized care services",
+              "Proper medicine storage and quality control practices",
+              "Efficient medicine management and patient support",
+              "Regular audits for ensuring quality standards and transparency"
+            ]
+          }
+        ]
       },
       {
         "type": "content",
-        "id": "accessible",
+        "id": "accessible-care",
         "kicker": "Commitment to Accessible Healthcare",
         "heading": "Commitment to Accessible Healthcare",
-        "body": ["Through hospital resources and welfare support, Hijaz Hospital provides free medicines to deserving patients who require financial assistance, helping ensure that treatment remains accessible to those in need."],
-        "background": "white"
+        "background": "white",
+        "body": [
+          "Through hospital resources and welfare support, Hijaz Hospital provides free medicines to deserving patients who require financial assistance, helping ensure that treatment remains accessible to those in need."
+        ]
       },
       {
         "type": "closingBand",
@@ -670,33 +1037,74 @@
     "title": "Blood Bank",
     "category": "Support Services",
     "categorySlug": "support",
-    "description": "Hijaz Hospital’s Blood Bank provides safe and reliable services to support patients requiring blood transfusion and related laboratory services.",
-    "excerpt": "Hijaz Hospital’s Blood Bank provides safe and reliable services to support patients requiring blood transfusion and related laboratory services.",
+    "description": "Voluntary donations, careful screening, and transfusion support when patients need it.",
+    "excerpt": "Voluntary donations, careful screening, and transfusion support when patients need it.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Support Services",
       "title": "Blood Bank",
-      "tagline": "Hijaz Hospital’s Blood Bank provides safe and reliable services to support patients requiring blood transfusion and related laboratory services.",
-      "excerpt": "Hijaz Hospital’s Blood Bank provides safe and reliable services to support patients requiring blood transfusion and related laboratory services.\n\nAs a trust hospital, we receive blood through voluntary donations and ensure that every blood unit is carefully screened, stored, and handled according to established safety standards.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Blood Bank" }
+      "excerpt": "Voluntary donations, careful screening, and transfusion support when patients need it.",
+      "media": {
+        "type": "image",
+        "src": "/media/blood-bank-service-banner.webp",
+        "alt": "Blood Bank"
+      },
+      "links": [
+        {
+          "label": "Blood Bank Services",
+          "href": "#services",
+          "variant": "primary"
+        },
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "ghost"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      }
+    ],
     "sections": [
       {
-        "type": "bullets",
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Safe and Reliable Transfusion Support",
+        "background": "white",
+        "body": [
+          "Hijaz Hospital's Blood Bank provides safe and reliable services to support patients requiring blood transfusion and related laboratory services.",
+          "As a trust hospital, we receive blood through voluntary donations and ensure that every blood unit is carefully screened, stored, and handled according to established safety standards."
+        ]
+      },
+      {
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
+        "background": "muted",
         "kicker": "Blood Bank Services",
         "heading": "Blood Bank Services",
-        "items": [
-          "Whole blood collection, processing, and issuance",
-          "Fresh Frozen Plasma (FFP) services",
-          "Blood grouping and Rh factor testing",
-          "Donor blood grouping and cross-matching",
-          "Complete cross-match facility for safe transfusion",
-          "Direct and Indirect Coombs Tests"
+        "groups": [
+          {
+            "heading": "Blood Bank Services",
+            "icon": "drop",
+            "items": [
+              "Whole blood collection, processing, and issuance",
+              "Fresh Frozen Plasma (FFP) services",
+              "Blood grouping and Rh factor testing",
+              "Donor blood grouping and cross-matching",
+              "Complete cross-match facility for safe transfusion",
+              "Direct and Indirect Coombs Tests"
+            ]
+          }
         ],
-        "footer": "All blood storage, testing, and transfusion procedures are carried out with strict attention to safety and quality. The Blood Bank team works in coordination with medical departments to provide timely support for patients requiring transfusion.",
-        "background": "muted"
+        "footer": "All blood storage, testing, and transfusion procedures are carried out with strict attention to safety and quality. The Blood Bank team works in coordination with medical departments to provide timely support for patients requiring transfusion."
       },
       {
         "type": "closingBand",
@@ -711,18 +1119,43 @@
     "title": "Cafeteria",
     "category": "Support Services",
     "categorySlug": "support",
-    "description": "Hijaz Hospital’s Cafeteria provides clean, comfortable, and hygienic food services for patients, attendants, visitors, and hospital staff.",
-    "excerpt": "Hijaz Hospital’s Cafeteria provides clean, comfortable, and hygienic food services for patients, attendants, visitors, and hospital staff.",
+    "description": "Clean, hygienic meals and snacks at subsidized rates for patients, visitors, and staff.",
+    "excerpt": "Clean, hygienic meals and snacks at subsidized rates for patients, visitors, and staff.",
     "hero": {
-      "id": "overview",
-      "kicker": "Services",
+      "kicker": "Support Services",
       "title": "Cafeteria",
-      "tagline": "Hijaz Hospital’s Cafeteria provides clean, comfortable, and hygienic food services for patients, attendants, visitors, and hospital staff.",
-      "excerpt": "Hijaz Hospital’s Cafeteria provides clean, comfortable, and hygienic food services for patients, attendants, visitors, and hospital staff.\n\nThe cafeteria offers a variety of fresh meals, snacks, and beverages at subsidized rates, ensuring access to affordable food within the hospital premises.",
-      "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Cafeteria" }
+      "excerpt": "Clean, hygienic meals and snacks at subsidized rates for patients, visitors, and staff.",
+      "media": {
+        "type": "image",
+        "src": "/media/services-hero-banner.webp",
+        "alt": "Cafeteria"
+      },
+      "links": [
+        {
+          "label": "Overview",
+          "href": "#overview",
+          "variant": "primary"
+        }
+      ]
     },
+    "jumpLinks": [
+      {
+        "label": "Overview",
+        "href": "#overview"
+      }
+    ],
     "sections": [
+      {
+        "type": "content",
+        "id": "overview",
+        "kicker": "Overview",
+        "heading": "Clean, Comfortable, and Hygienic Food Services",
+        "background": "white",
+        "body": [
+          "Hijaz Hospital's Cafeteria provides clean, comfortable, and hygienic food services for patients, attendants, visitors, and hospital staff.",
+          "The cafeteria offers a variety of fresh meals, snacks, and beverages at subsidized rates, ensuring access to affordable food within the hospital premises."
+        ]
+      },
       {
         "type": "closingBand",
         "id": "closing",
@@ -745,7 +1178,11 @@
       "tagline": "\"Accurate Diagnostics. Reliable Results.\"",
       "excerpt": "The Clinical Laboratory at Hijaz Hospital provides a comprehensive range of routine and specialized diagnostic services that support clinical decision-making, disease prevention, and effective patient management. Operating 24 hours a day, the laboratory serves emergency, inpatient, and outpatient departments with timely and accurate diagnostic testing.",
       "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Pathology" }
+      "media": {
+        "type": "image",
+        "src": "/media/pathology-service-banner.webp",
+        "alt": "Pathology"
+      }
     },
     "sections": [
       {
@@ -853,15 +1290,42 @@
         "heading": "Why Choose Hijaz Hospital Laboratory?",
         "intro": "Our laboratory provides:",
         "items": [
-          { "icon": "check", "label": "24/7 emergency laboratory services" },
-          { "icon": "check", "label": "Experienced pathologists and laboratory professionals" },
-          { "icon": "check", "label": "Comprehensive routine and specialized diagnostic testing" },
-          { "icon": "check", "label": "Modern fully automated analyzers" },
-          { "icon": "check", "label": "Online laboratory reports" },
-          { "icon": "check", "label": "Strict quality assurance standards" },
-          { "icon": "check", "label": "Fast turnaround time" },
-          { "icon": "check", "label": "Trusted reference laboratory partnerships" },
-          { "icon": "check", "label": "Access to advanced investigations through trusted reference laboratories" }
+          {
+            "icon": "check",
+            "label": "24/7 emergency laboratory services"
+          },
+          {
+            "icon": "check",
+            "label": "Experienced pathologists and laboratory professionals"
+          },
+          {
+            "icon": "check",
+            "label": "Comprehensive routine and specialized diagnostic testing"
+          },
+          {
+            "icon": "check",
+            "label": "Modern fully automated analyzers"
+          },
+          {
+            "icon": "check",
+            "label": "Online laboratory reports"
+          },
+          {
+            "icon": "check",
+            "label": "Strict quality assurance standards"
+          },
+          {
+            "icon": "check",
+            "label": "Fast turnaround time"
+          },
+          {
+            "icon": "check",
+            "label": "Trusted reference laboratory partnerships"
+          },
+          {
+            "icon": "check",
+            "label": "Access to advanced investigations through trusted reference laboratories"
+          }
         ],
         "background": "muted"
       },
@@ -887,7 +1351,11 @@
       "tagline": "\"Advanced Imaging. Accurate Diagnosis.\"",
       "excerpt": "The Radiology & Imaging Department at Hijaz Hospital provides comprehensive diagnostic imaging services that support the early detection, accurate diagnosis, and ongoing monitoring of a wide range of medical conditions. Serving outpatient (OPD), inpatient (IPD), and emergency patients, the department combines experienced radiologists with modern imaging technology to deliver high-quality images and timely, clinically reliable reports.",
       "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Radiology & Imaging" }
+      "media": {
+        "type": "image",
+        "src": "/media/radiology-service-banner.webp",
+        "alt": "Radiology & Imaging"
+      }
     },
     "sections": [
       {
@@ -929,7 +1397,9 @@
         "id": "team",
         "kicker": "Our Team",
         "heading": "Our Team",
-        "body": ["Our department is staffed by experienced radiologists, sonologists, and qualified radiology technologists who work collaboratively to ensure high-quality imaging, accurate interpretation, and patient safety."],
+        "body": [
+          "Our department is staffed by experienced radiologists, sonologists, and qualified radiology technologists who work collaboratively to ensure high-quality imaging, accurate interpretation, and patient safety."
+        ],
         "background": "muted"
       },
       {
@@ -939,13 +1409,34 @@
         "heading": "Why Choose Hijaz Hospital Radiology & Imaging?",
         "intro": "Hijaz Hospital is committed to delivering dependable diagnostic imaging services with quality, safety, and patient comfort at the forefront.\nOur strengths include:",
         "items": [
-          { "icon": "check", "label": "Experienced consultant radiologists and sonologists" },
-          { "icon": "check", "label": "Modern Digital X-Ray and Ultrasound systems" },
-          { "icon": "check", "label": "Advanced Doppler imaging" },
-          { "icon": "check", "label": "Accurate and timely reporting" },
-          { "icon": "check", "label": "Comprehensive support for OPD, IPD, and emergency patients" },
-          { "icon": "check", "label": "Patient-centered and compassionate care" },
-          { "icon": "check", "label": "Access to advanced imaging services, including CT Scan and MRI, through trusted accredited diagnostic partners" }
+          {
+            "icon": "check",
+            "label": "Experienced consultant radiologists and sonologists"
+          },
+          {
+            "icon": "check",
+            "label": "Modern Digital X-Ray and Ultrasound systems"
+          },
+          {
+            "icon": "check",
+            "label": "Advanced Doppler imaging"
+          },
+          {
+            "icon": "check",
+            "label": "Accurate and timely reporting"
+          },
+          {
+            "icon": "check",
+            "label": "Comprehensive support for OPD, IPD, and emergency patients"
+          },
+          {
+            "icon": "check",
+            "label": "Patient-centered and compassionate care"
+          },
+          {
+            "icon": "check",
+            "label": "Access to advanced imaging services, including CT Scan and MRI, through trusted accredited diagnostic partners"
+          }
         ],
         "background": "white"
       },
@@ -971,7 +1462,11 @@
       "tagline": "\"Reliable Heart Assessment. Better Cardiac Care.\"",
       "excerpt": "Hijaz Hospital provides comprehensive non-invasive cardiac diagnostic services to assist in the early diagnosis and monitoring of heart disease. Our services are available for outpatient, inpatient, and emergency patients, ensuring timely cardiac assessment whenever required.",
       "variant": "white",
-      "media": { "type": "image", "src": "/media/services-hero-banner.webp", "alt": "Cardiac Diagnostics" }
+      "media": {
+        "type": "image",
+        "src": "/media/cardiac-diagnostics-service-banner.webp",
+        "alt": "Cardiac Diagnostics"
+      }
     },
     "sections": [
       {
@@ -980,9 +1475,18 @@
         "kicker": "Our Cardiac Diagnostic Services",
         "heading": "Our Cardiac Diagnostic Services",
         "items": [
-          { "icon": "pulse", "label": "Electrocardiography (ECG)" },
-          { "icon": "first-aid", "label": "Portable bedside ECG" },
-          { "icon": "scan", "label": "Echocardiography (Echo)" }
+          {
+            "icon": "pulse",
+            "label": "Electrocardiography (ECG)"
+          },
+          {
+            "icon": "first-aid",
+            "label": "Portable bedside ECG"
+          },
+          {
+            "icon": "scan",
+            "label": "Echocardiography (Echo)"
+          }
         ],
         "background": "muted"
       },
@@ -1010,11 +1514,26 @@
         "kicker": "Why Choose Hijaz Hospital Cardiac Diagnostics?",
         "heading": "Why Choose Hijaz Hospital Cardiac Diagnostics?",
         "items": [
-          { "icon": "check", "label": "Modern ECG and Echocardiography equipment" },
-          { "icon": "check", "label": "Experienced healthcare professionals" },
-          { "icon": "check", "label": "Timely and accurate reporting" },
-          { "icon": "check", "label": "OPD, IPD, and emergency support" },
-          { "icon": "check", "label": "Safe, compassionate, and patient-centered care" }
+          {
+            "icon": "check",
+            "label": "Modern ECG and Echocardiography equipment"
+          },
+          {
+            "icon": "check",
+            "label": "Experienced healthcare professionals"
+          },
+          {
+            "icon": "check",
+            "label": "Timely and accurate reporting"
+          },
+          {
+            "icon": "check",
+            "label": "OPD, IPD, and emergency support"
+          },
+          {
+            "icon": "check",
+            "label": "Safe, compassionate, and patient-centered care"
+          }
         ],
         "background": "muted"
       },

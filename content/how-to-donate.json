@@ -1,0 +1,225 @@
+{
+  "slug": "how-to-donate",
+  "title": "How to Donate",
+  "description": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Choose the donation method that is most convenient for you.",
+  "hero": {
+    "kicker": "Donate",
+    "title": "How to Donate",
+    "excerpt": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Your contribution helps us provide quality healthcare to deserving patients and strengthens our mission of serving humanity with compassion and dignity. Choose the donation method that is most convenient for you.",
+    "media": {
+      "type": "placeholder",
+      "placeholderLabel": "How to Donate",
+      "icon": "HandHeart"
+    },
+    "links": [
+      { "label": "Donate Online", "href": "/donate/how-to-donate/online", "variant": "primary" },
+      { "label": "Bank Transfer", "href": "/donate/how-to-donate/bank-transfer", "variant": "ghost" }
+    ]
+  },
+  "receipts": {
+    "heading": "Donation Receipts",
+    "body": "Official donation receipts are issued for all contributions. Please share your payment details with our Donations Office to receive your acknowledgement and receipt."
+  },
+  "assistance": {
+    "heading": "Need Assistance",
+    "body": "If you have any questions about making a donation, sponsoring a patient, or supporting a specific healthcare program, our Donations Office will be happy to assist you.",
+    "uan": "+92 42 111 044 529",
+    "phone": "0321-4045125",
+    "email": "Donations@hijazhospital.org.pk"
+  },
+  "methods": [
+    {
+      "slug": "online",
+      "navLabel": "Online",
+      "title": "Online Donation",
+      "icon": "CreditCard",
+      "excerpt": "Donate securely through our online payment gateway using your debit or credit card.",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Online Donation",
+        "excerpt": "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Online Donation",
+          "icon": "HandCoins"
+        },
+        "links": [
+          { "label": "Donate Online", "href": "/donate/mock", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided."
+      ],
+      "cta": {
+        "label": "Donate Online",
+        "href": "/donate/mock"
+      }
+    },
+    {
+      "slug": "mobile-wallet",
+      "navLabel": "Mobile Wallet",
+      "title": "Mobile Wallet",
+      "icon": "DeviceMobile",
+      "excerpt": "Donate quickly and conveniently through mobile payment services.",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Mobile Wallet",
+        "excerpt": "Donate quickly and conveniently through mobile payment services.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Mobile Wallet",
+          "icon": "DeviceMobile"
+        }
+      },
+      "intro": "Donate quickly and conveniently through mobile payment services.",
+      "wallet": {
+        "provider": "JazzCash",
+        "accountTitle": "Hijaz Hospital",
+        "tillId": "981444144",
+        "qrNote": "QR Code: add JazzCash QR in Admin"
+      }
+    },
+    {
+      "slug": "bank-transfer",
+      "navLabel": "Bank Transfer",
+      "title": "Bank Transfer",
+      "icon": "Bank",
+      "excerpt": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Bank Transfer",
+        "excerpt": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Bank Transfer",
+          "icon": "Buildings"
+        }
+      },
+      "intro": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+      "bankAccounts": [
+        {
+          "title": "Zakat",
+          "bank": "Meezan Bank",
+          "logo": "/media/meezan-bank-logo.webp",
+          "fields": [
+            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+            { "label": "Account Number", "value": "0201-0100642701", "copyValue": "0201-0100642701" },
+            { "label": "IBAN", "value": "PK33MEZN000201-0100642701", "copyValue": "PK33MEZN0002010100642701" },
+            { "label": "Swift Code", "value": "MEZNPKKA" }
+          ]
+        },
+        {
+          "title": "General Donation",
+          "bank": "Meezan Bank",
+          "logo": "/media/meezan-bank-logo.webp",
+          "fields": [
+            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+            { "label": "Account Number", "value": "0221-0101345166", "copyValue": "0221-0101345166" },
+            { "label": "IBAN", "value": "PK06MEZN000221-0101345166", "copyValue": "PK06MEZN0002210101345166" },
+            { "label": "Swift Code", "value": "MEZNPKKA" }
+          ]
+        },
+        {
+          "title": "Construction of “ITW” Medical Tower",
+          "bank": "BANKISLAMI",
+          "fields": [
+            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
+            { "label": "Account Number", "value": "2053-5690439-0201", "copyValue": "205356904390201" },
+            { "label": "IBAN", "value": "PK87BKIP0205356904390201", "copyValue": "PK87BKIP0205356904390201" },
+            { "label": "Swift Code", "value": "BKIPPKKA" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "meezan-app",
+      "navLabel": "Meezan App & QR",
+      "title": "Meezan Mobile App",
+      "icon": "QrCode",
+      "excerpt": "A secure, convenient, and Shariah-compliant way to support our healthcare services — plus QR donation.",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Meezan Mobile App",
+        "excerpt": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Meezan App & QR",
+          "icon": "QrCode"
+        }
+      },
+      "intro": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
+      "categoriesHeading": "Supported Donation Categories:",
+      "categories": [
+        {
+          "title": "Zakat Account",
+          "body": "Dedicated exclusively to receiving Zakat contributions, which are utilized according to Shariah principles for the treatment and support of eligible patients."
+        },
+        {
+          "title": "General Donation Account",
+          "body": "For Sadaqah, general charity, and voluntary contributions supporting free medical treatment, surgeries, dialysis, medicines, diagnostic services, and other welfare initiatives."
+        }
+      ],
+      "qr": {
+        "heading": "QR Code Donation",
+        "body": "Scan the QR code using your banking or mobile wallet application to make a secure donation in just a few simple steps.",
+        "placeholderNote": "QR Code: add donation QR in Admin"
+      }
+    },
+    {
+      "slug": "cheque",
+      "navLabel": "Cheque / Bank Draft",
+      "title": "Cheque or Bank Draft",
+      "icon": "EnvelopeOpen",
+      "excerpt": "Donations may also be made through cheque or bank draft payable to Hijaz Social Welfare Society (Hijaz Hospital).",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Cheque or Bank Draft",
+        "excerpt": "Donations may also be made through cheque or bank draft payable to: Hijaz Social Welfare Society (Hijaz Hospital)",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Cheque or Bank Draft",
+          "icon": "EnvelopeOpen"
+        }
+      },
+      "payableTo": "Hijaz Social Welfare Society (Hijaz Hospital)",
+      "addressLines": [
+        "27-D-1, Sir Syed Road,",
+        "Gulberg III, Lahore",
+        "Pakistan"
+      ],
+      "footer": "For assistance with your donation or to request a receipt, please contact our Donations Office."
+    },
+    {
+      "slug": "pick-up",
+      "navLabel": "Pick-Up Service",
+      "title": "Pick-Up Donation Service",
+      "icon": "Truck",
+      "excerpt": "For your convenience, our authorized representatives can collect donations from your home or office.",
+      "hero": {
+        "kicker": "How to Donate",
+        "title": "Pick-Up Donation Service",
+        "excerpt": "For your convenience, our authorized representatives can collect donations from your home or office.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Pick-Up Service",
+          "icon": "Truck"
+        }
+      },
+      "intro": "For your convenience, our authorized representatives can collect donations from your home or office.",
+      "itemsIntro": "Your donation may include:",
+      "items": [
+        "Cash",
+        "Cheque",
+        "Bank Draft",
+        "Medicines and medical supplies",
+        "Medical equipment and diagnostic instruments",
+        "Hospital beds, wheelchairs, stretchers, and patient care equipment",
+        "Ambulances and hospital furniture",
+        "Food items and ration packages",
+        "Other items supporting patient care and hospital services"
+      ],
+      "arrange": "To arrange a donation collection, please contact our Donations Office or Hijaz Hospital Reception. Our authorized representative will coordinate a convenient collection time and issue an official donation receipt where applicable.",
+      "closing": "Every contribution, big or small, helps us continue providing hope, healing, and free healthcare to those who need it most."
+    }
+  ]
+}

@@ -12,17 +12,43 @@
       "alt": "Our Impact at Hijaz Hospital"
     },
     "links": [
-      { "label": "Facts & Statistics", "href": "#facts-statistics", "variant": "primary" },
-      { "label": "Highlights", "href": "#highlights", "variant": "ghost" }
+      {
+        "label": "Facts & Statistics",
+        "href": "#facts-statistics",
+        "variant": "primary"
+      },
+      {
+        "label": "Highlights",
+        "href": "#highlights",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "Award", "href": "#award" },
-    { "label": "Health Partners", "href": "#health-partners" },
-    { "label": "Facts & Statistics", "href": "#facts-statistics" },
-    { "label": "Medical Tower", "href": "#medical-tower" },
-    { "label": "Events Calendar", "href": "#events-calendar" },
-    { "label": "Highlights", "href": "#highlights" }
+    {
+      "label": "Award",
+      "href": "#award"
+    },
+    {
+      "label": "Health Partners",
+      "href": "#health-partners"
+    },
+    {
+      "label": "Facts & Statistics",
+      "href": "#facts-statistics"
+    },
+    {
+      "label": "Medical Tower",
+      "href": "#medical-tower"
+    },
+    {
+      "label": "Events Calendar",
+      "href": "#events-calendar"
+    },
+    {
+      "label": "Highlights",
+      "href": "#highlights"
+    }
   ],
   "award": {
     "kicker": "Awards",
@@ -55,8 +81,14 @@
           "These collaborations contribute to the development of competent healthcare professionals while supporting our mission of compassionate and accessible healthcare."
         ],
         "partners": [
-          { "name": "Qarshi University", "icon": "GraduationCap" },
-          { "name": "Hajvery University", "icon": "GraduationCap" }
+          {
+            "name": "Qarshi University",
+            "icon": "GraduationCap"
+          },
+          {
+            "name": "Hajvery University",
+            "icon": "GraduationCap"
+          }
         ]
       },
       {
@@ -69,62 +101,178 @@
           "These partnerships reflect our Founder Haji Inam Elahi Asar (Late)'s enduring vision that every patient deserves timely, high-quality healthcare regardless of financial circumstances."
         ],
         "partners": [
-          { "name": "Chughtai Healthcare", "icon": "Microscope" },
-          { "name": "Al-Noor Diagnostic Centre", "icon": "Microscope" },
-          { "name": "Harmone Laboratory", "icon": "Microscope" }
+          {
+            "name": "Chughtai Healthcare",
+            "icon": "Microscope"
+          },
+          {
+            "name": "Al-Noor Diagnostic Centre",
+            "icon": "Microscope"
+          },
+          {
+            "name": "Harmone Laboratory",
+            "icon": "Microscope"
+          }
         ]
       }
     ]
   },
   "factsStatsLede": "2021–2025 · 5-year totals · patients, procedures & services rendered",
   "headlineStats": [
-    { "value": 1257793, "label": "OPD patients served" },
-    { "value": 46699, "label": "Surgeries performed" },
-    { "value": 99747, "label": "Dialysis performed" },
-    { "value": 46674, "label": "IPD patients served" }
+    {
+      "value": 1257793,
+      "label": "OPD patients served"
+    },
+    {
+      "value": 46699,
+      "label": "Surgeries performed"
+    },
+    {
+      "value": 99747,
+      "label": "Dialysis performed"
+    },
+    {
+      "value": 46674,
+      "label": "IPD patients served"
+    }
   ],
   "secondaryStats": [
-    { "value": 180259, "label": "Gynae patients served", "size": "md" },
-    { "value": 42203, "label": "Eye patients served", "size": "md" },
-    { "value": 54676, "label": "Dental patients served", "size": "md" }
+    {
+      "value": 180259,
+      "label": "Gynae patients served",
+      "size": "md"
+    },
+    {
+      "value": 42203,
+      "label": "Eye patients served",
+      "size": "md"
+    },
+    {
+      "value": 54676,
+      "label": "Dental patients served",
+      "size": "md"
+    }
   ],
   "serviceStats": [
-    { "key": "laboratory", "label": "Laboratory", "total": 269590, "freePercentage": 94, "paidPercentage": 6 },
-    { "key": "ultrasound", "label": "Ultrasound", "total": 118276, "freePercentage": 91, "paidPercentage": 9 },
-    { "key": "x_ray", "label": "X-Ray", "total": 43585, "freePercentage": 99.8, "paidPercentage": 0.2 },
-    { "key": "misc", "label": "Miscellaneous", "total": 99159, "freePercentage": 99.7, "paidPercentage": 0.3 }
+    {
+      "key": "laboratory",
+      "label": "Laboratory",
+      "total": 269590,
+      "freePercentage": 94,
+      "paidPercentage": 6
+    },
+    {
+      "key": "ultrasound",
+      "label": "Ultrasound",
+      "total": 118276,
+      "freePercentage": 91,
+      "paidPercentage": 9
+    },
+    {
+      "key": "x_ray",
+      "label": "X-Ray",
+      "total": 43585,
+      "freePercentage": 99.8,
+      "paidPercentage": 0.2
+    },
+    {
+      "key": "misc",
+      "label": "Miscellaneous",
+      "total": 99159,
+      "freePercentage": 99.7,
+      "paidPercentage": 0.3
+    }
   ],
   "medicalTower": {
-    "chips": ["≈ 16,000 sq ft", "Basement + five-storey", "Six-level facility", "Opposite Hijaz Hospital"],
+    "chips": [
+      "≈ 16,000 sq ft",
+      "Basement + five-storey",
+      "Six-level facility",
+      "Opposite Hijaz Hospital"
+    ],
     "body": [
       "The Inam Tasneem Waheed Medical Tower is the flagship expansion project of Hijaz Hospital, named in honor of Haji Inam Elahi Asar (Late), Mian Abdul Waheed (Late), and Mrs. Tasneem Firdous Waheed. It reflects their shared legacy of compassion, leadership, and commitment to serving humanity. While Haji Inam Elahi Asar (Late) and Mian Abdul Waheed (Late) founded Hijaz Hospital, Mrs. Tasneem Firdous Waheed, as Chairperson, played an important role in initiating and advancing this landmark project.",
       "From a humble charitable dispensary, Hijaz Hospital has grown into one of Pakistan's leading charitable healthcare institutions. With the increasing number of patients seeking affordable medical care, existing facilities have become stretched. The Medical Tower is being developed to expand capacity and meet the growing healthcare needs of the community.",
       "Located opposite Hijaz Hospital, the basement plus five-storey (six-level) facility covers approximately 16,000 square feet and will provide additional space for advanced diagnostics, specialized clinical services, modern patient care facilities, and expanded inpatient accommodation.",
       "This expansion carries forward Hijaz Hospital's mission of ensuring that no patient is denied quality healthcare due to limited facilities or financial hardship. With the support of donors and well-wishers, the Medical Tower will enable the hospital to serve more patients with dignity, compassion, and excellence."
     ],
-    "cta": { "label": "Support the Medical Tower", "href": "/donate" },
-    "placeholderLabel": "Medical Tower render / photograph placeholder"
+    "cta": {
+      "label": "Support a Project",
+      "href": "/donate/what-you-can-support/support-a-project"
+    },
+    "image": "/media/medical-tower.webp"
   },
   "eventsCalendar": {
     "lede": "Awareness days and national observances marked at Hijaz Hospital through the year.",
     "rows": [
-      { "date": "13th March", "event": "World Kidney Day" },
-      { "date": "23rd March", "event": "Youm-e-Pakistan" },
-      { "date": "24th March", "event": "TB Day" },
-      { "date": "3rd April", "event": "World Health Day" },
-      { "date": "25th April", "event": "Malaria Day" },
-      { "date": "20th to 30th April", "event": "Immunization Week" },
-      { "date": "1st May", "event": "Labour Day" },
-      { "date": "12th May", "event": "Nursing Day" },
-      { "date": "29th May", "event": "World Stomach Day" },
-      { "date": "15th June", "event": "Dengue Day" },
-      { "date": "14th August", "event": "Independence Day" },
-      { "date": "06th September", "event": "World Alzheimer Day" },
-      { "date": "05th October", "event": "Polio Day" },
-      { "date": "Pink October", "event": "Breast cancer Awareness" },
-      { "date": "6th November", "event": "Smog Awareness" },
-      { "date": "9th November", "event": "Iqbal Day" },
-      { "date": "14th Nov", "event": "Diabetic Day" }
+      {
+        "date": "13th March",
+        "event": "World Kidney Day"
+      },
+      {
+        "date": "23rd March",
+        "event": "Youm-e-Pakistan"
+      },
+      {
+        "date": "24th March",
+        "event": "TB Day"
+      },
+      {
+        "date": "3rd April",
+        "event": "World Health Day"
+      },
+      {
+        "date": "25th April",
+        "event": "Malaria Day"
+      },
+      {
+        "date": "20th to 30th April",
+        "event": "Immunization Week"
+      },
+      {
+        "date": "1st May",
+        "event": "Labour Day"
+      },
+      {
+        "date": "12th May",
+        "event": "Nursing Day"
+      },
+      {
+        "date": "29th May",
+        "event": "World Stomach Day"
+      },
+      {
+        "date": "15th June",
+        "event": "Dengue Day"
+      },
+      {
+        "date": "14th August",
+        "event": "Independence Day"
+      },
+      {
+        "date": "06th September",
+        "event": "World Alzheimer Day"
+      },
+      {
+        "date": "05th October",
+        "event": "Polio Day"
+      },
+      {
+        "date": "Pink October",
+        "event": "Breast cancer Awareness"
+      },
+      {
+        "date": "6th November",
+        "event": "Smog Awareness"
+      },
+      {
+        "date": "9th November",
+        "event": "Iqbal Day"
+      },
+      {
+        "date": "14th Nov",
+        "event": "Diabetic Day"
+      }
     ]
   },
   "highlightsLede": "Recent events and milestones at Hijaz Hospital.",
@@ -133,34 +281,36 @@
       "date": "15 June 2026",
       "title": "Dengue Awareness Campaign 2026",
       "body": "Hijaz Hospital organized a dengue awareness campaign featuring an awareness walk led by MS Dr. Arfan Ishaque and hospital staff, followed by an educational session on dengue symptoms, prevention, and precautionary measures.",
-      "image": "/media/first-news-banner.webp",
+      "image": "/media/news-visitors.webp",
       "href": "/news"
     },
     {
       "date": "10 June 2026",
       "title": "Annual Farewell Dinner 2026",
       "body": "Hosted by Haji Inam Elahi School of Paramedics, the Annual Farewell Dinner celebrated graduating students and their academic achievements, reflecting the institution's commitment to developing skilled healthcare professionals.",
-      "image": "/media/news-two-banner.webp",
+      "image": "/media/news-opening-peads.webp",
       "href": "/news"
     },
     {
       "date": "06 June 2026",
       "title": "Visit of Dr. Muhammad Iqbal Hussain",
       "body": "Hijaz Hospital had the honor of welcoming Dr. Muhammad Iqbal Hussain, who was received by the Chairman and senior executive members.",
-      "href": "/news"
+      "href": "/news",
+      "image": "/media/news-dialysis.webp"
     },
     {
       "date": "18 May 2026",
       "title": "International Nurses Day 2026",
       "body": "Hijaz Hospital celebrated International Nurses Day to honor the dedication, compassion, and tireless efforts of its nursing staff. The event recognized their vital role in delivering quality healthcare and supporting patients around the clock.",
-      "image": "/media/event-one-banner.webp",
+      "image": "/media/news-visitors.webp",
       "href": "/news"
     },
     {
       "date": "10 April 2026",
       "title": "Farewell Ceremony for Dr. Nadeem Iqbal",
       "body": "Hijaz Hospital honored Dr. Nadeem Iqbal upon the completion of his remarkable 15 years of dedicated service. The farewell ceremony recognized his professional excellence, unwavering commitment to patient care, and invaluable contributions to the hospital.",
-      "href": "/news"
+      "href": "/news",
+      "image": "/media/news-opening-peads.webp"
     }
   ]
 }

@@ -15,7 +15,6 @@ import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
-import { ServiceStatsGrid } from '@/components/marketing/ServiceStatsGrid'
 import type { OurImpactRecord } from '@/lib/content/types'
 
 export function OurImpactContent({ page }: { page: OurImpactRecord }) {
@@ -120,7 +119,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
       ) : null}
 
       <section id="facts-statistics" className="section-anchor bg-white">
-        <div className="container mx-auto flex flex-col gap-10 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px] text-center">
             <p className="kicker">Our Impact</p>
             <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Facts & Statistics</h2>
@@ -128,56 +127,76 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
               <p className="text-b16 text-primary-blue/85">{page.factsStatsLede}</p>
             ) : null}
           </div>
-          {page.headlineStats && page.headlineStats.length > 0 ? (
-            <HeadlineStatsGrid primary={page.headlineStats} secondary={page.secondaryStats} />
+          {(page.headlineStats?.length || page.serviceStats.length > 0) ? (
+            <HeadlineStatsGrid
+              primary={page.headlineStats ?? []}
+              secondary={page.secondaryStats}
+              serviceStats={page.serviceStats}
+            />
           ) : null}
-          <ServiceStatsGrid stats={page.serviceStats} />
         </div>
       </section>
 
       {page.medicalTower ? (
-        <section id="medical-tower" className="section-anchor bg-whitebg">
-          <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-            <div className="flex flex-col gap-[6px] text-center">
-              <p className="kicker">Projects of HH</p>
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Inam Tasneem Waheed Medical Tower</h2>
-            </div>
-            <article className="card-interactive relative overflow-hidden border-primary-blue bg-primary-blue p-6 lg:p-10">
-              <div className="pointer-events-none absolute right-0 top-0 aspect-square w-[220px] rounded-full bg-light-blue opacity-40 blur-[140px]" />
-              <div className="relative grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-                <div className="flex flex-col gap-5 lg:col-span-8">
-                  <div className="flex flex-wrap gap-3">
-                    {page.medicalTower.chips.map((chip) => (
-                      <span key={chip} className="stat-chip">{chip}</span>
-                    ))}
-                  </div>
+        <section id="medical-tower" className="section-anchor relative overflow-hidden bg-primary-blue">
+          <div className="pointer-events-none absolute bottom-0 left-1/4 aspect-square w-[250px] rounded-full bg-light-blue opacity-40 blur-[200px]" />
+          <div className="container relative mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
+              <div className="flex flex-col gap-6 lg:col-span-7">
+                <div className="flex flex-col gap-[6px]">
+                  <p className="kicker">Projects of HH</p>
+                  <h2 className="text-h3M font-bold text-white lg:text-h3">
+                    Inam Tasneem Waheed Medical Tower
+                  </h2>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {page.medicalTower.chips.map((chip) => (
+                    <span key={chip} className="stat-chip">
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-4">
                   {page.medicalTower.body.map((paragraph) => (
                     <p key={paragraph} className="text-b16 text-white/85">
                       {paragraph}
                     </p>
                   ))}
-                  <div className="pt-2">
-                    <Link href={page.medicalTower.cta.href} className="btn-on-dark">
-                      {page.medicalTower.cta.label}
-                    </Link>
-                  </div>
                 </div>
-                <div className="lg:col-span-4">
-                  <div className="flex aspect-[3/4] max-h-[420px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-white/35 bg-white/5 p-6 text-center text-white/70">
-                    <Buildings size={32} />
-                    <small className="text-b12 font-semibold tracking-[0.02em]">
-                      {page.medicalTower.placeholderLabel || 'Medical Tower render / photograph placeholder'}
-                    </small>
-                  </div>
+                <div>
+                  <Link href={page.medicalTower.cta.href} className="btn-on-dark">
+                    {page.medicalTower.cta.label}
+                  </Link>
                 </div>
               </div>
-            </article>
+              <div className="lg:col-span-5">
+                {page.medicalTower.image ? (
+                  <div className="relative aspect-video max-h-[320px] overflow-hidden rounded-xl">
+                    <Image
+                      src={page.medicalTower.image}
+                      alt="Inam Tasneem Waheed Medical Tower"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-video max-h-[320px] flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-dashed border-white/25 bg-white/5 p-6 text-center text-white/70">
+                    <Buildings size={32} weight="duotone" aria-hidden />
+                    <small className="text-b12 font-semibold tracking-[0.02em]">
+                      {page.medicalTower.placeholderLabel ||
+                        'Medical Tower render / photograph placeholder'}
+                    </small>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       ) : null}
 
       {page.eventsCalendar ? (
-        <section id="events-calendar" className="section-anchor bg-whitebg">
+        <section id="events-calendar" className="section-anchor bg-white">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
             <div className="flex flex-col gap-[6px] text-center">
               <p className="kicker">Our Impact</p>
@@ -203,7 +222,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
         </section>
       ) : null}
 
-      <section id="highlights" className="section-anchor bg-white">
+      <section id="highlights" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px] text-center">
             <p className="kicker">Our Impact</p>
@@ -219,7 +238,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                 href={item.href || '/news'}
                 className="card-interactive group flex flex-col overflow-hidden"
               >
-                <div className="relative aspect-video overflow-hidden bg-cardbg">
+                <div className="relative aspect-card overflow-hidden bg-cardbg">
                   {item.image ? (
                     <Image
                       src={item.image}
@@ -234,12 +253,12 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                     </div>
                   )}
                 </div>
-                <div className="flex flex-col gap-2 p-5">
+                <div className="flex flex-col gap-2 p-6">
                   <span className="group-badge self-start">{item.date}</span>
-                  <h3 className="text-h6M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">
+                  <h3 className="text-h6M font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">
                     {item.title}
                   </h3>
-                  <p className="text-b14 text-primary-blue/85">{item.body}</p>
+                  <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
                 </div>
               </Link>
             ))}

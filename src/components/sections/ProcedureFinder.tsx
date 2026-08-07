@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import type { ServiceGroup } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
-import { SectionIcon } from './sectionIcons'
+import { iconForServiceHeading, SectionIcon } from './sectionIcons'
 
 type RailGroup = ServiceGroup & {
   slug: string
@@ -20,52 +20,48 @@ function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
-function HighlightedText({ text, pattern }: { text: string; pattern: RegExp }) {
-  const globalPattern = new RegExp(
-    pattern.source,
-    pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`,
+function HighlightedText({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>
+  const pattern = new RegExp(`(${escapeRegExp(query)})`, 'ig')
+  const parts = text.split(pattern)
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.toLowerCase() === query.toLowerCase() ? (
+          <mark key={`${part}-${index}`} className="rounded bg-redbg px-0.5 text-primary-red">
+            {part}
+          </mark>
+        ) : (
+          <span key={`${part}-${index}`}>{part}</span>
+        ),
+      )}
+    </>
   )
-  const parts: ReactNode[] = []
-  let lastIndex = 0
-  let match: RegExpExecArray | null
-
-  while ((match = globalPattern.exec(text)) !== null) {
-    parts.push(text.slice(lastIndex, match.index))
-    parts.push(
-      <mark key={match.index} className="rounded bg-redbg px-0.5 text-primary-red">
-        {match[1]}
-      </mark>,
-    )
-    lastIndex = match.index + match[0].length
-  }
-
-  parts.push(text.slice(lastIndex))
-  return <>{parts}</>
 }
 
-function CheckItem({ children }: { children: ReactNode }) {
+function ProcedureRow({ children }: { children: ReactNode }) {
   return (
-    <div className="proc-item">
-      <span>{children}</span>
+    <div className="flex items-start gap-2 border-b border-dark-gray/15 py-2.5 last:border-b-0">
+      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-red" aria-hidden />
+      <span className="text-b14 leading-[150%] text-primary-blue/85">{children}</span>
     </div>
   )
 }
 
 export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const rail = useMemo<RailGroup[]>(() => {
-    const allItems = groups.flatMap((group) =>
-      group.items.map((text) => ({ text, group: group.heading })),
-    )
+    const allItems = groups.flatMap((group) => group.items)
     return [
       {
         slug: 'all',
         icon: 'list-checks',
         heading: 'All Procedures',
-        items: allItems.map((item) => item.text),
+        items: allItems,
       },
       ...groups.map((group) => ({
         ...group,
         slug: group.slug || (group.heading ?? '').toLowerCase().replace(/\s+/g, '-'),
+        icon: group.icon || iconForServiceHeading(group.heading),
       })),
     ]
   }, [groups])
@@ -79,9 +75,9 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const [query, setQuery] = useState('')
 
   const setGroup = useCallback(
-    (index: number, pushHash = true) => {
+    (index: number) => {
       setGroupIndex(index)
-      if (pushHash && typeof window !== 'undefined') {
+      if (typeof window !== 'undefined') {
         window.history.replaceState(null, '', `#${rail[index]?.slug || ''}`)
       }
     },
@@ -91,28 +87,24 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   useEffect(() => {
     const initialSlug = window.location.hash.replace('#', '')
     const initialIndex = rail.findIndex((group) => group.slug === initialSlug)
-    if (initialIndex > 0) {
-      setGroupIndex(initialIndex)
-    }
+    if (initialIndex > 0) setGroupIndex(initialIndex)
   }, [rail])
 
   const trimmedQuery = query.trim()
   const isSearching = trimmedQuery.length > 0
-  const searchPattern = useMemo(() => {
-    if (!trimmedQuery) return null
-    return new RegExp(`(${escapeRegExp(trimmedQuery)})`, 'ig')
-  }, [trimmedQuery])
 
   const matches = useMemo(() => {
-    if (!searchPattern) return []
-    return allItems.filter((item) => searchPattern.test(item.text))
-  }, [allItems, searchPattern])
+    if (!trimmedQuery) return []
+    const needle = trimmedQuery.toLowerCase()
+    return allItems.filter((item) => item.text.toLowerCase().includes(needle))
+  }, [allItems, trimmedQuery])
 
+  const activeGroup = rail[groupIndex] ?? rail[0]
   const totalProcedures = allItems.length
 
   return (
-    <>
-      <div className="relative mx-auto w-full max-w-xl lg:mx-0">
+    <div className="flex flex-col gap-6">
+      <div className="relative mx-auto w-full max-w-xl">
         <SectionIcon
           name="magnifying-glass"
           size={18}
@@ -123,7 +115,7 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           className="search-input"
-          placeholder={`Search ${totalProcedures} procedures — e.g. hernia, laparoscopic, mastectomy…`}
+          placeholder={`Search ${totalProcedures} procedures — e.g. hernia, laparoscopic, cataract…`}
           aria-label="Search procedures"
         />
       </div>
@@ -131,7 +123,11 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
       {!isSearching ? (
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <div className="group-rail group-scroll flex flex-col gap-1" role="tablist" aria-label="Service groups">
+            <div
+              className="group-rail group-scroll flex flex-col gap-1 rounded-2xl border border-dark-gray/15 bg-white p-2"
+              role="tablist"
+              aria-label="Service groups"
+            >
               {rail.map((group, index) => (
                 <button
                   key={group.slug}
@@ -144,12 +140,14 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
                   <span className="icon-tile !h-9 !w-9 !text-lg">
                     <SectionIcon name={group.icon} size={18} />
                   </span>
-                  <span className="font-bold text-primary-blue">{group.heading}</span>
+                  <span className="min-w-0 flex-1 truncate text-start font-bold text-primary-blue">
+                    {group.heading}
+                  </span>
                   <span className="count">{group.items.length}</span>
                 </button>
               ))}
             </div>
-            <div className="mt-6 hidden items-center gap-3 lg:flex">
+            <div className="mt-4 hidden items-center gap-3 lg:flex">
               <button
                 type="button"
                 className="btn-ghost flex-1"
@@ -167,37 +165,36 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
             </div>
           </div>
 
-          <div className="relative lg:col-span-8" aria-live="polite">
-            {rail.map((group, index) => (
-              <article
-                key={group.slug}
-                role="tabpanel"
-                className={cn('panel card p-6 lg:p-8', index === groupIndex && 'is-active')}
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <div>
-                    <p className="kicker">{index === 0 ? 'Complete list' : 'Service group'}</p>
-                    <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">{group.heading}</h3>
+          <div className="lg:col-span-8" aria-live="polite">
+            {activeGroup ? (
+              <article className="card p-6 lg:p-8">
+                <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-dark-gray/15 pb-4">
+                  <div className="flex flex-col gap-[6px]">
+                    <p className="kicker">{groupIndex === 0 ? 'Complete list' : 'Service group'}</p>
+                    <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
+                      {activeGroup.heading}
+                    </h3>
                   </div>
-                  <span className="ml-auto text-b14 text-dark-gray">
-                    {group.items.length} procedure{group.items.length === 1 ? '' : 's'}
+                  <span className="rounded-full bg-whitebg px-3 py-1 text-b12 font-semibold text-dark-gray">
+                    {activeGroup.items.length} procedure
+                    {activeGroup.items.length === 1 ? '' : 's'}
                   </span>
                 </div>
-                <div className="grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-2">
-                  {group.items.map((item) => (
-                    <CheckItem key={item}>{item}</CheckItem>
+                <div className="grid grid-cols-1 gap-x-8 md:grid-cols-2">
+                  {activeGroup.items.map((item) => (
+                    <ProcedureRow key={item}>{item}</ProcedureRow>
                   ))}
                 </div>
               </article>
-            ))}
+            ) : null}
           </div>
         </div>
       ) : (
         <div className="card p-6 lg:p-8">
-          <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-dark-gray/15 pb-4">
             <p className="text-b14 text-dark-gray">
-              <span className="font-bold text-primary-blue">{matches.length}</span> procedures match your
-              search
+              <span className="font-bold text-primary-blue">{matches.length}</span> procedure
+              {matches.length === 1 ? '' : 's'} match your search
             </p>
             <button
               type="button"
@@ -209,13 +206,19 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
           </div>
 
           {matches.length > 0 ? (
-            <div className="grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-8 md:grid-cols-2">
               {matches.map((match) => (
-                <div key={`${match.group}-${match.text}`} className="proc-item !flex-col !items-start gap-1">
-                  <span>
-                    {searchPattern ? <HighlightedText text={match.text} pattern={searchPattern} /> : match.text}
-                  </span>
-                  <span className="group-badge">{match.group}</span>
+                <div
+                  key={`${match.group}-${match.text}`}
+                  className="flex flex-col gap-1 border-b border-dark-gray/15 py-2.5 last:border-b-0"
+                >
+                  <div className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-red" aria-hidden />
+                    <span className="text-b14 leading-[150%] text-primary-blue/85">
+                      <HighlightedText text={match.text} query={trimmedQuery} />
+                    </span>
+                  </div>
+                  <span className="ml-3.5 group-badge w-fit">{match.group}</span>
                 </div>
               ))}
             </div>
@@ -230,6 +233,6 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
           )}
         </div>
       )}
-    </>
+    </div>
   )
 }

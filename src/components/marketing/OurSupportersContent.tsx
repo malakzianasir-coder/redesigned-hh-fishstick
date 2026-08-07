@@ -1,4 +1,5 @@
 import { ArrowSquareOut, BuildingOffice } from '@phosphor-icons/react/dist/ssr'
+import Image from 'next/image'
 
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
@@ -54,9 +55,21 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
                       </span>
                     ) : null}
                   </div>
-                  <div className="logo-slot">
-                    <BuildingOffice size={24} weight="duotone" />
-                  </div>
+                  {donor.logo ? (
+                    <div className="relative h-16 w-full max-w-[140px]">
+                      <Image
+                        src={donor.logo}
+                        alt=""
+                        fill
+                        className="object-contain"
+                        sizes="140px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="logo-slot">
+                      <BuildingOffice size={24} weight="duotone" />
+                    </div>
+                  )}
                   <p className="text-b14 font-semibold text-primary-blue">{donor.name}</p>
                 </>
               )

@@ -25,9 +25,7 @@ const redirects = async () => {
     },
   ]
 
-  const redirects = [internetExplorerRedirect, ...patientCareRedirects]
-
-  return redirects
+  return [internetExplorerRedirect, ...patientCareRedirects]
 }
 
 export default redirects

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { User } from '@phosphor-icons/react/dist/ssr'
 
@@ -5,8 +6,44 @@ import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
-import { CMSNote } from '@/components/marketing/CMSNote'
 import type { LeadershipRecord } from '@/lib/content/types'
+
+function PortraitSlot({
+  image,
+  alt,
+  size = 'photo',
+}: {
+  image?: string
+  alt: string
+  size?: 'photo' | 'logo'
+}) {
+  if (image) {
+    const frame =
+      size === 'logo'
+        ? 'relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-cardbg'
+        : 'relative h-[132px] w-[104px] shrink-0 overflow-hidden rounded-xl bg-cardbg'
+    return (
+      <div className={frame}>
+        <Image src={image} alt={alt} fill className="object-cover object-top" sizes="132px" />
+      </div>
+    )
+  }
+
+  if (size === 'logo') {
+    return (
+      <div className="logo-slot">
+        <User size={24} weight="duotone" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="photo-slot">
+      <User size={30} weight="duotone" />
+      <small>Passport photo</small>
+    </div>
+  )
+}
 
 export function LeadershipContent({ page }: { page: LeadershipRecord }) {
   return (
@@ -32,10 +69,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             {page.founders.map((founder) => (
               <article key={founder.name} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="photo-slot">
-                    <User size={30} weight="duotone" />
-                    <small>Passport photo</small>
-                  </div>
+                  <PortraitSlot image={founder.image} alt={founder.name} />
                   <div className="flex-1">
                     <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
                       {founder.href ? (
@@ -81,9 +115,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                 <span className="tenure-dot" aria-hidden="true" />
                 <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <div className="logo-slot">
-                      <User size={24} weight="duotone" />
-                    </div>
+                    <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
                     <div className="flex flex-col gap-2">
                       <span className="group-badge self-start">{entry.years}</span>
                       <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
@@ -118,9 +150,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                 <span className="tenure-dot" aria-hidden="true" />
                 <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <div className="logo-slot">
-                      <User size={24} weight="duotone" />
-                    </div>
+                    <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
                     <div className="flex flex-col gap-2">
                       <span className="group-badge self-start">{entry.years}</span>
                       <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
@@ -152,9 +182,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
           <div className="card-grid card-grid--3">
             {page.seniorManagement.map((member) => (
               <article key={member.name} className="card-interactive flex items-center gap-4 p-5">
-                <div className="logo-slot">
-                  <User size={24} weight="duotone" />
-                </div>
+                <PortraitSlot image={member.image} alt={member.name} size="logo" />
                 <div>
                   <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{member.name}</h3>
                   <p className="text-b14 text-dark-gray">{member.role}</p>

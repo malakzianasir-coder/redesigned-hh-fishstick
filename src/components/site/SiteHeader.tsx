@@ -2,40 +2,56 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useCallback, useEffect, useId, useRef, useState, type MouseEvent } from 'react'
 import { CaretDown, List, X } from '@phosphor-icons/react'
 import navigationData from '../../../content/navigation.json'
 import type { NavigationData, NavTopLevelItem } from '@/lib/navigation/types'
+import { handleHeaderNavigation } from '@/utilities/headerNavigation'
 import { cn } from '@/utilities/ui'
 import { UtilityTopBar } from './UtilityTopBar'
 
 const navigation = navigationData as NavigationData
 
-function getPanelGridClasses(item: NavTopLevelItem) {
+function navClick(href: string, onNavigate?: () => void) {
+  return (event: MouseEvent<HTMLAnchorElement>) => {
+    onNavigate?.()
+    handleHeaderNavigation(href, event)
+  }
+}
+
+function getPanelLayout(item: NavTopLevelItem) {
   const groupCount = item.groups.length
-  const hasFeatured = Boolean(item.featured)
 
   if (item.id === 'doctors') {
-    return null
-  }
-
-  if (hasFeatured && groupCount >= 4) {
-    return 'grid-cols-1 gap-8 xl:grid-cols-5'
-  }
-
-  if (hasFeatured && groupCount === 3) {
-    return 'grid-cols-1 gap-8 xl:grid-cols-4'
+    return { gridClasses: null, maxWidth: 'max-w-5xl' as const }
   }
 
   if (groupCount === 2) {
-    return 'grid-cols-1 gap-8 xl:grid-cols-2 xl:gap-10 max-w-4xl'
+    return {
+      gridClasses: 'grid-cols-1 gap-8 xl:grid-cols-2 xl:gap-10',
+      maxWidth: 'max-w-3xl' as const,
+    }
   }
 
-  if (groupCount >= 3) {
-    return 'grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-10'
+  if (groupCount >= 4) {
+    return {
+      gridClasses: 'grid-cols-1 gap-8 xl:grid-cols-4 xl:gap-8',
+      maxWidth: 'max-w-6xl' as const,
+    }
   }
 
-  return 'grid-cols-1 gap-8'
+  if (groupCount === 3) {
+    return {
+      gridClasses: 'grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-10',
+      maxWidth: 'max-w-5xl' as const,
+    }
+  }
+
+  return {
+    gridClasses: 'grid-cols-1 gap-8',
+    maxWidth: 'max-w-xl' as const,
+  }
 }
 
 function DescribedLink({
@@ -46,8 +62,8 @@ function DescribedLink({
   onNavigate?: () => void
 }) {
   return (
-    <div>
-      <Link href={link.href} className="mega-link !text-b16 font-bold" onClick={onNavigate}>
+    <div className="min-w-0 text-left">
+      <Link href={link.href} className="mega-link !text-b16 font-bold" onClick={navClick(link.href, onNavigate)}>
         {link.label}
       </Link>
       {link.description ? (
@@ -55,6 +71,30 @@ function DescribedLink({
       ) : null}
     </div>
   )
+}
+
+function GroupHeading({
+  group,
+  className = 'field-label-text mb-3',
+  onNavigate,
+}: {
+  group: NavTopLevelItem['groups'][number]
+  className?: string
+  onNavigate?: () => void
+}) {
+  if (group.href) {
+    return (
+      <Link
+        href={group.href}
+        className={`${className} transition-colors hover:text-primary-red`}
+        onClick={navClick(group.href, onNavigate)}
+      >
+        {group.heading}
+      </Link>
+    )
+  }
+
+  return <p className={className}>{group.heading}</p>
 }
 
 function GroupColumn({
@@ -65,20 +105,24 @@ function GroupColumn({
   onNavigate?: () => void
 }) {
   return (
-    <div>
-      <p className="field-label-text mb-3">{group.heading}</p>
+    <div className="min-w-0 text-left">
+      <GroupHeading group={group} onNavigate={onNavigate} />
       <ul>
         {group.links.map((link) => (
           <li key={link.href + link.label}>
             {link.description ? (
               <div className="mb-3">
-                <Link href={link.href} className="mega-link !text-b16 font-bold" onClick={onNavigate}>
+                <Link
+                  href={link.href}
+                  className="mega-link !text-b16 font-bold"
+                  onClick={navClick(link.href, onNavigate)}
+                >
                   {link.label}
                 </Link>
                 <p className="mt-1 text-b12 leading-[150%] text-dark-gray">{link.description}</p>
               </div>
             ) : (
-              <Link href={link.href} className="mega-link" onClick={onNavigate}>
+              <Link href={link.href} className="mega-link" onClick={navClick(link.href, onNavigate)}>
                 {link.label}
               </Link>
             )}
@@ -89,39 +133,22 @@ function GroupColumn({
   )
 }
 
-function FeaturedSlot({
-  featured,
-  onNavigate,
-}: {
-  featured: NonNullable<NavTopLevelItem['featured']>
-  onNavigate?: () => void
-}) {
-  return (
-    <aside className="featured-slot" aria-label={`Featured: ${featured.title}`}>
-      <div className="featured-img">
-        <span className="field-label-text">Image slot</span>
-      </div>
-      <p className="text-b14 font-bold leading-[150%] text-primary-blue">{featured.title}</p>
-      <p className="text-b12 leading-[150%] text-dark-gray">{featured.description}</p>
-      <Link href={featured.href} className="btn-ghost mt-auto min-h-[40px] text-b12" onClick={onNavigate}>
-        {featured.ctaLabel}
-      </Link>
-    </aside>
-  )
-}
-
 function MegaPanel({
   item,
   panelId,
   triggerId,
   onNavigate,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   item: NavTopLevelItem
   panelId: string
   triggerId: string
   onNavigate?: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }) {
-  const gridClasses = getPanelGridClasses(item)
+  const { gridClasses, maxWidth } = getPanelLayout(item)
   const doctorsGroup = item.id === 'doctors' ? item.groups[0] : null
 
   return (
@@ -130,33 +157,40 @@ function MegaPanel({
       role="region"
       aria-labelledby={triggerId}
       className="mega-panel"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className="mx-auto max-w-screen-xl px-6 py-8 xl:px-8">
-        {doctorsGroup ? (
-          <>
-            <p className="field-label-text mb-3">{doctorsGroup.heading}</p>
-            <div className="grid grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-10">
-              {doctorsGroup.links.map((link) => (
-                <DescribedLink key={link.href + link.label} link={link} onNavigate={onNavigate} />
+        <div className={cn('mx-auto w-full text-left', maxWidth)}>
+          {doctorsGroup ? (
+            <>
+              <GroupHeading group={doctorsGroup} onNavigate={onNavigate} />
+              <div className="grid grid-cols-1 gap-8 xl:grid-cols-3 xl:gap-10">
+                {doctorsGroup.links.map((link) => (
+                  <DescribedLink key={link.href + link.label} link={link} onNavigate={onNavigate} />
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className={cn('grid', gridClasses)}>
+              {item.groups.map((group) => (
+                <GroupColumn key={group.heading} group={group} onNavigate={onNavigate} />
               ))}
             </div>
-          </>
-        ) : (
-          <div className={cn('grid', gridClasses)}>
-            {item.groups.map((group) => (
-              <GroupColumn key={group.heading} group={group} onNavigate={onNavigate} />
-            ))}
-            {item.featured ? <FeaturedSlot featured={item.featured} onNavigate={onNavigate} /> : null}
-          </div>
-        )}
+          )}
 
-        {item.moreLink ? (
-          <div className="mt-6 flex justify-end border-t border-dark-gray/10 pt-4">
-            <Link href={item.moreLink.href} className="mega-more" onClick={onNavigate}>
-              {item.moreLink.label}
-            </Link>
-          </div>
-        ) : null}
+          {item.moreLink ? (
+            <div className="mt-6 flex justify-start border-t border-dark-gray/10 pt-4">
+              <Link
+                href={item.moreLink.href}
+                className="mega-more"
+                onClick={navClick(item.moreLink.href, onNavigate)}
+              >
+                {item.moreLink.label}
+              </Link>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   )
@@ -195,10 +229,14 @@ function MobileAccordion({
         <div id={panelId} className="drawer-panel pb-4">
           {item.id === 'doctors' && item.groups[0] ? (
             <>
-              <p className="field-label-text mb-2">{item.groups[0].heading}</p>
+              <GroupHeading
+                group={item.groups[0]}
+                className="field-label-text mb-2"
+                onNavigate={onNavigate}
+              />
               {item.groups[0].links.map((link) => (
                 <div key={link.href + link.label} className="mb-3">
-                  <Link href={link.href} onClick={onNavigate}>
+                  <Link href={link.href} onClick={navClick(link.href, onNavigate)}>
                     {link.label}
                   </Link>
                   {link.description ? (
@@ -210,29 +248,28 @@ function MobileAccordion({
           ) : (
             item.groups.map((group) => (
               <div key={group.heading} className="mb-4">
-                <p className="field-label-text mb-2">{group.heading}</p>
+                <GroupHeading
+                  group={group}
+                  className="field-label-text mb-2"
+                  onNavigate={onNavigate}
+                />
                 {group.links.map((link) => (
-                  <Link key={link.href + link.label} href={link.href} onClick={onNavigate}>
+                  <Link
+                    key={link.href + link.label}
+                    href={link.href}
+                    onClick={navClick(link.href, onNavigate)}
+                  >
                     {link.label}
                   </Link>
                 ))}
               </div>
             ))
           )}
-          {item.featured ? (
-            <div className="featured-slot mb-4">
-              <p className="text-b14 font-bold leading-[150%] text-primary-blue">{item.featured.title}</p>
-              <p className="text-b12 leading-[150%] text-dark-gray">{item.featured.description}</p>
-              <Link href={item.featured.href} className="mega-more mt-2 inline-block" onClick={onNavigate}>
-                {item.featured.ctaLabel}
-              </Link>
-            </div>
-          ) : null}
           {item.moreLink ? (
             <Link
               href={item.moreLink.href}
               className="mega-more mt-2 inline-block !font-bold"
-              onClick={onNavigate}
+              onClick={navClick(item.moreLink.href, onNavigate)}
             >
               {item.moreLink.label}
             </Link>
@@ -244,28 +281,64 @@ function MobileAccordion({
 }
 
 export function SiteHeader() {
+  const pathname = usePathname()
   const [openItemId, setOpenItemId] = useState<string | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [mobileExpandedId, setMobileExpandedId] = useState<string | null>(null)
+  const [compact, setCompact] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const lastScrollY = useRef(0)
+  const scrollAccum = useRef(0)
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const closeMegaMenu = useCallback((returnFocus = false) => {
-    setOpenItemId((current) => {
-      if (returnFocus && current) {
-        triggerRefs.current[current]?.focus()
-      }
-      return null
-    })
+  const clearHoverTimeout = useCallback(() => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
   }, [])
+
+  const startCloseTimeout = useCallback(
+    (itemId: string) => {
+      clearHoverTimeout()
+      hoverTimeoutRef.current = setTimeout(() => {
+        setOpenItemId((current) => (current === itemId ? null : current))
+      }, 150)
+    },
+    [clearHoverTimeout],
+  )
+
+  const closeMegaMenu = useCallback(
+    (returnFocus = false) => {
+      clearHoverTimeout()
+      setOpenItemId((current) => {
+        if (returnFocus && current) {
+          triggerRefs.current[current]?.focus()
+        }
+        return null
+      })
+    },
+    [clearHoverTimeout],
+  )
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    closeMegaMenu(false)
+    setDrawerOpen(false)
+  }, [pathname, closeMegaMenu])
 
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
 
     const setHeaderHeight = () => {
-      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`)
+      const height = `${header.offsetHeight}px`
+      document.documentElement.style.setProperty('--header-h', height)
+      if (!header.classList.contains('is-compact')) {
+        document.documentElement.style.setProperty('--header-h-expanded', height)
+      }
     }
 
     setHeaderHeight()
@@ -277,6 +350,41 @@ export function SiteHeader() {
       observer.disconnect()
       window.removeEventListener('resize', setHeaderHeight)
     }
+  }, [compact])
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY
+
+    const onScroll = () => {
+      const y = window.scrollY
+      const delta = y - lastScrollY.current
+      lastScrollY.current = y
+
+      if (y <= 16) {
+        setCompact(false)
+        scrollAccum.current = 0
+        return
+      }
+
+      // Accumulate scroll in same direction; reset on reversal
+      if ((delta > 0 && scrollAccum.current < 0) || (delta < 0 && scrollAccum.current > 0)) {
+        scrollAccum.current = 0
+      }
+      scrollAccum.current += delta
+
+      // Require sustained 40px in one direction before toggling
+      if (scrollAccum.current > 40) {
+        setCompact(true)
+        setOpenItemId(null)
+        scrollAccum.current = 0
+      } else if (scrollAccum.current < -40) {
+        setCompact(false)
+        scrollAccum.current = 0
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
@@ -317,33 +425,123 @@ export function SiteHeader() {
     <>
       <header
         ref={headerRef}
-        className="sticky top-0 z-header relative border-b border-dark-gray/15 bg-white/95 backdrop-blur"
+        className={cn(
+          'site-header fixed inset-x-0 top-0 z-header border-b border-dark-gray/15 bg-white/95 backdrop-blur transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out',
+          compact && 'is-compact shadow-e2',
+        )}
       >
-        <UtilityTopBar />
+        <div
+          className={cn(
+            'site-header__utility grid transition-[grid-template-rows,opacity] duration-300 ease-out',
+            compact
+              ? 'pointer-events-none grid-rows-[0fr] opacity-0'
+              : 'grid-rows-[1fr] opacity-100',
+          )}
+          aria-hidden={compact}
+          inert={compact ? true : undefined}
+        >
+          <div className={cn('min-h-0', compact && 'overflow-hidden')}>
+            <UtilityTopBar />
+          </div>
+        </div>
 
-        <div className="mx-auto flex max-w-screen-xl items-center justify-between gap-4 px-6 py-3 xl:px-8">
-          <Link href="/">
+        <div
+          className={cn(
+            'site-header__brand container mx-auto grid grid-cols-[1fr_auto] items-center gap-4 px-6 transition-[padding] duration-300 ease-out lg:px-[30px] xl:grid-cols-[1fr_auto_1fr]',
+            compact ? 'py-2' : 'py-3',
+          )}
+        >
+          <Link
+            href="/"
+            className="justify-self-start rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
+            onClick={navClick('/')}
+          >
             <Image
               src="/hijaz-hospital-logo-dark.svg"
               alt="Hijaz Hospital"
               width={200}
               height={48}
-              className="h-12 w-auto"
+              className={cn(
+                'w-auto transition-[height] duration-300 ease-out',
+                compact ? 'h-9' : 'h-12',
+              )}
               priority
               unoptimized
             />
           </Link>
 
-          <div className="flex items-center gap-3">
+          <nav aria-label="Primary" className="hidden justify-self-center xl:block">
+            <ul className="flex items-center gap-1 xl:gap-2">
+              {navigation.topLevel.map((item) => {
+                const triggerId = `mega-trigger-${item.id}`
+                const panelId = `mega-panel-${item.id}`
+                const isOpen = openItemId === item.id
+
+                return (
+                  <li
+                    key={item.id}
+                    className={cn('mega-item', isOpen && 'is-open')}
+                    onMouseEnter={() => {
+                      clearHoverTimeout()
+                      setOpenItemId(item.id)
+                    }}
+                    onMouseLeave={() => {
+                      startCloseTimeout(item.id)
+                    }}
+                    onFocus={() => {
+                      clearHoverTimeout()
+                      setOpenItemId(item.id)
+                    }}
+                    onBlur={() => {
+                      startCloseTimeout(item.id)
+                    }}
+                  >
+                    <button
+                      type="button"
+                      id={triggerId}
+                      ref={(node) => {
+                        triggerRefs.current[item.id] = node
+                      }}
+                      className="mega-trigger"
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      aria-controls={panelId}
+                      onClick={() => {
+                        clearHoverTimeout()
+                        setOpenItemId((current) => (current === item.id ? null : item.id))
+                      }}
+                    >
+                      {item.label}
+                      <CaretDown size={14} aria-hidden className="shrink-0 transition-transform duration-200" />
+                    </button>
+                    <MegaPanel
+                      item={item}
+                      panelId={panelId}
+                      triggerId={triggerId}
+                      onNavigate={() => closeMegaMenu(false)}
+                      onMouseEnter={() => clearHoverTimeout()}
+                      onMouseLeave={() => startCloseTimeout(item.id)}
+                    />
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+
+          <div className="col-start-2 flex items-center justify-self-end gap-3 xl:col-start-3">
             <Link
               href="/services/emergency"
-              className="inline-flex h-9 items-center rounded-full bg-primary-red px-4 text-b14 font-bold text-white transition-colors duration-300 hover:bg-primary-blue lg:h-11 lg:px-5"
+              className={cn(
+                'inline-flex items-center justify-center gap-[10px] rounded-full bg-primary-red px-4 text-b14 font-bold text-white transition-colors duration-300 ease-in-out hover:bg-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2',
+                compact ? 'h-9' : 'h-9 lg:h-11 lg:px-5',
+              )}
+              onClick={navClick('/services/emergency')}
             >
               Emergency
             </Link>
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary-blue/25 text-primary-blue transition-colors duration-200 hover:border-primary-red hover:text-primary-red xl:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-primary-blue/25 text-primary-blue transition-all duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2 xl:hidden"
               aria-label="Open menu"
               aria-expanded={drawerOpen}
               aria-controls="mobile-drawer"
@@ -353,66 +551,6 @@ export function SiteHeader() {
             </button>
           </div>
         </div>
-
-        <nav aria-label="Primary" className="hidden border-t border-dark-gray/15 xl:block">
-          <ul className="mx-auto flex max-w-screen-xl items-stretch justify-between px-2">
-            {navigation.topLevel.map((item) => {
-              const triggerId = `mega-trigger-${item.id}`
-              const panelId = `mega-panel-${item.id}`
-              const isOpen = openItemId === item.id
-
-              return (
-                <li
-                  key={item.id}
-                  className={cn('mega-item', isOpen && 'is-open')}
-                  onMouseEnter={() => setOpenItemId(item.id)}
-                  onMouseLeave={() => {
-                    window.setTimeout(() => {
-                      setOpenItemId((current) => {
-                        if (current !== item.id) return current
-                        const node = document.getElementById(triggerId)?.closest('.mega-item')
-                        if (node?.matches(':focus-within') || node?.matches(':hover')) return current
-                        return null
-                      })
-                    }, 0)
-                  }}
-                  onFocus={() => setOpenItemId(item.id)}
-                  onBlur={(event) => {
-                    window.setTimeout(() => {
-                      if (!event.currentTarget.matches(':focus-within') && !event.currentTarget.matches(':hover')) {
-                        setOpenItemId((current) => (current === item.id ? null : current))
-                      }
-                    }, 0)
-                  }}
-                >
-                  <button
-                    type="button"
-                    id={triggerId}
-                    ref={(node) => {
-                      triggerRefs.current[item.id] = node
-                    }}
-                    className="mega-trigger"
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                    aria-controls={panelId}
-                    onClick={() =>
-                      setOpenItemId((current) => (current === item.id ? null : item.id))
-                    }
-                  >
-                    {item.label}
-                    <CaretDown size={14} aria-hidden className="shrink-0 transition-transform duration-200" />
-                  </button>
-                  <MegaPanel
-                    item={item}
-                    panelId={panelId}
-                    triggerId={triggerId}
-                    onNavigate={() => closeMegaMenu(false)}
-                  />
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
       </header>
 
       {drawerOpen ? (
@@ -424,7 +562,7 @@ export function SiteHeader() {
         className="mobile-drawer is-open"
       >
         <div className="flex items-center justify-between gap-4 border-b border-dark-gray/15 px-6 py-3">
-          <Link href="/" onClick={() => setDrawerOpen(false)}>
+          <Link href="/" onClick={navClick('/', () => setDrawerOpen(false))}>
             <Image
               src="/hijaz-hospital-logo-dark.svg"
               alt="Hijaz Hospital"
@@ -466,7 +604,7 @@ export function SiteHeader() {
           <Link
             href="/services/emergency"
             className="btn-primary flex w-full min-h-[48px] items-center justify-center text-b14"
-            onClick={() => setDrawerOpen(false)}
+            onClick={navClick('/services/emergency', () => setDrawerOpen(false))}
           >
             Emergency
           </Link>

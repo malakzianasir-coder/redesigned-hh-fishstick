@@ -21,6 +21,11 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
           <div className="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
             {hero.kicker ? <p className="kicker">{hero.kicker}</p> : null}
             <h1 className="text-h1M font-bold tracking-display text-primary-blue lg:text-h1">{hero.title}</h1>
+            {hero.quote ? (
+              <blockquote className="mx-auto mt-2 max-w-xl whitespace-pre-line border-l-4 border-primary-red pl-4 text-b18 italic text-primary-blue/85 lg:mx-0">
+                {hero.quote}
+              </blockquote>
+            ) : null}
             {hero.excerpt ? (
               <p className="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">{hero.excerpt}</p>
             ) : null}

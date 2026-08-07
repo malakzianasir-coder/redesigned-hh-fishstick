@@ -108,6 +108,7 @@
 
 :root {
   --header-h: 148px;
+  --header-h-expanded: 148px;
 }
 
 html {
@@ -155,6 +156,22 @@ html[data-theme='light'] {
 
   .btn-ghost {
     @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-primary-blue/25 bg-transparent px-4 text-b14 font-semibold text-primary-blue transition-all duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40;
+  }
+
+  .donation-field-label {
+    @apply mb-2 block text-b14 font-semibold text-primary-blue;
+  }
+
+  .donation-field {
+    @apply min-h-[56px] w-full rounded-xl border border-dark-gray/25 bg-white px-4 text-b16 text-primary-blue outline-none transition-colors duration-300 placeholder:text-primary-blue/45 focus:border-primary-red focus:ring-2 focus:ring-primary-red/15;
+  }
+
+  .brand-select {
+    @apply min-h-[56px] w-full rounded-xl border border-dark-gray/25 bg-white px-4 text-b16 text-primary-blue outline-none transition-colors duration-300 focus:border-primary-red focus:ring-2 focus:ring-primary-red/15;
+  }
+
+  .float-textarea {
+    @apply min-h-[120px] w-full resize-y rounded-xl border border-dark-gray/25 bg-white px-4 py-3 text-b16 text-primary-blue outline-none transition-colors duration-300 placeholder:text-primary-blue/45 focus:border-primary-red focus:ring-2 focus:ring-primary-red/15;
   }
 
   .block-header {
@@ -263,6 +280,15 @@ html[data-theme='light'] {
       visibility 0s linear 0.2s;
   }
 
+  .mega-panel::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+  }
+
   .mega-item.is-open .mega-panel {
     @apply pointer-events-auto visible translate-y-0 opacity-100;
     transition:
@@ -287,14 +313,6 @@ html[data-theme='light'] {
 
   .mega-more {
     @apply text-b14 font-bold leading-[150%] text-primary-blue transition-colors duration-200 hover:text-primary-red;
-  }
-
-  .featured-slot {
-    @apply flex flex-col gap-2.5 rounded-xl bg-cardbg p-4;
-  }
-
-  .featured-img {
-    @apply flex aspect-card items-center justify-center rounded-lg border border-dashed border-dark-gray/40 bg-whitebg;
   }
 
   .drawer-trigger {
@@ -615,7 +633,8 @@ html[data-theme='light'] {
   }
 
   .sticky-bar {
-    @apply sticky top-[73px] z-sticky border-y border-dark-gray/15 bg-white/95 backdrop-blur;
+    @apply sticky z-sticky border-y border-dark-gray/15 bg-white/95 backdrop-blur;
+    top: var(--header-h);
   }
 
   .hero-slide {

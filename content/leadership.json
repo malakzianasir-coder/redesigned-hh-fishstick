@@ -7,22 +7,48 @@
     "title": "Leadership & Governance",
     "excerpt": "Founders, chairpersons, presidents, senior management, and committees — the people entrusted with Hijaz Hospital's mission of compassionate, accessible healthcare for all.",
     "media": {
-      "type": "placeholder",
-      "icon": "UsersFour",
-      "placeholderLabel": "Leadership group photograph placeholder"
+      "type": "image",
+      "src": "/media/founders-hero-banner.webp",
+      "alt": "Leadership and governance at Hijaz Hospital"
     },
     "links": [
-      { "label": "Our Founders", "href": "#our-founders", "variant": "primary" },
-      { "label": "Senior Management", "href": "#senior-management", "variant": "ghost" }
+      {
+        "label": "Our Founders",
+        "href": "#our-founders",
+        "variant": "primary"
+      },
+      {
+        "label": "Senior Management",
+        "href": "#senior-management",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "Founders", "href": "#our-founders" },
-    { "label": "Chairpersons", "href": "#our-chairpersons" },
-    { "label": "Presidents", "href": "#our-presidents" },
-    { "label": "Senior Management", "href": "#senior-management" },
-    { "label": "Executive Committee", "href": "#executive-committee" },
-    { "label": "Core Committees", "href": "#core-committees" }
+    {
+      "label": "Founders",
+      "href": "#our-founders"
+    },
+    {
+      "label": "Chairpersons",
+      "href": "#our-chairpersons"
+    },
+    {
+      "label": "Presidents",
+      "href": "#our-presidents"
+    },
+    {
+      "label": "Senior Management",
+      "href": "#senior-management"
+    },
+    {
+      "label": "Executive Committee",
+      "href": "#executive-committee"
+    },
+    {
+      "label": "Core Committees",
+      "href": "#core-committees"
+    }
   ],
   "founders": [
     {
@@ -33,7 +59,8 @@
         "Born in October 1927 in Chiniot, he devoted more than five decades of his life to the service of humanity, earning deep respect as a distinguished social worker and philanthropist.",
         "As the Founder and Honorary Project Director of Hijaz Hospital, he transformed his lifelong commitment to compassion and public welfare into a lasting institution dedicated to healthcare and human service."
       ],
-      "editorialNote": "Source: “Picture passport sized - Haji Inam Ellahi Asar (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html). Name spelling varies between sources: “Ellahi” (Leadership.txt) vs “Elahi” (Profiles.txt) — confirm canonical spelling."
+      "editorialNote": "Source: “Picture passport sized - Haji Inam Ellahi Asar (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html). Name spelling varies between sources: “Ellahi” (Leadership.txt) vs “Elahi” (Profiles.txt) — confirm canonical spelling.",
+      "image": "/media/haji-inam-elahi-asar.jpg"
     },
     {
       "name": "Mian Abdul Waheed (Late)",
@@ -43,19 +70,30 @@
         "Born in April 1931 in East Punjab, he was a distinguished humanitarian admired for his integrity, humility, and lifelong dedication to public welfare and community service.",
         "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Haji Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service."
       ],
-      "editorialNote": "Source: “Picture passport sized - Mian Abdul Waheed (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html)."
+      "editorialNote": "Source: “Picture passport sized - Mian Abdul Waheed (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html).",
+      "image": "/media/mian-abdul-waheed.jpg"
     }
   ],
   "chairpersonsNote": "Source: “Data with pic available” — portrait photos to be uploaded for each tenure.",
   "chairpersons": [
-    { "years": "1994 – 2010", "name": "Alhaj Mian Abdul Waheed", "role": "Chairperson" },
+    {
+      "years": "1994 – 2010",
+      "name": "Alhaj Mian Abdul Waheed",
+      "role": "Chairperson",
+      "image": "/media/mian-abdul-waheed.jpg"
+    },
     {
       "years": "2010 – 2020",
       "name": "Mrs Tasneem Firdous Waheed",
       "role": "Chairperson",
+      "image": "/media/mrs-tasneem-firdous-waheed.jpg",
       "note": "Source reads \"Tenure 20110 to 2020\" — rendered here as 2010 – 2020. Confirm the correct start year before publishing."
     },
-    { "years": "2020 – till now", "name": "Mian Muhammad Asif Waheed", "role": "Chairperson" }
+    {
+      "years": "2020 – till now",
+      "name": "Mian Muhammad Asif Waheed",
+      "role": "Chairperson"
+    }
   ],
   "presidentsNote": "Source: “Data with pic available” — portrait photos to be uploaded for each tenure.",
   "presidents": [
@@ -64,28 +102,64 @@
       "name": "Hahi Inam Elahi Asar",
       "role": "President",
       "href": "/leadership/haji-inam-elahi-asar",
-      "note": "Source spells the name \"Hahi Inam Elahi Asar\" (kept verbatim). The founder biography spells \"Haji Inam Ellahi Asar\" — confirm the correct spelling."
+      "note": "Source spells the name \"Hahi Inam Elahi Asar\" (kept verbatim). The founder biography spells \"Haji Inam Ellahi Asar\" — confirm the correct spelling.",
+      "image": "/media/haji-inam-elahi-asar.jpg"
     },
     {
       "years": "2004 – till now",
       "name": "Sohail Iqbal",
       "role": "President",
-      "href": "/leadership/haji-inam-elahi-asar"
+      "href": "/leadership/haji-inam-elahi-asar",
+      "image": "/media/president-image.webp"
     }
   ],
   "seniorManagementNote": "Source: “Also provide pictures.” — portrait photos to be uploaded for each role.",
   "seniorManagement": [
-    { "name": "Sheikh Naeem Anwar", "role": "Patron of Chief" },
-    { "name": "Mian Muhammad Asif Waheed", "role": "Chairman" },
-    { "name": "Engr. Abdur Raoof Shahzada", "role": "Vice Chairman" },
-    { "name": "Sohail Iqbal", "role": "President" },
-    { "name": "Haji Abdul Ghaffar", "role": "Senior Vice President" },
-    { "name": "Mussarat Qayyum", "role": "Vice President" },
-    { "name": "Shahid Ismail", "role": "Vice President" },
-    { "name": "Mian Shahzad Waheed", "role": "Vice President" },
-    { "name": "Mohammad Naeem", "role": "General Secretary" },
-    { "name": "Ch. Azmat Ullah Warraich", "role": "Information Secretary" },
-    { "name": "Saqib Aftab", "role": "Finance Secretary" }
+    {
+      "name": "Sheikh Naeem Anwar",
+      "role": "Patron of Chief"
+    },
+    {
+      "name": "Mian Muhammad Asif Waheed",
+      "role": "Chairman"
+    },
+    {
+      "name": "Engr. Abdur Raoof Shahzada",
+      "role": "Vice Chairman"
+    },
+    {
+      "name": "Sohail Iqbal",
+      "role": "President",
+      "image": "/media/president-image.webp"
+    },
+    {
+      "name": "Haji Abdul Ghaffar",
+      "role": "Senior Vice President"
+    },
+    {
+      "name": "Mussarat Qayyum",
+      "role": "Vice President"
+    },
+    {
+      "name": "Shahid Ismail",
+      "role": "Vice President"
+    },
+    {
+      "name": "Mian Shahzad Waheed",
+      "role": "Vice President"
+    },
+    {
+      "name": "Mohammad Naeem",
+      "role": "General Secretary"
+    },
+    {
+      "name": "Ch. Azmat Ullah Warraich",
+      "role": "Information Secretary"
+    },
+    {
+      "name": "Saqib Aftab",
+      "role": "Finance Secretary"
+    }
   ],
   "executiveCommitteeLede": "Twenty-five members serve on the Executive Committee of Hijaz Hospital.",
   "executiveCommittee": [
@@ -117,17 +191,53 @@
   ],
   "coreCommitteesNote": "Source: “Ask Ms. Tabassum for the latest info for Conveners, Co-conveners and members” — convener details pending editorial confirmation.",
   "coreCommittees": [
-    { "icon": "Scales", "name": "Audit" },
-    { "icon": "Package", "name": "Central Purchase & Machinery/ Disposable, Wastage and Leakage/ Machinery & Equipment Maintenance" },
-    { "icon": "Scroll", "name": "Constitution" },
-    { "icon": "HandCoins", "name": "Finance" },
-    { "icon": "Megaphone", "name": "HR/Fund Raising/Marketing & Event Management" },
-    { "icon": "Newspaper", "name": "Information & Publications" },
-    { "icon": "ClipboardText", "name": "Inspection" },
-    { "icon": "Pill", "name": "Medicine" },
-    { "icon": "Cpu", "name": "MIS" },
-    { "icon": "MoonStars", "name": "Mosque" },
-    { "icon": "Baby", "name": "Mother & Child Care" },
-    { "icon": "Buildings", "name": "Property Affairs & Construction" }
+    {
+      "icon": "Scales",
+      "name": "Audit"
+    },
+    {
+      "icon": "Package",
+      "name": "Central Purchase & Machinery/ Disposable, Wastage and Leakage/ Machinery & Equipment Maintenance"
+    },
+    {
+      "icon": "Scroll",
+      "name": "Constitution"
+    },
+    {
+      "icon": "HandCoins",
+      "name": "Finance"
+    },
+    {
+      "icon": "Megaphone",
+      "name": "HR/Fund Raising/Marketing & Event Management"
+    },
+    {
+      "icon": "Newspaper",
+      "name": "Information & Publications"
+    },
+    {
+      "icon": "ClipboardText",
+      "name": "Inspection"
+    },
+    {
+      "icon": "Pill",
+      "name": "Medicine"
+    },
+    {
+      "icon": "Cpu",
+      "name": "MIS"
+    },
+    {
+      "icon": "MoonStars",
+      "name": "Mosque"
+    },
+    {
+      "icon": "Baby",
+      "name": "Mother & Child Care"
+    },
+    {
+      "icon": "Buildings",
+      "name": "Property Affairs & Construction"
+    }
   ]
 }

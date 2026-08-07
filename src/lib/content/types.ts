@@ -45,6 +45,8 @@ export type ContentSectionData = {
     alt?: string
   }
   background?: 'white' | 'muted' | 'red'
+  /** Text alignment. Default centers when no image; use `start` for long overview copy. */
+  align?: 'center' | 'start'
 }
 
 export type BulletItem =
@@ -342,7 +344,7 @@ export type DonateHubContent = {
   slug: string
   title: string
   description?: string
-  hero: HeroConfig
+  hero: MarketingHero
   jumpLinks: JumpLink[]
   givingTypes: DonationCauseCard[]
   supportCauses: DonationCauseCard[]
@@ -364,6 +366,11 @@ export type DonationCauseRecord = PageRecord & {
   kind: 'general' | 'cause'
   bankAccountKeys?: string[]
   amounts?: number[]
+  zakatCalculator?: {
+    enabled: boolean
+    heading: string
+    body: string
+  }
 }
 
 export type JumpLink = {
@@ -375,6 +382,8 @@ export type MarketingHero = {
   kicker?: string
   title: string
   excerpt?: string
+  /** Optional pull-quote (e.g. Qur’an verse on Ways to Give hub). */
+  quote?: string
   media?: {
     type: 'image' | 'placeholder'
     src?: string
@@ -441,6 +450,7 @@ export type MedicalTower = {
   chips: string[]
   body: string[]
   cta: { label: string; href: string }
+  image?: string
   placeholderLabel?: string
 }
 
@@ -474,12 +484,14 @@ export type TenureEntry = {
   name: string
   role: string
   href?: string
+  image?: string
   note?: string
 }
 
 export type PersonGridMember = {
   name: string
   role: string
+  image?: string
 }
 
 export type DonorEntry = {
@@ -496,12 +508,14 @@ export type MessageArticle = {
   name: string
   role: string
   organization?: string
+  image?: string
   body: string[]
   signature?: string
   signOff?: string
   roleLine?: string
   organizationLine?: string
   editorialNote?: string
+  href?: string
   verse?: {
     arabic: string
     translation: string
@@ -739,6 +753,105 @@ export type HomeWaysToGive = {
     phone: string
     email: string
   }
+}
+
+export type HowToDonateBankField = {
+  label: string
+  value: string
+  copyValue?: string
+}
+
+export type HowToDonateBankAccount = {
+  title: string
+  bank: string
+  logo?: string
+  fields: HowToDonateBankField[]
+}
+
+export type HowToDonateMethod = {
+  slug: string
+  navLabel: string
+  title: string
+  icon: string
+  excerpt: string
+  hero: MarketingHero
+  body?: string[]
+  intro?: string
+  cta?: { label: string; href: string }
+  wallet?: {
+    provider: string
+    accountTitle: string
+    tillId: string
+    qrNote: string
+  }
+  bankAccounts?: HowToDonateBankAccount[]
+  categoriesHeading?: string
+  categories?: { title: string; body: string }[]
+  qr?: {
+    heading: string
+    body: string
+    placeholderNote: string
+  }
+  payableTo?: string
+  addressLines?: string[]
+  footer?: string
+  itemsIntro?: string
+  items?: string[]
+  arrange?: string
+  closing?: string
+}
+
+export type HowToDonateContent = {
+  slug: string
+  title: string
+  description?: string
+  hero: MarketingHero
+  receipts: {
+    heading: string
+    body: string
+  }
+  assistance: {
+    heading: string
+    body: string
+    uan: string
+    phone: string
+    email: string
+  }
+  methods: HowToDonateMethod[]
+}
+
+export type WhatYouCanSupportOption = {
+  title: string
+  body: string
+}
+
+export type WhatYouCanSupportCause = {
+  slug: string
+  navLabel: string
+  title: string
+  icon: string
+  excerpt: string
+  tagline: string
+  hero: MarketingHero
+  body: string[]
+  listHeading?: string
+  items?: string[]
+  optionItems?: WhatYouCanSupportOption[]
+  impactTable?: {
+    heading: string
+    intro: string
+    rows: { amount: string; impact: string }[]
+    note?: string
+  }
+  closing: string[]
+}
+
+export type WhatYouCanSupportContent = {
+  slug: string
+  title: string
+  description?: string
+  hero: MarketingHero
+  causes: WhatYouCanSupportCause[]
 }
 
 export type HomeComplianceCard = {

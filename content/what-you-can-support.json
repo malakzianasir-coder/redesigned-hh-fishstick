@@ -1,0 +1,235 @@
+{
+  "slug": "what-you-can-support",
+  "title": "What You Can Support",
+  "description": "Donate a meal, give in kind, sponsor a patient or surgery, or support a hospital project — every contribution strengthens care at Hijaz Hospital Trust.",
+  "hero": {
+    "kicker": "Donate",
+    "title": "What You Can Support",
+    "excerpt": "From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects — choose how your gift strengthens care for deserving patients.",
+    "media": {
+      "type": "placeholder",
+      "placeholderLabel": "What You Can Support",
+      "icon": "HandHeart"
+    },
+    "links": [
+      { "label": "Donate a Meal", "href": "/donate/what-you-can-support/donate-a-meal", "variant": "primary" },
+      { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "ghost" }
+    ]
+  },
+  "causes": [
+    {
+      "slug": "donate-a-meal",
+      "navLabel": "Donate a Meal",
+      "title": "Donate a Meal",
+      "icon": "BowlFood",
+      "excerpt": "Nourish a Patient. Support Their Recovery.",
+      "tagline": "Nourish a Patient. Support Their Recovery.",
+      "hero": {
+        "kicker": "What You Can Support",
+        "title": "Donate a Meal",
+        "excerpt": "Nourish a Patient. Support Their Recovery.",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Donate a Meal",
+          "icon": "HandHeart"
+        },
+        "links": [
+          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "Good nutrition plays an important role in healing. At Hijaz Hospital Trust, many patients from underprivileged families struggle to afford even a nutritious meal while receiving treatment. Nutritious meals are an important part of recovery. Through our patient meal program, we provide deserving patients with healthy meals during their hospital stay.",
+        "Through our Donate a Meal initiative, you can help provide meals to deserving patients, giving them the nourishment and comfort that they need during their recovery. Whether you sponsor a single meal, a day's meals, or ongoing meal support, every contribution helps ensure that no patient goes hungry during treatment."
+      ],
+      "impactTable": {
+        "heading": "Your Donation Can Provide",
+        "intro": "The following sponsorship amounts illustrate how your donation can help provide nutritious meals to deserving patients:",
+        "rows": [
+          { "amount": "PKR 500", "impact": "1 nutritious meal" },
+          { "amount": "PKR 1,500", "impact": "Meals for a patient for 3 days" },
+          { "amount": "PKR 3,500", "impact": "Meals for a patient for 1 week" },
+          { "amount": "PKR 15,000", "impact": "Meals for a patient for 1 month" }
+        ],
+        "note": "Note: Estimated costs may change over time."
+      },
+      "closing": [
+        "Your support helps ensure that no patient goes hungry while receiving care at Hijaz Hospital Trust, allowing them to focus on what matters most—getting better.",
+        "Donate a meal today and bring comfort, hope, and nourishment to a patient in need.",
+        "Please contact our Donations Office before delivering items to confirm current needs and donation requirements."
+      ]
+    },
+    {
+      "slug": "donate-in-kind",
+      "navLabel": "Donate in Kind",
+      "title": "Donate in Kind",
+      "icon": "Package",
+      "excerpt": "Support Patient Care Through Essential Supplies",
+      "tagline": "Support Patient Care Through Essential Supplies",
+      "hero": {
+        "kicker": "What You Can Support",
+        "title": "Donate in Kind",
+        "excerpt": "Support Patient Care Through Essential Supplies",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Donate in Kind",
+          "icon": "Package"
+        },
+        "links": [
+          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "Hijaz Hospital Trust welcomes in-kind donations from individuals, organizations, pharmaceutical companies, medical suppliers, and other generous supporters. Your contribution of essential medical supplies, equipment, and other assets helps us provide quality healthcare to deserving patients."
+      ],
+      "listHeading": "We welcome donations of:",
+      "items": [
+        "Medicines and life-saving drugs",
+        "Medical and surgical equipment",
+        "Hospital beds, wheelchairs, stretchers, and other patient-care items",
+        "Diagnostic and laboratory equipment",
+        "Surgical disposables and medical supplies",
+        "Real estate or property donations (residential or commercial)",
+        "Other essential items that support patient care and hospital operations"
+      ],
+      "closing": [
+        "Donated property may be used by Hijaz Hospital Trust for its charitable purposes or sold, with proceeds directed toward patient care and hospital services.",
+        "All deserving patients at Hijaz Hospital Trust receive treatment free of charge. Your in-kind donation helps reduce treatment costs, strengthen our healthcare services, and ensure patients continue to receive timely, safe, and compassionate care.",
+        "Donate in kind and help provide the resources that make healing possible.",
+        "If you wish to donate your property or give any other donation in kind, please contact our Donations Office to confirm the donation requirements."
+      ]
+    },
+    {
+      "slug": "sponsor-a-patient",
+      "navLabel": "Sponsor a Patient",
+      "title": "Sponsor a Patient",
+      "icon": "UserCircleGear",
+      "excerpt": "Become a Source of Healing and Hope",
+      "tagline": "Become a Source of Healing and Hope",
+      "hero": {
+        "kicker": "What You Can Support",
+        "title": "Sponsor a Patient",
+        "excerpt": "Become a Source of Healing and Hope",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Sponsor a Patient",
+          "icon": "UserCircleGear"
+        },
+        "links": [
+          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "At Hijaz Hospital Trust, you can directly support the treatment of deserving patients who cannot afford essential healthcare. Your sponsorship helps provide medicines, dialysis, vaccinations, maternity care, and other medical services to those in need.",
+        "By sponsoring a patient, you become part of their healing journey—bringing relief, dignity, and hope to individuals and families facing illness and financial hardship."
+      ],
+      "listHeading": "Treatment Sponsorship Options",
+      "optionItems": [
+        {
+          "title": "Hepatitis Treatment",
+          "body": "Sponsor vaccination or treatment support"
+        },
+        {
+          "title": "Dialysis Care",
+          "body": "Sponsor single sessions, monthly, yearly, or long-term support"
+        },
+        {
+          "title": "Gynae & Maternity Care",
+          "body": "Sponsor maternal care up to delivery"
+        },
+        {
+          "title": "Medical Treatment Based on Patient Need",
+          "body": "Support patients based on medical need and treatment plan"
+        }
+      ],
+      "closing": [
+        "Every sponsorship brings a patient one step closer to recovery. Sponsor a patient today.",
+        "For details regarding sponsorship options and estimated treatment costs, donors may contact our Donations Office or Hijaz Hospital Reception."
+      ]
+    },
+    {
+      "slug": "sponsor-free-surgeries",
+      "navLabel": "Sponsor Free Surgeries",
+      "title": "Sponsor Free Surgeries",
+      "icon": "HandHeart",
+      "excerpt": "Support Life-Changing Surgical Care",
+      "tagline": "Support Life-Changing Surgical Care",
+      "hero": {
+        "kicker": "What You Can Support",
+        "title": "Sponsor Free Surgeries",
+        "excerpt": "Support Life-Changing Surgical Care",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Sponsor Free Surgeries",
+          "icon": "HandHeart"
+        },
+        "links": [
+          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "Many patients at Hijaz Hospital Trust require surgery but are unable to afford the cost. Through your support, we are able to provide safe, timely, and free surgical care to deserving patients.",
+        "Your contribution helps restore health, reduce suffering, and bring hope to families in need."
+      ],
+      "listHeading": "Surgical Sponsorship Options",
+      "optionItems": [
+        {
+          "title": "General Surgery",
+          "body": "Sponsor surgery for a deserving patient"
+        },
+        {
+          "title": "Urology Surgery",
+          "body": "Support urology-related surgical procedures"
+        },
+        {
+          "title": "Eye Surgery",
+          "body": "Sponsor cataract surgery for patients in need"
+        },
+        {
+          "title": "Specialized Surgical Procedures",
+          "body": "Support surgery based on medical need and treatment plan"
+        }
+      ],
+      "closing": [
+        "Sponsor a surgery today and help bring healing, dignity, and hope to those in need.",
+        "The cost of treatment may vary according to the department, procedure, surgery, or patient condition. For details regarding sponsorship options and estimated treatment costs, donors may contact our Donations Office or Hijaz Hospital Reception."
+      ]
+    },
+    {
+      "slug": "support-a-project",
+      "navLabel": "Support a Project",
+      "title": "Support a Project",
+      "icon": "Buildings",
+      "excerpt": "Help Build the Future of Healthcare",
+      "tagline": "Help Build the Future of Healthcare",
+      "hero": {
+        "kicker": "What You Can Support",
+        "title": "Support a Project",
+        "excerpt": "Help Build the Future of Healthcare",
+        "media": {
+          "type": "placeholder",
+          "placeholderLabel": "Support a Project",
+          "icon": "Buildings"
+        },
+        "links": [
+          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+        ]
+      },
+      "body": [
+        "Support the expansion and development of Hijaz Hospital Trust by contributing to projects that strengthen our facilities and improve patient care. Your donation helps us build and upgrade the spaces where healing begins, enabling us to serve more patients with quality healthcare."
+      ],
+      "listHeading": "Projects You Can Support",
+      "items": [
+        "Construction of new patient wards",
+        "Expansion of hospital departments",
+        "Intensive Care Unit (ICU) development",
+        "Patient rooms and waiting areas",
+        "Renovation and upgrading of existing facilities"
+      ],
+      "closing": [
+        "Large infrastructure projects may also offer naming or recognition opportunities for major donors, subject to the policies of Hijaz Hospital Trust.",
+        "Every project you support strengthens our ability to provide safe, accessible, and compassionate healthcare for generations to come.",
+        "Support a project today and help build the spaces where lives are saved and hope is restored."
+      ]
+    }
+  ]
+}

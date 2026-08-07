@@ -12,7 +12,7 @@ Master spec for the Next.js + PayloadCMS implementation pass. Every page/route, 
 
 | Element | Status | Content source | Patterns | CMS mapping | Gaps / notes |
 |---|---|---|---|---|---|
-| Header + mega menu | DS `mega-menu-design-system.html` | IA: 8 top items / 21 groups / 84 links | P00 | **NEW `navigation` global** (topLevel[] → groups[] → links[] `{label, link}`, featured slot, moreLink); SiteHeader renders global w/ hardcoded fallback | Mega-menu GAP list: leadership-governance, our-impact, donor-wall routes; 6 welfare slugs; zakat placement; accreditation page |
+| Header + mega menu | DS `mega-menu-design-system.html` | IA: 8 top items / 21 groups / 84 links | P00 | **NEW `navigation` global** (topLevel[] → groups[] → links[] `{label, link}`, moreLink); SiteHeader renders global w/ hardcoded fallback. **No featured / image-slot promo in mega panels.** | Mega-menu GAP list: leadership-governance, our-impact, donor-wall routes; 6 welfare slugs; zakat placement; accreditation page |
 | Footer | TPL (chrome in all DS mockups) | — | P00 | Site settings global | Legal links TBD (§13) |
 | Breadcrumb | TPL (in mockups) | Route hierarchy | P00 | `Breadcrumb` component; dept category → crumb | Wire hub ↔ detail (pending task) |
 | Global CTA band | DS (in all mockups, `btn-on-dark`) | — | P24 | **NEW global CTA settings + per-doc override toggle** (pages/departments/services) | Pending task `global-cta-toggle` |
@@ -25,7 +25,7 @@ Master spec for the Next.js + PayloadCMS implementation pass. Every page/route, 
 
 | Route | Status | Content source | Sections → patterns | CMS mapping | Gaps / notes |
 |---|---|---|---|---|---|
-| `/` | DS **finalized** (`home-alt-design-system.html`) | pages slug `home` (DB: fullBannerHero + 15 layout blocks); copy refresh from `merged.txt` / `Donate (3).txt` / `Our Impact.txt` / `facts-stats.json` where applicable | fullBannerHero (3 slides) → textWithImage → counters P17 → textWithIcons (Engage) → servicesCarousel → bankAccountsList → textWithIcons (Other Ways) → personMessage → textWithImageAlt → publicationAndResearchCarousel → successStories → teamMembersCarousel → newsCarousel → eventsCarousel → threeDSlider → threeDCarouselR3F → P24 CTA | pages slug `home` — hero + layout blocks | **Finalized as direction** — significant design polish and content updates still pending before implementation (see `AI-HANDOFF-GUIDE.md` §9). Superseded: `home-design-system.html`. Excluded from `[slug]` static gen (existing) |
+| `/` | DS **finalized** (`home-alt-design-system.html`) | pages slug `home` (DB: fullBannerHero + 15 layout blocks); copy refresh from `merged.txt` / `Donate (3).txt` / `Our Impact.txt` / `facts-stats.json` where applicable | fullBannerHero (3 slides) → textWithImage → counters P17 → textWithIcons (Engage) → servicesCarousel → bankAccountsList → textWithIcons (Other Ways) → personMessage → textWithImageAlt → publicationAndResearchCarousel → successStories → teamMembersCarousel → newsCarousel → eventsCarousel → threeDSlider → threeDCarouselR3F → P24 CTA | pages slug `home` — hero + layout blocks | **Finalized as direction** — significant design polish and content updates still pending before implementation. Superseded: `home-design-system.html`. Excluded from `[slug]` static gen (existing) |
 
 ---
 
@@ -252,5 +252,5 @@ CMS mapping (all): `services` collection — hero group + FixedDepartmentService
 6. **Phase 5 — Donate:** 9 cause docs, donationMethods/bankDetails completion, zakat-calculator placement, pickup-service content.
 7. **Phase 6 — Welfare cluster:** 6 new pages + whitelist, processSteps/numberedList, feedback/evaluation forms.
 8. **Phase 7 — Diagnostics:** lab-tests seed + labTestsList, pathology/radiology/cardiac-dx pages, complianceLogos accreditations.
-9. **Phase 8 — Home** (implement `home-alt-design-system.html`; apply pending design/content changes per `AI-HANDOFF-GUIDE.md` §9).
+9. **Phase 8 — Home** (implement `home-alt-design-system.html`; apply pending design/content polish).
 10. **Phase 9 — Migration & QA:** seed scripts (departments/doctors/lab-tests versions), redirects, orphan-content decisions, preview-path gaps (success-stories/publications/new-machinery).

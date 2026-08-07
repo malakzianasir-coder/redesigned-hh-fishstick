@@ -10,12 +10,21 @@ type Args = {
   }>
 }
 
+/** Reserved under /donate — handled by dedicated routes, not Ways to Give pages. */
+const RESERVED_SLUGS = new Set(['how-to-donate', 'what-you-can-support', 'mock'])
+
 export async function generateStaticParams() {
-  return getDonations().map(({ slug }) => ({ slug }))
+  return getDonations()
+    .filter(({ slug, kind }) => !RESERVED_SLUGS.has(slug) && kind === 'general')
+    .map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
+  if (RESERVED_SLUGS.has(slug)) {
+    return { title: 'Donate | Hijaz Hospital' }
+  }
+
   const cause = getDonation(slug)
 
   if (!cause) {
@@ -28,11 +37,17 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   }
 }
 
-export default async function DonationCausePage({ params }: Args) {
+export default async function DonateSubpage({ params }: Args) {
   const { slug } = await params
+
+  if (RESERVED_SLUGS.has(slug)) {
+    notFound()
+  }
+
   const cause = getDonation(slug)
 
-  if (!cause) {
+  // Support causes live under /donate/what-you-can-support/[cause]
+  if (!cause || cause.kind !== 'general') {
     notFound()
   }
 

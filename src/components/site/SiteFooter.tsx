@@ -14,7 +14,7 @@ const FOOTER_COLUMNS = [
     title: 'Our Purpose',
     ariaLabel: 'Our Purpose',
     links: [
-      { label: 'Vision & Mission', href: '/our-purpose' },
+      { label: 'Vision & Mission', href: '/our-purpose#vision-mission' },
       { label: 'Leadership & Governance', href: '/leadership' },
       { label: 'Messages', href: '/leadership/messages' },
       { label: 'Our Impact', href: '/our-impact' },
@@ -26,23 +26,23 @@ const FOOTER_COLUMNS = [
     ariaLabel: 'Patient Care',
     links: [
       { label: 'Emergency (24/7)', href: '/services/emergency' },
-      { label: 'Outpatient (OPD)', href: '/services' },
+      { label: 'Outpatient (OPD)', href: '/services/opd' },
       { label: 'Inpatient (IPD)', href: '/services/ipd' },
-      { label: 'Laboratory & Diagnostics', href: '/lab-reports' },
+      { label: 'Clinical Laboratory', href: '/services/pathology' },
       { label: 'Find a Doctor', href: '/doctors' },
       { label: 'Patient Welfare', href: '/patient-welfare' },
     ],
   },
   {
-    title: 'Ways to Give',
-    ariaLabel: 'Ways to Give',
+    title: 'Donate',
+    ariaLabel: 'Donate',
     links: [
-      { label: 'Donate Online', href: '/donate' },
-      { label: 'JazzCash Till', href: '/donate' },
-      { label: 'Zakat & Sadaqah', href: '/donate' },
-      { label: 'Sponsor a Patient', href: '/donate' },
-      { label: 'Bank Transfer', href: '/donate' },
-      { label: 'Other Ways to Donate', href: '/donate' },
+      { label: 'Ways to Give', href: '/donate' },
+      { label: 'What You Can Support', href: '/donate/what-you-can-support' },
+      { label: 'How to Donate', href: '/donate/how-to-donate' },
+      { label: 'Zakat', href: '/donate/zakat' },
+      { label: 'Sponsor a Patient', href: '/donate/what-you-can-support/sponsor-a-patient' },
+      { label: 'Donate Online', href: '/donate/how-to-donate/online' },
     ],
   },
 ] as const
@@ -263,8 +263,8 @@ export function SiteFooter() {
             <Link href="/departments" className="footer-link text-b14 leading-[150%]">
               Medical Departments
             </Link>
-            <Link href="/reports" className="footer-link text-b14 leading-[150%]">
-              Impact Reports
+            <Link href="/our-impact" className="footer-link text-b14 leading-[150%]">
+              Our Impact
             </Link>
           </div>
         </div>

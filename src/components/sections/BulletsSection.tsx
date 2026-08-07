@@ -37,18 +37,16 @@ export function BulletsSection({ section }: { section: BulletsSectionData }) {
             </div>
           </div>
         ) : (
-          <div className="card-grid card-grid--3">
+          <div className="card-grid card-grid--2">
             {items.map((item, index) => {
               const text = typeof item === 'string' ? item : item.text
-              const icon = typeof item === 'string' ? undefined : item.icon
+              const icon = typeof item === 'string' ? 'check-circle' : item.icon || 'check-circle'
               return (
-                <article key={index} className="card-interactive flex flex-col gap-2 p-5">
-                  {icon ? (
-                    <span className="icon-tile">
-                      <SectionIcon name={icon} />
-                    </span>
-                  ) : null}
-                  <p className="text-b16 font-semibold text-primary-blue">{text}</p>
+                <article key={index} className="card-interactive flex items-start gap-3 p-5">
+                  <span className="icon-tile shrink-0">
+                    <SectionIcon name={icon} />
+                  </span>
+                  <p className="text-b16 font-semibold leading-[150%] text-primary-blue">{text}</p>
                 </article>
               )
             })}

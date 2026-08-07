@@ -6,11 +6,12 @@ import { useEffect, useState } from 'react'
 import type { JumpLink } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
-type DetailJumpNavProps = {
+type JumpNavProps = {
   links: JumpLink[]
 }
 
-export function DetailJumpNav({ links }: DetailJumpNavProps) {
+/** In-document section jump nav — relative (scrolls with the page), with active-section tracking. */
+export function JumpNav({ links }: JumpNavProps) {
   const [activeId, setActiveId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -39,8 +40,10 @@ export function DetailJumpNav({ links }: DetailJumpNavProps) {
     return () => observer.disconnect()
   }, [links])
 
+  if (!links.length) return null
+
   return (
-    <nav className="sticky-bar" aria-label="On this page">
+    <nav className="border-y border-dark-gray/15 bg-white" aria-label="On this page">
       <div className="container mx-auto px-6 py-3 lg:px-[30px]">
         <div className="flex flex-wrap items-center gap-2">
           <span className="field-label-text mr-1">On this page</span>

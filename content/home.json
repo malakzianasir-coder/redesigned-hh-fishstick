@@ -3,7 +3,10 @@
     "kicker": "Our Compliance",
     "heading": "Accountable. Certified. Transparent.",
     "lede": "Hijaz Hospital is committed to adhere to all applicable healthcare regulations, quality standards, ethical practices, and governance requirements, ensuring safe, transparent, and accountable healthcare services for all.",
-    "cta": { "label": "View all credentials", "href": "/our-purpose#our-compliance" },
+    "cta": {
+      "label": "View all credentials",
+      "href": "/our-purpose#our-compliance"
+    },
     "cards": [
       {
         "label": "Regulatory",
@@ -27,10 +30,19 @@
     "heading": "A Hospital Built on Humanity and Hope",
     "body": "Trust-based, non-profit healthcare institution dedicated to serving humanity. More than 90% of patients receive treatment completely free of cost, ensuring access for the underprivileged and deserving. Guided by compassion, transparency, and service, Hijaz Hospital believes that healthcare is a right, not a privilege — providing three-time free, quality meals to both patients and their attendants, and ensuring dignity, comfort, and holistic care beyond medical treatment.",
     "quote": "To care for the ailing with compassion, respect, dignity, and professional excellence, while ensuring that financial hardship never stands in the way of receiving care",
-    "cta": { "label": "Learn More", "href": "/our-purpose" },
+    "cta": {
+      "label": "Learn More",
+      "href": "/our-purpose"
+    },
     "images": [
-      { "src": "/media/DSC_0076.webp", "alt": "Inside Hijaz Hospital" },
-      { "src": "/media/476945069_970781975161220_6789087496260085071_n.webp", "alt": "Hijaz Hospital patient care" }
+      {
+        "src": "/media/DSC_0076.webp",
+        "alt": "Inside Hijaz Hospital"
+      },
+      {
+        "src": "/media/476945069_970781975161220_6789087496260085071_n.webp",
+        "alt": "Hijaz Hospital patient care"
+      }
     ]
   },
   "engage": {
@@ -57,14 +69,14 @@
         "icon": "HandCoins",
         "title": "Donations",
         "body": "Your generous donations enable us to offer free, high-quality medical care to underserved communities making every rupee count.",
-        "href": "/donations",
+        "href": "/donate",
         "cta": "Donations"
       },
       {
         "icon": "HandArrowUp",
         "title": "Sponsor a Patient",
         "body": "Take the opportunity to personally sponsor a deserving patient's treatment and make a direct impact in someone's journey to recovery.",
-        "href": "/donate",
+        "href": "/donate/what-you-can-support/sponsor-a-patient",
         "cta": "Sponsor a Patient"
       },
       {
@@ -80,16 +92,31 @@
     "kicker": "Ways to Give",
     "heading": "How to Donate",
     "lede": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Choose the donation method that is most convenient for you — online, JazzCash Till, bank transfer, or other ways to give.",
-    "cta": { "label": "Open full donate hub", "href": "/donate" },
+    "cta": {
+      "label": "How to Donate",
+      "href": "/donate/how-to-donate"
+    },
     "online": {
       "kicker": "Online Donation",
       "heading": "Donate securely via JazzCash",
       "body": "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided.",
       "amounts": [
-        { "value": "500", "label": "PKR 500" },
-        { "value": "1000", "label": "PKR 1,000" },
-        { "value": "1500", "label": "PKR 1,500" },
-        { "value": "custom", "label": "Custom…" }
+        {
+          "value": "500",
+          "label": "PKR 500"
+        },
+        {
+          "value": "1000",
+          "label": "PKR 1,000"
+        },
+        {
+          "value": "1500",
+          "label": "PKR 1,500"
+        },
+        {
+          "value": "custom",
+          "label": "Custom…"
+        }
       ],
       "ctaLabel": "Donate Now",
       "ctaHref": "/donate"
@@ -109,10 +136,24 @@
         "bank": "Meezan Bank",
         "logo": "/media/meezan-bank-logo.webp",
         "fields": [
-          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-          { "label": "Account Number", "value": "0201-0100642701", "copyValue": "0201-0100642701" },
-          { "label": "IBAN", "value": "PK33MEZN000201-0100642701", "copyValue": "PK33MEZN0002010100642701" },
-          { "label": "Swift Code", "value": "MEZNPKKA" }
+          {
+            "label": "Account Title",
+            "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+          },
+          {
+            "label": "Account Number",
+            "value": "0201-0100642701",
+            "copyValue": "0201-0100642701"
+          },
+          {
+            "label": "IBAN",
+            "value": "PK33MEZN000201-0100642701",
+            "copyValue": "PK33MEZN0002010100642701"
+          },
+          {
+            "label": "Swift Code",
+            "value": "MEZNPKKA"
+          }
         ]
       },
       {
@@ -121,21 +162,49 @@
         "bank": "Meezan Bank",
         "logo": "/media/meezan-bank-logo.webp",
         "fields": [
-          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-          { "label": "Account Number", "value": "0221-0101345166", "copyValue": "0221-0101345166" },
-          { "label": "IBAN", "value": "PK33MEZN000221-0101345166", "copyValue": "PK33MEZN0002210101345166" },
-          { "label": "Swift Code", "value": "MEZNPKKA" }
+          {
+            "label": "Account Title",
+            "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+          },
+          {
+            "label": "Account Number",
+            "value": "0221-0101345166",
+            "copyValue": "0221-0101345166"
+          },
+          {
+            "label": "IBAN",
+            "value": "PK06MEZN000221-0101345166",
+            "copyValue": "PK06MEZN0002210101345166"
+          },
+          {
+            "label": "Swift Code",
+            "value": "MEZNPKKA"
+          }
         ]
       },
       {
-        "key": "itw",
+        "key": "project",
         "title": "Construction of \"ITW\" Medical Tower",
         "bank": "BANKISLAMI",
         "fields": [
-          { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-          { "label": "Account Number", "value": "2053-5690439-0201", "copyValue": "205356904390201" },
-          { "label": "IBAN", "value": "PK87BKIP0205356904390201", "copyValue": "PK87BKIP0205356904390201" },
-          { "label": "Swift Code", "value": "BKIPPKKA" }
+          {
+            "label": "Account Title",
+            "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+          },
+          {
+            "label": "Account Number",
+            "value": "2053-5690439-0201",
+            "copyValue": "205356904390201"
+          },
+          {
+            "label": "IBAN",
+            "value": "PK87BKIP0205356904390201",
+            "copyValue": "PK87BKIP0205356904390201"
+          },
+          {
+            "label": "Swift Code",
+            "value": "BKIPPKKA"
+          }
         ]
       }
     ],
@@ -144,14 +213,14 @@
         "icon": "EnvelopeOpen",
         "title": "Cheque or Bank Draft",
         "body": "Donations may also be made through cheque or bank draft payable to Hijaz Social Welfare Society (Hijaz Hospital).",
-        "href": "/donate",
+        "href": "/donate/how-to-donate/cheque",
         "linkLabel": "View details"
       },
       {
         "icon": "PersonArmsSpread",
         "title": "In-Person Donations",
         "body": "You can make your donation directly at our hospital front desk or donation counters. Our staff will provide you with an official receipt.",
-        "href": "/donate",
+        "href": "/donate/how-to-donate",
         "linkLabel": "View details"
       },
       {
@@ -165,21 +234,21 @@
         "icon": "Truck",
         "title": "Pick-Up Donation Service",
         "body": "For your convenience, our authorized representatives can collect donations from your home or office.",
-        "href": "/donate",
+        "href": "/donate/how-to-donate/pick-up",
         "linkLabel": "View details"
       },
       {
         "icon": "DeviceMobile",
         "title": "Meezan Mobile App",
         "body": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
-        "href": "/donate",
+        "href": "/donate/how-to-donate/meezan-app",
         "linkLabel": "View details"
       },
       {
         "icon": "QrCode",
         "title": "QR Code Donation",
         "body": "Scan the QR code using your banking or mobile wallet application to make a secure donation in just a few simple steps.",
-        "href": "/donate",
+        "href": "/donate/how-to-donate/meezan-app",
         "linkLabel": "View details"
       }
     ],
@@ -193,7 +262,10 @@
     "kicker": "Departments & Services",
     "heading": "Compassionate Care Across Every Department",
     "lede": "We offer a wide range of medical services designed to meet the needs of every patient from routine check-ups to life-saving treatments.",
-    "cta": { "label": "Explore All Services", "href": "/services" },
+    "cta": {
+      "label": "Explore All Services",
+      "href": "/services"
+    },
     "cards": [
       {
         "href": "/departments/general-surgery",
@@ -222,19 +294,22 @@
     "kicker": "Leadership",
     "heading": "Our Founders",
     "lede": "A legacy of compassion, integrity, and service that shaped Hijaz Hospital.",
-    "cta": { "label": "View all founders & governance", "href": "/leadership" },
+    "cta": {
+      "label": "View all founders & governance",
+      "href": "/leadership"
+    },
     "cards": [
       {
         "name": "Haji Inam Elahi Asar",
         "role": "Founder & Honorary Project Director",
-        "image": "/media/founder-image.webp",
+        "image": "/media/haji-inam-elahi-asar.jpg",
         "body": "Born in October 1927 in Chiniot, he devoted more than five decades to humanitarian service. His enduring legacy is Hijaz Hospital — a charitable institution founded on compassion, dignity, and service to those who cannot afford care.",
         "href": "/leadership/haji-inam-elahi-asar"
       },
       {
         "name": "Mian Abdul Waheed (1931–2010)",
         "role": "Lifetime Chairman",
-        "image": "/media/founders-hero-banner.webp",
+        "image": "/media/mian-abdul-waheed.jpg",
         "body": "A founding member and principal driving force alongside Haji Inam Elahi Asar, he shaped Hijaz Hospital from a dispensary into a 200-bedded charitable healthcare institution through visionary leadership and unwavering commitment to public welfare.",
         "href": "/leadership#our-founders"
       }
@@ -244,24 +319,27 @@
     "kicker": "Patient Stories",
     "heading": "Success Stories",
     "lede": "Real stories of healing, hope, and recovery.",
-    "cta": { "label": "See all success stories", "href": "/success-stories" },
+    "cta": {
+      "label": "See all success stories",
+      "href": "/success-stories"
+    },
     "items": [
       {
         "title": "Patient story title",
         "body": "Featured stories of hope, recovery, and service to humanity from Hijaz Hospital.",
-        "image": "/media/pexels-rdne-6129115.webp",
+        "image": "/media/home-story-dialysis.webp",
         "href": "/success-stories"
       },
       {
         "title": "Patient story title",
         "body": "Featured stories of hope, recovery, and service to humanity from Hijaz Hospital.",
-        "image": "/media/pexels-rdne-6129574.webp",
+        "image": "/media/home-story-emergency.webp",
         "href": "/success-stories"
       },
       {
         "title": "Patient story title",
         "body": "Featured stories of hope, recovery, and service to humanity from Hijaz Hospital.",
-        "image": "/media/pexels-mart-production-7089623.webp",
+        "image": "/media/home-story-nursery.webp",
         "href": "/success-stories"
       }
     ]
@@ -270,54 +348,86 @@
     "kicker": "Our Team",
     "heading": "Meet Our Expert Medical Team",
     "lede": "Experienced consultants across departments delivering compassionate, expert care.",
-    "cta": { "label": "View all doctors", "href": "/doctors" },
+    "cta": {
+      "label": "View all doctors",
+      "href": "/doctors"
+    },
     "doctors": [
-      { "name": "Dr. Arfan Ishaque", "role": "Medical Superintendent", "image": "/media/doctor-placeholder.webp" },
-      { "name": "Dr. Nadeem Iqbal", "role": "Consultant Physician", "image": "/media/doctor-placeholder.webp" },
-      { "name": "Dr. Muhammad Iqbal Hussain", "role": "Visiting Consultant", "image": "/media/doctor-placeholder.webp" },
-      { "name": "Dr. Sana Malik", "role": "Consultant Gynaecologist", "image": "/media/doctor-placeholder.webp" },
-      { "name": "Dr. Imran Shah", "role": "Consultant Surgeon", "image": "/media/doctor-placeholder.webp" },
-      { "name": "Dr. Ayesha Khan", "role": "Consultant Paediatrician", "image": "/media/doctor-placeholder.webp" }
+      {
+        "name": "Dr. Arfan Ishaque",
+        "role": "Medical Superintendent",
+        "image": "/media/doctor-placeholder.webp"
+      },
+      {
+        "name": "Dr. Nadeem Iqbal",
+        "role": "Consultant Physician",
+        "image": "/media/Dr. Nadeem Iqbal (Medical Specialist).webp"
+      },
+      {
+        "name": "Dr. Muhammad Iqbal Hussain",
+        "role": "Visiting Consultant",
+        "image": "/media/doctor-placeholder.webp"
+      },
+      {
+        "name": "Dr. Sana Malik",
+        "role": "Consultant Gynaecologist",
+        "image": "/media/doctor-placeholder.webp"
+      },
+      {
+        "name": "Dr. Imran Shah",
+        "role": "Consultant Surgeon",
+        "image": "/media/doctor-placeholder.webp"
+      },
+      {
+        "name": "Dr. Ayesha Khan",
+        "role": "Consultant Paediatrician",
+        "image": "/media/doctor-placeholder.webp"
+      }
     ]
   },
   "news": {
     "kicker": "Newsroom",
     "heading": "Latest News",
     "lede": "Stay updated with the latest developments, announcements, and health insights from Hijaz Hospital.",
-    "cta": { "label": "See All News", "href": "/news" },
+    "cta": {
+      "label": "See All News",
+      "href": "/news"
+    },
     "items": [
       {
         "date": "15 June 2026",
         "title": "Dengue Awareness Campaign 2026",
         "body": "Hijaz Hospital organized a dengue awareness campaign featuring an awareness walk led by MS Dr. Arfan Ishaque and hospital staff, followed by an educational session on dengue symptoms, prevention, and precautionary measures.",
-        "image": "/media/first-news-banner.webp",
+        "image": "/media/news-opening-peads.webp",
         "href": "/news"
       },
       {
         "date": "10 June 2026",
         "title": "Annual Farewell Dinner 2026",
         "body": "Hosted by Haji Inam Elahi School of Paramedics, the Annual Farewell Dinner celebrated graduating students and their academic achievements, reflecting the institution's commitment to developing skilled healthcare professionals.",
-        "image": "/media/news-two-banner.webp",
+        "image": "/media/news-visitors.webp",
         "href": "/news"
       },
       {
         "date": "18 May 2026",
         "title": "International Nurses Day 2026",
         "body": "Hijaz Hospital celebrated International Nurses Day to honor the dedication, compassion, and tireless efforts of its nursing staff. The event recognized their vital role in delivering quality healthcare and supporting patients around the clock.",
-        "image": "/media/event-one-banner.webp",
+        "image": "/media/news-icu.webp",
         "href": "/news"
       },
       {
         "date": "06 June 2026",
         "title": "Visit of Dr. Muhammad Iqbal Hussain",
         "body": "Hijaz Hospital had the honor of welcoming Dr. Muhammad Iqbal Hussain, who was received by the Chairman and senior executive members. A distinguished medical specialist practicing in the United States, Dr. Hussain is recognized for his lifelong humanitarian services through the International Trust Bait-ul-Maal and his continued association with PKLI, where he provides voluntary medical services annually.",
-        "href": "/news"
+        "href": "/news",
+        "image": "/media/news-visitors.webp"
       },
       {
         "date": "10 April 2026",
         "title": "Farewell Ceremony for Dr. Nadeem Iqbal",
         "body": "Hijaz Hospital honored Dr. Nadeem Iqbal upon the completion of his remarkable 15 years of dedicated service. The farewell ceremony recognized his professional excellence, unwavering commitment to patient care, and invaluable contributions to the hospital. The management and staff extended their heartfelt appreciation and best wishes for his future endeavors.",
-        "href": "/news"
+        "href": "/news",
+        "image": "/media/news-dialysis.webp"
       }
     ]
   },
@@ -325,7 +435,10 @@
     "kicker": "Events",
     "heading": "Latest Events",
     "lede": "Stay updated with the latest developments, announcements, and health insights from Hijaz Hospital.",
-    "cta": { "label": "See All Events", "href": "/events" },
+    "cta": {
+      "label": "See All Events",
+      "href": "/events"
+    },
     "items": [
       {
         "day": "13",
@@ -369,14 +482,46 @@
     "heading": "Latest Machinery & Advanced Medical Technology",
     "lede": "Equipped with state-of-the-art diagnostic and treatment equipment, Hijaz Hospital ensures accurate diagnosis, safer procedures, and improved patient outcomes. From advanced dialysis machines and modern ICU monitoring systems to digital X-ray, ultrasound, and lithotripsy technology, our facilities are continuously upgraded to meet the highest standards of quality healthcare.",
     "slides": [
-      { "src": "/media/lasotronix-laser.webp", "title": "Lasotronix Laser", "href": "/new-machinery" },
-      { "src": "/media/Dialysis.webp", "title": "Dialysis Machine", "href": "/departments/dialysis-care-unit" },
-      { "src": "/media/ultraSound.webp", "title": "Ultrasound", "href": "/lab-tests" },
-      { "src": "/media/x-rays.webp", "title": "Digital X-Ray", "href": "/lab-tests" },
-      { "src": "/media/dialysis-care-unit-content-banner.webp", "title": "Dialysis Care Unit", "href": "/departments/dialysis-care-unit" },
-      { "src": "/media/anesthesiology-details-banner.webp", "title": "ICU Monitoring", "href": "/departments" },
-      { "src": "/media/lasotronix-laser.webp", "title": "Advanced Laser Therapy", "href": "/new-machinery" },
-      { "src": "/media/Dialysis.webp", "title": "Haemodialysis Unit", "href": "/departments/dialysis-care-unit" }
+      {
+        "src": "/media/Dialysis.webp",
+        "title": "Dialysis Machine",
+        "href": "/services/dialysis"
+      },
+      {
+        "src": "/media/ultraSound.webp",
+        "title": "Ultrasound",
+        "href": "/services/radiology"
+      },
+      {
+        "src": "/media/x-rays.webp",
+        "title": "Digital X-Ray",
+        "href": "/services/radiology"
+      },
+      {
+        "src": "/media/anesthesiology-details-banner.webp",
+        "title": "ICU Monitoring",
+        "href": "/services/icu"
+      },
+      {
+        "src": "/media/dialysis-care-unit-content-banner.webp",
+        "title": "Dialysis Care Unit",
+        "href": "/services/dialysis"
+      },
+      {
+        "src": "/media/laboratory-content-banner.webp",
+        "title": "Laboratory",
+        "href": "/services/pathology"
+      },
+      {
+        "src": "/media/icu-service-banner.webp",
+        "title": "Critical Care",
+        "href": "/services/icu"
+      },
+      {
+        "src": "/media/cardiac-diagnostics-service-banner.webp",
+        "title": "Cardiac Diagnostics",
+        "href": "/services/cardiac-diagnostics"
+      }
     ]
   }
 }

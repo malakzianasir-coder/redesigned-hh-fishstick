@@ -6,7 +6,7 @@ import { BulletsSection } from '@/components/sections/BulletsSection'
 import { CalloutSection } from '@/components/sections/CalloutSection'
 import { ClosingBandSection } from '@/components/sections/ClosingBandSection'
 import { ContentSection } from '@/components/sections/ContentSection'
-import { DetailJumpNav } from '@/components/sections/DetailJumpNav'
+import { JumpNav } from '@/components/sections/JumpNav'
 import { DynamicFormSection } from '@/components/sections/DynamicFormSection'
 import { GlobalCtaSection } from '@/components/sections/GlobalCtaSection'
 import { IconGridSection } from '@/components/sections/IconGridSection'
@@ -20,6 +20,10 @@ import type { PageRecord, Section } from '@/lib/content/types'
 
 type DetailPageTemplateProps = {
   page: PageRecord
+  /** When false, skips appending the default support CTA. Default true. */
+  includeDefaultCta?: boolean
+  /** When true, skips MediumHero — use with MarketingHeroSection on donate/marketing pages. */
+  hideHero?: boolean
 }
 
 const DEFAULT_CTA = {
@@ -65,14 +69,19 @@ function renderSection(section: Section, index: number) {
   }
 }
 
-export const DetailPageTemplate: React.FC<DetailPageTemplateProps> = ({ page }) => {
+export const DetailPageTemplate: React.FC<DetailPageTemplateProps> = ({
+  page,
+  includeDefaultCta = true,
+  hideHero = false,
+}) => {
   const hasCta = page.sections.some((section) => section.type === 'cta')
-  const sections = hasCta ? page.sections : [...page.sections, DEFAULT_CTA]
+  const sections =
+    hasCta || !includeDefaultCta ? page.sections : [...page.sections, DEFAULT_CTA]
 
   return (
     <article>
-      <MediumHero hero={page.hero} />
-      {page.jumpLinks && page.jumpLinks.length > 0 ? <DetailJumpNav links={page.jumpLinks} /> : null}
+      {hideHero ? null : <MediumHero hero={page.hero} underHeader />}
+      {page.jumpLinks && page.jumpLinks.length > 0 ? <JumpNav links={page.jumpLinks} /> : null}
       {sections.map(renderSection)}
     </article>
   )

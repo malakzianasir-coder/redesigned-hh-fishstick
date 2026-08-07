@@ -8,9 +8,11 @@ import { cn } from '@/utilities/ui'
 
 type MediumHeroProps = {
   hero: HeroConfig
+  /** When true, clears space under the fixed site header (use when this is the first page block). */
+  underHeader?: boolean
 }
 
-export const MediumHero: React.FC<MediumHeroProps> = ({ hero }) => {
+export const MediumHero: React.FC<MediumHeroProps> = ({ hero, underHeader = false }) => {
   const {
     id,
     kicker,
@@ -27,7 +29,13 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero }) => {
   const isDark = variant === 'navy' || variant === 'red'
   const sectionBg =
     variant === 'navy' ? 'bg-primary-blue' : variant === 'red' ? 'bg-primary-red' : 'bg-white'
-  const sectionPadding = isDark ? 'py-6 lg:py-10' : 'py-[30px] lg:py-[60px]'
+  const sectionPadding = underHeader
+    ? isDark
+      ? 'pt-[calc(var(--header-h)+1.5rem)] pb-6 lg:pt-[calc(var(--header-h)+2.5rem)] lg:pb-10'
+      : 'pt-[calc(var(--header-h)+30px)] pb-[30px] lg:pt-[calc(var(--header-h)+60px)] lg:pb-[60px]'
+    : isDark
+      ? 'py-6 lg:py-10'
+      : 'py-[30px] lg:py-[60px]'
 
   return (
     <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBg)}>

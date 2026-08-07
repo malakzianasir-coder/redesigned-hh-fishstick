@@ -10,7 +10,7 @@
       "title": "Dengue Awareness Walk 2026",
       "tagLine": "Awareness Campaign",
       "shortDescription": "Community awareness walk and educational session on dengue prevention led by hospital leadership and staff.",
-      "heroImage": "/media/first-news-banner.webp",
+      "heroImage": "/media/news-opening-peads.webp",
       "content": [
         {
           "type": "paragraph",
@@ -21,7 +21,9 @@
           "text": "Medical Superintendent Dr. Arfan Ishaque addressed participants on the importance of community vigilance during peak mosquito season."
         }
       ],
-      "categories": ["Awareness"],
+      "categories": [
+        "Awareness"
+      ],
       "eventType": "Awareness Campaign",
       "eventDate": "2026-06-15",
       "eventTime": "10:00 AM",
@@ -41,14 +43,16 @@
       "title": "Paramedics Annual Farewell Dinner",
       "tagLine": "Ceremony",
       "shortDescription": "Annual farewell dinner for graduating paramedic students at Haji Inam Elahi School of Paramedics.",
-      "heroImage": "/media/news-two-banner.webp",
+      "heroImage": "/media/news-visitors.webp",
       "content": [
         {
           "type": "paragraph",
           "text": "The Haji Inam Elahi School of Paramedics hosted its Annual Farewell Dinner, celebrating graduating students and their commitment to healthcare service."
         }
       ],
-      "categories": ["Ceremony"],
+      "categories": [
+        "Ceremony"
+      ],
       "eventType": "Ceremony",
       "eventDate": "2026-06-10",
       "eventTime": "7:00 PM",
@@ -68,14 +72,16 @@
       "title": "International Nurses Day Celebration",
       "tagLine": "Staff Recognition",
       "shortDescription": "Hospital ceremony recognizing nursing staff for compassionate patient care.",
-      "heroImage": "/media/event-one-banner.webp",
+      "heroImage": "/media/news-dialysis.webp",
       "content": [
         {
           "type": "paragraph",
           "text": "Hijaz Hospital celebrated International Nurses Day with a ceremony honoring the dedication of nursing staff across all departments."
         }
       ],
-      "categories": ["Ceremony"],
+      "categories": [
+        "Ceremony"
+      ],
       "eventType": "Ceremony",
       "eventDate": "2026-05-12",
       "eventTime": "11:00 AM",
@@ -95,14 +101,16 @@
       "title": "Free Medical Camp — Sheikhupura",
       "tagLine": "Medical Camp",
       "shortDescription": "Outreach medical camp with free consultations, diagnostics, and medicines.",
-      "heroImage": "/media/pexels-rdne-6129115.webp",
+      "heroImage": "/media/news-emergency.webp",
       "content": [
         {
           "type": "paragraph",
           "text": "Hijaz Hospital's welfare outreach team conducted a free medical camp in Sheikhupura with multi-specialty consultations and free medicines for deserving patients."
         }
       ],
-      "categories": ["Medical Camp"],
+      "categories": [
+        "Medical Camp"
+      ],
       "eventType": "Medical Camp",
       "eventDate": "2026-03-22",
       "eventTime": "9:00 AM – 3:00 PM",
@@ -128,7 +136,9 @@
           "text": "Nephrology consultants led an awareness session for patients and attendants on kidney disease prevention and Hijaz Hospital's dialysis welfare support."
         }
       ],
-      "categories": ["Awareness"],
+      "categories": [
+        "Awareness"
+      ],
       "eventType": "Awareness Campaign",
       "eventDate": "2026-03-13",
       "eventTime": "2:00 PM",
@@ -140,21 +150,24 @@
       "meta": {
         "title": "World Kidney Day Session | Hijaz Hospital Events",
         "description": "Kidney health awareness session on World Kidney Day."
-      }
+      },
+      "heroImage": "/media/news-gynae.webp"
     },
     {
       "slug": "breast-cancer-awareness-week-2025",
       "title": "Breast Cancer Awareness Week",
       "tagLine": "Awareness",
       "shortDescription": "Pink October awareness talks and screening guidance across OPD areas.",
-      "heroImage": "/media/pexels-mart-production-7089623.webp",
+      "heroImage": "/media/news-icu.webp",
       "content": [
         {
           "type": "paragraph",
           "text": "Throughout Pink October, gynecology consultants delivered awareness talks and distributed educational materials on early detection and screening."
         }
       ],
-      "categories": ["Awareness"],
+      "categories": [
+        "Awareness"
+      ],
       "eventType": "Awareness Campaign",
       "eventDate": "2025-10-08",
       "eventTime": "10:00 AM – 4:00 PM",

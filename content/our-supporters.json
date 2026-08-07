@@ -7,53 +7,212 @@
     "title": "Our Friends / Supporters",
     "excerpt": "The generous organizations standing behind Hijaz Hospital's welfare mission — our friends and supporters on the donor wall.",
     "media": {
-      "type": "placeholder",
-      "icon": "HandHeart",
-      "placeholderLabel": "Donor wall banner photograph placeholder"
+      "type": "image",
+      "src": "/media/our-supporters-hero-banner.webp",
+      "alt": "Friends and supporters of Hijaz Hospital"
     },
     "links": [
-      { "label": "View the Donor Wall", "href": "#donor-wall", "variant": "primary" },
-      { "label": "Support Our Mission", "href": "#support", "variant": "ghost" }
+      {
+        "label": "View the Donor Wall",
+        "href": "#donor-wall",
+        "variant": "primary"
+      },
+      {
+        "label": "Support Our Mission",
+        "href": "#support",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "Our Friends / Supporters", "href": "#our-friends" },
-    { "label": "Donor Wall", "href": "#donor-wall" },
-    { "label": "Support Our Mission", "href": "#support" }
+    {
+      "label": "Our Friends / Supporters",
+      "href": "#our-friends"
+    },
+    {
+      "label": "Donor Wall",
+      "href": "#donor-wall"
+    },
+    {
+      "label": "Support Our Mission",
+      "href": "#support"
+    }
   ],
   "intro": "Hijaz Hospital is deeply grateful to the individuals, families, and organizations whose generosity sustains our mission. The donor wall recognizes friends and supporters who have contributed to building and maintaining our charitable healthcare institution.",
   "donorWallHeading": "Name of the Donor",
   "donorWallLede": "Thirty organizations are honoured on the donor wall, numbered as in the source list.",
   "donors": [
-    { "sn": 1, "name": "Naeem Trading Company", "href": "https://naeemtrading.com" },
-    { "sn": 2, "name": "Waheed Sons", "href": "https://waheedsons.com" },
-    { "sn": 3, "name": "Al-Fatah Stores", "href": "https://alfatah.pk" },
-    { "sn": 4, "name": "Infaq Foundation", "href": "https://infaq.org.pk" },
-    { "sn": 5, "name": "Ehsan Chappal Store", "href": "https://shopecs.com" },
-    { "sn": 6, "name": "Stylo Shoes", "href": "https://stylo.pk" },
-    { "sn": 7, "name": "Ravi Chemicals" },
-    { "sn": 8, "name": "Dalda Foundation", "href": "https://daldafoundation.pk" },
-    { "sn": 9, "name": "Paul Industries", "href": "https://www.tuplastic.com" },
-    { "sn": 10, "name": "Siddiq Shafi Trust / Siddiq Leatherworks (Pvt.) Ltd.", "href": "https://siddiqshafi.com" },
-    { "sn": 11, "name": "AHN Colloids Chemical (Pvt.) Ltd.", "href": "https://chemicalonline.pk" },
-    { "sn": 12, "name": "Northstar Textile Mills (Pvt.) Ltd." },
-    { "sn": 13, "name": "National Distributors" },
-    { "sn": 14, "name": "Kohat Cement (Pvt.) Ltd.", "href": "https://www.kohatcement.com" },
-    { "sn": 15, "name": "Shahid Builders (Pvt.) Ltd.", "href": "https://shahidbuilders.com.pk" },
-    { "sn": 16, "name": "Mughal-e-Azam Banquet Hall", "href": "https://mughaleazambanquet.com" },
-    { "sn": 17, "name": "Zafar Catering", "href": "https://youtube.com/c/ZAFARBANQUETS" },
-    { "sn": 18, "name": "Ayesha Siddiq Memorial Trust", "href": "https://www.fountainhouse.com.pk" },
-    { "sn": 19, "name": "Eiffel Industries (Pvt.) Limited" },
-    { "sn": 20, "name": "Jillani Poly Industries (Pvt.) Ltd.", "href": "https://jilaniplastic.com" },
-    { "sn": 21, "name": "Fatima Enterprises", "href": "https://www.fatima.com.pk" },
-    { "sn": 22, "name": "Astron Chemicals (Pvt.) Limited" },
-    { "sn": 23, "name": "Cannon Foam (Pvt.) Ltd.", "href": "https://cannonfoam.com" },
-    { "sn": 24, "name": "Peridot Products (Pvt.) Ltd.", "href": "https://peridotproducts.com" },
-    { "sn": 25, "name": "Modern Electronic Karachi", "href": "https://modernelectronics.pk" },
-    { "sn": 26, "name": "Textile Testing International", "href": "https://ttilabs.net" },
-    { "sn": 27, "name": "Masha Trading Co., China" },
-    { "sn": 28, "name": "Kit Shoes", "href": "https://kitshoes.com" },
-    { "sn": 29, "name": "Starlet Innovations (Pvt.) Ltd.", "href": "https://starletinnovations.com" },
-    { "sn": 30, "name": "Unze London", "href": "https://unze.com.pk" }
+    {
+      "sn": 1,
+      "name": "Naeem Trading Company",
+      "href": "https://naeemtrading.com",
+      "logo": "/media/donors/naeem-trading.png"
+    },
+    {
+      "sn": 2,
+      "name": "Waheed Sons",
+      "href": "https://waheedsons.com",
+      "logo": "/media/donors/waheed-sons.png"
+    },
+    {
+      "sn": 3,
+      "name": "Al-Fatah Stores",
+      "href": "https://alfatah.pk",
+      "logo": "/media/donors/al-fatah.jpg"
+    },
+    {
+      "sn": 4,
+      "name": "Infaq Foundation",
+      "href": "https://infaq.org.pk",
+      "logo": "/media/donors/infaq-foundation.jpg"
+    },
+    {
+      "sn": 5,
+      "name": "Ehsan Chappal Store",
+      "href": "https://shopecs.com",
+      "logo": "/media/donors/ehsan-chappal.png"
+    },
+    {
+      "sn": 6,
+      "name": "Stylo Shoes",
+      "href": "https://stylo.pk",
+      "logo": "/media/donors/stylo.jpg"
+    },
+    {
+      "sn": 7,
+      "name": "Ravi Chemicals",
+      "logo": "/media/donors/ravi-chemicals.jpg"
+    },
+    {
+      "sn": 8,
+      "name": "Dalda Foundation",
+      "href": "https://daldafoundation.pk",
+      "logo": "/media/donors/dalda-foundation.png"
+    },
+    {
+      "sn": 9,
+      "name": "Paul Industries",
+      "href": "https://www.tuplastic.com",
+      "logo": "/media/donors/paul-industries.png"
+    },
+    {
+      "sn": 10,
+      "name": "Siddiq Shafi Trust / Siddiq Leatherworks (Pvt.) Ltd.",
+      "href": "https://siddiqshafi.com",
+      "logo": "/media/donors/siddiq-shafi.jpg"
+    },
+    {
+      "sn": 11,
+      "name": "AHN Colloids Chemical (Pvt.) Ltd.",
+      "href": "https://chemicalonline.pk",
+      "logo": "/media/donors/ahn-colloids.jpg"
+    },
+    {
+      "sn": 12,
+      "name": "Northstar Textile Mills (Pvt.) Ltd.",
+      "logo": "/media/donors/northstar-textile.jpg"
+    },
+    {
+      "sn": 13,
+      "name": "National Distributors"
+    },
+    {
+      "sn": 14,
+      "name": "Kohat Cement (Pvt.) Ltd.",
+      "href": "https://www.kohatcement.com",
+      "logo": "/media/donors/kohat-cement.png"
+    },
+    {
+      "sn": 15,
+      "name": "Shahid Builders (Pvt.) Ltd.",
+      "href": "https://shahidbuilders.com.pk",
+      "logo": "/media/donors/shahid-builders.jpg"
+    },
+    {
+      "sn": 16,
+      "name": "Mughal-e-Azam Banquet Hall",
+      "href": "https://mughaleazambanquet.com",
+      "logo": "/media/donors/mughal-e-azam.jpg"
+    },
+    {
+      "sn": 17,
+      "name": "Zafar Catering",
+      "href": "https://youtube.com/c/ZAFARBANQUETS",
+      "logo": "/media/donors/zafar-catering.jpg"
+    },
+    {
+      "sn": 18,
+      "name": "Ayesha Siddiq Memorial Trust",
+      "href": "https://www.fountainhouse.com.pk",
+      "logo": "/media/donors/ayesha-siddiq.jpg"
+    },
+    {
+      "sn": 19,
+      "name": "Eiffel Industries (Pvt.) Limited"
+    },
+    {
+      "sn": 20,
+      "name": "Jillani Poly Industries (Pvt.) Ltd.",
+      "href": "https://jilaniplastic.com",
+      "logo": "/media/donors/jillani-poly.png"
+    },
+    {
+      "sn": 21,
+      "name": "Fatima Enterprises",
+      "href": "https://www.fatima.com.pk",
+      "logo": "/media/donors/fatima-enterprises.jpg"
+    },
+    {
+      "sn": 22,
+      "name": "Astron Chemicals (Pvt.) Limited",
+      "logo": "/media/donors/astron-chemicals.png"
+    },
+    {
+      "sn": 23,
+      "name": "Cannon Foam (Pvt.) Ltd.",
+      "href": "https://cannonfoam.com",
+      "logo": "/media/donors/cannon-foam.jpg"
+    },
+    {
+      "sn": 24,
+      "name": "Peridot Products (Pvt.) Ltd.",
+      "href": "https://peridotproducts.com",
+      "logo": "/media/donors/peridot-products.png"
+    },
+    {
+      "sn": 25,
+      "name": "Modern Electronic Karachi",
+      "href": "https://modernelectronics.pk",
+      "logo": "/media/donors/modern-electronic.png"
+    },
+    {
+      "sn": 26,
+      "name": "Textile Testing International",
+      "href": "https://ttilabs.net",
+      "logo": "/media/donors/textile-testing-international.jpg"
+    },
+    {
+      "sn": 27,
+      "name": "Masha Trading Co., China",
+      "logo": "/media/donors/masha-trading.jpg"
+    },
+    {
+      "sn": 28,
+      "name": "Kit Shoes",
+      "href": "https://kitshoes.com",
+      "logo": "/media/donors/kit-shoes.png"
+    },
+    {
+      "sn": 29,
+      "name": "Starlet Innovations (Pvt.) Ltd.",
+      "href": "https://starletinnovations.com",
+      "logo": "/media/donors/starlet-innovations.jpg"
+    },
+    {
+      "sn": 30,
+      "name": "Unze London",
+      "href": "https://unze.com.pk",
+      "logo": "/media/donors/unze-london.png"
+    }
   ]
 }

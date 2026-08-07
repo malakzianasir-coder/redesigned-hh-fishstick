@@ -7,18 +7,32 @@
     "title": "Leadership Messages",
     "excerpt": "Personal messages from the Chairman and the President of Hijaz Hospital Trust — presented in full, exactly as written.",
     "media": {
-      "type": "placeholder",
-      "icon": "EnvelopeOpen",
-      "placeholderLabel": "Chairman & President photograph placeholder"
+      "type": "image",
+      "src": "/media/founders-hero-banner.webp",
+      "alt": "Leadership messages from Hijaz Hospital"
     },
     "links": [
-      { "label": "Chairman's Message", "href": "/leadership/messages/chairman", "variant": "primary" },
-      { "label": "President's Message", "href": "/leadership/messages/president", "variant": "ghost" }
+      {
+        "label": "Chairman's Message",
+        "href": "/leadership/messages/chairman",
+        "variant": "primary"
+      },
+      {
+        "label": "President's Message",
+        "href": "/leadership/messages/president",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "Chairman's Message", "href": "/leadership/messages/chairman" },
-    { "label": "President's Message", "href": "/leadership/messages/president" }
+    {
+      "label": "Chairman's Message",
+      "href": "/leadership/messages/chairman"
+    },
+    {
+      "label": "President's Message",
+      "href": "/leadership/messages/president"
+    }
   ],
   "messages": [
     {
@@ -68,7 +82,8 @@
         "arabic": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
         "translation": "And when I am ill, it is He (Allah) who cures me.",
         "citation": "(Surah Ash-Shu‘ara 26:80)"
-      }
+      },
+      "image": "/media/president-image.webp"
     }
   ]
 }

@@ -9,7 +9,7 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Faisal Farrukh Rana (Consultant Anesthetist).webp"
     },
     {
       "slug": "dr-hani-gul",
@@ -25,7 +25,7 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Mahmood Ul Hassan (Consultant Anesthetist).webp"
     },
     {
       "slug": "dr-najam-us-saher",
@@ -33,7 +33,7 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Najam U Sehar (Consultant Anesthetist).webp"
     },
     {
       "slug": "dr-nighat-yasmin",
@@ -41,7 +41,7 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Nighat Yasim (Consultant Anesthetist).webp"
     },
     {
       "slug": "dr-sheikh-ziarat-ali",
@@ -51,7 +51,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Sheikh Ziyarat Ali (Consultant Anesthetist).webp"
     },
     {
       "slug": "dr-aftab-ahmad-tarique",
@@ -61,7 +61,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Aftab Ahmad Tarique (Cardiologist).webp"
     },
     {
       "slug": "dr-fawad-tariq",
@@ -71,7 +71,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Fawad Tariq (Dental Surgeon).webp"
     },
     {
       "slug": "dr-muhammad-hamza-khan",
@@ -79,7 +79,7 @@
       "specialty": "Dental Surgeon",
       "department": "Dental Surgery",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Muhammad Hamza Khan (Dental Surgeon).webp"
     },
     {
       "slug": "dr-damish-arsalan",
@@ -89,7 +89,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Damish Arsalan (ENT Surgeon).webp"
     },
     {
       "slug": "dr-attique-abou-bakr",
@@ -107,7 +107,7 @@
       "specialty": "General Surgeon",
       "department": "General Surgery",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Ahsan Masud Chaudhry (General Surgeon).webp"
     },
     {
       "slug": "dr-farrukh-shahzad",
@@ -117,7 +117,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Farukh Shahzad (General Surgeon).webp"
     },
     {
       "slug": "dr-wajahat-ameer",
@@ -125,7 +125,7 @@
       "specialty": "General Surgeon",
       "department": "General Surgery",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Wajahat Amir (General Surgeon).webp"
     },
     {
       "slug": "dr-ambreen-ijaz",
@@ -135,7 +135,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Ambreen Ijaz (Gynacologist).webp"
     },
     {
       "slug": "dr-ambreen-rafiq",
@@ -143,7 +143,7 @@
       "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Ambreen Rafique (Gynacologist).webp"
     },
     {
       "slug": "dr-syeda-aneeqa-bano",
@@ -227,7 +227,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Jawad bin Yamin (Ophthalmologist).webp"
     },
     {
       "slug": "dr-maqsood-ahmad",
@@ -235,7 +235,7 @@
       "specialty": "Orthopedic Surgeon",
       "department": "Orthopedics",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Maqsood Ahmed (Orthopedic Surgeon).webp"
     },
     {
       "slug": "dr-muhammad-afaq",
@@ -243,7 +243,7 @@
       "specialty": "Orthopedic Surgeon",
       "department": "Orthopedics",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Muhammad Afaq (Orthopedic Surgeon).webp"
     },
     {
       "slug": "dr-hashmat-mumtaz-rao",
@@ -253,7 +253,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Hashmat Rao (Hemagologist).webp"
     },
     {
       "slug": "dr-fozia-shareef",
@@ -263,7 +263,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Fozia Sharif (Consultant Pediatric).webp"
     },
     {
       "slug": "dr-muhammad-amir-ishaq",
@@ -281,7 +281,7 @@
       "specialty": "Pediatrician",
       "department": "Pediatrics",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Hassan Ali Sarwar ( Consultant Pediatric).webp"
     },
     {
       "slug": "dr-amna-faisal",
@@ -299,7 +299,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Jamil Akhter (Radiologist).webp"
     },
     {
       "slug": "dr-najma-naeem-qaiser",
@@ -307,7 +307,7 @@
       "specialty": "Radiologist",
       "department": "Radiology",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Najma Naeem (Sonologist).webp"
     },
     {
       "slug": "dr-sara-salman",
@@ -315,7 +315,7 @@
       "specialty": "Radiologist",
       "department": "Radiology",
       "tags": [],
-      "image": null
+      "image": "/media/Dr. Sara Salman (Sonologist).webp"
     },
     {
       "slug": "dr-wajid-ali",
@@ -325,7 +325,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Wajid Ali (Urologist).webp"
     },
     {
       "slug": "dr-m-asad-ullah-khawaja",
@@ -335,7 +335,7 @@
       "tags": [
         "visiting"
       ],
-      "image": null
+      "image": "/media/Dr. Asad Ullah Khawaja (General Surgeon).webp"
     },
     {
       "slug": "prof-farooq-hameed",
@@ -353,7 +353,7 @@
       "tags": [
         "visiting"
       ],
-      "image": null
+      "image": "/media/Dr. Agha Nasarullah Khan (Dermatologist).webp"
     },
     {
       "slug": "dr-nabiha-rizvi",
@@ -417,7 +417,7 @@
       "tags": [
         "head-of-department"
       ],
-      "image": null
+      "image": "/media/Dr. Muhammad Afaq (Orthopedic Surgeon).webp"
     }
   ]
 }

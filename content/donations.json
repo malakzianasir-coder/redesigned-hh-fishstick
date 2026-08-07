@@ -13,9 +13,21 @@
       "variant": "white",
       "media": { "type": "illustration", "preset": "page/donate" }
     },
+    "jumpLinks": [
+      { "label": "About Zakat", "href": "#about" },
+      { "label": "Shariah Compliance", "href": "#shariah-compliance" },
+      { "label": "Zakat Calculator", "href": "#zakat-calculator" },
+      { "label": "How to Donate", "href": "/donate/how-to-donate" }
+    ],
+    "zakatCalculator": {
+      "enabled": true,
+      "heading": "Calculate Your Zakat",
+      "body": "Use our Zakat Calculator to calculate your Zakat before making your donation."
+    },
     "sections": [
       {
         "type": "content",
+        "id": "about",
         "heading": "Let Your Zakat Become a Source of Healing",
         "body": [
           "Zakat is a sacred obligation and an opportunity to bring hope to those in need. By giving your Zakat to Hijaz Hospital, you help provide free medical care to deserving patients who cannot afford consultations, medicines, surgeries, dialysis, maternity care, and other essential treatments."
@@ -23,6 +35,7 @@
       },
       {
         "type": "content",
+        "id": "shariah-compliance",
         "heading": "Shariah Compliance",
         "body": [
           "Hijaz Hospital Trust maintains separate Zakat accounts and ensures that all Zakat funds are distributed strictly in accordance with Islamic principles. Our Zakat management system is independently certified as Shariah-compliant, providing complete transparency and accountability to our donors.",
@@ -294,15 +307,15 @@
     ]
   },
   {
-    "slug": "itw-medical-tower",
+    "slug": "support-a-project",
     "kind": "cause",
-    "title": "ITW Medical Tower",
+    "title": "Support a Project",
     "description": "Help Build the Future of Healthcare",
-    "excerpt": "Construction of new patient wards, ICU development, and facility expansion.",
-    "bankAccountKeys": ["itw"],
+    "excerpt": "Support the expansion and development of Hijaz Hospital Trust by contributing to projects that strengthen our facilities and improve patient care.",
+    "bankAccountKeys": ["project"],
     "hero": {
       "kicker": "What You Can Support",
-      "title": "Support a Project — ITW Medical Tower",
+      "title": "Support a Project",
       "excerpt": "Help Build the Future of Healthcare",
       "variant": "white",
       "media": { "type": "illustration", "preset": "page/donate" }

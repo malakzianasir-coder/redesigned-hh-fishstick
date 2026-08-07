@@ -7,17 +7,27 @@
     "title": "President's Message",
     "excerpt": "Personal message from Sohail Iqbal, President of Hijaz Hospital Trust — presented in full, exactly as written.",
     "media": {
-      "type": "placeholder",
-      "icon": "EnvelopeOpen",
-      "placeholderLabel": "President photograph placeholder"
+      "type": "image",
+      "src": "/media/president-image.webp",
+      "alt": "Sohail Iqbal, President of Hijaz Hospital Trust"
     },
     "links": [
-      { "label": "Chairman's Message", "href": "/leadership/messages/chairman", "variant": "ghost" }
+      {
+        "label": "Chairman's Message",
+        "href": "/leadership/messages/chairman",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "President's Message", "href": "#presidents-message" },
-    { "label": "Chairman's Message", "href": "/leadership/messages/chairman" }
+    {
+      "label": "President's Message",
+      "href": "#presidents-message"
+    },
+    {
+      "label": "Chairman's Message",
+      "href": "/leadership/messages/chairman"
+    }
   ],
   "message": {
     "id": "presidents-message",
@@ -43,7 +53,8 @@
       "arabic": "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
       "translation": "And when I am ill, it is He (Allah) who cures me.",
       "citation": "(Surah Ash-Shu‘ara 26:80)"
-    }
+    },
+    "image": "/media/president-image.webp"
   },
   "otherMessage": {
     "title": "Chairman's Message",

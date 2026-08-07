@@ -6,11 +6,12 @@ import { useState } from 'react'
 type MockDonationFlowProps = {
   title: string
   causeLabel?: string
+  initialAmount?: string
 }
 
-export function MockDonationFlow({ title, causeLabel }: MockDonationFlowProps) {
+export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonationFlowProps) {
   const router = useRouter()
-  const [amount, setAmount] = useState('5000')
+  const [amount, setAmount] = useState(initialAmount && Number(initialAmount) > 0 ? initialAmount : '5000')
   const [name, setName] = useState('')
 
   return (
@@ -21,7 +22,8 @@ export function MockDonationFlow({ title, causeLabel }: MockDonationFlowProps) {
             <p className="kicker">Mockup Flow</p>
             <h1 className="text-h3M font-bold text-primary-blue lg:text-h3">{title}</h1>
             <p className="mt-2 text-b16 text-primary-blue/85">
-              This is a prototype only. Payment is simulated and no real transaction happens on the site.
+              This is a prototype only. Payment is simulated and no real transaction happens on the
+              site.
             </p>
           </div>
 
@@ -33,8 +35,11 @@ export function MockDonationFlow({ title, causeLabel }: MockDonationFlowProps) {
             }}
           >
             <div>
-              <label className="mb-2 block text-b14 font-semibold text-primary-blue">Donor name</label>
+              <label className="donation-field-label" htmlFor="donor-name">
+                Donor name
+              </label>
               <input
+                id="donor-name"
                 className="donation-field"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
@@ -43,8 +48,11 @@ export function MockDonationFlow({ title, causeLabel }: MockDonationFlowProps) {
               />
             </div>
             <div>
-              <label className="mb-2 block text-b14 font-semibold text-primary-blue">Amount (PKR)</label>
+              <label className="donation-field-label" htmlFor="donation-amount">
+                Amount (PKR)
+              </label>
               <input
+                id="donation-amount"
                 className="donation-field"
                 type="number"
                 min={50}

@@ -1,10 +1,10 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { User } from '@phosphor-icons/react/dist/ssr'
 
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
-import { CMSNote } from '@/components/marketing/CMSNote'
 import type { SingleMessagePageRecord } from '@/lib/content/types'
 
 export function SingleMessageContent({ page }: { page: SingleMessagePageRecord }) {
@@ -28,12 +28,24 @@ export function SingleMessageContent({ page }: { page: SingleMessagePageRecord }
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-16">
             <aside className="lg:col-span-4 lg:sticky lg:top-[150px]">
               <div className="card flex flex-col items-center gap-4 p-6 text-center">
-                <div className="photo-slot flex h-[168px] w-[132px] shrink-0 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-dark-gray/40 bg-whitebg p-2 text-center text-[34px] text-dark-gray">
-                  <User size={34} weight="duotone" />
-                  <small className="text-label font-semibold uppercase tracking-[0.08em] leading-[140%]">
-                    Portrait photo
-                  </small>
-                </div>
+                {message.image ? (
+                  <div className="relative h-[168px] w-[132px] shrink-0 overflow-hidden rounded-xl bg-cardbg">
+                    <Image
+                      src={message.image}
+                      alt={message.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="132px"
+                    />
+                  </div>
+                ) : (
+                  <div className="photo-slot flex h-[168px] w-[132px] shrink-0 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-dark-gray/40 bg-whitebg p-2 text-center text-[34px] text-dark-gray">
+                    <User size={34} weight="duotone" />
+                    <small className="text-label font-semibold uppercase tracking-[0.08em] leading-[140%]">
+                      Portrait photo
+                    </small>
+                  </div>
+                )}
                 <div className="flex flex-col gap-1">
                   <h2 className="text-h5M font-bold text-primary-blue lg:text-h5">{message.name}</h2>
                   <p className="text-b14 text-dark-gray">

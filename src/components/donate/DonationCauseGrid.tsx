@@ -13,6 +13,7 @@ type DonationCauseGridProps = {
   lede?: string
   causes: DonationCauseCard[]
   background?: 'white' | 'whitebg'
+  cta?: { label: string; href: string }
 }
 
 export function DonationCauseGrid({
@@ -22,6 +23,7 @@ export function DonationCauseGrid({
   lede,
   causes,
   background = 'whitebg',
+  cta,
 }: DonationCauseGridProps) {
   return (
     <section
@@ -29,7 +31,7 @@ export function DonationCauseGrid({
       className={`section-anchor border-t border-dark-gray/15 ${background === 'white' ? 'bg-white' : 'bg-whitebg'}`}
     >
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <BlockHeader kicker={kicker} title={heading} lede={lede} />
+        <BlockHeader kicker={kicker} title={heading} lede={lede} cta={cta} />
         <div className="card-grid card-grid--3">
           {causes.map((cause) => {
             const IconComponent = DONATION_ICON_MAP[cause.icon as keyof typeof DONATION_ICON_MAP]

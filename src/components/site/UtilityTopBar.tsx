@@ -28,8 +28,8 @@ const SOCIAL_LINKS = [
 
 const UTILITY_LINKS = [
   { label: 'Helpline: 042 111 044 529', href: 'tel:009242111044529' },
-  { label: 'Lab Reports', href: '/lab-reports' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'Lab Reports', href: 'http://110.39.146.42:82/Patient/Login.aspx' },
+  
 ] as const
 
 export function UtilityTopBar() {

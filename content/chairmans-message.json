@@ -12,12 +12,22 @@
       "placeholderLabel": "Chairman photograph placeholder"
     },
     "links": [
-      { "label": "President's Message", "href": "/leadership/messages/president", "variant": "ghost" }
+      {
+        "label": "President's Message",
+        "href": "/leadership/messages/president",
+        "variant": "ghost"
+      }
     ]
   },
   "jumpLinks": [
-    { "label": "Chairman's Message", "href": "#chairmans-message" },
-    { "label": "President's Message", "href": "/leadership/messages/president" }
+    {
+      "label": "Chairman's Message",
+      "href": "#chairmans-message"
+    },
+    {
+      "label": "President's Message",
+      "href": "/leadership/messages/president"
+    }
   ],
   "message": {
     "id": "chairmans-message",

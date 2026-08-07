@@ -6,6 +6,7 @@ import { getDonation, getDonations } from '@/lib/content/loaders'
 
 type Args = {
   params: Promise<{ slug: string }>
+  searchParams: Promise<{ amount?: string; currency?: string }>
 }
 
 export async function generateStaticParams() {
@@ -19,10 +20,17 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   return { title: `${cause.title} Donation Mockup | Hijaz Hospital` }
 }
 
-export default async function DonationCauseMockPage({ params }: Args) {
+export default async function DonateCauseMockPage({ params, searchParams }: Args) {
   const { slug } = await params
+  const { amount } = await searchParams
   const cause = getDonation(slug)
   if (!cause) notFound()
 
-  return <MockDonationFlow title="Cause Donation Mockup" causeLabel={cause.title} />
+  return (
+    <MockDonationFlow
+      title="Cause Donation Mockup"
+      causeLabel={cause.title}
+      initialAmount={amount}
+    />
+  )
 }

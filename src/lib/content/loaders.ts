@@ -4,6 +4,8 @@ import successStoriesData from '../../../content/success-stories.json'
 import doctorsData from '../../../content/doctors.json'
 import donateData from '../../../content/donate.json'
 import donationsData from '../../../content/donations.json'
+import howToDonateData from '../../../content/how-to-donate.json'
+import whatYouCanSupportData from '../../../content/what-you-can-support.json'
 import formsData from '../../../content/forms.json'
 import labTestsData from '../../../content/lab-tests.json'
 import landingPagesData from '../../../content/landing-pages.json'
@@ -37,9 +39,13 @@ import type {
   DonateHubContent,
   DonationCauseRecord,
   EventsHubContent,
+  FormsContent,
   HolidayEntry,
   HomeContent,
-  FormsContent,
+  HowToDonateContent,
+  HowToDonateMethod,
+  WhatYouCanSupportCause,
+  WhatYouCanSupportContent,
   HospitalEvent,
   LandingPagesContent,
   LandingPageMockup,
@@ -52,6 +58,7 @@ import type {
   OurPurposeRecord,
   OurSupportersRecord,
   PaginatedResult,
+  PageRecord,
   PatientCareHubRecord,
   PatientCareRecord,
   ProfileRecord,
@@ -159,6 +166,30 @@ export function getPatientCareHub(): PatientCareHubRecord {
 
 export function getDonateContent(): DonateHubContent {
   return donateContent
+}
+
+export function getHowToDonate(): HowToDonateContent {
+  return howToDonateData as HowToDonateContent
+}
+
+export function getHowToDonateMethods(): HowToDonateMethod[] {
+  return getHowToDonate().methods
+}
+
+export function getHowToDonateMethod(slug: string): HowToDonateMethod | undefined {
+  return getHowToDonateMethods().find((method) => method.slug === slug)
+}
+
+export function getWhatYouCanSupport(): WhatYouCanSupportContent {
+  return whatYouCanSupportData as WhatYouCanSupportContent
+}
+
+export function getWhatYouCanSupportCauses(): WhatYouCanSupportCause[] {
+  return getWhatYouCanSupport().causes
+}
+
+export function getWhatYouCanSupportCause(slug: string): WhatYouCanSupportCause | undefined {
+  return getWhatYouCanSupportCauses().find((cause) => cause.slug === slug)
 }
 
 export function getDonations(): DonationCauseRecord[] {

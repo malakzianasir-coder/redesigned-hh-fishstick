@@ -3,3 +3,12 @@
 ## 1. CMS & Editorial Notes Policy
 - **DO NOT render CMS Notes / Editorial Notes (`.cms-note`, `editorialNote`, `chairpersonsNote`, etc.) anywhere on the patient-facing website.**
 - CMS Notes present in design system mockups or source text extracts are internal editorial annotations only. They must never be displayed to end-users on production pages.
+
+# Design System for this project
+@Design-System.md
+
+# Component catalogue — when/how to use page building blocks (heroes, sections, donate)
+@COMPONENTS.md
+
+# Navigation — mega menu, hubs, and subpage URL rules
+@NAVIGATION.md
