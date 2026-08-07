@@ -24,6 +24,7 @@ import {
 import type { Icon } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import type { NisabPrices } from '@/utilities/nisabPrices'
 
 /* ------------------------------------------------------------------ */
 /*  Config                                                             */
@@ -34,7 +35,7 @@ const ZAKAT_RATE = 0.025 // 2.5%
 const GOLD_NISAB_G = 87.48
 const SILVER_NISAB_G = 612.36
 
-// Fallback PKR per gram (used until live data loads or if fetch fails)
+// Fallback PKR per gram (used until daily rates load or if fetch fails)
 const FALLBACK_GOLD_PKR_G = 21795
 const FALLBACK_SILVER_PKR_G = 283
 
@@ -110,17 +111,32 @@ const num = (v: string) => {
 const fmt = (n: number, symbol: string) =>
   `${symbol}${n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
+function formatPriceUpdatedAt(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export function ZakatCalculator() {
+type ZakatCalculatorProps = {
+  initialPrices?: NisabPrices | null
+}
+
+export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) {
   const [currency, setCurrency] = useState<CurrencyKey>('PKR')
   const [basis, setBasis] = useState<Basis>('silver')
 
-  const [goldPkrG, setGoldPkrG] = useState(FALLBACK_GOLD_PKR_G)
-  const [silverPkrG, setSilverPkrG] = useState(FALLBACK_SILVER_PKR_G)
-  const [priceStatus, setPriceStatus] = useState<'loading' | 'live' | 'fallback'>('loading')
+  const [goldPkrG, setGoldPkrG] = useState(initialPrices?.goldPkrPerGram ?? FALLBACK_GOLD_PKR_G)
+  const [silverPkrG, setSilverPkrG] = useState(initialPrices?.silverPkrPerGram ?? FALLBACK_SILVER_PKR_G)
+  const [priceUpdatedAt, setPriceUpdatedAt] = useState<string | null>(initialPrices?.updatedAt ?? null)
+  const [priceStatus, setPriceStatus] = useState<'loading' | 'daily' | 'fallback'>(
+    initialPrices ? 'daily' : 'loading',
+  )
 
   const [assets, setAssets] = useState<Record<AssetKey, string>>({
     gold: '',
@@ -146,24 +162,25 @@ export function ZakatCalculator() {
       try {
         const res = await fetch('/api/nisab-prices', { cache: 'no-store' })
         if (!res.ok) throw new Error('bad status')
-        const data = await res.json()
+        const data = (await res.json()) as NisabPrices
         if (cancelled) return
         if (typeof data.goldPkrPerGram === 'number' && typeof data.silverPkrPerGram === 'number') {
           setGoldPkrG(data.goldPkrPerGram)
           setSilverPkrG(data.silverPkrPerGram)
-          setPriceStatus('live')
+          if (data.updatedAt) setPriceUpdatedAt(data.updatedAt)
+          setPriceStatus('daily')
           return
         }
         throw new Error('bad shape')
       } catch {
-        if (!cancelled) setPriceStatus('fallback')
+        if (!cancelled && !initialPrices) setPriceStatus('fallback')
       }
     }
     void load()
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [initialPrices])
 
   const cur = CURRENCIES[currency]
 
@@ -285,8 +302,20 @@ export function ZakatCalculator() {
                     Nisab Threshold
                   </p>
                   <p className="text-b14 text-white/85">
-                    {priceStatus === 'loading' && 'Fetching live metal prices…'}
-                    {priceStatus === 'live' && `Live • ${basis} basis`}
+                    {priceStatus === 'loading' && 'Loading rates…'}
+                    {priceStatus === 'daily' && (
+                      <>
+                        Updated daily • {basis} basis
+                        {priceUpdatedAt ? (
+                          <>
+                            {' '}
+                            <span className="text-white/60">
+                              ({formatPriceUpdatedAt(priceUpdatedAt)})
+                            </span>
+                          </>
+                        ) : null}
+                      </>
+                    )}
                     {priceStatus === 'fallback' && `Estimated • ${basis} basis`}
                   </p>
                 </div>
@@ -457,10 +486,13 @@ export function ZakatCalculator() {
             <Info size={18} weight="duotone" aria-hidden />
           </span>
           <p className="text-b14 leading-[150%] text-primary-blue/85">
-            This calculator provides an estimate based on the Hanafi school and live metal prices. For
-            complex situations (businesses, agricultural produce, mining, etc.) please consult a
-            qualified scholar. Nisab values update automatically when live prices are available;
-            otherwise estimated values are shown.
+            This calculator provides an estimate based on the Hanafi school and metal prices updated
+            daily. For complex situations (businesses, agricultural produce, mining, etc.) please
+            consult a qualified scholar.
+            {priceUpdatedAt ? ` Rates last updated ${formatPriceUpdatedAt(priceUpdatedAt)}.` : ''}
+            {priceStatus === 'fallback'
+              ? ' Estimated values are shown because current rates could not be loaded.'
+              : ''}
           </p>
         </div>
       </div>

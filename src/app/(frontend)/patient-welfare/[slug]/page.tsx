@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import { DetailPageTemplate } from '@/components/templates/DetailPageTemplate'
+import { PatientWelfareDetailContent } from '@/components/patient-welfare/PatientWelfareDetailContent'
 import { getPatientWelfare, getPatientWelfarePages } from '@/lib/content/loaders'
 
 type Args = {
@@ -38,33 +37,5 @@ export default async function PatientWelfarePage({ params }: Args) {
     notFound()
   }
 
-  return (
-    <>
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-dark-gray/15">
-        <div className="container mx-auto px-6 lg:px-[30px] py-3">
-          <ol className="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
-            <li>
-              <Link href="/" className="text-primary-blue hover:text-primary-red transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="text-dark-gray/40">/</li>
-            <li>
-              <Link
-                href="/patient-welfare"
-                className="text-primary-blue hover:text-primary-red transition-colors"
-              >
-                Patient Welfare
-              </Link>
-            </li>
-            <li className="text-dark-gray/40">/</li>
-            <li aria-current="page" className="font-semibold text-primary-blue">
-              {page.title}
-            </li>
-          </ol>
-        </div>
-      </nav>
-      <DetailPageTemplate page={page} />
-    </>
-  )
+  return <PatientWelfareDetailContent page={page} />
 }

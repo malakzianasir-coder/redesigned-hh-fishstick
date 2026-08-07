@@ -385,11 +385,12 @@ export type MarketingHero = {
   /** Optional pull-quote (e.g. Qur’an verse on Ways to Give hub). */
   quote?: string
   media?: {
-    type: 'image' | 'placeholder'
+    type: 'image' | 'placeholder' | 'illustration'
     src?: string
     alt?: string
     icon?: string
     placeholderLabel?: string
+    preset?: string
   }
   links?: HeroLink[]
 }

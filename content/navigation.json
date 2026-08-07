@@ -3,48 +3,105 @@
     {
       "id": "about",
       "label": "About us",
-      "moreLink": { "label": "About Hijaz Hospital →", "href": "/our-purpose" },
+      "moreLink": {
+        "label": "About Hijaz Hospital →",
+        "href": "/our-purpose"
+      },
       "groups": [
         {
           "heading": "Our Purpose",
           "href": "/our-purpose",
           "links": [
-            { "label": "Vision & Mission", "href": "/our-purpose#vision-mission" },
-            { "label": "Our Journey", "href": "/our-purpose#our-journey" },
-            { "label": "Our Philosophy", "href": "/our-purpose#our-philosophy" },
-            { "label": "Our Approach & Core Values", "href": "/our-purpose#our-approach" },
-            { "label": "Our Compliance & Governance", "href": "/our-purpose#our-compliance" }
+            {
+              "label": "Vision & Mission",
+              "href": "/our-purpose#vision-mission"
+            },
+            {
+              "label": "Our Journey",
+              "href": "/our-purpose#our-journey"
+            },
+            {
+              "label": "Our Philosophy",
+              "href": "/our-purpose#our-philosophy"
+            },
+            {
+              "label": "Our Approach & Core Values",
+              "href": "/our-purpose#our-approach"
+            },
+            {
+              "label": "Our Compliance & Governance",
+              "href": "/our-purpose#our-compliance"
+            }
           ]
         },
         {
           "heading": "Leadership & Governance",
           "href": "/leadership",
           "links": [
-            { "label": "Our Founders", "href": "/leadership#our-founders" },
-            { "label": "Our Chairpersons", "href": "/leadership#our-chairpersons" },
-            { "label": "Our Presidents", "href": "/leadership#our-presidents" },
-            { "label": "Senior Management", "href": "/leadership#senior-management" },
-            { "label": "Executive Committee", "href": "/leadership#executive-committee" },
-            { "label": "Core Working Committees", "href": "/leadership#core-committees" }
+            {
+              "label": "Our Founders",
+              "href": "/leadership#our-founders"
+            },
+            {
+              "label": "Our Chairpersons",
+              "href": "/leadership#our-chairpersons"
+            },
+            {
+              "label": "Our Presidents",
+              "href": "/leadership#our-presidents"
+            },
+            {
+              "label": "Senior Management",
+              "href": "/leadership#senior-management"
+            },
+            {
+              "label": "Executive Committee",
+              "href": "/leadership#executive-committee"
+            },
+            {
+              "label": "Core Working Committees",
+              "href": "/leadership#core-committees"
+            }
           ]
         },
         {
           "heading": "Messages",
           "href": "/leadership/messages",
           "links": [
-            { "label": "Chairman's Message", "href": "/leadership/messages#chairmans-message" },
-            { "label": "President's Message", "href": "/leadership/messages#presidents-message" }
+            {
+              "label": "Chairman's Message",
+              "href": "/leadership/messages#chairmans-message"
+            },
+            {
+              "label": "President's Message",
+              "href": "/leadership/messages#presidents-message"
+            }
           ]
         },
         {
           "heading": "Our Impact",
           "href": "/our-impact",
           "links": [
-            { "label": "Awards & Recognitions", "href": "/our-impact#award" },
-            { "label": "Health & Academic Partners", "href": "/our-impact#health-partners" },
-            { "label": "Welfare Sharia Audit & Certifications", "href": "/our-purpose#our-compliance" },
-            { "label": "Facts, Statistics & Achievements", "href": "/our-impact#facts-statistics" },
-            { "label": "Our Supporters", "href": "/our-supporters" }
+            {
+              "label": "Awards & Recognitions",
+              "href": "/our-impact#award"
+            },
+            {
+              "label": "Health & Academic Partners",
+              "href": "/our-impact#health-partners"
+            },
+            {
+              "label": "Welfare Sharia Audit & Certifications",
+              "href": "/our-purpose#our-compliance"
+            },
+            {
+              "label": "Facts, Statistics & Achievements",
+              "href": "/our-impact#facts-statistics"
+            },
+            {
+              "label": "Our Supporters",
+              "href": "/our-supporters"
+            }
           ]
         }
       ]
@@ -52,48 +109,105 @@
     {
       "id": "departments",
       "label": "Departments",
-      "moreLink": { "label": "View all departments →", "href": "/departments" },
+      "moreLink": {
+        "label": "View all departments →",
+        "href": "/departments"
+      },
       "groups": [
         {
           "heading": "Surgery & Allied Specialties",
           "href": "/departments#surgery-allied",
           "links": [
-            { "label": "General Surgery", "href": "/departments/general-surgery" },
-            { "label": "Orthopedics", "href": "/departments/orthopedics" },
-            { "label": "Urology", "href": "/departments/urology" },
-            { "label": "Plastic & Reconstructive Surgery", "href": "/departments/plastic-reconstructive-surgery" },
-            { "label": "Ophthalmology", "href": "/departments/ophthalmology" },
-            { "label": "ENT (Ear, Nose & Throat)", "href": "/departments/ent-ear-nose-throat" },
-            { "label": "Dentistry", "href": "/departments/dentistry" }
+            {
+              "label": "General Surgery",
+              "href": "/departments/general-surgery"
+            },
+            {
+              "label": "Orthopedics",
+              "href": "/departments/orthopedics"
+            },
+            {
+              "label": "Urology",
+              "href": "/departments/urology"
+            },
+            {
+              "label": "Plastic & Reconstructive Surgery",
+              "href": "/departments/plastic-reconstructive-surgery"
+            },
+            {
+              "label": "Ophthalmology",
+              "href": "/departments/ophthalmology"
+            },
+            {
+              "label": "ENT (Ear, Nose & Throat)",
+              "href": "/departments/ent-ear-nose-throat"
+            },
+            {
+              "label": "Dentistry",
+              "href": "/departments/dentistry"
+            }
           ]
         },
         {
           "heading": "Internal Medicine & Allied Specialties",
           "href": "/departments#internal-medicine",
           "links": [
-            { "label": "General Medicine", "href": "/departments/general-medicine" },
-            { "label": "Gastroenterology", "href": "/departments/gastroenterology" },
-            { "label": "Nephrology", "href": "/departments/nephrology" },
-            { "label": "Cardiology", "href": "/departments/cardiology" },
-            { "label": "Pulmonology", "href": "/departments/pulmonology" },
-            { "label": "Endocrinology", "href": "/departments/endocrinology" },
-            { "label": "Dermatology", "href": "/departments/dermatology" }
+            {
+              "label": "General Medicine",
+              "href": "/departments/general-medicine"
+            },
+            {
+              "label": "Gastroenterology",
+              "href": "/departments/gastroenterology"
+            },
+            {
+              "label": "Nephrology",
+              "href": "/departments/nephrology"
+            },
+            {
+              "label": "Cardiology",
+              "href": "/departments/cardiology"
+            },
+            {
+              "label": "Pulmonology",
+              "href": "/departments/pulmonology"
+            },
+            {
+              "label": "Endocrinology",
+              "href": "/departments/endocrinology"
+            },
+            {
+              "label": "Dermatology",
+              "href": "/departments/dermatology"
+            }
           ]
         },
         {
           "heading": "Mother & Child",
           "href": "/departments#mother-child",
           "links": [
-            { "label": "Gynaecology & Obstetrics", "href": "/departments/gynaecology-obstetrics" },
-            { "label": "Pediatrics", "href": "/departments/pediatrics-neonatology" }
+            {
+              "label": "Gynaecology & Obstetrics",
+              "href": "/departments/gynaecology-obstetrics"
+            },
+            {
+              "label": "Pediatrics",
+              "href": "/departments/pediatrics-neonatology"
+            }
           ]
         },
         {
           "heading": "Specialized Care",
           "href": "/departments#specialized",
           "links": [
-            { "label": "Dietetics & Nutrition", "href": "/departments/dietetics-nutrition" },
-            { "label": "Physiotherapy", "href": "/departments/physiotherapy-rehabilitation" }
+            {
+              "label": "Dietetics & Nutrition",
+              "href": "/departments/dietetics-nutrition"
+            },
+            {
+              "label": "Physiotherapy",
+              "href": "/departments/physiotherapy-rehabilitation"
+            }
           ]
         }
       ]
@@ -101,7 +215,10 @@
     {
       "id": "doctors",
       "label": "Doctors",
-      "moreLink": { "label": "Find a doctor →", "href": "/doctors" },
+      "moreLink": {
+        "label": "Find a doctor →",
+        "href": "/doctors"
+      },
       "groups": [
         {
           "heading": "Our Doctors",
@@ -129,36 +246,75 @@
     {
       "id": "patient-care",
       "label": "Patient Care",
-      "moreLink": { "label": "View all services →", "href": "/services" },
+      "moreLink": {
+        "label": "View all services →",
+        "href": "/services"
+      },
       "groups": [
         {
           "heading": "Hospital Facilities",
           "href": "/services#facilities",
           "links": [
-            { "label": "OPD", "href": "/services/opd" },
-            { "label": "IPD", "href": "/services/ipd" },
-            { "label": "ICU", "href": "/services/icu" },
-            { "label": "Emergency Department", "href": "/services/emergency" },
-            { "label": "Operation Theatre Complex", "href": "/services/ot-complex" }
+            {
+              "label": "OPD",
+              "href": "/services/opd"
+            },
+            {
+              "label": "IPD",
+              "href": "/services/ipd"
+            },
+            {
+              "label": "ICU",
+              "href": "/services/icu"
+            },
+            {
+              "label": "Emergency Department",
+              "href": "/services/emergency"
+            },
+            {
+              "label": "Operation Theatre Complex",
+              "href": "/services/ot-complex"
+            }
           ]
         },
         {
           "heading": "Clinical Support",
           "href": "/services#clinical",
           "links": [
-            { "label": "Nursing", "href": "/services/nursing" },
-            { "label": "Anesthesia", "href": "/services/anesthesia" },
-            { "label": "Ambulance Services", "href": "/services/ambulance" },
-            { "label": "Dialysis Care Unit", "href": "/services/dialysis" }
+            {
+              "label": "Nursing",
+              "href": "/services/nursing"
+            },
+            {
+              "label": "Anesthesia",
+              "href": "/services/anesthesia"
+            },
+            {
+              "label": "Ambulance Services",
+              "href": "/services/ambulance"
+            },
+            {
+              "label": "Dialysis Care Unit",
+              "href": "/services/dialysis"
+            }
           ]
         },
         {
           "heading": "Support Services",
           "href": "/services#support",
           "links": [
-            { "label": "Pharmacy", "href": "/services/pharmacy" },
-            { "label": "Blood Bank", "href": "/services/blood-bank" },
-            { "label": "Cafeteria", "href": "/services/cafeteria" }
+            {
+              "label": "Pharmacy",
+              "href": "/services/pharmacy"
+            },
+            {
+              "label": "Blood Bank",
+              "href": "/services/blood-bank"
+            },
+            {
+              "label": "Cafeteria",
+              "href": "/services/cafeteria"
+            }
           ]
         }
       ]
@@ -166,54 +322,109 @@
     {
       "id": "diagnostics",
       "label": "Diagnostics",
-      "moreLink": { "label": "All diagnostic services →", "href": "/services" },
+      "moreLink": {
+        "label": "All diagnostic services →",
+        "href": "/services#diagnostics"
+      },
       "groups": [
         {
           "heading": "Pathology / Clinical Laboratory",
           "href": "/services#diagnostics",
           "links": [
-            { "label": "Clinical Laboratory Overview", "href": "/services/pathology" },
-            { "label": "List of Tests Available", "href": "/lab-tests" }
+            {
+              "label": "Clinical Laboratory Overview",
+              "href": "/services/pathology"
+            },
+            {
+              "label": "List of Tests Available",
+              "href": "/lab-tests"
+            }
           ]
         },
         {
           "heading": "Radiology & Imaging",
           "href": "/services#diagnostics",
-          "links": [{ "label": "Radiology & Imaging", "href": "/services/radiology" }]
+          "links": [
+            {
+              "label": "Radiology & Imaging",
+              "href": "/services/radiology"
+            }
+          ]
         },
         {
           "heading": "Cardiac Diagnostics",
           "href": "/services#diagnostics",
-          "links": [{ "label": "Cardiac Diagnostics", "href": "/services/cardiac-diagnostics" }]
+          "links": [
+            {
+              "label": "Cardiac Diagnostics",
+              "href": "/services/cardiac-diagnostics"
+            }
+          ]
         }
       ]
     },
     {
       "id": "patient-welfare",
       "label": "Patient Welfare",
-      "moreLink": { "label": "Patient welfare hub →", "href": "/patient-welfare" },
+      "moreLink": {
+        "label": "Patient welfare hub →",
+        "href": "/patient-welfare"
+      },
       "groups": [
         {
           "heading": "Financial & Community Support",
           "href": "/patient-welfare",
           "links": [
-            { "label": "Zakat & Financial Assistance", "href": "/patient-welfare/financial-assistance" },
-            { "label": "Dialysis Patient Support", "href": "/patient-welfare/dialysis-support" },
-            { "label": "Free Medicines", "href": "/patient-welfare/free-medicines" },
-            { "label": "Free Meals", "href": "/patient-welfare/free-meals" },
-            { "label": "Sehat Sahulat Program", "href": "/patient-welfare/sehat-sahulat" },
-            { "label": "Free Medical Camps & Flood Relief", "href": "/patient-welfare/free-medical-camps" }
+            {
+              "label": "Zakat & Financial Assistance",
+              "href": "/patient-welfare/financial-assistance"
+            },
+            {
+              "label": "Dialysis Patient Support",
+              "href": "/patient-welfare/dialysis-support"
+            },
+            {
+              "label": "Free Medicines",
+              "href": "/patient-welfare/free-medicines"
+            },
+            {
+              "label": "Free Meals",
+              "href": "/patient-welfare/free-meals"
+            },
+            {
+              "label": "Sehat Sahulat Program",
+              "href": "/patient-welfare/sehat-sahulat"
+            },
+            {
+              "label": "Free Medical Camps & Flood Relief",
+              "href": "/patient-welfare/free-medical-camps"
+            }
           ]
         },
         {
           "heading": "Patient Resources",
           "href": "/patient-welfare",
           "links": [
-            { "label": "Admission Process", "href": "/patient-welfare/admission-process" },
-            { "label": "Rights & Responsibilities", "href": "/patient-welfare/patient-rights" },
-            { "label": "Patient Stories", "href": "/success-stories" },
-            { "label": "Forms", "href": "/patient-welfare/patient-information-guide" },
-            { "label": "Online Services", "href": "/patient-welfare/patient-information-guide" }
+            {
+              "label": "Admission Process",
+              "href": "/patient-welfare/admission-process"
+            },
+            {
+              "label": "Rights & Responsibilities",
+              "href": "/patient-welfare/patient-rights"
+            },
+            {
+              "label": "Patient Stories",
+              "href": "/success-stories"
+            },
+            {
+              "label": "Forms",
+              "href": "/patient-welfare/patient-information-guide"
+            },
+            {
+              "label": "Online Services",
+              "href": "/patient-welfare/patient-information-guide"
+            }
           ]
         }
       ]
@@ -221,39 +432,87 @@
     {
       "id": "donate",
       "label": "Donate",
-      "moreLink": { "label": "Ways to give hub →", "href": "/donate" },
+      "moreLink": {
+        "label": "Ways to give hub →",
+        "href": "/donate"
+      },
       "groups": [
         {
           "heading": "Ways to Give",
           "href": "/donate",
           "links": [
-            { "label": "Zakat + Calculator", "href": "/donate/zakat" },
-            { "label": "General Donation", "href": "/donate/general" },
-            { "label": "Sadaqah", "href": "/donate/sadaqah" },
-            { "label": "Eidi & Fitrana", "href": "/donate/eidi-fitrana" }
+            {
+              "label": "Zakat + Calculator",
+              "href": "/donate/zakat"
+            },
+            {
+              "label": "General Donation",
+              "href": "/donate/general"
+            },
+            {
+              "label": "Sadaqah",
+              "href": "/donate/sadaqah"
+            },
+            {
+              "label": "Eidi & Fitrana",
+              "href": "/donate/eidi-fitrana"
+            }
           ]
         },
         {
           "heading": "What You Can Support",
           "href": "/donate/what-you-can-support",
           "links": [
-            { "label": "Donate a Meal", "href": "/donate/what-you-can-support/donate-a-meal" },
-            { "label": "Donate in Kind", "href": "/donate/what-you-can-support/donate-in-kind" },
-            { "label": "Sponsor a Patient", "href": "/donate/what-you-can-support/sponsor-a-patient" },
-            { "label": "Sponsor Free Surgeries", "href": "/donate/what-you-can-support/sponsor-free-surgeries" },
-            { "label": "Support a Project", "href": "/donate/what-you-can-support/support-a-project" }
+            {
+              "label": "Donate a Meal",
+              "href": "/donate/what-you-can-support/donate-a-meal"
+            },
+            {
+              "label": "Donate in Kind",
+              "href": "/donate/what-you-can-support/donate-in-kind"
+            },
+            {
+              "label": "Sponsor a Patient",
+              "href": "/donate/what-you-can-support/sponsor-a-patient"
+            },
+            {
+              "label": "Sponsor Free Surgeries",
+              "href": "/donate/what-you-can-support/sponsor-free-surgeries"
+            },
+            {
+              "label": "Support a Project",
+              "href": "/donate/what-you-can-support/support-a-project"
+            }
           ]
         },
         {
           "heading": "How to Donate",
           "href": "/donate/how-to-donate",
           "links": [
-            { "label": "Online", "href": "/donate/how-to-donate/online" },
-            { "label": "Mobile Wallet", "href": "/donate/how-to-donate/mobile-wallet" },
-            { "label": "Bank Transfer", "href": "/donate/how-to-donate/bank-transfer" },
-            { "label": "Meezan App & QR", "href": "/donate/how-to-donate/meezan-app" },
-            { "label": "Cheque / Bank Draft", "href": "/donate/how-to-donate/cheque" },
-            { "label": "Pick-Up Service", "href": "/donate/how-to-donate/pick-up" }
+            {
+              "label": "Online",
+              "href": "/donate/how-to-donate/online"
+            },
+            {
+              "label": "Mobile Wallet",
+              "href": "/donate/how-to-donate/mobile-wallet"
+            },
+            {
+              "label": "Bank Transfer",
+              "href": "/donate/how-to-donate/bank-transfer"
+            },
+            {
+              "label": "Meezan App & QR",
+              "href": "/donate/how-to-donate/meezan-app"
+            },
+            {
+              "label": "Cheque / Bank Draft",
+              "href": "/donate/how-to-donate/cheque"
+            },
+            {
+              "label": "Pick-Up Service",
+              "href": "/donate/how-to-donate/pick-up"
+            }
           ]
         }
       ]

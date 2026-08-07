@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { UsersFour } from '@phosphor-icons/react/dist/ssr'
 
+import { Illustration } from '@/components/Illustration'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import type { MarketingHero } from '@/lib/content/types'
 
@@ -44,7 +45,15 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
             ) : null}
           </div>
           <div className="lg:col-span-6">
-            {hero.media?.type === 'image' && hero.media.src ? (
+            {hero.media?.type === 'illustration' ? (
+              <div className="mx-auto w-full max-w-[320px] aspect-square lg:max-h-[320px]">
+                <Illustration
+                  preset={hero.media.preset}
+                  tone="light"
+                  className="h-full w-full"
+                />
+              </div>
+            ) : hero.media?.type === 'image' && hero.media.src ? (
               <div className="group relative aspect-video max-h-[320px] overflow-hidden rounded-xl">
                 <Image
                   src={hero.media.src}

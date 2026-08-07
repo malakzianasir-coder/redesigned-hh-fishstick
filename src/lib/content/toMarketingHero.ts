@@ -5,17 +5,19 @@ export function toMarketingHero(hero: HeroConfig, placeholderIcon?: string): Mar
   const media: MarketingHero['media'] =
     hero.media?.type === 'image'
       ? { type: 'image', src: hero.media.src, alt: hero.media.alt }
-      : {
-          type: 'placeholder',
-          placeholderLabel: hero.title,
-          icon: placeholderIcon,
-        }
+      : hero.media?.type === 'illustration'
+        ? { type: 'illustration', preset: hero.media.preset }
+        : {
+            type: 'placeholder',
+            placeholderLabel: hero.title,
+            icon: placeholderIcon,
+          }
 
   return {
     kicker: hero.kicker,
     title: hero.title,
     excerpt: hero.excerpt,
-    quote: hero.quote || hero.tagline,
+    quote: hero.quote,
     media,
     links: hero.links,
   }

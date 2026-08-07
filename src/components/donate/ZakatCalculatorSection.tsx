@@ -1,3 +1,4 @@
+import { getNisabPrices } from '@/utilities/nisabPrices'
 import { ZakatCalculator } from './ZakatCalculator'
 
 type ZakatCalculatorSectionProps = {
@@ -5,7 +6,9 @@ type ZakatCalculatorSectionProps = {
   body: string
 }
 
-export function ZakatCalculatorSection({ heading, body }: ZakatCalculatorSectionProps) {
+export async function ZakatCalculatorSection({ heading, body }: ZakatCalculatorSectionProps) {
+  const initialPrices = await getNisabPrices()
+
   return (
     <section id="zakat-calculator" className="section-anchor border-t border-dark-gray/15 bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
@@ -15,7 +18,7 @@ export function ZakatCalculatorSection({ heading, body }: ZakatCalculatorSection
           </h2>
           <p className="text-b16 leading-[150%] text-primary-blue/85 lg:text-b18">{body}</p>
         </div>
-        <ZakatCalculator />
+        <ZakatCalculator initialPrices={initialPrices} />
       </div>
     </section>
   )
