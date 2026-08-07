@@ -74,14 +74,14 @@ const COMPLIANCE_LOGOS = [
   {
     href: '/our-purpose#our-compliance',
     title: 'ISO 9001:2008 — TÜV Austria (QMS)',
-    src: '/compliance-logos/tuv-austria-9001-seeklogo.png',
+    src: '/compliance-logos/tuv-austria-9001.png',
     alt: 'TÜV Austria — EN ISO 9001 certified',
     fallback: undefined,
   },
   {
     href: '/our-purpose#our-compliance',
     title: 'Punjab Healthcare Commission — Licensed',
-    src: '/compliance-logos/punjab-health-care-commission-seeklogo.png',
+    src: '/compliance-logos/punjab-health-care-commission.png',
     alt: 'Punjab Healthcare Commission',
     fallback: undefined,
   },
@@ -102,7 +102,7 @@ const COMPLIANCE_LOGOS = [
   {
     href: '/our-purpose#our-compliance',
     title: 'Federal Board of Revenue — NPO / tax exemption',
-    src: '/compliance-logos/fbr-pakistan-seeklogo.png',
+    src: '/compliance-logos/fbr-pakistan.png',
     alt: 'Federal Board of Revenue Pakistan',
     fallback: undefined,
   },

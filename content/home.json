@@ -282,9 +282,9 @@
         "body": "Life-sustaining dialysis services for patients with kidney disease."
       },
       {
-        "href": "/services/physiotherapy",
+        "href": "/departments/physiotherapy-rehabilitation",
         "image": "/media/Physiotherapy-1.webp",
-        "kicker": "Service",
+        "kicker": "Department",
         "title": "Physiotherapy",
         "body": "Rehabilitation and movement therapy to restore function and mobility."
       }

@@ -30,7 +30,7 @@ import { WaysToGiveSection } from '@/components/home/WaysToGiveSection'
 
 import { BlockHeader } from '@/components/site/BlockHeader'
 
-import { getHomeContent } from '@/lib/content/loaders'
+import { getDoctorsHub, getHomeContent } from '@/lib/content/loaders'
 
 
 
@@ -53,6 +53,7 @@ const ICON_MAP = {
 export function HomePage() {
 
   const content = getHomeContent()
+  const doctorsWithPhotos = getDoctorsHub().doctors.filter((doctor) => Boolean(doctor.image))
 
 
 
@@ -530,15 +531,15 @@ export function HomePage() {
 
           <div className="card-grid card-grid--6 card-grid--gap-4">
 
-            {content.team.doctors.map((doctor) => (
+            {doctorsWithPhotos.map((doctor) => (
 
-              <article key={doctor.name} className="card-interactive overflow-hidden">
+              <article key={doctor.slug} className="card-interactive overflow-hidden">
 
                 <div className="relative aspect-square overflow-hidden bg-cardbg">
 
                   <Image
 
-                    src={doctor.image}
+                    src={doctor.image!}
 
                     alt={doctor.name}
 
@@ -556,7 +557,7 @@ export function HomePage() {
 
                   <h3 className="text-h6M font-bold leading-[120%] text-primary-blue">{doctor.name}</h3>
 
-                  <p className="text-b12 font-semibold text-primary-red">{doctor.role}</p>
+                  <p className="text-b12 font-semibold text-primary-red">{doctor.specialty}</p>
 
                 </div>
 

@@ -659,6 +659,8 @@ export type OurImpactRecord = {
     kicker: string
     title: string
     body: string[]
+    image?: string
+    imageAlt?: string
   }
   healthPartners?: {
     intro: string

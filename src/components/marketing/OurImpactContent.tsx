@@ -35,9 +35,21 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
               <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{page.award.kicker}</h2>
             </div>
             <article className="card-interactive flex flex-col items-start gap-6 p-6 lg:flex-row lg:p-8">
-              <div className="logo-slot h-24 w-24 text-[36px]">
-                <Medal size={36} weight="duotone" />
-              </div>
+              {page.award.image ? (
+                <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-2xl border border-dark-gray/15 bg-white">
+                  <Image
+                    src={page.award.image}
+                    alt={page.award.imageAlt ?? page.award.title}
+                    fill
+                    className="object-cover"
+                    sizes="160px"
+                  />
+                </div>
+              ) : (
+                <div className="logo-slot h-24 w-24 text-[36px]">
+                  <Medal size={36} weight="duotone" />
+                </div>
+              )}
               <div className="flex flex-1 flex-col gap-3">
                 <span className="icon-tile">
                   <Trophy size={22} weight="duotone" />
