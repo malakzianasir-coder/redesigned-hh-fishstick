@@ -68,13 +68,13 @@ export function DoctorsHubGrid({
 
   const heads = filtered
     .filter((d) => isHeadOfDepartment(d))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
   const consultants = filtered
     .filter((d) => !isVisitingDoctor(d))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
   const visiting = filtered
     .filter((d) => isVisitingDoctor(d))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
 
   function clearFilters() {
     setSearch('')

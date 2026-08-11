@@ -37,7 +37,7 @@ type DepartmentsHubContentProps = {
 }
 
 export function DepartmentsHubContent({ departments }: DepartmentsHubContentProps) {
-  const cards = departments.map(toHubCard).sort((a, b) => a.title.localeCompare(b.title))
+  const cards = departments.map(toHubCard).sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
   const count = departments.length
 
   return (

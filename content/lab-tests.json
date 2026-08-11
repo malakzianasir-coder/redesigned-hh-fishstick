@@ -2597,8 +2597,10 @@
     },
     {
       "slug": "cbc-for-dengue-dengue",
+      "name": "CBC for Dengue",
+      "category": "Dengue",
       "reportingTime": "8 hours",
-      "specimen": "",
+      "specimen": "EDTA blood sample",
       "isOutsourced": false,
       "alsoKnownAs": [],
       "description": [

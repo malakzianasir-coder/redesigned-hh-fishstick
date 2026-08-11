@@ -9,7 +9,7 @@ import { BlockHeader } from '@/components/site/BlockHeader'
 import type { WhatYouCanSupportContent } from '@/lib/content/types'
 
 export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSupportContent }) {
-  const causes = [...content.causes].sort((a, b) => a.title.localeCompare(b.title))
+  const causes = [...content.causes].sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
   return (
     <article>
       <MarketingBreadcrumb

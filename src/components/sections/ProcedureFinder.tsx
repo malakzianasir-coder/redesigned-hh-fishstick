@@ -50,7 +50,10 @@ function ProcedureRow({ children }: { children: ReactNode }) {
 
 export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const rail = useMemo<RailGroup[]>(() => {
-    const allItems = groups.flatMap((group) => group.items).sort((a, b) => a.localeCompare(b))
+    const allItems = groups
+      .flatMap((group) => group.items ?? [])
+      .filter((item): item is string => typeof item === 'string')
+      .sort((a, b) => a.localeCompare(b))
     return [
       {
         slug: 'all',
@@ -67,7 +70,11 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   }, [groups])
 
   const allItems = useMemo(
-    () => groups.flatMap((group) => group.items.map((text) => ({ text, group: group.heading }))).sort((a, b) => a.text.localeCompare(b.text)),
+    () =>
+      groups
+        .flatMap((group) => (group.items ?? []).map((text) => ({ text, group: group.heading ?? '' })))
+        .filter((item) => typeof item.text === 'string')
+        .sort((a, b) => a.text.localeCompare(b.text)),
     [groups],
   )
 

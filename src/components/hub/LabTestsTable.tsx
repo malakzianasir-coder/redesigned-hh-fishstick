@@ -55,7 +55,7 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
         }
         return true
       })
-      .sort((a, b) => a.name.localeCompare(b.name))
+      .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
   }, [tests, search, category, specimen, turnaround, source])
 
   const openTest = useCallback((test: LabTestRecord) => {

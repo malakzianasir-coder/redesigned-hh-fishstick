@@ -26,10 +26,14 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
 
   const groups = rawGroups
     ? [...rawGroups]
-        .sort((a, b) => a.heading.localeCompare(b.heading))
+        .sort((a, b) => (a.heading ?? '').localeCompare(b.heading ?? ''))
         .map((group) => ({
           ...group,
-          items: group.items ? [...group.items].sort((a, b) => a.localeCompare(b)) : group.items,
+          items: group.items
+            ? [...group.items]
+                .filter((item): item is string => typeof item === 'string')
+                .sort((a, b) => a.localeCompare(b))
+            : group.items,
         }))
     : []
 
