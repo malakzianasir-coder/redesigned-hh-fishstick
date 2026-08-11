@@ -8,7 +8,7 @@ const SLUG = 'mian-abdul-waheed'
 
 export const metadata: Metadata = {
   title: 'Mian Abdul Waheed | Hijaz Hospital',
-  description: 'Lifetime Chairman of Hijaz Hospital — biography and community leadership.',
+  description: 'Co-Founder and Lifetime Chairman of Hijaz Hospital — biography and community leadership.',
 }
 
 export default function MianAbdulWaheedPage() {
