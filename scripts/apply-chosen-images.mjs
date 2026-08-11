@@ -270,7 +270,7 @@ if (home.services?.cards) {
   }
 }
 if (home.founders?.cards) {
-  home.founders.cards[0].image = '/media/haji-inam-elahi-asar.jpg'
+  home.founders.cards[0].image = '/media/inam-elahi-asar.jpg'
   if (home.founders.cards[1]) home.founders.cards[1].image = '/media/mian-abdul-waheed.jpg'
 }
 if (home.stories?.items) {
@@ -385,12 +385,12 @@ const storyPool = [
 writeJson('success-stories.json', stories)
 
 // Profile founder image if present
-const profilePath = path.join(CONTENT, 'profiles', 'haji-inam-elahi-asar.json')
+const profilePath = path.join(CONTENT, 'profiles', 'inam-elahi-asar.json')
 if (fs.existsSync(profilePath)) {
   const profile = JSON.parse(fs.readFileSync(profilePath, 'utf8'))
-  profile.image = '/media/haji-inam-elahi-asar.jpg'
+  profile.image = '/media/inam-elahi-asar.jpg'
   fs.writeFileSync(profilePath, JSON.stringify(profile, null, 2) + '\n', 'utf8')
-  console.log('write profiles/haji-inam-elahi-asar.json')
+  console.log('write profiles/inam-elahi-asar.json')
 }
 
 console.log('Done.')

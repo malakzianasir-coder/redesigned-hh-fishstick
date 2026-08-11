@@ -767,7 +767,7 @@ export function ComponentShowcase() {
       <ShowcaseSection
         id="hero-profile-inline"
         label="ProfileContent Custom Inline Hero (CUSTOM INLINE)"
-        usedBy="ProfileContent → /leadership/haji-inam-elahi-asar"
+        usedBy="ProfileContent → /leadership/inam-elahi-asar"
         warning="Should be replaced with MediumHero for consistency"
       >
         <section className="bg-white">
@@ -782,7 +782,7 @@ export function ComponentShowcase() {
               <div className="flex flex-col gap-[6px] text-center lg:col-span-8 lg:text-start">
                 <p className="kicker">Founder & Honorary Project Director</p>
                 <h1 className="text-h1M font-bold tracking-display text-primary-blue lg:text-h1">
-                  Haji Inam Elahi Asar
+                  Inam Elahi Asar
                 </h1>
                 <span className="group-badge inline-flex self-center lg:self-start">
                   1979 – Present

@@ -52,25 +52,25 @@
   ],
   "founders": [
     {
-      "name": "Haji Inam Ellahi Asar",
+      "name": "Inam Ellahi Asar",
       "years": "1927–2016",
       "role": "Founder and Honorary Project Director",
-      "href": "/leadership/haji-inam-elahi-asar",
+      "href": "/leadership/inam-elahi-asar",
       "body": [
         "Born in October 1927 in Chiniot, he devoted more than five decades of his life to the service of humanity, earning deep respect as a distinguished social worker and philanthropist.",
         "As the Founder and Honorary Project Director of Hijaz Hospital, he transformed his lifelong commitment to compassion and public welfare into a lasting institution dedicated to healthcare and human service."
       ],
       "editorialNote": "Source: “Picture passport sized - Haji Inam Ellahi Asar (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html). Name spelling varies between sources: “Ellahi” (Leadership.txt) vs “Elahi” (Profiles.txt) — confirm canonical spelling.",
-      "image": "/media/haji-inam-elahi-asar.jpg"
+      "image": "/media/inam-elahi-asar.jpg"
     },
     {
       "name": "Mian Abdul Waheed",
       "years": "1931–2010",
-      "role": "Founding member",
+      "role": "Co-Founder and Lifetime Chairman",
       "href": "/leadership/mian-abdul-waheed",
       "body": [
         "Born in April 1931 in East Punjab, he was a distinguished humanitarian admired for his integrity, humility, and lifelong dedication to public welfare and community service.",
-        "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Haji Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service."
+        "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service."
       ],
       "editorialNote": "Source: “Picture passport sized - Mian Abdul Waheed (Late)” · “Link his name to the following content on a separate page” — links to the P26 profile template (profile-design-system.html).",
       "image": "/media/mian-abdul-waheed.jpg"
@@ -82,6 +82,7 @@
       "years": "1994 – 2010",
       "name": "Mian Abdul Waheed",
       "role": "Chairperson",
+      "href": "/leadership/mian-abdul-waheed",
       "image": "/media/mian-abdul-waheed.jpg"
     },
     {
@@ -95,6 +96,7 @@
       "years": "2020 – till now",
       "name": "Mian Muhammad Asif Waheed",
       "role": "Chairperson",
+      "href": "/leadership/messages/chairman",
       "image": "/media/mian-muhammad-asif-waheed.jpg"
     }
   ],
@@ -104,15 +106,15 @@
       "years": "1990 – 2004",
       "name": "Inam Elahi Asar",
       "role": "President",
-      "href": "/leadership/haji-inam-elahi-asar",
-      "note": "Source spells the name \"Hahi Inam Elahi Asar\" (kept verbatim). The founder biography spells \"Haji Inam Ellahi Asar\" — confirm the correct spelling.",
-      "image": "/media/haji-inam-elahi-asar.jpg"
+      "href": "/leadership/inam-elahi-asar",
+      "note": "Source spells the name \"Hahi Inam Elahi Asar\" (kept verbatim). The founder biography spells \"Inam Ellahi Asar\" — confirm the correct spelling.",
+      "image": "/media/inam-elahi-asar.jpg"
     },
     {
       "years": "2004 – till now",
       "name": "Sohail Iqbal",
       "role": "President",
-      "href": "/leadership/haji-inam-elahi-asar",
+      "href": "/leadership/messages/president",
       "image": "/media/sohail-iqbal.jpg"
     }
   ],
@@ -139,7 +141,7 @@
       "image": "/media/sohail-iqbal.jpg"
     },
     {
-      "name": "Haji Abdul Ghaffar",
+      "name": "Abdul Ghaffar",
       "role": "Senior Vice President",
       "image": "/media/haji-abdul-ghaffar.jpg"
     },

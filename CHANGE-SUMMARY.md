@@ -7,9 +7,9 @@ Leadership, Our Impact, doctor profiles, and in-page hash scrolling.
 ## Leadership
 
 - Replaced the `/leadership` hero with `archive/leadership-pictures/leadership-top-image.jpeg` (saved as `public/media/founders-hero-banner.webp`) and added the design-system hairline stroke on marketing hero images.
-- Founders now show lifespan years: **Haji Inam Ellahi Asar (1927–2016)** and **Mian Abdul Waheed (1931–2010)**.
+- Founders now show lifespan years: **Inam Ellahi Asar (1927–2016)** and **Mian Abdul Waheed (1931–2010)**.
 - Each founder has their own biography page:
-  - `/leadership/haji-inam-elahi-asar`
+  - `/leadership/inam-elahi-asar`
   - `/leadership/mian-abdul-waheed` (new)
 - Senior management portraits added for all listed office-bearers.
 - Core committees now include convener, co-convener, and members, opened in a drawer.

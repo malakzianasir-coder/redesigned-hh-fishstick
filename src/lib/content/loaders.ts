@@ -20,7 +20,7 @@ import ourPurposeData from '../../../content/our-purpose.json'
 import ourSupportersData from '../../../content/our-supporters.json'
 import patientWelfareData from '../../../content/patient-welfare.json'
 import presidentsMessageData from '../../../content/presidents-message.json'
-import profileHajiInamData from '../../../content/profiles/haji-inam-elahi-asar.json'
+import profileInamElahiData from '../../../content/profiles/inam-elahi-asar.json'
 import profileMianAbdulWaheedData from '../../../content/profiles/mian-abdul-waheed.json'
 import servicesData from '../../../content/services.json'
 import siteSettingsData from '../../../content/site-settings.json'
@@ -84,10 +84,10 @@ const chairmansMessage = chairmansMessageData as SingleMessagePageRecord
 const presidentsMessage = presidentsMessageData as SingleMessagePageRecord
 const ourImpact = ourImpactData as OurImpactRecord
 const ourSupporters = ourSupportersData as OurSupportersRecord
-const profileHajiInam = profileHajiInamData as ProfileRecord
+const profileInamElahi = profileInamElahiData as ProfileRecord
 const profileMianAbdulWaheed = profileMianAbdulWaheedData as ProfileRecord
 const profilesBySlug: Record<string, ProfileRecord> = {
-  [profileHajiInam.slug]: profileHajiInam,
+  [profileInamElahi.slug]: profileInamElahi,
   [profileMianAbdulWaheed.slug]: profileMianAbdulWaheed,
 }
 const doctorsHub = doctorsData as DoctorsHubContent

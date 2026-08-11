@@ -59,7 +59,7 @@ const SLOT_KEYWORDS = {
   'success-stories': ['patient', 'dialysis', 'surgery', 'recovery'],
   chairman: ['chairman', 'asif waheed', 'waheed', 'faculty'],
   president: ['president', 'sohail', 'faculty'],
-  profile: ['founder', 'haji inam', 'asar', 'waheed'],
+  profile: ['founder', 'inam elahi', 'asar', 'waheed'],
   accommodation: ['vip', 'private', 'room', 'female ward', 'gynae'],
   machinery: ['new machines', 'machine', 'laser', 'dialysis', 'ultrasound', 'x-ray'],
 }
@@ -322,8 +322,8 @@ addSlot({
 addSlot({
   id: 'impact-medical-tower',
   category: 'About',
-  page: 'Our Impact — Medical Tower',
-  url: '/our-impact#medical-tower',
+  page: 'Our Impact — Our Projects',
+  url: '/our-impact#our-projects',
   slot: 'Medical Tower photograph',
   aspect: 'banner',
   status: 'UI_PLACEHOLDER',
@@ -382,7 +382,7 @@ for (const card of home.founders?.cards || []) {
     aspect: 'card',
     status: 'CURRENT',
     current: card.image,
-    keywords: ['founder', 'haji inam', 'waheed', 'opening', card.name],
+    keywords: ['founder', 'inam elahi', 'waheed', 'opening', card.name],
   })
 }
 for (const [i, story] of (home.stories?.items || []).entries()) {
@@ -534,19 +534,19 @@ for (const member of leadership.seniorManagement || []) {
   })
 }
 
-const profilePath = path.join(CONTENT, 'profiles', 'haji-inam-elahi-asar.json')
+const profilePath = path.join(CONTENT, 'profiles', 'inam-elahi-asar.json')
 if (fs.existsSync(profilePath)) {
   const profile = readJson(profilePath)
   addSlot({
     id: 'profile-founder',
     category: 'Leadership portraits',
     page: profile.name,
-    url: '/leadership/haji-inam-elahi-asar',
+    url: '/leadership/inam-elahi-asar',
     slot: 'Founder profile portrait',
     aspect: 'portrait',
     status: 'CURRENT',
     current: profile.image,
-    keywords: ['haji inam', 'asar', 'founder', 'faculty'],
+    keywords: ['inam elahi', 'asar', 'founder', 'faculty'],
     notes: profile.role,
   })
 }

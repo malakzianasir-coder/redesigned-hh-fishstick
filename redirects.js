@@ -25,7 +25,15 @@ const redirects = async () => {
     },
   ]
 
-  return [internetExplorerRedirect, ...patientCareRedirects]
+  const leadershipProfileRedirects = [
+    {
+      source: '/leadership/haji-inam-elahi-asar',
+      destination: '/leadership/inam-elahi-asar',
+      permanent: true,
+    },
+  ]
+
+  return [internetExplorerRedirect, ...patientCareRedirects, ...leadershipProfileRedirects]
 }
 
 export default redirects
