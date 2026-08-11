@@ -13,6 +13,16 @@ import { UtilityTopBar } from './UtilityTopBar'
 
 const navigation = navigationData as NavigationData
 
+/** Compact/expand follows the wheel gesture, not Lenis interpolation (which overshoots once). */
+const HEADER_TOP_PX = 24
+const HEADER_NOISE_PX = 8
+const HEADER_COMPACT_PX = 160
+const HEADER_EXPAND_PX = 90
+const HEADER_APPLY_DELAY_MS = 160
+const HEADER_COOLDOWN_MS = 400
+const HEADER_REVERSE_PX = 48
+const HEADER_WHEEL_LOCK_MS = 1200
+
 function navClick(href: string, onNavigate?: () => void) {
   return (event: MouseEvent<HTMLAnchorElement>) => {
     onNavigate?.()
@@ -291,7 +301,9 @@ export function SiteHeader() {
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({})
   const lastScrollY = useRef(0)
   const scrollAccum = useRef(0)
+  const compactRef = useRef(false)
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  compactRef.current = compact
 
   const clearHoverTimeout = useCallback(() => {
     if (hoverTimeoutRef.current) {
@@ -329,7 +341,10 @@ export function SiteHeader() {
   }, [pathname, closeMegaMenu])
 
   useLayoutEffect(() => {
-    if (window.location.hash) setCompact(true)
+    if (window.location.hash) {
+      compactRef.current = true
+      setCompact(true)
+    }
   }, [pathname])
 
   useEffect(() => {
@@ -358,36 +373,118 @@ export function SiteHeader() {
   useEffect(() => {
     lastScrollY.current = window.scrollY
 
+    let lastToggleAt = 0
+    let lastWheelAt = 0
+    let reverseAccum = 0
+    let pending: boolean | null = null
+    let applyTimer: number | null = null
+
+    const resetAccum = () => {
+      scrollAccum.current = 0
+      reverseAccum = 0
+    }
+
+    const expandAtTop = () => {
+      if (applyTimer != null) {
+        window.clearTimeout(applyTimer)
+        applyTimer = null
+      }
+      pending = null
+      resetAccum()
+      if (compactRef.current) {
+        compactRef.current = false
+        setCompact(false)
+      }
+    }
+
+    const schedule = (nextCompact: boolean) => {
+      if (pending === nextCompact) return
+      if (applyTimer != null) window.clearTimeout(applyTimer)
+      pending = nextCompact
+      applyTimer = window.setTimeout(() => {
+        applyTimer = null
+        pending = null
+        if (window.scrollY <= HEADER_TOP_PX) {
+          expandAtTop()
+          return
+        }
+        if (compactRef.current === nextCompact) {
+          resetAccum()
+          return
+        }
+        compactRef.current = nextCompact
+        setCompact(nextCompact)
+        if (nextCompact) setOpenItemId(null)
+        lastToggleAt = performance.now()
+        resetAccum()
+      }, HEADER_APPLY_DELAY_MS)
+    }
+
+    const applyDelta = (delta: number, noisePx: number) => {
+      if (Math.abs(delta) < noisePx) return
+      if (window.scrollY <= HEADER_TOP_PX) {
+        expandAtTop()
+        return
+      }
+
+      const now = performance.now()
+      if (lastToggleAt && now - lastToggleAt < HEADER_COOLDOWN_MS) return
+
+      const accum = scrollAccum.current
+      const reversing = (delta > 0 && accum < 0) || (delta < 0 && accum > 0)
+
+      if (reversing) {
+        reverseAccum += delta
+        if (Math.abs(reverseAccum) < HEADER_REVERSE_PX) return
+        if (applyTimer != null) {
+          window.clearTimeout(applyTimer)
+          applyTimer = null
+        }
+        pending = null
+        scrollAccum.current = 0
+        reverseAccum = 0
+      } else {
+        reverseAccum = 0
+      }
+
+      scrollAccum.current += delta
+
+      if (scrollAccum.current > HEADER_COMPACT_PX) schedule(true)
+      else if (scrollAccum.current < -HEADER_EXPAND_PX) schedule(false)
+    }
+
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey) return
+      lastWheelAt = performance.now()
+      let delta = event.deltaY
+      if (event.deltaMode === 1) delta *= 16
+      else if (event.deltaMode === 2) delta *= window.innerHeight
+      applyDelta(delta, 1)
+    }
+
     const onScroll = () => {
       const y = window.scrollY
       const delta = y - lastScrollY.current
       lastScrollY.current = y
 
-      if (y <= 16) {
-        setCompact(false)
-        scrollAccum.current = 0
+      if (y <= HEADER_TOP_PX) {
+        expandAtTop()
         return
       }
 
-      // Accumulate scroll in same direction; reset on reversal
-      if ((delta > 0 && scrollAccum.current < 0) || (delta < 0 && scrollAccum.current > 0)) {
-        scrollAccum.current = 0
-      }
-      scrollAccum.current += delta
+      // Wheel already decided; Lenis will keep interpolating (and overshoot once).
+      if (performance.now() - lastWheelAt < HEADER_WHEEL_LOCK_MS) return
 
-      // Require sustained 40px in one direction before toggling
-      if (scrollAccum.current > 40) {
-        setCompact(true)
-        setOpenItemId(null)
-        scrollAccum.current = 0
-      } else if (scrollAccum.current < -40) {
-        setCompact(false)
-        scrollAccum.current = 0
-      }
+      applyDelta(delta, HEADER_NOISE_PX)
     }
 
+    window.addEventListener('wheel', onWheel, { passive: true })
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      if (applyTimer != null) window.clearTimeout(applyTimer)
+      window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
   useEffect(() => {
