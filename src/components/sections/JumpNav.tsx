@@ -49,12 +49,19 @@ export function JumpNav({ links }: JumpNavProps) {
           <span className="field-label-text mr-1">On this page</span>
           {links.map((link) => {
             const sectionId = link.href.replace(/^#/, '')
+            const isHash = link.href.startsWith('#')
+            const className = cn('chip', activeId === sectionId && 'is-active')
+
+            if (isHash) {
+              return (
+                <a key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </a>
+              )
+            }
+
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn('chip', activeId === sectionId && 'is-active')}
-              >
+              <Link key={link.href} href={link.href} className={className}>
                 {link.label}
               </Link>
             )

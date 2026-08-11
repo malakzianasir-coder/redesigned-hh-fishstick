@@ -22,7 +22,7 @@ export function EventsHubContent({ hub, hospitalEvents, holidayCalendar }: Event
   const [activeTab, setActiveTab] = useState<'hospital' | 'calendar'>('hospital')
 
   return (
-    <div className="bg-white pt-[var(--header-h)]">
+    <div className="bg-white pt-[var(--header-h-expanded)]">
       <section>
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px] text-center">

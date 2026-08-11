@@ -1,15 +1,15 @@
 {
   "slug": "chairman",
   "title": "Chairman's Message",
-  "description": "Personal message from Mian Muhammad Asif Waheed, Chairman of Hijaz Hospital — presented in full, exactly as written.",
+  "description": "The Chairman shares his vision for Hijaz Hospital and our commitment to serving humanity.",
   "hero": {
     "kicker": "About Us",
     "title": "Chairman's Message",
-    "excerpt": "Personal message from Mian Muhammad Asif Waheed, Chairman of Hijaz Hospital — presented in full, exactly as written.",
+    "excerpt": "The Chairman shares his vision for Hijaz Hospital and our commitment to serving humanity.",
     "media": {
-      "type": "placeholder",
-      "icon": "EnvelopeOpen",
-      "placeholderLabel": "Chairman photograph placeholder"
+      "type": "image",
+      "src": "/media/mian-muhammad-asif-waheed.jpg",
+      "alt": "Mian Muhammad Asif Waheed, Chairman of Hijaz Hospital"
     },
     "links": [
       {
@@ -19,16 +19,7 @@
       }
     ]
   },
-  "jumpLinks": [
-    {
-      "label": "Chairman's Message",
-      "href": "#chairmans-message"
-    },
-    {
-      "label": "President's Message",
-      "href": "/leadership/messages/president"
-    }
-  ],
+  "jumpLinks": [],
   "message": {
     "id": "chairmans-message",
     "kicker": "Messages",
@@ -48,7 +39,8 @@
     "signature": "Mian Muhammad Asif Waheed",
     "roleLine": "Chairman",
     "organizationLine": "Hijaz Hospital",
-    "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial."
+    "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial.",
+    "image": "/media/mian-muhammad-asif-waheed.jpg"
   },
   "otherMessage": {
     "title": "President's Message",

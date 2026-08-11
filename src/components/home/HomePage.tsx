@@ -53,7 +53,7 @@ const ICON_MAP = {
 export function HomePage() {
 
   const content = getHomeContent()
-  const doctorsWithPhotos = getDoctorsHub().doctors.filter((doctor) => Boolean(doctor.image))
+  const doctorsWithPhotos = getDoctorsHub().doctors.filter((doctor) => Boolean(doctor.image)).slice(0, 6)
 
 
 
@@ -363,7 +363,7 @@ export function HomePage() {
 
           />
 
-          <div className="card-grid card-grid--2 mx-auto max-w-5xl">
+          <div className="card-grid card-grid--2">
 
             {content.founders.cards.map((founder, index) => (
 

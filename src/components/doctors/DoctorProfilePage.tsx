@@ -24,18 +24,10 @@ function doctorKicker(doctor: DoctorRecord): string {
   return 'Consultant'
 }
 
-function defaultQualifications(doctor: DoctorRecord): string[] {
-  const { specialty } = doctor
-  if (/consultant|registrar/i.test(specialty)) {
-    return ['MBBS', specialty]
-  }
-  return ['MBBS', `Consultant ${specialty}`]
-}
-
 export function DoctorProfilePage({ doctor }: { doctor: DoctorRecord }) {
-  const qualifications = doctor.qualifications?.length
-    ? doctor.qualifications
-    : defaultQualifications(doctor)
+  const qualifications = doctor.qualifications?.filter(Boolean).length
+    ? doctor.qualifications.filter(Boolean)
+    : ['MBBS']
   const languages = doctor.languages?.length ? doctor.languages : ['Urdu', 'English']
   const head = isHeadOfDepartment(doctor)
   const visiting = isVisitingDoctor(doctor)
@@ -105,18 +97,27 @@ export function DoctorProfilePage({ doctor }: { doctor: DoctorRecord }) {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="card p-6 lg:p-8">
                   <h2 className="text-h5M font-bold leading-[120%] text-primary-blue lg:text-h5">
-                    Qualifications
+                    Qualifications and Specialty
                   </h2>
-                  <ul className="mt-4 list-disc space-y-2 pl-5 text-b14 leading-[150%] text-primary-blue/85">
-                    {qualifications.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <div className="mt-4 flex flex-col gap-3 text-b14 leading-[150%] text-primary-blue/85">
+                    <p>
+                      <span className="field-label-text mb-1 block">Specialty</span>
+                      {doctor.specialty}
+                    </p>
+                    <div>
+                      <span className="field-label-text mb-1 block">Degrees</span>
+                      <ul className="mt-1 list-disc space-y-2 pl-5">
+                        {qualifications.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="card p-6 lg:p-8">
                   <h2 className="text-h5M font-bold leading-[120%] text-primary-blue lg:text-h5">
-                    Clinic information
+                    Clinic Information
                   </h2>
                   <div className="mt-4 flex flex-col gap-3 text-b14 leading-[150%] text-primary-blue/85">
                     <p>

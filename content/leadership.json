@@ -52,7 +52,8 @@
   ],
   "founders": [
     {
-      "name": "Haji Inam Ellahi Asar (Late)",
+      "name": "Haji Inam Ellahi Asar",
+      "years": "1927–2016",
       "role": "Founder and Honorary Project Director",
       "href": "/leadership/haji-inam-elahi-asar",
       "body": [
@@ -63,9 +64,10 @@
       "image": "/media/haji-inam-elahi-asar.jpg"
     },
     {
-      "name": "Mian Abdul Waheed (Late)",
+      "name": "Mian Abdul Waheed",
+      "years": "1931–2010",
       "role": "Founding member",
-      "href": "/leadership/haji-inam-elahi-asar",
+      "href": "/leadership/mian-abdul-waheed",
       "body": [
         "Born in April 1931 in East Punjab, he was a distinguished humanitarian admired for his integrity, humility, and lifelong dedication to public welfare and community service.",
         "As a founding member and one of the principal driving forces behind the establishment of Hijaz Hospital, alongside Haji Inam Elahi Asar, he played a pivotal role in shaping the institution's mission of compassionate healthcare and social service."
@@ -78,13 +80,13 @@
   "chairpersons": [
     {
       "years": "1994 – 2010",
-      "name": "Alhaj Mian Abdul Waheed",
+      "name": "Mian Abdul Waheed",
       "role": "Chairperson",
       "image": "/media/mian-abdul-waheed.jpg"
     },
     {
       "years": "2010 – 2020",
-      "name": "Mrs Tasneem Firdous Waheed",
+      "name": "Tasneem Firdous Waheed",
       "role": "Chairperson",
       "image": "/media/mrs-tasneem-firdous-waheed.jpg",
       "note": "Source reads \"Tenure 20110 to 2020\" — rendered here as 2010 – 2020. Confirm the correct start year before publishing."
@@ -92,14 +94,15 @@
     {
       "years": "2020 – till now",
       "name": "Mian Muhammad Asif Waheed",
-      "role": "Chairperson"
+      "role": "Chairperson",
+      "image": "/media/mian-muhammad-asif-waheed.jpg"
     }
   ],
   "presidentsNote": "Source: “Data with pic available” — portrait photos to be uploaded for each tenure.",
   "presidents": [
     {
       "years": "1990 – 2004",
-      "name": "Hahi Inam Elahi Asar",
+      "name": "Inam Elahi Asar",
       "role": "President",
       "href": "/leadership/haji-inam-elahi-asar",
       "note": "Source spells the name \"Hahi Inam Elahi Asar\" (kept verbatim). The founder biography spells \"Haji Inam Ellahi Asar\" — confirm the correct spelling.",
@@ -110,55 +113,65 @@
       "name": "Sohail Iqbal",
       "role": "President",
       "href": "/leadership/haji-inam-elahi-asar",
-      "image": "/media/president-image.webp"
+      "image": "/media/sohail-iqbal.jpg"
     }
   ],
   "seniorManagementNote": "Source: “Also provide pictures.” — portrait photos to be uploaded for each role.",
   "seniorManagement": [
     {
       "name": "Sheikh Naeem Anwar",
-      "role": "Patron of Chief"
+      "role": "Patron of Chief",
+      "image": "/media/sheikh-naeem-anwar.jpg"
     },
     {
       "name": "Mian Muhammad Asif Waheed",
-      "role": "Chairman"
+      "role": "Chairman",
+      "image": "/media/mian-muhammad-asif-waheed.jpg"
     },
     {
       "name": "Engr. Abdur Raoof Shahzada",
-      "role": "Vice Chairman"
+      "role": "Vice Chairman",
+      "image": "/media/engr-abdur-raoof-shahzada.jpg"
     },
     {
       "name": "Sohail Iqbal",
       "role": "President",
-      "image": "/media/president-image.webp"
+      "image": "/media/sohail-iqbal.jpg"
     },
     {
       "name": "Haji Abdul Ghaffar",
-      "role": "Senior Vice President"
+      "role": "Senior Vice President",
+      "image": "/media/haji-abdul-ghaffar.jpg"
     },
     {
       "name": "Mussarat Qayyum",
-      "role": "Vice President"
+      "role": "Vice President",
+      "image": "/media/mussarat-qayyum.jpg"
     },
     {
       "name": "Shahid Ismail",
-      "role": "Vice President"
+      "role": "Vice President",
+      "image": "/media/shahid-ismail.jpg"
     },
     {
       "name": "Mian Shahzad Waheed",
-      "role": "Vice President"
+      "role": "Vice President",
+      "image": "/media/mian-shahzad-waheed.jpg"
     },
     {
       "name": "Mohammad Naeem",
-      "role": "General Secretary"
+      "role": "General Secretary",
+      "image": "/media/mohammad-naeem.jpg"
     },
     {
       "name": "Ch. Azmat Ullah Warraich",
-      "role": "Information Secretary"
+      "role": "Information Secretary",
+      "image": "/media/ch-azmat-ullah-warraich.jpg"
     },
     {
       "name": "Saqib Aftab",
-      "role": "Finance Secretary"
+      "role": "Finance Secretary",
+      "image": "/media/saqib-aftab.jpg"
     }
   ],
   "executiveCommitteeLede": "Twenty-five members serve on the Executive Committee of Hijaz Hospital.",
@@ -189,55 +202,98 @@
     "Muhammad  Ishaq Sheikh",
     "Sheikh Muhammad Altaf Hussain"
   ],
-  "coreCommitteesNote": "Source: “Ask Ms. Tabassum for the latest info for Conveners, Co-conveners and members” — convener details pending editorial confirmation.",
+  "coreCommitteesNote": "The Chairman, President, and General Secretary shall be Ex-Officio members of every committee.",
   "coreCommittees": [
     {
-      "icon": "Scales",
-      "name": "Audit"
-    },
-    {
-      "icon": "Package",
-      "name": "Central Purchase & Machinery/ Disposable, Wastage and Leakage/ Machinery & Equipment Maintenance"
-    },
-    {
       "icon": "Scroll",
-      "name": "Constitution"
+      "name": "Constitution Committee",
+      "convener": "Col. Abdul Qayyum",
+      "coConvener": "Engineer Abdur Raoof Shahzada",
+      "members": ["Sheikh Altaf Hussain", "Muhammad Naeem"]
     },
     {
-      "icon": "HandCoins",
-      "name": "Finance"
+      "icon": "Scales",
+      "name": "Audit Committee",
+      "convener": "S. M. Ashfaq",
+      "coConvener": "Muhammad Naeem",
+      "members": [
+        "Engineer Abdur Raoof Shahzada",
+        "Sheikh Abdul Ghaffar",
+        "Mussarat Qayyum",
+        "Sheikh Altaf Hussain",
+        "Khushnood Ahmed Sheikh",
+        "Nazia Ahsan"
+      ]
     },
     {
       "icon": "Megaphone",
-      "name": "HR/Fund Raising/Marketing & Event Management"
+      "name": "HR / Fundraising Marketing /& Event Management",
+      "convener": "Sohail Iqbal",
+      "coConvener": "Sheikh Abdul Ghaffar",
+      "members": ["Mussarat Qayyum"]
     },
     {
-      "icon": "Newspaper",
-      "name": "Information & Publications"
-    },
-    {
-      "icon": "ClipboardText",
-      "name": "Inspection"
-    },
-    {
-      "icon": "Pill",
-      "name": "Medicine"
-    },
-    {
-      "icon": "Cpu",
-      "name": "MIS"
-    },
-    {
-      "icon": "MoonStars",
-      "name": "Mosque"
-    },
-    {
-      "icon": "Baby",
-      "name": "Mother & Child Care"
+      "icon": "HandCoins",
+      "name": "Finance Committee",
+      "convener": "Saqib Aftab",
+      "coConvener": "Shahid Ismail",
+      "members": ["Ch. Azmatullah Warraich", "Imran Aftab"]
     },
     {
       "icon": "Buildings",
-      "name": "Property Affairs & Construction"
+      "name": "Property Affairs/ Construction Committee",
+      "convener": "Mian Muhammad Asif Waheed",
+      "coConvener": "Sheikh Abdul Ghaffar",
+      "members": ["Sohail Iqbal"]
+    },
+    {
+      "icon": "Package",
+      "name": "Central Purchase. Machinery/ Disposable Wastage & Leakage, Machinery & equipment, Maintenance",
+      "convener": "Sheikh Abdul Ghaffar",
+      "coConvener": "Sohail Iqbal",
+      "members": ["Shahid Ismail", "Ch. Azmatullah Warraich", "Saqib Aftab"]
+    },
+    {
+      "icon": "Pill",
+      "name": "Medicine Committee",
+      "convener": "Engineer Abdur Raoof Shahzada",
+      "coConvener": "Farrukh Imitiaz Sheikh",
+      "members": ["Sh. Abdul Ghaffar", "Saqib Aftab", "S. M. Ashfaq"]
+    },
+    {
+      "icon": "ClipboardText",
+      "name": "Inspection Committee",
+      "convener": "Sheikh Abdul Ghaffar",
+      "coConvener": "Mussarat Qayyum",
+      "members": ["Shahid Ismail"]
+    },
+    {
+      "icon": "MoonStars",
+      "name": "Hijaz Mosque",
+      "convener": "Sheikh Abdul Ghaffar",
+      "coConvener": "Kawaja Muthair Nabi",
+      "members": ["Waqas Usmani", "Nadeem Ata Sheikh"]
+    },
+    {
+      "icon": "Cpu",
+      "name": "MIS Committee",
+      "convener": "Saima Raoof Shaikh",
+      "coConvener": "Saqib Aftab",
+      "members": ["Sofia Asif Waheed", "S. M. Ashfaq"]
+    },
+    {
+      "icon": "Baby",
+      "name": "Mother & Child Care",
+      "convener": "Mussarat Qayyum",
+      "coConvener": "Nazia Ahsan",
+      "members": ["Sonia Shahzad", "Saima Shaikh", "Sofia Asif Waheed"]
+    },
+    {
+      "icon": "Newspaper",
+      "name": "Information & Publications",
+      "convener": "Ch. Azmatullah Warraich",
+      "coConvener": "Saqib Aftab",
+      "members": ["Abdul Rasheed"]
     }
   ]
 }

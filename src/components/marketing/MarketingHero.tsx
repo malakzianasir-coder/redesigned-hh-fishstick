@@ -32,15 +32,24 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
             ) : null}
             {hero.links && hero.links.length > 0 ? (
               <div className="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
-                {hero.links.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary min-h-[44px] px-5 text-b14'}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {hero.links.map((link) => {
+                  const className =
+                    link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary min-h-[44px] px-5 text-b14'
+
+                  if (link.href.startsWith('#')) {
+                    return (
+                      <a key={link.href} href={link.href} className={className}>
+                        {link.label}
+                      </a>
+                    )
+                  }
+
+                  return (
+                    <Link key={link.href} href={link.href} className={className}>
+                      {link.label}
+                    </Link>
+                  )
+                })}
               </div>
             ) : null}
           </div>
@@ -54,7 +63,7 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
                 />
               </div>
             ) : hero.media?.type === 'image' && hero.media.src ? (
-              <div className="group relative aspect-video max-h-[320px] overflow-hidden rounded-xl">
+              <div className="group relative aspect-video max-h-[320px] overflow-hidden rounded-xl border border-dark-gray/15">
                 <Image
                   src={hero.media.src}
                   alt={hero.media.alt || hero.title}

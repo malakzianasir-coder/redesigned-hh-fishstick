@@ -12,7 +12,7 @@ export function ImpactTableSection({ section }: { section: ImpactTableSectionDat
   const { id, kicker, heading, intro, rows, note, background = 'white' } = section
 
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBackground[background])}>
+    <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-6 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="flex flex-col gap-[6px] text-center lg:text-start">
           {kicker ? <p className="kicker">{kicker}</p> : null}

@@ -31,14 +31,14 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero, underHeader = fals
     variant === 'navy' ? 'bg-primary-blue' : variant === 'red' ? 'bg-primary-red' : 'bg-white'
   const sectionPadding = underHeader
     ? isDark
-      ? 'pt-[calc(var(--header-h)+1.5rem)] pb-6 lg:pt-[calc(var(--header-h)+2.5rem)] lg:pb-10'
-      : 'pt-[calc(var(--header-h)+30px)] pb-[30px] lg:pt-[calc(var(--header-h)+60px)] lg:pb-[60px]'
+      ? 'pt-[calc(var(--header-h-expanded)+1.5rem)] pb-6 lg:pt-[calc(var(--header-h-expanded)+2.5rem)] lg:pb-10'
+      : 'pt-[calc(var(--header-h-expanded)+30px)] pb-[30px] lg:pt-[calc(var(--header-h-expanded)+60px)] lg:pb-[60px]'
     : isDark
       ? 'py-6 lg:py-10'
       : 'py-[30px] lg:py-[60px]'
 
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBg)}>
+    <section id={id} className={cn('section-anchor', sectionBg)}>
       <div className={cn('container mx-auto px-6 lg:px-[30px]', sectionPadding)}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div className="lg:col-span-6 flex flex-col gap-[6px] text-center lg:text-start">

@@ -24,7 +24,7 @@ export function NewsHubContent({
   const showFeatured = result.page === 1 && !activeCategory && featured.length > 0
 
   return (
-    <div className="bg-white pt-[var(--header-h)]">
+    <div className="bg-white pt-[var(--header-h-expanded)]">
       <section className="bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px]">

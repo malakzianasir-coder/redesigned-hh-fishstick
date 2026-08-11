@@ -551,6 +551,10 @@ html[data-theme='light'] {
     @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-dashed border-dark-gray/40 bg-whitebg text-[24px] text-dark-gray;
   }
 
+  .logo-box {
+    @apply relative flex h-20 w-full max-w-[180px] items-center justify-center overflow-hidden rounded-xl border border-dark-gray/15 bg-white;
+  }
+
   .photo-slot {
     @apply flex h-[132px] w-[104px] shrink-0 flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-dark-gray/40 bg-whitebg p-2 text-center text-[30px] text-dark-gray;
   }
@@ -629,7 +633,7 @@ html[data-theme='light'] {
   }
 
   .section-anchor {
-    @apply scroll-mt-[140px];
+    @apply scroll-mt-[var(--header-h)];
   }
 
   .sticky-bar {

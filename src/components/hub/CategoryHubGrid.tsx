@@ -83,9 +83,24 @@ export function CategoryHubGrid({
     syncFromHash()
     window.addEventListener('hashchange', syncFromHash)
     window.addEventListener('popstate', syncFromHash)
+
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = (e.target as Element).closest('a')
+      if (!target) return
+      const href = target.getAttribute('href')
+      if (!href) return
+
+      const currentPath = window.location.pathname
+      if (href.startsWith('#') || href.startsWith(`${currentPath}#`)) {
+        setTimeout(syncFromHash, 10)
+      }
+    }
+    document.addEventListener('click', handleLinkClick)
+
     return () => {
       window.removeEventListener('hashchange', syncFromHash)
       window.removeEventListener('popstate', syncFromHash)
+      document.removeEventListener('click', handleLinkClick)
     }
   }, [filters])
 
@@ -105,7 +120,7 @@ export function CategoryHubGrid({
   return (
     <section
       id="hub-filters"
-      className="section-anchor bg-white pt-[var(--header-h)] scroll-mt-[var(--header-h)]"
+      className="section-anchor bg-white pt-[var(--header-h-expanded)] scroll-mt-[var(--header-h)]"
     >
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="mb-10 flex flex-col gap-[6px] text-center">

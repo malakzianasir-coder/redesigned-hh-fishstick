@@ -9,6 +9,7 @@ import { BlockHeader } from '@/components/site/BlockHeader'
 import type { WhatYouCanSupportContent } from '@/lib/content/types'
 
 export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSupportContent }) {
+  const causes = [...content.causes].sort((a, b) => a.title.localeCompare(b.title))
   return (
     <article>
       <MarketingBreadcrumb
@@ -19,7 +20,7 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
         ]}
       />
       <MarketingHeroSection hero={content.hero} />
-      <WhatYouCanSupportNav causes={content.causes} />
+      <WhatYouCanSupportNav causes={causes} />
 
       <section className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
@@ -29,7 +30,7 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
             lede="From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects — every contribution strengthens care for deserving patients."
           />
           <div className="card-grid card-grid--3">
-            {content.causes.map((cause) => (
+            {causes.map((cause) => (
               <Link
                 key={cause.slug}
                 href={`/donate/what-you-can-support/${cause.slug}`}

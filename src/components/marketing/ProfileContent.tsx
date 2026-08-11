@@ -36,7 +36,10 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
                     <div className="photo-slot-lg">Portrait photograph placeholder</div>
                   )}
                 </div>
-                <p className="field-label-text">Founder · Hijaz Hospital</p>
+                <p className="field-label-text">
+                  {profile.role}
+                  {profile.organization ? ` · ${profile.organization}` : ''}
+                </p>
               </div>
             </div>
             <div className="flex flex-col gap-[6px] text-center lg:col-span-8 lg:text-start">

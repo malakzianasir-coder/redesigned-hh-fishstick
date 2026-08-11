@@ -50,7 +50,7 @@ function ProcedureRow({ children }: { children: ReactNode }) {
 
 export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const rail = useMemo<RailGroup[]>(() => {
-    const allItems = groups.flatMap((group) => group.items)
+    const allItems = groups.flatMap((group) => group.items).sort((a, b) => a.localeCompare(b))
     return [
       {
         slug: 'all',
@@ -67,7 +67,7 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   }, [groups])
 
   const allItems = useMemo(
-    () => groups.flatMap((group) => group.items.map((text) => ({ text, group: group.heading }))),
+    () => groups.flatMap((group) => group.items.map((text) => ({ text, group: group.heading }))).sort((a, b) => a.text.localeCompare(b.text)),
     [groups],
   )
 
@@ -85,9 +85,34 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   )
 
   useEffect(() => {
-    const initialSlug = window.location.hash.replace('#', '')
-    const initialIndex = rail.findIndex((group) => group.slug === initialSlug)
-    if (initialIndex > 0) setGroupIndex(initialIndex)
+    const syncFromHash = () => {
+      const currentSlug = window.location.hash.replace('#', '')
+      const index = rail.findIndex((group) => group.slug === currentSlug)
+      if (index > 0) setGroupIndex(index)
+    }
+
+    syncFromHash()
+    window.addEventListener('hashchange', syncFromHash)
+    window.addEventListener('popstate', syncFromHash)
+
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = (e.target as Element).closest('a')
+      if (!target) return
+      const href = target.getAttribute('href')
+      if (!href) return
+
+      const currentPath = window.location.pathname
+      if (href.startsWith('#') || href.startsWith(`${currentPath}#`)) {
+        setTimeout(syncFromHash, 10)
+      }
+    }
+    document.addEventListener('click', handleLinkClick)
+
+    return () => {
+      window.removeEventListener('hashchange', syncFromHash)
+      window.removeEventListener('popstate', syncFromHash)
+      document.removeEventListener('click', handleLinkClick)
+    }
   }, [rail])
 
   const trimmedQuery = query.trim()

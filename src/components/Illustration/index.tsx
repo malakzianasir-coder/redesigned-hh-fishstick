@@ -3,6 +3,7 @@
 import React, { useId } from 'react'
 import * as PhosphorIcons from '@phosphor-icons/react'
 import { ILLUSTRATION_PRESETS } from './presets'
+import './illustration.css'
 
 export type IllustrationData = {
   preset?: string
@@ -23,6 +24,11 @@ export type IllustrationData = {
 
 export type IllustrationProps = IllustrationData & {
   className?: string
+}
+
+/** Keep SVG attrs identical across Node/browser float math (avoids hydration mismatch). */
+function coord(n: number): number {
+  return Math.round(n * 1000) / 1000
 }
 
 function toPascalCase(str: string): string {
@@ -283,8 +289,8 @@ export const Illustration: React.FC<IllustrationProps> = (props) => {
               return (
                 <g key={i} className={animate ? 'a-orbit' : ''}>
                   <circle
-                    cx={CX + rSat * Math.cos(rad)}
-                    cy={CY + rSat * Math.sin(rad)}
+                    cx={coord(CX + rSat * Math.cos(rad))}
+                    cy={coord(CY + rSat * Math.sin(rad))}
                     r={6}
                     fill={motifColor}
                     opacity={isDarkTone ? 0.65 : 0.7}
@@ -325,17 +331,17 @@ export const Illustration: React.FC<IllustrationProps> = (props) => {
           const satObj = typeof sat === 'string' ? { icon: sat } : sat
           const anim = satObj.anim || `a-float-${(i % 3) + 1}`
           const a = ((angles[i] ?? 0) * Math.PI) / 180
-          const x = CX + rSat * Math.cos(a)
-          const y = CY + rSat * Math.sin(a)
+          const x = coord(CX + rSat * Math.cos(a))
+          const y = coord(CY + rSat * Math.sin(a))
 
           return (
             <g key={i}>
               {c.connectors && (
                 <line
-                  x1={CX + (x - CX) * 0.48}
-                  y1={CY + (y - CY) * 0.48}
-                  x2={CX + (x - CX) * 0.8}
-                  y2={CY + (y - CY) * 0.8}
+                  x1={coord(CX + (x - CX) * 0.48)}
+                  y1={coord(CY + (y - CY) * 0.48)}
+                  x2={coord(CX + (x - CX) * 0.8)}
+                  y2={coord(CY + (y - CY) * 0.8)}
                   stroke={ringColor}
                   strokeOpacity={isDarkTone ? 0.25 : 0.28}
                   strokeWidth={2}
@@ -344,19 +350,19 @@ export const Illustration: React.FC<IllustrationProps> = (props) => {
               )}
               <g className={animate ? anim : ''}>
                 <rect
-                  x={x - chipBoxSize / 2}
-                  y={y - chipBoxSize / 2}
-                  width={chipBoxSize}
-                  height={chipBoxSize}
-                  rx={chipBoxSize * 0.28}
+                  x={coord(x - chipBoxSize / 2)}
+                  y={coord(y - chipBoxSize / 2)}
+                  width={coord(chipBoxSize)}
+                  height={coord(chipBoxSize)}
+                  rx={coord(chipBoxSize * 0.28)}
                   fill="#ffffff"
                   filter={`url(#hhShadow-${uid})`}
                 />
                 <svg
-                  x={x - chipIconSize / 2}
-                  y={y - chipIconSize / 2}
-                  width={chipIconSize}
-                  height={chipIconSize}
+                  x={coord(x - chipIconSize / 2)}
+                  y={coord(y - chipIconSize / 2)}
+                  width={coord(chipIconSize)}
+                  height={coord(chipIconSize)}
                   viewBox="0 0 256 256"
                 >
                   <RenderIcon

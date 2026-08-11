@@ -41,19 +41,21 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
-    return tests.filter((test) => {
-      if (category !== 'all' && test.category !== category) return false
-      if (specimen !== 'all' && test.specimen !== specimen) return false
-      if (turnaround !== 'all' && test.reportingTime !== turnaround) return false
-      if (source === 'in-house' && test.isOutsourced) return false
-      if (source === 'outsourced' && !test.isOutsourced) return false
-      if (q) {
-        const aka = (test.alsoKnownAs || []).map((a) => a.name).join(' ')
-        const hay = `${test.name} ${aka}`.toLowerCase()
-        if (!hay.includes(q)) return false
-      }
-      return true
-    })
+    return [...tests]
+      .filter((test) => {
+        if (category !== 'all' && test.category !== category) return false
+        if (specimen !== 'all' && test.specimen !== specimen) return false
+        if (turnaround !== 'all' && test.reportingTime !== turnaround) return false
+        if (source === 'in-house' && test.isOutsourced) return false
+        if (source === 'outsourced' && !test.isOutsourced) return false
+        if (q) {
+          const aka = (test.alsoKnownAs || []).map((a) => a.name).join(' ')
+          const hay = `${test.name} ${aka}`.toLowerCase()
+          if (!hay.includes(q)) return false
+        }
+        return true
+      })
+      .sort((a, b) => a.name.localeCompare(b.name))
   }, [tests, search, category, specimen, turnaround, source])
 
   const openTest = useCallback((test: LabTestRecord) => {

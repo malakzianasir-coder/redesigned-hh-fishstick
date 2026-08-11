@@ -1,8 +1,9 @@
+import { scheduleScrollToHash } from '@/utilities/scrollToHash'
+
 /**
  * Header / mega-menu navigation helper.
- * - Cross-route: let the browser/Next handle navigation, then scroll to top.
- * - Same-route hash (e.g. /departments#surgery-allied): update hash so hub
- *   filter pills sync even when Next would no-op a soft navigation.
+ * - Cross-route: let Next handle navigation; HashScroll restores hash targets.
+ * - Same-route hash (e.g. /our-purpose#our-compliance): update hash and scroll.
  */
 export function handleHeaderNavigation(
   href: string,
@@ -15,28 +16,23 @@ export function handleHeaderNavigation(
   const nextHash = next.hash.replace(/^#/, '')
   const currentHash = window.location.hash.replace(/^#/, '')
 
-  if (samePath) {
-    event?.preventDefault()
+  if (!samePath) return
 
-    if (nextHash) {
-      if (currentHash !== nextHash) {
-        window.location.hash = nextHash
-      } else {
-        window.dispatchEvent(new Event('hashchange'))
-      }
-    } else if (currentHash) {
-      window.history.pushState(null, '', `${next.pathname}${next.search}`)
-      window.dispatchEvent(new PopStateEvent('popstate'))
+  event?.preventDefault()
+
+  if (nextHash) {
+    if (currentHash !== nextHash) {
+      window.location.hash = nextHash
     } else {
       window.dispatchEvent(new Event('hashchange'))
     }
-
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     return
   }
 
-  // Different path — Next Link proceeds; force top after click.
-  window.setTimeout(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-  }, 0)
+  if (currentHash) {
+    window.history.pushState(null, '', `${next.pathname}${next.search}`)
+    window.dispatchEvent(new Event('hashchange'))
+  }
+
+  scheduleScrollToHash({ hash: '', immediate: true })
 }

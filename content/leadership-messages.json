@@ -1,11 +1,11 @@
 {
   "slug": "leadership-messages",
   "title": "Leadership Messages",
-  "description": "Personal messages from the Chairman and the President of Hijaz Hospital Trust — presented in full, exactly as written.",
+  "description": "The Chairman and the President share their vision for Hijaz Hospital and our commitment to serving humanity.",
   "hero": {
     "kicker": "About Us",
     "title": "Leadership Messages",
-    "excerpt": "Personal messages from the Chairman and the President of Hijaz Hospital Trust — presented in full, exactly as written.",
+    "excerpt": "The Chairman and the President share their vision for Hijaz Hospital and our commitment to serving humanity.",
     "media": {
       "type": "image",
       "src": "/media/founders-hero-banner.webp",
@@ -55,7 +55,8 @@
       "signature": "Mian Muhammad Asif Waheed",
       "roleLine": "Chairman",
       "organizationLine": "Hijaz Hospital",
-      "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial."
+      "editorialNote": "Source extraction joins name and role without line breaks (“Mian Muhammad Asif WaheedChairmanHijaz Hospital”); rendered here as separate signature lines. Confirm final sign-off formatting with editorial.",
+      "image": "/media/mian-muhammad-asif-waheed.jpg"
     },
     {
       "id": "presidents-message",
@@ -83,7 +84,7 @@
         "translation": "And when I am ill, it is He (Allah) who cures me.",
         "citation": "(Surah Ash-Shu‘ara 26:80)"
       },
-      "image": "/media/president-image.webp"
+      "image": "/media/sohail-iqbal.jpg"
     }
   ]
 }

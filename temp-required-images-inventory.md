@@ -68,7 +68,7 @@
 | Our Purpose hero | `/our-purpose` | CHOSEN | URL `https://hijaz-hospital.vercel.app/api/media/file/476945069_970781975161220_6789087496260085071_n.webp` | existing site media |
 | Our Purpose philosophy | `/our-purpose#our-philosophy` | CHOSEN | `DSC_3487-1.webp` | filename only — confirm location (likely Dialysis-related export; verify before copy) |
 | Our Impact hero | `/our-impact` | CHOSEN | `2nd Floor/Male Ward/_hor/DSC09971.webp` | filename `DSC09971.webp` |
-| Medical Tower block | `/our-impact#medical-tower` | CHOSEN | `I.T.W Inam Tasneem Waheed Medical Tower/_hor/2.0.webp` | |
+| Medical Tower block | `/our-impact#our-projects` | CHOSEN | `I.T.W Inam Tasneem Waheed Medical Tower/_hor/2.0.webp` | |
 | Leadership hub hero | `/leadership` | MISSING | — | blank |
 | Our Supporters hero | `/our-supporters` | CHOSEN / DEFER | `Visitors/M. Ali Youtuh Club/_hor/20221019_102519.webp` | or donor-wall shoot later |
 | Chairman message hero | `/leadership/messages/chairman` | MISSING | — | |

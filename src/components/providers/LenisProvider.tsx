@@ -5,6 +5,7 @@ import 'lenis/dist/lenis.css'
 import { ReactLenis } from 'lenis/react'
 import { type ReactNode, useEffect, useMemo, useState } from 'react'
 
+import { LenisHashScroll, NativeHashScroll } from '@/components/providers/HashScroll'
 import type { SiteSettings } from '@/lib/content/types'
 
 type LenisProviderProps = {
@@ -39,11 +40,17 @@ export function LenisProvider({ children, settings }: LenisProviderProps) {
 
   // Wait for client mount so we can honor prefers-reduced-motion without hydration mismatch.
   if (!ready || !settings.enabled || reducedMotion) {
-    return <>{children}</>
+    return (
+      <>
+        <NativeHashScroll />
+        {children}
+      </>
+    )
   }
 
   return (
     <ReactLenis root options={options}>
+      <LenisHashScroll />
       {children}
     </ReactLenis>
   )

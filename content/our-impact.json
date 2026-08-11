@@ -18,8 +18,8 @@
         "variant": "primary"
       },
       {
-        "label": "Highlights",
-        "href": "#highlights",
+        "label": "Our Projects",
+        "href": "#our-projects",
         "variant": "ghost"
       }
     ]
@@ -38,8 +38,8 @@
       "href": "#facts-statistics"
     },
     {
-      "label": "Medical Tower",
-      "href": "#medical-tower"
+      "label": "Projects",
+      "href": "#our-projects"
     },
     {
       "label": "Events Calendar",
@@ -71,6 +71,13 @@
           "As an affiliated clinical training center, we provide practical clinical training for MBBS students, house officers, and postgraduate trainees in key specialties, including General Surgery, Internal Medicine, and Gynaecology. Students gain valuable hands-on experience under the supervision of experienced consultants in a real clinical environment.",
           "The partnership also brings highly qualified consultants from Fatima Memorial Hospital to Hijaz Hospital for regular Super OPD Clinics, providing specialist consultations and expert management of complex cases. When advanced tertiary care is required, patients benefit from timely referrals and continued specialist support.",
           "Together, this affiliation strengthens our shared commitment to excellence in patient care, clinical education, and professional development."
+        ],
+        "partners": [
+          {
+            "name": "Fatima Memorial Hospital",
+            "href": "https://www.fatimamemorial.org.pk/",
+            "logo": "/media/partners/fatima-memorial.webp"
+          }
         ]
       },
       {
@@ -85,11 +92,13 @@
         "partners": [
           {
             "name": "Qarshi University",
-            "icon": "GraduationCap"
+            "href": "https://qu.edu.pk/",
+            "logo": "/media/partners/qarshi-university.webp"
           },
           {
             "name": "Hajvery University",
-            "icon": "GraduationCap"
+            "href": "https://hup.edu.pk/",
+            "logo": "/media/partners/hajvery-university.webp"
           }
         ]
       },
@@ -105,15 +114,18 @@
         "partners": [
           {
             "name": "Chughtai Healthcare",
-            "icon": "Microscope"
+            "href": "https://chughtailab.com/",
+            "logo": "/media/partners/chughtai-healthcare.webp"
           },
           {
             "name": "Al-Noor Diagnostic Centre",
-            "icon": "Microscope"
+            "href": "https://alnoordiagnostic.com/",
+            "logo": "/media/partners/al-noor-diagnostic.webp"
           },
           {
             "name": "Harmone Laboratory",
-            "icon": "Microscope"
+            "href": "https://hormonelab.com.pk/",
+            "logo": "/media/partners/hormone-lab.webp"
           }
         ]
       }

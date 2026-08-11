@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useCallback, useEffect, useId, useRef, useState, type MouseEvent } from 'react'
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent } from 'react'
 import { CaretDown, List, X } from '@phosphor-icons/react'
 import navigationData from '../../../content/navigation.json'
 import type { NavigationData, NavTopLevelItem } from '@/lib/navigation/types'
@@ -324,10 +324,13 @@ export function SiteHeader() {
   )
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     closeMegaMenu(false)
     setDrawerOpen(false)
   }, [pathname, closeMegaMenu])
+
+  useLayoutEffect(() => {
+    if (window.location.hash) setCompact(true)
+  }, [pathname])
 
   useEffect(() => {
     const header = headerRef.current

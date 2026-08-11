@@ -49,7 +49,7 @@ type ServicesHubContentProps = {
 }
 
 export function ServicesHubContent({ services }: ServicesHubContentProps) {
-  const cards = [...services.map(toHubCard), LAB_TESTS_CARD]
+  const cards = [...services.map(toHubCard), LAB_TESTS_CARD].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
     <CategoryHubGrid

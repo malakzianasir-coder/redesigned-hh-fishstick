@@ -46,7 +46,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                 </span>
                 <h3 className="text-h5M font-bold text-white lg:text-h5">Mission</h3>
               </div>
-              <p className="relative text-b16 text-white/85">&ldquo;{page.mission}&rdquo;</p>
+              <p className="relative text-b16 text-white/85">{page.mission}</p>
             </article>
           </div>
         </div>
@@ -56,7 +56,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px] text-center">
             <p className="kicker">Our Journey</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our journey</h2>
+            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Journey</h2>
           </div>
           <JourneyTimeline milestones={page.journey} />
         </div>
@@ -115,7 +115,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
             <p className="text-b16 text-primary-blue/85">{page.valuesIntro}</p>
           </div>
           <div>
-            <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">Our Core Values</h3>
+            {/* <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">Our Core Values</h3> */}
             <div className="card-grid card-grid--3">
               {page.values.map((item) => {
                 const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]

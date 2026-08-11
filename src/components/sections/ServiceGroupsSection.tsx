@@ -18,14 +18,23 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
     kicker,
     heading,
     intro,
-    groups,
+    groups: rawGroups,
     background = 'muted',
     layout = 'stack',
     footer,
   } = section
 
+  const groups = rawGroups
+    ? [...rawGroups]
+        .sort((a, b) => a.heading.localeCompare(b.heading))
+        .map((group) => ({
+          ...group,
+          items: group.items ? [...group.items].sort((a, b) => a.localeCompare(b)) : group.items,
+        }))
+    : []
+
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBackground[background])}>
+    <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="flex flex-col gap-[6px] text-center">
           {kicker ? <p className="kicker">{kicker}</p> : null}

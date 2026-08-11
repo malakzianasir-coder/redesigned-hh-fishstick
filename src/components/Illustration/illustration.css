@@ -1,0 +1,154 @@
+/* =====================================================================
+   HIJAZ SVG ILLUSTRATION SYSTEM ANIMATIONS
+   ===================================================================== */
+.hh-illustration {
+  width: 100%;
+  display: block;
+}
+
+.hh-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.hh-illustration .a-float {
+  animation: hhFloat 5s ease-in-out infinite;
+}
+
+.hh-illustration .a-float-2 {
+  animation: hhFloat 6.5s ease-in-out -1.6s infinite;
+}
+
+.hh-illustration .a-float-3 {
+  animation: hhFloat 7.5s ease-in-out -3.1s infinite;
+}
+
+.hh-illustration .a-pulse {
+  animation: hhPulse 2.6s ease-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.hh-illustration .a-spin {
+  animation: hhSpin 44s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.hh-illustration .a-orbit {
+  animation: hhSpin 26s linear infinite;
+  transform-origin: center;
+  transform-box: view-box;
+}
+
+.hh-illustration .a-beat {
+  animation: hhBeat 1.4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.hh-illustration .a-dash {
+  stroke-dasharray: 6 8;
+  animation: hhDash 1.2s linear infinite;
+}
+
+.hh-illustration .a-ecg {
+  stroke-dasharray: 640;
+  stroke-dashoffset: 640;
+  animation: hhEcg 3.2s linear infinite;
+}
+
+.hh-illustration .a-breathe {
+  animation: hhBreathe 4.5s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes hhFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hhPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  80% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hhSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hhBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.09);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.06);
+  }
+  48% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hhDash {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+@keyframes hhEcg {
+  0% {
+    stroke-dashoffset: 640;
+  }
+  55% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -640;
+  }
+}
+
+@keyframes hhBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+body.no-anim .hh-illustration *,
+.hh-illustration[data-animate="off"] * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hh-illustration * {
+    animation: none !important;
+  }
+}

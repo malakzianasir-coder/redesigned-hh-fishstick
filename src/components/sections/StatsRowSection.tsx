@@ -12,7 +12,7 @@ export function StatsRowSection({ section }: { section: StatsRowSectionData }) {
   const { id, kicker, heading, stats, background = 'white' } = section
 
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBackground[background])}>
+    <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         {(kicker || heading) && (
           <div className="mb-8 flex flex-col gap-[6px] text-center">

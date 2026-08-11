@@ -6,7 +6,7 @@ type MarketingBreadcrumbProps = {
 
 export function MarketingBreadcrumb({ items }: MarketingBreadcrumbProps) {
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-dark-gray/15 bg-white pt-[var(--header-h)]">
+    <nav aria-label="Breadcrumb" className="border-b border-dark-gray/15 bg-white pt-[var(--header-h-expanded)]">
       <div className="container mx-auto px-6 py-3 lg:px-[30px]">
         <ol className="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
           {items.map((item, index) => (

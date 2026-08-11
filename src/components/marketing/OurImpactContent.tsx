@@ -1,6 +1,6 @@
 import {
+  ArrowSquareOut,
   Buildings,
-  Hospital,
   Medal,
   Trophy,
 } from '@phosphor-icons/react/dist/ssr'
@@ -79,11 +79,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
               return (
                 <article key={group.title} className="card flex flex-col gap-5 p-6 lg:p-8">
                   <div className="flex items-center gap-4">
-                    {group.label === 'Teaching Hospital Partner' ? (
-                      <div className="logo-slot">
-                        <Hospital size={24} weight="duotone" aria-hidden />
-                      </div>
-                    ) : IconComponent ? (
+                    {IconComponent ? (
                       <span className="icon-tile">
                         <IconComponent size={22} weight="duotone" />
                       </span>
@@ -100,21 +96,56 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                   ))}
                   {group.partners && group.partners.length > 0 ? (
                     <div
-                      className={`card-grid mt-2 ${group.partners.length === 2 ? 'card-grid--2' : 'card-grid--3'}`}
+                      className={`card-grid mt-2 ${group.partners.length <= 2 ? 'card-grid--2' : 'card-grid--3'}`}
                     >
                       {group.partners.map((partner) => {
                         const PartnerIcon = partner.icon
                           ? MARKETING_ICON_MAP[partner.icon as keyof typeof MARKETING_ICON_MAP]
                           : null
-                        return (
-                          <div
-                            key={partner.name}
-                            className={`card-interactive flex gap-4 p-5 ${group.partners!.length > 2 ? 'flex-col items-center text-center' : 'items-center'}`}
-                          >
-                            <div className="logo-slot">
-                              {PartnerIcon ? <PartnerIcon size={24} weight="duotone" /> : null}
+                        const inner = (
+                          <>
+                            <div className="logo-box">
+                              {partner.logo ? (
+                                <Image
+                                  src={partner.logo}
+                                  alt={`${partner.name} logo`}
+                                  fill
+                                  className="object-contain p-3"
+                                  sizes="180px"
+                                />
+                              ) : PartnerIcon ? (
+                                <PartnerIcon size={24} weight="duotone" />
+                              ) : null}
                             </div>
                             <p className="text-b16 font-semibold text-primary-blue">{partner.name}</p>
+                            {partner.href ? (
+                              <span className="inline-flex items-center gap-1 text-b12 font-semibold text-dark-gray group-hover:text-primary-red">
+                                <ArrowSquareOut size={14} />
+                                Website
+                              </span>
+                            ) : null}
+                          </>
+                        )
+                        const className =
+                          'card-interactive group flex flex-col items-center gap-3 p-5 text-center'
+
+                        if (partner.href) {
+                          return (
+                            <a
+                              key={partner.name}
+                              href={partner.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={className}
+                            >
+                              {inner}
+                            </a>
+                          )
+                        }
+
+                        return (
+                          <div key={partner.name} className={className}>
+                            {inner}
                           </div>
                         )
                       })}
@@ -147,13 +178,13 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
       </section>
 
       {page.medicalTower ? (
-        <section id="medical-tower" className="section-anchor relative overflow-hidden bg-primary-blue">
+        <section id="our-projects" className="section-anchor relative overflow-hidden bg-primary-blue">
           <div className="pointer-events-none absolute bottom-0 left-1/4 aspect-square w-[250px] rounded-full bg-light-blue opacity-40 blur-[200px]" />
           <div className="container relative mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
             <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
               <div className="flex flex-col gap-6 lg:col-span-7">
                 <div className="flex flex-col gap-[6px]">
-                  <p className="kicker">Projects of HH</p>
+                  <p className="kicker">Our Projects</p>
                   <h2 className="text-h3M font-bold text-white lg:text-h3">
                     Inam Tasneem Waheed Medical Tower
                   </h2>
@@ -247,21 +278,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                 href={item.href || '/news'}
                 className="card-interactive group flex flex-col overflow-hidden"
               >
-                <div className="relative aspect-card overflow-hidden bg-cardbg">
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  ) : (
-                    <div className="flex h-full min-h-[160px] items-center justify-center border-b border-dashed border-dark-gray/40 text-dark-gray">
-                      Photo placeholder
-                    </div>
-                  )}
-                </div>
+                {/* Highlight photos are not provided yet — restore item.image when assets are ready. */}
                 <div className="flex flex-col gap-2 p-6">
                   <span className="group-badge self-start">{item.date}</span>
                   <h3 className="text-h6M font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">

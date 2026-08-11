@@ -23,7 +23,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
   return (
     <section
       id={id}
-      className={cn('section-anchor scroll-mt-[140px]', backgroundClasses[background])}
+      className={cn('section-anchor', backgroundClasses[background])}
     >
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         {image ? (

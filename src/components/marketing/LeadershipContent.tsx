@@ -1,6 +1,12 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { User } from '@phosphor-icons/react/dist/ssr'
+
+import { CommitteeDrawer } from './CommitteeDrawer'
+import type { CommitteeCard } from '@/lib/content/types'
 
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
@@ -46,6 +52,7 @@ function PortraitSlot({
 }
 
 export function LeadershipContent({ page }: { page: LeadershipRecord }) {
+  const [activeCommittee, setActiveCommittee] = useState<CommitteeCard | null>(null)
   return (
     <article>
       <MarketingBreadcrumb
@@ -65,7 +72,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             <p className="kicker">Leadership & Governance</p>
             <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Founders</h2>
           </div>
-          <div className="card-grid card-grid--2 mx-auto max-w-5xl">
+          <div className="card-grid card-grid--2">
             {page.founders.map((founder) => (
               <article key={founder.name} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
                 <div className="flex items-start gap-4">
@@ -79,6 +86,9 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                       ) : (
                         founder.name
                       )}
+                      {founder.years ? (
+                        <span className="font-normal text-dark-gray"> ({founder.years})</span>
+                      ) : null}
                     </h3>
                     <p className="text-b14 text-dark-gray">{founder.role}</p>
                   </div>
@@ -116,8 +126,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                 <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
-                    <div className="flex flex-col gap-2">
-                      <span className="group-badge self-start">{entry.years}</span>
+                    <div className="flex flex-col gap-1">
                       <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
                         {entry.href ? (
                           <Link href={entry.href} className="transition-colors hover:text-primary-red">
@@ -127,7 +136,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                           entry.name
                         )}
                       </h3>
-                      <p className="text-b14 text-dark-gray">{entry.role}</p>
+                      <p className="text-b14 text-dark-gray">{entry.years}</p>
                     </div>
                   </div>
                 </article>
@@ -151,8 +160,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                 <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
-                    <div className="flex flex-col gap-2">
-                      <span className="group-badge self-start">{entry.years}</span>
+                    <div className="flex flex-col gap-1">
                       <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
                         {entry.href ? (
                           <Link href={entry.href} className="transition-colors hover:text-primary-red">
@@ -162,7 +170,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                           entry.name
                         )}
                       </h3>
-                      <p className="text-b14 text-dark-gray">{entry.role}</p>
+                      <p className="text-b14 text-dark-gray">{entry.years}</p>
                     </div>
                   </div>
                 </article>
@@ -225,17 +233,28 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             {page.coreCommittees.map((committee) => {
               const IconComponent = MARKETING_ICON_MAP[committee.icon as keyof typeof MARKETING_ICON_MAP]
               return (
-                <article key={committee.name} className="card-interactive flex flex-col gap-2 p-5">
+                <button
+                  key={committee.name}
+                  type="button"
+                  onClick={() => setActiveCommittee(committee)}
+                  className="card-interactive text-left flex flex-col gap-2 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
+                >
                   {IconComponent ? (
                     <span className="icon-tile">
                       <IconComponent size={22} weight="duotone" />
                     </span>
                   ) : null}
                   <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{committee.name}</h3>
-                </article>
+                </button>
               )
             })}
           </div>
+
+          <CommitteeDrawer
+            committee={activeCommittee}
+            onClose={() => setActiveCommittee(null)}
+            exOfficioNote={page.coreCommitteesNote}
+          />
         </div>
       </section>
 

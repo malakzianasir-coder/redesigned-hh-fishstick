@@ -16,7 +16,7 @@
     }
   },
   "lenis": {
-    "enabled": true,
+    "enabled": false,
     "duration": 1.0,
     "lerp": 0.2,
     "smoothWheel": true,

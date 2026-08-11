@@ -68,9 +68,13 @@ export function DoctorsHubGrid({
 
   const heads = filtered
     .filter((d) => isHeadOfDepartment(d))
-    .sort((a, b) => a.department.localeCompare(b.department) || a.name.localeCompare(b.name))
-  const consultants = filtered.filter((d) => !isVisitingDoctor(d))
-  const visiting = filtered.filter((d) => isVisitingDoctor(d))
+    .sort((a, b) => a.name.localeCompare(b.name))
+  const consultants = filtered
+    .filter((d) => !isVisitingDoctor(d))
+    .sort((a, b) => a.name.localeCompare(b.name))
+  const visiting = filtered
+    .filter((d) => isVisitingDoctor(d))
+    .sort((a, b) => a.name.localeCompare(b.name))
 
   function clearFilters() {
     setSearch('')
@@ -79,7 +83,7 @@ export function DoctorsHubGrid({
   }
 
   return (
-    <div className="bg-white pt-[var(--header-h)]">
+    <div className="bg-white pt-[var(--header-h-expanded)]">
       <section>
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[30px] lg:pt-[60px]">
           <div className="flex flex-col gap-[6px] text-center">

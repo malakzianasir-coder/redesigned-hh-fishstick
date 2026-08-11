@@ -15,7 +15,7 @@ export function CalloutSection({ section }: { section: CalloutSectionData }) {
   const { id, kicker, heading, body, logo, background = 'white' } = section
 
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBackground[background])}>
+    <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <article className="card flex flex-col items-start gap-5 border-primary-red/30 bg-redbg p-6 sm:flex-row lg:p-8">
           {logo?.src ? (

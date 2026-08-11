@@ -12,7 +12,7 @@ export function NumberedListSection({ section }: { section: NumberedListSectionD
   const { id, kicker, heading, intro, items, background = 'white' } = section
 
   return (
-    <section id={id} className={cn('section-anchor scroll-mt-[140px]', sectionBackground[background])}>
+    <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         {/* Block header — DS §9 */}
         <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">

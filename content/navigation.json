@@ -2,9 +2,9 @@
   "topLevel": [
     {
       "id": "about",
-      "label": "About us",
+      "label": "About Us",
       "moreLink": {
-        "label": "About Hijaz Hospital →",
+        "label": "Our Purpose →",
         "href": "/our-purpose"
       },
       "groups": [
@@ -108,7 +108,7 @@
     },
     {
       "id": "departments",
-      "label": "Departments",
+      "label": "Medical Departments",
       "moreLink": {
         "label": "View all departments →",
         "href": "/departments"
@@ -213,37 +213,6 @@
       ]
     },
     {
-      "id": "doctors",
-      "label": "Doctors",
-      "moreLink": {
-        "label": "Find a doctor →",
-        "href": "/doctors"
-      },
-      "groups": [
-        {
-          "heading": "Our Doctors",
-          "href": "/doctors",
-          "links": [
-            {
-              "label": "Our Consultants",
-              "href": "/doctors",
-              "description": "Browse all Hijaz Hospital consultants by specialty."
-            },
-            {
-              "label": "Visiting Consultants (FMH Faculty)",
-              "href": "/doctors/visiting-consultants",
-              "description": "Fatima Memorial Hospital faculty consulting at Hijaz."
-            },
-            {
-              "label": "Head of Departments",
-              "href": "/doctors/heads-of-departments",
-              "description": "Clinical leadership across our departments."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "patient-care",
       "label": "Patient Care",
       "moreLink": {
@@ -256,15 +225,15 @@
           "href": "/services#facilities",
           "links": [
             {
-              "label": "OPD",
+              "label": "Outpatient Department (OPD)",
               "href": "/services/opd"
             },
             {
-              "label": "IPD",
+              "label": "Inpatient Department (IPD)",
               "href": "/services/ipd"
             },
             {
-              "label": "ICU",
+              "label": "Intensive Care Unit (ICU)",
               "href": "/services/icu"
             },
             {
@@ -282,11 +251,11 @@
           "href": "/services#clinical",
           "links": [
             {
-              "label": "Nursing",
+              "label": "Nursing Department",
               "href": "/services/nursing"
             },
             {
-              "label": "Anesthesia",
+              "label": "Anesthesia Department",
               "href": "/services/anesthesia"
             },
             {
@@ -328,7 +297,7 @@
       },
       "groups": [
         {
-          "heading": "Pathology / Clinical Laboratory",
+          "heading": "Clinical Laboratory",
           "href": "/services#diagnostics",
           "links": [
             {
@@ -363,6 +332,37 @@
         }
       ]
     },
+        {
+      "id": "doctors",
+      "label": "Doctors",
+      "moreLink": {
+        "label": "Find a doctor →",
+        "href": "/doctors"
+      },
+      "groups": [
+        {
+          "heading": "Our Doctors",
+          "href": "/doctors",
+          "links": [
+            {
+              "label": "Our Consultants",
+              "href": "/doctors",
+              "description": "Browse all Hijaz Hospital consultants by specialty."
+            },
+            {
+              "label": "Visiting Consultants (FMH Faculty)",
+              "href": "/doctors/visiting-consultants",
+              "description": "Fatima Memorial Hospital faculty consulting at Hijaz."
+            },
+            {
+              "label": "Head of Departments",
+              "href": "/doctors/heads-of-departments",
+              "description": "Clinical leadership across our departments."
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "patient-welfare",
       "label": "Patient Welfare",
@@ -373,7 +373,7 @@
       "groups": [
         {
           "heading": "Financial & Community Support",
-          "href": "/patient-welfare",
+          "href": "/patient-welfare#financial-community",
           "links": [
             {
               "label": "Zakat & Financial Assistance",
@@ -403,7 +403,7 @@
         },
         {
           "heading": "Patient Resources",
-          "href": "/patient-welfare",
+          "href": "/patient-welfare#patient-resources",
           "links": [
             {
               "label": "Admission Process",
@@ -442,7 +442,7 @@
           "href": "/donate",
           "links": [
             {
-              "label": "Zakat + Calculator",
+              "label": "Zakat",
               "href": "/donate/zakat"
             },
             {

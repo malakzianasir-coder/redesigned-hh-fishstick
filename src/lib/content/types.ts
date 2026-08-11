@@ -438,7 +438,7 @@ export type HealthPartnerGroup = {
   title: string
   icon?: string
   body: string[]
-  partners?: { name: string; icon?: string }[]
+  partners?: { name: string; icon?: string; href?: string; logo?: string }[]
 }
 
 export type HeadlineStat = {
@@ -463,6 +463,9 @@ export type EventCalendarRow = {
 export type CommitteeCard = {
   icon: string
   name: string
+  convener?: string
+  coConvener?: string
+  members?: string[]
 }
 
 export type DepartmentTeaser = {
@@ -475,6 +478,7 @@ export type PersonCard = {
   name: string
   role: string
   body: string[]
+  years?: string
   href?: string
   image?: string
   editorialNote?: string
