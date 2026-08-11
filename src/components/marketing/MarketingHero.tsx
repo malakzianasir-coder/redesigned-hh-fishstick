@@ -10,10 +10,17 @@ type MarketingHeroProps = {
   hero: MarketingHero
 }
 
+function stripWrappingQuotes(text: string): string {
+  return text.replace(/^[“”"'\u2018\u2019]+/, '').replace(/[“”"'\u2018\u2019]+$/, '').trim()
+}
+
 export function MarketingHeroSection({ hero }: MarketingHeroProps) {
   const PlaceholderIcon = hero.media?.icon
     ? MARKETING_ICON_MAP[hero.media.icon as keyof typeof MARKETING_ICON_MAP]
     : UsersFour
+  const excerptVariant = hero.excerptVariant ?? 'body'
+  const excerpt =
+    excerptVariant === 'quote' && hero.excerpt ? stripWrappingQuotes(hero.excerpt) : hero.excerpt
 
   return (
     <section className="bg-white">
@@ -27,8 +34,12 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
                 {hero.quote}
               </blockquote>
             ) : null}
-            {hero.excerpt ? (
-              <p className="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">{hero.excerpt}</p>
+            {excerpt ? (
+              excerptVariant === 'quote' ? (
+                <blockquote className="hero-excerpt-quote">{excerpt}</blockquote>
+              ) : (
+                <p className="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">{excerpt}</p>
+              )
             ) : null}
             {hero.links && hero.links.length > 0 ? (
               <div className="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">

@@ -16,6 +16,7 @@ import homeData from '../../../content/home.json'
 import leadershipData from '../../../content/leadership.json'
 import leadershipMessagesData from '../../../content/leadership-messages.json'
 import ourImpactData from '../../../content/our-impact.json'
+import aboutUsData from '../../../content/about-us.json'
 import ourPurposeData from '../../../content/our-purpose.json'
 import ourSupportersData from '../../../content/our-supporters.json'
 import patientWelfareData from '../../../content/patient-welfare.json'
@@ -34,6 +35,7 @@ import {
 } from './article-helpers'
 import { DEFAULT_ARTICLE_PAGE_SIZE, paginate } from './pagination'
 import type {
+  AboutUsRecord,
   ArticleSearchEntry,
   DepartmentRecord,
   DoctorsHubContent,
@@ -77,6 +79,7 @@ const patientWelfareHub = patientWelfareHubData as PatientCareHubRecord
 const donateContent = donateData as DonateHubContent
 const donations = donationsData as DonationCauseRecord[]
 const homeContent = homeData as HomeContent
+const aboutUs = aboutUsData as AboutUsRecord
 const ourPurpose = ourPurposeData as OurPurposeRecord
 const leadership = leadershipData as LeadershipRecord
 const leadershipMessages = leadershipMessagesData as LeadershipMessagesRecord
@@ -207,6 +210,10 @@ export function getDonation(slug: string): DonationCauseRecord | undefined {
 
 export function getHomeContent(): HomeContent {
   return homeContent
+}
+
+export function getAboutUs(): AboutUsRecord {
+  return aboutUs
 }
 
 export function getOurPurpose(): OurPurposeRecord {

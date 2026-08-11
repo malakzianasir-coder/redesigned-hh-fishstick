@@ -12,7 +12,7 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/our-purpose' },
+          { label: 'About Us', href: '/about-us' },
           { label: 'Leadership', href: '/leadership' },
           { label: profile.name },
         ]}

@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { cn } from '@/utilities/ui'
 
+import { readHashSlug, subscribeHashSync, writeHashSlug } from './hubFilterHash'
 import { DEPARTMENT_ICON_MAP, SERVICE_ICON_MAP } from './hubIcons'
 
 export type HubCardItem = {
@@ -40,22 +41,6 @@ function countForFilter(filter: HubFilterCategory, cards: HubCardItem[]): number
   return cards.filter((card) => card.categorySlug === filter.slug).length
 }
 
-function readHashFilter(filters: HubFilterCategory[]): string {
-  if (typeof window === 'undefined') return 'all'
-  const hash = window.location.hash.replace(/^#/, '')
-  if (!hash || hash === 'all') return 'all'
-  return filters.some((filter) => filter.slug === hash) ? hash : 'all'
-}
-
-function writeHashFilter(slug: string) {
-  if (typeof window === 'undefined') return
-  const nextUrl =
-    slug === 'all'
-      ? `${window.location.pathname}${window.location.search}`
-      : `${window.location.pathname}${window.location.search}#${slug}`
-  window.history.pushState(null, '', nextUrl)
-}
-
 export function CategoryHubGrid({
   kicker,
   heading,
@@ -66,29 +51,10 @@ export function CategoryHubGrid({
   const [activeFilter, setActiveFilter] = useState('all')
 
   useEffect(() => {
-    const syncFromHash = () => setActiveFilter(readHashFilter(filters))
+    const slugs = filters.map((filter) => filter.slug)
+    const syncFromHash = () => setActiveFilter(readHashSlug(slugs))
     syncFromHash()
-    window.addEventListener('hashchange', syncFromHash)
-    window.addEventListener('popstate', syncFromHash)
-
-    const handleLinkClick = (e: MouseEvent) => {
-      const target = (e.target as Element).closest('a')
-      if (!target) return
-      const href = target.getAttribute('href')
-      if (!href) return
-
-      const currentPath = window.location.pathname
-      if (href.startsWith('#') || href.startsWith(`${currentPath}#`)) {
-        setTimeout(syncFromHash, 10)
-      }
-    }
-    document.addEventListener('click', handleLinkClick)
-
-    return () => {
-      window.removeEventListener('hashchange', syncFromHash)
-      window.removeEventListener('popstate', syncFromHash)
-      document.removeEventListener('click', handleLinkClick)
-    }
+    return subscribeHashSync(syncFromHash)
   }, [filters])
 
   const visibleCards = useMemo(
@@ -101,7 +67,7 @@ export function CategoryHubGrid({
 
   const selectFilter = (slug: string) => {
     setActiveFilter(slug)
-    writeHashFilter(slug)
+    writeHashSlug(slug)
   }
 
   return (

@@ -18,6 +18,7 @@ export function toMarketingHero(hero: HeroConfig, placeholderIcon?: string): Mar
     title: hero.title,
     excerpt: hero.excerpt,
     quote: hero.quote,
+    excerptVariant: hero.excerptVariant,
     media,
     links: hero.links,
   }

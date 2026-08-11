@@ -4,6 +4,7 @@ import { ArticleCard } from '@/components/articles/ArticleCard'
 import { CategoryFilter } from '@/components/articles/CategoryFilter'
 import { Pagination } from '@/components/Pagination'
 import { formatArticleDate } from '@/lib/content/article-helpers'
+import { getNewsArticles } from '@/lib/content/loaders'
 import type { NewsArticle, NewsHubContent, PaginatedResult } from '@/lib/content/types'
 
 type NewsHubContentProps = {
@@ -21,6 +22,13 @@ export function NewsHubContent({
   featured = [],
   activeCategory,
 }: NewsHubContentProps) {
+  const articles = getNewsArticles()
+  const categoryCounts = Object.fromEntries(
+    categories.map((category) => [
+      category,
+      articles.filter((article) => article.categories.includes(category)).length,
+    ]),
+  )
   const showFeatured = result.page === 1 && !activeCategory && featured.length > 0
 
   return (
@@ -34,7 +42,13 @@ export function NewsHubContent({
           </div>
 
           <Suspense fallback={<div className="h-10" />}>
-            <CategoryFilter categories={categories} basePath="/news" label="Categories" />
+            <CategoryFilter
+              categories={categories}
+              basePath="/news"
+              label="Categories"
+              counts={categoryCounts}
+              allCount={articles.length}
+            />
           </Suspense>
 
           {showFeatured ? (

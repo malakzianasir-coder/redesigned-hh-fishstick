@@ -1,39 +1,53 @@
-import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
-import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { ContentHubPage } from '@/components/hub/ContentHubPage'
 import { GlobalCtaSection } from '@/components/sections/GlobalCtaSection'
 import type { DonateHubContent } from '@/lib/content/types'
 
-import { DonationCauseGrid } from './DonationCauseGrid'
 import { ZakatCalculatorSection } from './ZakatCalculatorSection'
 
 export function DonatePage({ content }: { content: DonateHubContent }) {
   return (
-    <article>
-      <MarketingBreadcrumb
-        items={[
-          { label: 'Home', href: '/' },
-          { label: content.title },
-        ]}
-      />
-      <MarketingHeroSection hero={content.hero} />
-      <JumpNav links={content.jumpLinks} />
-      <DonationCauseGrid
-        id="ways-to-give"
-        kicker="Ways to Give"
-        heading="Ways to Give"
-        lede="Explore the different ways you can support our mission and make a lasting impact."
-        causes={content.givingTypes}
-        background="whitebg"
-      />
-      <DonationCauseGrid
-        id="what-you-can-support"
-        kicker="What You Can Support"
-        heading="What You Can Support"
-        lede="From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects."
-        causes={content.supportCauses}
-        background="white"
-        cta={{ label: 'View all options', href: '/donate/what-you-can-support' }}
-      />
+    <ContentHubPage
+      title={content.title}
+      breadcrumb={[{ label: 'Home', href: '/' }, { label: content.title }]}
+      hero={content.hero}
+      groups={[
+        {
+          id: 'ways-to-give',
+          kicker: 'Ways to Give',
+          heading: 'Ways to Give',
+          lede: 'Explore the different ways you can support our mission and make a lasting impact.',
+          cards: content.givingTypes.map((cause) => ({
+            slug: cause.slug,
+            title: cause.title,
+            excerpt: cause.excerpt,
+            icon: cause.icon,
+            href: cause.href,
+            linkLabel: cause.linkLabel ?? cause.title,
+            meta: cause.meta,
+          })),
+        },
+        {
+          id: 'what-you-can-support',
+          kicker: 'What You Can Support',
+          heading: 'What You Can Support',
+          lede: 'From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects.',
+          cta: { label: 'View all options', href: '/donate/what-you-can-support' },
+          cards: content.supportCauses.map((cause) => ({
+            slug: cause.slug,
+            title: cause.title,
+            excerpt: cause.excerpt,
+            icon: cause.icon,
+            href: cause.href,
+            linkLabel: cause.linkLabel ?? cause.title,
+            meta: cause.meta,
+          })),
+        },
+      ]}
+      externals={[
+        { label: 'How to Donate', href: '/donate/how-to-donate' },
+        { label: 'Zakat Calculator', href: '/donate/zakat' },
+      ]}
+    >
       <div id="how-to-donate" className="section-anchor">
         <GlobalCtaSection
           section={{
@@ -51,6 +65,6 @@ export function DonatePage({ content }: { content: DonateHubContent }) {
           body={content.zakatCalculator.body}
         />
       ) : null}
-    </article>
+    </ContentHubPage>
   )
 }

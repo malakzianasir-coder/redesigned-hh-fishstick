@@ -20,6 +20,8 @@ export type HeroStat = {
   label: string
 }
 
+export type HeroExcerptVariant = 'body' | 'quote'
+
 export type HeroConfig = {
   id?: string
   kicker?: string
@@ -27,6 +29,8 @@ export type HeroConfig = {
   tagline?: string
   excerpt?: string
   quote?: string
+  /** How `excerpt` is styled. Default `body`. Does not affect the separate `quote` field. */
+  excerptVariant?: HeroExcerptVariant
   variant?: 'white' | 'navy' | 'red'
   media?: HeroMedia
   stat?: HeroStat
@@ -340,6 +344,39 @@ export type DonationCauseCard = {
   meta?: string
 }
 
+export type ContentHubCard = {
+  slug: string
+  title: string
+  excerpt: string
+  icon?: string
+  href: string
+  linkLabel: string
+  meta?: string
+}
+
+export type ContentHubGroup = {
+  id: string
+  kicker?: string
+  heading: string
+  lede?: string
+  cta?: { label: string; href: string }
+  cards: ContentHubCard[]
+}
+
+export type ContentHubExternal = {
+  label: string
+  href: string
+}
+
+export type AboutUsRecord = {
+  slug: string
+  title: string
+  description?: string
+  hero: MarketingHero
+  groups: ContentHubGroup[]
+  externals: ContentHubExternal[]
+}
+
 export type DonateHubContent = {
   slug: string
   title: string
@@ -384,6 +421,8 @@ export type MarketingHero = {
   excerpt?: string
   /** Optional pull-quote (e.g. Qur’an verse on Ways to Give hub). */
   quote?: string
+  /** How `excerpt` is styled. Default `body`. Independent of `quote`. */
+  excerptVariant?: HeroExcerptVariant
   media?: {
     type: 'image' | 'placeholder' | 'illustration'
     src?: string

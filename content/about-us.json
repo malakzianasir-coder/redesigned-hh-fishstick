@@ -1,0 +1,147 @@
+{
+  "slug": "about-us",
+  "title": "About Us",
+  "description": "Our purpose, leadership, messages, and impact — the story of Hijaz Hospital Trust.",
+  "hero": {
+    "kicker": "About Us",
+    "title": "About Hijaz Hospital",
+    "excerpt": "Our purpose, leadership, messages, and impact — the story of a hospital built to keep care within reach.",
+    "media": {
+      "type": "illustration",
+      "preset": "page/about"
+    },
+    "links": [
+      { "label": "Our Purpose", "href": "/our-purpose", "variant": "primary" },
+      { "label": "Leadership", "href": "/leadership", "variant": "ghost" }
+    ]
+  },
+  "externals": [
+    { "label": "Our Supporters", "href": "/our-supporters" }
+  ],
+  "groups": [
+    {
+      "id": "our-purpose",
+      "kicker": "Our Purpose",
+      "heading": "Our Purpose",
+      "lede": "Vision, journey, philosophy, values, and compliance — why Hijaz Hospital exists.",
+      "cta": { "label": "View Our Purpose", "href": "/our-purpose" },
+      "cards": [
+        {
+          "slug": "vision-mission",
+          "title": "Vision & Mission",
+          "excerpt": "What we aim for, and how we serve every patient.",
+          "icon": "Eye",
+          "href": "/our-purpose#vision-mission",
+          "linkLabel": "View Vision & Mission"
+        },
+        {
+          "slug": "our-journey",
+          "title": "Our Journey",
+          "excerpt": "Milestones from founding to today.",
+          "icon": "Path",
+          "href": "/our-purpose#our-journey",
+          "linkLabel": "View Our Journey"
+        },
+        {
+          "slug": "our-philosophy",
+          "title": "Our Philosophy",
+          "excerpt": "Care with dignity, regardless of means.",
+          "icon": "Compass",
+          "href": "/our-purpose#our-philosophy",
+          "linkLabel": "View Our Philosophy"
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "kicker": "Leadership & Governance",
+      "heading": "Leadership & Governance",
+      "lede": "Founders, chairpersons, presidents, and the committees that steward the Trust.",
+      "cta": { "label": "View Leadership", "href": "/leadership" },
+      "cards": [
+        {
+          "slug": "our-founders",
+          "title": "Our Founders",
+          "excerpt": "The people who established Hijaz Hospital Trust.",
+          "icon": "UsersThree",
+          "href": "/leadership#our-founders",
+          "linkLabel": "View Our Founders"
+        },
+        {
+          "slug": "our-chairpersons",
+          "title": "Our Chairpersons",
+          "excerpt": "Governance of the Trust across generations.",
+          "icon": "UserCircleGear",
+          "href": "/leadership#our-chairpersons",
+          "linkLabel": "View Our Chairpersons"
+        },
+        {
+          "slug": "senior-management",
+          "title": "Senior Management",
+          "excerpt": "The team that runs the hospital day to day.",
+          "icon": "Briefcase",
+          "href": "/leadership#senior-management",
+          "linkLabel": "View Senior Management"
+        }
+      ]
+    },
+    {
+      "id": "messages",
+      "kicker": "Messages",
+      "heading": "Messages",
+      "lede": "Letters from the Chairman and the President.",
+      "cta": { "label": "View Messages", "href": "/leadership/messages" },
+      "cards": [
+        {
+          "slug": "chairmans-message",
+          "title": "Chairman’s Message",
+          "excerpt": "A message from the Chairman of Hijaz Hospital Trust.",
+          "icon": "ChatTeardropText",
+          "href": "/leadership/messages/chairman",
+          "linkLabel": "Read Chairman’s Message"
+        },
+        {
+          "slug": "presidents-message",
+          "title": "President’s Message",
+          "excerpt": "A message from the President of Hijaz Hospital.",
+          "icon": "ChatTeardropText",
+          "href": "/leadership/messages/president",
+          "linkLabel": "Read President’s Message"
+        }
+      ]
+    },
+    {
+      "id": "our-impact",
+      "kicker": "Our Impact",
+      "heading": "Our Impact",
+      "lede": "Awards, partners, facts, and the people who stand with us.",
+      "cta": { "label": "View Impact", "href": "/our-impact" },
+      "cards": [
+        {
+          "slug": "awards",
+          "title": "Awards & Recognitions",
+          "excerpt": "Honours that mark our service to patients and the city.",
+          "icon": "Trophy",
+          "href": "/our-impact#award",
+          "linkLabel": "View Awards & Recognitions"
+        },
+        {
+          "slug": "facts-statistics",
+          "title": "Facts & Statistics",
+          "excerpt": "What we have delivered, in numbers.",
+          "icon": "ChartBar",
+          "href": "/our-impact#facts-statistics",
+          "linkLabel": "View Facts & Statistics"
+        },
+        {
+          "slug": "our-supporters",
+          "title": "Our Supporters",
+          "excerpt": "Partners and donors who make care possible.",
+          "icon": "Handshake",
+          "href": "/our-supporters",
+          "linkLabel": "Meet Our Supporters"
+        }
+      ]
+    }
+  ]
+}

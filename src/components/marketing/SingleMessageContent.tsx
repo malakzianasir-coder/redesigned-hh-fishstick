@@ -15,8 +15,9 @@ export function SingleMessageContent({ page }: { page: SingleMessagePageRecord }
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/our-purpose' },
+          { label: 'About Us', href: '/about-us' },
           { label: 'Leadership', href: '/leadership' },
+          { label: 'Messages', href: '/leadership/messages' },
           { label: page.title },
         ]}
       />

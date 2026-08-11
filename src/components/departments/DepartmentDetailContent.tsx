@@ -13,6 +13,7 @@ export function DepartmentDetailContent({ page }: DepartmentDetailContentProps) 
 
   const marketingHero = {
     ...hero,
+    excerptVariant: 'quote' as const,
     media:
       page.hero.media?.type === 'image'
         ? { type: 'image' as const, src: page.hero.media.src, alt: page.hero.media.alt || page.title }

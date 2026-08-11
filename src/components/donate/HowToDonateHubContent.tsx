@@ -43,7 +43,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
                 </h3>
                 <p className="text-b14 leading-[150%] text-primary-blue/85">{method.excerpt}</p>
                 <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                  View details
+                  View {method.title}
                   <ArrowRight
                     size={16}
                     weight="bold"

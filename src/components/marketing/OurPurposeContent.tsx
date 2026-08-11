@@ -15,7 +15,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/our-purpose' },
+          { label: 'About Us', href: '/about-us' },
           { label: page.title },
         ]}
       />

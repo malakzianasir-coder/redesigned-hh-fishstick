@@ -17,6 +17,11 @@ const CATALOGS = [
     title: 'Hub & Content Pages',
     description: 'Content hubs (Donate / About Us), catalogue hubs, and slug pages with centered §9 titles.',
   },
+  {
+    href: '/ds/hero-quote',
+    title: 'Hero Quote Excerpt',
+    description: 'Toggle MarketingHero excerptVariant: body vs italic quote style (no quotation marks). Live on departments.',
+  },
   { href: '/ds/mega-menu', title: 'Mega Menu', description: 'Navigation chrome and mega-menu panels.' },
   {
     href: '/ds/illustrations',

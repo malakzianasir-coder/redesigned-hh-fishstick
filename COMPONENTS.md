@@ -77,12 +77,14 @@ MarketingSupportCTA | GlobalCtaSection
 
 Reference: `OurPurposeContent.tsx`.
 
-**Do not** invent a second breadcrumb or sticky jump nav. `JumpNav` is implemented in
-`sections/JumpNav.tsx` (also re-exported from `MarketingShell`).
+`JumpNav` is implemented in `sections/JumpNav.tsx` (also re-exported from `MarketingShell`).
+Hash chips scroll and spy the active section. Other-page hrefs render as external chips
+(`ph-arrow-square-out`, `target="_blank"`). The rail is sticky under the site header.
 
-### 2.3 Hubs (content + catalogue) — mock in `hub-page-patterns.html`
+### 2.3 Hubs (content + catalogue) — `ContentHubPage` + `hub-page-patterns.html`
 
-Shared chrome. Live Donate / Patient Welfare / About are **not** migrated yet.
+Shared chrome. Live content hubs: `/donate`, `/about-us`, `/patient-welfare`.
+Catalogue hubs: departments, services, doctors, news, events, success stories, lab tests.
 
 ```
 MarketingBreadcrumb                          ← every hub
@@ -90,14 +92,15 @@ MarketingHeroSection                         ← content hubs only (/donate, /ab
 Centered listing h1                          ← catalogue hubs only
 Filter chips (All + on-page groups)          ← hubs only; hides other groups or cards
 External chips (arrow-square-out, new tab)   ← other-page hrefs; never mixed into the rail
-Topic groups / CategoryHubGrid
+Topic groups (`ContentHubPage`) / CategoryHubGrid
 MarketingSupportCTA | GlobalCtaSection       ← content hubs
 ```
 
-Hubs **filter**. Innermost content-full pages (`/our-purpose`, `/leadership`, department
-and welfare details) use the **same rail** but chips **scroll** to the section (H08).
-Mega-menu group hashes (`/patient-welfare#patient-resources`) activate the matching
-filter chip on hubs, same as `CategoryHubGrid`.
+Hubs **filter** (`HubFilterRail` + hash, same as `CategoryHubGrid`). Innermost content-full
+pages (`/our-purpose`, `/leadership`, department and welfare details) use `JumpNav` — chips
+**scroll** to the section (H08), never hide content. Mega-menu group hashes
+(`/patient-welfare#patient-resources`, `/about-us#leadership`) activate the matching filter
+chip on hubs.
 
 ---
 
@@ -139,6 +142,8 @@ image, or dashed placeholder while art is pending).
 | `kicker` | preferred | `.kicker` eyebrow |
 | `title` | yes | Page `h1` |
 | `excerpt` | preferred | One short supporting sentence |
+| `excerptVariant` | optional | `body` (default) or `quote` — italic description with a red rule; **no quotation marks are added**. Independent of `quote`. Live: departments only. Mock: `/ds/hero-quote` |
+| `quote` | optional | Separate pull-quote (e.g. Qur’an on Donate). Unchanged when `excerptVariant` is set |
 | `media` | preferred | Prefer `type: "image"` with real photo; placeholder only temporarily |
 | `links` | optional | Primary / ghost pills into on-page anchors or actions |
 

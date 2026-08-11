@@ -33,7 +33,20 @@ const redirects = async () => {
     },
   ]
 
-  return [internetExplorerRedirect, ...patientCareRedirects, ...leadershipProfileRedirects]
+  const aboutRedirects = [
+    {
+      source: '/about',
+      destination: '/about-us',
+      permanent: true,
+    },
+  ]
+
+  return [
+    internetExplorerRedirect,
+    ...patientCareRedirects,
+    ...leadershipProfileRedirects,
+    ...aboutRedirects,
+  ]
 }
 
 export default redirects

@@ -44,6 +44,11 @@ import {
   CreditCard,
   DeviceMobile,
   Bank,
+  Path,
+  Compass,
+  Briefcase,
+  ChatTeardropText,
+  ChartBar,
 } from '@phosphor-icons/react/dist/ssr'
 
 export const MARKETING_ICON_MAP = {
@@ -96,6 +101,11 @@ export const MARKETING_ICON_MAP = {
   CreditCard,
   DeviceMobile,
   Bank,
+  Path,
+  Compass,
+  Briefcase,
+  ChatTeardropText,
+  ChartBar,
 } as const
 
 export type MarketingIconName = keyof typeof MARKETING_ICON_MAP

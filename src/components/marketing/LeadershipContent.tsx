@@ -58,7 +58,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/our-purpose' },
+          { label: 'About Us', href: '/about-us' },
           { label: page.title },
         ]}
       />

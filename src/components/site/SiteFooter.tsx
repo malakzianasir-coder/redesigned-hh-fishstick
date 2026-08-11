@@ -11,9 +11,10 @@ import { getSiteSettings } from '@/lib/content/loaders'
 
 const FOOTER_COLUMNS = [
   {
-    title: 'Our Purpose',
-    ariaLabel: 'Our Purpose',
+    title: 'About Us',
+    ariaLabel: 'About Us',
     links: [
+      { label: 'About Hijaz Hospital', href: '/about-us' },
       { label: 'Vision & Mission', href: '/our-purpose#vision-mission' },
       { label: 'Leadership & Governance', href: '/leadership' },
       { label: 'Messages', href: '/leadership/messages' },

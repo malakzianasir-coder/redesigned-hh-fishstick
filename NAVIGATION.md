@@ -51,7 +51,7 @@ filter slug so the pill activates on arrival:
 `CategoryHubGrid` keeps filter chips in sync with `location.hash` (click updates hash;
 hash / back-forward activates the matching pill). Use `#all` or no hash for “All”.
 Content hubs (Donate, About Us, Patient Welfare) use the **same chip behaviour** for
-their groups once migrated — mock: `public/ds/hub-page-patterns.html` H03 / H04 / H07.
+their groups via `ContentHubPage` — mock: `public/ds/hub-page-patterns.html` H03 / H04 / H07.
 
 ---
 
@@ -82,6 +82,7 @@ Do **not** mix `/donations/...` with `/donate/...`. New links use `/donate` only
 
 | Hub | URL | Typical children |
 |---|---|---|
+| About Us | `/about-us` | Cards + filters to purpose / leadership / messages / impact |
 | Our Purpose | `/our-purpose` | In-page anchors (`#vision-mission`, …) |
 | Leadership | `/leadership` | Anchors + `/leadership/messages` |
 | Our Impact | `/our-impact` | Anchors + `/our-supporters` |
@@ -148,13 +149,26 @@ Breadcrumb trail for nested donate pages:
 Home / Donate / [Hub title] / [Subpage title]
 ```
 
+Breadcrumb trail for About pages (parent is always `/about-us`, never `/our-purpose`):
+
+```
+Home / About Us                              ← /about-us hub
+Home / About Us / Our Purpose
+Home / About Us / Leadership
+Home / About Us / Leadership / Messages
+Home / About Us / Leadership / Messages / [Chairman | President]
+Home / About Us / Leadership / [Founder profile]
+Home / About Us / Our Impact
+Home / About Us / Our Impact / Our Supporters
+```
+
 ---
 
 ## 5. Top-level menu map
 
 | `id` | Label | Hub / moreLink |
 |---|---|---|
-| `about` | About us | `/our-purpose` (+ leadership, messages, impact hubs via group headings) |
+| `about` | About us | `/about-us` (+ purpose, leadership, messages, impact via group headings) |
 | `departments` | Departments | `/departments` |
 | `doctors` | Doctors | `/doctors` |
 | `patient-care` | Patient Care | `/services` |
@@ -203,7 +217,7 @@ full dump of every child link.
 
 | Column | Role | Canonical links |
 |---|---|---|
-| **Our Purpose** | About hubs | Vision & Mission → `/our-purpose#vision-mission`; Leadership & Governance → `/leadership`; Messages → `/leadership/messages`; Our Impact → `/our-impact`; Our Supporters → `/our-supporters` |
+| **About Us** | About hubs | About Hijaz Hospital → `/about-us`; Vision & Mission → `/our-purpose#vision-mission`; Leadership & Governance → `/leadership`; Messages → `/leadership/messages`; Our Impact → `/our-impact`; Our Supporters → `/our-supporters` |
 | **Patient Care** | Care + find care | Emergency → `/services/emergency`; OPD → `/services/opd`; IPD → `/services/ipd`; Clinical Laboratory → `/services/pathology`; Find a Doctor → `/doctors`; Patient Welfare → `/patient-welfare` |
 | **Donate** | Three donate hubs + key children | Ways to Give → `/donate`; What You Can Support → `/donate/what-you-can-support`; How to Donate → `/donate/how-to-donate`; Zakat → `/donate/zakat`; Sponsor a Patient → `/donate/what-you-can-support/sponsor-a-patient`; Donate Online → `/donate/how-to-donate/online` |
 

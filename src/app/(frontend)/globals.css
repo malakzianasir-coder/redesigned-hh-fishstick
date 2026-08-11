@@ -230,18 +230,26 @@ html[data-theme='light'] {
     @apply flex w-full flex-col items-center gap-4;
   }
 
+  .block-header__copy {
+    @apply flex w-full max-w-2xl flex-col items-center gap-[6px] text-center;
+  }
+
+  .block-header__action {
+    @apply shrink-0;
+  }
+
   @screen lg {
-    .block-header {
+    .block-header:has(.block-header__action) {
       @apply flex-row items-end justify-between gap-6;
     }
 
-    .block-header__copy {
-      @apply min-w-0 flex-1 text-start;
+    .block-header:has(.block-header__action) .block-header__copy {
+      @apply max-w-none min-w-0 flex-1 items-start text-start;
     }
+  }
 
-    .block-header__action {
-      @apply shrink-0;
-    }
+  .hero-excerpt-quote {
+    @apply mx-auto mt-2 max-w-xl border-l-4 border-primary-red pl-4 text-b18 italic text-primary-blue/85 lg:mx-0;
   }
 
   .site-footer {

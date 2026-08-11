@@ -6,6 +6,7 @@ import {
   formatArticleDate,
   SUCCESS_STORY_CATEGORY_LABELS,
 } from '@/lib/content/article-helpers'
+import { getSuccessStories } from '@/lib/content/loaders'
 import type { SuccessStory, SuccessStoriesHubContent, SuccessStoryCategory } from '@/lib/content/types'
 
 const STORY_CATEGORIES: SuccessStoryCategory[] = [
@@ -28,6 +29,13 @@ export function SuccessStoriesHubContent({
   activeCategory,
 }: SuccessStoriesHubContentProps) {
   const categoryOptions = STORY_CATEGORIES.map((value) => SUCCESS_STORY_CATEGORY_LABELS[value])
+  const allStories = getSuccessStories()
+  const categoryCounts = Object.fromEntries(
+    STORY_CATEGORIES.map((value) => [
+      SUCCESS_STORY_CATEGORY_LABELS[value],
+      allStories.filter((story) => story.category === value).length,
+    ]),
+  )
   const showFeatured = !activeCategory && featured.length > 0
 
   return (
@@ -45,6 +53,8 @@ export function SuccessStoriesHubContent({
               categories={categoryOptions}
               basePath="/success-stories"
               label="Categories"
+              counts={categoryCounts}
+              allCount={allStories.length}
             />
           </Suspense>
 

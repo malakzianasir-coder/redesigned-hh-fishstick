@@ -44,7 +44,7 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
                 </h3>
                 <p className="text-b14 leading-[150%] text-primary-blue/85">{cause.tagline}</p>
                 <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                  Learn more
+                  View {cause.title}
                   <ArrowRight
                     size={16}
                     weight="bold"

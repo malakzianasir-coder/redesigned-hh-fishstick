@@ -14,6 +14,7 @@
   H06  Content / slug page   donate method (Mobile Wallet) — sibling method chips
   H07  Patient Welfare hub   same H03 shell — filter Financial vs Patient Resources
   H08  Content-full page     Our Purpose — same chip rail, but chips scroll (never filter)
+  H09  Hero excerpt quote    Italic description, no quotation marks — toggle vs body (departments)
 
   Shared chip rail: on-page chips + external chips (arrow-square-out, target=_blank).
   Hubs: on-page chips FILTER (All + groups). Content-full pages (H08): on-page chips
@@ -145,6 +146,11 @@
       border: 1px dashed rgb(107 113 131 / .4); background: #F8F8F9; color: #6B7183;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     }
+    .hero-excerpt-quote {
+      margin: 8px auto 0; max-width: 36rem; border-left: 4px solid #E30016; padding-left: 16px;
+      font-size: 18px; line-height: 150%; font-style: italic; color: rgb(27 36 65 / .85);
+    }
+    @media (min-width: 1024px) { .hero-excerpt-quote { margin-left: 0; margin-right: 0; } }
 
     /* §9 block header — centered when alone; with CTA, left copy + right button at lg */
     .block-header {
@@ -266,6 +272,7 @@
         <a href="#h05" data-section="h05" class="chip">H05 Catalogue</a>
         <a href="#h06" data-section="h06" class="chip">H06 Content page</a>
         <a href="#h08" data-section="h08" class="chip">H08 Content-full</a>
+        <a href="#h09" data-section="h09" class="chip">H09 Hero quote</a>
       </div>
     </div>
   </nav>
@@ -343,7 +350,7 @@
         <span class="pattern-badge">H03</span>
         <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Content hub — Donate style</h2>
       </div>
-      <p class="cms-note text-center reveal">Shared hub chrome · filters = on-page groups only · other-page links sit beside them with arrow-square-out + target=_blank (How to Donate, Zakat Calculator) · never mix externals into the filter set</p>
+      <p class="cms-note text-center reveal">Live analogue: /donate · filters = on-page groups only · other-page links sit beside them with arrow-square-out + target=_blank (How to Donate, Zakat Calculator) · never mix externals into the filter set</p>
     </div>
 
     <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
@@ -499,7 +506,7 @@
         <span class="pattern-badge">H04</span>
         <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">About Us hub — /about-us</h2>
       </div>
-      <p class="cms-note text-center reveal">Same chrome as H03 · filters = on-page groups · Our Supporters is another page so it is an external chip (arrow-square-out, new tab) · not listed in the filter set</p>
+      <p class="cms-note text-center reveal">Live analogue: /about-us · same chrome as H03 · filters = on-page groups · Our Supporters is another page so it is an external chip (arrow-square-out, new tab) · not listed in the filter set</p>
     </div>
 
     <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
@@ -695,7 +702,7 @@
         <span class="pattern-badge">H07</span>
         <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Patient Welfare hub — /patient-welfare</h2>
       </div>
-      <p class="cms-note text-center reveal">Mock only — do not change the live page yet · same H03/H04 chrome · filters = on-page groups · Patient Stories is /success-stories so it is an external chip (arrow-square-out, new tab)</p>
+      <p class="cms-note text-center reveal">Live analogue: /patient-welfare · same H03/H04 chrome · filters = on-page groups · Patient Stories is /success-stories so it is an external chip (arrow-square-out, new tab)</p>
     </div>
 
     <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
@@ -1021,7 +1028,7 @@
           <div class="breadcrumb-scroller">
             <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
               <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
-              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span class="text-primary-blue">About Us</span></li>
+              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/about-us" class="text-primary-blue hover:text-primary-red transition-colors duration-200">About Us</a></li>
               <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Our Purpose</span></li>
             </ol>
           </div>
@@ -1243,6 +1250,44 @@
     </div>
   </section>
 
+  <!-- ═══════════ H09 · HERO EXCERPT QUOTE (DEPARTMENTS) ═══════════ -->
+  <section id="h09" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H09</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Hero excerpt — quote style</h2>
+      </div>
+      <p class="cms-note text-center reveal">MarketingHero <code>excerptVariant</code> · default remains body so Donate / About / PW are unchanged · quote = italic description + red rule · no quotation marks are added (wrapping quotes in source are stripped) · live: departments only · React toggle: /ds/hero-quote</p>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-[30px] pb-[30px] lg:pb-[60px] grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <article class="card overflow-hidden">
+        <div class="border-b border-dark-gray/15 px-6 py-3">
+          <p class="field-label-text">excerptVariant: body (default)</p>
+        </div>
+        <div class="px-6 py-8">
+          <div class="flex flex-col gap-[6px]">
+            <p class="kicker">Department</p>
+            <h3 class="text-h3M lg:text-h3 font-bold tracking-display text-primary-blue">General Surgery</h3>
+            <p class="mt-2 max-w-[560px] text-b16 text-primary-blue/85">Elective and emergency surgical care with modern techniques, experienced teams, and support before, during, and after surgery.</p>
+          </div>
+        </div>
+      </article>
+      <article class="card overflow-hidden">
+        <div class="border-b border-dark-gray/15 px-6 py-3">
+          <p class="field-label-text">excerptVariant: quote (departments)</p>
+        </div>
+        <div class="px-6 py-8">
+          <div class="flex flex-col gap-[6px]">
+            <p class="kicker">Department</p>
+            <h3 class="text-h3M lg:text-h3 font-bold tracking-display text-primary-blue">General Surgery</h3>
+            <blockquote class="hero-excerpt-quote">Elective and emergency surgical care with modern techniques, experienced teams, and support before, during, and after surgery.</blockquote>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <footer class="bg-dark-blue">
     <div class="container mx-auto px-6 lg:px-[30px] py-10 flex flex-col gap-4 items-center text-center">
       <img src="/hijaz-hospital-logo-light.svg" alt="Hijaz Hospital" class="h-12 w-auto" />
@@ -1314,7 +1359,7 @@
       targets.forEach((el) => spy.observe(el))
     })
 
-    const sections = ['h00', 'h01', 'h02', 'h03', 'h04', 'h07', 'h05', 'h06', 'h08']
+    const sections = ['h00', 'h01', 'h02', 'h03', 'h04', 'h07', 'h05', 'h06', 'h08', 'h09']
     const chips = document.querySelectorAll('#jump-chips .chip')
     const so = new IntersectionObserver((entries) => {
       entries.forEach((e) => {

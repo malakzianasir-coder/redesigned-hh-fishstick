@@ -34,17 +34,19 @@ export function EventsHubContent({ hub, hospitalEvents, holidayCalendar }: Event
           <div className="flex flex-wrap justify-center gap-2">
             <button
               type="button"
-              className={cn('chip', activeTab === 'hospital' && 'bg-primary-blue text-white')}
+              className={cn('chip', activeTab === 'hospital' && 'is-active')}
               onClick={() => setActiveTab('hospital')}
             >
               Hospital Events
+              <span className="chip-count">{hospitalEvents.length}</span>
             </button>
             <button
               type="button"
-              className={cn('chip', activeTab === 'calendar' && 'bg-primary-blue text-white')}
+              className={cn('chip', activeTab === 'calendar' && 'is-active')}
               onClick={() => setActiveTab('calendar')}
             >
               Holiday Calendar
+              <span className="chip-count">{holidayCalendar.length}</span>
             </button>
           </div>
 

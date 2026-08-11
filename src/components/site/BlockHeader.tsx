@@ -14,7 +14,7 @@ export type BlockHeaderProps = {
 export function BlockHeader({ kicker, title, lede, cta, className }: BlockHeaderProps) {
   return (
     <div className={['block-header', className].filter(Boolean).join(' ')}>
-      <div className="block-header__copy flex flex-col gap-[6px] text-center lg:text-start">
+      <div className="block-header__copy flex flex-col gap-[6px]">
         {kicker ? <p className="kicker">{kicker}</p> : null}
         <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{title}</h2>
         {lede ? (

@@ -27,11 +27,11 @@
   "jumpLinks": [
     {
       "label": "Chairman's Message",
-      "href": "/leadership/messages/chairman"
+      "href": "#chairmans-message"
     },
     {
       "label": "President's Message",
-      "href": "/leadership/messages/president"
+      "href": "#presidents-message"
     }
   ],
   "messages": [

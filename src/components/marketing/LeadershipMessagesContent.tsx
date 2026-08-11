@@ -13,7 +13,7 @@ export function LeadershipMessagesContent({ page }: { page: LeadershipMessagesRe
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/our-purpose' },
+          { label: 'About Us', href: '/about-us' },
           { label: 'Leadership', href: '/leadership' },
           { label: 'Messages' },
         ]}

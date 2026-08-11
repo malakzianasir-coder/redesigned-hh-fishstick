@@ -5,7 +5,7 @@
       "label": "About Us",
       "moreLink": {
         "label": "About Hijaz Hospital →",
-        "href": "/our-purpose"
+        "href": "/about-us"
       },
       "groups": [
         {
@@ -70,11 +70,11 @@
           "links": [
             {
               "label": "Chairman's Message",
-              "href": "/leadership/messages#chairmans-message"
+              "href": "/leadership/messages/chairman"
             },
             {
               "label": "President's Message",
-              "href": "/leadership/messages#presidents-message"
+              "href": "/leadership/messages/president"
             }
           ]
         },
