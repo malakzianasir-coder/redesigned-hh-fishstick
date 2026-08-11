@@ -2103,12 +2103,12 @@
   {
     "slug": "dietetics-nutrition",
     "title": "Dietetics & Nutrition",
-    "category": "Specialized Care & Allied Health",
+    "category": "Specialized Care",
     "categorySlug": "specialized",
     "description": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
     "excerpt": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
     "hero": {
-      "kicker": "Specialized Care & Allied Health",
+      "kicker": "Specialized Care",
       "title": "Dietetics & Nutrition",
       "excerpt": "Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.",
       "media": {
@@ -2222,12 +2222,12 @@
   {
     "slug": "physiotherapy-rehabilitation",
     "title": "Physiotherapy",
-    "category": "Specialized Care & Allied Health",
+    "category": "Specialized Care",
     "categorySlug": "specialized",
     "description": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
     "excerpt": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
     "hero": {
-      "kicker": "Specialized Care & Allied Health",
+      "kicker": "Specialized Care",
       "title": "Physiotherapy",
       "excerpt": "Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.",
       "media": {

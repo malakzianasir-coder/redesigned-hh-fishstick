@@ -157,7 +157,7 @@ const UPDATES = {
 
   'dietetics-nutrition': {
     title: 'Dietetics & Nutrition',
-    category: 'Specialized Care & Allied Health',
+    category: 'Specialized Care',
     categorySlug: 'specialized',
     paraphrase:
       'Personalized nutrition assessment, counseling, and medical nutrition therapy for OPD, inpatient, ICU, and lifestyle-related needs.',
@@ -218,7 +218,7 @@ const UPDATES = {
 
   'physiotherapy-rehabilitation': {
     title: 'Physiotherapy',
-    category: 'Specialized Care & Allied Health',
+    category: 'Specialized Care',
     categorySlug: 'specialized',
     paraphrase:
       'Evidence-based rehabilitation to reduce pain, restore mobility, and improve function after injury, surgery, and chronic conditions.',

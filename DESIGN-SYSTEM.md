@@ -111,7 +111,7 @@ automatically** via base CSS. Always use real heading tags for headings — don'
 | `b18` | 18px | — | Leads, pull quotes |
 | `b16` | 16px | — | Body |
 | `b14` | 14px | — | Small body, meta, dense UI |
-| `b12` | 12px | — | Kickers, tags |
+| `b12` | 12px | — | Kickers, tags, breadcrumbs |
 | `label` | 11px | — | Field/group labels |
 
 Rules:
@@ -129,6 +129,27 @@ Rules:
 ```html
 <p class="kicker">Section eyebrow</p>            <!-- b12 bold uppercase 0.12em primary-red -->
 <span class="field-label-text">Group label</span> <!-- 11px semibold uppercase wide blue/55 -->
+
+<!-- Breadcrumb — b12, single row. Overflow: show the end by default; pinned white fades. -->
+<nav aria-label="Breadcrumb" class="border-b border-dark-gray/15 bg-white">
+  <div class="container mx-auto px-6 py-2 lg:px-[30px]">
+    <div class="breadcrumb-overflow">
+      <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start"></div>
+      <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end"></div>
+      <div class="breadcrumb-scroller">
+        <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+          <li class="flex shrink-0 items-center gap-2">
+            <a href="/" class="text-primary-blue hover:text-primary-red">Home</a>
+          </li>
+          <li class="flex shrink-0 items-center gap-2">
+            <span class="text-dark-gray/40">/</span>
+            <span aria-current="page" class="font-semibold text-primary-blue">Current</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
 ```
 
 ---
@@ -253,6 +274,21 @@ Sizes: `h-9 px-4 text-b14` (sm) · `min-h-[50px] px-6 text-b16` (md) · `h-12 px
 
 Hover rule: red→blue or blue→red only. Never red→red/85, never scale, never shadow-only.
 
+### 5.4 Link & button copy — must be descriptive
+
+Labels name the destination or action. Never reuse the same generic phrase across a
+card grid.
+
+| Do | Don’t |
+|---|---|
+| View Our Founders | View leadership (on every card) |
+| View General Surgery | View department / View details |
+| Give Zakat · Read Chairman’s Message | Learn more · Read more · Click here |
+| View Leadership (section “All X” CTA) | More · Submit · Continue (unless the action is truly that) |
+
+A section header CTA may say “View Leadership” / “All News” once. Card links under it
+must still be unique and match that card’s title.
+
 ---
 
 ## 6. Inputs & forms
@@ -322,6 +358,9 @@ Canonical classes now exist in `globals.css` — use them:
 
 <!-- Chip (filters, quick links) -->
 <button class="chip">Filter</button>
+
+<!-- Filter chip with count — label 11px (`text-label`), not the same size as the chip -->
+<button class="chip">All <span class="chip-count">24</span></button>
 
 <!-- Status chips -->
 <span class="rounded-full bg-success/10 px-3 py-1 text-b14 font-medium text-success">Active</span>
@@ -450,11 +489,25 @@ createDs3dCarousel({
 
 ## 9. Block header pattern
 
-Every new block reuses this header (don't hand-roll variants):
+Every new block reuses this header (don't hand-roll variants).
+
+**Alignment rule:** Block title, kicker, and lede are **center-aligned** when the header
+has no CTA. If the header includes a CTA button/link (e.g. "All News"), the text group
+is **left-aligned** and the CTA sits on the right at the `lg:` breakpoint.
+
+**"All X" CTA rule:** Any section that **lists a collection** (news, doctors, departments,
+services, machinery, etc.) **must** include an "All {Collection}" CTA button (e.g. "All
+News", "All Doctors", "All Departments") unless explicitly asked otherwise or a documented
+exception applies.
+
+### 9.1 Center-only header (no CTA)
+
+For blocks that don't list a browsable collection (e.g. a feature highlight, about blurb,
+testimonial):
 
 ```html
 <div className="flex flex-col gap-8">
-  <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
+  <div className="flex flex-col items-center gap-[6px] text-center">
     <p className="kicker">Kicker</p>
     <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">Heading</h2>
     <p className="text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
@@ -463,9 +516,32 @@ Every new block reuses this header (don't hand-roll variants):
 </div>
 ```
 
-Right-aligned "View all" link: wrap in `lg:flex-row lg:items-end lg:justify-between gap-3`
-(or the `.block-header` / `.block-header__copy` / `.block-header__action` pattern used in
-home-alt mockups).
+### 9.2 Left header + right-aligned CTA (listing sections)
+
+For blocks that list a collection (news, doctors, services…). At `lg`, copy is
+left-aligned and the CTA sits on the right (`flex-row justify-between`). Stacked
+and centered on mobile.
+
+Reference: `public/ds/hub-page-patterns.html` (H02).
+
+```html
+<div className="block-header">
+  <div className="block-header__copy">
+    <p className="kicker">Kicker</p>
+    <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">Heading</h2>
+    <p className="text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
+  </div>
+  <a href="/news" className="btn-ghost block-header__action">All News</a>
+</div>
+```
+
+`.block-header` with an `__action` becomes a row at `lg`: `__copy` is `flex-1 text-start`,
+CTA is `shrink-0` on the right. CMS blocks may use `CMSLink appearance="outline"` in
+place of `btn-ghost`.
+
+**Hub-index exception:** the page that *is* the collection (`/departments`, `/donate`
+Ways to Give, `/news` hub) omits a self-referential “All X” CTA. Teaser listings on
+other pages keep it.
 
 ---
 
@@ -489,6 +565,23 @@ blur, hairline).
 - **Navigation:** frozen. Two legacy header implementations exist pending consolidation;
   don't add nav UI or copy `HeaderV2` classes anywhere. New menu entries come from the
   Header global in CMS.
+- **Hub filters vs content-page jump:** the chip rail looks the same. **Hubs filter**
+  (`All` + on-page groups; each chip shows a `chip-count` in `text-label` / 11px;
+  selecting a chip hides the rest; hash-sync like Departments).
+  **Innermost content-full pages scroll** (no `All` chip; hash chips jump to the section
+  and never hide content; sticky while reading). **Other-page links are never mixed in** —
+  they sit beside the rail as chips with `ph-arrow-square-out`, `target="_blank"`, and
+  `rel="noopener noreferrer"`. Spec: `public/ds/hub-page-patterns.html` (hubs H03/H04/H05/H07;
+  content-full H08).
+- **Breadcrumbs:** `text-b12 leading-[150%]`, single row (`flex-nowrap`), `py-2`. Links
+  `text-primary-blue hover:text-primary-red`; current crumb `font-semibold text-primary-blue`.
+  Required on **every interior hub** (content and catalogue) as `Home / Current`, and on
+  subpages as `Home → parent hub → current`. Not used on home or campaign landing pages.
+  When the trail overflows: **no auto-marquee** — the row is overflow-x scrollable
+  (scrollbar hidden) and **defaults to the end** so the current page stays visible
+  (earlier crumbs fade off the left). Short white fades (`w-6` / 24px) are **pinned to
+  the viewport ends** (not on the scrolling items). Left fade hides at the start; right
+  fade hides at the end. Use `MarketingBreadcrumb`.
 - **Impact reports:** scoped editorial sub-system — reuse `src/blocks/report/` blocks and
   `report.css`; don't import report styles into layout blocks or vice versa.
 
@@ -496,144 +589,71 @@ blur, hairline).
 
 ## 12. Illustration system
 
-Config-driven engine for heroes and section art. Reference: `archive/html-mockups/illustration-system.html`.
+Preset-driven SVG art for interior-page heroes. Living catalog: `/ds/illustrations`.
 
-### 12.1 Overview
+**Source of truth is production code**, not `public/ds/illustrations.html` (archived mockup engine — do not port or iframe it).
 
-Every illustration is a JSON config rendered by one function (`renderIllustration(cfg)`). Editors pick **strings and numbers from dropdowns** — never raw SVG, hex overrides, or freeform layouts. The same config renders identically from 320px to 1440px.
+| Piece | Path |
+|---|---|
+| Renderer | `src/components/Illustration/index.tsx` |
+| Presets | `src/components/Illustration/presets.ts` |
+| Motion | `src/components/Illustration/illustration.css` |
+| Hero wiring | `MarketingHeroSection` (also `MediumHero`, thank-you page) |
 
-**Stack:** backdrop (gradient + decor) → particles → stage (emblem or bespoke scene) → satellite chips.
+### 12.1 When to use
 
-### 12.2 Config schema
+Editors pick a **preset key** (`page/patient-welfare`, `dept/cardiology`, `svc/pharmacy`). The renderer merges defaults → preset → optional prop overrides. Do not invent a second illustration engine or drop raw SVG into heroes.
+
+Hero media:
 
 ```json
-{
-  "scene": "emblem",           // select: 'emblem' | 'rack' | 'vitals' (dev-registered)
-  "theme": "sky",              // select: 14 brand presets (§12.4)
-  "accent": "#144CD9",         // optional hex override of theme accent
-  "from": "#DCEBFF",           // optional gradient start override
-  "to": "#F4F9FF",             // optional gradient end override
-  "emblem": {
-    "icon": "heartbeat",       // select: curated Phosphor allow-list (~54)
-    "weight": "duotone",       // select: regular | bold | fill | duotone
-    "shape": "circle",         // select: circle | blob | square | hex
-    "anim": "float",           // select: 8 animation tokens (§12.6)
-    "sizePct": 34,             // number: 24–48 (% of container width)
-    "tone": "accent"           // select: accent | deep | white
-  },
-  "satellites": [              // array, max 4
-    { "icon": "stethoscope", "x": 12, "y": 14, "sizePct": 14,
-      "anim": "float", "delay": 0, "tone": "accent" }
-  ],
-  "decor": {
-    "dots": true,              // checkbox: dot grid
-    "blobs": true,             // checkbox: soft background blobs
-    "ring": true,              // checkbox: dashed ring (emblem scenes only)
-    "particles": 8             // number: 0–14 ambient dots/plus-marks
-  },
-  "motion": "auto",            // select: 'auto' | 'off' — freeze all animations
-  "ratio": "4:3",              // select: '4:3' | '16:9' | '1:1'
-  "label": "illustration"      // a11y aria-label
-}
+"media": { "type": "illustration", "preset": "page/patient-welfare" }
 ```
-
-### 12.3 Scenes
-
-| Scene | Type | Use |
-|---|---|---|
-| `emblem` | Compositional | **Default.** Any icon on a shaped disc — works for any department with zero design work. |
-| `rack` | Bespoke | Test-tube rack with animated bubbles. Registered for Laboratory. |
-| `vitals` | Bespoke | Vitals monitor with live ECG line. Registered for Cardiology. |
-
-New bespoke scenes are **dev-registered** in the engine, then instantly selectable by editors.
-
-### 12.4 Theme presets
-
-Themes are **presets, not free colors**. Each defines a gradient pair, accent, soft tint, and ink.
-
-| Theme | From → To | Accent | Soft | Deep |
-|---|---|---|---|---|
-| `sky` | `#DCEBFF` → `#F4F9FF` | `#144CD9` | `#BBD5FF` | `#1B2441` |
-| `aqua` | `#D8F4F2` → `#F2FBFA` | `#0E9488` | `#A9E6E0` | `#123B3A` |
-| `cyan` | `#DDF4FB` → `#F2FBFE` | `#0E8FB5` | `#B4E6F5` | `#0E3A4A` |
-| `rose` | `#FFE3E8` → `#FFF5F6` | `#E30016` | `#FFC3CC` | `#4A1420` |
-| `crimson` | `#FFE1E1` → `#FFF4F4` | `#C01414` | `#FFB8B8` | `#401313` |
-| `indigo` | `#E2E6FF` → `#F5F6FF` | `#4F46E5` | `#C6CCFF` | `#23234F` |
-| `violet` | `#EFE4FF` → `#F9F5FF` | `#7C3AED` | `#DAC3FF` | `#331B54` |
-| `pink` | `#FFE4F1` → `#FFF6FA` | `#DB2777` | `#FFC0DF` | `#4A1230` |
-| `emerald` | `#DFF7E8` → `#F4FBF6` | `#1E9E5A` | `#B8EBCB` | `#14392A` |
-| `lime` | `#E9F8DC` → `#F7FCF1` | `#5FA80E` | `#D2F0B4` | `#253A0E` |
-| `amber` | `#FFF0D9` → `#FFF9F0` | `#E08700` | `#FFDDA6` | `#4A2F0B` |
-| `peach` | `#FFE9DC` → `#FFF6F0` | `#E2622B` | `#FFCFAE` | `#4A2412` |
-| `sunny` | `#FFF6D6` → `#FFFCF0` | `#E2A100` | `#FFECA6` | `#4A360B` |
-| `slate` | `#E8ECF3` → `#F6F8FB` | `#475569` | `#CBD5E1` | `#1B2441` |
-
-The `accent` hex override is the **escape hatch** for edge cases — use sparingly.
-
-### 12.5 Icon allow-list
-
-Curated Phosphor names (duotone by default). CMS stores only the **name string**:
-
-```
-ambulance, atom, baby, baby-carriage, balloon, band-aid, barbell, bed, bone,
-brain, cake, clipboard-text, coffee, dna, drop, ear, eye, eyeglasses,
-first-aid-kit, flask, fork-knife, gender-female, hand, hand-heart, heart, heartbeat,
-hospital, lightning, lungs, microscope, monitor, person-simple-walk, phone, pill,
-prescription, scan, siren, smiley, sparkle, speaker-high, stethoscope, storefront,
-sun, syringe, test-tube, thermometer, tooth, virus, waves, wheelchair,
-wheelchair-motion, wind, x-ray, user-plus
-```
-
-### 12.6 Animation tokens
-
-| Token | Class | Feel |
-|---|---|---|
-| `float` | `.anim-float` | Gentle vertical drift |
-| `bob` | `.anim-bob` | Soft scale + lift |
-| `pulse` | `.anim-pulse` | Heartbeat rhythm |
-| `breathe` | `.anim-breathe` | Slow scale + opacity |
-| `drift` | `.anim-drift` | Diagonal wander |
-| `sway` | `.anim-sway` | Pendulum rotation |
-| `spin` | `.anim-spin` | Slow rotation (rings, atoms) |
-| `none` | `.anim-none` | Static |
-
-**Motion rules:**
-- `motion: 'off'` and `prefers-reduced-motion: reduce` both freeze every animation.
-- Animations are CSS-only — no JS timers, no layout thrash.
-- Durations are baked into the engine (`--dur`, `--d` custom properties).
-
-### 12.7 Particles & decor
-
-Particles are **deterministic** — same config always renders the same layout (seeded PRNG). Ambient dots and plus-marks use the theme palette (`accent`, `deep`, `soft`, `white`) with capped opacity (55–60%).
-
-### 12.8 CMS integration
-
-**Payload field** (add to hero config or any block):
-
-```ts
-import { illustrationField } from '@/fields/illustration'
-
-// In hero config or block:
-fields: [
-  // ...
-  illustrationField,
-]
-```
-
-The field stores **strings and numbers only** — icon names, enum selects, x/y percents. Never raw SVG.
-
-**Frontend renderer** mirrors `renderIllustration()`:
 
 ```tsx
 import { Illustration } from '@/components/Illustration'
 
-<Illustration cfg={hero.illustration} />
+<div className="mx-auto w-full max-w-[320px] aspect-square lg:max-h-[320px]">
+  <Illustration preset="page/patient-welfare" tone="light" className="h-full w-full" />
+</div>
 ```
 
-**Ground rules:**
-- Icon options come from the curated allow-list — editors can't break brand consistency.
-- Positions are percent-based; sizes use container query units (`cqw`) — one config renders correctly at any viewport.
-- The engine is framework-free CSS + one render function (~90 lines). Port both into `src/components/Illustration/` as-is.
+That 320px square is the canonical hero size (see `/patient-welfare`).
+
+### 12.2 Preset schema
+
+Keys are `dept/{slug}`, `svc/{slug}`, or `page/{slug}`. Each preset:
+
+```ts
+{
+  collection: 'departments' | 'services' | 'pages'
+  slug: string
+  title: string
+  icon: string            // Phosphor name, kebab-case
+  weight?: 'duotone'      // default duotone
+  motif?: 'pulse' | 'ecg' | 'orbit' | 'breathe' | 'none'
+  accent: string          // hex
+  soft: string            // hex blob fill
+  ink?: string            // hex, default #1B2441
+  mainAnim?: string       // e.g. 'a-beat'
+  satellites?: string[]   // max 4 Phosphor names
+}
+```
+
+**Stack:** soft blob + dashed orbit → motif (pulse rings / ECG / breathe / orbit dots) → centre badge with Phosphor icon → satellite chips on connectors.
+
+### 12.3 Renderer props
+
+`Illustration` accepts a `preset` plus optional overrides: `icon`, `weight`, `accent`, `soft`, `ink`, `motif`, `mainAnim`, `satellites`, `orbit`, `connectors`, `confetti`, `animate`, `tone` (`light` | `dark`). Prefer presets over one-off overrides.
+
+`animate={false}` (and `prefers-reduced-motion`) freeze motion. Catalog tiles on `/ds/illustrations` render static; live heroes animate.
+
+### 12.4 Ground rules
+
+- One component, one preset table — do not reintroduce the HTML mockup `scene` / `theme` / `emblem` config.
+- Icons are Phosphor name strings. CMS stores the **preset key**, not SVG.
+- Photography is preferred for home, marketing, and donate heroes when a photo exists (`COMPONENTS.md`). Illustration presets stay on patient-welfare / donate-type / thank-you heroes until those migrate.
+- Do not render CMS / editorial notes on this catalog or on patient-facing pages.
 
 ---
 
@@ -644,6 +664,7 @@ import { Illustration } from '@/components/Illustration'
 - [ ] Section shell exactly `container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]`.
 - [ ] Buttons/fields/cards/carousels from §5–§8 recipes or canonical classes (`.card`, `.chip`,
       `.kicker`, `.field-label-text`, `.sticky-bar`, `.ds3d-*`).
+- [ ] Button/link copy is descriptive (§5.4) — no repeated “Learn more” / “View details”.
 - [ ] Focus ring everywhere interactive: `focus-visible:ring-2 ring-primary-red/40 ring-offset-2`.
 - [ ] Radius per §3.3; shadows only `shadow-e1/e2/e3`; z only `z-sticky/header/overlay/drawer/modal/max`.
 - [ ] No arbitrary values where a token exists (text sizes, gaps, radii, leading).

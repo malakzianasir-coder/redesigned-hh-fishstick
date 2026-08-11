@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { NewsHubContent } from '@/components/hub/NewsHubContent'
+import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import {
   getFeaturedNews,
   getNewsCategories,
@@ -45,12 +46,15 @@ export default async function NewsPaginatedPage({ params, searchParams }: Args) 
   }
 
   return (
-    <NewsHubContent
-      hub={hub}
-      result={result}
-      categories={getNewsCategories()}
-      featured={page === 1 ? getFeaturedNews(2) : []}
-      activeCategory={category}
-    />
+    <>
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'News' }]} />
+      <NewsHubContent
+        hub={hub}
+        result={result}
+        categories={getNewsCategories()}
+        featured={page === 1 ? getFeaturedNews(2) : []}
+        activeCategory={category}
+      />
+    </>
   )
 }

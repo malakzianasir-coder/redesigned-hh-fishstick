@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { NewsHubContent } from '@/components/hub/NewsHubContent'
+import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import {
   getFeaturedNews,
   getNewsCategories,
@@ -24,12 +25,15 @@ export default async function NewsPage({ searchParams }: Args) {
   const featured = getFeaturedNews(2)
 
   return (
-    <NewsHubContent
-      hub={hub}
-      result={result}
-      categories={getNewsCategories()}
-      featured={featured}
-      activeCategory={category}
-    />
+    <>
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'News' }]} />
+      <NewsHubContent
+        hub={hub}
+        result={result}
+        categories={getNewsCategories()}
+        featured={featured}
+        activeCategory={category}
+      />
+    </>
   )
 }

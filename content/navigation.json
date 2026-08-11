@@ -4,7 +4,7 @@
       "id": "about",
       "label": "About Us",
       "moreLink": {
-        "label": "Our Purpose →",
+        "label": "About Hijaz Hospital →",
         "href": "/our-purpose"
       },
       "groups": [
@@ -197,7 +197,7 @@
           ]
         },
         {
-          "heading": "Specialized Care",
+          "heading": "Specialized Care and Allied Health",
           "href": "/departments#specialized",
           "links": [
             {

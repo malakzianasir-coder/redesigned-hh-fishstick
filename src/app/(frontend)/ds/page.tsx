@@ -12,8 +12,17 @@ const CATALOGS = [
     title: 'Department & Service Patterns',
     description: 'Page templates and section patterns for dept/service pages.',
   },
+  {
+    href: '/ds/hub-page-patterns',
+    title: 'Hub & Content Pages',
+    description: 'Content hubs (Donate / About Us), catalogue hubs, and slug pages with centered §9 titles.',
+  },
   { href: '/ds/mega-menu', title: 'Mega Menu', description: 'Navigation chrome and mega-menu panels.' },
-  { href: '/ds/illustrations', title: 'Illustrations', description: 'Illustration system presets and usage.' },
+  {
+    href: '/ds/illustrations',
+    title: 'Illustrations',
+    description: 'Live Illustration presets used on patient welfare and donate heroes.',
+  },
 ]
 
 export default function DsIndexPage() {
@@ -22,7 +31,7 @@ export default function DsIndexPage() {
       <p className="kicker">Dev only</p>
       <h1 className="text-h2M font-bold text-primary-blue lg:text-h2">Design System Catalogs</h1>
       <p className="mt-2 max-w-2xl text-b16 text-primary-blue/85">
-        Static reference pages ported from the hijaz design-system HTML mockups.
+        Design-system catalogs. Illustrations uses the live React renderer; other entries are HTML mockups.
       </p>
       <ul className="card-grid card-grid--3 mt-8">
         {CATALOGS.map((catalog) => (

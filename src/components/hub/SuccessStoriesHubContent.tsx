@@ -31,7 +31,7 @@ export function SuccessStoriesHubContent({
   const showFeatured = !activeCategory && featured.length > 0
 
   return (
-    <div className="bg-white pt-[var(--header-h-expanded)]">
+    <div className="bg-white">
       <section>
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <div className="flex flex-col gap-[6px] text-center">

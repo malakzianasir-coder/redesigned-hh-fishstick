@@ -31,25 +31,13 @@ type CategoryHubGridProps = {
   lede: string
   filters: HubFilterCategory[]
   cards: HubCardItem[]
-  showFilterCounts?: boolean
 }
 
 const ICON_MAP = { ...DEPARTMENT_ICON_MAP, ...SERVICE_ICON_MAP }
 
-function getFilterLabel(
-  filter: HubFilterCategory,
-  cards: HubCardItem[],
-  showCounts: boolean,
-): string {
-  if (!showCounts || filter.slug === 'all') {
-    const count =
-      filter.slug === 'all'
-        ? cards.length
-        : cards.filter((c) => c.categorySlug === filter.slug).length
-    return filter.slug === 'all' && showCounts ? `${filter.label} (${count})` : filter.label
-  }
-  const count = cards.filter((c) => c.categorySlug === filter.slug).length
-  return `${filter.label} (${count})`
+function countForFilter(filter: HubFilterCategory, cards: HubCardItem[]): number {
+  if (filter.slug === 'all') return cards.length
+  return cards.filter((card) => card.categorySlug === filter.slug).length
 }
 
 function readHashFilter(filters: HubFilterCategory[]): string {
@@ -74,7 +62,6 @@ export function CategoryHubGrid({
   lede,
   filters,
   cards,
-  showFilterCounts = false,
 }: CategoryHubGridProps) {
   const [activeFilter, setActiveFilter] = useState('all')
 
@@ -120,7 +107,7 @@ export function CategoryHubGrid({
   return (
     <section
       id="hub-filters"
-      className="section-anchor bg-white pt-[var(--header-h-expanded)] scroll-mt-[var(--header-h)]"
+      className="section-anchor bg-white scroll-mt-[var(--header-h)]"
     >
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="mb-10 flex flex-col gap-[6px] text-center">
@@ -134,19 +121,24 @@ export function CategoryHubGrid({
           role="tablist"
           aria-label="Filter by category"
         >
-          {filters.map((filter) => (
-            <button
-              key={filter.slug}
-              id={`filter-${filter.slug}`}
-              type="button"
-              role="tab"
-              aria-selected={activeFilter === filter.slug}
-              className={cn('chip', activeFilter === filter.slug && 'is-active')}
-              onClick={() => selectFilter(filter.slug)}
-            >
-              {getFilterLabel(filter, cards, showFilterCounts)}
-            </button>
-          ))}
+          {filters.map((filter) => {
+            const count = countForFilter(filter, cards)
+            return (
+              <button
+                key={filter.slug}
+                id={`filter-${filter.slug}`}
+                type="button"
+                role="tab"
+                aria-selected={activeFilter === filter.slug}
+                aria-label={`${filter.label}, ${count}`}
+                className={cn('chip', activeFilter === filter.slug && 'is-active')}
+                onClick={() => selectFilter(filter.slug)}
+              >
+                {filter.label}
+                <span className="chip-count">{count}</span>
+              </button>
+            )
+          })}
         </div>
 
         <div className="card-grid card-grid--3">

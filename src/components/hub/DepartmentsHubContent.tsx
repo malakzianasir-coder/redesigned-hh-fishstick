@@ -47,7 +47,6 @@ export function DepartmentsHubContent({ departments }: DepartmentsHubContentProp
       lede={`Specialist departments delivering comprehensive care across surgery, internal medicine, mother & child, and allied specialties — ${count} departments in 4 categories.`}
       filters={DEPARTMENT_HUB_FILTERS}
       cards={cards}
-      showFilterCounts
     />
   )
 }

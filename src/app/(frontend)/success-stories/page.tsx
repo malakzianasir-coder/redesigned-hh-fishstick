@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { SuccessStoriesHubContent } from '@/components/hub/SuccessStoriesHubContent'
+import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { SUCCESS_STORY_CATEGORY_LABELS } from '@/lib/content/article-helpers'
 import {
   getFeaturedSuccessStories,
@@ -32,11 +33,14 @@ export default async function SuccessStoriesPage({ searchParams }: Args) {
   const featured = getFeaturedSuccessStories(1)
 
   return (
-    <SuccessStoriesHubContent
-      hub={hub}
-      stories={stories}
-      featured={featured}
-      activeCategory={activeCategory}
-    />
+    <>
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Success Stories' }]} />
+      <SuccessStoriesHubContent
+        hub={hub}
+        stories={stories}
+        featured={featured}
+        activeCategory={activeCategory}
+      />
+    </>
   )
 }

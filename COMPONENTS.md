@@ -30,7 +30,8 @@ Living preview: `/dev/components` (`ComponentShowcase`).
 |---|---|---|---|---|---|
 | **Home** | `HomePage` | `HomeHeroSlider` | No | No | Optional / none (donate lives mid-page via `WaysToGiveSection`) |
 | **Marketing / about** | `*Content.tsx` (e.g. `OurPurposeContent`) | `MarketingHeroSection` | `MarketingBreadcrumb` | Optional `JumpNav` | `MarketingSupportCTA` |
-| **Donate hub / causes / how-to** | `DonatePage`, `DonationCauseContent`, how-to page | **Migrate to** `MarketingHeroSection` | `MarketingBreadcrumb` | Optional `JumpNav` | One of `MarketingSupportCTA` / `GlobalCtaSection` |
+| **Donate hub / causes / how-to** | `DonatePage`, `DonationCauseContent`, how-to page | **Migrate to** `MarketingHeroSection` | `MarketingBreadcrumb` | **Hub filter chips** (not JumpNav) | One of `MarketingSupportCTA` / `GlobalCtaSection` |
+| **Catalogue hub** | `CategoryHubGrid`, `DoctorsHubGrid`, news/events/stories hubs | None (centered listing `h1`) | `MarketingBreadcrumb` (`Home / Current`) | **Hub filter chips** (same rail) | Optional `GlobalCtaSection` |
 | **Clinical detail** | `DetailPageTemplate` | `MediumHero` (legacy) | Varies | Optional `JumpNav` | Default `cta` unless suppressed |
 | **Articles** | `ArticlePageTemplate` | `ArticleHero` | Template-owned | No | As designed |
 
@@ -64,12 +65,12 @@ Reference: `src/components/home/HomePage.tsx` + `content/home.json`.
 No breadcrumb. No marketing hero. Sections alternate `bg-white` /
 `bg-whitebg` with `border-t border-dark-gray/15` where home already does.
 
-### 2.2 Marketing / donate (interior)
+### 2.2 Marketing / donate (interior content pages)
 
 ```
 MarketingBreadcrumb
 MarketingHeroSection
-JumpNav                    ← optional
+JumpNav                    ← content-full / slug pages only — chips **scroll**, never filter
 Body sections
 MarketingSupportCTA | GlobalCtaSection
 ```
@@ -78,6 +79,25 @@ Reference: `OurPurposeContent.tsx`.
 
 **Do not** invent a second breadcrumb or sticky jump nav. `JumpNav` is implemented in
 `sections/JumpNav.tsx` (also re-exported from `MarketingShell`).
+
+### 2.3 Hubs (content + catalogue) — mock in `hub-page-patterns.html`
+
+Shared chrome. Live Donate / Patient Welfare / About are **not** migrated yet.
+
+```
+MarketingBreadcrumb                          ← every hub
+MarketingHeroSection                         ← content hubs only (/donate, /about-us, /patient-welfare)
+Centered listing h1                          ← catalogue hubs only
+Filter chips (All + on-page groups)          ← hubs only; hides other groups or cards
+External chips (arrow-square-out, new tab)   ← other-page hrefs; never mixed into the rail
+Topic groups / CategoryHubGrid
+MarketingSupportCTA | GlobalCtaSection       ← content hubs
+```
+
+Hubs **filter**. Innermost content-full pages (`/our-purpose`, `/leadership`, department
+and welfare details) use the **same rail** but chips **scroll** to the section (H08).
+Mega-menu group hashes (`/patient-welfare#patient-resources`) activate the matching
+filter chip on hubs, same as `CategoryHubGrid`.
 
 ---
 

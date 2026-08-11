@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { DepartmentsHubContent } from '@/components/hub/DepartmentsHubContent'
+import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { getDepartments } from '@/lib/content/loaders'
 
 export const metadata: Metadata = {
@@ -11,5 +12,10 @@ export const metadata: Metadata = {
 export default function DepartmentsHubPage() {
   const departments = getDepartments()
 
-  return <DepartmentsHubContent departments={departments} />
+  return (
+    <>
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Medical Departments' }]} />
+      <DepartmentsHubContent departments={departments} />
+    </>
+  )
 }

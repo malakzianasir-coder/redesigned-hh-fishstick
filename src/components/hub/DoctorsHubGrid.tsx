@@ -76,6 +76,24 @@ export function DoctorsHubGrid({
     .filter((d) => isVisitingDoctor(d))
     .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
 
+  const viewCounts = useMemo(() => {
+    const q = search.trim().toLowerCase()
+    const pool = doctors.filter((doc) => {
+      if (specialty !== 'all' && doc.specialty !== specialty) return false
+      if (q) {
+        const hay = `${doc.name} ${doc.specialty} ${doc.department}`.toLowerCase()
+        if (!hay.includes(q)) return false
+      }
+      return true
+    })
+    return {
+      all: pool.length,
+      consultants: pool.filter((doc) => !isVisitingDoctor(doc)).length,
+      visiting: pool.filter((doc) => isVisitingDoctor(doc)).length,
+      heads: pool.filter((doc) => isHeadOfDepartment(doc)).length,
+    }
+  }, [doctors, search, specialty])
+
   function clearFilters() {
     setSearch('')
     setSpecialty('all')
@@ -83,7 +101,7 @@ export function DoctorsHubGrid({
   }
 
   return (
-    <div className="bg-white pt-[var(--header-h-expanded)]">
+    <div className="bg-white">
       <section>
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[30px] lg:pt-[60px]">
           <div className="flex flex-col gap-[6px] text-center">
@@ -143,18 +161,23 @@ export function DoctorsHubGrid({
 
             {showViewTabs ? (
               <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by consultant type">
-                {VIEW_OPTIONS.map(({ value, label }) => (
-                  <button
-                    key={value}
-                    type="button"
-                    role="tab"
-                    aria-selected={group === value}
-                    className={cn('chip', group === value && 'is-active')}
-                    onClick={() => setGroup(value)}
-                  >
-                    {label}
-                  </button>
-                ))}
+                {VIEW_OPTIONS.map(({ value, label }) => {
+                  const count = viewCounts[value]
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      role="tab"
+                      aria-selected={group === value}
+                      aria-label={`${label}, ${count}`}
+                      className={cn('chip', group === value && 'is-active')}
+                      onClick={() => setGroup(value)}
+                    >
+                      {label}
+                      <span className="chip-count">{count}</span>
+                    </button>
+                  )
+                })}
               </div>
             ) : null}
           </div>

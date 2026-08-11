@@ -39,6 +39,27 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
     [tests],
   )
 
+  const categoryCounts = useMemo(() => {
+    const q = search.trim().toLowerCase()
+    const pool = tests.filter((test) => {
+      if (specimen !== 'all' && test.specimen !== specimen) return false
+      if (turnaround !== 'all' && test.reportingTime !== turnaround) return false
+      if (source === 'in-house' && test.isOutsourced) return false
+      if (source === 'outsourced' && !test.isOutsourced) return false
+      if (q) {
+        const aka = (test.alsoKnownAs || []).map((a) => a.name).join(' ')
+        const hay = `${test.name} ${aka}`.toLowerCase()
+        if (!hay.includes(q)) return false
+      }
+      return true
+    })
+    const byCategory: Record<string, number> = { all: pool.length }
+    for (const cat of categories) {
+      byCategory[cat] = pool.filter((test) => test.category === cat).length
+    }
+    return byCategory
+  }, [tests, search, specimen, turnaround, source, categories])
+
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     return [...tests]
@@ -150,23 +171,30 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
               type="button"
               role="tab"
               aria-selected={category === 'all'}
+              aria-label={`All, ${categoryCounts.all ?? 0}`}
               className={cn('chip', category === 'all' && 'is-active')}
               onClick={() => setCategory('all')}
             >
               All
+              <span className="chip-count">{categoryCounts.all ?? 0}</span>
             </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                role="tab"
-                aria-selected={category === cat}
-                className={cn('chip', category === cat && 'is-active')}
-                onClick={() => setCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const count = categoryCounts[cat] ?? 0
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  role="tab"
+                  aria-selected={category === cat}
+                  aria-label={`${cat}, ${count}`}
+                  className={cn('chip', category === cat && 'is-active')}
+                  onClick={() => setCategory(cat)}
+                >
+                  {cat}
+                  <span className="chip-count">{count}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
 

@@ -625,8 +625,8 @@ export function ComponentShowcase() {
       <ShowcaseSection
         id="breadcrumbs"
         label="MarketingBreadcrumb"
-        usedBy="Marketing pages, Lab Tests, Patient Welfare hub, Donate, Contact, Thank You, Doctors detail, Donations detail"
-        warning="3 detail pages use inline markup instead of this component; 6 hub pages have no breadcrumb at all"
+        usedBy="All interior hubs and subpages (content hubs, catalogue hubs, marketing, donate, articles, details)"
+        warning="3 detail pages still use inline markup instead of this component"
       >
         <div className="py-8">
           <p className="container mx-auto mb-4 px-6 text-b14 font-semibold text-dark-gray lg:px-[30px]">
@@ -648,6 +648,19 @@ export function ComponentShowcase() {
               { label: 'Services' },
             ]}
           />
+          <p className="container mx-auto mb-4 mt-8 px-6 text-b14 font-semibold text-dark-gray lg:px-[30px]">
+            Variant 3 — lengthy trail (defaults to the end, pinned edge fades, scrollable):
+          </p>
+          <MarketingBreadcrumb
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'About Us', href: '/about-us' },
+              { label: 'Leadership & Governance', href: '/leadership' },
+              { label: 'Messages', href: '/leadership/messages' },
+              { label: 'Chairman’s Message', href: '/leadership/messages/chairman' },
+              { label: 'Haji Inam Elahi Asar — Founder & Honorary Project Director' },
+            ]}
+          />
         </div>
       </ShowcaseSection>
 
@@ -660,8 +673,8 @@ export function ComponentShowcase() {
       >
         <div className="py-8">
           <nav aria-label="Breadcrumb" className="bg-white border-b border-dark-gray/15">
-            <div className="container mx-auto px-6 lg:px-[30px] py-3">
-              <ol className="flex flex-wrap items-center gap-2 text-b14 text-dark-gray">
+            <div className="container mx-auto px-6 lg:px-[30px] py-2">
+              <ol className="flex flex-wrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
                 <li>
                   <Link href="/" className="text-primary-blue hover:text-primary-red transition-colors">
                     Home
@@ -991,8 +1004,8 @@ export function ComponentShowcase() {
                 with <code>MarketingBreadcrumb</code>
               </li>
               <li>
-                <strong>6 hub pages missing breadcrumbs</strong> → add{' '}
-                <code>MarketingBreadcrumb</code>
+                <strong>Hub breadcrumbs</strong> — content and catalogue hubs use{' '}
+                <code>MarketingBreadcrumb</code> (<code>Home / Current</code>)
               </li>
               <li>
                 <strong>6 hub pages missing bottom CTA</strong> → add{' '}

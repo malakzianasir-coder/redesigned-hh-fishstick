@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { EventsHubContent } from '@/components/hub/EventsHubContent'
+import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { getEventsHub, getHolidayCalendar, getHospitalEvents } from '@/lib/content/loaders'
 
 export const metadata: Metadata = {
@@ -14,10 +15,13 @@ export default function EventsPage() {
   const holidayCalendar = getHolidayCalendar()
 
   return (
-    <EventsHubContent
-      hub={hub}
-      hospitalEvents={hospitalEvents}
-      holidayCalendar={holidayCalendar}
-    />
+    <>
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Events' }]} />
+      <EventsHubContent
+        hub={hub}
+        hospitalEvents={hospitalEvents}
+        holidayCalendar={holidayCalendar}
+      />
+    </>
   )
 }

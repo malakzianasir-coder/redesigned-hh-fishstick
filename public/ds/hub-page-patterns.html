@@ -1,0 +1,1328 @@
+<!doctype html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  HUB & CONTENT PAGE PATTERNS — DESIGN-SYSTEM.md §9 aligned
+  Purpose: source mockup for two hub families + content/slug pages.
+  Internal reference — not patient-facing. Do not render .cms-note on the site.
+
+  H00  Breadcrumb overflow   defaults to the end; pinned white edge fades; scrollable, no marquee
+  H01  Block header §9.1     center-only (no CTA)
+  H02  Block header §9.2     center title + right “All X” CTA (title does not shift)
+  H03  Content hub           Donate — breadcrumb + MarketingHero + group filters + cards
+  H04  About Us hub          /about-us — same shell, four nav groups as filters
+  H05  Catalogue hub         Departments / Services — breadcrumb + centered h1 + filters
+  H06  Content / slug page   donate method (Mobile Wallet) — sibling method chips
+  H07  Patient Welfare hub   same H03 shell — filter Financial vs Patient Resources
+  H08  Content-full page     Our Purpose — same chip rail, but chips scroll (never filter)
+
+  Shared chip rail: on-page chips + external chips (arrow-square-out, target=_blank).
+  Hubs: on-page chips FILTER (All + groups). Content-full pages (H08): on-page chips
+  SCROLL to the section — never hide content, no All chip, sticky while reading.
+  Never mix externals into the on-page set. Content hubs add MarketingHero + closing
+  CTA. Catalogue hubs skip the hero and use a centered listing h1.
+  Alignment: no CTA → centered. With CTA → left copy + right button at lg.
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hub &amp; Content Page Patterns | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+            label: ['11px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+          zIndex: { sticky: '30', header: '40', overlay: '50' },
+          aspectRatio: { card: '3 / 2' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .card { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); }
+    .card-interactive { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s; }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 4px 12px -2px rgb(27 36 65 / .12); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover, button.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .chip-count { font-size: 11px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; color: #6B7183; }
+    a.chip:hover .chip-count, button.chip:hover .chip-count { color: #E30016; }
+    .chip.is-active .chip-count { color: rgb(255 255 255 / .7); }
+    .sticky-bar {
+      position: sticky; top: 0; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #E30016; color: #fff; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out;
+    }
+    .btn-primary:hover { background: #1B2441; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      border: 1px solid rgb(27 36 65 / .25); background: transparent;
+      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+    }
+    .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
+    .btn-on-dark {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      background: #fff; color: #1B2441; font-size: 16px; font-weight: 700;
+      transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    }
+    .btn-on-dark:hover { background: #E30016; color: #fff; }
+    .section-anchor { scroll-margin-top: 80px; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease-out, transform .5s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+    .card-interactive:hover .icon-tile { transform: scale(1.08); }
+    .pattern-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .photo-slot {
+      width: 100%; aspect-ratio: 16 / 9; max-height: 320px; border-radius: 12px;
+      border: 1px dashed rgb(107 113 131 / .4); background: #F8F8F9; color: #6B7183;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    }
+
+    /* §9 block header — centered when alone; with CTA, left copy + right button at lg */
+    .block-header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .block-header__copy {
+      display: flex;
+      width: 100%;
+      max-width: 48rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+    .block-header__action { flex-shrink: 0; }
+    @media (min-width: 1024px) {
+      .block-header:has(.block-header__action) {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .block-header:has(.block-header__action) .block-header__copy {
+        max-width: none;
+        flex: 1;
+        min-width: 0;
+        align-items: flex-start;
+        text-align: start;
+      }
+    }
+
+    .breadcrumb-overflow { position: relative; }
+    .breadcrumb-scroller {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .breadcrumb-scroller::-webkit-scrollbar { display: none; }
+    .breadcrumb-overflow__fade {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      height: 100%;
+      width: 24px;
+      opacity: 0;
+      transition: opacity 200ms ease-out;
+    }
+    .breadcrumb-overflow__fade.is-visible { opacity: 1; }
+    .breadcrumb-overflow__fade--start {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+    .breadcrumb-overflow__fade--end {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
+    .hub-group.is-hidden,
+    [data-category].is-hidden { display: none !important; }
+
+    .card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .card-grid > * { width: 100%; flex-shrink: 0; }
+    @media (min-width: 640px) {
+      .card-grid--3 > * { width: calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
+    }
+    @media (min-width: 1024px) {
+      .card-grid--3 > * { width: calc(33.333% - 1rem); max-width: calc(33.333% - 1rem); }
+    }
+    @media (min-width: 640px) {
+      .card-grid--2 > * { width: calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
+    }
+  </style>
+</head>
+<body class="bg-white text-primary-blue antialiased font-sans">
+
+  <nav aria-label="Breadcrumb" class="bg-white border-b border-dark-gray/15">
+    <div class="container mx-auto px-6 lg:px-[30px] py-2">
+      <div class="breadcrumb-overflow">
+        <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+        <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+        <div class="breadcrumb-scroller">
+          <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+            <li class="flex shrink-0 items-center gap-2"><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/ds" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Design System</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Hub Patterns</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Design System</p>
+        <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Hub &amp; Content Page Patterns</h1>
+        <p class="text-b16 text-primary-blue/85 mt-2 max-w-[720px] mx-auto">
+          Same chip rail everywhere. On hubs, on-page chips <strong>filter</strong>. On innermost content-full pages, those chips <strong>scroll</strong> to the section — they never hide content. External chips (arrow-square-out, new tab) stay beside the rail on both.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="sticky-bar" aria-label="Patterns">
+    <div class="container mx-auto px-6 lg:px-[30px] py-3">
+      <div class="flex flex-wrap items-center justify-center gap-2" id="jump-chips">
+        <span class="field-label-text mr-1">Patterns</span>
+        <a href="#h00" data-section="h00" class="chip">H00 Breadcrumb</a>
+        <a href="#h01" data-section="h01" class="chip">H01 Header</a>
+        <a href="#h02" data-section="h02" class="chip">H02 + CTA</a>
+        <a href="#h03" data-section="h03" class="chip">H03 Donate hub</a>
+        <a href="#h04" data-section="h04" class="chip">H04 About Us</a>
+        <a href="#h07" data-section="h07" class="chip">H07 Patient Welfare</a>
+        <a href="#h05" data-section="h05" class="chip">H05 Catalogue</a>
+        <a href="#h06" data-section="h06" class="chip">H06 Content page</a>
+        <a href="#h08" data-section="h08" class="chip">H08 Content-full</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ H00 · LENGTHY BREADCRUMB ═══════════ -->
+  <section id="h00" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H00</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Breadcrumb — overflow</h2>
+      </div>
+      <p class="cms-note text-center reveal">When the trail overflows: default to the <strong>end</strong> (current page visible) · no auto-marquee · overflow-x scroll · 24px white fades pinned to viewport ends · left fade hides at start · right fade hides at end</p>
+    </div>
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+          <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+            <li class="flex shrink-0 items-center gap-2"><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/about-us" class="text-primary-blue hover:text-primary-red transition-colors duration-200">About Us</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/leadership" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Leadership &amp; Governance</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/leadership/messages" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Messages</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><a href="/leadership/messages/chairman" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Chairman’s Message</a></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Haji Inam Elahi Asar — Founder &amp; Honorary Project Director</span></li>
+          </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ═══════════ H01 · §9.1 CENTER-ONLY ═══════════ -->
+  <section id="h01" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H01</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Block header — center only</h2>
+      </div>
+      <p class="cms-note text-center reveal">§9.1 · no CTA · .block-header__copy is always text-center · used on feature / about / method sections</p>
+      <div class="block-header reveal">
+        <div class="block-header__copy">
+          <p class="kicker">Mobile Wallet</p>
+          <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Mobile Wallet</h2>
+          <p class="text-b16 leading-[150%] text-primary-blue/85">Donate quickly and conveniently through mobile payment services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H02 · §9.2 LEFT COPY + RIGHT CTA ═══════════ -->
+  <section id="h02" class="section-anchor bg-white">
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H02</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Block header — left + All X</h2>
+      </div>
+      <p class="cms-note text-center reveal">§9.2 · when a CTA is present, kicker/title/lede are left-aligned and the button sits on the right at lg · omit this CTA on the hub that IS the collection</p>
+      <div class="block-header reveal">
+        <div class="block-header__copy">
+          <p class="kicker">What You Can Support</p>
+          <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">What You Can Support</h2>
+          <p class="text-b16 leading-[150%] text-primary-blue/85">From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects.</p>
+        </div>
+        <a href="/donate/what-you-can-support" class="btn-ghost block-header__action">All options</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H03 · CONTENT HUB (DONATE) ═══════════ -->
+  <section id="h03" class="section-anchor bg-whitebg" data-hub data-hub-mode="groups">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H03</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Content hub — Donate style</h2>
+      </div>
+      <p class="cms-note text-center reveal">Shared hub chrome · filters = on-page groups only · other-page links sit beside them with arrow-square-out + target=_blank (How to Donate, Zakat Calculator) · never mix externals into the filter set</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+          <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+            <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Donate</span></li>
+          </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16 reveal">
+          <div class="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
+            <p class="kicker">Donate</p>
+            <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Ways to Give</h1>
+            <blockquote class="mx-auto mt-2 max-w-xl whitespace-pre-line border-l-4 border-primary-red pl-4 text-b18 italic text-primary-blue/85 lg:mx-0">“Whoever saves one life, it is as if he has saved all mankind.”
+(Qur'an 5:32)</blockquote>
+            <p class="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">Every act of giving helps save lives. Explore the different ways you can support our mission and make a lasting impact.</p>
+            <div class="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
+              <a href="/donate/how-to-donate" class="btn-primary text-b14 min-h-[44px] px-5">How to Donate</a>
+              <button type="button" class="btn-ghost" data-hub-goto="ways-to-give">Ways to Give</button>
+            </div>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="photo-slot">
+              <i class="ph ph-hand-heart text-[32px]"></i>
+              <small class="text-b12 font-semibold tracking-[0.02em]">Ways to Give</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-t border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-4">
+        <div class="flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-6">
+          <div class="flex flex-wrap items-center justify-center gap-2" role="tablist" aria-label="Filter by topic">
+            <button type="button" class="chip is-active" data-filter="all" role="tab" aria-selected="true">All <span class="chip-count">7</span></button>
+            <button type="button" class="chip" data-filter="ways-to-give" role="tab" aria-selected="false">Ways to Give <span class="chip-count">4</span></button>
+            <button type="button" class="chip" data-filter="what-you-can-support" role="tab" aria-selected="false">What You Can Support <span class="chip-count">3</span></button>
+          </div>
+          <div class="hidden h-6 w-px bg-dark-gray/15 lg:block" aria-hidden="true"></div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="/donate/how-to-donate" class="chip" target="_blank" rel="noopener noreferrer">
+              How to Donate
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <a href="/donate/zakat" class="chip" target="_blank" rel="noopener noreferrer">
+              Zakat Calculator
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="h03-ways" class="hub-group section-anchor bg-whitebg" data-group="ways-to-give">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Ways to Give</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Ways to Give</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Explore the different ways you can support our mission and make a lasting impact.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/donate/zakat" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-moon-stars"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Zakat</h3>
+            <p class="text-b14 text-primary-blue/85">Let Your Zakat Become a Source of Healing.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Give Zakat <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/donate/general" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-heart"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">General Donation</h3>
+            <p class="text-b14 text-primary-blue/85">Every Donation Makes a Difference.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Donate Now <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/donate/sadaqah" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-hands-praying"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Sadaqah</h3>
+            <p class="text-b14 text-primary-blue/85">Turn Your Sadaqah into Healing and Hope.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Give Sadaqah <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/donate/eidi-fitrana" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-gift"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Eidi &amp; Fitrana</h3>
+            <p class="text-b14 text-primary-blue/85">Share the Blessings of Eid.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Give Eidi <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="h03-support" class="hub-group section-anchor bg-white border-t border-dark-gray/15" data-group="what-you-can-support">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">What You Can Support</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">What You Can Support</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects.</p>
+          </div>
+          <a href="/donate/what-you-can-support" class="btn-ghost block-header__action">All options</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/donate/what-you-can-support/donate-a-meal" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-bowl-food"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Donate a Meal</h3>
+            <p class="text-b14 text-primary-blue/85">Nourish a Patient. Support Their Recovery.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Donate a Meal <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/donate/what-you-can-support/sponsor-a-patient" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-user-circle"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Sponsor a Patient</h3>
+            <p class="text-b14 text-primary-blue/85">Become a Source of Healing and Hope.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Sponsor a Patient <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/donate/what-you-can-support/support-a-project" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-buildings"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Support a Project</h3>
+            <p class="text-b14 text-primary-blue/85">Help Build the Future of Healthcare.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Support a Project <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-primary-blue relative overflow-hidden">
+      <div class="pointer-events-none absolute bottom-0 left-1/4 aspect-square w-[250px] rounded-full bg-light-blue opacity-40 blur-[200px]"></div>
+      <div class="container mx-auto relative flex flex-col items-center gap-6 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
+        <p class="kicker">How to Donate</p>
+        <h2 class="text-h4M lg:text-h4 font-bold text-white">How to Donate</h2>
+        <p class="max-w-2xl text-b16 text-white/85">Supporting Hijaz Hospital Trust is simple, secure, and impactful. Choose the donation method that is most convenient for you.</p>
+        <a href="/donate/how-to-donate" class="btn-on-dark">View donation methods</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H04 · ABOUT US HUB ═══════════ -->
+  <section id="h04" class="section-anchor bg-whitebg" data-hub data-hub-mode="groups">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H04</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">About Us hub — /about-us</h2>
+      </div>
+      <p class="cms-note text-center reveal">Same chrome as H03 · filters = on-page groups · Our Supporters is another page so it is an external chip (arrow-square-out, new tab) · not listed in the filter set</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+          <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+            <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">About Us</span></li>
+          </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16 reveal">
+          <div class="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
+            <p class="kicker">About Us</p>
+            <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">About Hijaz Hospital</h1>
+            <p class="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">Our purpose, leadership, messages, and impact — the story of a hospital built to keep care within reach.</p>
+            <div class="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
+              <a href="/our-purpose" class="btn-primary text-b14 min-h-[44px] px-5">Our Purpose</a>
+              <a href="/leadership" class="btn-ghost">Leadership</a>
+            </div>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="photo-slot">
+              <i class="ph ph-hospital text-[32px]"></i>
+              <small class="text-b12 font-semibold tracking-[0.02em]">About Hijaz Hospital</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-t border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-4">
+        <div class="flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-6">
+          <div class="flex flex-wrap items-center justify-center gap-2" role="tablist" aria-label="Filter by topic">
+            <button type="button" class="chip is-active" data-filter="all" role="tab" aria-selected="true">All <span class="chip-count">11</span></button>
+            <button type="button" class="chip" data-filter="our-purpose" role="tab" aria-selected="false">Our Purpose <span class="chip-count">3</span></button>
+            <button type="button" class="chip" data-filter="leadership" role="tab" aria-selected="false">Leadership <span class="chip-count">3</span></button>
+            <button type="button" class="chip" data-filter="messages" role="tab" aria-selected="false">Messages <span class="chip-count">2</span></button>
+            <button type="button" class="chip" data-filter="our-impact" role="tab" aria-selected="false">Our Impact <span class="chip-count">3</span></button>
+          </div>
+          <div class="hidden h-6 w-px bg-dark-gray/15 lg:block" aria-hidden="true"></div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="/our-supporters" class="chip" target="_blank" rel="noopener noreferrer">
+              Our Supporters
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="h04-purpose" class="hub-group section-anchor bg-whitebg" data-group="our-purpose">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Purpose</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Purpose</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Vision, journey, philosophy, values, and compliance — why Hijaz Hospital exists.</p>
+          </div>
+          <a href="/our-purpose" class="btn-ghost block-header__action">View Our Purpose</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/our-purpose#vision-mission" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-eye"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Vision &amp; Mission</h3>
+            <p class="text-b14 text-primary-blue/85">What we aim for, and how we serve every patient.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Vision &amp; Mission <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/our-purpose#our-journey" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-path"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Our Journey</h3>
+            <p class="text-b14 text-primary-blue/85">Milestones from founding to today.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Our Journey <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/our-purpose#our-philosophy" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-compass"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Our Philosophy</h3>
+            <p class="text-b14 text-primary-blue/85">Care with dignity, regardless of means.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Our Philosophy <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="h04-leadership" class="hub-group section-anchor bg-white border-t border-dark-gray/15" data-group="leadership">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Leadership &amp; Governance</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Leadership &amp; Governance</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Founders, chairpersons, presidents, and the committees that steward the Trust.</p>
+          </div>
+          <a href="/leadership" class="btn-ghost block-header__action">View Leadership</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/leadership#our-founders" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-users-three"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Our Founders</h3>
+            <p class="text-b14 text-primary-blue/85">The people who established Hijaz Hospital Trust.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Our Founders <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/leadership#our-chairpersons" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-user-circle-gear"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Our Chairpersons</h3>
+            <p class="text-b14 text-primary-blue/85">Governance of the Trust across generations.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Our Chairpersons <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/leadership#senior-management" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-briefcase"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Senior Management</h3>
+            <p class="text-b14 text-primary-blue/85">The team that runs the hospital day to day.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Senior Management <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="h04-messages" class="hub-group section-anchor bg-whitebg border-t border-dark-gray/15" data-group="messages">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Messages</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Messages</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Letters from the Chairman and the President.</p>
+          </div>
+          <a href="/leadership/messages" class="btn-ghost block-header__action">View Messages</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/leadership/messages/chairman" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-chat-teardrop-text"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Chairman’s Message</h3>
+            <p class="text-b14 text-primary-blue/85">A message from the Chairman of Hijaz Hospital Trust.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Read Chairman’s Message <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/leadership/messages/president" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-chat-teardrop-text"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">President’s Message</h3>
+            <p class="text-b14 text-primary-blue/85">A message from the President of Hijaz Hospital.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Read President’s Message <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="h04-impact" class="hub-group section-anchor bg-white border-t border-dark-gray/15" data-group="our-impact">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Impact</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Impact</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Awards, partners, facts, and the people who stand with us.</p>
+          </div>
+          <a href="/our-impact" class="btn-ghost block-header__action">View Impact</a>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/our-impact#award" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-trophy"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Awards &amp; Recognitions</h3>
+            <p class="text-b14 text-primary-blue/85">Honours that mark our service to patients and the city.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Awards &amp; Recognitions <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/our-impact#facts-statistics" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-chart-bar"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Facts &amp; Statistics</h3>
+            <p class="text-b14 text-primary-blue/85">What we have delivered, in numbers.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Facts &amp; Statistics <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/our-supporters" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-handshake"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Our Supporters</h3>
+            <p class="text-b14 text-primary-blue/85">Partners and donors who make care possible.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Meet Our Supporters <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H07 · PATIENT WELFARE HUB ═══════════ -->
+  <section id="h07" class="section-anchor bg-whitebg" data-hub data-hub-mode="groups">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H07</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Patient Welfare hub — /patient-welfare</h2>
+      </div>
+      <p class="cms-note text-center reveal">Mock only — do not change the live page yet · same H03/H04 chrome · filters = on-page groups · Patient Stories is /success-stories so it is an external chip (arrow-square-out, new tab)</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+            <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+              <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Patient Welfare</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16 reveal">
+          <div class="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
+            <p class="kicker">Patient Welfare</p>
+            <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Financial &amp; Community Support</h1>
+            <p class="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">Zakat, welfare programs, and community support — so financial hardship never stands between patients and essential care.</p>
+            <div class="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
+              <a href="/patient-welfare/financial-assistance" class="btn-primary text-b14 min-h-[44px] px-5">Zakat &amp; Financial Assistance</a>
+              <button type="button" class="btn-ghost" data-hub-goto="patient-resources">Patient Resources</button>
+            </div>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="photo-slot">
+              <i class="ph ph-hand-heart text-[32px]"></i>
+              <small class="text-b12 font-semibold tracking-[0.02em]">Patient Welfare</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-t border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-4">
+        <div class="flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-6">
+          <div class="flex flex-wrap items-center justify-center gap-2" role="tablist" aria-label="Filter by topic">
+            <button type="button" class="chip is-active" data-filter="all" role="tab" aria-selected="true">All <span class="chip-count">8</span></button>
+            <button type="button" class="chip" data-filter="financial-community" role="tab" aria-selected="false">Financial &amp; Community Support <span class="chip-count">4</span></button>
+            <button type="button" class="chip" data-filter="patient-resources" role="tab" aria-selected="false">Patient Resources <span class="chip-count">4</span></button>
+          </div>
+          <div class="hidden h-6 w-px bg-dark-gray/15 lg:block" aria-hidden="true"></div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="/success-stories" class="chip" target="_blank" rel="noopener noreferrer">
+              Patient Stories
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="h07-financial" class="hub-group section-anchor bg-whitebg" data-group="financial-community">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Patient Welfare</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Financial &amp; Community Support</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Zakat, welfare programs, meals, medicines, and disaster relief for patients who cannot afford care.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/patient-welfare/financial-assistance" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-coins"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Zakat &amp; Financial Assistance</h3>
+            <p class="text-b14 text-primary-blue/85">Shariah-compliant Zakat and charitable welfare assistance so financial hardship never blocks essential care.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Zakat &amp; Financial Assistance <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/patient-welfare/dialysis-support" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-heartbeat"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Dialysis Patient Support Program</h3>
+            <p class="text-b14 text-primary-blue/85">Welfare support beyond dialysis treatment — monthly assistance, ration, and family needs.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Dialysis Support <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/patient-welfare/free-medicines" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-pill"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Free Medicines for Eligible Patients</h3>
+            <p class="text-b14 text-primary-blue/85">Prescribed medicines free of charge for eligible OPD patients.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Free Medicines <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/patient-welfare/sehat-sahulat" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-shield-check"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Sehat Sahulat Program</h3>
+            <p class="text-b14 text-primary-blue/85">Government-supported coverage that helps eligible patients access treatment.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Sehat Sahulat Program <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="h07-resources" class="hub-group section-anchor bg-white border-t border-dark-gray/15" data-group="patient-resources">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Patient Welfare</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Patient Resources</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Admission guidance, rights, information, and stories of recovery.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <a href="/patient-welfare/admission-process" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-clipboard-text"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Patient Admission Process</h3>
+            <p class="text-b14 text-primary-blue/85">A structured six-step admission path — from OPD consultation through treatment and discharge.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Admission Process <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/patient-welfare/patient-rights" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-scales"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Patient Rights &amp; Responsibilities</h3>
+            <p class="text-b14 text-primary-blue/85">Your rights to dignified, safe care — and the shared responsibilities that support it.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Patient Rights <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/patient-welfare/patient-information-guide" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-book-open"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Patient Information Guide</h3>
+            <p class="text-b14 text-primary-blue/85">A guide to patient services, care, facilities, forms, and online services.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Patient Information Guide <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="/success-stories" class="card-interactive group flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-heart"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Patient Stories</h3>
+            <p class="text-b14 text-primary-blue/85">Real stories of healing, hope, and recovery from patients who received care at Hijaz Hospital.</p>
+            <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">Read Patient Stories <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-primary-blue relative overflow-hidden">
+      <div class="pointer-events-none absolute bottom-0 left-1/4 aspect-square w-[250px] rounded-full bg-light-blue opacity-40 blur-[200px]"></div>
+      <div class="container mx-auto relative flex flex-col items-center gap-6 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
+        <p class="kicker">Support Our Mission</p>
+        <h2 class="text-h4M lg:text-h4 font-bold text-white">Help Us Keep Care Within Reach</h2>
+        <p class="max-w-2xl text-b16 text-white/85">Your donation supports free treatment, medicines, and welfare programs for deserving patients.</p>
+        <a href="/donate" class="btn-on-dark">Donate Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H05 · CATALOGUE HUB ═══════════ -->
+  <section id="h05" class="section-anchor bg-white" data-hub data-hub-mode="cards">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H05</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Catalogue hub — Departments / Services</h2>
+      </div>
+      <p class="cms-note text-center reveal">Same filter chips as content hubs · breadcrumb · no MarketingHero · centered listing h1 · chips hide non-matching cards · live page hash-syncs · no self “All Departments” CTA</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+            <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+              <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Medical Departments</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+      <div class="flex flex-col gap-[6px] text-center reveal">
+        <p class="kicker">Departments</p>
+        <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Medical Departments</h1>
+        <p class="mx-auto max-w-2xl text-b16 text-primary-blue/85">Specialist departments delivering comprehensive care across surgery, internal medicine, mother &amp; child, and allied specialties.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 reveal" role="tablist" aria-label="Filter by category">
+        <button type="button" class="chip is-active" data-filter="all" role="tab" aria-selected="true">All <span class="chip-count">3</span></button>
+        <button type="button" class="chip" data-filter="surgery-allied" role="tab" aria-selected="false">Surgery &amp; Allied <span class="chip-count">1</span></button>
+        <button type="button" class="chip" data-filter="internal-medicine" role="tab" aria-selected="false">Internal Medicine <span class="chip-count">1</span></button>
+        <button type="button" class="chip" data-filter="mother-child" role="tab" aria-selected="false">Mother &amp; Child <span class="chip-count">1</span></button>
+        <button type="button" class="chip" data-filter="specialized" role="tab" aria-selected="false">Specialized Care <span class="chip-count">0</span></button>
+      </div>
+
+      <div class="card-grid card-grid--3 reveal">
+        <a href="/departments/general-surgery" data-category="surgery-allied" class="card-interactive group flex flex-col gap-3 p-6">
+          <span class="icon-tile"><i class="ph ph-first-aid-kit"></i></span>
+          <p class="text-b12 font-bold uppercase tracking-kicker text-primary-red">Surgery &amp; Allied</p>
+          <h2 class="text-h5M lg:text-h5 font-bold text-primary-blue transition-colors group-hover:text-primary-red">General Surgery</h2>
+          <p class="line-clamp-2 text-b14 text-primary-blue/85">Elective and emergency surgical care.</p>
+          <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View General Surgery <i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="/departments/cardiology" data-category="internal-medicine" class="card-interactive group flex flex-col gap-3 p-6">
+          <span class="icon-tile"><i class="ph ph-heartbeat"></i></span>
+          <p class="text-b12 font-bold uppercase tracking-kicker text-primary-red">Internal Medicine</p>
+          <h2 class="text-h5M lg:text-h5 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Cardiology</h2>
+          <p class="line-clamp-2 text-b14 text-primary-blue/85">Heart care, diagnostics, and follow-up.</p>
+          <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Cardiology <i class="ph ph-arrow-right"></i></span>
+        </a>
+        <a href="/departments/pediatrics-neonatology" data-category="mother-child" class="card-interactive group flex flex-col gap-3 p-6">
+          <span class="icon-tile"><i class="ph ph-baby"></i></span>
+          <p class="text-b12 font-bold uppercase tracking-kicker text-primary-red">Mother &amp; Child</p>
+          <h2 class="text-h5M lg:text-h5 font-bold text-primary-blue transition-colors group-hover:text-primary-red">Pediatrics</h2>
+          <p class="line-clamp-2 text-b14 text-primary-blue/85">Care for newborns, infants, and children.</p>
+          <span class="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">View Pediatrics <i class="ph ph-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H06 · CONTENT / SLUG PAGE ═══════════ -->
+  <section id="h06" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H06</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Content page — donate slug / method</h2>
+      </div>
+      <p class="cms-note text-center reveal">Short method/slug page · sibling chips switch pages (not on-page jump) · for a long content-full page see H08 — same rail, scroll not filter</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+          <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+            <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span class="text-primary-blue">Donate</span></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span class="text-primary-blue">How to Donate</span></li>
+            <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Mobile Wallet</span></li>
+          </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16 reveal">
+          <div class="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
+            <p class="kicker">How to Donate</p>
+            <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Mobile Wallet</h1>
+            <p class="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">Donate quickly and conveniently through mobile payment services.</p>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="photo-slot">
+              <i class="ph ph-device-mobile text-[32px]"></i>
+              <small class="text-b12 font-semibold tracking-[0.02em]">Mobile Wallet</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sticky-bar" aria-label="Donation methods">
+      <div class="container mx-auto px-6 lg:px-[30px] py-3">
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/donate/how-to-donate" class="chip">Overview</a>
+          <a href="/donate/how-to-donate/online" class="chip">Online</a>
+          <span class="chip is-active">Mobile Wallet</span>
+          <a href="/donate/how-to-donate/bank-transfer" class="chip">Bank Transfer</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Mobile Wallet</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Mobile Wallet</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Donate quickly and conveniently through mobile payment services.</p>
+          </div>
+        </div>
+
+        <article class="card flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
+          <div class="flex flex-1 flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <span class="icon-tile"><i class="ph ph-device-mobile"></i></span>
+              <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">JazzCash</h3>
+            </div>
+            <dl class="flex flex-col gap-3">
+              <div class="flex flex-col gap-2 border-b border-dark-gray/15 pb-3 sm:flex-row sm:items-center sm:justify-between">
+                <dt class="text-b14 text-dark-gray">Account Title</dt>
+                <dd class="text-b14 font-semibold text-primary-blue">Hijaz Hospital</dd>
+              </div>
+              <div class="flex flex-col gap-2">
+                <dt class="text-b14 text-dark-gray">Till ID</dt>
+                <dd class="flex flex-wrap items-center gap-3">
+                  <span class="font-mono text-h5M lg:text-h5 font-bold text-primary-red">981444144</span>
+                  <span class="chip"><i class="ph ph-copy"></i> Copy Till ID</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div class="flex aspect-square w-full max-w-[180px] flex-col items-center justify-center gap-2 rounded-xl bg-whitebg text-center text-dark-gray lg:shrink-0">
+            <i class="ph ph-qr-code text-[40px]"></i>
+            <small class="px-3 text-b12">QR Code: add JazzCash QR in Admin.</small>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ H08 · CONTENT-FULL PAGE (SCROLL, NEVER FILTER) ═══════════ -->
+  <section id="h08" class="section-anchor bg-whitebg">
+    <div class="container mx-auto px-6 lg:px-[30px] pt-[30px] lg:pt-[60px] flex flex-col gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 reveal">
+        <span class="pattern-badge">H08</span>
+        <h2 class="text-h4M lg:text-h4 font-bold text-primary-blue">Content-full page — Our Purpose</h2>
+      </div>
+      <p class="cms-note text-center reveal">Innermost long page · same chip rail as hubs · on-page chips are hash links that <strong>scroll</strong> (never hide sections, no All chip) · sticky so the rail stays while reading · external chips still arrow-square-out + new tab · live analogue: /our-purpose, /leadership, department &amp; welfare details</p>
+    </div>
+
+    <nav aria-label="Breadcrumb" class="bg-white border-y border-dark-gray/15">
+      <div class="container mx-auto px-6 lg:px-[30px] py-2">
+        <div class="breadcrumb-overflow">
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--start" aria-hidden="true"></div>
+          <div class="breadcrumb-overflow__fade breadcrumb-overflow__fade--end" aria-hidden="true"></div>
+          <div class="breadcrumb-scroller">
+            <ol class="flex w-max flex-nowrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
+              <li class="flex shrink-0 items-center gap-2"><span class="text-primary-blue">Home</span></li>
+              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span class="text-primary-blue">About Us</span></li>
+              <li class="flex shrink-0 items-center gap-2"><span class="text-dark-gray/40">/</span><span aria-current="page" class="font-semibold text-primary-blue">Our Purpose</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-16 reveal">
+          <div class="flex flex-col gap-[6px] text-center lg:col-span-6 lg:text-start">
+            <p class="kicker">About Us</p>
+            <h1 class="text-h1M lg:text-h1 font-bold tracking-display text-primary-blue">Our Purpose</h1>
+            <p class="mx-auto mt-2 max-w-[560px] text-b16 text-primary-blue/85 lg:mx-0">Vision, mission, journey, philosophy, values, and compliance — the foundations that guide Hijaz Hospital’s commitment to compassionate, accessible healthcare for all.</p>
+            <div class="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
+              <a href="#h08-vision" class="btn-primary text-b14 min-h-[44px] px-5">Vision &amp; Mission</a>
+              <a href="#h08-journey" class="btn-ghost">Our Journey</a>
+            </div>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="photo-slot">
+              <i class="ph ph-hospital text-[32px]"></i>
+              <small class="text-b12 font-semibold tracking-[0.02em]">Our Purpose</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sticky-bar" data-jump-nav aria-label="On this page">
+      <div class="container mx-auto px-6 lg:px-[30px] py-4">
+        <div class="flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-6">
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="#h08-vision" data-jump="h08-vision" class="chip is-active">Vision &amp; Mission</a>
+            <a href="#h08-journey" data-jump="h08-journey" class="chip">Journey</a>
+            <a href="#h08-philosophy" data-jump="h08-philosophy" class="chip">Philosophy</a>
+            <a href="#h08-approach" data-jump="h08-approach" class="chip">Approach</a>
+            <a href="#h08-values" data-jump="h08-values" class="chip">Values</a>
+            <a href="#h08-compliance" data-jump="h08-compliance" class="chip">Compliance</a>
+          </div>
+          <div class="hidden h-6 w-px bg-dark-gray/15 lg:block" aria-hidden="true"></div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="/leadership" class="chip" target="_blank" rel="noopener noreferrer">
+              Leadership
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <a href="/our-impact" class="chip" target="_blank" rel="noopener noreferrer">
+              Our Impact
+              <i class="ph ph-arrow-square-out" aria-hidden="true"></i>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="h08-vision" class="section-anchor bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Vision &amp; Mission</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Vision &amp; Mission</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">What we aim for, and how we serve every patient — regardless of means.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--2">
+          <article class="card-interactive flex flex-col gap-3 p-6 lg:p-8">
+            <div class="flex items-center gap-3">
+              <span class="icon-tile"><i class="ph ph-eye"></i></span>
+              <h3 class="text-h5M lg:text-h5 font-bold text-primary-blue">Vision</h3>
+            </div>
+            <p class="text-b16 text-primary-blue/85">To develop Hijaz Hospital into a state-of-the-art secondary-level healthcare institution that serves all strata of society with excellence and compassion.</p>
+          </article>
+          <article class="card-interactive relative flex flex-col gap-3 overflow-hidden border-primary-blue bg-primary-blue p-6 lg:p-8">
+            <div class="relative flex items-center gap-3">
+              <span class="icon-tile bg-white/10 text-white"><i class="ph ph-hand-heart"></i></span>
+              <h3 class="text-h5M lg:text-h5 font-bold text-white">Mission</h3>
+            </div>
+            <p class="relative text-b16 text-white/85">To care for the ailing with compassion, respect, dignity, and professional excellence, while ensuring that financial hardship never stands in the way of receiving care.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div id="h08-journey" class="section-anchor bg-whitebg">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Journey</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Journey</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Milestones from the mosque to a working hospital — the years that shaped Hijaz.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6">
+          <article class="card p-6 lg:p-8 flex flex-col gap-2">
+            <p class="field-label-text">1968</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Trial &amp; Perseverance</h3>
+            <p class="text-b16 text-primary-blue/85">When construction of Hijaz Mosque began, an encroachment crew demolished the walls. Neighbours and civic allies stood with the Trust until the work could continue.</p>
+          </article>
+          <article class="card p-6 lg:p-8 flex flex-col gap-2">
+            <p class="field-label-text">1970</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Completion of Hijaz Mosque</h3>
+            <p class="text-b16 text-primary-blue/85">With the support of Begum Ehsan Qadir, M. Hussain Chaudhry, and Mir Salahuddin, the mosque was completed — the first standing piece of the campus.</p>
+          </article>
+          <article class="card p-6 lg:p-8 flex flex-col gap-2">
+            <p class="field-label-text">1986</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Foundation Stone &amp; Dispensary</h3>
+            <p class="text-b16 text-primary-blue/85">The hospital’s foundation was laid. A modest dispensary opened so the neighbourhood could receive care while the wards were still being built.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div id="h08-philosophy" class="section-anchor bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Philosophy</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Philosophy</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Care with dignity, regardless of means. The hospital exists so no patient is turned away for lack of money.</p>
+          </div>
+        </div>
+        <p class="mx-auto max-w-3xl text-center text-b16 text-primary-blue/85">Hijaz Hospital was conceived as a trust, not a commercial enterprise. Every programme — Zakat, welfare, free medicines, meals — is an expression of that founding idea: healing is a duty, not a privilege.</p>
+      </div>
+    </div>
+
+    <div id="h08-approach" class="section-anchor bg-whitebg">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Approach</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Approach</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">How we deliver care day to day — clinically, ethically, and as a neighbour to the city.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-stethoscope"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Clinical excellence</h3>
+            <p class="text-b14 text-primary-blue/85">Specialist departments, diagnostics, and inpatient care under one roof.</p>
+          </article>
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-hand-heart"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Welfare first</h3>
+            <p class="text-b14 text-primary-blue/85">Financial assessment with dignity, so treatment is never delayed by paperwork.</p>
+          </article>
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <span class="icon-tile"><i class="ph ph-users-three"></i></span>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Community rooted</h3>
+            <p class="text-b14 text-primary-blue/85">A hospital built beside a mosque, for the people who live around it.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div id="h08-values" class="section-anchor bg-white">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Values</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Values</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">The standards we hold ourselves to in every ward, clinic, and conversation.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <div class="flex items-center gap-3">
+              <span class="icon-tile"><i class="ph ph-heart"></i></span>
+              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Compassion</h3>
+            </div>
+            <p class="text-b14 text-primary-blue/85">Treat every patient as a guest of the Trust.</p>
+          </article>
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <div class="flex items-center gap-3">
+              <span class="icon-tile"><i class="ph ph-scales"></i></span>
+              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Integrity</h3>
+            </div>
+            <p class="text-b14 text-primary-blue/85">Zakat, donations, and clinical records handled with transparency.</p>
+          </article>
+          <article class="card-interactive flex flex-col gap-3 p-6">
+            <div class="flex items-center gap-3">
+              <span class="icon-tile"><i class="ph ph-medal"></i></span>
+              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Excellence</h3>
+            </div>
+            <p class="text-b14 text-primary-blue/85">Professional standards that do not depend on a patient’s ability to pay.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div id="h08-compliance" class="section-anchor bg-whitebg">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Compliance</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Compliance</h2>
+            <p class="text-b16 leading-[150%] text-primary-blue/85">Shariah audit, certifications, and the governance that keeps welfare funds distinct from hospital operations.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid--3">
+          <article class="card p-6 flex flex-col gap-2">
+            <p class="field-label-text">Shariah</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Welfare Shariah Audit</h3>
+            <p class="text-b14 text-primary-blue/85">Zakat collected, held, and disbursed under qualified supervision.</p>
+          </article>
+          <article class="card p-6 flex flex-col gap-2">
+            <p class="field-label-text">Clinical</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Healthcare certifications</h3>
+            <p class="text-b14 text-primary-blue/85">External review of quality, safety, and professional practice.</p>
+          </article>
+          <article class="card p-6 flex flex-col gap-2">
+            <p class="field-label-text">Governance</p>
+            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Trust oversight</h3>
+            <p class="text-b14 text-primary-blue/85">Committees and leadership accountable for how the hospital is run.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-blue">
+    <div class="container mx-auto px-6 lg:px-[30px] py-10 flex flex-col gap-4 items-center text-center">
+      <img src="/hijaz-hospital-logo-light.svg" alt="Hijaz Hospital" class="h-12 w-auto" />
+      <p class="text-white/55 text-b12">Hub &amp; Content Page Patterns · internal design-system reference</p>
+    </div>
+  </footer>
+
+  <script>
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in') })
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    document.querySelectorAll('.reveal').forEach((el) => ro.observe(el))
+
+    document.querySelectorAll('.breadcrumb-overflow').forEach((wrap) => {
+      const el = wrap.querySelector('.breadcrumb-scroller')
+      const start = wrap.querySelector('.breadcrumb-overflow__fade--start')
+      const end = wrap.querySelector('.breadcrumb-overflow__fade--end')
+      if (!el || !start || !end) return
+      let stickToEnd = true
+      const sync = () => {
+        const max = Math.max(0, el.scrollWidth - el.clientWidth)
+        if (stickToEnd) el.scrollLeft = max
+        start.classList.toggle('is-visible', max > 1 && el.scrollLeft > 1)
+        end.classList.toggle('is-visible', max > 1 && el.scrollLeft < max - 1)
+        stickToEnd = max <= 1 || el.scrollLeft >= max - 1
+      }
+      sync()
+      el.addEventListener('scroll', sync, { passive: true })
+      new ResizeObserver(sync).observe(el)
+    })
+
+    document.querySelectorAll('[data-hub]').forEach((hub) => {
+      const mode = hub.dataset.hubMode || 'groups'
+      const filters = hub.querySelectorAll('[data-filter]')
+      const apply = (slug) => {
+        filters.forEach((btn) => {
+          const on = btn.dataset.filter === slug
+          btn.classList.toggle('is-active', on)
+          btn.setAttribute('aria-selected', on ? 'true' : 'false')
+        })
+        if (mode === 'cards') {
+          hub.querySelectorAll('[data-category]').forEach((card) => {
+            card.classList.toggle('is-hidden', slug !== 'all' && card.dataset.category !== slug)
+          })
+        } else {
+          hub.querySelectorAll('[data-group]').forEach((group) => {
+            group.classList.toggle('is-hidden', slug !== 'all' && group.dataset.group !== slug)
+          })
+        }
+      }
+      filters.forEach((btn) => {
+        btn.addEventListener('click', () => apply(btn.dataset.filter))
+      })
+      hub.querySelectorAll('[data-hub-goto]').forEach((btn) => {
+        btn.addEventListener('click', () => apply(btn.dataset.hubGoto))
+      })
+    })
+
+    document.querySelectorAll('[data-jump-nav]').forEach((nav) => {
+      const chips = nav.querySelectorAll('a[data-jump]')
+      const targets = [...chips].map((chip) => document.getElementById(chip.dataset.jump)).filter(Boolean)
+      if (!targets.length) return
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return
+          chips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.jump === e.target.id))
+        })
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 })
+      targets.forEach((el) => spy.observe(el))
+    })
+
+    const sections = ['h00', 'h01', 'h02', 'h03', 'h04', 'h07', 'h05', 'h06', 'h08']
+    const chips = document.querySelectorAll('#jump-chips .chip')
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return
+        chips.forEach((c) => c.classList.toggle('is-active', c.dataset.section === e.target.id))
+      })
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 })
+    sections.forEach((id) => { const el = document.getElementById(id); if (el) so.observe(el) })
+  </script>
+</body>
+</html>

@@ -50,6 +50,8 @@ filter slug so the pill activates on arrival:
 
 `CategoryHubGrid` keeps filter chips in sync with `location.hash` (click updates hash;
 hash / back-forward activates the matching pill). Use `#all` or no hash for “All”.
+Content hubs (Donate, About Us, Patient Welfare) use the **same chip behaviour** for
+their groups once migrated — mock: `public/ds/hub-page-patterns.html` H03 / H04 / H07.
 
 ---
 
@@ -168,8 +170,9 @@ When adding a new top-level item, always define `moreLink` to its primary hub.
 
 1. Create hub route (`/topic` or `/donate/topic`) and subpage routes (`/topic/[slug]`).
 2. Add content JSON + loaders; keep copy verbatim from editorial source.
-3. Compose with `MarketingBreadcrumb` + `MarketingHeroSection` + purpose-built sections
-   (see COMPONENTS.md) — not a wall of generic `content` blocks.
+3. Compose with `MarketingBreadcrumb` on **every** hub (content and catalogue) plus
+   `MarketingHeroSection` on content hubs, or centered listing `h1` + filters on
+   catalogue hubs (see COMPONENTS.md) — not a wall of generic `content` blocks.
 4. In `navigation.json`:
    - Add/update a `groups[]` entry with `heading`, **`href` → hub**, and `links[]` → subpages.
    - Keep child hrefs under the same path prefix as the hub.
@@ -185,7 +188,7 @@ When adding a new top-level item, always define `moreLink` to its primary hub.
 | Link every hub-named mega heading via `groups[].href` | Leave “How to Donate” / “What You Can Support” as plain text |
 | Use one URL family per topic (`/donate/...`) | Split the same topic across `/donate` and `/donations` |
 | Point child links at real subpages | Point mega children only at `#anchors` on a single long page when they should be subpages |
-| Keep breadcrumb Home → parent hub → current | Skip the hub in the trail |
+| Keep breadcrumb on every hub (`Home / Current`) and on subpages (`Home → parent hub → current`) | Skip the hub in the trail, or omit breadcrumbs on catalogue hubs |
 | Reuse chip rails for sibling methods/causes | Invent a second jump-nav pattern for the same job |
 | Keep mega panels to groups + moreLink only | Add a featured / “Image slot” promo card in the mega menu |
 
