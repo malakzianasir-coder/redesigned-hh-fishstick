@@ -23,6 +23,9 @@ export function NewsHubContent({
   activeCategory,
 }: NewsHubContentProps) {
   const articles = getNewsArticles()
+  const showCategoryKicker = !activeCategory
+  const featuredSorted = [...featured].sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
+  const resultItemsSorted = [...result.items].sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
   const categoryCounts = Object.fromEntries(
     categories.map((category) => [
       category,
@@ -55,7 +58,7 @@ export function NewsHubContent({
             <div className="flex flex-col gap-6">
               <h2 className="text-h5M font-bold text-primary-blue lg:text-h5">Featured</h2>
               <div className="card-grid card-grid--2 mx-auto max-w-5xl">
-                {featured.map((article) => (
+                {featuredSorted.map((article) => (
                   <ArticleCard
                     key={article.slug}
                     variant="news"
@@ -64,7 +67,7 @@ export function NewsHubContent({
                     href={`/news/${article.slug}`}
                     image={article.heroImage}
                     date={formatArticleDate(article.publishedAt)}
-                    category={article.categories[0]}
+                    category={showCategoryKicker ? article.categories[0] : undefined}
                   />
                 ))}
               </div>
@@ -77,7 +80,7 @@ export function NewsHubContent({
             </h2>
             {result.items.length > 0 ? (
               <div className="card-grid card-grid--3">
-                {result.items.map((article) => (
+                {resultItemsSorted.map((article) => (
                   <ArticleCard
                     key={article.slug}
                     variant="news"
@@ -86,7 +89,7 @@ export function NewsHubContent({
                     href={`/news/${article.slug}`}
                     image={article.heroImage}
                     date={formatArticleDate(article.publishedAt)}
-                    category={article.categories[0]}
+                    category={showCategoryKicker ? article.categories[0] : undefined}
                   />
                 ))}
               </div>

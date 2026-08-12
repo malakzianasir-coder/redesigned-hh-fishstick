@@ -30,6 +30,13 @@ export function SuccessStoriesHubContent({
 }: SuccessStoriesHubContentProps) {
   const categoryOptions = STORY_CATEGORIES.map((value) => SUCCESS_STORY_CATEGORY_LABELS[value])
   const allStories = getSuccessStories()
+  const showCategoryKicker = !activeCategory
+  const featuredSorted = [...featured].sort((a, b) =>
+    (a.heading || a.title || '').localeCompare(b.heading || b.title || ''),
+  )
+  const storiesSorted = [...stories].sort((a, b) =>
+    (a.heading || a.title || '').localeCompare(b.heading || b.title || ''),
+  )
   const categoryCounts = Object.fromEntries(
     STORY_CATEGORIES.map((value) => [
       SUCCESS_STORY_CATEGORY_LABELS[value],
@@ -62,7 +69,7 @@ export function SuccessStoriesHubContent({
             <div className="flex flex-col gap-6">
               <h2 className="text-h5M font-bold text-primary-blue lg:text-h5">Featured story</h2>
               <div className="card-grid card-grid--2 mx-auto max-w-5xl">
-                {featured.map((story) => (
+                {featuredSorted.map((story) => (
                   <ArticleCard
                     key={story.slug}
                     variant="story"
@@ -71,7 +78,9 @@ export function SuccessStoriesHubContent({
                     href={`/success-stories/${story.slug}`}
                     image={story.thumbnail}
                     date={formatArticleDate(story.publishedDate)}
-                    category={SUCCESS_STORY_CATEGORY_LABELS[story.category]}
+                    category={
+                      showCategoryKicker ? SUCCESS_STORY_CATEGORY_LABELS[story.category] : undefined
+                    }
                   />
                 ))}
               </div>
@@ -82,7 +91,7 @@ export function SuccessStoriesHubContent({
             <h2 className="text-h5M font-bold text-primary-blue lg:text-h5">Patient stories</h2>
             {stories.length > 0 ? (
               <div className="card-grid card-grid--3">
-                {stories.map((story) => (
+                {storiesSorted.map((story) => (
                   <ArticleCard
                     key={story.slug}
                     variant="story"
@@ -91,7 +100,9 @@ export function SuccessStoriesHubContent({
                     href={`/success-stories/${story.slug}`}
                     image={story.thumbnail}
                     date={formatArticleDate(story.publishedDate)}
-                    category={SUCCESS_STORY_CATEGORY_LABELS[story.category]}
+                    category={
+                      showCategoryKicker ? SUCCESS_STORY_CATEGORY_LABELS[story.category] : undefined
+                    }
                   />
                 ))}
               </div>

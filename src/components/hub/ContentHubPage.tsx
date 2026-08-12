@@ -109,7 +109,9 @@ export function ContentHubPage({
               cta={group.cta}
             />
             <div className="card-grid card-grid--3">
-              {group.cards.map((card) => {
+              {group.cards
+                .toSorted((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
+                .map((card) => {
                 const IconComponent = card.icon
                   ? CONTENT_HUB_ICON_MAP[card.icon as keyof typeof CONTENT_HUB_ICON_MAP]
                   : undefined

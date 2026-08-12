@@ -60,9 +60,10 @@ export function CategoryHubGrid({
 
   const visibleCards = useMemo(
     () =>
-      activeFilter === 'all'
+      (activeFilter === 'all'
         ? cards
-        : cards.filter((card) => card.categorySlug === activeFilter),
+        : cards.filter((card) => card.categorySlug === activeFilter)
+      ).toSorted((a, b) => (a.title ?? '').localeCompare(b.title ?? '')),
     [activeFilter, cards],
   )
 
@@ -118,9 +119,11 @@ export function CategoryHubGrid({
                     <IconComponent size={22} weight="duotone" />
                   </span>
                 ) : null}
-                <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">
-                  {card.categoryLabel}
-                </p>
+                {activeFilter === 'all' ? (
+                  <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">
+                    {card.categoryLabel}
+                  </p>
+                ) : null}
                 <h2 className="text-h5M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h5">
                   {card.title}
                 </h2>

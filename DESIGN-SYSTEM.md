@@ -569,6 +569,8 @@ Sticky filter bars: `<div class="sticky-bar">` (hairline + blur always; sticky o
 - **Hub filters vs content-page jump:** the chip rail looks the same. **Hubs filter**
   (`All` + on-page groups; each chip shows a `chip-count` in `text-label` / 11px;
   selecting a chip hides the rest; hash-sync like Departments).
+  Hub cards/items within each visible section must render in **A–Z** order by title
+  (or name when title is unavailable), independent of source JSON order.
   **Innermost content-full pages scroll** (no `All` chip; hash chips jump to the section
   and never hide content; sticky while reading on desktop, non-sticky on mobile/tablet).
   On mobile, the chip rail stacks vertically (single column) to avoid consuming vertical
@@ -597,6 +599,11 @@ Sticky filter bars: `<div class="sticky-bar">` (hairline + blur always; sticky o
 Preset-driven SVG art for interior-page heroes. Living catalog: `/ds/illustrations`.
 
 **Source of truth is production code**, not `public/ds/illustrations.html` (archived mockup engine — do not port or iframe it).
+
+**Gradient parity (Facts Orbit):** the illustration background “blob” uses the same radial multi-stop gradient as
+`FactsOrbitSection`:
+- anchor: `circle at 32% 28%`
+- stops: `#F76B79` @ 0%, `#E30016` @ 42%, `#C40012` @ 72%, `#1B2441` @ 100%
 
 | Piece | Path |
 |---|---|

@@ -395,15 +395,8 @@
             {
               "label": "Patient Stories",
               "href": "/success-stories"
-            },
-            {
-              "label": "Forms",
-              "href": "/patient-welfare/patient-information-guide"
-            },
-            {
-              "label": "Online Services",
-              "href": "/patient-welfare/patient-information-guide"
             }
+            
           ]
         }
       ]

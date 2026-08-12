@@ -20,6 +20,7 @@ type EventsHubContentProps = {
 
 export function EventsHubContent({ hub, hospitalEvents, holidayCalendar }: EventsHubContentProps) {
   const [activeTab, setActiveTab] = useState<'hospital' | 'calendar'>('hospital')
+  const sortedHospitalEvents = [...hospitalEvents].sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
 
   return (
     <div className="bg-white">
@@ -54,7 +55,7 @@ export function EventsHubContent({ hub, hospitalEvents, holidayCalendar }: Event
             <div className="flex flex-col gap-6">
               {hospitalEvents.length > 0 ? (
                 <div className="card-grid card-grid--3">
-                  {hospitalEvents.map((event) => {
+                  {sortedHospitalEvents.map((event) => {
                     const cardDate = parseEventCardDate(event.eventDate)
                     return (
                       <ArticleCard

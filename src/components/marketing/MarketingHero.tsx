@@ -42,7 +42,7 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
               )
             ) : null}
             {hero.links && hero.links.length > 0 ? (
-              <div className="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
+              <div className="flex w-full flex-col items-center gap-3 pt-4 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
                 {hero.links.map((link) => {
                   const className =
                     link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary'
