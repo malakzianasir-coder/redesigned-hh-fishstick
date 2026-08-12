@@ -10,6 +10,7 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { getServerSideURL } from '@/utilities/getURL'
 import { LiveblocksContext } from '@/providers/LiveblocksContext'
+import { FeedbackErrorBoundary } from '@/components/feedback/FeedbackErrorBoundary'
 import { FeedbackOverlay } from '@/components/feedback/FeedbackOverlay'
 
 import './globals.css'
@@ -38,7 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <SiteHeader />
                 <main className="flex-1">{children}</main>
                 <SiteFooter />
-                <FeedbackOverlay />
+                <FeedbackErrorBoundary>
+                  <FeedbackOverlay />
+                </FeedbackErrorBoundary>
               </LenisProvider>
             </LiveblocksContext>
           ) : (
