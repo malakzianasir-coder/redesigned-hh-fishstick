@@ -9,12 +9,12 @@
       -> Panel column(s)
         -> Group (heading in .field-label-text style)
           -> Links (text-b14, hover primary-red)
-    Featured slot (right column) only in: Medical Departments, Donate / Ways to Give.
+    Featured slot (right column) only in: Clinical Departments, Donate / Ways to Give.
     Each panel also has a footer "view all" link (not counted as a nav link).
 
   TOP-LEVEL IA + LINK COUNTS
     1. Our Purpose / About Us .......... 3 groups, 13 links
-    2. Medical Departments ............. 4 groups, 18 links, featured
+    2. Clinical Departments ............. 4 groups, 18 links, featured
     3. Doctors ......................... 1 group, 3 links
     4. Patient Care & Facilities ....... 3 groups, 12 links
     5. Diagnostics ..................... 3 groups, 5 links
@@ -27,7 +27,7 @@
     Our Purpose anchors ....... /about-our-purpose-design-system.html#.. (mockup; proposed pages slug)
     Leadership & Governance ... /leadership-governance-design-system.html#.. (mockup; GAP - no CMS route)
     Messages .................. /leadership-messages-design-system.html (mockup; about page references /chairmans-message + /presidents-message)
-    Medical Departments ....... /departments + /departments/{slug} (departments collection) - MAPPED
+    Clinical Departments ....... /departments + /departments/{slug} (departments collection) - MAPPED
       General Surgery ......... /department-page-design-system-general-surgery.html (mockup of /departments/general-surgery)
     Doctors ................... /doctors, /doctors/visiting-consultants, /doctors/heads-of-departments - MAPPED
     Patient Care & Facilities . /services + /services/{slug} (services collection) - MAPPED
@@ -153,10 +153,10 @@
     .btn-primary:hover { background: #1B2441; }
     .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
     .btn-ghost {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
       border: 1px solid rgb(27 36 65 / .25); background: transparent;
-      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+      color: #1B2441; font-size: 16px; font-weight: 700; transition: all .3s;
     }
     .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
 
@@ -288,7 +288,7 @@
           The inventory, route mapping, and CMS proposal are below.
         </p>
         <div class="pt-4 flex flex-wrap gap-3">
-          <a href="#inventory" class="btn-primary text-b14 min-h-[44px] px-5">View inventory</a>
+          <a href="#inventory" class="btn-primary">View inventory</a>
           <a href="/ds/elements" class="btn-ghost">Elements inventory</a>
         </div>
       </div>
@@ -313,7 +313,7 @@
         </article>
         <article class="card p-5 flex flex-col gap-2 reveal" style="transition-delay:.12s">
           <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Featured slots</h3>
-          <p class="text-b14 text-primary-blue/85">Medical Departments and Donate / Ways to Give include a right-side featured card with image slot and a ghost-button link.</p>
+          <p class="text-b14 text-primary-blue/85">Clinical Departments and Donate / Ways to Give include a right-side featured card with image slot and a ghost-button link.</p>
         </article>
         <article class="card p-5 flex flex-col gap-2 reveal" style="transition-delay:.18s">
           <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Mobile drawer</h3>
@@ -341,7 +341,7 @@
         <p class="text-b14 text-primary-blue/85">
           Four levels: <strong>top-level item (8)</strong> → <strong>panel columns</strong> → <strong>groups</strong> (heading in
           <code>.field-label-text</code> style) → <strong>links</strong> (<code>.mega-link</code>, hover → primary-red).
-          Featured slots (image + line + ghost link) appear only in Medical Departments and Donate / Ways to Give.
+          Featured slots (image + line + ghost link) appear only in Clinical Departments and Donate / Ways to Give.
           Each panel ends with a footer “view all” link (not counted below).
         </p>
         <div class="inv-scroll">
@@ -357,7 +357,7 @@
             </thead>
             <tbody>
               <tr><td>1. Our Purpose / About Us</td><td>3 — Our Purpose · Leadership &amp; Governance · Messages</td><td>13</td><td class="dim">—</td><td class="dim">About Hijaz Hospital</td></tr>
-              <tr><td>2. Medical Departments</td><td>4 — Surgery &amp; Allied · Internal Medicine &amp; Allied · Mother &amp; Child · Specialized Care</td><td>18</td><td>General Surgery</td><td class="dim">View all departments</td></tr>
+              <tr><td>2. Clinical Departments</td><td>4 — Surgery &amp; Allied · Internal Medicine &amp; Allied · Mother &amp; Child · Specialized Care</td><td>18</td><td>General Surgery</td><td class="dim">View all departments</td></tr>
               <tr><td>3. Doctors</td><td>1 — Our Doctors</td><td>3</td><td class="dim">—</td><td class="dim">Find a doctor</td></tr>
               <tr><td>4. Patient Care &amp; Facilities</td><td>3 — Hospital Facilities · Clinical Support · Support Services</td><td>12</td><td class="dim">—</td><td class="dim">View all services</td></tr>
               <tr><td>5. Diagnostics</td><td>3 — Pathology / Clinical Laboratory · Radiology &amp; Imaging · Cardiac Diagnostics</td><td>5</td><td class="dim">—</td><td class="dim">All diagnostic services</td></tr>
@@ -393,7 +393,7 @@
               <tr><td>Our Purpose (5 anchors)</td><td class="dim">/about-our-purpose-design-system.html#…</td><td>pages — proposed slug (e.g. /our-purpose)</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
               <tr><td>Leadership &amp; Governance (6 anchors)</td><td class="dim">/leadership-governance-design-system.html#…</td><td>No CMS route — proposed pages children (founders, chairpersons, presidents, management, committees)</td><td><span class="tag tag-gap">Gap</span></td></tr>
               <tr><td>Messages (2)</td><td class="dim">/leadership-messages-design-system.html</td><td>pages slugs /chairmans-message + /presidents-message referenced from about page</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
-              <tr><td>Medical Departments</td><td class="dim">/departments</td><td>departments collection + hub (categories)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
+              <tr><td>Clinical Departments</td><td class="dim">/departments</td><td>departments collection + hub (categories)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
               <tr><td>— General Surgery</td><td class="dim">/department-page-design-system-general-surgery.html</td><td>/departments/{general-surgery}</td><td><span class="tag tag-mockup">Mockup</span></td></tr>
               <tr><td>Doctors (3 links)</td><td class="dim">/doctors · /doctors/visiting-consultants · /doctors/heads-of-departments</td><td>doctors collection hubs (+ legacy redirects)</td><td><span class="tag tag-mapped">Mapped</span></td></tr>
               <tr><td>Patient Care &amp; Facilities</td><td class="dim">/services</td><td>services collection + hub</td><td><span class="tag tag-mapped">Mapped</span></td></tr>

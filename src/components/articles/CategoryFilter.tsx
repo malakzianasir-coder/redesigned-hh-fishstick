@@ -48,8 +48,8 @@ export function CategoryFilter({
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <p className="field-label-text">{label}</p>
+    <div className="flex flex-wrap items-center justify-center gap-2">
+      <span className="field-label-text mr-1">{label}</span>
       <div className="flex flex-wrap justify-center gap-2">
         <Link
           href={buildHref(null)}

@@ -108,7 +108,7 @@
     },
     {
       "id": "departments",
-      "label": "Medical Departments",
+      "label": "Clinical Departments",
       "moreLink": {
         "label": "View all departments →",
         "href": "/departments"
@@ -269,6 +269,28 @@
           ]
         },
         {
+          "heading": "Diagnostics",
+          "href": "/services#diagnostics",
+          "links": [
+            {
+              "label": "Clinical Laboratory Overview",
+              "href": "/services/pathology"
+            },
+            {
+              "label": "Radiology & Imaging",
+              "href": "/services/radiology"
+            },
+            {
+              "label": "Cardiac Diagnostics",
+              "href": "/services/cardiac-diagnostics"
+            },
+            {
+              "label": "List of Tests Available",
+              "href": "/lab-tests"
+            }
+          ]
+        },
+        {
           "heading": "Support Services",
           "href": "/services#support",
           "links": [
@@ -286,53 +308,10 @@
             }
           ]
         }
+        
       ]
     },
     {
-      "id": "diagnostics",
-      "label": "Diagnostics",
-      "moreLink": {
-        "label": "All diagnostic services →",
-        "href": "/services#diagnostics"
-      },
-      "groups": [
-        {
-          "heading": "Clinical Laboratory",
-          "href": "/services#diagnostics",
-          "links": [
-            {
-              "label": "Clinical Laboratory Overview",
-              "href": "/services/pathology"
-            },
-            {
-              "label": "List of Tests Available",
-              "href": "/lab-tests"
-            }
-          ]
-        },
-        {
-          "heading": "Radiology & Imaging",
-          "href": "/services#diagnostics",
-          "links": [
-            {
-              "label": "Radiology & Imaging",
-              "href": "/services/radiology"
-            }
-          ]
-        },
-        {
-          "heading": "Cardiac Diagnostics",
-          "href": "/services#diagnostics",
-          "links": [
-            {
-              "label": "Cardiac Diagnostics",
-              "href": "/services/cardiac-diagnostics"
-            }
-          ]
-        }
-      ]
-    },
-        {
       "id": "doctors",
       "label": "Doctors",
       "moreLink": {

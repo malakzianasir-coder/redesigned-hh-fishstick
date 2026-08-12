@@ -76,7 +76,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
             </div>
             <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-dark-gray/15 bg-white p-4">
-                <dt className="mb-2 flex items-center gap-2 text-b12 font-semibold uppercase tracking-kicker text-dark-gray">
+                <dt className="field-label-text mb-2 flex items-center gap-2">
                   <PhoneCall size={16} weight="duotone" />
                   UAN
                 </dt>
@@ -90,7 +90,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
                 </dd>
               </div>
               <div className="rounded-2xl border border-dark-gray/15 bg-white p-4">
-                <dt className="mb-2 flex items-center gap-2 text-b12 font-semibold uppercase tracking-kicker text-dark-gray">
+                <dt className="field-label-text mb-2 flex items-center gap-2">
                   <Phone size={16} weight="duotone" />
                   Phone
                 </dt>
@@ -104,7 +104,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
                 </dd>
               </div>
               <div className="rounded-2xl border border-dark-gray/15 bg-white p-4">
-                <dt className="mb-2 flex items-center gap-2 text-b12 font-semibold uppercase tracking-kicker text-dark-gray">
+                <dt className="field-label-text mb-2 flex items-center gap-2">
                   <EnvelopeSimple size={16} weight="duotone" />
                   Email
                 </dt>

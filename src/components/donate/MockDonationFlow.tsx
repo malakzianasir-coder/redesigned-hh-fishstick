@@ -20,8 +20,10 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
         <div className="mx-auto flex max-w-3xl flex-col gap-6">
           <div className="text-center">
             <p className="kicker">Mockup Flow</p>
-            <h1 className="text-h3M font-bold text-primary-blue lg:text-h3">{title}</h1>
-            <p className="mt-2 text-b16 text-primary-blue/85">
+            <h1 className="text-h3M font-bold leading-[120%] tracking-display text-primary-blue lg:text-h3">
+              {title}
+            </h1>
+            <p className="mt-2 text-b16 leading-[150%] text-primary-blue/85">
               This is a prototype only. Payment is simulated and no real transaction happens on the
               site.
             </p>
@@ -67,10 +69,7 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
                 {causeLabel}
               </p>
             ) : null}
-            <button
-              type="submit"
-              className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-primary-red px-6 text-b16 font-bold text-white transition-colors duration-300 hover:bg-primary-blue"
-            >
+            <button type="submit" className="btn-primary">
               Proceed to JazzCash (Mock)
             </button>
           </form>

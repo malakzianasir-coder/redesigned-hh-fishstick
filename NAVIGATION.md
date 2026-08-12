@@ -47,6 +47,7 @@ filter slug so the pill activates on arrival:
 | Hospital Facilities | `/services#facilities` |
 | Clinical Support | `/services#clinical` |
 | Support Services | `/services#support` |
+| Diagnostics | `/services#diagnostics` |
 
 `CategoryHubGrid` keeps filter chips in sync with `location.hash` (click updates hash;
 hash / back-forward activates the matching pill). Use `#all` or no hash for “All”.
@@ -171,8 +172,7 @@ Home / About Us / Our Impact / Our Supporters
 | `about` | About us | `/about-us` (+ purpose, leadership, messages, impact via group headings) |
 | `departments` | Departments | `/departments` |
 | `doctors` | Doctors | `/doctors` |
-| `patient-care` | Patient Care | `/services` |
-| `diagnostics` | Diagnostics | service pages under `/services/...` + `/lab-tests` |
+| `patient-care` | Patient Care | `/services` (Hospital Facilities, Clinical Support, Support Services, Diagnostics) |
 | `patient-welfare` | Patient Welfare | `/patient-welfare` |
 | `donate` | Donate | `/donate` (+ what-you-can-support & how-to-donate hubs) |
 
@@ -226,7 +226,7 @@ Bottom legal/utility row (same file):
 | Label | Href |
 |---|---|
 | Patient Rights | `/patient-welfare/patient-rights` |
-| Medical Departments | `/departments` |
+| Clinical Departments | `/departments` |
 | Our Impact | `/our-impact` |
 
 **Rules:** use the same `/donate/...` URL family as the mega menu; point service

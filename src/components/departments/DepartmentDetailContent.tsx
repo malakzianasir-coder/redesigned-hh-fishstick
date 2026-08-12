@@ -1,6 +1,7 @@
 import { renderDonateSection } from '@/components/donate/renderDonateSection'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { toMarketingHero } from '@/lib/content/toMarketingHero'
 import type { DepartmentRecord } from '@/lib/content/types'
 
@@ -27,21 +28,23 @@ export function DepartmentDetailContent({ page }: DepartmentDetailContentProps) 
           ],
   }
 
-  const jumpLinks =
+  const jumpLinks = withJumpExternals(
     page.jumpLinks && page.jumpLinks.length > 0
       ? page.jumpLinks
       : [
           { label: 'Overview', href: '#overview' },
           { label: 'Services', href: '#services' },
           { label: 'Why Choose Us', href: '#why-choose' },
-        ]
+        ],
+    [{ label: 'All Departments', href: '/departments' }],
+  )
 
   return (
     <article>
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Medical Departments', href: '/departments' },
+          { label: 'Clinical Departments', href: '/departments' },
           {
             label: page.category,
             href: page.categorySlug ? `/departments#${page.categorySlug}` : '/departments',

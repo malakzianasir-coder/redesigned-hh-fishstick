@@ -1,11 +1,9 @@
-import Link from 'next/link'
-
+import { ChipRail } from '@/components/sections/ChipRail'
 import {
   MARKETING_ICON_MAP,
   type MarketingIconName,
 } from '@/components/marketing/marketingIcons'
 import type { HowToDonateMethod } from '@/lib/content/types'
-import { cn } from '@/utilities/ui'
 
 type HowToDonateMethodNavProps = {
   methods: HowToDonateMethod[]
@@ -14,31 +12,27 @@ type HowToDonateMethodNavProps = {
 
 export function HowToDonateMethodNav({ methods, activeSlug }: HowToDonateMethodNavProps) {
   return (
-    <nav
-      className="border-y border-dark-gray/15 bg-white"
-      aria-label="Donation methods"
-    >
-      <div className="container mx-auto px-6 py-3 lg:px-[30px]">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="field-label-text mr-1">Methods</span>
-          <Link
-            href="/donate/how-to-donate"
-            className={cn('chip', !activeSlug && 'is-active')}
-          >
-            Overview
-          </Link>
-          {methods.map((method) => (
-            <Link
-              key={method.slug}
-              href={`/donate/how-to-donate/${method.slug}`}
-              className={cn('chip', activeSlug === method.slug && 'is-active')}
-            >
-              {method.navLabel}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </nav>
+    <ChipRail
+      className="jump-nav-rail"
+      label="Methods"
+      ariaLabel="Donation methods"
+      items={[
+        {
+          label: 'Overview',
+          href: '/donate/how-to-donate',
+          active: !activeSlug,
+        },
+        ...methods.map((method) => ({
+          label: method.navLabel,
+          href: `/donate/how-to-donate/${method.slug}`,
+          active: activeSlug === method.slug,
+        })),
+      ]}
+      externals={[
+        { label: 'Ways to Give', href: '/donate' },
+        { label: 'What You Can Support', href: '/donate/what-you-can-support' },
+      ]}
+    />
   )
 }
 

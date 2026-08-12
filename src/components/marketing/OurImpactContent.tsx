@@ -11,7 +11,9 @@ import { HeadlineStatsGrid } from '@/components/marketing/HeadlineStatsGrid'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { OurImpactRecord } from '@/lib/content/types'
 
 export function OurImpactContent({ page }: { page: OurImpactRecord }) {
@@ -25,15 +27,12 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav links={withJumpExternals(page.jumpLinks, [{ label: 'About Us', href: '/about-us' }])} />
 
       {page.award ? (
         <section id="award" className="section-anchor bg-white">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-            <div className="flex flex-col gap-[6px] text-center">
-              <p className="kicker">{page.award.kicker}</p>
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{page.award.kicker}</h2>
-            </div>
+            <BlockHeader kicker={page.award.kicker} title={page.award.kicker} />
             <article className="card-interactive flex flex-col items-start gap-6 p-6 lg:flex-row lg:p-8">
               {page.award.image ? (
                 <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-2xl border border-dark-gray/15 bg-white">
@@ -69,11 +68,11 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
       {page.healthPartners ? (
         <section id="health-partners" className="section-anchor bg-whitebg">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-            <div className="flex flex-col gap-[6px] text-center">
-              <p className="kicker">Our Health Partners</p>
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Health Partners</h2>
-              <p className="mx-auto max-w-3xl text-b16 text-primary-blue/85">{page.healthPartners.intro}</p>
-            </div>
+            <BlockHeader
+              kicker="Our Health Partners"
+              title="Our Health Partners"
+              lede={page.healthPartners.intro}
+            />
             {page.healthPartners.groups.map((group) => {
               const IconComponent = group.icon ? MARKETING_ICON_MAP[group.icon as keyof typeof MARKETING_ICON_MAP] : null
               return (
@@ -160,13 +159,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
 
       <section id="facts-statistics" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Impact</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Facts & Statistics</h2>
-            {page.factsStatsLede ? (
-              <p className="text-b16 text-primary-blue/85">{page.factsStatsLede}</p>
-            ) : null}
-          </div>
+          <BlockHeader kicker="Our Impact" title="Facts & Statistics" lede={page.factsStatsLede} />
           {(page.headlineStats?.length || page.serviceStats.length > 0) ? (
             <HeadlineStatsGrid
               primary={page.headlineStats ?? []}
@@ -238,13 +231,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
       {page.eventsCalendar ? (
         <section id="events-calendar" className="section-anchor bg-white">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-            <div className="flex flex-col gap-[6px] text-center">
-              <p className="kicker">Our Impact</p>
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Events Calendar</h2>
-              {page.eventsCalendar.lede ? (
-                <p className="text-b16 text-primary-blue/85">{page.eventsCalendar.lede}</p>
-              ) : null}
-            </div>
+            <BlockHeader kicker="Our Impact" title="Events Calendar" lede={page.eventsCalendar.lede} />
             <div className="card p-4 lg:p-6">
               <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-x-6">
                 {page.eventsCalendar.rows.map((row) => (
@@ -264,13 +251,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
 
       <section id="highlights" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Impact</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Highlights</h2>
-            {page.highlightsLede ? (
-              <p className="text-b16 text-primary-blue/85">{page.highlightsLede}</p>
-            ) : null}
-          </div>
+          <BlockHeader kicker="Our Impact" title="Highlights" lede={page.highlightsLede} />
           <div className="card-grid card-grid--3">
             {page.highlights.map((item) => (
               <Link

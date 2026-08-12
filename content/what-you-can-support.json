@@ -7,13 +7,20 @@
     "title": "What You Can Support",
     "excerpt": "From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects — choose how your gift strengthens care for deserving patients.",
     "media": {
-      "type": "placeholder",
-      "placeholderLabel": "What You Can Support",
-      "icon": "HandHeart"
+      "type": "illustration",
+      "preset": "page/what-you-can-support"
     },
     "links": [
-      { "label": "Donate a Meal", "href": "/donate/what-you-can-support/donate-a-meal", "variant": "primary" },
-      { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "ghost" }
+      {
+        "label": "Donate a Meal",
+        "href": "/donate/what-you-can-support/donate-a-meal",
+        "variant": "primary"
+      },
+      {
+        "label": "How to Donate",
+        "href": "/donate/how-to-donate",
+        "variant": "ghost"
+      }
     ]
   },
   "causes": [
@@ -29,12 +36,15 @@
         "title": "Donate a Meal",
         "excerpt": "Nourish a Patient. Support Their Recovery.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Donate a Meal",
-          "icon": "HandHeart"
+          "type": "illustration",
+          "preset": "page/donate-a-meal"
         },
         "links": [
-          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+          {
+            "label": "How to Donate",
+            "href": "/donate/how-to-donate",
+            "variant": "primary"
+          }
         ]
       },
       "body": [
@@ -45,10 +55,22 @@
         "heading": "Your Donation Can Provide",
         "intro": "The following sponsorship amounts illustrate how your donation can help provide nutritious meals to deserving patients:",
         "rows": [
-          { "amount": "PKR 500", "impact": "1 nutritious meal" },
-          { "amount": "PKR 1,500", "impact": "Meals for a patient for 3 days" },
-          { "amount": "PKR 3,500", "impact": "Meals for a patient for 1 week" },
-          { "amount": "PKR 15,000", "impact": "Meals for a patient for 1 month" }
+          {
+            "amount": "PKR 500",
+            "impact": "1 nutritious meal"
+          },
+          {
+            "amount": "PKR 1,500",
+            "impact": "Meals for a patient for 3 days"
+          },
+          {
+            "amount": "PKR 3,500",
+            "impact": "Meals for a patient for 1 week"
+          },
+          {
+            "amount": "PKR 15,000",
+            "impact": "Meals for a patient for 1 month"
+          }
         ],
         "note": "Note: Estimated costs may change over time."
       },
@@ -70,12 +92,15 @@
         "title": "Donate in Kind",
         "excerpt": "Support Patient Care Through Essential Supplies",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Donate in Kind",
-          "icon": "Package"
+          "type": "illustration",
+          "preset": "page/donate-in-kind"
         },
         "links": [
-          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+          {
+            "label": "How to Donate",
+            "href": "/donate/how-to-donate",
+            "variant": "primary"
+          }
         ]
       },
       "body": [
@@ -110,12 +135,15 @@
         "title": "Sponsor a Patient",
         "excerpt": "Become a Source of Healing and Hope",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Sponsor a Patient",
-          "icon": "UserCircleGear"
+          "type": "illustration",
+          "preset": "page/sponsor-a-patient"
         },
         "links": [
-          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+          {
+            "label": "How to Donate",
+            "href": "/donate/how-to-donate",
+            "variant": "primary"
+          }
         ]
       },
       "body": [
@@ -158,12 +186,15 @@
         "title": "Sponsor Free Surgeries",
         "excerpt": "Support Life-Changing Surgical Care",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Sponsor Free Surgeries",
-          "icon": "HandHeart"
+          "type": "illustration",
+          "preset": "page/sponsor-free-surgeries"
         },
         "links": [
-          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+          {
+            "label": "How to Donate",
+            "href": "/donate/how-to-donate",
+            "variant": "primary"
+          }
         ]
       },
       "body": [
@@ -206,12 +237,15 @@
         "title": "Support a Project",
         "excerpt": "Help Build the Future of Healthcare",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Support a Project",
-          "icon": "Buildings"
+          "type": "illustration",
+          "preset": "page/support-a-project"
         },
         "links": [
-          { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" }
+          {
+            "label": "How to Donate",
+            "href": "/donate/how-to-donate",
+            "variant": "primary"
+          }
         ]
       },
       "body": [

@@ -232,7 +232,7 @@ export function WaysToGiveSection({
 
                 </div>
 
-                <Link href={content.online.ctaHref} className="btn-primary min-h-[44px] px-5 text-b14">
+                <Link href={content.online.ctaHref} className="btn-primary">
 
                   {content.online.ctaLabel}
 

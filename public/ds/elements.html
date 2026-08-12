@@ -11,10 +11,9 @@
   ─────────────────────────────────────────────────────────────────────────
   Buttons
     btn-primary        · default / hover(bg→primary-blue) / focus-visible(ring primary-red/40) / disabled · light bg CTAs, all pages
-    btn-primary small  · + text-b14 min-h-[44px] px-5 · hero secondary CTAs
-    btn-ghost          · default / hover(bg→primary-red) / focus-visible / disabled · light bg secondary actions
+    btn-ghost          · same size as primary · default / hover(bg→primary-red) / focus-visible / disabled · light bg secondary actions
     btn-on-dark        · default(white bg) / hover(bg→primary-red, white text) / focus-visible(ring white/40) / disabled · navy CTA bands
-    btn-on-dark-ghost  · default(white/25 border) / hover(white bg, blue text) / focus-visible · navy bands, secondary
+    btn-on-dark-ghost  · same size as on-dark · default(white/25 border) / hover(white bg, blue text) / focus-visible · navy bands, secondary
   Labels & chips
     kicker             · static · section headers, all pages
     field-label-text   · static · form labels, sticky-bar prefix, CMS notes
@@ -131,10 +130,10 @@
     .btn-primary:hover { background: #1B2441; }
     .btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
     .btn-ghost {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
       border: 1px solid rgb(27 36 65 / .25); background: transparent;
-      color: #1B2441; font-size: 14px; font-weight: 600; transition: all .3s;
+      color: #1B2441; font-size: 16px; font-weight: 700; transition: all .3s;
     }
     .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
     .btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / .4); }
@@ -147,10 +146,10 @@
     .btn-on-dark:hover { background: #E30016; color: #fff; }
     .btn-on-dark:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
     .btn-on-dark-ghost {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 0 24px; border-radius: 999px;
       border: 1px solid rgb(255 255 255 / .25); background: transparent;
-      color: #fff; font-size: 14px; font-weight: 600; transition: all .3s;
+      color: #fff; font-size: 16px; font-weight: 700; transition: all .3s;
     }
     .btn-on-dark-ghost:hover { background: #fff; border-color: #fff; color: #1B2441; }
     .btn-on-dark-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B2441, 0 0 0 4px rgb(255 255 255 / .4); }
@@ -269,10 +268,10 @@
         <p class="cms-note text-center">.btn-primary · default → hover bg primary-blue · focus-visible ring primary-red/40 · transition background-color .3s ease-in-out</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
           <button type="button" class="btn-primary">Donate Now</button>
-          <button type="button" class="btn-primary text-b14 min-h-[44px] px-5">Small · 44px</button>
+          <button type="button" class="btn-ghost">Why Choose Us</button>
           <button type="button" class="btn-primary" data-disabled>Disabled</button>
         </div>
-        <p class="cms-note text-center">.btn-ghost · default → hover bg primary-red + white text · min-h 44px</p>
+        <p class="cms-note text-center">.btn-ghost · same size as primary · default → hover bg primary-red + white text</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
           <button type="button" class="btn-ghost">Why Choose Us</button>
           <button type="button" class="btn-ghost" data-disabled>Disabled</button>
@@ -284,7 +283,7 @@
         <p class="cms-note text-center !text-white/60 relative">.btn-on-dark · white bg + blue text → hover bg primary-red + white text · focus-visible ring white/40</p>
         <div class="relative flex flex-wrap items-center justify-center gap-4">
           <button type="button" class="btn-on-dark">Donate Now</button>
-          <button type="button" class="btn-on-dark text-b14 min-h-[44px] px-5">Small · 44px</button>
+          <button type="button" class="btn-on-dark-ghost">Learn More</button>
           <button type="button" class="btn-on-dark" data-disabled>Disabled</button>
         </div>
         <p class="cms-note text-center !text-white/60 relative">.btn-on-dark-ghost · border white/25 + white text → hover white bg + blue text</p>
@@ -428,7 +427,7 @@
           <ol class="flex flex-wrap items-center gap-2 text-b12 leading-[150%] text-dark-gray">
             <li><a href="/" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Home</a></li>
             <li class="text-dark-gray/40">/</li>
-            <li><a href="/departments" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Medical Departments</a></li>
+            <li><a href="/departments" class="text-primary-blue hover:text-primary-red transition-colors duration-200">Clinical Departments</a></li>
             <li class="text-dark-gray/40">/</li>
             <li aria-current="page" class="font-semibold text-primary-blue">General Surgery</li>
           </ol>

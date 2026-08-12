@@ -5,6 +5,7 @@ import { User } from '@phosphor-icons/react/dist/ssr'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import type { SingleMessagePageRecord } from '@/lib/content/types'
 
 export function SingleMessageContent({ page }: { page: SingleMessagePageRecord }) {
@@ -22,7 +23,12 @@ export function SingleMessageContent({ page }: { page: SingleMessagePageRecord }
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav
+        links={withJumpExternals(page.jumpLinks, [
+          ...(otherMessage ? [{ label: otherMessage.title, href: otherMessage.href }] : []),
+          { label: 'Messages', href: '/leadership/messages' },
+        ])}
+      />
 
       <section id={message.id} className="section-anchor bg-white">
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">

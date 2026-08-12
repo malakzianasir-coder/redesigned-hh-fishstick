@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { OurSupportersRecord } from '@/lib/content/types'
 
 export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
@@ -18,29 +20,27 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav
+        links={withJumpExternals(page.jumpLinks, [{ label: 'Our Impact', href: '/our-impact' }])}
+      />
 
       <section id="our-friends" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Our Friends / Supporters</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Friends / Supporters</h2>
-          </div>
-          <p className="max-w-2xl text-b16 text-primary-blue/85">{page.intro}</p>
+          <BlockHeader
+            kicker="Our Friends / Supporters"
+            title="Our Friends / Supporters"
+            lede={page.intro}
+          />
         </div>
       </section>
 
       <section id="donor-wall" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Donor Wall</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">
-              {page.donorWallHeading || 'Our Friends & Supporters'}
-            </h2>
-            {page.donorWallLede ? (
-              <p className="text-b16 text-primary-blue/85">{page.donorWallLede}</p>
-            ) : null}
-          </div>
+          <BlockHeader
+            kicker="Donor Wall"
+            title={page.donorWallHeading || 'Our Friends & Supporters'}
+            lede={page.donorWallLede}
+          />
           <div className="card-grid card-grid--4">
             {page.donors.map((donor) => {
               const inner = (

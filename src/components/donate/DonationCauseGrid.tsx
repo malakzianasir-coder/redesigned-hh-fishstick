@@ -52,7 +52,7 @@ export function DonationCauseGrid({
                 <p className="text-b14 text-primary-blue/85">{cause.excerpt}</p>
                 {cause.meta ? <p className="text-b12 text-dark-gray">{cause.meta}</p> : null}
                 <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                  {cause.linkLabel ?? 'Learn more'}
+                  {cause.linkLabel ?? cause.title}
                   <ArrowRight
                     size={16}
                     weight="bold"

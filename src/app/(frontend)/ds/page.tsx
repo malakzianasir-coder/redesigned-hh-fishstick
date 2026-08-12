@@ -28,6 +28,11 @@ const CATALOGS = [
     title: 'Illustrations',
     description: 'Live Illustration presets used on patient welfare and donate heroes.',
   },
+  {
+    href: '/ds/at-a-glance',
+    title: 'At a Glance',
+    description: '5-year totals: original orbit type, outer rings, tap a figure to focus the orb.',
+  },
 ]
 
 export default function DsIndexPage() {

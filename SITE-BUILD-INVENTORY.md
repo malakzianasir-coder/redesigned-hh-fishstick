@@ -41,7 +41,7 @@ Master spec for the Next.js + PayloadCMS implementation pass. Every page/route, 
 
 ---
 
-## 4. Medical Departments
+## 4. Clinical Departments
 
 **Source:** `Medical Departments (2).txt` — 4 categories, **17 departments** (catalog/hub mockup says "14" — drift, 3 added later: Dermatology, Dietetics & Nutrition, Physiotherapy). Slugs per `scripts/seed-departments-from-docx.mjs`.
 

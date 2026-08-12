@@ -170,7 +170,7 @@ function MegaPanel({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="mx-auto max-w-screen-xl px-6 py-8 xl:px-8">
+      <div className="container mx-auto px-6 py-8 lg:px-[30px]">
         <div className={cn('mx-auto w-full text-left', maxWidth)}>
           {doctorsGroup ? (
             <>
@@ -703,7 +703,7 @@ export function SiteHeader() {
         <div className="border-t border-dark-gray/15 px-6 py-4">
           <Link
             href="/services/emergency"
-            className="btn-primary flex w-full min-h-[48px] items-center justify-center text-b14"
+            className="btn-primary flex w-full items-center justify-center"
             onClick={navClick('/services/emergency', () => setDrawerOpen(false))}
           >
             Emergency

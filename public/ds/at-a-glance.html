@@ -1,0 +1,524 @@
+<!doctype html>
+<!--
+  AT A GLANCE — interactive mock
+  Keep: outer rings + orb colors, satellite selection, original center type.
+  Internal DS mock — do not render .cms-note on the patient-facing site.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>At a Glance · Interactive | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-gray': '#6B7183',
+            'red-soft': '#F76B79',
+            whitebg: '#F8F8F9',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b16: ['16px', { lineHeight: '150%' }], b14: ['14px', { lineHeight: '150%' }],
+            b12: ['12px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .cms-note { font-size: 12px; font-style: italic; color: #6B7183; }
+
+    .glance {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .glance-stage {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .glance-stage__orb { order: -1; margin-block: 8px 24px; }
+
+    .glance-col,
+    .glance-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 10px;
+    }
+
+    @media (min-width: 1024px) {
+      .glance-stage {
+        grid-template-columns: 1fr auto 1fr;
+        gap: 40px 48px;
+      }
+      .glance-stage__orb { order: 0; grid-column: 2; grid-row: 1; margin: 0; }
+      .glance-stage__left { grid-column: 1; grid-row: 1; }
+      .glance-stage__right { grid-column: 3; grid-row: 1; }
+      .glance-stage__bottom { grid-column: 1 / -1; }
+
+      .glance-col {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .glance-bottom {
+        max-width: 640px;
+        margin: 0 auto;
+        width: 100%;
+        gap: 24px;
+      }
+      .glance-col--left .glance-sat { align-items: flex-end; text-align: right; }
+      .glance-col--right .glance-sat { align-items: flex-start; text-align: left; }
+    }
+
+    .glance-sat {
+      appearance: none;
+      background: none;
+      border: 0;
+      padding: 4px 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: color .2s ease-in-out, background .2s ease-in-out;
+    }
+    .glance-sat.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    .glance-sat.is-inviting {
+      animation: glance-invite .7s ease-out both;
+    }
+    @keyframes glance-invite {
+      0% { transform: translateY(0) scale(1); }
+      45% { transform: translateY(-5px) scale(1.05); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    .glance-sat:hover,
+    .glance-sat:focus-visible {
+      outline: none;
+      background: rgb(227 0 22 / .04);
+    }
+    .glance-sat.is-active { background: rgb(227 0 22 / .08); }
+    .glance-sat__value {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 120%;
+      color: #E30016;
+      font-variant-numeric: tabular-nums;
+    }
+    .glance-sat__label {
+      font-size: 12px;
+      line-height: 140%;
+      color: rgb(27 36 65 / .85);
+    }
+    .glance-sat.is-active .glance-sat__label {
+      font-weight: 600;
+      color: #E30016;
+    }
+    @media (min-width: 1024px) {
+      .glance-sat { gap: 6px; padding: 8px; }
+      .glance-sat__value { font-size: 28px; }
+      .glance-sat__label { font-size: 14px; line-height: 150%; }
+    }
+
+    .glance-orb-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      justify-self: center;
+      animation: glance-orb-float 4.2s ease-in-out infinite;
+    }
+
+    @keyframes glance-orb-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.014); }
+    }
+
+    .glance-rings {
+      position: absolute;
+      inset: -18px;
+      pointer-events: none;
+    }
+    .glance-rings::before,
+    .glance-rings::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+    }
+    .glance-rings::before {
+      border: 1px dashed rgb(227 0 22 / .25);
+      animation: glance-ring-spin 28s linear infinite;
+    }
+    .glance-rings::after {
+      inset: 8px;
+      border: 1px solid rgb(107 113 131 / .15);
+      animation: glance-ring-spin 20s linear infinite reverse;
+    }
+    @keyframes glance-ring-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @media (min-width: 1024px) {
+      .glance-rings { inset: -28px; }
+      .glance-rings::after { inset: 14px; }
+    }
+
+    .glance-orb {
+      position: relative;
+      z-index: 1;
+      width: 200px;
+      height: 200px;
+      border-radius: 999px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      border: 0;
+      box-shadow:
+        0 16px 40px rgb(227 0 22 / .28),
+        0 4px 12px rgb(27 36 65 / .12);
+      cursor: pointer;
+      --gx: 32%;
+      --gy: 28%;
+    }
+    .glance-orb__bg {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle at var(--gx) var(--gy),
+        #F76B79 0%,
+        #E30016 42%,
+        #C40012 72%,
+        #1B2441 100%
+      );
+    }
+    .glance-orb__value,
+    .glance-orb__label {
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 1024px) {
+      .glance-orb {
+        width: 300px;
+        height: 300px;
+        gap: 4px;
+        padding: 24px;
+      }
+    }
+
+    .glance-orb__value {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 110%;
+      letter-spacing: -0.0032em;
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+    }
+    .glance-orb__label {
+      font-size: 12px;
+      line-height: 150%;
+      color: rgb(255 255 255 / .90);
+      max-width: 11em;
+    }
+    @media (min-width: 1024px) {
+      .glance-orb__value { font-size: 42px; }
+      .glance-orb__label { font-size: 14px; max-width: 14em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glance-sat,
+      .glance-sat.is-visible { opacity: 1; transform: none; animation: none; }
+      .glance-orb-wrap,
+      .glance-rings,
+      .glance-rings::before,
+      .glance-rings::after { animation: none; }
+    }
+
+    /* Mobile: whole block ≤ ~1.5 screens */
+    @media (max-width: 1023px) {
+      .glance-section { padding-top: 20px; padding-bottom: 20px; }
+      .glance-head { margin-bottom: 24px; gap: 4px; }
+      .glance-head h2 { font-size: 22px; }
+      .glance-head p { font-size: 12px; }
+    }
+  </style>
+</head>
+<body class="bg-white text-primary-blue">
+  <p class="cms-note px-6 pt-4 text-center lg:px-[30px]">Mock · outer rings + orb color · tap a total to focus the circle · tap the circle to reset</p>
+
+  <section id="glance" class="glance-section bg-white">
+    <div class="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+      <div class="glance-head mb-8 flex flex-col items-center gap-[6px] text-center">
+        <p class="kicker">By The Numbers</p>
+        <h2 class="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">Hijaz Hospital At a Glance</h2>
+        <p class="text-b16 leading-[150%] text-primary-blue/85">2021–2025 · 5-year performance totals</p>
+      </div>
+
+      <div class="glance glance-stage">
+        <div class="glance-col glance-col--left glance-stage__left" data-group="left"></div>
+
+        <div class="glance-orb-wrap glance-stage__orb" id="glance-orb-wrap">
+          <div class="glance-rings" aria-hidden="true"></div>
+          <button type="button" class="glance-orb" id="glance-orb" aria-live="polite" title="Reset to OPD total">
+            <span class="glance-orb__bg" aria-hidden="true"></span>
+            <span class="glance-orb__value" id="orb-value">0</span>
+            <span class="glance-orb__label" id="orb-label">OPD Patients Served</span>
+          </button>
+        </div>
+
+        <div class="glance-col glance-col--right glance-stage__right" data-group="right"></div>
+        <div class="glance-bottom glance-stage__bottom" data-group="bottom"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const HERO = { id: 'opd', value: 1257793, label: 'OPD Patients Served' }
+    const SATS = [
+      { id: 'surgeries', value: 46699, label: 'Surgeries Performed', group: 'left' },
+      { id: 'dialysis', value: 99747, label: 'Dialysis Performed', group: 'left' },
+      { id: 'ipd', value: 46674, label: 'IPD Patients Served', group: 'left' },
+      { id: 'lab', value: 269590, label: 'Laboratory (94% free)', group: 'right' },
+      { id: 'ultrasound', value: 118276, label: 'Ultrasound (91% free)', group: 'right' },
+      { id: 'xray', value: 43585, label: 'X-Ray (99.8% free)', group: 'right' },
+      { id: 'gynae', value: 180259, label: 'Gynae patients served', group: 'bottom' },
+      { id: 'eye', value: 42203, label: 'Eye patients served', group: 'bottom' },
+      { id: 'dental', value: 54676, label: 'Dental patients served', group: 'bottom' },
+    ]
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const byId = Object.fromEntries([HERO, ...SATS].map((m) => [m.id, m]))
+    let currentId = HERO.id
+    let displayed = 0
+    let countFrame = 0
+    let resetTimer = 0
+    let inviteTimer = 0
+    const INVITE_EVERY_MS = 5000
+    const INVITE_STAGGER_MS = 90
+
+    function clearReset() {
+      clearTimeout(resetTimer)
+      resetTimer = 0
+    }
+
+    function armReset() {
+      clearReset()
+      if (currentId === HERO.id) return
+      resetTimer = setTimeout(() => setFocus(HERO.id), 10000)
+    }
+
+    function playInvite() {
+      if (reduce) return
+      document.querySelectorAll('.glance-sat').forEach((el) => {
+        el.classList.remove('is-inviting')
+      })
+      void document.body.offsetHeight
+      document.querySelectorAll('.glance-sat').forEach((el) => {
+        const i = Number(el.style.getPropertyValue('--i')) || 0
+        setTimeout(() => {
+          el.classList.add('is-inviting')
+          el.addEventListener(
+            'animationend',
+            () => el.classList.remove('is-inviting'),
+            { once: true },
+          )
+        }, i * INVITE_STAGGER_MS)
+      })
+    }
+
+    function startInviteLoop() {
+      playInvite()
+      clearInterval(inviteTimer)
+      inviteTimer = setInterval(playInvite, INVITE_EVERY_MS)
+    }
+
+    function format(n) {
+      return Math.round(n).toLocaleString('en-PK')
+    }
+
+    function countTo(target) {
+      if (reduce) {
+        displayed = target
+        document.getElementById('orb-value').textContent = format(target)
+        return
+      }
+      cancelAnimationFrame(countFrame)
+      const from = displayed
+      const start = performance.now()
+      const dur = 900
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / dur)
+        const eased = 1 - (1 - t) ** 3
+        displayed = from + (target - from) * eased
+        document.getElementById('orb-value').textContent = format(displayed)
+        if (t < 1) countFrame = requestAnimationFrame(tick)
+      }
+      countFrame = requestAnimationFrame(tick)
+    }
+
+    function setFocus(id) {
+      const metric = byId[id] || HERO
+      currentId = metric.id
+      document.getElementById('orb-label').textContent = metric.label
+      countTo(metric.value)
+      document.querySelectorAll('.glance-sat').forEach((btn) => {
+        const on = btn.dataset.id === metric.id
+        btn.classList.toggle('is-active', on)
+        btn.setAttribute('aria-pressed', String(on))
+      })
+      if (metric.id === HERO.id) clearReset()
+      else armReset()
+    }
+
+    function satMarkup(sat, index) {
+      return `
+        <button type="button" class="glance-sat" data-id="${sat.id}" style="--i:${index}" aria-pressed="false">
+          <span class="glance-sat__value">${format(sat.value)}</span>
+          <span class="glance-sat__label">${sat.label}</span>
+        </button>
+      `
+    }
+
+    let satIndex = 0
+    ;['left', 'right', 'bottom'].forEach((group) => {
+      document.querySelector(`[data-group="${group}"]`).innerHTML = SATS
+        .filter((s) => s.group === group)
+        .map((s) => satMarkup(s, satIndex++))
+        .join('')
+    })
+
+    document.querySelectorAll('.glance-sat').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id
+        setFocus(id === currentId ? HERO.id : id)
+      })
+    })
+
+    document.getElementById('glance-orb').addEventListener('click', () => setFocus(HERO.id))
+
+    const orbEl = document.getElementById('glance-orb')
+    const GRADIENT_HOME = { x: 32, y: 28 }
+    const GRADIENT_MAX_OFFSET = 44
+    const GRADIENT_IDLE_MS = 500
+    const GRADIENT_LERP = 0.065
+    let gradTarget = { ...GRADIENT_HOME }
+    let gradCurrent = { ...GRADIENT_HOME }
+    let gradFrame = 0
+    let gradIdleTimer = 0
+
+    function returnGradientHome() {
+      clearTimeout(gradIdleTimer)
+      gradIdleTimer = 0
+      setGradientTarget(GRADIENT_HOME.x, GRADIENT_HOME.y)
+    }
+
+    function setGradientFromPointer(clientX, clientY) {
+      const rect = orbEl.getBoundingClientRect()
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+
+      let dx = clientX - cx
+      let dy = clientY - cy
+      const dist = Math.hypot(dx, dy)
+      if (dist < 1) {
+        setGradientTarget(GRADIENT_HOME.x, GRADIENT_HOME.y)
+        return
+      }
+
+      dx /= dist
+      dy /= dist
+
+      // Eye-like reach: direction follows cursor, travel capped near the home point.
+      const reach = Math.min(1, dist / (rect.width * 0.75))
+      const eased = reach * reach * (3 - 2 * reach)
+
+      setGradientTarget(
+        GRADIENT_HOME.x + dx * GRADIENT_MAX_OFFSET * eased,
+        GRADIENT_HOME.y + dy * GRADIENT_MAX_OFFSET * eased,
+      )
+    }
+
+    function setGradientTarget(x, y) {
+      gradTarget = { x, y }
+      if (!gradFrame && !reduce) gradFrame = requestAnimationFrame(tickGradient)
+    }
+
+    function tickGradient() {
+      gradCurrent.x += (gradTarget.x - gradCurrent.x) * GRADIENT_LERP
+      gradCurrent.y += (gradTarget.y - gradCurrent.y) * GRADIENT_LERP
+      orbEl.style.setProperty('--gx', `${gradCurrent.x}%`)
+      orbEl.style.setProperty('--gy', `${gradCurrent.y}%`)
+      const settled =
+        Math.abs(gradTarget.x - gradCurrent.x) < 0.03 &&
+        Math.abs(gradTarget.y - gradCurrent.y) < 0.03
+      if (settled) {
+        gradFrame = 0
+        return
+      }
+      gradFrame = requestAnimationFrame(tickGradient)
+    }
+
+    if (!reduce) {
+      document.addEventListener('pointermove', (e) => {
+        clearTimeout(gradIdleTimer)
+        setGradientFromPointer(e.clientX, e.clientY)
+        gradIdleTimer = setTimeout(returnGradientHome, GRADIENT_IDLE_MS)
+      })
+      document.addEventListener('pointerleave', returnGradientHome)
+    }
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return
+        document.querySelectorAll('.glance-sat').forEach((el) => el.classList.add('is-visible'))
+        setFocus(HERO.id)
+        startInviteLoop()
+        io.disconnect()
+      },
+      { threshold: 0.25 },
+    )
+    io.observe(document.getElementById('glance'))
+  </script>
+</body>
+</html>

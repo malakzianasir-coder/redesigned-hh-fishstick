@@ -1,6 +1,7 @@
 import { renderDonateSection } from '@/components/donate/renderDonateSection'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { toMarketingHero } from '@/lib/content/toMarketingHero'
 import type { ServiceRecord } from '@/lib/content/types'
 
@@ -27,13 +28,15 @@ export function ServiceDetailContent({ page }: ServiceDetailContentProps) {
           ],
   }
 
-  const jumpLinks =
+  const jumpLinks = withJumpExternals(
     page.jumpLinks && page.jumpLinks.length > 0
       ? page.jumpLinks
       : [
           { label: 'Overview', href: '#overview' },
           { label: 'Services', href: '#services' },
-        ]
+        ],
+    [{ label: 'All Services', href: '/services' }],
+  )
 
   return (
     <article>

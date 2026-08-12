@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { StatsRowSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -14,14 +15,11 @@ export function StatsRowSection({ section }: { section: StatsRowSectionData }) {
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        {(kicker || heading) && (
-          <div className="mb-8 flex flex-col gap-[6px] text-center">
-            {kicker ? <p className="kicker">{kicker}</p> : null}
-            {heading ? (
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-            ) : null}
+        {heading ? (
+          <div className="mb-8">
+            <BlockHeader kicker={kicker} title={heading} />
           </div>
-        )}
+        ) : null}
         <div className="card-grid card-grid--3 mx-auto max-w-3xl">
           {stats.map((stat) => (
             <article key={stat.label} className="card p-6 text-center">

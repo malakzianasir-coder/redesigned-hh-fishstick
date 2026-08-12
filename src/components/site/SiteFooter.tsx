@@ -262,7 +262,7 @@ export function SiteFooter() {
               Patient Rights
             </Link>
             <Link href="/departments" className="footer-link text-b14 leading-[150%]">
-              Medical Departments
+              Clinical Departments
             </Link>
             <Link href="/our-impact" className="footer-link text-b14 leading-[150%]">
               Our Impact

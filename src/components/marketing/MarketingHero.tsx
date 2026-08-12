@@ -45,7 +45,7 @@ export function MarketingHeroSection({ hero }: MarketingHeroProps) {
               <div className="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start">
                 {hero.links.map((link) => {
                   const className =
-                    link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary min-h-[44px] px-5 text-b14'
+                    link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary'
 
                   if (link.href.startsWith('#')) {
                     return (

@@ -5,19 +5,36 @@
     "title": "Zakat",
     "description": "Let Your Zakat Become a Source of Healing",
     "excerpt": "Zakat is a sacred obligation and an opportunity to bring hope to those in need.",
-    "bankAccountKeys": ["zakat"],
+    "bankAccountKeys": [
+      "zakat"
+    ],
     "hero": {
       "kicker": "Ways to Give",
       "title": "Zakat",
       "excerpt": "Let Your Zakat Become a Source of Healing",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/welfare-sharia"
+      }
     },
     "jumpLinks": [
-      { "label": "About Zakat", "href": "#about" },
-      { "label": "Shariah Compliance", "href": "#shariah-compliance" },
-      { "label": "Zakat Calculator", "href": "#zakat-calculator" },
-      { "label": "How to Donate", "href": "/donate/how-to-donate" }
+      {
+        "label": "About Zakat",
+        "href": "#about"
+      },
+      {
+        "label": "Shariah Compliance",
+        "href": "#shariah-compliance"
+      },
+      {
+        "label": "Zakat Calculator",
+        "href": "#zakat-calculator"
+      },
+      {
+        "label": "How to Donate",
+        "href": "/donate/how-to-donate"
+      }
     ],
     "zakatCalculator": {
       "enabled": true,
@@ -50,13 +67,18 @@
     "title": "General Donation",
     "description": "Every Donation Makes a Difference",
     "excerpt": "Your generosity helps Hijaz Hospital Trust provide quality healthcare to patients who cannot afford the cost of treatment.",
-    "bankAccountKeys": ["general"],
+    "bankAccountKeys": [
+      "general"
+    ],
     "hero": {
       "kicker": "Ways to Give",
       "title": "General Donation",
       "excerpt": "Every Donation Makes a Difference",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/donations"
+      }
     },
     "sections": [
       {
@@ -78,13 +100,18 @@
     "title": "Sadaqah",
     "description": "Turn Your Sadaqah into Healing and Hope",
     "excerpt": "Beyond Zakat, Sadaqah reflects gratitude, kindness, and compassion.",
-    "bankAccountKeys": ["general"],
+    "bankAccountKeys": [
+      "general"
+    ],
     "hero": {
       "kicker": "Ways to Give",
       "title": "Sadaqah",
       "excerpt": "Turn Your Sadaqah into Healing and Hope",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/sadaqah"
+      }
     },
     "sections": [
       {
@@ -105,13 +132,18 @@
     "title": "Eidi & Fitrana",
     "description": "Share the Blessings of Eid",
     "excerpt": "Eid is a time of joy, gratitude, and compassion.",
-    "bankAccountKeys": ["general"],
+    "bankAccountKeys": [
+      "general"
+    ],
     "hero": {
       "kicker": "Ways to Give",
       "title": "Eidi & Fitrana",
       "excerpt": "Share the Blessings of Eid",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/eidi-fitrana"
+      }
     },
     "sections": [
       {
@@ -132,14 +164,24 @@
     "title": "Donate a Meal",
     "description": "Nourish a Patient. Support Their Recovery.",
     "excerpt": "Through our Donate a Meal initiative, you can help provide meals to deserving patients.",
-    "bankAccountKeys": ["general"],
-    "amounts": [500, 1500, 3500, 15000],
+    "bankAccountKeys": [
+      "general"
+    ],
+    "amounts": [
+      500,
+      1500,
+      3500,
+      15000
+    ],
     "hero": {
       "kicker": "What You Can Support",
       "title": "Donate a Meal",
       "excerpt": "Nourish a Patient. Support Their Recovery.",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/donate-a-meal"
+      }
     },
     "sections": [
       {
@@ -155,10 +197,22 @@
         "heading": "Your Donation Can Provide",
         "intro": "The following sponsorship amounts illustrate how your donation can help provide nutritious meals to deserving patients:",
         "rows": [
-          { "amount": "PKR 500", "impact": "1 nutritious meal" },
-          { "amount": "PKR 1,500", "impact": "Meals for a patient for 3 days" },
-          { "amount": "PKR 3,500", "impact": "Meals for a patient for 1 week" },
-          { "amount": "PKR 15,000", "impact": "Meals for a patient for 1 month" }
+          {
+            "amount": "PKR 500",
+            "impact": "1 nutritious meal"
+          },
+          {
+            "amount": "PKR 1,500",
+            "impact": "Meals for a patient for 3 days"
+          },
+          {
+            "amount": "PKR 3,500",
+            "impact": "Meals for a patient for 1 week"
+          },
+          {
+            "amount": "PKR 15,000",
+            "impact": "Meals for a patient for 1 month"
+          }
         ],
         "note": "Note: Estimated costs may change over time."
       },
@@ -179,13 +233,18 @@
     "title": "Donate in Kind",
     "description": "Support Patient Care Through Essential Supplies",
     "excerpt": "Medicines, equipment, hospital beds, wheelchairs, and more.",
-    "bankAccountKeys": ["general"],
+    "bankAccountKeys": [
+      "general"
+    ],
     "hero": {
       "kicker": "What You Can Support",
       "title": "Donate in Kind",
       "excerpt": "Support Patient Care Through Essential Supplies",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/donate-in-kind"
+      }
     },
     "sections": [
       {
@@ -226,13 +285,19 @@
     "title": "Sponsor a Patient",
     "description": "Become a Source of Healing and Hope",
     "excerpt": "Sponsor hepatitis treatment, dialysis care, gynae & maternity care, or medical treatment based on patient need.",
-    "bankAccountKeys": ["general", "zakat"],
+    "bankAccountKeys": [
+      "general",
+      "zakat"
+    ],
     "hero": {
       "kicker": "What You Can Support",
       "title": "Sponsor a Patient",
       "excerpt": "Become a Source of Healing and Hope",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/sponsor-a-patient"
+      }
     },
     "sections": [
       {
@@ -269,13 +334,19 @@
     "title": "Sponsor Free Surgeries",
     "description": "Support Life-Changing Surgical Care",
     "excerpt": "General surgery, urology, eye surgery, and specialized procedures.",
-    "bankAccountKeys": ["general", "zakat"],
+    "bankAccountKeys": [
+      "general",
+      "zakat"
+    ],
     "hero": {
       "kicker": "What You Can Support",
       "title": "Sponsor Free Surgeries",
       "excerpt": "Support Life-Changing Surgical Care",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/sponsor-free-surgeries"
+      }
     },
     "sections": [
       {
@@ -312,13 +383,18 @@
     "title": "Support a Project",
     "description": "Help Build the Future of Healthcare",
     "excerpt": "Support the expansion and development of Hijaz Hospital Trust by contributing to projects that strengthen our facilities and improve patient care.",
-    "bankAccountKeys": ["project"],
+    "bankAccountKeys": [
+      "project"
+    ],
     "hero": {
       "kicker": "What You Can Support",
       "title": "Support a Project",
       "excerpt": "Help Build the Future of Healthcare",
       "variant": "white",
-      "media": { "type": "illustration", "preset": "page/donate" }
+      "media": {
+        "type": "illustration",
+        "preset": "page/support-a-project"
+      }
     },
     "sections": [
       {

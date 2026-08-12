@@ -5,6 +5,7 @@ import { User } from '@phosphor-icons/react/dist/ssr'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import type { LeadershipMessagesRecord } from '@/lib/content/types'
 
 export function LeadershipMessagesContent({ page }: { page: LeadershipMessagesRecord }) {
@@ -19,7 +20,9 @@ export function LeadershipMessagesContent({ page }: { page: LeadershipMessagesRe
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav
+        links={withJumpExternals(page.jumpLinks, [{ label: 'Leadership', href: '/leadership' }])}
+      />
 
       {page.messages.map((message, index) => {
         const targetHref =

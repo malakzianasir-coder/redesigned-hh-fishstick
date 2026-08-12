@@ -28,9 +28,8 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
 
       <section className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="mx-auto flex max-w-3xl flex-col gap-4 text-center lg:mx-0 lg:text-start">
-            <p className="kicker">What You Can Support</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{cause.tagline}</h2>
+          <BlockHeader kicker="What You Can Support" title={cause.tagline} />
+          <div className="mx-auto flex max-w-3xl flex-col gap-4 text-center">
             {cause.body.map((paragraph) => (
               <p key={paragraph} className="text-b16 leading-[150%] text-primary-blue/85">
                 {paragraph}
@@ -81,7 +80,7 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
       ) : null}
 
       <section className="section-anchor border-t border-dark-gray/15 bg-white">
-        <div className="container mx-auto flex max-w-3xl flex-col gap-4 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <div className="container mx-auto flex max-w-3xl flex-col gap-4 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
           {cause.closing.map((paragraph, index) => (
             <p
               key={paragraph}
@@ -99,13 +98,11 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
 
       <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
         <div className="container mx-auto flex flex-col items-center gap-4 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
-          <p className="kicker">How to Donate</p>
-          <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">
-            Support {cause.title}
-          </h2>
-          <p className="max-w-2xl text-b16 text-primary-blue/85">
-            Choose the donation method that is most convenient for you.
-          </p>
+          <BlockHeader
+            kicker="How to Donate"
+            title={`Support ${cause.title}`}
+            lede="Choose the donation method that is most convenient for you."
+          />
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/donate/how-to-donate" className="btn-primary">
               View donation methods
@@ -132,21 +129,23 @@ function ImpactTableBlock({
       <div className="container mx-auto flex flex-col gap-6 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <BlockHeader kicker="Impact" title={table.heading} lede={table.intro} />
         <div className="card overflow-hidden">
-          <div className="hidden border-b border-dark-gray/15 bg-white px-5 py-3 text-b12 font-bold uppercase tracking-kicker text-dark-gray sm:grid sm:grid-cols-2 sm:gap-4">
+          <div className="hidden border-b border-dark-gray/15 bg-cardbg px-4 py-3 text-b12 font-semibold uppercase tracking-kicker text-dark-gray sm:grid sm:grid-cols-2 sm:gap-4">
             <span>Donation</span>
             <span>Impact</span>
           </div>
           {table.rows.map((row) => (
             <div
               key={row.amount}
-              className="grid grid-cols-1 gap-1 border-b border-dark-gray/15 px-5 py-4 last:border-b-0 sm:grid-cols-2 sm:items-baseline sm:gap-4"
+              className="grid grid-cols-1 gap-1 border-b border-dark-gray/15 px-4 py-3 last:border-b-0 sm:grid-cols-2 sm:items-baseline sm:gap-4"
             >
               <p className="text-b16 font-bold text-primary-red">{row.amount}</p>
               <p className="text-b14 text-primary-blue/85">{row.impact}</p>
             </div>
           ))}
         </div>
-        {table.note ? <p className="text-b12 text-dark-gray">{table.note}</p> : null}
+        {table.note ? (
+          <p className="text-center text-b12 text-dark-gray">{table.note}</p>
+        ) : null}
       </div>
     </section>
   )

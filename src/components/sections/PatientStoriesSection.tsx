@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { PatientStoriesSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -15,11 +16,7 @@ export function PatientStoriesSection({ section }: { section: PatientStoriesSect
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <div className="flex flex-col gap-[6px] text-center">
-          {kicker ? <p className="kicker">{kicker}</p> : null}
-          <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-          {intro ? <p className="text-b16 text-primary-blue/85">{intro}</p> : null}
-        </div>
+        <BlockHeader kicker={kicker} title={heading} lede={intro} />
         <div className="card-grid card-grid--3">
           <article className="card flex flex-col items-start gap-3 border-dashed p-6">
             <span className="group-badge">CMS placeholder</span>

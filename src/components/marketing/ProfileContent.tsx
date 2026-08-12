@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { ProfileRecord } from '@/lib/content/types'
 
 export function ProfileContent({ profile }: { profile: ProfileRecord }) {
@@ -55,7 +57,7 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={link.href === '#biography' ? 'btn-primary min-h-[44px] px-5 text-b14' : 'btn-ghost'}
+                    className={link.href === '#biography' ? 'btn-primary' : 'btn-ghost'}
                   >
                     {link.label}
                   </Link>
@@ -66,14 +68,13 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
         </div>
       </section>
 
-      <JumpNav links={profile.jumpLinks} />
+      <JumpNav
+        links={withJumpExternals(profile.jumpLinks, [{ label: 'Leadership', href: '/leadership' }])}
+      />
 
       <section id="biography" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Biography</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Biography</h2>
-          </div>
+          <BlockHeader kicker="Biography" title="Biography" />
           <div className="flex max-w-[760px] flex-col gap-5">
             {profile.biography.map((paragraph) => (
               <p key={paragraph} className="text-b16 text-primary-blue/85">
@@ -86,10 +87,7 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
 
       <section id="leadership-roles" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Credentials</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Leadership & Community Service</h2>
-          </div>
+          <BlockHeader kicker="Credentials" title="Leadership & Community Service" />
           <div className="card p-6 lg:p-8">
             <div className="mb-4 flex items-center gap-3">
               <span className="icon-tile">

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { ContentSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -31,12 +32,12 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
             <div
               className={cn(
                 'flex flex-col gap-[6px] lg:col-span-6',
-                isStart ? 'text-start' : 'text-center lg:text-start',
+                isStart ? 'text-start' : 'text-center',
               )}
             >
               {kicker ? <p className="kicker">{kicker}</p> : null}
               {heading ? (
-                <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
+                <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
               ) : null}
               <div className="mt-2 flex flex-col gap-4">
                 {paragraphs.map((paragraph, index) => (
@@ -60,16 +61,22 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
         ) : (
           <div
             className={cn(
-              'mx-auto flex w-full flex-col gap-[6px] lg:w-2/3',
+              'mx-auto flex w-full flex-col gap-4 lg:w-2/3',
               isStart ? 'text-start' : 'text-center',
             )}
           >
-            {kicker ? <p className="kicker">{kicker}</p> : null}
-            {heading ? (
-              <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-            ) : null}
+            {heading && !isStart ? (
+              <BlockHeader kicker={kicker} title={heading} />
+            ) : (
+              <>
+                {kicker ? <p className="kicker">{kicker}</p> : null}
+                {heading ? (
+                  <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
+                ) : null}
+              </>
+            )}
             {paragraphs.length > 0 ? (
-              <div className="mt-2 flex w-full flex-col gap-4">
+              <div className="flex w-full flex-col gap-4">
                 {paragraphs.map((paragraph, index) => (
                   <p key={index} className="text-b16 leading-[150%] text-primary-blue/85">
                     {paragraph}

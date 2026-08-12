@@ -24,7 +24,7 @@ import { FactsOrbitSection } from '@/components/home/FactsOrbitSection'
 
 import { HomeHeroSlider } from '@/components/home/HomeHeroSlider'
 
-import { HomeMachineryCarousel } from '@/components/home/HomeCarousels'
+import { HomeMachineryCarousel, HomeTeamCarousel } from '@/components/home/HomeCarousels'
 
 import { WaysToGiveSection } from '@/components/home/WaysToGiveSection'
 
@@ -54,6 +54,13 @@ export function HomePage() {
 
   const content = getHomeContent()
   const doctorsWithPhotos = getDoctorsHub().doctors.filter((doctor) => Boolean(doctor.image)).slice(0, 6)
+  const teamSlides = doctorsWithPhotos.map((doctor) => ({
+    src: doctor.image!,
+    alt: doctor.name,
+    title: doctor.name,
+    role: doctor.specialty,
+    href: `/doctors/${doctor.slug}`,
+  }))
 
 
 
@@ -529,43 +536,7 @@ export function HomePage() {
 
           />
 
-          <div className="card-grid card-grid--6 card-grid--gap-4">
-
-            {doctorsWithPhotos.map((doctor) => (
-
-              <article key={doctor.slug} className="card-interactive overflow-hidden">
-
-                <div className="relative aspect-square overflow-hidden bg-cardbg">
-
-                  <Image
-
-                    src={doctor.image!}
-
-                    alt={doctor.name}
-
-                    fill
-
-                    className="object-cover object-top"
-
-                    sizes="(max-width: 768px) 50vw, 16vw"
-
-                  />
-
-                </div>
-
-                <div className="flex flex-col gap-1 p-4">
-
-                  <h3 className="text-h6M font-bold leading-[120%] text-primary-blue">{doctor.name}</h3>
-
-                  <p className="text-b12 font-semibold text-primary-red">{doctor.specialty}</p>
-
-                </div>
-
-              </article>
-
-            ))}
-
-          </div>
+          <HomeTeamCarousel slides={teamSlides} />
 
         </div>
 

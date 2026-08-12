@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { AccommodationSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -17,17 +18,11 @@ export function AccommodationSection({ section }: { section: AccommodationSectio
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <div className="flex flex-col gap-[6px] text-center">
-          {kicker ? <p className="kicker">{kicker}</p> : null}
-          <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-          {(Array.isArray(intro) ? intro : typeof intro === 'string' ? [intro] : []).map(
-            (paragraph, index) => (
-              <p key={index} className="text-b16 text-primary-blue/85">
-                {paragraph}
-              </p>
-            ),
-          )}
-        </div>
+        <BlockHeader
+          kicker={kicker}
+          title={heading}
+          lede={Array.isArray(intro) ? intro.join(' ') : intro}
+        />
 
         <div>
           <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">

@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { ProcessStepsSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -14,13 +15,7 @@ export function ProcessStepsSection({ section }: { section: ProcessStepsSectionD
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <div className="flex flex-col gap-[6px] text-center">
-          {kicker ? <p className="kicker">{kicker}</p> : null}
-          <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{heading}</h2>
-          {intro ? (
-            <p className="mx-auto mt-2 max-w-2xl text-b16 text-primary-blue/85">{intro}</p>
-          ) : null}
-        </div>
+        <BlockHeader kicker={kicker} title={heading} lede={intro} />
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
           {steps.map((step, index) => (
             <article key={step.title} className="card flex items-start gap-4 p-6">

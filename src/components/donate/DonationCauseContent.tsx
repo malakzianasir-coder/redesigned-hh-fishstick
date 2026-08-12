@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import { toMarketingHero } from '@/lib/content/toMarketingHero'
 import type { DonateHubContent, DonationCauseRecord } from '@/lib/content/types'
@@ -28,20 +29,9 @@ const CAUSE_HERO_ICONS: Record<string, string> = {
   'support-a-project': 'Buildings',
 }
 
-const DEFAULT_CTA = {
-  type: 'cta' as const,
-  kicker: 'Support Our Mission',
-  heading: 'Help Us Keep Care Within Reach for Every Patient',
-  body: 'Your donation supports free treatment, medicines, and welfare programs for deserving patients — fulfilling our mission that financial hardship never stands in the way of care.',
-  button: { label: 'Donate Now', href: '/donate' },
-}
-
 export function DonationCauseContent({ cause }: DonationCauseContentProps) {
   const showZakatCalculator = Boolean(cause.zakatCalculator?.enabled)
   const hero = toMarketingHero(cause.hero, CAUSE_HERO_ICONS[cause.slug])
-  const hasCta = cause.sections.some((section) => section.type === 'cta')
-  const sections =
-    hasCta || showZakatCalculator ? cause.sections : [...cause.sections, DEFAULT_CTA]
 
   return (
     <article>
@@ -53,8 +43,13 @@ export function DonationCauseContent({ cause }: DonationCauseContentProps) {
         ]}
       />
       <MarketingHeroSection hero={hero} />
-      {cause.jumpLinks && cause.jumpLinks.length > 0 ? <JumpNav links={cause.jumpLinks} /> : null}
-      {sections.map(renderDonateSection)}
+      <JumpNav
+        links={withJumpExternals(cause.jumpLinks, [
+          { label: 'What You Can Support', href: '/donate/what-you-can-support' },
+          { label: 'How to Donate', href: '/donate/how-to-donate' },
+        ])}
+      />
+      {cause.sections.map(renderDonateSection)}
       {showZakatCalculator && cause.zakatCalculator ? (
         <ZakatCalculatorSection
           heading={cause.zakatCalculator.heading}
@@ -74,7 +69,7 @@ export function DonationCauseContent({ cause }: DonationCauseContentProps) {
           </Link>
         </div>
       </section>
-      {showZakatCalculator ? <MarketingSupportCTA /> : null}
+      <MarketingSupportCTA />
     </article>
   )
 }

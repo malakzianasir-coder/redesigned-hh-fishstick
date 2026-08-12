@@ -43,7 +43,7 @@ export function DepartmentsHubContent({ departments }: DepartmentsHubContentProp
   return (
     <CategoryHubGrid
       kicker="Departments"
-      heading="Medical Departments"
+      heading="Clinical Departments"
       lede={`Specialist departments delivering comprehensive care across surgery, internal medicine, mother & child, and allied specialties — ${count} departments in 4 categories.`}
       filters={DEPARTMENT_HUB_FILTERS}
       cards={cards}

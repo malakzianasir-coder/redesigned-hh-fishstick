@@ -4,6 +4,8 @@ import { JourneyTimeline } from '@/components/marketing/JourneyTimeline'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { OurPurposeRecord } from '@/lib/content/types'
 
 export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
@@ -20,14 +22,11 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav links={withJumpExternals(page.jumpLinks, [{ label: 'About Us', href: '/about-us' }])} />
 
       <section id="vision-mission" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Vision & Mission</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Vision & Mission</h2>
-          </div>
+          <BlockHeader kicker="Vision & Mission" title="Vision & Mission" />
           <div className="card-grid card-grid--2 mx-auto max-w-5xl">
             <article className="card-interactive flex flex-col gap-3 p-6 lg:p-8">
               <div className="flex items-center gap-3">
@@ -54,21 +53,18 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="our-journey" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Journey</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Journey</h2>
-          </div>
+          <BlockHeader kicker="Our Journey" title="Our Journey" />
           <JourneyTimeline milestones={page.journey} />
         </div>
       </section>
 
       <section id="our-philosophy" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Philosophy</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">{page.philosophy.heading}</h2>
-            <p className="text-b16 text-primary-blue/85">{page.philosophy.body}</p>
-          </div>
+          <BlockHeader
+            kicker="Our Philosophy"
+            title={page.philosophy.heading}
+            lede={page.philosophy.body}
+          />
           {page.philosophy.image ? (
             <div className="group relative aspect-video max-h-[320px] overflow-hidden rounded-xl">
               <Image
@@ -84,10 +80,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="our-approach" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Approach</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Approach</h2>
-          </div>
+          <BlockHeader kicker="Our Approach" title="Our Approach" />
           <div className="card-grid card-grid--4">
             {page.approach.map((item) => {
               const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
@@ -109,11 +102,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="our-values" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Values</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Values</h2>
-            <p className="text-b16 text-primary-blue/85">{page.valuesIntro}</p>
-          </div>
+          <BlockHeader kicker="Our Values" title="Our Values" lede={page.valuesIntro} />
           <div>
             {/* <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">Our Core Values</h3> */}
             <div className="card-grid card-grid--3">
@@ -143,17 +132,13 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="our-compliance" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center">
-            <p className="kicker">Our Compliance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Compliance</h2>
-            <p className="text-b16 text-primary-blue/85">{page.complianceIntro}</p>
-          </div>
+          <BlockHeader kicker="Our Compliance" title="Our Compliance" lede={page.complianceIntro} />
           <div className="flex flex-col gap-10">
             {page.compliance.map((group) => {
               const IconComponent = MARKETING_ICON_MAP[group.icon as keyof typeof MARKETING_ICON_MAP]
               return (
                 <div key={group.kicker} className="flex flex-col gap-4">
-                  <div className="flex items-center justify-center gap-2 lg:justify-start">
+                  <div className="flex items-center justify-center gap-2">
                     {IconComponent ? (
                       <span className="icon-tile">
                         <IconComponent size={22} weight="duotone" />

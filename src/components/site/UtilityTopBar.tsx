@@ -35,7 +35,7 @@ const UTILITY_LINKS = [
 export function UtilityTopBar() {
   return (
     <div className="utility-top-bar hidden border-b border-dark-gray/15 bg-white/80 backdrop-blur xl:block">
-      <div className="mx-auto flex max-w-screen-xl items-center gap-4 px-4 py-2 sm:px-6 xl:px-8">
+      <div className="container mx-auto flex items-center gap-4 px-6 py-2 lg:px-[30px]">
         <div className="hidden items-center gap-5 sm:flex">
           {UTILITY_LINKS.map((link, index) => (
             <span key={link.href} className="inline-flex items-center gap-5">

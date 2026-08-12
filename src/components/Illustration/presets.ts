@@ -1284,6 +1284,217 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
       "handshake"
     ]
   },
+  "page/sadaqah": {
+    "collection": "pages",
+    "slug": "sadaqah",
+    "title": "Sadaqah",
+    "icon": "hands-praying",
+    "motif": "breathe",
+    "accent": "#16A34A",
+    "soft": "#DBF3E3",
+    "satellites": [
+      "heart",
+      "hand-heart",
+      "sparkle"
+    ]
+  },
+  "page/eidi-fitrana": {
+    "collection": "pages",
+    "slug": "eidi-fitrana",
+    "title": "Eidi & Fitrana",
+    "icon": "gift",
+    "motif": "pulse",
+    "accent": "#D97706",
+    "soft": "#FDEBD3",
+    "satellites": [
+      "heart",
+      "sparkle",
+      "hand-heart"
+    ],
+    "mainAnim": "a-beat"
+  },
+  "page/how-to-donate": {
+    "collection": "pages",
+    "slug": "how-to-donate",
+    "title": "How to Donate",
+    "icon": "list-checks",
+    "motif": "orbit",
+    "accent": "#144CD9",
+    "soft": "#DCE7FD",
+    "satellites": [
+      "hand-coins",
+      "credit-card",
+      "handshake"
+    ]
+  },
+  "page/donate-online": {
+    "collection": "pages",
+    "slug": "donate-online",
+    "title": "Online Donation",
+    "icon": "credit-card",
+    "motif": "orbit",
+    "accent": "#144CD9",
+    "soft": "#DCE7FD",
+    "satellites": [
+      "lock",
+      "seal-check",
+      "hand-coins"
+    ]
+  },
+  "page/mobile-wallet": {
+    "collection": "pages",
+    "slug": "mobile-wallet",
+    "title": "Mobile Wallet",
+    "icon": "device-mobile",
+    "motif": "pulse",
+    "accent": "#7C3AED",
+    "soft": "#EAE0FC",
+    "satellites": [
+      "qr-code",
+      "hand-coins",
+      "seal-check"
+    ]
+  },
+  "page/bank-transfer": {
+    "collection": "pages",
+    "slug": "bank-transfer",
+    "title": "Bank Transfer",
+    "icon": "bank",
+    "motif": "orbit",
+    "accent": "#0D9488",
+    "soft": "#D3F0EC",
+    "satellites": [
+      "buildings",
+      "identification-badge",
+      "hand-coins"
+    ]
+  },
+  "page/meezan-app": {
+    "collection": "pages",
+    "slug": "meezan-app",
+    "title": "Meezan Mobile App",
+    "icon": "qr-code",
+    "motif": "orbit",
+    "accent": "#16A34A",
+    "soft": "#DBF3E3",
+    "satellites": [
+      "device-mobile",
+      "mosque",
+      "hand-coins"
+    ]
+  },
+  "page/cheque-donation": {
+    "collection": "pages",
+    "slug": "cheque-donation",
+    "title": "Cheque or Bank Draft",
+    "icon": "envelope-open",
+    "motif": "breathe",
+    "accent": "#475569",
+    "soft": "#E2E8F0",
+    "satellites": [
+      "scroll",
+      "map-pin",
+      "hand-coins"
+    ]
+  },
+  "page/pick-up-donation": {
+    "collection": "pages",
+    "slug": "pick-up-donation",
+    "title": "Pick-Up Donation Service",
+    "icon": "truck",
+    "motif": "pulse",
+    "accent": "#EA580C",
+    "soft": "#FDE3D3",
+    "satellites": [
+      "package",
+      "map-pin",
+      "handshake"
+    ]
+  },
+  "page/what-you-can-support": {
+    "collection": "pages",
+    "slug": "what-you-can-support",
+    "title": "What You Can Support",
+    "icon": "users-three",
+    "motif": "breathe",
+    "accent": "#E11D2E",
+    "soft": "#FBE0E2",
+    "satellites": [
+      "gift",
+      "hand-heart",
+      "heart"
+    ]
+  },
+  "page/donate-a-meal": {
+    "collection": "pages",
+    "slug": "donate-a-meal",
+    "title": "Donate a Meal",
+    "icon": "fork-knife",
+    "motif": "breathe",
+    "accent": "#D97706",
+    "soft": "#FDEBD3",
+    "satellites": [
+      "bowl-food",
+      "heart",
+      "hand-heart"
+    ]
+  },
+  "page/donate-in-kind": {
+    "collection": "pages",
+    "slug": "donate-in-kind",
+    "title": "Donate in Kind",
+    "icon": "package",
+    "motif": "orbit",
+    "accent": "#64748B",
+    "soft": "#E2E8F0",
+    "satellites": [
+      "first-aid-kit",
+      "pill",
+      "handshake"
+    ]
+  },
+  "page/sponsor-a-patient": {
+    "collection": "pages",
+    "slug": "sponsor-a-patient",
+    "title": "Sponsor a Patient",
+    "icon": "user-circle",
+    "motif": "breathe",
+    "accent": "#0D9488",
+    "soft": "#D3F0EC",
+    "satellites": [
+      "hand-heart",
+      "heartbeat",
+      "users"
+    ]
+  },
+  "page/sponsor-free-surgeries": {
+    "collection": "pages",
+    "slug": "sponsor-free-surgeries",
+    "title": "Sponsor Free Surgeries",
+    "icon": "scissors",
+    "motif": "pulse",
+    "accent": "#1B2A4A",
+    "soft": "#E2E8F2",
+    "satellites": [
+      "first-aid",
+      "hand-heart",
+      "heartbeat"
+    ]
+  },
+  "page/support-a-project": {
+    "collection": "pages",
+    "slug": "support-a-project",
+    "title": "Support a Project",
+    "icon": "buildings",
+    "motif": "orbit",
+    "accent": "#144CD9",
+    "soft": "#DCE7FD",
+    "satellites": [
+      "hard-hat",
+      "gear",
+      "handshake"
+    ]
+  },
   "page/contact": {
     "collection": "pages",
     "slug": "contact",
@@ -1506,6 +1717,20 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
       "scales",
       "clipboard-text",
       "info"
+    ]
+  },
+  "page/404": {
+    "collection": "pages",
+    "slug": "404",
+    "title": "Page not found",
+    "icon": "magnifying-glass",
+    "motif": "orbit",
+    "accent": "#E30016",
+    "soft": "#FBE0E2",
+    "satellites": [
+      "compass",
+      "map-pin",
+      "first-aid"
     ]
   }
 }

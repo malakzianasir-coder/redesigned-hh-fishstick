@@ -257,6 +257,7 @@ Do not restyle these with extra classes.
 ```
 
 Sizes: `h-9 px-4 text-b14` (sm) · `min-h-[50px] px-6 text-b16` (md) · `h-12 px-8 text-b18` (lg).
+Site CTAs (`.btn-primary`, `.btn-ghost`, `.btn-on-dark`, `.btn-on-dark-ghost`) all use **md** — same height, padding, and type size. Color and fill differ; size does not.
 
 ### 5.3 Icon button
 
@@ -550,8 +551,8 @@ other pages keep it.
 Tables: `w-full border-collapse text-b14`; header cells `bg-cardbg px-4 py-3 text-left
 font-semibold`; body cells `border-b border-dark-gray/15 px-4 py-3 text-primary-blue/85`.
 
-Sticky filter bars: `<div class="sticky-bar">` (docks at `var(--header-h)`, z-sticky,
-blur, hairline).
+Sticky filter bars: `<div class="sticky-bar">` (hairline + blur always; sticky only at
+`lg+`, docking at `var(--header-h)`).
 
 ---
 
@@ -569,7 +570,11 @@ blur, hairline).
   (`All` + on-page groups; each chip shows a `chip-count` in `text-label` / 11px;
   selecting a chip hides the rest; hash-sync like Departments).
   **Innermost content-full pages scroll** (no `All` chip; hash chips jump to the section
-  and never hide content; sticky while reading). **Other-page links are never mixed in** —
+  and never hide content; sticky while reading on desktop, non-sticky on mobile/tablet).
+  On mobile, the chip rail stacks vertically (single column) to avoid consuming vertical
+  viewport space.
+  On tablet, reduce jump chips to `text-b12` with tighter pill padding to preserve viewport.
+  **Other-page links are never mixed in** —
   they sit beside the rail as chips with `ph-arrow-square-out`, `target="_blank"`, and
   `rel="noopener noreferrer"`. Spec: `public/ds/hub-page-patterns.html` (hubs H03/H04/H05/H07;
   content-full H08).

@@ -96,12 +96,7 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero, underHeader = fals
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={cn(
-                      'inline-flex items-center justify-center gap-2 min-h-[44px] px-5 rounded-full text-b14 font-semibold transition-colors duration-300',
-                      link.variant === 'ghost'
-                        ? 'border border-primary-blue/25 text-primary-blue hover:border-primary-red hover:bg-primary-red hover:text-white'
-                        : 'bg-primary-red text-white font-bold hover:bg-primary-blue',
-                    )}
+                    className={link.variant === 'ghost' ? 'btn-ghost' : 'btn-primary'}
                   >
                     {link.label}
                   </Link>

@@ -33,11 +33,15 @@ export function HubFilterRail({
   if (!filters.length && !externals.length) return null
 
   return (
-    <div className="border-t border-dark-gray/15 bg-white">
+    <div className="sticky-bar jump-nav-rail">
       <div className="container mx-auto px-6 py-4 lg:px-[30px]">
         <div className="flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-6">
           {filters.length > 0 ? (
-            <div className="flex flex-wrap items-center justify-center gap-2" role="tablist" aria-label={ariaLabel}>
+            <div
+              className="flex flex-col items-center gap-2 lg:flex-wrap lg:flex-row lg:items-center lg:justify-center lg:gap-2"
+              role="tablist"
+              aria-label={ariaLabel}
+            >
               {filters.map((filter) => (
                 <button
                   key={filter.slug}
@@ -59,7 +63,7 @@ export function HubFilterRail({
             <div className="hidden h-6 w-px bg-dark-gray/15 lg:block" aria-hidden="true" />
           ) : null}
           {externals.length > 0 ? (
-            <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="flex flex-col items-center gap-2 lg:flex-wrap lg:flex-row lg:items-center lg:justify-center lg:gap-2">
               {externals.map((link) => (
                 <a
                   key={link.href}

@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { cn } from '@/utilities/ui'
 
+import { HubFilterRail } from './HubFilterRail'
 import { readHashSlug, subscribeHashSync, writeHashSlug } from './hubFilterHash'
 import { DEPARTMENT_ICON_MAP, SERVICE_ICON_MAP } from './hubIcons'
 
@@ -70,44 +71,37 @@ export function CategoryHubGrid({
     writeHashSlug(slug)
   }
 
+  const filterItems = filters.map((filter) => ({
+    slug: filter.slug,
+    label: filter.label,
+    count: countForFilter(filter, cards),
+  }))
+
   return (
-    <section
-      id="hub-filters"
-      className="section-anchor bg-white scroll-mt-[var(--header-h)]"
-    >
-      <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <div className="mb-10 flex flex-col gap-[6px] text-center">
-          <p className="kicker">{kicker}</p>
-          <h1 className="text-h1M font-bold tracking-display text-primary-blue lg:text-h1">{heading}</h1>
-          <p className="mx-auto max-w-2xl text-b16 text-primary-blue/85">{lede}</p>
+    <>
+      <section
+        id="hub-filters"
+        className="section-anchor bg-white scroll-mt-[var(--header-h)]"
+      >
+        <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+          <div className="flex flex-col gap-[6px] text-center">
+            <p className="kicker">{kicker}</p>
+            <h1 className="text-h1M font-bold tracking-display text-primary-blue lg:text-h1">{heading}</h1>
+            <p className="mx-auto max-w-2xl text-b16 text-primary-blue/85">{lede}</p>
+          </div>
         </div>
+      </section>
 
-        <div
-          className="mb-10 flex flex-wrap justify-center gap-2"
-          role="tablist"
-          aria-label="Filter by category"
-        >
-          {filters.map((filter) => {
-            const count = countForFilter(filter, cards)
-            return (
-              <button
-                key={filter.slug}
-                id={`filter-${filter.slug}`}
-                type="button"
-                role="tab"
-                aria-selected={activeFilter === filter.slug}
-                aria-label={`${filter.label}, ${count}`}
-                className={cn('chip', activeFilter === filter.slug && 'is-active')}
-                onClick={() => selectFilter(filter.slug)}
-              >
-                {filter.label}
-                <span className="chip-count">{count}</span>
-              </button>
-            )
-          })}
-        </div>
+      <HubFilterRail
+        filters={filterItems}
+        activeFilter={activeFilter}
+        onSelect={selectFilter}
+        ariaLabel="Filter by category"
+      />
 
-        <div className="card-grid card-grid--3">
+      <section className="bg-white">
+        <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[60px]">
+          <div className="card-grid card-grid--3">
           {visibleCards.map((card) => {
             const IconComponent = ICON_MAP[card.icon as keyof typeof ICON_MAP]
             return (
@@ -134,7 +128,7 @@ export function CategoryHubGrid({
                   <p className="line-clamp-2 text-b14 text-primary-blue/85">{card.excerpt}</p>
                 ) : null}
                 <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                  {card.linkLabel ?? 'View details'}
+                  {card.linkLabel ?? `View ${card.title}`}
                   <ArrowRight
                     size={16}
                     weight="bold"
@@ -145,7 +139,8 @@ export function CategoryHubGrid({
             )
           })}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   )
 }

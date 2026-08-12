@@ -5,8 +5,8 @@ import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { getDepartments } from '@/lib/content/loaders'
 
 export const metadata: Metadata = {
-  title: 'Medical Departments | Hijaz Hospital',
-  description: 'Explore medical departments and specialties at Hijaz Hospital.',
+  title: 'Clinical Departments | Hijaz Hospital',
+  description: 'Explore clinical departments and specialties at Hijaz Hospital.',
 }
 
 export default function DepartmentsHubPage() {
@@ -14,7 +14,7 @@ export default function DepartmentsHubPage() {
 
   return (
     <>
-      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Medical Departments' }]} />
+      <MarketingBreadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Clinical Departments' }]} />
       <DepartmentsHubContent departments={departments} />
     </>
   )

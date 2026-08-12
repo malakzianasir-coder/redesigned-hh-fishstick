@@ -37,10 +37,7 @@ export function HowToDonateMethodContent({ hub, method }: HowToDonateMethodConte
 
       <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
         <div className="container mx-auto flex flex-col items-center gap-4 px-6 py-[30px] text-center lg:px-[30px] lg:py-[60px]">
-          <p className="kicker">Need another method?</p>
-          <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">
-            Browse all ways to donate
-          </h2>
+          <BlockHeader kicker="Need another method?" title="Browse all ways to donate" />
           <Link href="/donate/how-to-donate" className="btn-ghost">
             Back to How to Donate
           </Link>
@@ -55,23 +52,13 @@ export function HowToDonateMethodContent({ hub, method }: HowToDonateMethodConte
 function OnlineBody({ method }: { method: HowToDonateMethod }) {
   return (
     <section className="section-anchor bg-white">
-      <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <div className="card flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
-          <div className="flex min-w-0 flex-1 flex-col gap-3">
-            <p className="kicker">Online Donation</p>
-            <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">{method.title}</h2>
-            {(method.body ?? []).map((paragraph) => (
-              <p key={paragraph} className="text-b16 leading-[150%] text-primary-blue/85">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-          {method.cta ? (
-            <Link href={method.cta.href} className="btn-primary shrink-0">
-              {method.cta.label}
-            </Link>
-          ) : null}
-        </div>
+      <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <BlockHeader
+          kicker="Online Donation"
+          title={method.title}
+          lede={(method.body ?? []).join(' ')}
+          cta={method.cta}
+        />
       </div>
     </section>
   )
@@ -149,7 +136,7 @@ function MeezanAppBody({ method }: { method: HowToDonateMethod }) {
           />
           <div>
             {method.categoriesHeading ? (
-              <p className="mb-4 text-b14 font-semibold text-primary-blue">
+              <p className="mb-4 text-center text-b14 font-semibold text-primary-blue">
                 {method.categoriesHeading}
               </p>
             ) : null}
@@ -172,17 +159,15 @@ function MeezanAppBody({ method }: { method: HowToDonateMethod }) {
 
       {method.qr ? (
         <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
-          <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-            <article className="card flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
-              <div className="flex flex-1 flex-col gap-3">
-                <p className="kicker">QR Code</p>
-                <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">
-                  {method.qr.heading}
-                </h2>
-                <p className="text-b16 leading-[150%] text-primary-blue/85">{method.qr.body}</p>
-              </div>
+          <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+            <BlockHeader
+              kicker="QR Code"
+              title={method.qr.heading}
+              lede={method.qr.body}
+            />
+            <div className="flex justify-center">
               <QrPlaceholder note={method.qr.placeholderNote} />
-            </article>
+            </div>
           </div>
         </section>
       ) : null}
@@ -193,19 +178,14 @@ function MeezanAppBody({ method }: { method: HowToDonateMethod }) {
 function ChequeBody({ method }: { method: HowToDonateMethod }) {
   return (
     <section className="section-anchor bg-white">
-      <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+      <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <BlockHeader kicker="Cheque / Bank Draft" title={method.title} />
         <article className="card mx-auto flex max-w-3xl flex-col gap-6 p-6 lg:p-8">
-          <div className="flex items-center gap-3">
-            <span className="icon-tile">
-              <HowToDonateMethodIcon name="EnvelopeOpen" />
-            </span>
-            <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">{method.title}</h2>
-          </div>
-          <p className="text-b16 leading-[150%] text-primary-blue/85">
+          <p className="text-center text-b16 leading-[150%] text-primary-blue/85">
             Donations may also be made through cheque or bank draft payable to:{' '}
             <strong className="font-semibold text-primary-blue">{method.payableTo}</strong>
           </p>
-          <div className="rounded-2xl border border-dark-gray/15 bg-whitebg p-5">
+          <div className="rounded-2xl border border-dark-gray/15 bg-whitebg p-5 text-center">
             <p className="field-label-text mb-2">Address</p>
             <address className="not-italic text-b16 leading-[150%] text-primary-blue">
               {(method.addressLines ?? []).map((line) => (
@@ -216,7 +196,7 @@ function ChequeBody({ method }: { method: HowToDonateMethod }) {
             </address>
           </div>
           {method.footer ? (
-            <p className="text-b14 leading-[150%] text-primary-blue/85">{method.footer}</p>
+            <p className="text-center text-b14 leading-[150%] text-primary-blue/85">{method.footer}</p>
           ) : null}
         </article>
       </div>
@@ -234,7 +214,9 @@ function PickUpBody({ method }: { method: HowToDonateMethod }) {
           lede={method.intro}
         />
         {method.itemsIntro ? (
-          <p className="text-b16 font-semibold text-primary-blue">{method.itemsIntro}</p>
+          <p className="mx-auto max-w-3xl text-center text-b16 font-semibold text-primary-blue">
+            {method.itemsIntro}
+          </p>
         ) : null}
         <div className="card-grid card-grid--3">
           {(method.items ?? []).map((item) => (
@@ -245,10 +227,12 @@ function PickUpBody({ method }: { method: HowToDonateMethod }) {
           ))}
         </div>
         {method.arrange ? (
-          <p className="max-w-3xl text-b16 leading-[150%] text-primary-blue/85">{method.arrange}</p>
+          <p className="mx-auto max-w-3xl text-center text-b16 leading-[150%] text-primary-blue/85">
+            {method.arrange}
+          </p>
         ) : null}
         {method.closing ? (
-          <p className="max-w-3xl text-b18 font-semibold leading-[150%] text-primary-blue">
+          <p className="mx-auto max-w-3xl text-center text-b18 font-semibold leading-[150%] text-primary-blue">
             {method.closing}
           </p>
         ) : null}

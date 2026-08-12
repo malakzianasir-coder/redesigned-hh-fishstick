@@ -41,7 +41,7 @@ export function PatientCareHubSection({ kicker, heading, lede, groups }: Patient
                       </h3>
                       <p className="text-b14 text-primary-blue/85">{card.excerpt}</p>
                       <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                        {card.linkLabel ?? 'Learn more'}
+                        {card.linkLabel ?? card.title}
                         <ArrowRight
                           size={16}
                           weight="bold"

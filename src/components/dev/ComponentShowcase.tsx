@@ -189,6 +189,7 @@ const mockJumpLinks: JumpLink[] = [
   { label: 'Services', href: '#services' },
   { label: 'Why Choose Us', href: '#why-choose' },
   { label: 'Patient Stories', href: '#stories' },
+  { label: 'All Departments', href: '/departments' },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -843,7 +844,7 @@ export function ComponentShowcase() {
       <ShowcaseSection
         id="jumpnav"
         label="JumpNav"
-        usedBy="Marketing pages, DetailPageTemplate, PatientCareHubContent, DonatePage"
+        usedBy="Content-full pages (Our Purpose, Leadership, departments, services, welfare, donate causes). Sibling donate navs use the same ChipRail."
       >
         <div className="py-4">
           <JumpNav links={mockJumpLinks} />
@@ -895,7 +896,7 @@ export function ComponentShowcase() {
       >
         <CategoryHubGrid
           kicker="Specialized Care"
-          heading="Medical Departments"
+          heading="Clinical Departments"
           lede="Our medical and clinical departments provide specialized care powered by experienced consultants and modern diagnostics."
           filters={mockDeptHubFilters}
           cards={mockDeptHubCards}

@@ -7,13 +7,20 @@
     "title": "How to Donate",
     "excerpt": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Your contribution helps us provide quality healthcare to deserving patients and strengthens our mission of serving humanity with compassion and dignity. Choose the donation method that is most convenient for you.",
     "media": {
-      "type": "placeholder",
-      "placeholderLabel": "How to Donate",
-      "icon": "HandHeart"
+      "type": "illustration",
+      "preset": "page/how-to-donate"
     },
     "links": [
-      { "label": "Donate Online", "href": "/donate/how-to-donate/online", "variant": "primary" },
-      { "label": "Bank Transfer", "href": "/donate/how-to-donate/bank-transfer", "variant": "ghost" }
+      {
+        "label": "Donate Online",
+        "href": "/donate/how-to-donate/online",
+        "variant": "primary"
+      },
+      {
+        "label": "Bank Transfer",
+        "href": "/donate/how-to-donate/bank-transfer",
+        "variant": "ghost"
+      }
     ]
   },
   "receipts": {
@@ -39,12 +46,15 @@
         "title": "Online Donation",
         "excerpt": "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Online Donation",
-          "icon": "HandCoins"
+          "type": "illustration",
+          "preset": "page/donate-online"
         },
         "links": [
-          { "label": "Donate Online", "href": "/donate/mock", "variant": "primary" }
+          {
+            "label": "Donate Online",
+            "href": "/donate/mock",
+            "variant": "primary"
+          }
         ]
       },
       "body": [
@@ -66,9 +76,8 @@
         "title": "Mobile Wallet",
         "excerpt": "Donate quickly and conveniently through mobile payment services.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Mobile Wallet",
-          "icon": "DeviceMobile"
+          "type": "illustration",
+          "preset": "page/mobile-wallet"
         }
       },
       "intro": "Donate quickly and conveniently through mobile payment services.",
@@ -90,9 +99,8 @@
         "title": "Bank Transfer",
         "excerpt": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Bank Transfer",
-          "icon": "Buildings"
+          "type": "illustration",
+          "preset": "page/bank-transfer"
         }
       },
       "intro": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
@@ -102,10 +110,24 @@
           "bank": "Meezan Bank",
           "logo": "/media/meezan-bank-logo.webp",
           "fields": [
-            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-            { "label": "Account Number", "value": "0201-0100642701", "copyValue": "0201-0100642701" },
-            { "label": "IBAN", "value": "PK33MEZN000201-0100642701", "copyValue": "PK33MEZN0002010100642701" },
-            { "label": "Swift Code", "value": "MEZNPKKA" }
+            {
+              "label": "Account Title",
+              "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+            },
+            {
+              "label": "Account Number",
+              "value": "0201-0100642701",
+              "copyValue": "0201-0100642701"
+            },
+            {
+              "label": "IBAN",
+              "value": "PK33MEZN000201-0100642701",
+              "copyValue": "PK33MEZN0002010100642701"
+            },
+            {
+              "label": "Swift Code",
+              "value": "MEZNPKKA"
+            }
           ]
         },
         {
@@ -113,20 +135,48 @@
           "bank": "Meezan Bank",
           "logo": "/media/meezan-bank-logo.webp",
           "fields": [
-            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-            { "label": "Account Number", "value": "0221-0101345166", "copyValue": "0221-0101345166" },
-            { "label": "IBAN", "value": "PK06MEZN000221-0101345166", "copyValue": "PK06MEZN0002210101345166" },
-            { "label": "Swift Code", "value": "MEZNPKKA" }
+            {
+              "label": "Account Title",
+              "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+            },
+            {
+              "label": "Account Number",
+              "value": "0221-0101345166",
+              "copyValue": "0221-0101345166"
+            },
+            {
+              "label": "IBAN",
+              "value": "PK06MEZN000221-0101345166",
+              "copyValue": "PK06MEZN0002210101345166"
+            },
+            {
+              "label": "Swift Code",
+              "value": "MEZNPKKA"
+            }
           ]
         },
         {
           "title": "Construction of “ITW” Medical Tower",
           "bank": "BANKISLAMI",
           "fields": [
-            { "label": "Account Title", "value": "Hijaz Social Welfare Society (Hijaz Hospital)" },
-            { "label": "Account Number", "value": "2053-5690439-0201", "copyValue": "205356904390201" },
-            { "label": "IBAN", "value": "PK87BKIP0205356904390201", "copyValue": "PK87BKIP0205356904390201" },
-            { "label": "Swift Code", "value": "BKIPPKKA" }
+            {
+              "label": "Account Title",
+              "value": "Hijaz Social Welfare Society (Hijaz Hospital)"
+            },
+            {
+              "label": "Account Number",
+              "value": "2053-5690439-0201",
+              "copyValue": "205356904390201"
+            },
+            {
+              "label": "IBAN",
+              "value": "PK87BKIP0205356904390201",
+              "copyValue": "PK87BKIP0205356904390201"
+            },
+            {
+              "label": "Swift Code",
+              "value": "BKIPPKKA"
+            }
           ]
         }
       ]
@@ -142,9 +192,8 @@
         "title": "Meezan Mobile App",
         "excerpt": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Meezan App & QR",
-          "icon": "QrCode"
+          "type": "illustration",
+          "preset": "page/meezan-app"
         }
       },
       "intro": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
@@ -176,9 +225,8 @@
         "title": "Cheque or Bank Draft",
         "excerpt": "Donations may also be made through cheque or bank draft payable to: Hijaz Social Welfare Society (Hijaz Hospital)",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Cheque or Bank Draft",
-          "icon": "EnvelopeOpen"
+          "type": "illustration",
+          "preset": "page/cheque-donation"
         }
       },
       "payableTo": "Hijaz Social Welfare Society (Hijaz Hospital)",
@@ -200,9 +248,8 @@
         "title": "Pick-Up Donation Service",
         "excerpt": "For your convenience, our authorized representatives can collect donations from your home or office.",
         "media": {
-          "type": "placeholder",
-          "placeholderLabel": "Pick-Up Service",
-          "icon": "Truck"
+          "type": "illustration",
+          "preset": "page/pick-up-donation"
         }
       },
       "intro": "For your convenience, our authorized representatives can collect donations from your home or office.",

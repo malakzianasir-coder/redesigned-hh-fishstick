@@ -8,9 +8,8 @@
     "quote": "\"Whoever saves one life, it is as if he has saved all mankind.\"\n(Qur'an 5:32)",
     "excerpt": "Every act of giving helps save lives. Whether you choose to give Zakat, Sadaqah, General Donation, Eidi, or Fitrana, your generosity enables Hijaz Hospital Trust to provide quality healthcare to deserving patients who cannot afford treatment. Explore the different ways you can support our mission and make a lasting impact.",
     "media": {
-      "type": "placeholder",
-      "placeholderLabel": "Ways to Give",
-      "icon": "HandHeart"
+      "type": "illustration",
+      "preset": "page/donate"
     },
     "links": [
       { "label": "How to Donate", "href": "/donate/how-to-donate", "variant": "primary" },

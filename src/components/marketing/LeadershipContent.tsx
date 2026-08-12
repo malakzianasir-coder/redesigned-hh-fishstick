@@ -12,6 +12,8 @@ import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { LeadershipRecord } from '@/lib/content/types'
 
 function PortraitSlot({
@@ -63,15 +65,12 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
         ]}
       />
       <MarketingHeroSection hero={page.hero} />
-      <JumpNav links={page.jumpLinks} />
+      <JumpNav links={withJumpExternals(page.jumpLinks, [{ label: 'About Us', href: '/about-us' }])} />
 
       {/* Our Founders */}
       <section id="our-founders" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Founders</h2>
-          </div>
+          <BlockHeader kicker="Leadership & Governance" title="Our Founders" />
           <div className="card-grid card-grid--2">
             {page.founders.map((founder) => (
               <article key={founder.name} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
@@ -115,10 +114,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       {/* Our Chairpersons */}
       <section id="our-chairpersons" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Chairpersons</h2>
-          </div>
+          <BlockHeader kicker="Leadership & Governance" title="Our Chairpersons" />
           <ol className="tenure-rail flex w-full flex-col gap-6">
             {page.chairpersons.map((entry) => (
               <li key={entry.name} className="flex items-start gap-5">
@@ -149,10 +145,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       {/* Our Presidents */}
       <section id="our-presidents" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Our Presidents</h2>
-          </div>
+          <BlockHeader kicker="Leadership & Governance" title="Our Presidents" />
           <ol className="tenure-rail flex w-full flex-col gap-6">
             {page.presidents.map((entry) => (
               <li key={entry.name} className="flex items-start gap-5">
@@ -183,10 +176,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       {/* Senior Management */}
       <section id="senior-management" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Senior Management</h2>
-          </div>
+          <BlockHeader kicker="Leadership & Governance" title="Senior Management" />
           <div className="card-grid card-grid--3">
             {page.seniorManagement.map((member) => (
               <article key={member.name} className="card-interactive flex items-center gap-4 p-5">
@@ -204,13 +194,11 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       {/* Executive Committee */}
       <section id="executive-committee" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Executive Committee</h2>
-            {page.executiveCommitteeLede ? (
-              <p className="text-b16 text-primary-blue/85">{page.executiveCommitteeLede}</p>
-            ) : null}
-          </div>
+          <BlockHeader
+            kicker="Leadership & Governance"
+            title="Executive Committee"
+            lede={page.executiveCommitteeLede}
+          />
           <ol className="card-grid card-grid--3-xl4">
             {page.executiveCommittee.map((name, index) => (
               <li key={name} className="card flex items-center gap-3 p-4">
@@ -225,10 +213,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
       {/* Core Committees */}
       <section id="core-committees" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-            <p className="kicker">Leadership & Governance</p>
-            <h2 className="text-h3M font-bold text-primary-blue lg:text-h3">Core Committees</h2>
-          </div>
+          <BlockHeader kicker="Leadership & Governance" title="Core Committees" />
           <div className="card-grid card-grid--3">
             {page.coreCommittees.map((committee) => {
               const IconComponent = MARKETING_ICON_MAP[committee.icon as keyof typeof MARKETING_ICON_MAP]

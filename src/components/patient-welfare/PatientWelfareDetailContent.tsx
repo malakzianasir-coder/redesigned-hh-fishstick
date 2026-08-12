@@ -1,6 +1,7 @@
 import { renderDonateSection } from '@/components/donate/renderDonateSection'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
+import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { toMarketingHero } from '@/lib/content/toMarketingHero'
 import type { PatientCareRecord } from '@/lib/content/types'
 
@@ -24,10 +25,12 @@ export function PatientWelfareDetailContent({ page }: PatientWelfareDetailConten
           ],
   }
 
-  const jumpLinks =
+  const jumpLinks = withJumpExternals(
     page.jumpLinks && page.jumpLinks.length > 0
       ? page.jumpLinks
-      : [{ label: 'Overview', href: '#overview' }]
+      : [{ label: 'Overview', href: '#overview' }],
+    [{ label: 'Patient Welfare Hub', href: '/patient-welfare' }],
+  )
 
   return (
     <article>

@@ -34,6 +34,7 @@ Living preview: `/dev/components` (`ComponentShowcase`).
 | **Catalogue hub** | `CategoryHubGrid`, `DoctorsHubGrid`, news/events/stories hubs | None (centered listing `h1`) | `MarketingBreadcrumb` (`Home / Current`) | **Hub filter chips** (same rail) | Optional `GlobalCtaSection` |
 | **Clinical detail** | `DetailPageTemplate` | `MediumHero` (legacy) | Varies | Optional `JumpNav` | Default `cta` unless suppressed |
 | **Articles** | `ArticlePageTemplate` | `ArticleHero` | Template-owned | No | As designed |
+| **404** | `(frontend)/not-found.tsx` | `MarketingHeroSection` | `MarketingBreadcrumb` | No | `MarketingSupportCTA` |
 
 Reuse **section recipes** across families (block headers, card grids, ds3d carousel)
 even when the hero differs.
@@ -78,8 +79,11 @@ MarketingSupportCTA | GlobalCtaSection
 Reference: `OurPurposeContent.tsx`.
 
 `JumpNav` is implemented in `sections/JumpNav.tsx` (also re-exported from `MarketingShell`).
-Hash chips scroll and spy the active section. Other-page hrefs render as external chips
-(`ph-arrow-square-out`, `target="_blank"`). The rail is sticky under the site header.
+It shares `ChipRail` with How to Donate / What You Can Support sibling navs: sticky under
+the header, centered chips. Hash chips scroll and spy the active section. Other-page hrefs
+render as external chips (`ph-arrow-square-out`, `target="_blank"`). Sibling method/cause
+chips stay same-tab; hub links sit in the external set (`withJumpExternals` appends the
+parent hub without duplicating hrefs already in the list).
 
 ### 2.3 Hubs (content + catalogue) — `ContentHubPage` + `hub-page-patterns.html`
 
@@ -489,6 +493,7 @@ Use only in their domains:
 | Contact / assistance highlight | `CalloutSection` |
 | Link to methods page | Centered band + `btn-primary` (`DonationCauseContent`) |
 | End of interior page donate push | `MarketingSupportCTA` or `cta` → `GlobalCtaSection` |
+| Missing route (404) | `(frontend)/not-found.tsx` — MarketingHero + helpful destination cards |
 | Hub cause listing | `DonationCauseGrid` |
 
 ---

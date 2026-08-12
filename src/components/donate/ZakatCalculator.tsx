@@ -24,6 +24,8 @@ import {
 import type { Icon } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { NisabPrices } from '@/utilities/nisabPrices'
 
 /* ------------------------------------------------------------------ */
@@ -298,7 +300,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
                   <Scales size={20} weight="duotone" aria-hidden />
                 </span>
                 <div>
-                  <p className="text-b12 font-bold uppercase tracking-[0.12em] text-white/55">
+                  <p className="text-b12 font-bold uppercase tracking-kicker text-white/55">
                     Nisab Threshold
                   </p>
                   <p className="text-b14 text-white/85">
@@ -320,7 +322,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
                   </p>
                 </div>
               </div>
-              <p className="text-h5 font-bold leading-[120%] text-white lg:text-h4">
+              <p className="text-h5M font-bold leading-[120%] text-white lg:text-h4">
                 {fmt(nisabValue, cur.symbol)}
               </p>
             </div>
@@ -330,7 +332,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-red/10 text-primary-red">
               <Coins size={18} weight="duotone" aria-hidden />
             </span>
-            <h3 className="text-h6 font-bold leading-[120%] text-primary-blue lg:text-h5">
+            <h3 className="text-h6M font-bold leading-[120%] text-primary-blue lg:text-h5">
               Your Assets
             </h3>
           </div>
@@ -357,7 +359,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-red/10 text-primary-red">
               <Receipt size={18} weight="duotone" aria-hidden />
             </span>
-            <h3 className="text-h6 font-bold leading-[120%] text-primary-blue lg:text-h5">
+            <h3 className="text-h6M font-bold leading-[120%] text-primary-blue lg:text-h5">
               Deductible Liabilities
             </h3>
           </div>
@@ -394,15 +396,11 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
 
       {/* How it works */}
       <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-[6px] lg:w-1/2">
-          <p className="kicker">Guidance</p>
-          <h3 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">
-            How your Zakat is calculated
-          </h3>
-          <p className="text-b16 leading-[150%] text-primary-blue/85">
-            A transparent, four-step breakdown so you know exactly where the figure comes from.
-          </p>
-        </div>
+        <BlockHeader
+          kicker="Guidance"
+          title="How your Zakat is calculated"
+          lede="A transparent, four-step breakdown so you know exactly where the figure comes from."
+        />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -429,7 +427,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
           ].map((s) => (
             <div key={s.n} className="card p-6 shadow-e1">
               <p className="text-b12 font-bold text-primary-red">{s.n}</p>
-              <h4 className="mt-2 text-h6 font-bold leading-[120%] text-primary-blue">{s.t}</h4>
+              <h4 className="mt-2 text-h6M font-bold leading-[120%] text-primary-blue lg:text-h6">{s.t}</h4>
               <p className="mt-2 text-b14 leading-[150%] text-primary-blue/85">{s.d}</p>
             </div>
           ))}
@@ -438,12 +436,7 @@ export function ZakatCalculator({ initialPrices = null }: ZakatCalculatorProps) 
 
       {/* FAQ */}
       <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-[6px] lg:w-1/2">
-          <p className="kicker">Common questions</p>
-          <h3 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">
-            Zakat, explained
-          </h3>
-        </div>
+        <BlockHeader kicker="Common questions" title="Zakat, explained" />
 
         <div className="flex flex-col gap-3">
           {FAQS.map((f, i) => {
@@ -578,7 +571,7 @@ function SummaryPanel({
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
           <Scales size={18} weight="duotone" aria-hidden />
         </span>
-        <h3 className="text-h6 font-bold leading-[120%]">Your Summary</h3>
+        <h3 className="text-h6M font-bold leading-[120%] lg:text-h6">Your Summary</h3>
       </div>
 
       <div className="flex flex-col gap-3 text-b14">
@@ -591,12 +584,12 @@ function SummaryPanel({
 
       <div className="mt-5">
         {aboveNisab ? (
-          <span className="inline-flex items-center gap-2 rounded-full bg-success/15 px-3 py-1.5 text-b14 font-medium text-success">
+          <span className="inline-flex items-center gap-2 rounded-full bg-success/15 px-3 py-1.5 text-b14 font-semibold text-success">
             <CheckCircle size={16} weight="fill" aria-hidden />
             Above Nisab — Zakat due
           </span>
         ) : (
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-b14 font-medium text-white/85">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-b14 font-semibold text-white/85">
             <Warning size={16} weight="fill" aria-hidden />
             Below Nisab — no Zakat due
           </span>
@@ -604,10 +597,10 @@ function SummaryPanel({
       </div>
 
       <div className="mt-5 rounded-xl bg-white p-5 text-center">
-        <p className="text-b12 font-bold uppercase tracking-[0.12em] text-dark-gray">
+        <p className="field-label-text">
           Zakat due (2.5%)
         </p>
-        <p className="mt-1 text-h2 font-bold leading-[110%] text-primary-blue">
+        <p className="mt-1 text-h2M font-bold leading-[110%] text-primary-blue lg:text-h2">
           {fmt(zakatDue, symbol)}
         </p>
       </div>
@@ -623,16 +616,12 @@ function SummaryPanel({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <Link
           href={donateHref}
-          className="inline-flex min-h-[50px] flex-1 items-center justify-center gap-[10px] rounded-full bg-primary-red px-6 text-b16 font-bold text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-primary-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-blue"
+          className="btn-primary flex-1"
         >
           <Heart size={18} weight="fill" aria-hidden />
           Pay Zakat
         </Link>
-        <button
-          type="button"
-          onClick={onReset}
-          className="inline-flex min-h-[50px] items-center justify-center gap-[10px] rounded-full border border-white/30 bg-transparent px-5 text-b14 font-bold text-white transition-colors duration-300 ease-in-out hover:border-white hover:bg-white hover:text-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-blue"
-        >
+        <button type="button" onClick={onReset} className="btn-on-dark-ghost">
           <ArrowsClockwise size={16} weight="bold" aria-hidden />
           Reset
         </button>

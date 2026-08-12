@@ -33,7 +33,7 @@ export function CalloutSection({ section }: { section: CalloutSectionData }) {
             <div className="flex max-w-3xl flex-col gap-4">
               {(Array.isArray(body) ? body : typeof body === 'string' ? [body] : []).map(
                 (paragraph, index) => (
-                  <p key={index} className="text-b16 text-primary-blue/85">
+                  <p key={index} className="text-b16 leading-[150%] text-primary-blue/85">
                     {paragraph}
                   </p>
                 ),

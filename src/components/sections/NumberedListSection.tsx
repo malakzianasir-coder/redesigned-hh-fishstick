@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BlockHeader } from '@/components/site/BlockHeader'
 import type { NumberedListSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -14,16 +15,7 @@ export function NumberedListSection({ section }: { section: NumberedListSectionD
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        {/* Block header — DS §9 */}
-        <div className="flex flex-col gap-[6px] text-center lg:w-1/2 lg:text-start">
-          {kicker ? <p className="kicker">{kicker}</p> : null}
-          <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">
-            {heading}
-          </h2>
-          {intro ? (
-            <p className="text-b16 leading-[150%] text-primary-blue/85">{intro}</p>
-          ) : null}
-        </div>
+        <BlockHeader kicker={kicker} title={heading} lede={intro} />
 
         {/* Numbered items grid */}
         <div className="card-grid card-grid--2">

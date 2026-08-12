@@ -1,4 +1,5 @@
 import { DynamicForm } from '@/components/forms/DynamicForm'
+import { BlockHeader } from '@/components/site/BlockHeader'
 import { getFormById } from '@/lib/content/loaders'
 import type { DynamicFormSectionData } from '@/lib/content/types'
 
@@ -16,12 +17,8 @@ export function DynamicFormSection({ section }: DynamicFormSectionProps) {
     <section id={section.id} className={background}>
       <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <div className="mx-auto flex max-w-4xl flex-col gap-6">
-          {section.kicker ? <p className="kicker text-center">{section.kicker}</p> : null}
           {section.heading ? (
-            <h2 className="text-center text-h3M font-bold text-primary-blue lg:text-h3">{section.heading}</h2>
-          ) : null}
-          {section.intro ? (
-            <p className="text-center text-b16 leading-[150%] text-primary-blue/85">{section.intro}</p>
+            <BlockHeader kicker={section.kicker} title={section.heading} lede={section.intro} />
           ) : null}
           <DynamicForm form={form} />
         </div>

@@ -1,11 +1,9 @@
-import Link from 'next/link'
-
+import { ChipRail } from '@/components/sections/ChipRail'
 import {
   MARKETING_ICON_MAP,
   type MarketingIconName,
 } from '@/components/marketing/marketingIcons'
 import type { WhatYouCanSupportCause } from '@/lib/content/types'
-import { cn } from '@/utilities/ui'
 
 type WhatYouCanSupportNavProps = {
   causes: WhatYouCanSupportCause[]
@@ -14,28 +12,23 @@ type WhatYouCanSupportNavProps = {
 
 export function WhatYouCanSupportNav({ causes, activeSlug }: WhatYouCanSupportNavProps) {
   return (
-    <nav className="border-y border-dark-gray/15 bg-white" aria-label="What you can support">
-      <div className="container mx-auto px-6 py-3 lg:px-[30px]">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="field-label-text mr-1">Support</span>
-          <Link
-            href="/donate/what-you-can-support"
-            className={cn('chip', !activeSlug && 'is-active')}
-          >
-            Overview
-          </Link>
-          {causes.map((cause) => (
-            <Link
-              key={cause.slug}
-              href={`/donate/what-you-can-support/${cause.slug}`}
-              className={cn('chip', activeSlug === cause.slug && 'is-active')}
-            >
-              {cause.navLabel}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </nav>
+    <ChipRail
+      label="Support"
+      ariaLabel="What you can support"
+      items={[
+        {
+          label: 'Overview',
+          href: '/donate/what-you-can-support',
+          active: !activeSlug,
+        },
+        ...causes.map((cause) => ({
+          label: cause.navLabel,
+          href: `/donate/what-you-can-support/${cause.slug}`,
+          active: activeSlug === cause.slug,
+        })),
+      ]}
+      externals={[{ label: 'How to Donate', href: '/donate/how-to-donate' }]}
+    />
   )
 }
 
