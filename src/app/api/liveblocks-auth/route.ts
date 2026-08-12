@@ -7,6 +7,7 @@ const liveblocks = new Liveblocks({
 });
 
 const FEEDBACK_ROOM_PREFIX = "hijaz";
+const PUBLIC_ROOM_ACCESSES = ["*:write"] as const;
 
 function isFeedbackRoom(room: unknown): room is string {
   return typeof room === "string" && room.startsWith(FEEDBACK_ROOM_PREFIX);
@@ -31,6 +32,15 @@ export async function POST(request: Request) {
     });
 
     if (isFeedbackRoom(body?.room)) {
+      await liveblocks.upsertRoom(body.room, {
+        update: {
+          defaultAccesses: [...PUBLIC_ROOM_ACCESSES],
+        },
+        create: {
+          defaultAccesses: [...PUBLIC_ROOM_ACCESSES],
+        },
+      });
+
       session.allow(body.room, session.FULL_ACCESS);
     }
 
