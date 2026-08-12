@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { useThreads, ClientSideSuspense } from "@liveblocks/react/suspense"
 import { Composer, Thread } from "@liveblocks/react-ui"
 import "@liveblocks/react-ui/styles.css"
+import { FeedbackPortal } from "@/components/feedback/FeedbackPortal"
 
 // Helper to generate a readable CSS selector for developers
 function getElementSelector(el: HTMLElement | null): string {
@@ -143,13 +144,14 @@ function FeedbackOverlayInner() {
       </button>
 
       {/* Existing Comment Pins */}
+      <FeedbackPortal>
       {threads.map((thread) => {
         if (!thread.metadata || typeof thread.metadata.x !== 'number') return null;
 
         return (
           <div 
             key={thread.id} 
-            className="liveblocks-feedback-ui absolute z-[90]"
+            className="liveblocks-feedback-ui pointer-events-auto absolute z-[90]"
             style={{ 
               left: `${thread.metadata.x}px`, 
               top: `${thread.metadata.y}px`,
@@ -219,11 +221,13 @@ function FeedbackOverlayInner() {
           </div>
         )
       })}
+      </FeedbackPortal>
 
       {/* New Comment Composer */}
+      <FeedbackPortal>
       {newCommentData && (
         <div 
-          className="liveblocks-feedback-ui absolute z-[100] w-[350px] bg-white rounded-xl shadow-2xl p-2"
+          className="liveblocks-feedback-ui pointer-events-auto absolute z-[100] w-[350px] bg-white rounded-xl shadow-2xl p-2"
           style={{ 
             left: `${newCommentData.x}px`, 
             top: `${newCommentData.y}px`,
@@ -268,6 +272,7 @@ function FeedbackOverlayInner() {
           </div>
         </div>
       )}
+      </FeedbackPortal>
     </>
   )
 }

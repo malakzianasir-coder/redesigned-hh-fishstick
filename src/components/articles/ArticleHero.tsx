@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 
-import { cn } from '@/utilities/ui'
-
 export type ArticleHeroProps = {
   variant: 'news' | 'event' | 'story'
   title: string
