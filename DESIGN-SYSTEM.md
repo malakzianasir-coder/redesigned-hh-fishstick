@@ -600,10 +600,10 @@ Preset-driven SVG art for interior-page heroes. Living catalog: `/ds/illustratio
 
 **Source of truth is production code**, not `public/ds/illustrations.html` (archived mockup engine — do not port or iframe it).
 
-**Gradient parity (Facts Orbit):** the illustration background “blob” uses the same radial multi-stop gradient as
-`FactsOrbitSection`:
-- anchor: `circle at 32% 28%`
-- stops: `#F76B79` @ 0%, `#E30016` @ 42%, `#C40012` @ 72%, `#1B2441` @ 100%
+**Blob gradient:** soft radial fade using the preset's `soft` colour:
+- radialGradient `cx="50%" cy="42%" r="65%"`,
+- 0% stop: `soft` at full opacity,
+- 100% stop: `soft` at `stop-opacity="0"`.
 
 | Piece | Path |
 |---|---|

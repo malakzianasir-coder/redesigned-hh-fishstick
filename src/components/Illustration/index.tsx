@@ -143,16 +143,9 @@ export const Illustration: React.FC<IllustrationProps> = (props) => {
   const satellitesList = Array.isArray(c.satellites) ? c.satellites.slice(0, 4) : []
 
   const isDarkTone = c.tone === 'dark'
-  const blobCenterOpacity = isDarkTone ? 0.92 : 1
   const ringColor = isDarkTone ? '#FFFFFF' : c.ink
   const motifColor = c.accent
   const orbitStrokeOpacity = isDarkTone ? 0.22 : 0.18
-
-  // Keep illustration blob gradient consistent with the Facts Orbit counter-circle.
-  const orbitHighlight = '#F76B79'
-  const orbitMid = '#E30016'
-  const orbitMidShade = '#C40012'
-  const orbitDeep = '#1B2441'
 
   return (
     <div
@@ -166,11 +159,9 @@ export const Illustration: React.FC<IllustrationProps> = (props) => {
         className="w-full h-auto block overflow-visible"
       >
         <defs>
-          <radialGradient id={`hhBlob-${uid}`} cx="32%" cy="28%" r="65%">
-            <stop offset="0%" stopColor={orbitHighlight} stopOpacity={blobCenterOpacity} />
-            <stop offset="42%" stopColor={orbitMid} />
-            <stop offset="72%" stopColor={orbitMidShade} />
-            <stop offset="100%" stopColor={orbitDeep} />
+          <radialGradient id={`hhBlob-${uid}`} cx="50%" cy="42%" r="65%">
+            <stop offset="0%" stopColor={c.soft} />
+            <stop offset="100%" stopColor={c.soft} stopOpacity={0} />
           </radialGradient>
           <linearGradient id={`hhBadge-${uid}`} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor={c.accent} />
