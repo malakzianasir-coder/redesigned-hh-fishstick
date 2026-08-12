@@ -19,6 +19,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@liveblocks/client": "^3.23.1",
+    "@liveblocks/node": "^3.23.1",
+    "@liveblocks/react": "^3.23.1",
+    "@liveblocks/react-ui": "^3.23.1",
     "@payloadcms/admin-bar": "3.40.0",
     "@payloadcms/db-mongodb": "3.40.0",
     "@payloadcms/live-preview-react": "3.40.0",

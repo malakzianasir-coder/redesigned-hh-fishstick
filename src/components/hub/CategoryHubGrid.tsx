@@ -60,10 +60,10 @@ export function CategoryHubGrid({
 
   const visibleCards = useMemo(
     () =>
-      (activeFilter === 'all'
+      [...(activeFilter === 'all'
         ? cards
         : cards.filter((card) => card.categorySlug === activeFilter)
-      ).toSorted((a, b) => (a.title ?? '').localeCompare(b.title ?? '')),
+      )].sort((a, b) => (a.title ?? '').localeCompare(b.title ?? '')),
     [activeFilter, cards],
   )
 

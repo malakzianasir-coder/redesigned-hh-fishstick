@@ -9,6 +9,8 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { getServerSideURL } from '@/utilities/getURL'
+import { LiveblocksContext } from '@/providers/LiveblocksContext'
+import { FeedbackOverlay } from '@/components/feedback/FeedbackOverlay'
 
 import './globals.css'
 
@@ -30,12 +32,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-white font-sans text-primary-blue antialiased">
         <Providers>
-          <LenisProvider settings={settings.lenis}>
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-            {/* <FloatingQuickActions /> */}
-          </LenisProvider>
+          {process.env.NEXT_PUBLIC_ENABLE_FEEDBACK === 'true' ? (
+            <LiveblocksContext>
+              <LenisProvider settings={settings.lenis}>
+                <SiteHeader />
+                <main className="flex-1">{children}</main>
+                <SiteFooter />
+                <FeedbackOverlay />
+              </LenisProvider>
+            </LiveblocksContext>
+          ) : (
+            <LenisProvider settings={settings.lenis}>
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+            </LenisProvider>
+          )}
         </Providers>
       </body>
     </html>
