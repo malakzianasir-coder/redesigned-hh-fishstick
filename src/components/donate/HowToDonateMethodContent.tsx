@@ -54,7 +54,7 @@ function OnlineBody({ method }: { method: HowToDonateMethod }) {
     <section className="section-anchor bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <BlockHeader
-          kicker="Online Donation"
+          kicker="How to Donate"
           title={method.title}
           lede={(method.body ?? []).join(' ')}
           cta={method.cta}
@@ -72,7 +72,7 @@ function MobileWalletBody({ method }: { method: HowToDonateMethod }) {
     <section className="section-anchor bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         {method.intro ? (
-          <BlockHeader kicker="Mobile Wallet" title={method.title} lede={method.intro} />
+          <BlockHeader kicker="How to Donate" title={method.title} lede={method.intro} />
         ) : null}
         <article className="card flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-10 lg:p-8">
           <div className="flex flex-1 flex-col gap-4">
@@ -110,7 +110,7 @@ function BankTransferBody({ method }: { method: HowToDonateMethod }) {
     <section className="section-anchor bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <BlockHeader
-          kicker="Bank Transfer"
+          kicker="How to Donate"
           title={method.title}
           lede={method.intro}
         />
@@ -130,7 +130,7 @@ function MeezanAppBody({ method }: { method: HowToDonateMethod }) {
       <section className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <BlockHeader
-            kicker="Meezan Mobile App"
+            kicker="How to Donate"
             title={method.title}
             lede={method.intro}
           />
@@ -179,7 +179,7 @@ function ChequeBody({ method }: { method: HowToDonateMethod }) {
   return (
     <section className="section-anchor bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-        <BlockHeader kicker="Cheque / Bank Draft" title={method.title} />
+        <BlockHeader kicker="How to Donate" title={method.title} />
         <article className="card mx-auto flex max-w-3xl flex-col gap-6 p-6 lg:p-8">
           <p className="text-center text-b16 leading-[150%] text-primary-blue/85">
             Donations may also be made through cheque or bank draft payable to:{' '}
@@ -209,7 +209,7 @@ function PickUpBody({ method }: { method: HowToDonateMethod }) {
     <section className="section-anchor bg-white">
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <BlockHeader
-          kicker="Pick-Up Donation Service"
+          kicker="How to Donate"
           title={method.title}
           lede={method.intro}
         />

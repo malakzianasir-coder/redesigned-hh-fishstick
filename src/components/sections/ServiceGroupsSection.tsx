@@ -2,15 +2,21 @@ import Link from 'next/link'
 import React from 'react'
 
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { sectionMeasureClasses } from '@/components/site/sectionMeasures'
 import type { ServiceGroupsSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
 import { ProcedureFinder } from './ProcedureFinder'
+import { ProcedureListPanel } from './ProcedureListPanel'
 import { iconForServiceHeading, SectionIcon } from './sectionIcons'
 
 const sectionBackground: Record<'white' | 'muted', string> = {
   white: 'bg-white',
   muted: 'bg-whitebg',
+}
+
+function headingsMatch(a?: string, b?: string) {
+  return Boolean(a && b && a.trim().toLowerCase() === b.trim().toLowerCase())
 }
 
 export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectionData }) {
@@ -47,7 +53,14 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
           <>
             <ProcedureFinder groups={groups} />
             {footer ? (
-              <p className="mx-auto max-w-3xl text-center text-b16 text-primary-blue/85">{footer}</p>
+              <p
+                className={cn(
+                  sectionMeasureClasses.centeredColumn,
+                  'text-center text-b16 leading-[150%] text-primary-blue/85',
+                )}
+              >
+                {footer}
+              </p>
             ) : null}
           </>
         ) : layout === 'links' ? (
@@ -90,31 +103,32 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
               })}
             </div>
             {footer ? (
-              <p className="mx-auto max-w-3xl text-center text-b16 text-primary-blue/85">{footer}</p>
+              <p
+                className={cn(
+                  sectionMeasureClasses.centeredColumn,
+                  'text-center text-b16 leading-[150%] text-primary-blue/85',
+                )}
+              >
+                {footer}
+              </p>
             ) : null}
           </>
         ) : (
-          <div className="flex flex-col gap-6">
-            {groups.map((group) => (
-              <article key={group.slug || group.heading} className="card p-6 lg:p-8">
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="icon-tile">
-                    <SectionIcon name={group.icon || iconForServiceHeading(group.heading)} />
-                  </span>
-                  <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">{group.heading}</h3>
-                </div>
-                <ul className="grid grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-b14 leading-[150%] text-primary-blue/85">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-red" aria-hidden />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+          <div className={cn(sectionMeasureClasses.centeredColumn, 'flex flex-col gap-6')}>
+            {groups.map((group, index) => {
+              const distinct = Boolean(group.heading?.trim()) && !headingsMatch(group.heading, heading)
+              return (
+                <ProcedureListPanel
+                  key={group.slug || group.heading || `group-${index}`}
+                  kicker={distinct ? 'Service group' : 'Complete list'}
+                  title={distinct ? group.heading! : 'All services'}
+                  items={group.items}
+                  countLabel={`${group.items.length} service${group.items.length === 1 ? '' : 's'}`}
+                />
+              )
+            })}
             {footer ? (
-              <p className="mx-auto max-w-3xl text-center text-b16 text-primary-blue/85">{footer}</p>
+              <p className="text-center text-b16 leading-[150%] text-primary-blue/85">{footer}</p>
             ) : null}
           </div>
         )}

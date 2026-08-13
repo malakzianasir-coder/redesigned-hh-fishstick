@@ -1,0 +1,559 @@
+<!doctype html>
+<!--
+  Our Purpose — Philosophy + Approach merge mockup
+  Aligns with DESIGN-SYSTEM.md §7 cards, §8 ds3d carousel, §9 block header.
+
+  Proposal
+  ────────
+  • Collapse #our-philosophy + #our-approach into one section (#our-philosophy).
+  • Drop the philosophy photo.
+  • Keep Philosophy copy in the §9 BlockHeader (kicker / title / lede).
+  • Move the 8 Approach items into the infinite card stage (ds3d shell,
+    content-face cards — icon-tile + title + body — because there is no media).
+  • Jump nav: single “Philosophy” chip; keep #our-approach as an alias redirect.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Philosophy + Approach merge | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+            label: ['11px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; background: #fff; color: #1B2441; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+    .pattern-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .section-anchor { scroll-margin-top: 96px; }
+
+    .block-header {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .block-header__copy {
+      display: flex;
+      width: 100%;
+      max-width: 48rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+    .block-header__action { flex-shrink: 0; }
+    @media (min-width: 1024px) {
+      .block-header:has(.block-header__action) {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .block-header:has(.block-header__action) .block-header__copy {
+        max-width: none;
+        flex: 1;
+        min-width: 0;
+        align-items: flex-start;
+        text-align: start;
+      }
+    }
+
+    .card { border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff; box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); }
+    .card-interactive {
+      border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff;
+      box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s;
+    }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 4px 12px -2px rgb(27 36 65 / .12); }
+    .card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .card-grid > * { width: 100%; flex-shrink: 0; }
+    @media (min-width: 640px) {
+      .card-grid--4 > * { width: calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
+    }
+    @media (min-width: 1024px) {
+      .card-grid--4 > * { width: calc(25% - 1.125rem); max-width: calc(25% - 1.125rem); }
+    }
+
+    .sticky-bar {
+      position: sticky; top: 0; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+
+    /* §8 ds3d shell — height fits tallest §7 approach card (no fixed 3/4 media crop) */
+    .ds3d-stage {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      perspective: 1800px;
+      background: #F8F8F9;
+      border: 1px solid rgb(107 113 131 / 0.15);
+      user-select: none;
+      overscroll-behavior: contain;
+      touch-action: none;
+      cursor: grab;
+      padding-bottom: 44px;
+    }
+    .ds3d-stage.is-dragging { cursor: grabbing; }
+    .ds3d-loader {
+      position: absolute; inset: 0; z-index: 40;
+      display: grid; place-items: center; background: #F8F8F9;
+      transition: opacity .3s ease-out, visibility .3s linear;
+    }
+    .ds3d-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .ds3d-loader__ring {
+      width: 36px; height: 36px; border-radius: 999px;
+      border: 3px solid rgb(107 113 131 / .25);
+      border-top-color: #E30016;
+      animation: ds3d-spin 1s linear infinite;
+    }
+    @keyframes ds3d-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .ds3d-loader__ring { animation: none; }
+    }
+    .ds3d-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 40%, rgb(227 0 22 / 0.12), transparent 60%),
+        radial-gradient(ellipse 50% 45% at 80% 60%, rgb(20 76 217 / 0.14), transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgb(241 169 176 / 0.35), transparent 50%),
+        #F8F8F9;
+      filter: blur(28px) saturate(1.05);
+      pointer-events: none;
+    }
+    .ds3d-cards {
+      position: absolute; inset: 0; z-index: 10;
+      transform-style: preserve-3d;
+    }
+    .ds3d-card {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: min(80vw, 260px);
+      transform-origin: 90% center;
+      will-change: transform, filter;
+      backface-visibility: hidden;
+      overflow: visible;
+    }
+    @media (min-width: 1024px) {
+      .ds3d-card { width: 280px; }
+    }
+    .ds3d-card:hover .icon-tile { transform: scale(1.08); }
+
+    /* Reduced motion → §7 card-grid--4 (same markup as live Our Purpose approach) */
+    .approach-grid-fallback { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .ds3d-stage { display: none; }
+      .approach-grid-fallback { display: flex; }
+    }
+
+    .ds3d-nav {
+      position: absolute; inset-inline: 12px; top: 50%; z-index: 20;
+      transform: translateY(-50%);
+      display: flex; justify-content: space-between; pointer-events: none;
+    }
+    .ds3d-nav button {
+      pointer-events: auto;
+      width: 44px; height: 44px; border-radius: 999px;
+      border: 1px solid rgb(107 113 131 / 0.15);
+      background: #fff; color: #1B2441;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 1px 2px 0 rgba(27, 36, 65, 0.06);
+      transition: background-color .3s, color .3s, border-color .3s, transform .3s;
+      cursor: pointer;
+    }
+    .ds3d-nav button:hover {
+      background: #E30016; border-color: #E30016; color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(27, 36, 65, 0.12);
+    }
+    .ds3d-nav button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / 0.4);
+    }
+    .ds3d-hint {
+      position: absolute; left: 50%; bottom: 16px; z-index: 20;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .strike { text-decoration: line-through; opacity: .55; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="border-b border-dark-gray/15 bg-white">
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-[30px]">
+      <div>
+        <p class="field-label-text">Design System mockup</p>
+        <p class="text-b16 font-bold text-primary-blue">Our Purpose · Philosophy + Approach merge</p>
+      </div>
+      <a href="/ds/hub-page-patterns.html#h08" class="chip">← Hub patterns (H08)</a>
+      <a href="/ds/our-purpose-philosophy-approach-merge-b.html" class="chip">Concept B (snap rail)</a>
+      <a href="/ds/our-purpose-philosophy-approach-merge-c.html" class="chip">Concept C (chips)</a>
+      <a href="/ds/our-purpose-philosophy-approach-merge-d.html" class="chip">Concept D (list)</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Plan strip -->
+    <section class="bg-whitebg border-b border-dark-gray/15">
+      <div class="container mx-auto flex flex-col gap-4 px-6 py-8 lg:px-[30px]">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="pattern-badge">MERGE</span>
+          <h1 class="text-h4M lg:text-h4 font-bold text-primary-blue">One section, infinite approach cards</h1>
+        </div>
+        <ul class="grid gap-2 text-b14 text-primary-blue/85 lg:grid-cols-2">
+          <li><strong class="text-primary-blue">Keep:</strong> Philosophy §9 block header · Approach §9 block header (kicker + title)</li>
+          <li><strong class="text-primary-blue">Remove:</strong> Philosophy photo · separate section · static <span class="strike">card-grid--4</span> (replaced by §8 ds3d)</li>
+          <li><strong class="text-primary-blue">Add:</strong> Approach items as ds3d content-face cards (8 items → infinite browse)</li>
+          <li><strong class="text-primary-blue">Anchor:</strong> <code>#our-philosophy</code> only · Jump chip “Approach” drops · alias <code>#our-approach</code> → same section</li>
+        </ul>
+        <p class="cms-note">CMS → philosophy { heading, body } + approach[] · image field retired · jumpLinks drop Approach · hub “Our Philosophy” card stays</p>
+      </div>
+    </section>
+
+    <!-- Jump nav (proposed) -->
+    <nav class="sticky-bar" aria-label="Section">
+      <div class="container mx-auto flex gap-2 overflow-x-auto px-6 py-3 lg:px-[30px]">
+        <a href="#vision-mission" class="chip shrink-0">Vision &amp; Mission</a>
+        <a href="#our-journey" class="chip shrink-0">Journey</a>
+        <a href="#our-philosophy" class="chip is-active shrink-0">Philosophy</a>
+        <span class="chip shrink-0 strike" title="Removed — merged into Philosophy" aria-hidden="true">Approach</span>
+        <a href="#our-values" class="chip shrink-0">Values</a>
+        <a href="#our-compliance" class="chip shrink-0">Compliance</a>
+      </div>
+    </nav>
+
+    <!-- Context stubs -->
+    <section id="vision-mission" class="section-anchor border-b border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]">
+        <p class="cms-note">… Vision &amp; Mission (unchanged) …</p>
+      </div>
+    </section>
+    <section id="our-journey" class="section-anchor border-b border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]">
+        <p class="cms-note">… Our Journey (unchanged) …</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ MERGED SECTION ═══════════ -->
+    <section id="our-philosophy" class="section-anchor bg-white">
+      <!-- Alias target for legacy #our-approach links -->
+      <div id="our-approach" class="sr-only" aria-hidden="true"></div>
+
+      <div class="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <!-- §9 BlockHeader — Philosophy owns the section voice -->
+        <div class="block-header">
+          <div class="block-header__copy">
+            <p class="kicker">Our Philosophy</p>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">
+              A Legacy of Faith, Service, and Compassion
+            </h2>
+            <p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">
+              Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients.
+            </p>
+          </div>
+        </div>
+
+        <!-- §9 BlockHeader + §8 ds3d — Approach (same as live OurPurposeContent, carousel replaces card-grid) -->
+        <div class="flex flex-col gap-8">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Approach</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Approach</h2>
+            </div>
+          </div>
+
+          <div
+            class="ds3d-stage carousel-mode"
+            id="approach-stage"
+            aria-label="Our Approach carousel — drag or scroll to browse"
+          >
+            <div class="ds3d-loader" id="approach-loader" aria-label="Loading" aria-live="assertive">
+              <div class="ds3d-loader__ring" aria-hidden="true"></div>
+            </div>
+            <div class="ds3d-bg" id="approach-bg" aria-hidden="true"></div>
+            <div class="ds3d-cards" id="approach-cards" aria-live="polite"></div>
+            <div class="ds3d-nav">
+              <button type="button" id="approach-prev" aria-label="Previous"><i class="ph ph-caret-left"></i></button>
+              <button type="button" id="approach-next" aria-label="Next"><i class="ph ph-caret-right"></i></button>
+            </div>
+            <p class="ds3d-hint chip text-b12">Drag · scroll · swipe</p>
+          </div>
+
+          <!-- prefers-reduced-motion: §7 card-grid--4 -->
+          <div class="card-grid card-grid--4 approach-grid-fallback" id="approach-fallback" aria-label="Our Approach"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-values" class="section-anchor border-t border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]">
+        <p class="cms-note">… Our Values (unchanged — still a static card-grid) …</p>
+      </div>
+    </section>
+    <section id="our-compliance" class="section-anchor border-t border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]">
+        <p class="cms-note">… Our Compliance (unchanged) …</p>
+      </div>
+    </section>
+
+    <!-- Implementation notes -->
+    <section class="border-t border-dark-gray/15 bg-whitebg">
+      <div class="container mx-auto flex flex-col gap-4 px-6 py-10 lg:px-[30px]">
+        <h2 class="text-h5M lg:text-h5 font-bold text-primary-blue">Implementation checklist</h2>
+        <ol class="list-decimal space-y-2 pl-5 text-b14 text-primary-blue/85">
+          <li><code>OurPurposeContent.tsx</code> — delete philosophy image block; delete standalone Approach section; nest carousel under Philosophy.</li>
+          <li><code>content/our-purpose.json</code> — remove <code>philosophy.image</code>; drop Jump “Approach”; optionally shorten valuesIntro if duplicated.</li>
+          <li>Reuse <code>Ds3dCarousel</code> with a <strong>content-face</strong> slide mode (icon + title + body) — do not invent a second carousel engine (DESIGN-SYSTEM §8).</li>
+          <li>Keep Values as <code>card-grid</code> (static). Carousel is only for Approach’s 8 items.</li>
+          <li>Hub / mega-menu / About cards that linked to <code>#our-approach</code> should point to <code>#our-philosophy</code> (alias kept for safety).</li>
+          <li><code>prefers-reduced-motion</code> → static <code>card-grid--4</code> of the same cards.</li>
+        </ol>
+        <p class="cms-note">Approach title uses §9 block-header (not field-label-text). Carousel cards reuse §7 card-interactive + icon-tile markup from OurPurposeContent. Reduced motion falls back to card-grid--4.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const APPROACH = [
+      { icon: 'ph-hand-heart', title: 'Compassionate Care', body: 'Delivering patient-centered care with empathy, dignity, and respect.' },
+      { icon: 'ph-cpu', title: 'Advanced Medical Technology', body: 'Utilizing modern healthcare technologies for accurate diagnosis and effective treatment.' },
+      { icon: 'ph-clock-countdown', title: '24/7 Service', body: 'Ensuring continuous access to quality medical care whenever it is needed.' },
+      { icon: 'ph-circles-three-plus', title: 'Holistic Care', body: 'Addressing the physical, emotional, and social well-being of patients.' },
+      { icon: 'ph-shield-check', title: 'Patient Safety & Quality', body: 'Upholding the highest standards of safety, quality, and clinical excellence.' },
+      { icon: 'ph-megaphone', title: 'Community Outreach', body: 'Extending healthcare services and awareness programs to underserved communities.' },
+      { icon: 'ph-users-four', title: 'Skilled & Dedicated Professionals', body: 'Empowering experienced healthcare teams to provide exceptional care.' },
+      { icon: 'ph-hand-coins', title: 'Affordable & Accessible Healthcare', body: 'Striving to make quality healthcare available to all, regardless of financial circumstances.' },
+    ]
+
+    const cardsEl = document.getElementById('approach-cards')
+    const stage = document.getElementById('approach-stage')
+    const fallback = document.getElementById('approach-fallback')
+    const prevBtn = document.getElementById('approach-prev')
+    const nextBtn = document.getElementById('approach-next')
+
+    function cardHtml(item) {
+      return (
+        '<span class="icon-tile" aria-hidden="true"><i class="ph ' + item.icon + '"></i></span>' +
+        '<h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">' + item.title + '</h3>' +
+        '<p class="text-b14 text-primary-blue/85">' + item.body + '</p>'
+      )
+    }
+
+    // Reduced-motion: §7 card-grid--4 + card-interactive (OurPurposeContent recipe)
+    fallback.innerHTML = APPROACH.map(function (item) {
+      return (
+        '<article class="card-interactive flex flex-col gap-3 p-6">' +
+          '<span class="icon-tile"><i class="ph ' + item.icon + '"></i></span>' +
+          '<h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">' + item.title + '</h3>' +
+          '<p class="text-b14 text-primary-blue/85">' + item.body + '</p>' +
+        '</article>'
+      )
+    }).join('')
+
+    const loader = document.getElementById('approach-loader')
+    if (loader) {
+      window.setTimeout(function () { loader.classList.add('is-hidden') }, 400)
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Stage hidden via CSS; static grid shown.
+    } else {
+      const n = APPROACH.length
+      const nodes = APPROACH.map(function (item) {
+        const el = document.createElement('article')
+        el.className = 'ds3d-card card-interactive flex flex-col gap-3 p-6'
+        el.innerHTML = cardHtml(item)
+        cardsEl.appendChild(el)
+        return el
+      })
+
+      const GAP = 16
+      const FRICTION = 0.94
+      const DRAG_SENS = 1
+      const WHEEL_SENS = 0.4
+      const MAX_ROTATION = 18
+      const MAX_DEPTH = 80
+      const MIN_SCALE = 0.92
+      const SCALE_RANGE = 0.08
+      const AUTO_SPEED = 0.085
+      const mod = function (a, m) { return ((a % m) + m) % m }
+
+      let x = 0
+      let v = 0
+      let dragging = false
+      let lastPx = 0
+      let cardW = 260
+      let auto = true
+      let autoDir = -1
+      let raf = 0
+
+      function measure() {
+        cardW = nodes[0].getBoundingClientRect().width || 260
+        var maxH = 0
+        nodes.forEach(function (node) {
+          maxH = Math.max(maxH, node.offsetHeight)
+        })
+        /* tallest card + vertical breathing room + ds3d-hint band */
+        stage.style.height = Math.max(320, maxH + 72) + 'px'
+      }
+
+      function layout() {
+        const step = cardW + GAP
+        const total = step * n
+        for (let i = 0; i < n; i++) {
+          const raw = x + i * step
+          const wrapped = mod(raw + total / 2, total) - total / 2
+          const dist = wrapped / step
+          const abs = Math.abs(dist)
+          const rot = Math.max(-MAX_ROTATION, Math.min(MAX_ROTATION, -dist * 8))
+          const z = -Math.min(MAX_DEPTH, abs * 28)
+          const scale = MIN_SCALE + SCALE_RANGE * Math.max(0, 1 - abs * 0.35)
+          const opacity = Math.max(0.4, 1 - abs * 0.2)
+          nodes[i].style.transform =
+            'translate(-50%, -50%) translate3d(' + wrapped + 'px, 0, ' + z + 'px) rotateY(' + rot + 'deg) scale(' + scale + ')'
+          nodes[i].style.filter = 'brightness(' + (1 - Math.min(0.18, abs * 0.06)) + ')'
+          nodes[i].style.opacity = String(opacity)
+          nodes[i].style.zIndex = String(Math.round(100 - abs * 10))
+        }
+      }
+
+      function tick() {
+        if (!dragging) {
+          if (auto) v += autoDir * AUTO_SPEED
+          v *= FRICTION
+          if (Math.abs(v) < 0.008) v = 0
+          x += v
+        }
+        layout()
+        raf = requestAnimationFrame(tick)
+      }
+
+      function onPointerDown(e) {
+        dragging = true
+        auto = false
+        stage.classList.add('is-dragging')
+        lastPx = e.clientX ?? (e.touches && e.touches[0].clientX) ?? 0
+        v = 0
+      }
+      function onPointerMove(e) {
+        if (!dragging) return
+        const px = e.clientX ?? (e.touches && e.touches[0].clientX) ?? lastPx
+        const dx = (px - lastPx) * DRAG_SENS
+        lastPx = px
+        x += dx
+        v = dx
+      }
+      function onPointerUp() {
+        dragging = false
+        stage.classList.remove('is-dragging')
+        window.setTimeout(function () { auto = true }, 2200)
+      }
+
+      stage.addEventListener('pointerdown', onPointerDown)
+      window.addEventListener('pointermove', onPointerMove)
+      window.addEventListener('pointerup', onPointerUp)
+      stage.addEventListener('wheel', function (e) {
+        e.preventDefault()
+        auto = false
+        v += -e.deltaY * WHEEL_SENS * 0.08 - e.deltaX * WHEEL_SENS * 0.08
+        window.setTimeout(function () { auto = true }, 2200)
+      }, { passive: false })
+
+      prevBtn.addEventListener('click', function () {
+        auto = false
+        v -= (cardW + GAP) * 0.12
+        window.setTimeout(function () { auto = true }, 2800)
+      })
+      nextBtn.addEventListener('click', function () {
+        auto = false
+        v += (cardW + GAP) * 0.12
+        window.setTimeout(function () { auto = true }, 2800)
+      })
+
+      measure()
+      layout()
+      requestAnimationFrame(function () { measure(); layout() })
+      raf = requestAnimationFrame(tick)
+      window.addEventListener('resize', function () { measure(); layout() })
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { measure(); layout() })
+      }
+    }
+  </script>
+</body>
+</html>

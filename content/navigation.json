@@ -26,7 +26,7 @@
             },
             {
               "label": "Our Approach & Core Values",
-              "href": "/our-purpose#our-approach"
+              "href": "/our-purpose#our-philosophy"
             },
             {
               "label": "Our Compliance & Governance",
@@ -308,7 +308,6 @@
             }
           ]
         }
-        
       ]
     },
     {
@@ -396,7 +395,6 @@
               "label": "Patient Stories",
               "href": "/success-stories"
             }
-            
           ]
         }
       ]
@@ -405,7 +403,7 @@
       "id": "donate",
       "label": "Donate",
       "moreLink": {
-        "label": "Ways to give hub →",
+        "label": "Donate hub →",
         "href": "/donate"
       },
       "groups": [

@@ -91,7 +91,7 @@ export const MediumHero: React.FC<MediumHeroProps> = ({ hero, underHeader = fals
               </div>
             )}
             {links && links.length > 0 && (
-              <div className="pt-4 flex flex-wrap gap-3 justify-center lg:justify-start">
+              <div className="flex flex-wrap justify-center gap-3 pt-4 lg:justify-start lg:pt-5">
                 {links.map((link) => (
                   <Link
                     key={link.href}

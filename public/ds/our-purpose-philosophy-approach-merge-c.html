@@ -1,0 +1,365 @@
+<!doctype html>
+<!--
+  Our Purpose — Philosophy + Approach merge · CONCEPT C
+  Compatible patterns only (DESIGN-SYSTEM.md / COMPONENTS.md):
+
+  §9.1  CenteredSectionStack + block-header (Philosophy)
+  §9.1  block-header (Approach)
+  prod  ways-rail + .chip + .ways-panel (WaysToGiveSection)
+  §7    icon-tile (detail only — not inside card-interactive)
+  §7    hairline dividers (border-dark-gray/15) for the scan list
+
+  Difference from A/B: no card grid, no ds3d, no machinery-rail cards.
+  Approach is a chip selector + one open detail, with a hairline scan list below.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Philosophy + Approach merge · Concept C | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; background: #fff; color: #1B2441; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+    .pattern-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover, button.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .section-anchor { scroll-margin-top: 96px; }
+
+    .block-header {
+      display: flex; width: 100%; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .block-header__copy {
+      display: flex; width: 100%; max-width: 48rem; flex-direction: column;
+      align-items: center; gap: 6px; text-align: center;
+    }
+
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+
+    .sticky-bar {
+      position: sticky; top: 0; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+
+    /* CenteredSectionStack (DS §9.1 companion) */
+    .centered-section-stack {
+      margin-left: auto; margin-right: auto;
+      display: flex; width: 100%; flex-direction: column; gap: 16px; text-align: center;
+    }
+    @media (min-width: 1024px) {
+      .centered-section-stack { width: 66.666667%; }
+    }
+
+    /* Ways to Give rail + panel (globals.css) */
+    .ways-rail {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    }
+    @media (min-width: 1024px) {
+      .ways-rail { justify-content: flex-start; }
+    }
+    .ways-rail .chip {
+      cursor: pointer; border: none;
+    }
+    .ways-rail .chip:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / 0.4);
+    }
+    .ways-panel {
+      display: none;
+      animation: ways-panel-in 0.35s ease-out;
+    }
+    .ways-panel.is-active { display: block; }
+    @keyframes ways-panel-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ways-panel { animation: none; }
+    }
+
+    /* Hairline scan list — ProcedureRow-adjacent, no card chrome */
+    .approach-scan {
+      display: flex; flex-direction: column;
+      border-top: 1px solid rgb(107 113 131 / .15);
+    }
+    .approach-scan__row {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: transparent; text-align: start; width: 100%;
+      cursor: pointer; transition: background-color .2s;
+    }
+    .approach-scan__row:hover { background: #F4F4F4; }
+    .approach-scan__row:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 2px rgb(227 0 22 / 0.4);
+    }
+    .approach-scan__row.is-active .approach-scan__title { color: #E30016; }
+    .approach-scan__dot {
+      margin-top: 8px; height: 6px; width: 6px; flex-shrink: 0;
+      border-radius: 999px; background: #E30016;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="border-b border-dark-gray/15 bg-white">
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-[30px]">
+      <div>
+        <p class="field-label-text">Design System mockup · Concept C</p>
+        <p class="text-b16 font-bold text-primary-blue">Chip rail + detail · no cards</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a href="/ds/our-purpose-philosophy-approach-merge.html" class="chip">A</a>
+        <a href="/ds/our-purpose-philosophy-approach-merge-b.html" class="chip">B</a>
+        <a href="/ds/our-purpose-philosophy-approach-merge-d.html" class="chip">D</a>
+        <a href="/ds/hub-page-patterns.html#h08" class="chip">Hub H08</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="border-b border-dark-gray/15 bg-whitebg">
+      <div class="container mx-auto flex flex-col gap-4 px-6 py-8 lg:px-[30px]">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="pattern-badge">C</span>
+          <h1 class="text-h4M lg:text-h4 font-bold text-primary-blue">Chip selector · one open detail</h1>
+        </div>
+        <ul class="grid gap-2 text-b14 text-primary-blue/85 lg:grid-cols-2">
+          <li><strong class="text-primary-blue">Philosophy:</strong> CenteredSectionStack + §9 block-header (no photo)</li>
+          <li><strong class="text-primary-blue">Approach:</strong> <code>ways-rail</code> chips + <code>ways-panel</code> (Ways to Give recipe)</li>
+          <li><strong class="text-primary-blue">No cards:</strong> detail is icon-tile + type only; scan list uses hairline rows (ProcedureRow language)</li>
+          <li><strong class="text-primary-blue">All 8 items</strong> stay in the DOM for scan / SEO — chips only switch focus</li>
+        </ul>
+        <p class="cms-note">Patterns: CenteredSectionStack · block-header · chip · ways-rail · ways-panel · icon-tile · border-dark-gray/15 rows — no card / card-interactive / ds3d / machinery-rail</p>
+      </div>
+    </section>
+
+    <nav class="sticky-bar" aria-label="Section">
+      <div class="container mx-auto flex gap-2 overflow-x-auto px-6 py-3 lg:px-[30px]">
+        <a href="#vision-mission" class="chip shrink-0">Vision &amp; Mission</a>
+        <a href="#our-journey" class="chip shrink-0">Journey</a>
+        <a href="#our-philosophy" class="chip is-active shrink-0">Philosophy</a>
+        <a href="#our-values" class="chip shrink-0">Values</a>
+        <a href="#our-compliance" class="chip shrink-0">Compliance</a>
+      </div>
+    </nav>
+
+    <section id="vision-mission" class="section-anchor border-b border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Vision &amp; Mission …</p></div>
+    </section>
+    <section id="our-journey" class="section-anchor border-b border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Journey …</p></div>
+    </section>
+
+    <!-- ═══════════ MERGED SECTION · CONCEPT C ═══════════ -->
+    <section id="our-philosophy" class="section-anchor bg-white">
+      <div id="our-approach" class="sr-only" aria-hidden="true"></div>
+
+      <div class="container mx-auto flex flex-col gap-10 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <!-- Philosophy -->
+        <div class="centered-section-stack">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Philosophy</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">
+                A Legacy of Faith, Service, and Compassion
+              </h2>
+              <p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">
+                Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Approach: chip rail + detail (no cards) -->
+        <div class="mx-auto flex w-full max-w-3xl flex-col gap-8">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Approach</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Approach</h2>
+            </div>
+          </div>
+
+          <div class="ways-rail" role="tablist" aria-label="Approach pillars" id="approach-tabs">
+            <!-- chips injected -->
+          </div>
+
+          <div class="border-t border-dark-gray/15 pt-6" id="approach-panels">
+            <!-- panels injected -->
+          </div>
+
+          <div>
+            <p class="field-label-text mb-2 text-center lg:text-start">All pillars</p>
+            <div class="approach-scan" id="approach-scan" role="list">
+              <!-- hairline rows injected -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-values" class="section-anchor border-t border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Values …</p></div>
+    </section>
+    <section id="our-compliance" class="section-anchor border-t border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Compliance …</p></div>
+    </section>
+  </main>
+
+  <script>
+    var APPROACH = [
+      { icon: 'ph-hand-heart', title: 'Compassionate Care', body: 'Delivering patient-centered care with empathy, dignity, and respect.' },
+      { icon: 'ph-cpu', title: 'Advanced Medical Technology', body: 'Utilizing modern healthcare technologies for accurate diagnosis and effective treatment.' },
+      { icon: 'ph-clock-countdown', title: '24/7 Service', body: 'Ensuring continuous access to quality medical care whenever it is needed.' },
+      { icon: 'ph-circles-three-plus', title: 'Holistic Care', body: 'Addressing the physical, emotional, and social well-being of patients.' },
+      { icon: 'ph-shield-check', title: 'Patient Safety & Quality', body: 'Upholding the highest standards of safety, quality, and clinical excellence.' },
+      { icon: 'ph-megaphone', title: 'Community Outreach', body: 'Extending healthcare services and awareness programs to underserved communities.' },
+      { icon: 'ph-users-four', title: 'Skilled & Dedicated Professionals', body: 'Empowering experienced healthcare teams to provide exceptional care.' },
+      { icon: 'ph-hand-coins', title: 'Affordable & Accessible Healthcare', body: 'Striving to make quality healthcare available to all, regardless of financial circumstances.' }
+    ]
+
+    var tabsEl = document.getElementById('approach-tabs')
+    var panelsEl = document.getElementById('approach-panels')
+    var scanEl = document.getElementById('approach-scan')
+
+    tabsEl.innerHTML = APPROACH.map(function (item, i) {
+      return (
+        '<button type="button" class="chip' + (i === 0 ? ' is-active' : '') + '" role="tab" aria-selected="' +
+        (i === 0 ? 'true' : 'false') + '" aria-controls="approach-panel-' + i + '" id="approach-tab-' + i + '" data-index="' + i + '">' +
+        item.title +
+        '</button>'
+      )
+    }).join('')
+
+    panelsEl.innerHTML = APPROACH.map(function (item, i) {
+      return (
+        '<div class="ways-panel' + (i === 0 ? ' is-active' : '') + '" role="tabpanel" id="approach-panel-' + i +
+        '" aria-labelledby="approach-tab-' + i + '"' + (i === 0 ? '' : ' hidden') + '>' +
+          '<div class="flex flex-col gap-4 sm:flex-row sm:items-start">' +
+            '<span class="icon-tile" aria-hidden="true"><i class="ph ' + item.icon + '"></i></span>' +
+            '<div class="flex flex-col gap-2 text-center sm:text-start">' +
+              '<h3 class="text-h5M lg:text-h5 font-bold leading-[120%] text-primary-blue">' + item.title + '</h3>' +
+              '<p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">' + item.body + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      )
+    }).join('')
+
+    scanEl.innerHTML = APPROACH.map(function (item, i) {
+      return (
+        '<button type="button" class="approach-scan__row' + (i === 0 ? ' is-active' : '') +
+        '" role="listitem" data-index="' + i + '" aria-controls="approach-panel-' + i + '">' +
+          '<span class="approach-scan__dot" aria-hidden="true"></span>' +
+          '<span class="flex min-w-0 flex-1 flex-col gap-1">' +
+            '<span class="approach-scan__title text-b16 font-semibold text-primary-blue">' + item.title + '</span>' +
+            '<span class="text-b14 text-primary-blue/85">' + item.body + '</span>' +
+          '</span>' +
+        '</button>'
+      )
+    }).join('')
+
+    function activate(index) {
+      var tabs = tabsEl.querySelectorAll('[role="tab"]')
+      var panels = panelsEl.querySelectorAll('[role="tabpanel"]')
+      var rows = scanEl.querySelectorAll('.approach-scan__row')
+      tabs.forEach(function (tab, i) {
+        var on = i === index
+        tab.classList.toggle('is-active', on)
+        tab.setAttribute('aria-selected', on ? 'true' : 'false')
+      })
+      panels.forEach(function (panel, i) {
+        var on = i === index
+        panel.classList.toggle('is-active', on)
+        if (on) panel.removeAttribute('hidden')
+        else panel.setAttribute('hidden', '')
+      })
+      rows.forEach(function (row, i) {
+        row.classList.toggle('is-active', i === index)
+      })
+    }
+
+    tabsEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-index]')
+      if (!btn) return
+      activate(Number(btn.dataset.index))
+    })
+    scanEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-index]')
+      if (!btn) return
+      activate(Number(btn.dataset.index))
+      document.getElementById('approach-panel-' + btn.dataset.index).scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    })
+  </script>
+</body>
+</html>

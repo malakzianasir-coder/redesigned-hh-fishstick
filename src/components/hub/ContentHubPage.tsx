@@ -70,11 +70,11 @@ export function ContentHubPage({
 
   const filters = useMemo(
     () => [
-      { slug: 'all', label: 'All', count: groups.reduce((sum, group) => sum + group.cards.length, 0) },
+      { slug: 'all', label: 'All', count: groups.reduce((sum, group) => sum + Math.max(group.cards.length, group.cta ? 1 : 0), 0) },
       ...groups.map((group) => ({
         slug: group.id,
         label: group.heading,
-        count: group.cards.length,
+        count: Math.max(group.cards.length, group.cta ? 1 : 0),
       })),
     ],
     [groups],
@@ -108,6 +108,7 @@ export function ContentHubPage({
               lede={group.lede}
               cta={group.cta}
             />
+            {group.cards.length > 0 ? (
             <div className="card-grid card-grid--3">
               {[...group.cards]
                 .sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
@@ -143,6 +144,7 @@ export function ContentHubPage({
                 )
               })}
             </div>
+            ) : null}
           </div>
         </section>
       ))}

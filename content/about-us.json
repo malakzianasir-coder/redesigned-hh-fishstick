@@ -11,20 +11,34 @@
       "preset": "page/about"
     },
     "links": [
-      { "label": "Our Purpose", "href": "/our-purpose", "variant": "primary" },
-      { "label": "Leadership", "href": "/leadership", "variant": "ghost" }
+      {
+        "label": "Our Purpose",
+        "href": "/our-purpose",
+        "variant": "primary"
+      },
+      {
+        "label": "Leadership",
+        "href": "/leadership",
+        "variant": "ghost"
+      }
     ]
   },
   "externals": [
-    { "label": "Our Supporters", "href": "/our-supporters" }
+    {
+      "label": "Our Supporters",
+      "href": "/our-supporters"
+    }
   ],
   "groups": [
     {
       "id": "our-purpose",
-      "kicker": "Our Purpose",
+      "kicker": "About Us",
       "heading": "Our Purpose",
       "lede": "Vision, journey, philosophy, values, and compliance — why Hijaz Hospital exists.",
-      "cta": { "label": "View Our Purpose", "href": "/our-purpose" },
+      "cta": {
+        "label": "View Our Purpose",
+        "href": "/our-purpose"
+      },
       "cards": [
         {
           "slug": "vision-mission",
@@ -54,10 +68,13 @@
     },
     {
       "id": "leadership",
-      "kicker": "Leadership & Governance",
+      "kicker": "About Us",
       "heading": "Leadership & Governance",
       "lede": "Founders, chairpersons, presidents, and the committees that steward the Trust.",
-      "cta": { "label": "View Leadership", "href": "/leadership" },
+      "cta": {
+        "label": "View Leadership",
+        "href": "/leadership"
+      },
       "cards": [
         {
           "slug": "our-founders",
@@ -87,10 +104,13 @@
     },
     {
       "id": "messages",
-      "kicker": "Messages",
+      "kicker": "About Us",
       "heading": "Messages",
       "lede": "Letters from the Chairman and the President.",
-      "cta": { "label": "View Messages", "href": "/leadership/messages" },
+      "cta": {
+        "label": "View Messages",
+        "href": "/leadership/messages"
+      },
       "cards": [
         {
           "slug": "chairmans-message",
@@ -112,10 +132,13 @@
     },
     {
       "id": "our-impact",
-      "kicker": "Our Impact",
+      "kicker": "About Us",
       "heading": "Our Impact",
       "lede": "Awards, partners, facts, and the people who stand with us.",
-      "cta": { "label": "View Impact", "href": "/our-impact" },
+      "cta": {
+        "label": "View Impact",
+        "href": "/our-impact"
+      },
       "cards": [
         {
           "slug": "awards",

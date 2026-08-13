@@ -1,0 +1,365 @@
+<!doctype html>
+<!--
+  Our Purpose — Philosophy + Approach merge · CONCEPT B
+  Compatible patterns only (DESIGN-SYSTEM.md):
+
+  §9.1  CenteredSectionStack + block-header (Philosophy)
+  §9.1  block-header (Approach)
+  §7    card-interactive + icon-tile
+  §11   overflow-x scroll rail + edge fades (breadcrumb-overflow recipe)
+  prod  machinery-rail / machinery-rail__card (globals.css)
+  §8    nav chevron pills (reuse ds3d-nav button chrome for rail nudge)
+
+  Difference from Concept A (merge.html): no ds3d stage — user-driven horizontal
+  snap scroll. On lg+, cards settle into card-grid--4 (static, no scroll).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Philosophy + Approach merge · Concept B | Hijaz Hospital — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: { center: true },
+        extend: {
+          colors: {
+            'primary-blue': '#1B2441',
+            'primary-red': '#E30016',
+            'dark-blue': '#101524',
+            'dark-gray': '#6B7183',
+            'light-blue': '#144CD9',
+            whitebg: '#F8F8F9',
+            cardbg: '#F4F4F4',
+            redbg: '#F1EAEB',
+          },
+          fontFamily: {
+            display: ['Zodiak', 'Georgia', 'serif'],
+            sans: ['Open Sans', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            h1: ['42px', { lineHeight: '110%' }], h1M: ['32px', { lineHeight: '110%' }],
+            h2: ['34px', { lineHeight: '120%' }], h2M: ['28px', { lineHeight: '120%' }],
+            h3: ['30px', { lineHeight: '120%' }], h3M: ['24px', { lineHeight: '120%' }],
+            h4: ['28px', { lineHeight: '120%' }], h4M: ['22px', { lineHeight: '120%' }],
+            h5: ['24px', { lineHeight: '120%' }], h5M: ['20px', { lineHeight: '120%' }],
+            h6: ['20px', { lineHeight: '120%' }], h6M: ['18px', { lineHeight: '120%' }],
+            b18: ['18px', { lineHeight: '150%' }], b16: ['16px', { lineHeight: '150%' }],
+            b14: ['14px', { lineHeight: '150%' }], b12: ['12px', { lineHeight: '150%' }],
+          },
+          letterSpacing: { kicker: '0.12em', display: '-0.0032em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Zodiak';
+      src: url('/fonts/zodiak/Zodiak-Variable.woff2') format('woff2'),
+           url('/fonts/zodiak/Zodiak-Variable.woff') format('woff');
+      font-weight: 100 900; font-display: swap;
+    }
+    body { font-family: 'Open Sans', system-ui, sans-serif; scroll-behavior: smooth; background: #fff; color: #1B2441; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Zodiak', Georgia, serif; }
+
+    .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #E30016; }
+    .field-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgb(27 36 65 / .55); }
+    .cms-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 150%; color: #6B7183; }
+    .pattern-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; border: 1px solid rgb(107 113 131 / .15);
+      background: #fff; padding: 6px 12px; font-size: 14px; font-weight: 600; color: #1B2441;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    a.chip:hover { border-color: rgb(227 0 22 / .4); background: #F1EAEB; color: #E30016; }
+    .chip.is-active { background: #E30016; border-color: #E30016; color: #fff; }
+    .section-anchor { scroll-margin-top: 96px; }
+
+    .block-header {
+      display: flex; width: 100%; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .block-header__copy {
+      display: flex; width: 100%; max-width: 48rem; flex-direction: column;
+      align-items: center; gap: 6px; text-align: center;
+    }
+
+    .card-interactive {
+      border-radius: 16px; border: 1px solid rgb(107 113 131 / .15); background: #fff;
+      box-shadow: 0 1px 2px 0 rgb(27 36 65 / .06); transition: all .3s;
+    }
+    .card-interactive:hover { transform: translateY(-2px); box-shadow: 0 4px 12px -2px rgb(27 36 65 / .12); }
+
+    .card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .card-grid > * { width: 100%; flex-shrink: 0; }
+    @media (min-width: 640px) {
+      .card-grid--4 > * { width: calc(50% - 0.75rem); max-width: calc(50% - 0.75rem); }
+    }
+    @media (min-width: 1024px) {
+      .card-grid--4 > * { width: calc(25% - 1.125rem); max-width: calc(25% - 1.125rem); }
+    }
+
+    .icon-tile {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #F1EAEB; color: #E30016; font-size: 22px; flex-shrink: 0;
+      transition: transform .3s ease-out;
+    }
+    .card-interactive:hover .icon-tile { transform: scale(1.08); }
+
+    .sticky-bar {
+      position: sticky; top: 0; z-index: 30;
+      border-top: 1px solid rgb(107 113 131 / .15);
+      border-bottom: 1px solid rgb(107 113 131 / .15);
+      background: rgb(255 255 255 / .95); backdrop-filter: blur(8px);
+    }
+
+    /* CenteredSectionStack (DS §9.1 companion) */
+    .centered-section-stack {
+      margin-left: auto; margin-right: auto;
+      display: flex; width: 100%; flex-direction: column; gap: 16px; text-align: center;
+    }
+    @media (min-width: 1024px) {
+      .centered-section-stack { width: 66.666667%; }
+    }
+
+    /* machinery-rail (globals.css) */
+    .machinery-rail {
+      display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px;
+      scroll-snap-type: x mandatory; scrollbar-width: thin;
+    }
+    .machinery-rail__card {
+      width: 280px; flex-shrink: 0; scroll-snap-align: start;
+    }
+    @media (min-width: 640px) {
+      .machinery-rail__card { width: 320px; }
+    }
+
+    /* breadcrumb-overflow fades on rail (DS §11) */
+    .rail-overflow { position: relative; }
+    .rail-overflow__fade {
+      pointer-events: none; position: absolute; top: 0; z-index: 1;
+      height: 100%; width: 24px; opacity: 0; transition: opacity 200ms ease-out;
+    }
+    .rail-overflow__fade.is-visible { opacity: 1; }
+    .rail-overflow__fade--start {
+      left: 0; background: linear-gradient(to right, #fff, transparent);
+    }
+    .rail-overflow__fade--end {
+      right: 0; background: linear-gradient(to left, #fff, transparent);
+    }
+
+    /* §8 nav chevron pills — nudge rail scroll */
+    .rail-nav-btn {
+      width: 44px; height: 44px; border-radius: 999px;
+      border: 1px solid rgb(107 113 131 / 0.15); background: #fff; color: #1B2441;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 20px; box-shadow: 0 1px 2px 0 rgba(27, 36, 65, 0.06);
+      transition: background-color .3s, color .3s, border-color .3s, transform .3s;
+      cursor: pointer; flex-shrink: 0;
+    }
+    .rail-nav-btn:hover {
+      background: #E30016; border-color: #E30016; color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(27, 36, 65, 0.12);
+    }
+    .rail-nav-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(227 0 22 / 0.4);
+    }
+
+    /* Responsive: rail below lg, grid at lg+ */
+    .approach-rail-wrap { display: block; }
+    .approach-grid-wrap { display: none; }
+    @media (min-width: 1024px) {
+      .approach-rail-wrap { display: none; }
+      .approach-grid-wrap { display: flex; }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="border-b border-dark-gray/15 bg-white">
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-[30px]">
+      <div>
+        <p class="field-label-text">Design System mockup · Concept B</p>
+        <p class="text-b16 font-bold text-primary-blue">Snap scroll rail + desktop grid</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a href="/ds/our-purpose-philosophy-approach-merge.html" class="chip">Concept A (ds3d)</a>
+        <a href="/ds/our-purpose-philosophy-approach-merge-c.html" class="chip">Concept C (chips)</a>
+        <a href="/ds/our-purpose-philosophy-approach-merge-d.html" class="chip">Concept D (list)</a>
+        <a href="/ds/hub-page-patterns.html#h08" class="chip">Hub H08</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="border-b border-dark-gray/15 bg-whitebg">
+      <div class="container mx-auto flex flex-col gap-4 px-6 py-8 lg:px-[30px]">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="pattern-badge">B</span>
+          <h1 class="text-h4M lg:text-h4 font-bold text-primary-blue">Centered philosophy · scrollable approach rail</h1>
+        </div>
+        <ul class="grid gap-2 text-b14 text-primary-blue/85 lg:grid-cols-2">
+          <li><strong class="text-primary-blue">Philosophy:</strong> CenteredSectionStack + §9 block-header (no photo)</li>
+          <li><strong class="text-primary-blue">Approach:</strong> §9 block-header + <code>machinery-rail</code> with §11 edge fades</li>
+          <li><strong class="text-primary-blue">Desktop:</strong> same cards in <code>card-grid--4</code> (no scroll needed)</li>
+          <li><strong class="text-primary-blue">No auto-marquee</strong> — user scroll / chevrons only (DS §11)</li>
+        </ul>
+        <p class="cms-note">Patterns: CenteredSectionStack · block-header · card-interactive · icon-tile · machinery-rail · breadcrumb-overflow fades · card-grid--4 @ lg</p>
+      </div>
+    </section>
+
+    <nav class="sticky-bar" aria-label="Section">
+      <div class="container mx-auto flex gap-2 overflow-x-auto px-6 py-3 lg:px-[30px]">
+        <a href="#vision-mission" class="chip shrink-0">Vision &amp; Mission</a>
+        <a href="#our-journey" class="chip shrink-0">Journey</a>
+        <a href="#our-philosophy" class="chip is-active shrink-0">Philosophy</a>
+        <a href="#our-values" class="chip shrink-0">Values</a>
+        <a href="#our-compliance" class="chip shrink-0">Compliance</a>
+      </div>
+    </nav>
+
+    <section id="vision-mission" class="section-anchor border-b border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Vision &amp; Mission …</p></div>
+    </section>
+    <section id="our-journey" class="section-anchor border-b border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Journey …</p></div>
+    </section>
+
+    <!-- ═══════════ MERGED SECTION · CONCEPT B ═══════════ -->
+    <section id="our-philosophy" class="section-anchor bg-whitebg">
+      <div id="our-approach" class="sr-only" aria-hidden="true"></div>
+
+      <div class="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+        <!-- DS §9.1 + CenteredSectionStack -->
+        <div class="centered-section-stack">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Philosophy</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">
+                A Legacy of Faith, Service, and Compassion
+              </h2>
+              <p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">
+                Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Approach inset panel -->
+        <div class="flex flex-col gap-8 rounded-2xl border border-dark-gray/15 bg-white p-6 lg:p-8">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Approach</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Approach</h2>
+            </div>
+          </div>
+
+          <!-- Mobile / tablet: machinery-rail + fades + chevrons -->
+          <div class="approach-rail-wrap">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <p class="text-b12 text-dark-gray">Scroll to browse all pillars</p>
+              <div class="flex gap-2">
+                <button type="button" class="rail-nav-btn" id="rail-prev" aria-label="Scroll approach cards left">
+                  <i class="ph ph-caret-left"></i>
+                </button>
+                <button type="button" class="rail-nav-btn" id="rail-next" aria-label="Scroll approach cards right">
+                  <i class="ph ph-caret-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="rail-overflow">
+              <div class="rail-overflow__fade rail-overflow__fade--start" aria-hidden="true"></div>
+              <div class="rail-overflow__fade rail-overflow__fade--end is-visible" aria-hidden="true"></div>
+              <div class="machinery-rail" id="approach-rail" tabindex="0" aria-label="Our Approach pillars">
+                <!-- cards injected -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop: static card-grid--4 -->
+          <div class="card-grid card-grid--4 approach-grid-wrap" id="approach-grid" aria-label="Our Approach pillars">
+            <!-- cards injected -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="our-values" class="section-anchor border-t border-dark-gray/10 bg-white">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Values …</p></div>
+    </section>
+    <section id="our-compliance" class="section-anchor border-t border-dark-gray/10 bg-whitebg">
+      <div class="container mx-auto px-6 py-6 lg:px-[30px]"><p class="cms-note">… Our Compliance …</p></div>
+    </section>
+  </main>
+
+  <script>
+    var APPROACH = [
+      { icon: 'ph-hand-heart', title: 'Compassionate Care', body: 'Delivering patient-centered care with empathy, dignity, and respect.' },
+      { icon: 'ph-cpu', title: 'Advanced Medical Technology', body: 'Utilizing modern healthcare technologies for accurate diagnosis and effective treatment.' },
+      { icon: 'ph-clock-countdown', title: '24/7 Service', body: 'Ensuring continuous access to quality medical care whenever it is needed.' },
+      { icon: 'ph-circles-three-plus', title: 'Holistic Care', body: 'Addressing the physical, emotional, and social well-being of patients.' },
+      { icon: 'ph-shield-check', title: 'Patient Safety & Quality', body: 'Upholding the highest standards of safety, quality, and clinical excellence.' },
+      { icon: 'ph-megaphone', title: 'Community Outreach', body: 'Extending healthcare services and awareness programs to underserved communities.' },
+      { icon: 'ph-users-four', title: 'Skilled & Dedicated Professionals', body: 'Empowering experienced healthcare teams to provide exceptional care.' },
+      { icon: 'ph-hand-coins', title: 'Affordable & Accessible Healthcare', body: 'Striving to make quality healthcare available to all, regardless of financial circumstances.' }
+    ]
+
+    function cardMarkup(item, rail) {
+      var cls = rail
+        ? 'machinery-rail__card card-interactive flex flex-col gap-3 p-6'
+        : 'card-interactive flex flex-col gap-3 p-6'
+      return (
+        '<article class="' + cls + '">' +
+          '<span class="icon-tile"><i class="ph ' + item.icon + '"></i></span>' +
+          '<h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">' + item.title + '</h3>' +
+          '<p class="text-b14 text-primary-blue/85">' + item.body + '</p>' +
+        '</article>'
+      )
+    }
+
+    var rail = document.getElementById('approach-rail')
+    var grid = document.getElementById('approach-grid')
+    rail.innerHTML = APPROACH.map(function (item) { return cardMarkup(item, true) }).join('')
+    grid.innerHTML = APPROACH.map(function (item) { return cardMarkup(item, false) }).join('')
+
+    var wrap = rail.closest('.rail-overflow')
+    var fadeStart = wrap.querySelector('.rail-overflow__fade--start')
+    var fadeEnd = wrap.querySelector('.rail-overflow__fade--end')
+
+    function syncFades() {
+      var max = Math.max(0, rail.scrollWidth - rail.clientWidth)
+      fadeStart.classList.toggle('is-visible', max > 1 && rail.scrollLeft > 1)
+      fadeEnd.classList.toggle('is-visible', max > 1 && rail.scrollLeft < max - 1)
+    }
+
+    function scrollRail(dir) {
+      var card = rail.querySelector('.machinery-rail__card')
+      var step = card ? card.offsetWidth + 16 : 336
+      rail.scrollBy({ left: dir * step, behavior: 'smooth' })
+    }
+
+    rail.addEventListener('scroll', syncFades, { passive: true })
+    new ResizeObserver(syncFades).observe(rail)
+    syncFades()
+
+    document.getElementById('rail-prev').addEventListener('click', function () { scrollRail(-1) })
+    document.getElementById('rail-next').addEventListener('click', function () { scrollRail(1) })
+  </script>
+</body>
+</html>

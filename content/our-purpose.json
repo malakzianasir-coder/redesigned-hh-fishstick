@@ -5,10 +5,10 @@
   "hero": {
     "kicker": "About Us",
     "title": "Our Purpose",
-    "excerpt": "Vision, mission, journey, philosophy, values, and compliance — the foundations that guide Hijaz Hospital's commitment to compassionate, accessible healthcare for all.",
+    "excerpt": "The vision, journey, and values that keep quality care within reach for every patient who walks through our doors.",
     "media": {
       "type": "image",
-      "src": "/media/476945069_970781975161220_6789087496260085071_n.webp",
+      "src": "/media/our-purpose-philosophy.webp",
       "alt": "Hijaz Hospital — Our Purpose"
     },
     "links": [
@@ -38,10 +38,6 @@
       "href": "#our-philosophy"
     },
     {
-      "label": "Approach",
-      "href": "#our-approach"
-    },
-    {
       "label": "Values",
       "href": "#our-values"
     },
@@ -60,6 +56,8 @@
   ],
   "vision": "To develop Hijaz Hospital into a state-of-the-art secondary-level healthcare institution that serves all strata of society with excellence and compassion",
   "mission": "To care for the ailing with compassion, respect, dignity, and professional excellence, while ensuring that financial hardship never stands in the way of receiving care",
+  "visionMissionHeading": "Where We Aim",
+  "journeyHeading": "How We Got Here",
   "journey": [
     {
       "year": "1968",
@@ -127,9 +125,9 @@
   ],
   "philosophy": {
     "heading": "A Legacy of Faith, Service, and Compassion",
-    "body": "Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients.",
-    "image": "/media/our-purpose-philosophy.webp"
+    "body": "Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution. Guided by faith, compassion, and professional excellence, we are committed to providing quality healthcare that meets the physical, emotional, and social needs of our patients."
   },
+  "approachHeading": "How We Put Care Into Practice",
   "approach": [
     {
       "icon": "HandHeart",
@@ -172,6 +170,7 @@
       "body": "Striving to make quality healthcare available to all, regardless of financial circumstances."
     }
   ],
+  "valuesHeading": "The Standards We Hold",
   "valuesIntro": "At Hijaz Hospital Trust, our work is guided by compassion, integrity, excellence, and a commitment to serving humanity. We believe quality healthcare should be accessible to all, especially the deserving and underserved, and we strive to create a healthier and more equitable society through ethical, patient-centered care.",
   "values": [
     {
@@ -221,6 +220,7 @@
     }
   ],
   "valuesOutro": "These values shape our culture, guide our decisions, and inspire our commitment to improving lives and serving our community.",
+  "complianceHeading": "How We Stay Accountable",
   "complianceIntro": "Hijaz Hospital is committed to adhere to all applicable healthcare regulations, quality standards, ethical practices, and governance requirements, ensuring safe, transparent, and accountable healthcare services for all.",
   "compliance": [
     {

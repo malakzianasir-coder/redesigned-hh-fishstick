@@ -38,7 +38,7 @@ const FOOTER_COLUMNS = [
     title: 'Donate',
     ariaLabel: 'Donate',
     links: [
-      { label: 'Ways to Give', href: '/donate' },
+      { label: 'Donate', href: '/donate' },
       { label: 'What You Can Support', href: '/donate/what-you-can-support' },
       { label: 'How to Donate', href: '/donate/how-to-donate' },
       { label: 'Zakat', href: '/donate/zakat' },

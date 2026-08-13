@@ -2599,7 +2599,7 @@
       "slug": "cbc-for-dengue-dengue",
       "name": "CBC for Dengue",
       "category": "Dengue",
-      "reportingTime": "8 hours",
+      "reportingTime": "8 Hrs",
       "specimen": "EDTA blood sample",
       "isOutsourced": false,
       "alsoKnownAs": [],
@@ -2639,7 +2639,7 @@
       "slug": "dengune-ns-1-antigen",
       "name": "Dengune Ns 1 antigen",
       "category": "Dengue",
-      "reportingTime": "24 Hours",
+      "reportingTime": "24 Hrs",
       "specimen": "",
       "isOutsourced": true,
       "alsoKnownAs": [
@@ -2676,7 +2676,7 @@
       "slug": "dengue-igg",
       "name": "Dengue IgG",
       "category": "Dengue",
-      "reportingTime": "24 Hours",
+      "reportingTime": "24 Hrs",
       "specimen": "",
       "isOutsourced": true,
       "alsoKnownAs": [
@@ -2713,7 +2713,7 @@
       "slug": "dengue-igm",
       "name": "Dengue IgM",
       "category": "Dengue",
-      "reportingTime": "24 Hours",
+      "reportingTime": "24 Hrs",
       "specimen": "",
       "isOutsourced": true,
       "alsoKnownAs": [

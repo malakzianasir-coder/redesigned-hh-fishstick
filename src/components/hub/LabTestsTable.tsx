@@ -1,7 +1,6 @@
 'use client'
 
 import { MagnifyingGlass } from '@phosphor-icons/react'
-import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { LabTestRecord } from '@/lib/content/types'
@@ -256,13 +255,6 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
             Showing {filtered.length} of {tests.length} tests — rates available at the hospital counter
           </p>
         </div>
-
-        <p className="mx-auto mt-6 max-w-4xl text-center text-b14 text-dark-gray">
-          For pathology services and booking, visit{' '}
-          <Link href="/services/pathology" className="font-semibold text-primary-red hover:text-primary-blue">
-            Pathology service →
-          </Link>
-        </p>
       </div>
 
       <LabTestDrawer test={active} onClose={closeTest} />

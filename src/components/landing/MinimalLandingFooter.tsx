@@ -17,7 +17,7 @@ export function MinimalLandingFooter({
         <p className="text-b14 text-primary-blue/85">{body}</p>
         <Link
           href={ctaHref}
-          className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-primary-blue px-6 text-b16 font-bold text-white transition-colors duration-300 ease-in-out hover:bg-primary-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary-blue px-4 text-b14 font-bold leading-none text-white transition-colors duration-300 ease-in-out hover:bg-primary-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
         >
           {ctaLabel}
         </Link>

@@ -100,7 +100,8 @@ Topic groups (`ContentHubPage`) / CategoryHubGrid
 MarketingSupportCTA | GlobalCtaSection       ← content hubs
 ```
 
-Hubs **filter** (`HubFilterRail` + hash, same as `CategoryHubGrid`). Innermost content-full
+Hubs **filter** (`HubFilterRail` + hash, same as `CategoryHubGrid`). Counts off by default
+(`showCounts`); Doctors and Lab tests keep counts on their own chip UIs. Innermost content-full
 pages (`/our-purpose`, `/leadership`, department and welfare details) use `JumpNav` — chips
 **scroll** to the section (H08), never hide content. Mega-menu group hashes
 (`/patient-welfare#patient-resources`, `/about-us#leadership`) activate the matching filter
@@ -146,8 +147,8 @@ image, or dashed placeholder while art is pending).
 | `kicker` | preferred | `.kicker` eyebrow |
 | `title` | yes | Page `h1` |
 | `excerpt` | preferred | One short supporting sentence |
-| `excerptVariant` | optional | `body` (default) or `quote` — italic description with a red rule; **no quotation marks are added**. Independent of `quote`. Live: departments only. Mock: `/ds/hero-quote` |
-| `quote` | optional | Separate pull-quote (e.g. Qur’an on Donate). Unchanged when `excerptVariant` is set |
+| `excerptVariant` | optional | `body` (default) or `quote` — italic description with a red rule; **no quotation marks are added**. Independent of the separate `quote` field. **Live:** departments + all Patient Care `/services/[slug]` pages. Mock: `/ds/hero-quote` |
+| `quote` | optional | Separate pull-quote (e.g. Qur’an on Donate). Use **instead of** `excerpt`, not stacked with it. See [Content-System.md](Content-System.md) |
 | `media` | preferred | Prefer `type: "image"` with real photo; placeholder only temporarily |
 | `links` | optional | Primary / ghost pills into on-page anchors or actions |
 
@@ -157,6 +158,8 @@ image, or dashed placeholder while art is pending).
 - Do not put stats, bank details, or method lists in the hero.
 - Do not use navy/red full-bleed backgrounds on these pages.
 - Do not use this on the home page (home uses `HomeHeroSlider`).
+- Do not stack `quote` and `excerpt` — one hero support line only ([Content-System.md](Content-System.md)).
+- Patient Care (`/services/[slug]`): `excerptVariant: 'quote'` with a single excerpt (enforced in `ServiceDetailContent`).
 
 ### 3.3 `ArticleHero` — articles only
 
@@ -221,6 +224,7 @@ donate pages (same cards / headers), rather than inventing new layouts.
 | Block | Path / class | Role |
 |---|---|---|
 | `BlockHeader` | `site/BlockHeader.tsx` | Kicker · title · lede · optional “View all” `btn-ghost` — default for hub-style sections |
+| `CenteredSectionStack` | `site/CenteredSectionStack.tsx` | Wrap centered `BlockHeader` + prose so body is not left-flush |
 | Media card | `.card-interactive` + `aspect-card` image + copy pad | Services, stories, news |
 | Icon action card | `.card-interactive` + `.icon-tile` + title + body + text CTA | Engage, donate cause grids |
 | Founder card | `.founder-card` | Portrait + role + excerpt |
@@ -257,9 +261,9 @@ Every section should follow the block header idea from DESIGN-SYSTEM §9 (or use
 | Sequential process | `processSteps` | `ProcessStepsSection` | Vertical “step 1…n” with item lines |
 | Amount → impact | `impactTable` | `ImpactTableSection` | Donation tiers (e.g. Donate a Meal) |
 | Icon label grid | `iconGrid` | `IconGridSection` | Facilities / amenity grids |
-| Highlight / partnership band | `callout` | `CalloutSection` | Single emphasis card with optional logo |
+| Highlight / partnership band | `callout` | `CalloutSection` | Single emphasis card with optional logo; DS P12 measure (`max-w-3xl`) |
 | Big numbers | `stats` | `StatsRowSection` | 2–4 KPI tiles (not in the hero) |
-| Procedure / service groups | `serviceGroups` | `ServiceGroupsSection` | Department procedure lists (`finder` / `stack` / `links`) |
+| Procedure / service groups | `serviceGroups` | `ServiceGroupsSection` | `finder` = multi-group catalogues (departments, pathology); `stack` = same `ProcedureListPanel` chrome without rail (Patient Care); `links` = card link grid |
 | Room / capacity cards | `accommodation` | `AccommodationSection` | Inpatient room types |
 | Quote strip | `closingBand` | `ClosingBandSection` | Short mission quote on `redbg` |
 | Success stories teaser | `patientStories` | `PatientStoriesSection` | Department pages (CMS-fed later) |
@@ -270,13 +274,25 @@ Every section should follow the block header idea from DESIGN-SYSTEM §9 (or use
 
 **`ContentSection`** — Use sparingly. Stacking many `content` blocks reads as a
 generic document. Prefer one overview (or fold into the hero excerpt), structured
-lists for methods, and a `callout` for assistance contacts.
+lists for methods, and a `callout` for assistance contacts. **No image:** use
+`CenteredSectionStack` so header + prose share one centered column. **`align: "start"`:**
+left-align header and body together — never center the header alone over left-flush copy.
 
 **`NumberedListSection`** — Bank accounts, wallet tills, Meezan categories. Short
 titles; IBANs / till IDs in nested `bullets`.
 
 **`BulletsSection` (cards)** — Accepted items / sponsorship options / projects. Prefer
-icons so cards match home engage tiles and Our Purpose approach cards.
+icons so cards match home engage tiles and Our Purpose values cards.
+
+**`serviceGroups`** — Department pages use `layout: "finder"` (search + group rail +
+`ProcedureListPanel`). Patient Care single lists use `layout: "stack"`: centered
+BlockHeader + the same panel chrome at ~department detail-column width (`lg:w-2/3`).
+Do not twin `groups[].heading` with the section `heading` — omit the group heading so
+the panel shows “Complete list / All services”.
+
+**`CalloutSection`** — DS P12 program callout: `sectionMeasureClasses.narrowBand`, optional
+logo slot (e.g. Sehat Sahulat), in-card title at `h5` scale. Tokens live in
+`src/components/site/sectionMeasures.ts`.
 
 **`ImpactTableSection`** — Canonical for Donate a Meal tiers. Do not rebuild inside
 `content`.
@@ -305,7 +321,8 @@ icons so cards match home engage tiles and Our Purpose approach cards.
 |---|---|---|
 | Block header | `BlockHeader` | Hub-style sections (home services/news/events; donate grids) |
 | Media card grid | `.card-interactive` + `aspect-card` | Services, stories, news teasers |
-| Icon feature / action grid | `card-grid--3`/`--4` + `icon-tile` | Engage, approach, values, sponsorship options |
+| Icon feature / action grid | `card-grid--3`/`--4` + `icon-tile` | Engage, sponsorship options |
+| Approach / values list | `.approach-list` + `.icon-tile--sm` | Our Purpose Approach and Values (Title–body rows, 2-col grid) |
 | Paired feature cards | `card-grid--2` + `card-interactive` | Vision/mission-style dual points |
 | Timeline | `JourneyTimeline` | Chronological story only |
 | Headline KPIs | `HeadlineStatsGrid` | Impact pages with animated counts |

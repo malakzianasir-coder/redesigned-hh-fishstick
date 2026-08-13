@@ -1,15 +1,17 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { ServiceGroup } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
+import { ProcedureListPanel } from './ProcedureListPanel'
 import { iconForServiceHeading, SectionIcon } from './sectionIcons'
 
 type RailGroup = ServiceGroup & {
   slug: string
   icon?: string
+  heading: string
 }
 
 type ProcedureFinderProps = {
@@ -39,15 +41,6 @@ function HighlightedText({ text, query }: { text: string; query: string }) {
   )
 }
 
-function ProcedureRow({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-start gap-2 border-b border-dark-gray/15 py-2.5 last:border-b-0">
-      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-red" aria-hidden />
-      <span className="text-b14 leading-[150%] text-primary-blue/85">{children}</span>
-    </div>
-  )
-}
-
 export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const rail = useMemo<RailGroup[]>(() => {
     const allItems = groups
@@ -63,8 +56,9 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
       },
       ...groups.map((group) => ({
         ...group,
-        slug: group.slug || (group.heading ?? '').toLowerCase().replace(/\s+/g, '-'),
+        slug: group.slug || (group.heading ?? '').toLowerCase().replace(/\s+/g, '-') || 'group',
         icon: group.icon || iconForServiceHeading(group.heading),
+        heading: group.heading || 'Services',
       })),
     ]
   }, [groups])
@@ -72,7 +66,9 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
   const allItems = useMemo(
     () =>
       groups
-        .flatMap((group) => (group.items ?? []).map((text) => ({ text, group: group.heading ?? '' })))
+        .flatMap((group) =>
+          (group.items ?? []).map((text) => ({ text, group: group.heading ?? '' })),
+        )
         .filter((item) => typeof item.text === 'string')
         .sort((a, b) => a.text.localeCompare(b.text)),
     [groups],
@@ -199,25 +195,11 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
 
           <div className="lg:col-span-8" aria-live="polite">
             {activeGroup ? (
-              <article className="card p-6 lg:p-8">
-                <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-dark-gray/15 pb-4">
-                  <div className="flex flex-col gap-[6px]">
-                    <p className="kicker">{groupIndex === 0 ? 'Complete list' : 'Service group'}</p>
-                    <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">
-                      {activeGroup.heading}
-                    </h3>
-                  </div>
-                  <span className="rounded-full bg-whitebg px-3 py-1 text-b12 font-semibold text-dark-gray">
-                    {activeGroup.items.length} procedure
-                    {activeGroup.items.length === 1 ? '' : 's'}
-                  </span>
-                </div>
-                <div className="grid grid-cols-1 gap-x-8 md:grid-cols-2">
-                  {activeGroup.items.map((item) => (
-                    <ProcedureRow key={item}>{item}</ProcedureRow>
-                  ))}
-                </div>
-              </article>
+              <ProcedureListPanel
+                kicker={groupIndex === 0 ? 'Complete list' : 'Service group'}
+                title={activeGroup.heading}
+                items={activeGroup.items}
+              />
             ) : null}
           </div>
         </div>
@@ -250,7 +232,7 @@ export function ProcedureFinder({ groups }: ProcedureFinderProps) {
                       <HighlightedText text={match.text} query={trimmedQuery} />
                     </span>
                   </div>
-                  <span className="ml-3.5 group-badge w-fit">{match.group}</span>
+                  {match.group ? <span className="ml-3.5 group-badge w-fit">{match.group}</span> : null}
                 </div>
               ))}
             </div>

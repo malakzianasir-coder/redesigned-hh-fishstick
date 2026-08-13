@@ -3,13 +3,13 @@
     "slug": "zakat",
     "kind": "general",
     "title": "Zakat",
-    "description": "Let Your Zakat Become a Source of Healing",
+    "description": "Give Zakat to Hijaz Hospital Trust — Shariah-compliant support that funds care for eligible patients.",
     "excerpt": "Zakat is a sacred obligation and an opportunity to bring hope to those in need.",
     "bankAccountKeys": [
       "zakat"
     ],
     "hero": {
-      "kicker": "Ways to Give",
+      "kicker": "Donate",
       "title": "Zakat",
       "excerpt": "Let Your Zakat Become a Source of Healing",
       "variant": "white",
@@ -65,13 +65,13 @@
     "slug": "general",
     "kind": "general",
     "title": "General Donation",
-    "description": "Every Donation Makes a Difference",
+    "description": "Make a general donation to Hijaz Hospital Trust and help provide treatment for patients who cannot afford care.",
     "excerpt": "Your generosity helps Hijaz Hospital Trust provide quality healthcare to patients who cannot afford the cost of treatment.",
     "bankAccountKeys": [
       "general"
     ],
     "hero": {
-      "kicker": "Ways to Give",
+      "kicker": "Donate",
       "title": "General Donation",
       "excerpt": "Every Donation Makes a Difference",
       "variant": "white",
@@ -98,13 +98,13 @@
     "slug": "sadaqah",
     "kind": "general",
     "title": "Sadaqah",
-    "description": "Turn Your Sadaqah into Healing and Hope",
+    "description": "Give Sadaqah through Hijaz Hospital Trust — voluntary charity that brings healing and hope to those in need.",
     "excerpt": "Beyond Zakat, Sadaqah reflects gratitude, kindness, and compassion.",
     "bankAccountKeys": [
       "general"
     ],
     "hero": {
-      "kicker": "Ways to Give",
+      "kicker": "Donate",
       "title": "Sadaqah",
       "excerpt": "Turn Your Sadaqah into Healing and Hope",
       "variant": "white",
@@ -130,13 +130,13 @@
     "slug": "eidi-fitrana",
     "kind": "general",
     "title": "Eidi & Fitrana",
-    "description": "Share the Blessings of Eid",
+    "description": "Share Eidi and Fitrana with Hijaz Hospital Trust to support patients during Ramadan and Eid.",
     "excerpt": "Eid is a time of joy, gratitude, and compassion.",
     "bankAccountKeys": [
       "general"
     ],
     "hero": {
-      "kicker": "Ways to Give",
+      "kicker": "Donate",
       "title": "Eidi & Fitrana",
       "excerpt": "Share the Blessings of Eid",
       "variant": "white",
@@ -162,7 +162,7 @@
     "slug": "donate-a-meal",
     "kind": "cause",
     "title": "Donate a Meal",
-    "description": "Nourish a Patient. Support Their Recovery.",
+    "description": "Donate a meal at Hijaz Hospital — fund nutritious meals for patients and attendants.",
     "excerpt": "Through our Donate a Meal initiative, you can help provide meals to deserving patients.",
     "bankAccountKeys": [
       "general"
@@ -231,7 +231,7 @@
     "slug": "donate-in-kind",
     "kind": "cause",
     "title": "Donate in Kind",
-    "description": "Support Patient Care Through Essential Supplies",
+    "description": "Donate medicines, equipment, and supplies in kind to support patient care at Hijaz Hospital.",
     "excerpt": "Medicines, equipment, hospital beds, wheelchairs, and more.",
     "bankAccountKeys": [
       "general"
@@ -283,7 +283,7 @@
     "slug": "sponsor-a-patient",
     "kind": "cause",
     "title": "Sponsor a Patient",
-    "description": "Become a Source of Healing and Hope",
+    "description": "Sponsor a patient’s treatment at Hijaz Hospital Trust — dialysis, surgery, maternity, and more.",
     "excerpt": "Sponsor hepatitis treatment, dialysis care, gynae & maternity care, or medical treatment based on patient need.",
     "bankAccountKeys": [
       "general",
@@ -332,7 +332,7 @@
     "slug": "sponsor-free-surgeries",
     "kind": "cause",
     "title": "Sponsor Free Surgeries",
-    "description": "Support Life-Changing Surgical Care",
+    "description": "Sponsor free surgeries at Hijaz Hospital so deserving patients can receive life-changing operations.",
     "excerpt": "General surgery, urology, eye surgery, and specialized procedures.",
     "bankAccountKeys": [
       "general",
@@ -381,7 +381,7 @@
     "slug": "support-a-project",
     "kind": "cause",
     "title": "Support a Project",
-    "description": "Help Build the Future of Healthcare",
+    "description": "Support a capital or development project at Hijaz Hospital Trust and help expand care for the community.",
     "excerpt": "Support the expansion and development of Hijaz Hospital Trust by contributing to projects that strengthen our facilities and improve patient care.",
     "bankAccountKeys": [
       "project"

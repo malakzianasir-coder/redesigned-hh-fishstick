@@ -5,7 +5,7 @@
   "hero": {
     "kicker": "About Us",
     "title": "Leadership & Governance",
-    "excerpt": "Founders, chairpersons, presidents, senior management, and committees — the people entrusted with Hijaz Hospital's mission of compassionate, accessible healthcare for all.",
+    "excerpt": "The founders, chairpersons, presidents, and teams who steward Hijaz Hospital’s mission of care within reach.",
     "media": {
       "type": "image",
       "src": "/media/founders-hero-banner.webp",
@@ -215,7 +215,10 @@
       "name": "Constitution Committee",
       "convener": "Col. Abdul Qayyum",
       "coConvener": "Engineer Abdur Raoof Shahzada",
-      "members": ["Sheikh Altaf Hussain", "Muhammad Naeem"]
+      "members": [
+        "Sheikh Altaf Hussain",
+        "Muhammad Naeem"
+      ]
     },
     {
       "icon": "Scales",
@@ -236,70 +239,99 @@
       "name": "HR / Fundraising Marketing /& Event Management",
       "convener": "Sohail Iqbal",
       "coConvener": "Sheikh Abdul Ghaffar",
-      "members": ["Mussarat Qayyum"]
+      "members": [
+        "Mussarat Qayyum"
+      ]
     },
     {
       "icon": "HandCoins",
       "name": "Finance Committee",
       "convener": "Saqib Aftab",
       "coConvener": "Shahid Ismail",
-      "members": ["Ch. Azmatullah Warraich", "Imran Aftab"]
+      "members": [
+        "Ch. Azmatullah Warraich",
+        "Imran Aftab"
+      ]
     },
     {
       "icon": "Buildings",
       "name": "Property Affairs/ Construction Committee",
       "convener": "Mian Muhammad Asif Waheed",
       "coConvener": "Sheikh Abdul Ghaffar",
-      "members": ["Sohail Iqbal"]
+      "members": [
+        "Sohail Iqbal"
+      ]
     },
     {
       "icon": "Package",
       "name": "Central Purchase. Machinery/ Disposable Wastage & Leakage, Machinery & equipment, Maintenance",
       "convener": "Sheikh Abdul Ghaffar",
       "coConvener": "Sohail Iqbal",
-      "members": ["Shahid Ismail", "Ch. Azmatullah Warraich", "Saqib Aftab"]
+      "members": [
+        "Shahid Ismail",
+        "Ch. Azmatullah Warraich",
+        "Saqib Aftab"
+      ]
     },
     {
       "icon": "Pill",
       "name": "Medicine Committee",
       "convener": "Engineer Abdur Raoof Shahzada",
       "coConvener": "Farrukh Imitiaz Sheikh",
-      "members": ["Sh. Abdul Ghaffar", "Saqib Aftab", "S. M. Ashfaq"]
+      "members": [
+        "Sh. Abdul Ghaffar",
+        "Saqib Aftab",
+        "S. M. Ashfaq"
+      ]
     },
     {
       "icon": "ClipboardText",
       "name": "Inspection Committee",
       "convener": "Sheikh Abdul Ghaffar",
       "coConvener": "Mussarat Qayyum",
-      "members": ["Shahid Ismail"]
+      "members": [
+        "Shahid Ismail"
+      ]
     },
     {
       "icon": "MoonStars",
       "name": "Hijaz Mosque",
       "convener": "Sheikh Abdul Ghaffar",
       "coConvener": "Kawaja Muthair Nabi",
-      "members": ["Waqas Usmani", "Nadeem Ata Sheikh"]
+      "members": [
+        "Waqas Usmani",
+        "Nadeem Ata Sheikh"
+      ]
     },
     {
       "icon": "Cpu",
       "name": "MIS Committee",
       "convener": "Saima Raoof Shaikh",
       "coConvener": "Saqib Aftab",
-      "members": ["Sofia Asif Waheed", "S. M. Ashfaq"]
+      "members": [
+        "Sofia Asif Waheed",
+        "S. M. Ashfaq"
+      ]
     },
     {
       "icon": "Baby",
       "name": "Mother & Child Care",
       "convener": "Mussarat Qayyum",
       "coConvener": "Nazia Ahsan",
-      "members": ["Sonia Shahzad", "Saima Shaikh", "Sofia Asif Waheed"]
+      "members": [
+        "Sonia Shahzad",
+        "Saima Shaikh",
+        "Sofia Asif Waheed"
+      ]
     },
     {
       "icon": "Newspaper",
       "name": "Information & Publications",
       "convener": "Ch. Azmatullah Warraich",
       "coConvener": "Saqib Aftab",
-      "members": ["Abdul Rasheed"]
+      "members": [
+        "Abdul Rasheed"
+      ]
     }
   ]
 }

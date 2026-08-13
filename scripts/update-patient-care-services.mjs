@@ -537,10 +537,10 @@ const PATIENT_CARE = [
         type: 'content',
         id: 'overview',
         kicker: 'Overview',
-        heading: 'Continuous, Safe, and Compassionate Care',
+        heading: 'Continuous, and Safe Care',
         background: 'white',
         body: [
-          'The Nursing Department at Hijaz Hospital plays a vital role in providing continuous, safe, and compassionate care to patients across all departments.',
+          'The Nursing Department at Hijaz Hospital plays a vital role in providing Continuous, and Safe Care to patients across all departments.',
           'Supported by a team of more than 50 qualified and professionally trained nurses, the department works closely with doctors and healthcare teams to ensure effective treatment, patient comfort, and smooth recovery.',
         ],
       },

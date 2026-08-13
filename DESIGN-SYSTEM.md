@@ -244,8 +244,8 @@ Do not restyle these with extra classes.
 
 ```html
 <!-- Primary -->
-<button className="inline-flex items-center justify-center gap-[10px] min-h-[50px] px-6
-  rounded-full bg-primary-red text-b16 font-bold text-white
+<button className="inline-flex items-center justify-center gap-[10px] min-h-11 px-4
+  rounded-full bg-primary-red text-b14 font-bold leading-none text-white
   transition-colors duration-300 ease-in-out hover:bg-primary-blue
   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40
   focus-visible:ring-offset-2 disabled:opacity-50">
@@ -256,8 +256,8 @@ Do not restyle these with extra classes.
 <!-- Ghost: bg-transparent text-primary-blue hover:bg-cardbg -->
 ```
 
-Sizes: `h-9 px-4 text-b14` (sm) · `min-h-[50px] px-6 text-b16` (md) · `h-12 px-8 text-b18` (lg).
-Site CTAs (`.btn-primary`, `.btn-ghost`, `.btn-on-dark`, `.btn-on-dark-ghost`) all use **md** — same height, padding, and type size. Color and fill differ; size does not.
+Sizes: `h-9 px-4 text-b14` (sm) · `min-h-11 px-4 text-b14 leading-none` (md) · `h-12 px-8 text-b18` (lg).
+Site CTAs (`.btn-primary`, `.btn-ghost`, `.btn-on-dark`, `.btn-on-dark-ghost`) all use **md** — same height, padding, and type size. Color and fill differ; size does not. Md aligns with icon buttons (`h-11`) and the header Emergency control at `lg`.
 
 ### 5.3 Icon button
 
@@ -360,7 +360,7 @@ Canonical classes now exist in `globals.css` — use them:
 <!-- Chip (filters, quick links) -->
 <button class="chip">Filter</button>
 
-<!-- Filter chip with count — label 11px (`text-label`), not the same size as the chip -->
+<!-- Filter chip with count — Doctors / Lab tests only (`HubFilterRail showCounts`) -->
 <button class="chip">All <span class="chip-count">24</span></button>
 
 <!-- Status chips -->
@@ -371,6 +371,22 @@ Canonical classes now exist in `globals.css` — use them:
 <!-- Skeleton -->
 <div class="animate-pulse rounded-2xl bg-cardbg"><div class="aspect-card" /></div>
 ```
+
+**Approach / values list** (Our Purpose — Title–body rows, not cards). Same recipe for Approach and Values:
+
+```html
+<ul class="approach-list" aria-label="Our Approach">
+  <li class="approach-list__item">
+    <span class="icon-tile icon-tile--sm" aria-hidden="true"><!-- Phosphor --></span>
+    <div class="flex min-w-0 flex-1 flex-col gap-1">
+      <h3 class="approach-list__title">Compassionate Care</h3>
+      <p class="text-b14 leading-[150%] text-primary-blue/85">…</p>
+    </div>
+  </li>
+</ul>
+```
+
+Grid: 1 column mobile · 2 columns `sm+` with `gap-3` / `gap-x-8 gap-y-4`. Hover: `proc-item`-style `bg-cardbg`, icon-tile scale, title → `primary-red`. **Approach** sits inside the Philosophy section — use compliance-style subsection header (`kicker` + `text-h5M lg:text-h5` title), not full §9 block-header h3. Kicker `Our Approach`, title adds meaning (no twin). Dense icons use `.icon-tile--sm` (`h-9 w-9`).
 
 ---
 
@@ -496,6 +512,12 @@ Every new block reuses this header (don't hand-roll variants).
 has no CTA. If the header includes a CTA button/link (e.g. "All News"), the text group
 is **left-aligned** and the CTA sits on the right at the `lg:` breakpoint.
 
+**Prose under a centered header:** Do not leave body copy left-flush under a centered
+`BlockHeader`. Wrap header + paragraphs in `CenteredSectionStack`
+(`mx-auto text-center lg:w-2/3`) — same as `ContentSection` with no image. Prefer a full
+**start** composition (header + body both `text-start`) when long reading copy should stay
+left-aligned.
+
 **"All X" CTA rule:** Any section that **lists a collection** (news, doctors, departments,
 services, machinery, etc.) **must** include an "All {Collection}" CTA button (e.g. "All
 News", "All Doctors", "All Departments") unless explicitly asked otherwise or a documented
@@ -511,12 +533,25 @@ testimonial):
   <div className="flex flex-col items-center gap-[6px] text-center">
     <p className="kicker">Kicker</p>
     <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">Heading</h2>
-    <p className="text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
+    <p className="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
   </div>
   {/* grid / carousel / content */}
 </div>
 ```
 
+**Lede width:** Supporting lede copy uses `max-w-[560px]` (same measure as interior hero excerpt) so it stays roughly half a content row — including when §9.2 expands `__copy` beside a CTA.
+
+**Content measures (shared tokens in `src/components/site/sectionMeasures.ts`):**
+
+| Measure | Class | Use |
+|---|---|---|
+| Lede | `max-w-[560px]` | BlockHeader lede, hero excerpt |
+| Centered column | `mx-auto w-full lg:w-2/3` | Prose or list panels under a centered `BlockHeader` (`CenteredSectionStack` adds `text-center`) |
+| Narrow band | `mx-auto w-full max-w-3xl` | Program callouts (P12), closing bands |
+
+**Procedure list panel:** Same chrome as department `ProcedureFinder` detail card — `.card`, kicker + `h3` at `h5` scale, count badge, 2-col `ProcedureRow` list. Patient Care `serviceGroups` `stack` uses one panel per group at centered-column width without the search rail.
+
+**Program callout (P12):** `CalloutSection` — `bg-redbg`, `border-primary-red/30`, logo slot, in-card title at `h5` scale, card at narrow-band width.
 ### 9.2 Left header + right-aligned CTA (listing sections)
 
 For blocks that list a collection (news, doctors, services…). At `lg`, copy is
@@ -530,7 +565,7 @@ Reference: `public/ds/hub-page-patterns.html` (H02).
   <div className="block-header__copy">
     <p className="kicker">Kicker</p>
     <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">Heading</h2>
-    <p className="text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
+    <p className="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">Lede…</p>
   </div>
   <a href="/news" className="btn-ghost block-header__action">All News</a>
 </div>
@@ -567,8 +602,10 @@ Sticky filter bars: `<div class="sticky-bar">` (hairline + blur always; sticky o
   don't add nav UI or copy `HeaderV2` classes anywhere. New menu entries come from the
   Header global in CMS.
 - **Hub filters vs content-page jump:** the chip rail looks the same. **Hubs filter**
-  (`All` + on-page groups; each chip shows a `chip-count` in `text-label` / 11px;
-  selecting a chip hides the rest; hash-sync like Departments).
+  (`All` + on-page groups; selecting a chip hides the rest; hash-sync like Departments).
+  **Counts:** `HubFilterRail` `showCounts` defaults **off**. Show `chip-count` only on
+  **Doctors** and **Lab tests** filter chips (those hubs use their own chip UIs with counts
+  enabled). Other hubs (Donate, About Us, Departments, Services, …) omit counts.
   Hub cards/items within each visible section must render in **A–Z** order by title
   (or name when title is unavailable), independent of source JSON order.
   **Innermost content-full pages scroll** (no `All` chip; hash chips jump to the section

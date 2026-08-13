@@ -26,8 +26,20 @@
     "email": "Donations@hijazhospital.org.pk"
   },
   "links": [
-    { "label": "Donate again", "href": "/donate", "variant": "primary" },
-    { "label": "Back to home", "href": "/", "variant": "ghost" },
-    { "label": "Contact us", "href": "/contact", "variant": "ghost" }
+    {
+      "label": "Donate again",
+      "href": "/donate",
+      "variant": "primary"
+    },
+    {
+      "label": "Back to home",
+      "href": "/",
+      "variant": "ghost"
+    },
+    {
+      "label": "Contact us",
+      "href": "/contact",
+      "variant": "ghost"
+    }
   ]
 }

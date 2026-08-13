@@ -12,3 +12,6 @@
 
 # Navigation — mega menu, hubs, and subpage URL rules
 @NAVIGATION.md
+
+# Content voice, kickers, hero support lines, anti-repetition
+@Content-System.md

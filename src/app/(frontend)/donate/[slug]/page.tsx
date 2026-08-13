@@ -10,7 +10,7 @@ type Args = {
   }>
 }
 
-/** Reserved under /donate — handled by dedicated routes, not Ways to Give pages. */
+/** Reserved under /donate — handled by dedicated routes, not giving-type cause pages. */
 const RESERVED_SLUGS = new Set(['how-to-donate', 'what-you-can-support', 'mock'])
 
 export async function generateStaticParams() {

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { CenteredSectionStack } from '@/components/site/CenteredSectionStack'
 import type { ContentSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -22,10 +23,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
   const paragraphs = Array.isArray(body) ? body : typeof body === 'string' ? [body] : []
 
   return (
-    <section
-      id={id}
-      className={cn('section-anchor', backgroundClasses[background])}
-    >
+    <section id={id} className={cn('section-anchor', backgroundClasses[background])}>
       <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         {image ? (
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
@@ -58,23 +56,12 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
               </div>
             </div>
           </div>
-        ) : (
-          <div
-            className={cn(
-              'mx-auto flex w-full flex-col gap-4 lg:w-2/3',
-              isStart ? 'text-start' : 'text-center',
-            )}
-          >
-            {heading && !isStart ? (
-              <BlockHeader kicker={kicker} title={heading} />
-            ) : (
-              <>
-                {kicker ? <p className="kicker">{kicker}</p> : null}
-                {heading ? (
-                  <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
-                ) : null}
-              </>
-            )}
+        ) : isStart ? (
+          <div className="flex w-full flex-col gap-4 text-start">
+            {kicker ? <p className="kicker">{kicker}</p> : null}
+            {heading ? (
+              <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
+            ) : null}
             {paragraphs.length > 0 ? (
               <div className="flex w-full flex-col gap-4">
                 {paragraphs.map((paragraph, index) => (
@@ -85,6 +72,20 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
               </div>
             ) : null}
           </div>
+        ) : (
+          <CenteredSectionStack>
+            {heading ? <BlockHeader kicker={kicker} title={heading} /> : null}
+            {!heading && kicker ? <p className="kicker">{kicker}</p> : null}
+            {paragraphs.length > 0 ? (
+              <div className="flex w-full flex-col gap-4">
+                {paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-b16 leading-[150%] text-primary-blue/85">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </CenteredSectionStack>
         )}
       </div>
     </section>

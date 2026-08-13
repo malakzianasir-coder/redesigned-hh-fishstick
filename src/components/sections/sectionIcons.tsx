@@ -67,8 +67,8 @@ export const SECTION_ICON_MAP: Record<string, Icon> = {
 }
 
 /** Infer a section icon from a service-group heading when none is set in content. */
-export function iconForServiceHeading(heading: string): string {
-  const h = heading.toLowerCase()
+export function iconForServiceHeading(heading?: string): string {
+  const h = (heading || '').toLowerCase()
   if (h.includes('all procedure')) return 'list-checks'
   if (h.includes('obstetric') || h.includes('gynecol') || h.includes('gynaecol') || h.includes('maternity') || h.includes('pregnancy') || h.includes('cesarean') || h.includes('women'))
     return 'gender-female'

@@ -6,6 +6,7 @@ import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { CenteredSectionStack } from '@/components/site/CenteredSectionStack'
 import type { OurPurposeRecord } from '@/lib/content/types'
 
 export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
@@ -26,7 +27,10 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="vision-mission" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Vision & Mission" title="Vision & Mission" />
+          <BlockHeader
+            kicker="Vision & Mission"
+            title={page.visionMissionHeading ?? 'Where We Aim'}
+          />
           <div className="card-grid card-grid--2 mx-auto max-w-5xl">
             <article className="card-interactive flex flex-col gap-3 p-6 lg:p-8">
               <div className="flex items-center gap-3">
@@ -53,86 +57,96 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
 
       <section id="our-journey" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Our Journey" title="Our Journey" />
+          <BlockHeader
+            kicker="Our Journey"
+            title={page.journeyHeading ?? 'How We Got Here'}
+          />
           <JourneyTimeline milestones={page.journey} />
         </div>
       </section>
 
       <section id="our-philosophy" className="section-anchor bg-white">
-        <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader
-            kicker="Our Philosophy"
-            title={page.philosophy.heading}
-            lede={page.philosophy.body}
-          />
-          {page.philosophy.image ? (
-            <div className="group relative aspect-video max-h-[320px] overflow-hidden rounded-xl">
-              <Image
-                src={page.philosophy.image}
-                alt=""
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          ) : null}
-        </div>
-      </section>
+        <div id="our-approach" className="sr-only" aria-hidden="true" />
+        <div className="container mx-auto flex flex-col gap-10 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+          <CenteredSectionStack>
+            <BlockHeader
+              kicker="Our Philosophy"
+              title={page.philosophy.heading}
+              lede={page.philosophy.body}
+            />
+          </CenteredSectionStack>
 
-      <section id="our-approach" className="section-anchor bg-whitebg">
-        <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Our Approach" title="Our Approach" />
-          <div className="card-grid card-grid--4">
-            {page.approach.map((item) => {
-              const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
-              return (
-                <article key={item.title} className="card-interactive flex flex-col gap-3 p-6">
-                  {IconComponent ? (
-                    <span className="icon-tile">
-                      <IconComponent size={22} weight="duotone" />
-                    </span>
-                  ) : null}
-                  <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{item.title}</h3>
-                  <p className="text-b14 text-primary-blue/85">{item.body}</p>
-                </article>
-              )
-            })}
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
+            <div className="flex flex-col items-center gap-[6px] text-center">
+              <p className="kicker">Our Approach</p>
+              <h3 className="text-h5M font-bold leading-[120%] text-primary-blue lg:text-h5">
+                {page.approachHeading ?? 'How We Put Care Into Practice'}
+              </h3>
+            </div>
+            <ul className="approach-list" aria-label="Our Approach">
+              {page.approach.map((item) => {
+                const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
+                return (
+                  <li key={item.title} className="approach-list__item">
+                    {IconComponent ? (
+                      <span className="icon-tile icon-tile--sm" aria-hidden="true">
+                        <IconComponent size={18} weight="duotone" />
+                      </span>
+                    ) : null}
+                    <div className="flex min-w-0 flex-1 flex-col gap-1">
+                      <h3 className="approach-list__title">{item.title}</h3>
+                      <p className="text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section id="our-values" className="section-anchor bg-white">
+      <section id="our-values" className="section-anchor bg-whitebg">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Our Values" title="Our Values" lede={page.valuesIntro} />
-          <div>
-            {/* <h3 className="mb-6 text-center text-h5M font-bold text-primary-blue lg:text-h5">Our Core Values</h3> */}
-            <div className="card-grid card-grid--3">
+          <CenteredSectionStack>
+            <BlockHeader
+              kicker="Our Values"
+              title={page.valuesHeading ?? 'The Standards We Hold'}
+              lede={page.valuesIntro}
+            />
+          </CenteredSectionStack>
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
+            <ul className="approach-list" aria-label="Our Values">
               {page.values.map((item) => {
                 const IconComponent = MARKETING_ICON_MAP[item.icon as keyof typeof MARKETING_ICON_MAP]
                 return (
-                  <article key={item.title} className="card-interactive flex flex-col gap-3 p-6">
-                    <div className="flex items-center gap-3">
-                      {IconComponent ? (
-                        <span className="icon-tile">
-                          <IconComponent size={22} weight="duotone" />
-                        </span>
-                      ) : null}
-                      <h4 className="text-h6M font-bold text-primary-blue lg:text-h6">{item.title}</h4>
+                  <li key={item.title} className="approach-list__item">
+                    {IconComponent ? (
+                      <span className="icon-tile icon-tile--sm" aria-hidden="true">
+                        <IconComponent size={18} weight="duotone" />
+                      </span>
+                    ) : null}
+                    <div className="flex min-w-0 flex-1 flex-col gap-1">
+                      <h3 className="approach-list__title">{item.title}</h3>
+                      <p className="text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
                     </div>
-                    <p className="text-b14 text-primary-blue/85">{item.body}</p>
-                  </article>
+                  </li>
                 )
               })}
-            </div>
-            <p className="mx-auto mt-8 max-w-3xl text-center text-b16 text-primary-blue/85">
+            </ul>
+            <p className="mx-auto max-w-[560px] text-center text-b16 leading-[150%] text-primary-blue/85">
               {page.valuesOutro}
             </p>
           </div>
         </div>
       </section>
 
-      <section id="our-compliance" className="section-anchor bg-whitebg">
+      <section id="our-compliance" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Our Compliance" title="Our Compliance" lede={page.complianceIntro} />
+          <BlockHeader
+            kicker="Our Compliance"
+            title={page.complianceHeading ?? 'How We Stay Accountable'}
+            lede={page.complianceIntro}
+          />
           <div className="flex flex-col gap-10">
             {page.compliance.map((group) => {
               const IconComponent = MARKETING_ICON_MAP[group.icon as keyof typeof MARKETING_ICON_MAP]

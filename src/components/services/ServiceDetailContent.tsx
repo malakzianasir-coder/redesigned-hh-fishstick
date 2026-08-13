@@ -11,10 +11,18 @@ type ServiceDetailContentProps = {
 
 export function ServiceDetailContent({ page }: ServiceDetailContentProps) {
   const hero = toMarketingHero(page.hero)
+  const whyChooseSection = page.sections.find((section) => {
+    const id = 'id' in section ? section.id : undefined
+    return id === 'why-choose' || Boolean(id?.startsWith('why-choose'))
+  })
+  const whyChooseId = whyChooseSection && 'id' in whyChooseSection ? whyChooseSection.id : undefined
+  const whyChooseHref = whyChooseId ? `#${whyChooseId}` : null
 
   const marketingHero = {
     ...hero,
-    quote: page.hero.quote || hero.quote,
+    // Patient Care (/services/*): quote-style single excerpt — no stacked hero.quote
+    excerptVariant: 'quote' as const,
+    quote: undefined,
     media:
       page.hero.media?.type === 'image'
         ? { type: 'image' as const, src: page.hero.media.src, alt: page.hero.media.alt || page.title }
@@ -24,7 +32,9 @@ export function ServiceDetailContent({ page }: ServiceDetailContentProps) {
         ? page.hero.links
         : [
             { label: 'Our Services', href: '#services', variant: 'primary' as const },
-            { label: 'Overview', href: '#overview', variant: 'ghost' as const },
+            whyChooseHref
+              ? { label: 'Why Choose Us', href: whyChooseHref, variant: 'ghost' as const }
+              : { label: 'Overview', href: '#overview', variant: 'ghost' as const },
           ],
   }
 
@@ -34,6 +44,7 @@ export function ServiceDetailContent({ page }: ServiceDetailContentProps) {
       : [
           { label: 'Overview', href: '#overview' },
           { label: 'Services', href: '#services' },
+          ...(whyChooseHref ? [{ label: 'Why Choose Us', href: whyChooseHref }] : []),
         ],
     [{ label: 'All Services', href: '/services' }],
   )

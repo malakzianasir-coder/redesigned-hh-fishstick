@@ -70,8 +70,8 @@ Prefer one clear parent path per topic:
 
 | Role | URL |
 |---|---|
-| Donate / Ways to Give hub | `/donate` |
-| Ways to Give subpages | `/donate/zakat`, `/donate/general`, `/donate/sadaqah`, `/donate/eidi-fitrana` |
+| Donate hub | `/donate` |
+| Giving-type subpages (Zakat, General, Sadaqah, Eidi) | `/donate/zakat`, `/donate/general`, `/donate/sadaqah`, `/donate/eidi-fitrana` |
 | What You Can Support hub | `/donate/what-you-can-support` |
 | Support subpages | `/donate/what-you-can-support/donate-a-meal`, … |
 | How to Donate hub | `/donate/how-to-donate` |
@@ -124,6 +124,8 @@ type NavTopLevelItem = {
 | Ways to Give | `/donate` |
 | What You Can Support | `/donate/what-you-can-support` |
 | How to Donate | `/donate/how-to-donate` |
+
+The page at `/donate` is the **Donate hub**. The mega-menu column “Ways to Give” lists giving types (Zakat, General, …) and links to that hub — it is not a separate hub name.
 
 ---
 
@@ -219,7 +221,7 @@ full dump of every child link.
 |---|---|---|
 | **About Us** | About hubs | About Hijaz Hospital → `/about-us`; Vision & Mission → `/our-purpose#vision-mission`; Leadership & Governance → `/leadership`; Messages → `/leadership/messages`; Our Impact → `/our-impact`; Our Supporters → `/our-supporters` |
 | **Patient Care** | Care + find care | Emergency → `/services/emergency`; OPD → `/services/opd`; IPD → `/services/ipd`; Clinical Laboratory → `/services/pathology`; Find a Doctor → `/doctors`; Patient Welfare → `/patient-welfare` |
-| **Donate** | Three donate hubs + key children | Ways to Give → `/donate`; What You Can Support → `/donate/what-you-can-support`; How to Donate → `/donate/how-to-donate`; Zakat → `/donate/zakat`; Sponsor a Patient → `/donate/what-you-can-support/sponsor-a-patient`; Donate Online → `/donate/how-to-donate/online` |
+| **Donate** | Three donate hubs + key children | Donate hub → `/donate`; What You Can Support → `/donate/what-you-can-support`; How to Donate → `/donate/how-to-donate`; Zakat → `/donate/zakat`; Sponsor a Patient → `/donate/what-you-can-support/sponsor-a-patient`; Donate Online → `/donate/how-to-donate/online` |
 
 Bottom legal/utility row (same file):
 
@@ -245,4 +247,4 @@ never reintroduce `/donations/...` or dead paths like `/lab-reports` / `/reports
 | `content/donate.json` | Donate hub cards + jump links |
 | `content/how-to-donate.json` | How to Donate hub + methods |
 | `content/what-you-can-support.json` | What You Can Support hub + causes |
-| `content/donations.json` | Ways to Give cause records (`/donate/[slug]`) |
+| `content/donations.json` | Donate giving-type + support cause records (`/donate/[slug]`) |

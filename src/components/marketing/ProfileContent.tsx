@@ -6,6 +6,7 @@ import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { CenteredSectionStack } from '@/components/site/CenteredSectionStack'
 import type { ProfileRecord } from '@/lib/content/types'
 
 export function ProfileContent({ profile }: { profile: ProfileRecord }) {
@@ -73,15 +74,17 @@ export function ProfileContent({ profile }: { profile: ProfileRecord }) {
       />
 
       <section id="biography" className="section-anchor bg-whitebg">
-        <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="Biography" title="Biography" />
-          <div className="flex max-w-[760px] flex-col gap-5">
-            {profile.biography.map((paragraph) => (
-              <p key={paragraph} className="text-b16 text-primary-blue/85">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+        <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
+          <CenteredSectionStack className="gap-5">
+            <BlockHeader kicker="Leadership Profile" title="Biography" />
+            <div className="flex w-full flex-col gap-5">
+              {profile.biography.map((paragraph) => (
+                <p key={paragraph} className="text-b16 leading-[150%] text-primary-blue/85">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </CenteredSectionStack>
         </div>
       </section>
 

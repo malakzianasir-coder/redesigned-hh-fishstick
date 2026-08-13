@@ -25,7 +25,7 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
       <section className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <BlockHeader
-            kicker="What You Can Support"
+            kicker="Donate"
             title="Choose how your gift makes an impact"
             lede="From nourishing meals and essential supplies to patient sponsorships, free surgeries, and hospital projects — every contribution strengthens care for deserving patients."
           />

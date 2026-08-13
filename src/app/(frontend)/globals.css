@@ -164,11 +164,11 @@ html[data-theme='light'] {
   }
 
   .btn-primary {
-    @apply inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full bg-primary-red px-6 text-b16 font-bold text-white transition-colors duration-300 hover:bg-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40;
+    @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-full bg-primary-red px-4 text-b14 font-bold leading-none text-white transition-colors duration-300 hover:bg-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40;
   }
 
   .btn-ghost {
-    @apply inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full border border-primary-blue/25 bg-transparent px-6 text-b16 font-bold text-primary-blue transition-all duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40;
+    @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-full border border-primary-blue/25 bg-transparent px-4 text-b14 font-bold leading-none text-primary-blue transition-all duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40;
   }
 
   .donation-field-label {
@@ -510,19 +510,48 @@ html[data-theme='light'] {
   }
 
   .btn-on-dark {
-    @apply inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full bg-white px-6 text-b16 font-bold text-primary-blue transition-colors duration-300 hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
+    @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-full bg-white px-4 text-b14 font-bold leading-none text-primary-blue transition-colors duration-300 hover:bg-primary-red hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
   }
 
   .btn-on-dark-ghost {
-    @apply inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full border border-white/25 bg-transparent px-6 text-b16 font-bold text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
+    @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-full border border-white/25 bg-transparent px-4 text-b14 font-bold leading-none text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-primary-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40;
   }
 
   .icon-tile {
     @apply inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-redbg text-[22px] text-primary-red transition-transform duration-300;
   }
 
+  .icon-tile--sm {
+    @apply h-9 w-9 text-lg;
+  }
+
   .card-interactive:hover .icon-tile {
     @apply scale-105;
+  }
+
+  /* Our Purpose — philosophy/approach + values icon list (Concept D) */
+  .approach-list {
+    @apply grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-4;
+  }
+
+  .approach-list__item {
+    @apply flex items-start gap-3 rounded-[10px] px-3 py-3 transition-colors duration-200;
+  }
+
+  .approach-list__item:hover {
+    @apply bg-cardbg;
+  }
+
+  .approach-list__item:hover .icon-tile {
+    @apply scale-105;
+  }
+
+  .approach-list__item:hover .approach-list__title {
+    @apply text-primary-red;
+  }
+
+  .approach-list__title {
+    @apply text-b16 font-semibold leading-[150%] text-primary-blue transition-colors duration-300;
   }
 
   .group-badge {

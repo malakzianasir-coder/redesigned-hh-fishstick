@@ -21,6 +21,8 @@ type HubFilterRailProps = {
   onSelect: (slug: string) => void
   externals?: HubExternalLink[]
   ariaLabel?: string
+  /** Show numeric counts on chips. Default false — enable for doctors / lab tests only. */
+  showCounts?: boolean
 }
 
 export function HubFilterRail({
@@ -29,6 +31,7 @@ export function HubFilterRail({
   onSelect,
   externals = [],
   ariaLabel = 'Filter by topic',
+  showCounts = false,
 }: HubFilterRailProps) {
   if (!filters.length && !externals.length) return null
 
@@ -49,12 +52,12 @@ export function HubFilterRail({
                   type="button"
                   role="tab"
                   aria-selected={activeFilter === filter.slug}
-                  aria-label={`${filter.label}, ${filter.count}`}
+                  aria-label={showCounts ? `${filter.label}, ${filter.count}` : filter.label}
                   className={cn('chip', activeFilter === filter.slug && 'is-active')}
                   onClick={() => onSelect(filter.slug)}
                 >
                   {filter.label}
-                  <span className="chip-count">{filter.count}</span>
+                  {showCounts ? <span className="chip-count">{filter.count}</span> : null}
                 </button>
               ))}
             </div>

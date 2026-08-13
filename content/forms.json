@@ -38,9 +38,18 @@
           "required": true,
           "width": "half",
           "options": [
-            { "label": "General inquiry", "value": "general" },
-            { "label": "Donations office", "value": "donations" },
-            { "label": "Patient welfare", "value": "patient-welfare" }
+            {
+              "label": "General inquiry",
+              "value": "general"
+            },
+            {
+              "label": "Donations office",
+              "value": "donations"
+            },
+            {
+              "label": "Patient welfare",
+              "value": "patient-welfare"
+            }
           ]
         },
         {

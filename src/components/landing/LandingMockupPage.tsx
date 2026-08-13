@@ -18,7 +18,7 @@ export function LandingMockupPage({ page }: { page: LandingPageMockup }) {
             {page.hero.primaryCta ? (
               <a
                 href={page.hero.primaryCta.href}
-                className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-primary-red px-6 text-b16 font-bold text-white transition-colors duration-300 hover:bg-primary-blue"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary-red px-4 text-b14 font-bold leading-none text-white transition-colors duration-300 hover:bg-primary-blue"
               >
                 {page.hero.primaryCta.label}
               </a>
@@ -26,7 +26,7 @@ export function LandingMockupPage({ page }: { page: LandingPageMockup }) {
             {page.hero.secondaryCta ? (
               <a
                 href={page.hero.secondaryCta.href}
-                className="inline-flex min-h-[50px] items-center justify-center rounded-full border border-primary-blue/25 px-6 text-b16 font-bold text-primary-blue transition-colors duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-primary-blue/25 px-4 text-b14 font-bold leading-none text-primary-blue transition-colors duration-300 hover:border-primary-red hover:bg-primary-red hover:text-white"
               >
                 {page.hero.secondaryCta.label}
               </a>

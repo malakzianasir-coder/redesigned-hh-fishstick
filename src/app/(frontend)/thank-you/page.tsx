@@ -58,7 +58,7 @@ export default function ThankYouPage() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      'inline-flex min-h-[50px] items-center justify-center rounded-full px-6 text-b16 font-bold transition-colors duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2',
+                      'inline-flex min-h-11 items-center justify-center rounded-full px-4 text-b14 font-bold leading-none transition-colors duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2',
                       link.variant === 'ghost'
                         ? 'border border-primary-blue/25 text-primary-blue hover:border-primary-red hover:bg-primary-red hover:text-white'
                         : 'bg-primary-red text-white hover:bg-primary-blue',

@@ -29,7 +29,7 @@ export function HowToDonateMethodNav({ methods, activeSlug }: HowToDonateMethodN
         })),
       ]}
       externals={[
-        { label: 'Ways to Give', href: '/donate' },
+        { label: 'Donate', href: '/donate' },
         { label: 'What You Can Support', href: '/donate/what-you-can-support' },
       ]}
     />

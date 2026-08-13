@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+import { sectionMeasureClasses } from '@/components/site/sectionMeasures'
+import { cn } from '@/utilities/ui'
+
 export type BlockHeaderProps = {
   kicker?: string
   title: string
@@ -18,7 +21,9 @@ export function BlockHeader({ kicker, title, lede, cta, className }: BlockHeader
         {kicker ? <p className="kicker">{kicker}</p> : null}
         <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{title}</h2>
         {lede ? (
-          <p className="text-b16 leading-[150%] text-primary-blue/85">{lede}</p>
+          <p className={cn('text-b16 leading-[150%] text-primary-blue/85', sectionMeasureClasses.lede)}>
+            {lede}
+          </p>
         ) : null}
       </div>
       {cta ? (

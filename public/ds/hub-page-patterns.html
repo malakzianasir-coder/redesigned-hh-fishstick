@@ -105,22 +105,22 @@
     }
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 50px; padding: 0 24px; border-radius: 999px;
-      background: #E30016; color: #fff; font-size: 16px; font-weight: 700;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      background: #E30016; color: #fff; font-size: 14px; font-weight: 700; line-height: 1;
       transition: background-color .3s ease-in-out;
     }
     .btn-primary:hover { background: #1B2441; }
     .btn-ghost {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 50px; padding: 0 24px; border-radius: 999px;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
       border: 1px solid rgb(27 36 65 / .25); background: transparent;
-      color: #1B2441; font-size: 16px; font-weight: 700; transition: all .3s;
+      color: #1B2441; font-size: 14px; font-weight: 700; line-height: 1; transition: all .3s;
     }
     .btn-ghost:hover { border-color: #E30016; background: #E30016; color: #fff; }
     .btn-on-dark {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 50px; padding: 0 24px; border-radius: 999px;
-      background: #fff; color: #1B2441; font-size: 16px; font-weight: 700;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      background: #fff; color: #1B2441; font-size: 14px; font-weight: 700; line-height: 1;
       transition: background-color .3s ease-in-out, color .3s ease-in-out;
     }
     .btn-on-dark:hover { background: #E30016; color: #fff; }
@@ -134,6 +134,24 @@
       transition: transform .3s ease-out;
     }
     .card-interactive:hover .icon-tile { transform: scale(1.08); }
+    .icon-tile--sm { width: 36px; height: 36px; font-size: 18px; }
+    .approach-list {
+      display: grid; grid-template-columns: 1fr; gap: 12px; list-style: none; margin: 0; padding: 0;
+    }
+    @media (min-width: 640px) {
+      .approach-list { grid-template-columns: 1fr 1fr; column-gap: 32px; row-gap: 16px; }
+    }
+    .approach-list__item {
+      display: flex; align-items: flex-start; gap: 12px; padding: 12px; border-radius: 10px;
+      transition: background-color .2s ease-out;
+    }
+    .approach-list__item:hover { background: #F4F4F4; }
+    .approach-list__item:hover .icon-tile { transform: scale(1.08); }
+    .approach-list__title {
+      font-size: 16px; font-weight: 600; line-height: 150%; color: #1B2441;
+      font-family: 'Open Sans', system-ui, sans-serif; transition: color .3s ease-in-out;
+    }
+    .approach-list__item:hover .approach-list__title { color: #E30016; }
     .pattern-badge {
       display: inline-flex; align-items: center; justify-content: center;
       min-width: 44px; border-radius: 999px; background: #1B2441; color: #fff;
@@ -1065,7 +1083,6 @@
             <a href="#h08-vision" data-jump="h08-vision" class="chip is-active">Vision &amp; Mission</a>
             <a href="#h08-journey" data-jump="h08-journey" class="chip">Journey</a>
             <a href="#h08-philosophy" data-jump="h08-philosophy" class="chip">Philosophy</a>
-            <a href="#h08-approach" data-jump="h08-approach" class="chip">Approach</a>
             <a href="#h08-values" data-jump="h08-values" class="chip">Values</a>
             <a href="#h08-compliance" data-jump="h08-compliance" class="chip">Compliance</a>
           </div>
@@ -1091,7 +1108,7 @@
         <div class="block-header">
           <div class="block-header__copy">
             <p class="kicker">Vision &amp; Mission</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Vision &amp; Mission</h2>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Where We Aim</h2>
             <p class="text-b16 leading-[150%] text-primary-blue/85">What we aim for, and how we serve every patient — regardless of means.</p>
           </div>
         </div>
@@ -1119,7 +1136,7 @@
         <div class="block-header">
           <div class="block-header__copy">
             <p class="kicker">Our Journey</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Journey</h2>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">How We Got Here</h2>
             <p class="text-b16 leading-[150%] text-primary-blue/85">Milestones from the mosque to a working hospital — the years that shaped Hijaz.</p>
           </div>
         </div>
@@ -1144,88 +1161,96 @@
     </div>
 
     <div id="h08-philosophy" class="section-anchor bg-white">
-      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
-        <div class="block-header">
-          <div class="block-header__copy">
-            <p class="kicker">Our Philosophy</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Philosophy</h2>
-            <p class="text-b16 leading-[150%] text-primary-blue/85">Care with dignity, regardless of means. The hospital exists so no patient is turned away for lack of money.</p>
+      <div id="h08-approach" class="sr-only" aria-hidden="true"></div>
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-10">
+        <div class="mx-auto flex w-full flex-col gap-4 text-center lg:w-2/3">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Philosophy</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">A Legacy of Faith, Service, and Compassion</h2>
+              <p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">Founded on enduring values, Hijaz Hospital has grown from a vision of service into a trusted healthcare institution.</p>
+            </div>
           </div>
         </div>
-        <p class="mx-auto max-w-3xl text-center text-b16 text-primary-blue/85">Hijaz Hospital was conceived as a trust, not a commercial enterprise. Every programme — Zakat, welfare, free medicines, meals — is an expression of that founding idea: healing is a duty, not a privilege.</p>
-      </div>
-    </div>
-
-    <div id="h08-approach" class="section-anchor bg-whitebg">
-      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
-        <div class="block-header">
-          <div class="block-header__copy">
-            <p class="kicker">Our Approach</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Approach</h2>
-            <p class="text-b16 leading-[150%] text-primary-blue/85">How we deliver care day to day — clinically, ethically, and as a neighbour to the city.</p>
+        <div class="mx-auto flex w-full max-w-5xl flex-col gap-8">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Approach</p>
+              <h3 class="text-h5M font-bold leading-[120%] text-primary-blue lg:text-h5">How We Put Care Into Practice</h3>
+            </div>
           </div>
-        </div>
-        <div class="card-grid card-grid--3">
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <span class="icon-tile"><i class="ph ph-stethoscope"></i></span>
-            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Clinical excellence</h3>
-            <p class="text-b14 text-primary-blue/85">Specialist departments, diagnostics, and inpatient care under one roof.</p>
-          </article>
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <span class="icon-tile"><i class="ph ph-hand-heart"></i></span>
-            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Welfare first</h3>
-            <p class="text-b14 text-primary-blue/85">Financial assessment with dignity, so treatment is never delayed by paperwork.</p>
-          </article>
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <span class="icon-tile"><i class="ph ph-users-three"></i></span>
-            <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Community rooted</h3>
-            <p class="text-b14 text-primary-blue/85">A hospital built beside a mosque, for the people who live around it.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div id="h08-values" class="section-anchor bg-white">
-      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
-        <div class="block-header">
-          <div class="block-header__copy">
-            <p class="kicker">Our Values</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Values</h2>
-            <p class="text-b16 leading-[150%] text-primary-blue/85">The standards we hold ourselves to in every ward, clinic, and conversation.</p>
-          </div>
-        </div>
-        <div class="card-grid card-grid--3">
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <div class="flex items-center gap-3">
-              <span class="icon-tile"><i class="ph ph-heart"></i></span>
-              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Compassion</h3>
-            </div>
-            <p class="text-b14 text-primary-blue/85">Treat every patient as a guest of the Trust.</p>
-          </article>
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <div class="flex items-center gap-3">
-              <span class="icon-tile"><i class="ph ph-scales"></i></span>
-              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Integrity</h3>
-            </div>
-            <p class="text-b14 text-primary-blue/85">Zakat, donations, and clinical records handled with transparency.</p>
-          </article>
-          <article class="card-interactive flex flex-col gap-3 p-6">
-            <div class="flex items-center gap-3">
-              <span class="icon-tile"><i class="ph ph-medal"></i></span>
-              <h3 class="text-h6M lg:text-h6 font-bold text-primary-blue">Excellence</h3>
-            </div>
-            <p class="text-b14 text-primary-blue/85">Professional standards that do not depend on a patient’s ability to pay.</p>
-          </article>
+          <ul class="approach-list" aria-label="Our Approach">
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-hand-heart"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Compassionate Care</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">Delivering patient-centered care with empathy, dignity, and respect.</p>
+              </div>
+            </li>
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-stethoscope"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Clinical excellence</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">Specialist departments, diagnostics, and inpatient care under one roof.</p>
+              </div>
+            </li>
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-users-three"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Community rooted</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">A hospital built beside a mosque, for the people who live around it.</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div id="h08-compliance" class="section-anchor bg-whitebg">
+    <div id="h08-values" class="section-anchor bg-whitebg">
+      <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
+        <div class="mx-auto flex w-full flex-col gap-4 text-center lg:w-2/3">
+          <div class="block-header">
+            <div class="block-header__copy">
+              <p class="kicker">Our Values</p>
+              <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">The Standards We Hold</h2>
+              <p class="max-w-[560px] text-b16 leading-[150%] text-primary-blue/85">The standards we hold ourselves to in every ward, clinic, and conversation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto flex w-full max-w-5xl flex-col gap-8">
+          <ul class="approach-list" aria-label="Our Values">
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-heart"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Compassion</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">Treat every patient as a guest of the Trust.</p>
+              </div>
+            </li>
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-scales"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Integrity</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">Zakat, donations, and clinical records handled with transparency.</p>
+              </div>
+            </li>
+            <li class="approach-list__item">
+              <span class="icon-tile icon-tile--sm"><i class="ph ph-medal"></i></span>
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="approach-list__title">Excellence</h3>
+                <p class="text-b14 leading-[150%] text-primary-blue/85">Professional standards that do not depend on a patient’s ability to pay.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="h08-compliance" class="section-anchor bg-white">
       <div class="container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px] flex flex-col gap-8">
         <div class="block-header">
           <div class="block-header__copy">
             <p class="kicker">Our Compliance</p>
-            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">Our Compliance</h2>
+            <h2 class="text-h3M lg:text-h3 font-bold leading-[120%] text-primary-blue">How We Stay Accountable</h2>
             <p class="text-b16 leading-[150%] text-primary-blue/85">Shariah audit, certifications, and the governance that keeps welfare funds distinct from hospital operations.</p>
           </div>
         </div>

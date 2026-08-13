@@ -28,7 +28,7 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
 
       <section className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-          <BlockHeader kicker="What You Can Support" title={cause.tagline} />
+          <BlockHeader kicker="Donate" title={cause.tagline} />
           <div className="mx-auto flex max-w-3xl flex-col gap-4 text-center">
             {cause.body.map((paragraph) => (
               <p key={paragraph} className="text-b16 leading-[150%] text-primary-blue/85">
@@ -45,8 +45,8 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
         <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
             <BlockHeader
-              kicker="Options"
-              title={cause.listHeading || 'Options'}
+              kicker="Donate"
+              title={cause.listHeading || 'Ways to help'}
             />
             <div className="card-grid card-grid--2">
               {cause.optionItems.map((item) => (

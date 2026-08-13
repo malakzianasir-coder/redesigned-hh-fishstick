@@ -15,8 +15,14 @@
         "kicker": "Special Program",
         "heading": "Comprehensive Cardiology Checkup",
         "body": "Consultation, baseline investigations, and follow-up guidance in one streamlined visit.",
-        "primaryCta": { "label": "Book Appointment", "href": "/services/cardiology" },
-        "secondaryCta": { "label": "Call UAN", "href": "tel:+9242111044529" }
+        "primaryCta": {
+          "label": "Book Appointment",
+          "href": "/services/cardiology"
+        },
+        "secondaryCta": {
+          "label": "Call UAN",
+          "href": "tel:+9242111044529"
+        }
       },
       "sections": [
         {
@@ -32,7 +38,10 @@
         "kicker": "Need help choosing a package?",
         "heading": "Talk to our team today",
         "body": "Our coordinators can guide you to the most suitable option.",
-        "button": { "label": "Contact Us", "href": "/search?q=contact" }
+        "button": {
+          "label": "Contact Us",
+          "href": "/search?q=contact"
+        }
       }
     }
   ]

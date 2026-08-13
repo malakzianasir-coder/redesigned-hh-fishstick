@@ -74,7 +74,8 @@ export type BulletsSectionData = {
 export type ServiceGroup = {
   slug?: string
   icon?: string
-  heading: string
+  /** Omit or leave empty when it would twin the section heading (stack panels). */
+  heading?: string
   items: string[]
   href?: string
 }
@@ -419,7 +420,7 @@ export type MarketingHero = {
   kicker?: string
   title: string
   excerpt?: string
-  /** Optional pull-quote (e.g. Qur’an verse on Ways to Give hub). */
+  /** Optional pull-quote (e.g. Qur’an verse on the Donate hub). */
   quote?: string
   /** How `excerpt` is styled. Default `body`. Independent of `quote`. */
   excerptVariant?: HeroExcerptVariant
@@ -594,16 +595,21 @@ export type OurPurposeRecord = {
   jumpLinks: JumpLink[]
   vision: string
   mission: string
+  visionMissionHeading?: string
+  journeyHeading?: string
   journey: JourneyMilestone[]
   philosophy: {
     heading: string
     body: string
     image?: string
   }
+  approachHeading?: string
   approach: ValueCard[]
+  valuesHeading?: string
   valuesIntro: string
   values: ValueCard[]
   valuesOutro: string
+  complianceHeading?: string
   complianceIntro: string
   compliance: ComplianceGroup[]
   foundersTeaser?: PersonCard[]
