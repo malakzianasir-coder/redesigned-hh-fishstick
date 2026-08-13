@@ -1638,7 +1638,7 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
   "page/our-friends--supporters": {
     "collection": "pages",
     "slug": "our-friends--supporters",
-    "title": "Our Friends / Supporters",
+    "title": "Our Supporters",
     "icon": "users",
     "motif": "breathe",
     "accent": "#E11D2E",

@@ -214,7 +214,7 @@ const marketingPlaceholders = [
   ['how-to-donate.json', 'how-to-donate-hub', 'How to Donate hub', '/donate/how-to-donate', 'Hero banner', SLOT_KEYWORDS.donate],
   ['what-you-can-support.json', 'wys-hub', 'What You Can Support hub', '/donate/what-you-can-support', 'Hero banner', SLOT_KEYWORDS.donate],
   ['leadership.json', 'leadership', 'Leadership & Governance', '/leadership', 'Hero banner', SLOT_KEYWORDS.leadership],
-  ['our-supporters.json', 'our-supporters', 'Our Friends / Supporters', '/our-supporters', 'Hero banner', SLOT_KEYWORDS['our-supporters']],
+  ['our-supporters.json', 'our-supporters', 'Our Supporters', '/our-supporters', 'Hero banner', SLOT_KEYWORDS['our-supporters']],
   ['chairmans-message.json', 'chairman', "Chairman's Message", '/leadership/messages/chairman', 'Hero banner', SLOT_KEYWORDS.chairman],
   ['presidents-message.json', 'president', "President's Message", '/leadership/messages/president', 'Hero banner', SLOT_KEYWORDS.president],
   ['leadership-messages.json', 'leadership-messages', 'Leadership Messages hub', '/leadership/messages', 'Hero banner', SLOT_KEYWORDS.leadership],

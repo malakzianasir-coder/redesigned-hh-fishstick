@@ -27,8 +27,8 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
       <section id="our-friends" className="section-anchor bg-white">
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <BlockHeader
-            kicker="Our Friends / Supporters"
-            title="Our Friends / Supporters"
+            kicker="Our Friends and Supporters"
+            title="Our Supporters"
             lede={page.intro}
           />
         </div>
@@ -38,7 +38,7 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
         <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
           <BlockHeader
             kicker="Donor Wall"
-            title={page.donorWallHeading || 'Our Friends & Supporters'}
+            title={page.donorWallHeading || 'Our Supporters'}
             lede={page.donorWallLede}
           />
           <div className="card-grid card-grid--4">

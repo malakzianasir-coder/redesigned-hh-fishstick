@@ -52,7 +52,7 @@ const DESTINATIONS = [
     title: 'Patient Welfare',
     href: '/patient-welfare',
     excerpt: 'Assistance programmes, resources, and patient rights.',
-    linkLabel: 'Patient welfare hub',
+    linkLabel: 'Patient Welfare',
     Icon: HandsPraying,
   },
   {

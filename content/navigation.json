@@ -110,7 +110,7 @@
       "id": "departments",
       "label": "Clinical Departments",
       "moreLink": {
-        "label": "View all departments →",
+        "label": "View All Departments →",
         "href": "/departments"
       },
       "groups": [
@@ -216,7 +216,7 @@
       "id": "patient-care",
       "label": "Patient Care",
       "moreLink": {
-        "label": "View all services →",
+        "label": "View All Services →",
         "href": "/services"
       },
       "groups": [
@@ -314,7 +314,7 @@
       "id": "doctors",
       "label": "Doctors",
       "moreLink": {
-        "label": "Find a doctor →",
+        "label": "Find a Doctor →",
         "href": "/doctors"
       },
       "groups": [
@@ -345,7 +345,7 @@
       "id": "patient-welfare",
       "label": "Patient Welfare",
       "moreLink": {
-        "label": "Patient welfare hub →",
+        "label": "Patient Welfare →",
         "href": "/patient-welfare"
       },
       "groups": [
@@ -403,7 +403,7 @@
       "id": "donate",
       "label": "Donate",
       "moreLink": {
-        "label": "Donate hub →",
+        "label": "Donate →",
         "href": "/donate"
       },
       "groups": [
