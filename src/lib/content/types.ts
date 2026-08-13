@@ -824,6 +824,7 @@ export type HowToDonateMethod = {
   slug: string
   navLabel: string
   title: string
+  shortTitle?: string
   icon: string
   excerpt: string
   hero: MarketingHero

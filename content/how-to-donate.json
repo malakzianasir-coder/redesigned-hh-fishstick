@@ -5,7 +5,7 @@
   "hero": {
     "kicker": "Donate",
     "title": "How to Donate",
-    "excerpt": "Supporting Hijaz Hospital Trust is simple, secure, and impactful. Your contribution helps us provide quality healthcare to deserving patients and strengthens our mission of serving humanity with compassion and dignity. Choose the donation method that is most convenient for you.",
+    "excerpt": "Your contribution helps us provide quality healthcare to deserving patients and strengthens our mission of serving humanity. Choose a secure donation method below to make an immediate impact.",
     "media": {
       "type": "illustration",
       "preset": "page/how-to-donate"
@@ -39,12 +39,13 @@
       "slug": "online",
       "navLabel": "Online",
       "title": "Online Donation",
+      "shortTitle": "Online Payment Process",
       "icon": "CreditCard",
-      "excerpt": "Donate securely through our online payment gateway using your debit or credit card.",
+      "excerpt": "Make an instant, secure contribution using your debit or credit card.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Online Donation",
-        "excerpt": "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided.",
+        "excerpt": "A fast and secure way to support patient care from anywhere in the world.",
         "media": {
           "type": "illustration",
           "preset": "page/donate-online"
@@ -58,7 +59,7 @@
         ]
       },
       "body": [
-        "Donate securely through our online payment gateway using your debit or credit card. All online donations are processed through a secure platform, and a confirmation receipt will be provided."
+        "Our digital payment platform ensures your transaction is completely protected. Once your contribution is processed, you will immediately receive an official receipt for your records."
       ],
       "cta": {
         "label": "Donate Online",
@@ -69,18 +70,19 @@
       "slug": "mobile-wallet",
       "navLabel": "Mobile Wallet",
       "title": "Mobile Wallet",
+      "shortTitle": "Mobile Wallet Transfer",
       "icon": "DeviceMobile",
-      "excerpt": "Donate quickly and conveniently through mobile payment services.",
+      "excerpt": "Transfer funds instantly using JazzCash or other supported mobile payment apps.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Mobile Wallet",
-        "excerpt": "Donate quickly and conveniently through mobile payment services.",
+        "excerpt": "Support our mission directly from your smartphone with just a few taps.",
         "media": {
           "type": "illustration",
           "preset": "page/mobile-wallet"
         }
       },
-      "intro": "Donate quickly and conveniently through mobile payment services.",
+      "intro": "Using a mobile wallet is one of the fastest ways to ensure your Zakat and Sadaqah reach those in need. Simply use our designated Till ID or scan the QR code within your payment app.",
       "wallet": {
         "provider": "JazzCash",
         "accountTitle": "Hijaz Hospital",
@@ -92,18 +94,19 @@
       "slug": "bank-transfer",
       "navLabel": "Bank Transfer",
       "title": "Bank Transfer",
+      "shortTitle": "Bank Deposit Details",
       "icon": "Bank",
-      "excerpt": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+      "excerpt": "Wire your contribution directly into our dedicated Zakat or General Donation accounts.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Bank Transfer",
-        "excerpt": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+        "excerpt": "Securely deposit your charitable giving directly into the hospital's official bank accounts.",
         "media": {
           "type": "illustration",
           "preset": "page/bank-transfer"
         }
       },
-      "intro": "You can directly support Hijaz Hospital Trust by transferring your donation to the following designated accounts.",
+      "intro": "We maintain separate accounts for Zakat, general charity, and specific infrastructure projects like the Medical Tower. This ensures every rupee is utilized strictly according to Shariah principles and your intended purpose.",
       "bankAccounts": [
         {
           "title": "Zakat",
@@ -185,18 +188,19 @@
       "slug": "meezan-app",
       "navLabel": "Meezan App & QR",
       "title": "Meezan Mobile App",
+      "shortTitle": "Meezan App Steps",
       "icon": "QrCode",
-      "excerpt": "A secure, convenient, and Shariah-compliant way to support our healthcare services — plus QR donation.",
+      "excerpt": "A Shariah-compliant digital channel exclusively for Meezan Bank customers.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Meezan Mobile App",
-        "excerpt": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
+        "excerpt": "Hijaz Hospital is an officially listed biller on the Meezan Mobile App for seamless giving.",
         "media": {
           "type": "illustration",
           "preset": "page/meezan-app"
         }
       },
-      "intro": "Hijaz Hospital is available as a trusted donation recipient on the Meezan Mobile App, offering donors a secure, convenient, and Shariah-compliant way to support our healthcare services.",
+      "intro": "If you bank with Meezan, you can easily find us in the donations directory. This integrated option provides a seamless, Shariah-compliant way to contribute to our healthcare services without needing account numbers.",
       "categoriesHeading": "Supported Donation Categories:",
       "categories": [
         {
@@ -218,17 +222,19 @@
       "slug": "cheque",
       "navLabel": "Cheque / Bank Draft",
       "title": "Cheque or Bank Draft",
+      "shortTitle": "Cheque Delivery Instructions",
       "icon": "EnvelopeOpen",
-      "excerpt": "Donations may also be made through cheque or bank draft payable to Hijaz Social Welfare Society (Hijaz Hospital).",
+      "excerpt": "Mail or hand-deliver a physical cheque payable to Hijaz Social Welfare Society.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Cheque or Bank Draft",
-        "excerpt": "Donations may also be made through cheque or bank draft payable to: Hijaz Social Welfare Society (Hijaz Hospital)",
+        "excerpt": "Traditional offline giving through secure postal or courier delivery.",
         "media": {
           "type": "illustration",
           "preset": "page/cheque-donation"
         }
       },
+      "intro": "For those who prefer traditional banking methods, we gladly accept physical cheques and bank drafts. Please ensure your instrument is crossed and made out exactly as written below.",
       "payableTo": "Hijaz Social Welfare Society (Hijaz Hospital)",
       "addressLines": [
         "27-D-1, Sir Syed Road,",
@@ -241,18 +247,19 @@
       "slug": "pick-up",
       "navLabel": "Pick-Up Service",
       "title": "Pick-Up Donation Service",
+      "shortTitle": "Donation Pick-Up Process",
       "icon": "Truck",
-      "excerpt": "For your convenience, our authorized representatives can collect donations from your home or office.",
+      "excerpt": "Schedule a convenient time for our representative to collect cash, cheques, or equipment from your location.",
       "hero": {
         "kicker": "How to Donate",
         "title": "Pick-Up Donation Service",
-        "excerpt": "For your convenience, our authorized representatives can collect donations from your home or office.",
+        "excerpt": "Let us come to you. We offer a dedicated collection service for your home or office.",
         "media": {
           "type": "illustration",
           "preset": "page/pick-up-donation"
         }
       },
-      "intro": "For your convenience, our authorized representatives can collect donations from your home or office.",
+      "intro": "We understand that your time is valuable. Our authorized representatives are available to securely collect your charitable contributions, whether financial or physical medical supplies, directly from your doorstep.",
       "itemsIntro": "Your donation may include:",
       "items": [
         "Cash",
