@@ -116,7 +116,7 @@ export function DoctorsHubGrid({
       <div className="sticky-bar">
         <div className="container mx-auto px-6 py-3 lg:px-[30px]">
           <div className="flex flex-col gap-3">
-            <p className="field-label-text">Filters</p>
+            <p className="field-label-text text-center">Filters</p>
 
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
               <div className="relative min-w-0 flex-1">
@@ -152,7 +152,11 @@ export function DoctorsHubGrid({
             </div>
 
             {showViewTabs ? (
-              <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by consultant type">
+              <div
+                className="flex flex-wrap justify-center gap-2"
+                role="tablist"
+                aria-label="Filter by consultant type"
+              >
                 {VIEW_OPTIONS.map(({ value, label }) => {
                   const count = viewCounts[value]
                   return (
@@ -222,12 +226,12 @@ function DoctorSection({
 }) {
   return (
     <div>
-      <div className="mb-6 flex flex-col gap-[6px]">
+      <div className="mb-6 flex flex-col items-center gap-[6px] text-center">
         <p className="kicker">Directory</p>
         <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{title}</h2>
       </div>
       {doctors.length === 0 ? (
-        <p className="text-b16 leading-[150%] text-primary-blue/70">{empty}</p>
+        <p className="text-center text-b16 leading-[150%] text-primary-blue/70">{empty}</p>
       ) : (
         <div className="card-grid card-grid--3">
           {doctors.map((doc) => (

@@ -176,7 +176,11 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
             </select>
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+          <div
+            className="mt-3 flex flex-wrap justify-center gap-2"
+            role="tablist"
+            aria-label="Filter by category"
+          >
             <button
               type="button"
               role="tab"
