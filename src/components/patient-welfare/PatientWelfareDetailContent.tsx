@@ -21,7 +21,7 @@ export function PatientWelfareDetailContent({ page }: PatientWelfareDetailConten
         ? page.hero.links
         : [
             { label: 'Overview', href: '#overview', variant: 'primary' as const },
-            { label: 'Patient Welfare Hub', href: '/patient-welfare', variant: 'ghost' as const },
+            { label: 'Patient Welfare', href: '/patient-welfare', variant: 'ghost' as const },
           ],
   }
 
@@ -29,7 +29,7 @@ export function PatientWelfareDetailContent({ page }: PatientWelfareDetailConten
     page.jumpLinks && page.jumpLinks.length > 0
       ? page.jumpLinks
       : [{ label: 'Overview', href: '#overview' }],
-    [{ label: 'Patient Welfare Hub', href: '/patient-welfare' }],
+    [{ label: 'Patient Welfare', href: '/patient-welfare' }],
   )
 
   return (
