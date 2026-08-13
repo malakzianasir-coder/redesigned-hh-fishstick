@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
-import { useThreads, ClientSideSuspense } from "@liveblocks/react/suspense"
+import React, { useState, useEffect, useRef } from "react"
+import { useThreads, useRoom, ClientSideSuspense } from "@liveblocks/react/suspense"
 import { Composer, Thread } from "@liveblocks/react-ui"
 import "@liveblocks/react-ui/styles.css"
 import { FeedbackPortal } from "@/components/feedback/FeedbackPortal"
@@ -60,6 +60,7 @@ function getElementText(el: HTMLElement): string {
 function FeedbackOverlayInner() {
   const [isCommentingMode, setIsCommentingMode] = useState(false)
   const { threads } = useThreads()
+  const room = useRoom()
   const [newCommentData, setNewCommentData] = useState<{ 
     x: number; y: number; 
     selector: string; text: string;
@@ -67,6 +68,44 @@ function FeedbackOverlayInner() {
     url: string; userAgent: string;
   } | null>(null)
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null)
+
+  async function syncThreadToTasks(threadId: string, roomId: string) {
+    try {
+      await fetch('/api/sync-liveblocks-thread', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ threadId, roomId }),
+      })
+    } catch (error) {
+      console.error('Failed to sync Liveblocks thread to tasks', error)
+    }
+  }
+
+  function toggleThread(threadId: string) {
+    setActiveThreadId((current) => {
+      if (current === threadId) return null
+      void syncThreadToTasks(threadId, room.id)
+      return threadId
+    })
+    setNewCommentData(null)
+  }
+
+  const seenThreads = useRef(new Set<string>())
+  const threadsInitialized = useRef(false)
+
+  useEffect(() => {
+    if (!threadsInitialized.current) {
+      threads.forEach((thread) => seenThreads.current.add(thread.id))
+      threadsInitialized.current = true
+      return
+    }
+
+    threads.forEach((thread) => {
+      if (seenThreads.current.has(thread.id)) return
+      seenThreads.current.add(thread.id)
+      void syncThreadToTasks(thread.id, room.id)
+    })
+  }, [threads, room.id])
 
   // Global click listener for capture phase
   useEffect(() => {
@@ -161,8 +200,7 @@ function FeedbackOverlayInner() {
             <button 
               onClick={(e) => {
                 e.stopPropagation()
-                setActiveThreadId(activeThreadId === thread.id ? null : thread.id)
-                setNewCommentData(null)
+                toggleThread(thread.id)
               }}
               className="absolute -translate-x-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary-red text-white shadow-lg border-[3px] border-white hover:scale-110 transition-transform"
             >
