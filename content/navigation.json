@@ -323,7 +323,7 @@
           "href": "/doctors",
           "links": [
             {
-              "label": "Our Consultants",
+              "label": "All Consultants",
               "href": "/doctors",
               "description": "Browse all Hijaz Hospital consultants by specialty."
             },
