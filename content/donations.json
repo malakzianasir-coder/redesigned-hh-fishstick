@@ -39,13 +39,13 @@
     "zakatCalculator": {
       "enabled": true,
       "heading": "Calculate Your Zakat",
-      "body": "Use our Zakat Calculator to calculate your Zakat before making your donation."
+      "body": "Determine your exact contribution before making a donation using our online tool."
     },
     "sections": [
       {
         "type": "content",
         "id": "about",
-        "heading": "Let Your Zakat Become a Source of Healing",
+        "heading": "Supporting Eligible Patients",
         "body": [
           "Zakat is a sacred obligation and an opportunity to bring hope to those in need. By giving your Zakat to Hijaz Hospital, you help provide free medical care to deserving patients who cannot afford consultations, medicines, surgeries, dialysis, maternity care, and other essential treatments."
         ]
@@ -83,7 +83,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Every Donation Makes a Difference",
+        "heading": "Funding Essential Care",
         "body": [
           "Your generosity helps Hijaz Hospital Trust provide quality healthcare to patients who cannot afford the cost of treatment. Every donation, no matter the amount, helps us deliver compassionate medical care to those who need it most.",
           "General Donations support a wide range of essential services, including consultations, medicines, surgeries, dialysis, maternity care, emergency treatment, diagnostic services, and patient welfare programs. They also provide flexible funding for patients and hospital services that cannot be supported through Zakat, enabling us to respond to the hospital's most urgent needs.",
@@ -116,7 +116,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Turn Your Sadaqah into Healing and Hope",
+        "heading": "Providing Relief and Comfort",
         "body": [
           "Beyond Zakat, Sadaqah reflects gratitude, kindness, and compassion. Giving Sadaqah regularly is a beautiful act of worship that brings mercy, blessings (barakah), and hope to those in need.",
           "Sadaqah is a voluntary act of charity that brings you closer to Allah and supports those facing illness and hardship.",
@@ -148,7 +148,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Share the Blessings of Eid",
+        "heading": "Supporting Patients During Ramadan",
         "body": [
           "Eid is a time of joy, gratitude, and compassion. At Hijaz Hospital Trust, many patients from underprivileged families spend Eid in hospitals, unable to celebrate due to illness and financial hardship.",
           "Your Eidi donation brings comfort and happiness to these patients by helping provide essential care and support during treatment.",
@@ -186,7 +186,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Nourish a Patient. Support Their Recovery.",
+        "heading": "Our Patient Meal Program",
         "body": [
           "Good nutrition plays an important role in healing. At Hijaz Hospital Trust, many patients from underprivileged families struggle to afford even a nutritious meal while receiving treatment. Nutritious meals are an important part of recovery. Through our patient meal program, we provide deserving patients with healthy meals during their hospital stay.",
           "Through our Donate a Meal initiative, you can help provide meals to deserving patients, giving them the nourishment and comfort that they need during their recovery. Whether you sponsor a single meal, a day's meals, or ongoing meal support, every contribution helps ensure that no patient goes hungry during treatment."
@@ -249,7 +249,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Support Patient Care Through Essential Supplies",
+        "heading": "Providing Vital Resources",
         "body": [
           "Hijaz Hospital Trust welcomes in-kind donations from individuals, organizations, pharmaceutical companies, medical suppliers, and other generous supporters. Your contribution of essential medical supplies, equipment, and other assets helps us provide quality healthcare to deserving patients."
         ]
@@ -302,7 +302,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Become a Source of Healing and Hope",
+        "heading": "Direct Impact on Patient Care",
         "body": [
           "At Hijaz Hospital Trust, you can directly support the treatment of deserving patients who cannot afford essential healthcare. Your sponsorship helps provide medicines, dialysis, vaccinations, maternity care, and other medical services to those in need.",
           "By sponsoring a patient, you become part of their healing journey—bringing relief, dignity, and hope to individuals and families facing illness and financial hardship."
@@ -351,7 +351,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Support Life-Changing Surgical Care",
+        "heading": "Making Operations Accessible",
         "body": [
           "Many patients at Hijaz Hospital Trust require surgery but are unable to afford the cost. Through your support, we are able to provide safe, timely, and free surgical care to deserving patients.",
           "Your contribution helps restore health, reduce suffering, and bring hope to families in need."
@@ -399,7 +399,7 @@
     "sections": [
       {
         "type": "content",
-        "heading": "Help Build the Future of Healthcare",
+        "heading": "Expanding Our Facilities",
         "body": [
           "Support the expansion and development of Hijaz Hospital Trust by contributing to projects that strengthen our facilities and improve patient care. Your donation helps us build and upgrade the spaces where healing begins, enabling us to serve more patients with quality healthcare."
         ]
