@@ -25,11 +25,11 @@
               "href": "/our-purpose#our-philosophy"
             },
             {
-              "label": "Our Approach & Core Values",
-              "href": "/our-purpose#our-philosophy"
+              "label": "Our Values",
+              "href": "/our-purpose#our-values"
             },
             {
-              "label": "Our Compliance & Governance",
+              "label": "Our Compliance",
               "href": "/our-purpose#our-compliance"
             }
           ]
@@ -83,19 +83,23 @@
           "href": "/our-impact",
           "links": [
             {
-              "label": "Awards & Recognitions",
+              "label": "Awards",
               "href": "/our-impact#award"
             },
             {
-              "label": "Health & Academic Partners",
+              "label": "Our Health Partners",
               "href": "/our-impact#health-partners"
             },
             {
-              "label": "Welfare Sharia Audit & Certifications",
+              "label": "Welfare Sharia",
               "href": "/our-purpose#our-compliance"
             },
             {
-              "label": "Facts, Statistics & Achievements",
+              "label": "Our Projects",
+              "href": "/our-impact#our-projects"
+            },
+            {
+              "label": "Facts & Statistics",
               "href": "/our-impact#facts-statistics"
             },
             {
