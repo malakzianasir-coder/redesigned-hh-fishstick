@@ -3,6 +3,7 @@
 import { ArrowSquareOut } from '@phosphor-icons/react'
 import Link from 'next/link'
 
+import { navigateToHash } from '@/utilities/scrollToHash'
 import { cn } from '@/utilities/ui'
 
 export type ChipRailLink = {
@@ -37,7 +38,15 @@ export function ChipRail({ label, items = [], externals = [], ariaLabel, classNa
                 const className = cn('chip', item.active && 'is-active')
                 if (isHash(item.href)) {
                   return (
-                    <a key={`${item.href}-${item.label}`} href={item.href} className={className}>
+                    <a
+                      key={`${item.href}-${item.label}`}
+                      href={item.href}
+                      className={className}
+                      onClick={(event) => {
+                        event.preventDefault()
+                        navigateToHash(item.href)
+                      }}
+                    >
                       {item.label}
                     </a>
                   )

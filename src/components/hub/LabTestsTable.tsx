@@ -1,9 +1,11 @@
 'use client'
 
 import { MagnifyingGlass } from '@phosphor-icons/react'
+import { useLenis } from 'lenis/react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { LabTestRecord } from '@/lib/content/types'
+import { scrollToSectionId } from '@/utilities/scrollToHash'
 import { cn } from '@/utilities/ui'
 
 import { LabTestDrawer } from './LabTestDrawer'
@@ -19,6 +21,7 @@ type LabTestsTableProps = {
 type SourceFilter = 'all' | 'in-house' | 'outsourced'
 
 export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabTestsTableProps) {
+  const lenis = useLenis()
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('all')
   const [specimen, setSpecimen] = useState('all')
@@ -77,6 +80,14 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
       })
       .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? ''))
   }, [tests, search, category, specimen, turnaround, source])
+
+  const selectCategory = useCallback(
+    (next: string) => {
+      setCategory(next)
+      scrollToSectionId('hub-results', lenis ?? null)
+    },
+    [lenis],
+  )
 
   const openTest = useCallback((test: LabTestRecord) => {
     setActive(test)
@@ -172,7 +183,7 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
               aria-selected={category === 'all'}
               aria-label={`All, ${categoryCounts.all ?? 0}`}
               className={cn('chip', category === 'all' && 'is-active')}
-              onClick={() => setCategory('all')}
+              onClick={() => selectCategory('all')}
             >
               All
               <span className="chip-count">{categoryCounts.all ?? 0}</span>
@@ -187,7 +198,7 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
                   aria-selected={category === cat}
                   aria-label={`${cat}, ${count}`}
                   className={cn('chip', category === cat && 'is-active')}
-                  onClick={() => setCategory(cat)}
+                  onClick={() => selectCategory(cat)}
                 >
                   {cat}
                   <span className="chip-count">{count}</span>
@@ -197,7 +208,7 @@ export function LabTestsTable({ kicker, heading, lede, categories, tests }: LabT
           </div>
         </div>
 
-        <div className="card mx-auto max-w-4xl overflow-hidden">
+        <div id="hub-results" className="section-anchor card mx-auto max-w-4xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[720px] border-collapse text-b14">
               <thead>

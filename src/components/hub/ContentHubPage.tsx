@@ -90,6 +90,7 @@ export function ContentHubPage({
         onSelect={selectFilter}
         externals={externals}
         ariaLabel={`Filter ${title}`}
+        scrollToTarget={(slug) => (slug === 'all' ? groups[0]?.id : slug)}
       />
       {visibleGroups.map((group, index) => (
         <section

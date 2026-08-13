@@ -1,7 +1,9 @@
 'use client'
 
 import { ArrowSquareOut } from '@phosphor-icons/react'
+import { useLenis } from 'lenis/react'
 
+import { scrollToSectionId } from '@/utilities/scrollToHash'
 import { cn } from '@/utilities/ui'
 
 export type HubFilterItem = {
@@ -23,6 +25,8 @@ type HubFilterRailProps = {
   ariaLabel?: string
   /** Show numeric counts on chips. Default false — enable for doctors / lab tests only. */
   showCounts?: boolean
+  /** Return a section id to scroll into view after a filter chip is selected. */
+  scrollToTarget?: (slug: string) => string | null | undefined
 }
 
 export function HubFilterRail({
@@ -32,7 +36,17 @@ export function HubFilterRail({
   externals = [],
   ariaLabel = 'Filter by topic',
   showCounts = false,
+  scrollToTarget,
 }: HubFilterRailProps) {
+  const lenis = useLenis()
+
+  const handleSelect = (slug: string) => {
+    onSelect(slug)
+    const targetId = scrollToTarget?.(slug)
+    if (!targetId) return
+    scrollToSectionId(targetId, lenis ?? null)
+  }
+
   if (!filters.length && !externals.length) return null
 
   return (
@@ -54,7 +68,7 @@ export function HubFilterRail({
                   aria-selected={activeFilter === filter.slug}
                   aria-label={showCounts ? `${filter.label}, ${filter.count}` : filter.label}
                   className={cn('chip', activeFilter === filter.slug && 'is-active')}
-                  onClick={() => onSelect(filter.slug)}
+                  onClick={() => handleSelect(filter.slug)}
                 >
                   {filter.label}
                   {showCounts ? <span className="chip-count">{filter.count}</span> : null}

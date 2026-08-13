@@ -98,9 +98,10 @@ export function CategoryHubGrid({
         activeFilter={activeFilter}
         onSelect={selectFilter}
         ariaLabel="Filter by category"
+        scrollToTarget={() => 'hub-results'}
       />
 
-      <section className="bg-white">
+      <section id="hub-results" className="section-anchor bg-white">
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[60px]">
           <div className="card-grid card-grid--3">
           {visibleCards.map((card) => {

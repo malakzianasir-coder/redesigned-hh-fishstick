@@ -44,6 +44,39 @@ export function scrollToHash(options: ScrollToHashOptions = {}): boolean {
   return true
 }
 
+/** Update the URL hash (or clear it) and fire `hashchange` so LenisHashScroll can scroll. */
+export function navigateToHash(hash: string) {
+  if (typeof window === 'undefined') return
+
+  const id = hash.replace(/^#/, '')
+  const current = window.location.hash.replace(/^#/, '')
+
+  if (!id) {
+    if (current) {
+      window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`)
+    }
+    window.dispatchEvent(new Event('hashchange'))
+    return
+  }
+
+  if (current !== id) {
+    window.location.hash = id
+  } else {
+    window.dispatchEvent(new Event('hashchange'))
+  }
+}
+
+/** Scroll to a section id (Lenis-aware). Default target: hub filter results. */
+export function scrollToSectionId(
+  id = 'hub-results',
+  lenis?: LenisLike | null,
+) {
+  if (typeof window === 'undefined') return
+  requestAnimationFrame(() => {
+    scheduleScrollToHash({ hash: `#${id}`, lenis: lenis ?? null, immediate: true })
+  })
+}
+
 export function scheduleScrollToHash(options: ScrollToHashOptions = {}): () => void {
   // Wait for compact header + --header-h, then correct once after the 300ms header transition.
   const delays = [50, 350]

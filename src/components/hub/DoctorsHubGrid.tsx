@@ -3,9 +3,11 @@
 import { MagnifyingGlass, User } from '@phosphor-icons/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLenis } from 'lenis/react'
 import { useMemo, useState } from 'react'
 
 import type { DoctorRecord } from '@/lib/content/types'
+import { scrollToSectionId } from '@/utilities/scrollToHash'
 import { cn } from '@/utilities/ui'
 
 import { isHeadOfDepartment, isVisitingDoctor } from './doctorTags'
@@ -36,6 +38,7 @@ export function DoctorsHubGrid({
   initialView = 'all',
   showViewTabs = true,
 }: DoctorsHubGridProps) {
+  const lenis = useLenis()
   const [search, setSearch] = useState('')
   const [specialty, setSpecialty] = useState('all')
   const [group, setGroup] = useState<DoctorsView>(initialView)
@@ -44,9 +47,6 @@ export function DoctorsHubGrid({
     () => Array.from(new Set(doctors.map((d) => d.specialty).filter(Boolean))).sort(),
     [doctors],
   )
-
-  const hasActiveFilters =
-    search.trim().length > 0 || specialty !== 'all' || (showViewTabs && group !== initialView)
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -94,10 +94,9 @@ export function DoctorsHubGrid({
     }
   }, [doctors, search, specialty])
 
-  function clearFilters() {
-    setSearch('')
-    setSpecialty('all')
-    setGroup(initialView)
+  function selectGroup(value: DoctorsView) {
+    setGroup(value)
+    scrollToSectionId('hub-results', lenis ?? null)
   }
 
   return (
@@ -117,14 +116,7 @@ export function DoctorsHubGrid({
       <div className="sticky-bar">
         <div className="container mx-auto px-6 py-3 lg:px-[30px]">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center justify-between gap-3">
-              <p className="field-label-text">Filters</p>
-              {hasActiveFilters ? (
-                <button type="button" className="chip" onClick={clearFilters}>
-                  Clear filters
-                </button>
-              ) : null}
-            </div>
+            <p className="field-label-text">Filters</p>
 
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
               <div className="relative min-w-0 flex-1">
@@ -171,7 +163,7 @@ export function DoctorsHubGrid({
                       aria-selected={group === value}
                       aria-label={`${label}, ${count}`}
                       className={cn('chip', group === value && 'is-active')}
-                      onClick={() => setGroup(value)}
+                      onClick={() => selectGroup(value)}
                     >
                       {label}
                       <span className="chip-count">{count}</span>
@@ -184,7 +176,7 @@ export function DoctorsHubGrid({
         </div>
       </div>
 
-      <section>
+      <section id="hub-results" className="section-anchor">
         <div className="container mx-auto flex flex-col gap-12 px-6 py-[30px] lg:gap-16 lg:px-[30px] lg:py-[60px]">
           {group === 'heads' ? (
             <DoctorSection
