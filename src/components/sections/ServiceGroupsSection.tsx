@@ -7,16 +7,12 @@ import type { ServiceGroupsSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
 import { ProcedureFinder } from './ProcedureFinder'
-import { ProcedureListPanel } from './ProcedureListPanel'
+import { normalizeServiceGroups, ServiceListStack } from './serviceListStack'
 import { iconForServiceHeading, SectionIcon } from './sectionIcons'
 
 const sectionBackground: Record<'white' | 'muted', string> = {
   white: 'bg-white',
   muted: 'bg-whitebg',
-}
-
-function headingsMatch(a?: string, b?: string) {
-  return Boolean(a && b && a.trim().toLowerCase() === b.trim().toLowerCase())
 }
 
 export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectionData }) {
@@ -31,18 +27,7 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
     footer,
   } = section
 
-  const groups = rawGroups
-    ? [...rawGroups]
-        .sort((a, b) => (a.heading ?? '').localeCompare(b.heading ?? ''))
-        .map((group) => ({
-          ...group,
-          items: group.items
-            ? [...group.items]
-                .filter((item): item is string => typeof item === 'string')
-                .sort((a, b) => a.localeCompare(b))
-            : group.items,
-        }))
-    : []
+  const groups = rawGroups ? normalizeServiceGroups(rawGroups) : []
 
   return (
     <section id={id} className={cn('section-anchor', sectionBackground[background])}>
@@ -114,23 +99,7 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
             ) : null}
           </>
         ) : (
-          <div className={cn(sectionMeasureClasses.centeredColumn, 'flex flex-col gap-6')}>
-            {groups.map((group, index) => {
-              const distinct = Boolean(group.heading?.trim()) && !headingsMatch(group.heading, heading)
-              return (
-                <ProcedureListPanel
-                  key={group.slug || group.heading || `group-${index}`}
-                  kicker={distinct ? 'Service group' : 'Complete list'}
-                  title={distinct ? group.heading! : 'All services'}
-                  items={group.items}
-                  countLabel={`${group.items.length} service${group.items.length === 1 ? '' : 's'}`}
-                />
-              )
-            })}
-            {footer ? (
-              <p className="text-center text-b16 leading-[150%] text-primary-blue/85">{footer}</p>
-            ) : null}
-          </div>
+          <ServiceListStack groups={groups} sectionHeading={heading} footer={footer} />
         )}
       </div>
     </section>

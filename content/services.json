@@ -1268,45 +1268,60 @@
         "background": "muted"
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "specialized",
+        "layout": "stack",
         "kicker": "Services",
         "heading": "Specialized Diagnostic Services",
         "intro": "Through collaborations with accredited reference laboratories, patients also have convenient access to advanced investigations, including:",
-        "items": [
-          "Histopathology and Biopsy Reporting",
-          "Cytopathology and Pap Smear",
-          "Immunohistochemistry",
-          "Molecular Diagnostics & PCR Testing",
-          "Genetic and Specialized Molecular Investigations"
+        "groups": [
+          {
+            "items": [
+              "Histopathology and Biopsy Reporting",
+              "Cytopathology and Pap Smear",
+              "Immunohistochemistry",
+              "Molecular Diagnostics & PCR Testing",
+              "Genetic and Specialized Molecular Investigations"
+            ]
+          }
         ],
         "background": "white"
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "automation",
+        "layout": "stack",
         "kicker": "Care",
         "heading": "Advanced Technology & Automation",
         "intro": "Our laboratory is equipped with modern, fully automated diagnostic systems, including:",
-        "items": [
-          "Fully automated Clinical Chemistry analyzers",
-          "Fully automated Hematology analyzer",
-          "Automated Urine analyzer",
-          "Coagulation analyzer",
-          "Fully automated CLIA analyzer for hormonal and specialized testing"
+        "groups": [
+          {
+            "items": [
+              "Fully automated Clinical Chemistry analyzers",
+              "Fully automated Hematology analyzer",
+              "Automated Urine analyzer",
+              "Coagulation analyzer",
+              "Fully automated CLIA analyzer for hormonal and specialized testing"
+            ]
+          }
         ],
         "footer": "All laboratory equipment is integrated with our Laboratory Information System (LIS), ensuring efficient workflow, reduced manual errors, secure data management, and timely online reporting for patients and clinicians.",
         "background": "muted"
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "quality",
+        "layout": "stack",
         "kicker": "Quality",
         "heading": "Quality Assurance",
         "intro": "Quality and patient safety are central to every laboratory process.\nHijaz Hospital Laboratory follows rigorous Internal Quality Control (IQC) procedures and participates in nationally recognized External Quality Assessment Programs, including:",
-        "items": [
-          "National External Quality Assessment Scheme (NEQAS)",
-          "External Quality Assessment Scheme (EQAS)"
+        "groups": [
+          {
+            "items": [
+              "National External Quality Assessment Scheme (NEQAS)",
+              "External Quality Assessment Scheme (EQAS)"
+            ]
+          }
         ],
         "footer": "Regular equipment calibration, staff competency assessments, and continuous quality improvement initiatives ensure accurate, reliable, and internationally benchmarked laboratory results.",
         "background": "white"
@@ -1412,35 +1427,45 @@
         ]
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
         "kicker": "Services",
         "heading": "Our Radiology & Imaging Services",
         "intro": "Hijaz Hospital offers a comprehensive range of diagnostic imaging services, including:",
-        "items": [
-          "Digital X-Ray",
-          "General Radiography",
-          "Chest X-Ray",
-          "Musculoskeletal X-Ray",
-          "Ultrasound",
-          "Color Doppler Studies",
-          "Abdominal Imaging",
-          "Obstetric & Gynecological Ultrasound",
-          "Image-guided diagnostic procedures (where clinically indicated)"
+        "groups": [
+          {
+            "items": [
+              "Digital X-Ray",
+              "General Radiography",
+              "Chest X-Ray",
+              "Musculoskeletal X-Ray",
+              "Ultrasound",
+              "Color Doppler Studies",
+              "Abdominal Imaging",
+              "Obstetric & Gynecological Ultrasound",
+              "Image-guided diagnostic procedures (where clinically indicated)"
+            ]
+          }
         ],
         "footer": "Our ultrasound services support the diagnosis of obstetric, gynecological, abdominal, urinary, vascular, and other medical conditions. Digital X-ray services are available for both routine and emergency patients, providing fast and reliable diagnostic support. When advanced imaging is clinically required, including CT Scan and MRI, patients are conveniently referred through our collaborations with accredited diagnostic imaging centers, ensuring seamless continuity of care.",
         "background": "muted"
       },
       {
-        "type": "bullets",
+        "type": "serviceGroups",
         "id": "advanced",
-        "kicker": "Section",
+        "layout": "stack",
+        "kicker": "Partners",
         "heading": "Advanced Imaging Services Through Trusted Diagnostic Partners",
         "intro": "For investigations that require highly specialized imaging, Hijaz Hospital facilitates convenient access through collaborations with accredited diagnostic imaging centers.\nThese services include:",
-        "items": [
-          "Computed Tomography (CT Scan)",
-          "Magnetic Resonance Imaging (MRI)",
-          "Other advanced imaging studies, when clinically indicated"
+        "groups": [
+          {
+            "items": [
+              "Computed Tomography (CT Scan)",
+              "Magnetic Resonance Imaging (MRI)",
+              "Other advanced imaging studies, when clinically indicated"
+            ]
+          }
         ],
         "footer": "Our clinical team coordinates referrals, facilitates timely appointments, and ensures that diagnostic reports are promptly shared with the treating physician, providing seamless continuity of care.",
         "background": "white"
@@ -1548,22 +1573,18 @@
         ]
       },
       {
-        "type": "iconGrid",
+        "type": "serviceGroups",
         "id": "services",
+        "layout": "stack",
         "kicker": "Services",
         "heading": "Our Cardiac Diagnostic Services",
-        "items": [
+        "groups": [
           {
-            "icon": "pulse",
-            "label": "Electrocardiography (ECG)"
-          },
-          {
-            "icon": "first-aid",
-            "label": "Portable bedside ECG"
-          },
-          {
-            "icon": "scan",
-            "label": "Echocardiography (Echo)"
+            "items": [
+              "Electrocardiography (ECG)",
+              "Portable bedside ECG",
+              "Echocardiography (Echo)"
+            ]
           }
         ],
         "background": "muted"
