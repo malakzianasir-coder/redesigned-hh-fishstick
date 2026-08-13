@@ -27,7 +27,7 @@ export default function LabTestsPage() {
       <MarketingBreadcrumb
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Diagnostics', href: '/services/pathology' },
+          { label: 'Diagnostics', href: '/services#diagnostics' },
           { label: 'Lab Tests' },
         ]}
       />
