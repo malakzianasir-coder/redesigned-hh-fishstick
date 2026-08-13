@@ -11,7 +11,7 @@
     "hero": {
       "kicker": "Donate",
       "title": "Zakat",
-      "excerpt": "Let Your Zakat Become a Source of Healing",
+      "excerpt": "Fulfill your sacred obligation by funding free, Shariah-compliant medical care for eligible patients.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -73,7 +73,7 @@
     "hero": {
       "kicker": "Donate",
       "title": "General Donation",
-      "excerpt": "Every Donation Makes a Difference",
+      "excerpt": "Provide flexible funding for essential treatments, medical equipment, and immediate hospital needs.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -106,7 +106,7 @@
     "hero": {
       "kicker": "Donate",
       "title": "Sadaqah",
-      "excerpt": "Turn Your Sadaqah into Healing and Hope",
+      "excerpt": "Bring mercy and blessings to your life by voluntarily funding treatments for underprivileged patients.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -138,7 +138,7 @@
     "hero": {
       "kicker": "Donate",
       "title": "Eidi & Fitrana",
-      "excerpt": "Share the Blessings of Eid",
+      "excerpt": "Bring comfort and joy to patients spending Ramadan and Eid in the hospital.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -176,7 +176,7 @@
     "hero": {
       "kicker": "What You Can Support",
       "title": "Donate a Meal",
-      "excerpt": "Nourish a Patient. Support Their Recovery.",
+      "excerpt": "Sponsor nutritious, healing meals for underprivileged patients during their hospital stay.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -239,7 +239,7 @@
     "hero": {
       "kicker": "What You Can Support",
       "title": "Donate in Kind",
-      "excerpt": "Support Patient Care Through Essential Supplies",
+      "excerpt": "Contribute essential medicines, surgical equipment, or property to directly reduce the cost of free care.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -292,7 +292,7 @@
     "hero": {
       "kicker": "What You Can Support",
       "title": "Sponsor a Patient",
-      "excerpt": "Become a Source of Healing and Hope",
+      "excerpt": "Directly fund a specific patient's recovery journey, from single dialysis sessions to full maternity care.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -341,7 +341,7 @@
     "hero": {
       "kicker": "What You Can Support",
       "title": "Sponsor Free Surgeries",
-      "excerpt": "Support Life-Changing Surgical Care",
+      "excerpt": "Cover the costs of life-changing operations, including general surgery, cataract removal, and urology procedures.",
       "variant": "white",
       "media": {
         "type": "illustration",
@@ -389,7 +389,7 @@
     "hero": {
       "kicker": "What You Can Support",
       "title": "Support a Project",
-      "excerpt": "Help Build the Future of Healthcare",
+      "excerpt": "Invest in the hospital's future by funding the construction and expansion of new patient wards and ICUs.",
       "variant": "white",
       "media": {
         "type": "illustration",
