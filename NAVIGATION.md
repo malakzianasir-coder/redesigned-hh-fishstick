@@ -220,7 +220,7 @@ full dump of every child link.
 | Column | Role | Canonical links |
 |---|---|---|
 | **About Us** | About hubs | About Hijaz Hospital → `/about-us`; Vision & Mission → `/our-purpose#vision-mission`; Leadership & Governance → `/leadership`; Messages → `/leadership/messages`; Our Impact → `/our-impact`; Our Supporters → `/our-supporters` |
-| **Patient Care** | Care + find care | Emergency → `/services/emergency`; OPD → `/services/opd`; IPD → `/services/ipd`; Clinical Laboratory → `/services/pathology`; Find a Doctor → `/doctors`; Patient Welfare → `/patient-welfare` |
+| **Patient Care** | Care + find care | Emergency → `/services/emergency`; OPD → `/services/opd`; IPD → `/services/ipd`; Clinical Laboratory → `/services/clinical-laboratory`; Find a Doctor → `/doctors`; Patient Welfare → `/patient-welfare` |
 | **Donate** | Three donate hubs + key children | Donate hub → `/donate`; What You Can Support → `/donate/what-you-can-support`; How to Donate → `/donate/how-to-donate`; Zakat → `/donate/zakat`; Sponsor a Patient → `/donate/what-you-can-support/sponsor-a-patient`; Donate Online → `/donate/how-to-donate/online` |
 
 Bottom legal/utility row (same file):

@@ -693,10 +693,10 @@ export const ILLUSTRATION_PRESETS: Record<string, IllustrationPreset> = {
       "users"
     ]
   },
-  "svc/pathology": {
+  "svc/clinical-laboratory": {
     "collection": "services",
-    "slug": "pathology",
-    "title": "Pathology",
+    "slug": "clinical-laboratory",
+    "title": "Clinical Laboratory",
     "icon": "microscope",
     "motif": "pulse",
     "accent": "#4F46E5",

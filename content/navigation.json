@@ -273,8 +273,8 @@
           "href": "/services#diagnostics",
           "links": [
             {
-              "label": "Clinical Laboratory Overview",
-              "href": "/services/pathology"
+              "label": "Clinical Laboratory",
+              "href": "/services/clinical-laboratory"
             },
             {
               "label": "Radiology & Imaging",

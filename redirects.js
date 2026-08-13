@@ -41,11 +41,20 @@ const redirects = async () => {
     },
   ]
 
+  const serviceRedirects = [
+    {
+      source: '/services/pathology',
+      destination: '/services/clinical-laboratory',
+      permanent: true,
+    },
+  ]
+
   return [
     internetExplorerRedirect,
     ...patientCareRedirects,
     ...leadershipProfileRedirects,
     ...aboutRedirects,
+    ...serviceRedirects,
   ]
 }
 

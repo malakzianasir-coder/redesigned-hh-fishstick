@@ -1168,22 +1168,22 @@
     ]
   },
   {
-    "slug": "pathology",
-    "title": "Pathology",
+    "slug": "clinical-laboratory",
+    "title": "Clinical Laboratory",
     "category": "Diagnostics",
     "categorySlug": "diagnostics",
     "description": "The Clinical Laboratory at Hijaz Hospital provides a comprehensive range of routine and specialized diagnostic services that support clinical decision-making, disease prevention, and effective patient management.",
     "excerpt": "Routine and specialized lab testing — 24 hours a day for emergency, inpatient, and outpatient care.",
     "hero": {
       "kicker": "Diagnostics",
-      "title": "Pathology",
+      "title": "Clinical Laboratory",
       "tagline": "\"Accurate Diagnostics. Reliable Results.\"",
       "excerpt": "Routine and specialized lab testing — 24 hours a day for emergency, inpatient, and outpatient care.",
       "variant": "white",
       "media": {
         "type": "image",
         "src": "/media/pathology-service-banner.webp",
-        "alt": "Pathology"
+        "alt": "Clinical Laboratory"
       },
       "excerptVariant": "quote"
     },
@@ -1194,7 +1194,7 @@
       },
       {
         "label": "Services",
-        "href": "#pathology-services"
+        "href": "#clinical-laboratory-services"
       },
       {
         "label": "Why Choose Us",
@@ -1215,10 +1215,10 @@
       },
       {
         "type": "serviceGroups",
-        "id": "pathology-services",
+        "id": "clinical-laboratory-services",
         "layout": "finder",
         "kicker": "Services",
-        "heading": "Our Pathology Services",
+        "heading": "Our Clinical Laboratory Services",
         "intro": "Our laboratory offers comprehensive testing across multiple specialties, including:",
         "groups": [
           {

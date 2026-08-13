@@ -29,7 +29,7 @@ const FOOTER_COLUMNS = [
       { label: 'Emergency (24/7)', href: '/services/emergency' },
       { label: 'Outpatient (OPD)', href: '/services/opd' },
       { label: 'Inpatient (IPD)', href: '/services/ipd' },
-      { label: 'Clinical Laboratory', href: '/services/pathology' },
+      { label: 'Clinical Laboratory', href: '/services/clinical-laboratory' },
       { label: 'Find a Doctor', href: '/doctors' },
       { label: 'Patient Welfare', href: '/patient-welfare' },
     ],

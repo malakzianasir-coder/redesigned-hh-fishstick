@@ -65,7 +65,7 @@ export const SERVICE_ICON_MAP = {
   pharmacy: Pill,
   'blood-bank': DropHalfBottom,
   cafeteria: Coffee,
-  pathology: Flask,
+  'clinical-laboratory': Flask,
   radiology: Scan,
   'cardiac-diagnostics': Heart,
   'lab-tests': ListMagnifyingGlass,

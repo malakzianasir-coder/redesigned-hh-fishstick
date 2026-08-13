@@ -200,7 +200,7 @@ const svcSrc = {
   dialysis: '/media/dialysis-service-banner.webp',
   pharmacy: '/media/pharmacy-service-banner.webp',
   'blood-bank': '/media/blood-bank-service-banner.webp',
-  pathology: '/media/pathology-service-banner.webp',
+  'clinical-laboratory': '/media/pathology-service-banner.webp',
   radiology: '/media/radiology-service-banner.webp',
   'cardiac-diagnostics': '/media/cardiac-diagnostics-service-banner.webp',
   // cafeteria stays generic until photo available
@@ -317,7 +317,7 @@ if (home.machinery?.slides) {
     { src: '/media/x-rays.webp', title: 'Digital X-Ray', href: '/services/radiology' },
     { src: '/media/anesthesiology-details-banner.webp', title: 'ICU Monitoring', href: '/services/icu' },
     { src: '/media/dialysis-care-unit-content-banner.webp', title: 'Dialysis Care Unit', href: '/services/dialysis' },
-    { src: '/media/laboratory-content-banner.webp', title: 'Laboratory', href: '/services/pathology' },
+    { src: '/media/laboratory-content-banner.webp', title: 'Clinical Laboratory', href: '/services/clinical-laboratory' },
     { src: '/media/icu-service-banner.webp', title: 'Critical Care', href: '/services/icu' },
     { src: '/media/cardiac-diagnostics-service-banner.webp', title: 'Cardiac Diagnostics', href: '/services/cardiac-diagnostics' },
   ]
