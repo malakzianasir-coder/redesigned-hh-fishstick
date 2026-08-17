@@ -8,6 +8,7 @@ export function PageProgress() {
   const glowNavyRef = useRef<HTMLDivElement>(null)
   const glowGreyRef = useRef<HTMLDivElement>(null)
   const glowCoreRef = useRef<HTMLDivElement>(null)
+  const animsRef = useRef<Animation[]>([])
 
   // ... (keep the existing state and path logic)
   const [state, setState] = useState<'idle' | 'loading' | 'completing'>('idle')
@@ -33,12 +34,13 @@ export function PageProgress() {
     if (intervalRef.current) clearInterval(intervalRef.current)
     if (completeTimeoutRef.current) clearTimeout(completeTimeoutRef.current)
 
+    // Ultra-smooth 50ms ticks for buttery CSS width transitions
     intervalRef.current = setInterval(() => {
       setProgress(p => {
         if (p >= 85) return p
-        return p + Math.random() * 5
+        return p + Math.random() * 2 
       })
-    }, 150)
+    }, 50)
   }
 
   const complete = () => {
@@ -53,13 +55,14 @@ export function PageProgress() {
         setState('idle')
         setTimeout(() => {
           setProgress(0)
-        }, 300)
-      }, 300)
+        }, 1500) // Match the new 1500ms exit fade
+      }, 500) // Give the bar 500ms to gracefully finish reaching 100%
     }
 
+    // Extended to 1200ms to guarantee the user feels the soothing effect
     const elapsed = Date.now() - startTime.current
-    if (elapsed < 600) {
-      completeTimeoutRef.current = setTimeout(finish, 600 - elapsed)
+    if (elapsed < 1200) {
+      completeTimeoutRef.current = setTimeout(finish, 1200 - elapsed)
     } else {
       finish()
     }
@@ -94,65 +97,71 @@ export function PageProgress() {
     return () => document.removeEventListener('click', handleClick, { capture: true })
   }, [])
 
-  // Magic Glow WAAPI Animations (Crossfading 3 Brand Colors)
+  // Magic Glow WAAPI Animations (Soothing, slow-paced)
   useEffect(() => {
-    if (state === 'idle') return
-
     const gRed = glowRedRef.current
     const gNavy = glowNavyRef.current
     const gGrey = glowGreyRef.current
     const gCore = glowCoreRef.current
     if (!gRed || !gNavy || !gGrey || !gCore) return
 
-    // Red Peaks at 0% and 100%
-    const animRed = gRed.animate([
-      { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.33 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.66 },
-      { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 1 }
-    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out' })
+    if (state !== 'idle') {
+      if (animsRef.current.length === 0) {
+        const baseDur = 6000 // Very slow 6-second color cycle
+        
+        animsRef.current = [
+          // Red Peaks at 0% and 100%
+          gRed.animate([
+            { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.33 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.66 },
+            { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 1 }
+          ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out' }),
+          
+          // Navy Peaks at 33%
+          gNavy.animate([
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0 },
+            { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0.33 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.66 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 1 }
+          ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out' }),
 
-    // Navy Peaks at 33%
-    const animNavy = gNavy.animate([
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0 },
-      { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0.33 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.66 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 1 }
-    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out' })
+          // Grey Peaks at 66%
+          gGrey.animate([
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.33 },
+            { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0.66 },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 1 }
+          ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out' }),
 
-    // Grey Peaks at 66%
-    const animGrey = gGrey.animate([
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 0.33 },
-      { opacity: 0.6, transform: 'translate(-50%, -50%) scale(1)', offset: 0.66 },
-      { opacity: 0, transform: 'translate(-50%, -50%) scale(1.1)', offset: 1 }
-    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out' })
-
-    // Bright White-hot core pulsing faster
-    const animCore = gCore.animate([
-      { transform: 'translate(-50%, -50%) scale(0.8)', opacity: 0.7 },
-      { transform: 'translate(-50%, -50%) scale(1.2)', opacity: 1 },
-      { transform: 'translate(-50%, -50%) scale(0.8)', opacity: 0.7 }
-    ], { duration: 1400, iterations: Infinity, easing: 'ease-in-out' })
-
-    return () => {
-      animRed.cancel()
-      animNavy.cancel()
-      animGrey.cancel()
-      animCore.cancel()
+          // Bright White-hot core (Slow heartbeat)
+          gCore.animate([
+            { transform: 'translate(-50%, -50%) scale(0.85)', opacity: 0.5 },
+            { transform: 'translate(-50%, -50%) scale(1.1)', opacity: 0.9 },
+            { transform: 'translate(-50%, -50%) scale(0.85)', opacity: 0.5 }
+          ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out' })
+        ]
+      }
+    } else {
+      // When transitioning to idle, wait 1500ms (matching the CSS fade) before cancelling animations
+      const t = setTimeout(() => {
+        animsRef.current.forEach(a => a.cancel())
+        animsRef.current = []
+      }, 1500)
+      return () => clearTimeout(t)
     }
   }, [state])
 
   return (
     <>
-      {/* 0. The Page Desaturation Overlay */}
+      {/* 0. The Page Desaturation Overlay (Slow, soothing fade) */}
       <div 
         className="fixed inset-0 z-[999998] pointer-events-none"
         style={{
           opacity: state === 'idle' ? 0 : 1,
-          transition: 'opacity 300ms ease',
-          backdropFilter: 'saturate(0.90) blur(4px)',
-          WebkitBackdropFilter: 'saturate(0.90) blur(4px)',
+          transition: state === 'idle' ? 'opacity 1500ms ease' : 'opacity 500ms ease',
+          backdropFilter: 'saturate(0.65)',
+          WebkitBackdropFilter: 'saturate(0.65)',
         }}
       />
 
@@ -160,7 +169,7 @@ export function PageProgress() {
         className="fixed top-0 left-0 w-full h-[2px] z-[999999] pointer-events-none"
         style={{
           opacity: state === 'idle' ? 0 : 1,
-          transition: state === 'idle' ? 'opacity 300ms ease' : 'none',
+          transition: state === 'idle' ? 'opacity 1500ms ease' : 'opacity 500ms ease',
         }}
       >
       {/* 1. The Crisp, Unblurred Progress Bar */}
@@ -170,13 +179,25 @@ export function PageProgress() {
           background: 'linear-gradient(90deg, transparent 0%, #E30016 50%, transparent 100%)',
           boxShadow: '0 0 10px #E30016',
           width: `${progress}%`,
-          transition: state === 'idle' ? 'none' : 'width 200ms ease-out',
+          transition: state === 'idle' ? 'none' : 'width 500ms ease-out',
         }}
       />
 
       {/* 2. The Magical Centered Glows (Crossfading Brand Colors) */}
       <div className="absolute top-0 left-0 w-full h-0">
         
+        {/* Volumetric Progressive Blur (Frosted light effect) */}
+        <div 
+          className="absolute top-0 left-1/2 w-[800px] h-[150px]"
+          style={{
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            maskImage: 'radial-gradient(ellipse at top, black 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at top, black 0%, transparent 70%)',
+            transform: 'translateX(-50%)',
+          }}
+        />
+
         {/* Illuminated Dots Grid */}
         <div 
           className="absolute top-0 left-1/2 w-[800px] h-[150px] opacity-40"
