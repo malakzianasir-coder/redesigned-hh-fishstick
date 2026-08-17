@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { MockDonationFlow } from '@/components/donate/MockDonationFlow'
+import { DonationCheckout } from '@/components/donate/DonationCheckout'
 import { getDonation, getDonations } from '@/lib/content/loaders'
 
 type Args = {
@@ -16,20 +16,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
   const cause = getDonation(slug)
-  if (!cause) return { title: 'Donation Mockup Not Found' }
-  return { title: `${cause.title} Donation Mockup | Hijaz Hospital` }
+  if (!cause) return { title: 'Donation Not Found' }
+  return { title: `Donate to ${cause.title} | Hijaz Hospital` }
 }
 
-export default async function DonateCauseMockPage({ params, searchParams }: Args) {
+export default async function DonateCausePage({ params, searchParams }: Args) {
   const { slug } = await params
   const { amount } = await searchParams
   const cause = getDonation(slug)
   if (!cause) notFound()
 
   return (
-    <MockDonationFlow
-      title="Cause Donation Mockup"
+    <DonationCheckout
+      title={`Donate to ${cause.title}`}
       causeLabel={cause.title}
+      causeSlug={cause.slug}
       initialAmount={amount}
     />
   )

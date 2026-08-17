@@ -75,6 +75,7 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    donations: Donation;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -94,6 +95,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    donations: DonationsSelect<false> | DonationsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -821,6 +823,37 @@ export interface NewsletterSubmission {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donations".
+ */
+export interface Donation {
+  id: string;
+  txnRefNo: string;
+  donorName: string;
+  donorMobile: string;
+  causeSlug?: string | null;
+  causeTitle?: string | null;
+  amountPKR: number;
+  billReference: string;
+  status: 'pending' | 'confirmed' | 'failed';
+  responseCode?: string | null;
+  responseMessage?: string | null;
+  authCode?: string | null;
+  retrievalRefNo?: string | null;
+  ipnReceivedAt?: string | null;
+  ipnPayload?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1023,6 +1056,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: string | User;
+      } | null)
+    | ({
+        relationTo: 'donations';
+        value: string | Donation;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1468,6 +1505,28 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donations_select".
+ */
+export interface DonationsSelect<T extends boolean = true> {
+  txnRefNo?: T;
+  donorName?: T;
+  donorMobile?: T;
+  causeSlug?: T;
+  causeTitle?: T;
+  amountPKR?: T;
+  billReference?: T;
+  status?: T;
+  responseCode?: T;
+  responseMessage?: T;
+  authCode?: T;
+  retrievalRefNo?: T;
+  ipnReceivedAt?: T;
+  ipnPayload?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

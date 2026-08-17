@@ -53,7 +53,7 @@
         "links": [
           {
             "label": "Donate Online",
-            "href": "/donate/mock",
+            "href": "/donate/online",
             "variant": "primary"
           }
         ]
@@ -63,7 +63,7 @@
       ],
       "cta": {
         "label": "Donate Online",
-        "href": "/donate/mock"
+        "href": "/donate/online"
       }
     },
     {

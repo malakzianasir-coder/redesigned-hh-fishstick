@@ -1,3 +1,7 @@
+/**
+ * @deprecated This mock flow is being replaced by the real JazzCash MWallet integration in DonationCheckout.tsx.
+ * Keep this file around temporarily for local design iteration without JazzCash.
+ */
 'use client'
 
 import { useRouter } from 'next/navigation'

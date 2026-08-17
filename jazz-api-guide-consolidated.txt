@@ -1,0 +1,384 @@
+
+
+MWallet REFUND API V.1.1 
+VERSION: 2026 
+Syed Hassan Raza 
+JAZZCASH 
+ 
+ 
+ 
+1 
+ 
+TABLE OF CONTENTS 
+1 Introduction ........................................................................................................................................................................................................... 2 
+2 Create a Sandbox Account ..................................................................................................................................................................................... 2 
+2.1 Signup ........................................................................................................................................................................................................... 2 
+2.2 Get Your Credentials ..................................................................................................................................................................................... 2 
+3 API Endpoints: ........................................................................................................................................................................................................ 3 
+ 
+ 
+ 
+  
+1 INTRODUCTION 
+Welcome! 
+Please read the complete document to understand the process of integration.  
+This guide explains how to integrate JazzCash payments into your website or mobile application using MWallet REST API v2.0 (with 
+CNIC) feature. 
+To begin the integration process: 
+2 CREATE A SANDBOX ACCOUNT 
+2.1 SIGNUP 
+Sign up at the link below to create your JazzCash sandbox account: 
+https://onlinepayments.jazzcash.com.pk/sandbox-frontend/ 
+Once your sandbox account is created, please share your Merchant ID with us. Our team will enable the payment option for you. 
+2.2 GET YOUR CREDENTIALS 
+After logging into your Sandbox account: 
+• Go to Integration > Credentials from the left menu. 
+• Enter your Return URL/Callback URL in the respective field. 
+2 
+ 
+ 
+ 
+3 
+• (If applicable) Enter your IPN URL in the IPN field. 
+ 
+Please find below details guide to implement MWallet REST API 2.0 feature with secure hash logic. 
+3 API ENDPOINTS: 
+ 
+Environment Endpoints 
+Sandbox https://onlinepayments.jazzcash.com.pk/payment-orchestrator/api/v1/rest/payments/m-wallet/refund 
+Production https://onlinepayments.jazzcash.com.pk/payment-orchestrator/api/v1/rest/payments/m-wallet/refund 
+ 
+Sample Request Sample Response 
+{ 
+  "pp_MerchantID": "YOUR MERCHANT ID", //Mandatory 
+Parameter 
+  "pp_Password": "YOUR PASSWORD", //Mandatory Parameter 
+  "pp_TxnRefNo": "T20251224191536", //Mandatory Parameter 
+  "pp_Amount": "100", //Mandatory Parameter 
+  "pp_SecureHash":  
+"928c8fdffd052ef0b940d6bd8661e1c9b78afe3ad17ebdc074a48f36
+738e2603", //Mandatory Parameter 
+  "pp_TxnCurrency": "PKR",//Mandatory Parameter 
+  "pp_MerchantMPIN": "YOUR MERCHANT MPIN"//Mandatory 
+Parameter 
+} 
+{ 
+  "pp_ResponseCode": "000", 
+  "pp_ResponseMessage": "Thank you for using JazzCash. Your 
+transaction was processed successfully.", 
+  "pp_RefundAmount": "100", 
+  "pp_TotalRefundAmount": "100", 
+  "pp_SecureHash": 
+"20B6593DFC995F98A54EC1B397C150085A2CC53DDC6751B72C6B4E9
+27977CB35" 
+} 
+ 
+ 
+ 
+ 
+ 
+4 
+ 
+END 
+
+IPN Implementation Guide (REST) 
+VERSION: 2026 
+Syed Hassan Raza 
+JAZZCASH 
+ 
+ 
+ 
+1 
+ 
+TABLE OF CONTENTS 
+1 IPN Implementation Guide (REST) ......................................................................................................................................................................... 2 
+1.1 Expected IPN Response from Merchant Side: .............................................................................................................................................. 2 
+1.2 Example of Endpoint and Request Response: .............................................................................................................................................. 2 
+ 
+ 
+ 
+  
+1 IPN IMPLEMENTATION GUIDE (REST) 
+JazzCash provides merchants with a way to be notified when their payments are successful. After a transaction is completed, the 
+Payment Gateway (PG) updates the merchant with the transaction status. 
+To receive Instant Payment Notifications (IPNs), merchants must expose a REST-based API URL. JazzCash’s service will send 
+notifications to the merchant's REST IPN listener. 
+If a failed response is received from the merchant or no response is received within 60 seconds, JazzCash will retry 2 more times, 
+with a short delay between each attempt. 
+1.1 EXPECTED IPN RESPONSE FROM MERCHANT SIDE: 
+{ 
+} 
+"pp_ResponseCode": "000", 
+"pp_ResponseMessage": "IPN received successfully", 
+"pp_SecureHash": "{{Your Generated Secure Hash}}" 
+Response Code 
+Description 
+121 
+199, 999, others 
+For Successful Transactions 
+For Failed Transactions 
+1.2 EXAMPLE OF ENDPOINT AND REQUEST RESPONSE: 
+Sample API Endpoint: 
+https://jazzipndata.free.beeceptor.com/jazzipndata 
+2 
+ 
+ 
+ 
+3 
+Sample IPN Request and Response: 
+Request Response 
+{ 
+  "pp_Version": "2.0", // API Version 
+  "pp_TxnType": "MWALLET", // Txn Type 
+  "pp_BankID": "", 
+  "pp_ProductID": null, 
+  "pp_Password": "0123456789", 
+  "pp_TxnRefNo": "T20240418145702", 
+  "pp_TxnDateTime": "20240418145702", 
+  "pp_ResponseCode": "121", 
+  "pp_ResponseMessage": "Transaction has been marked confirmed by Merchant.", 
+  "pp_AuthCode": "060935465981", 
+  "pp_SettlementExpiry": null, 
+  "pp_RetreivalReferenceNo": "240418718258", 
+  "pp_SecureHash": 
+"2B47BCF7825FA27FC8B522292BC8D226213FCCDA685FC68A67EC20B10836E5B7" 
+} 
+{ 
+"pp_ResponseCode": "000", 
+"pp_ResponseMessage": "IPN received successfully", 
+"pp_SecureHash": "" 
+} 
+ 
+END 
+
+MWallet REST API V.2.0 
+VERSION: 2026 | WITH CNIC 
+Syed Hassan Raza 
+JAZZCASH 
+ 
+ 
+ 
+1 
+ 
+TABLE OF CONTENTS 
+1 Introduction ........................................................................................................................................................................................................... 2 
+2 Create a Sandbox Account ..................................................................................................................................................................................... 2 
+2.1 Signup ........................................................................................................................................................................................................... 2 
+2.2 Get Your Credentials ..................................................................................................................................................................................... 2 
+3 JazzCash MWALLET REST API V.2.0 - Implementation Notes ................................................................................................................................ 3 
+3.1 Request Payload Rules.................................................................................................................................................................................. 3 
+3.2 Mandatory API Integrations ......................................................................................................................................................................... 3 
+3.3 Currency and Amount Handling ................................................................................................................................................................... 4 
+3.4 Transaction Reference Requirements .......................................................................................................................................................... 4 
+3.5 Date and Time Parameters ........................................................................................................................................................................... 4 
+3.6 Secure Hash Generation ............................................................................................................................................................................... 5 
+3.7 General Validation Checklist ......................................................................................................................................................................... 5 
+4 API Endpoints: ........................................................................................................................................................................................................ 5 
+ 
+ 
+ 
+  
+1 INTRODUCTION 
+Welcome! 
+Please read the complete document to understand the process of integration.  
+This guide explains how to integrate JazzCash payments into your website or mobile application using MWallet REST API v2.0 (with 
+CNIC) feature. 
+To begin the integration process: 
+2 CREATE A SANDBOX ACCOUNT 
+2.1 SIGNUP 
+Sign up at the link below to create your JazzCash sandbox account: 
+https://onlinepayments.jazzcash.com.pk/sandbox-frontend/ 
+Once your sandbox account is created, please share your Merchant ID with us. Our team will enable the payment option for you. 
+2.2 GET YOUR CREDENTIALS 
+After logging into your Sandbox account: 
+• Go to Integration > Credentials from the left menu. 
+• Enter your Return URL/Callback URL in the respective field. 
+2 
+• (If applicable) Enter your IPN URL in the IPN field. 
+Please find below details guide to implement MWallet REST API 2.0 feature with secure hash logic. 
+3 JAZZCASH MWALLET REST API V.2.0 - IMPLEMENTATION NOTES 
+3.1 REQUEST PAYLOAD RULES 
+• All parameter values must be passed as strings and enclosed in double quotes " ". 
+• Parameters with no value must remain as empty strings "". Do not replace them with null and do not remove them from the 
+request. 
+• Parameter names must not be changed and must exactly match those defined in the official documentation. 
+• No parameters may be added or removed from the request payload. 
+• Mandatory constant parameters (such as pp_Language, pp_TxnCurrency, pp_TxnType, and pp_Version) must not be 
+modified. 
+3.2 MANDATORY API INTEGRATIONS 
+• Status Inquiry API - Mandatory 
+• IPN (Instant Payment Notification) - Mandatory 
+• Refund API - Optional 
+3 
+3.3 CURRENCY AND AMOUNT HANDLING 
+• The gateway processes transactions only in PKR. No currency conversion is performed by JazzCash. 
+• The pp_Amount value must be multiplied by 100 before sending the request. 
+o Example: 100.00 must be sent as "10000". 
+• The gateway treats the last two digits as decimal values. 
+• While processing the response, the amount should be divided by 100 to obtain the actual value. 
+3.4 TRANSACTION REFERENCE REQUIREMENTS 
+• pp_TxnRefNo 
+o Must be unique for every transaction. 
+o Recommended format: first three letters of the merchant’s domain name followed by the transaction date/time. 
+o Example: Goo20230208115409 (format: YmdHis). 
+• pp_BillReference 
+o Mandatory field. 
+o May be duplicated across transactions. 
+o Must contain only alphanumeric characters (A–Z, a–z, 0–9). 
+o Spaces and special characters are not allowed. 
+3.5 DATE AND TIME PARAMETERS 
+All date and time values must be in Pakistan Standard Time (PKT). 
+• pp_TxnDateTime 
+o Current transaction date and time 
+4 
+o Format: YYYYMMDDHHMMSS 
+• pp_TxnExpiryDateTime 
+o Transaction expiry date and time 
+o Must be set to one day after the transaction date 
+o Format: YYYYMMDDHHMMSS 
+3.6 SECURE HASH GENERATION 
+• A unique pp_SecureHash must be generated for every transaction. 
+• Secure hash generation is required for both: 
+o Request submission 
+o Response verification 
+• The secure hash must be generated strictly according to JazzCash’s official guidelines. 
+3.7 GENERAL VALIDATION CHECKLIST 
+• Ensure all mandatory parameters are included in every request. 
+• Confirm that all empty parameters remain as "". 
+• Verify the following before sending the request: 
+o pp_Amount is multiplied by 100 
+o pp_TxnRefNo is unique 
+o pp_SecureHash is freshly generated 
+4 API ENDPOINTS: 
+5 
+ 
+ 
+ 
+6 
+Environment Endpoints 
+Sandbox https://onlinepayments.jazzcash.com.pk/payment-orchestrator/api/v2/rest/payments/m-wallet 
+Production https://onlinepayments.jazzcash.com.pk/payment-orchestrator/api/v2/rest/payments/m-wallet 
+ 
+Sample Request Sample Response 
+{ 
+    "pp_Amount": "100", //Mandatory Parameter 
+    "pp_BankID": "", //Leave it empty 
+    "pp_BillReference": "billRef185", //Mandatory Parameter 
+    "pp_CNIC": "{{Last 6-digits}}", //Mandatory Parameter 
+    "pp_Description": "product description", //Mandatory Parameter 
+    "pp_Language": "EN", //Mandatory Parameter 
+    "pp_MerchantID": "{{MerchantID}}", //Mandatory Parameter 
+    "pp_MobileNumber": "{{JazzcashMobileAccount}}", //Mandatory 
+Parameter 
+    "pp_Password": "{{Password}}", //Mandatory Parameter 
+    "pp_ProductID": "", //Leave it empty 
+    "pp_SecureHash": 
+"CD4DA5575F6CC08F9A0B78D414B91657FF0AACFDBE8FF691F8A1F8
+0C6E0C0C4F", //Mandatory Parameter 
+    "pp_SubMerchantID": "", //Leave it empty 
+    "pp_TxnCurrency": "PKR", //Mandatory Parameter 
+    "pp_TxnDateTime": "20250908151702", //Mandatory Parameter 
+    "pp_TxnExpiryDateTime": "20250910151702", //Mandatory 
+Parameter 
+    "pp_TxnRefNo": "T20250908151702", //Mandatory Parameter 
+    "ppmpf_1": "", // Leave it empty 
+    "ppmpf_2": "", //Leave it empty 
+{ 
+ "pp_Amount": "100", 
+ "pp_AuthCode": "088911015335", 
+ "pp_BankID": "", 
+ "pp_BillReference": "billRef185", 
+ "pp_CNIC": "{{Last 6-digits}}", 
+ "pp_CustomerMsisdn": "", 
+ "pp_Language": "EN", 
+ "pp_MerchantID": "{{MerchantID}}", 
+ "pp_Password": "{{Password}}", 
+ "pp_ProductID": "", 
+ "pp_ResponseCode": "000", 
+ "pp_ResponseMessage": "Thank you for Using JazzCash, your 
+transaction was successful.", 
+ "pp_RetreivalReferenceNo": "202509081757326660695254", 
+ "pp_ReturnURL": "", 
+ "pp_SecureHash": 
+"80609D35A17575E249E99D20AE83B9EA25BDAEAF3EB17FD19B7055
+502503E2B7", 
+ "pp_SettlementExpiry": "", 
+ "pp_SubMerchantId": "", 
+ "pp_TxnCurrency": "PKR", 
+ "pp_TxnDateTime": "20250908151702", 
+ 
+ 
+ 
+7 
+    "ppmpf_3": "", //Leave it empty 
+    "ppmpf_4": "", //Leave it empty 
+    "ppmpf_5": "" //Leave it empty 
+} 
+ "pp_TxnRefNo": "T20250908151702", 
+ "pp_TxnType": "", 
+ "pp_Version": "", 
+ "ppmpf_1": "", 
+ "ppmpf_2": "", 
+ "ppmpf_3": "", 
+ "ppmpf_4": "", 
+ "ppmpf_5": "" 
+} 
+ 
+ 
+ 
+END 
+
+HMAC-SHA256(Hash) Calculation 
+VERSION: 2026 
+Syed Hassan Raza 
+JAZZCASH 
+ 
+ 
+ 
+1 
+ 
+TABLE OF CONTENTS 
+1 How is HMAC-SHA256 calculated? ........................................................................................................................................................................ 2 
+2 Examples of Hash Calculation ................................................................................................................................................................................ 2 
+2.1 Sorted Hash Array ......................................................................................................................................................................................... 2 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+2 
+ 
+1 HOW IS HMAC-SHA256 CALCULATED? 
+Please read the complete document to understand the process of Hash Calculation.  
+• The SHA-256 HMAC calculation includes all non-empty fields. 
+• Sorting is performed based on the parameter names (keys) in ascending alphabetical (ASCII code) order, and then their values are 
+concatenated. 
+• All parameter values are joined in alphabetical order using "&" between each value (except after the last one). 
+• The Integrity Salt / Hash Key is prepended before the concatenated string. 
+• The final string is hashed using HMAC-SHA256, with the Integrity Salt/Hash Key itself as the secret key. 
+2 EXAMPLES OF HASH CALCULATION 
+Consider the following payment parameters and their respective values and assuming the Integrity Salt/Hash Key/Hash as 
+“3vv9wu3a18”: 
+2.1 SORTED HASH ARRAY 
+{ 
+pp_Amount: "25000" 
+pp_MerchantID: "MC25041" 
+pp_MerchantMPIN: "1234" 
+pp_Password: "sz1v4agvyf" 
+pp_TxnCurrency: "PKR" 
+pp_TxnRefNo: "T20220518150213" 
+} 
+ 
+ 
+In ascending alphabetical order and separating each value with '&', the transaction request 
+fields would be: 
+25000&MC25041&1234&sz1v4agvyf&PKR&T20220518150213 
+After prepending the Integrity Salt/Hash Key to the message, the transaction request fields 
+would be: 
+3vv9wu3a18&25000&MC25041&1234&sz1v4agvyf&PKR&T20220518150213 
+Now calculating the hash with the hashing scheme 'HMAC-SHA256' with the secret 
+key: 3vv9wu3a18. 
+END 
+3 

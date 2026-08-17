@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
 
 import { Illustration } from '@/components/Illustration'
 import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
@@ -26,7 +28,25 @@ export const metadata: Metadata = {
     'Thank you for supporting Hijaz Hospital Trust. Your generosity helps provide care to deserving patients.',
 }
 
-export default function ThankYouPage() {
+type Args = {
+  searchParams: Promise<{ txn?: string; mock?: string }>
+}
+
+export default async function ThankYouPage({ searchParams }: Args) {
+  const { txn } = await searchParams
+  let txnDetails = null
+
+  if (txn) {
+    const payload = await getPayload({ config: configPromise })
+    const { docs } = await payload.find({
+      collection: 'donations',
+      where: { txnRefNo: { equals: txn } }
+    })
+    if (docs.length > 0) {
+      txnDetails = docs[0]
+    }
+  }
+
   return (
     <article className="bg-white">
       <MarketingBreadcrumb
@@ -45,6 +65,33 @@ export default function ThankYouPage() {
               <h1 className="text-h1M font-bold leading-[110%] tracking-display text-primary-blue lg:text-h1">
                 {content.heading}
               </h1>
+              
+              {txnDetails && (
+                <div className="my-6 rounded-2xl bg-whitebg p-6 text-start border border-primary-blue/10">
+                  <h3 className="text-h6 font-bold text-primary-blue mb-4">Donation Receipt</h3>
+                  <div className="grid grid-cols-2 gap-4 text-b14 text-primary-blue/85">
+                    <div>
+                      <p className="font-semibold text-primary-blue">Transaction Ref</p>
+                      <p>{txnDetails.txnRefNo}</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-primary-blue">Amount</p>
+                      <p>PKR {txnDetails.amountPKR?.toLocaleString()}</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-primary-blue">Status</p>
+                      <p className="capitalize">{txnDetails.status}</p>
+                    </div>
+                    {txnDetails.causeTitle && (
+                       <div>
+                        <p className="font-semibold text-primary-blue">Cause</p>
+                        <p>{txnDetails.causeTitle}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <p className="mt-2 max-w-xl text-b16 leading-[150%] text-primary-blue/85 lg:mx-0 mx-auto">
                 {content.lede}
               </p>
