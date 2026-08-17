@@ -11,7 +11,7 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { getServerSideURL } from '@/utilities/getURL'
 import { LiveblocksContext } from '@/providers/LiveblocksContext'
 import { FeedbackTools } from '@/components/feedback/FeedbackTools'
-import { BrandLoader } from '@/components/BrandLoader'
+import { BrandLoader, PageProgress } from '@/components/BrandLoader'
 
 import './globals.css'
 
@@ -22,12 +22,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
+        <style dangerouslySetInnerHTML={{ __html: `.hide-brand-loader-initial #brand-loader-overlay { display: none !important; }` }} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
                 if (sessionStorage.getItem('hh_brand_intro_played')) {
-                  document.documentElement.classList.add('has-played-intro');
+                  document.documentElement.classList.add('hide-brand-loader-initial');
                 }
               } catch (e) {}
             `,
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className="flex-1">{children}</main>
                 <SiteFooter />
                 <FeedbackTools />
+                <PageProgress />
               </LenisProvider>
             </LiveblocksContext>
           ) : (
@@ -60,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
+              <PageProgress />
             </LenisProvider>
           )}
         </Providers>

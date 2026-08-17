@@ -1355,7 +1355,7 @@ html[data-theme='light'] {
 .has-played-intro #moon, 
 .has-played-intro #hh, 
 .has-played-intro #wordmark-en .letter, 
-.has-played-intro #ar path { 
+.has-played-intro #ar { 
   opacity: 1 !important; 
 }
 .has-played-intro #stage-slide { 
@@ -1363,7 +1363,7 @@ html[data-theme='light'] {
 }
 
 /* Base styles for the SVG children */
-#moon, #hh, #wordmark-en .letter, #ar path {
+#moon, #hh, #wordmark-en .letter, #ar {
   opacity: 0;
 }
 #stage-slide {
