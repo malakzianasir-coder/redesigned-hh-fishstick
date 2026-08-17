@@ -95,6 +95,13 @@
         </feMerge>
       </filter>
 
+      <!-- shine band that sweeps across the whole logo -->
+      <linearGradient id="shine-grad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#ffffff" stop-opacity=".75"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+
     </defs>
 
     <g id="all">
@@ -134,17 +141,24 @@
       </g>
 
             <!-- sliding group: starts centred, moves left to make room for the wordmark -->
-      <g id="stage-slide" filter="url(#moon-glow)">
+      <g id="stage-slide">
         <g id="stage-breath">
 
           <g id="moon">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8129 67.4409C81.1762 67.4409 90.113 73.5417 93.9889 82.2223C90.5507 76.3705 84.0601 72.4107 76.6455 72.4107C65.6587 72.4107 56.6974 81.1056 56.6974 91.7666C56.6974 102.427 65.6587 111.123 76.6455 111.123C84.3084 111.123 90.9845 106.892 94.3234 100.716C90.6477 109.812 81.4867 116.284 70.8129 116.284C56.9165 116.284 45.582 105.314 45.582 91.8623C45.582 78.4116 56.9165 67.4409 70.8129 67.4409Z" fill="url(#paint0_radial_186_1201)" stroke="#E30016" stroke-width="0.00970447"/>
+            <path filter="url(#moon-glow)" fill-rule="evenodd" clip-rule="evenodd" d="M70.8129 67.4409C81.1762 67.4409 90.113 73.5417 93.9889 82.2223C90.5507 76.3705 84.0601 72.4107 76.6455 72.4107C65.6587 72.4107 56.6974 81.1056 56.6974 91.7666C56.6974 102.427 65.6587 111.123 76.6455 111.123C84.3084 111.123 90.9845 106.892 94.3234 100.716C90.6477 109.812 81.4867 116.284 70.8129 116.284C56.9165 116.284 45.582 105.314 45.582 91.8623C45.582 78.4116 56.9165 67.4409 70.8129 67.4409Z" fill="url(#paint0_radial_186_1201)" stroke="#E30016" stroke-width="0.00970447"/>
           </g>
           <g id="hh">
             <g filter="url(#filter0_i_186_1201)">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5743 76.3047C79.6465 76.4359 80.6853 76.6735 81.681 77.0064V87.2662H85.2313V78.7085C89.5542 81.4887 92.421 86.2955 92.421 91.7397C92.421 97.1842 89.5542 101.99 85.2313 104.77V92.0942H81.681V106.472C80.6853 106.805 79.6465 107.043 78.5743 107.174V76.3047ZM76.1777 107.287C75.0813 107.256 74.0127 107.114 72.9822 106.873V92.0942H67.7455V104.59C63.5752 101.786 60.8281 97.0687 60.8281 91.7397C60.8281 86.4106 63.5752 81.6934 67.7455 78.8887V87.2662H72.9822V76.6056C74.0127 76.3646 75.0813 76.2229 76.1777 76.1924V107.287Z" fill="#1B2441"/>
             </g>
           </g>
+        </g>
+      </g>
+
+      <!-- shine sweep across the whole logo: starts off-canvas left, JS slides it right -->
+      <g id="logo-shimmer">
+        <g id="logo-shimmer-sweep">
+          <rect x="-140" y="-20" width="110" height="224" fill="url(#shine-grad)" transform="skewX(-18)"/>
         </g>
       </g>
     </g>
@@ -167,6 +181,7 @@
 
   var moon    = document.getElementById('moon');
   var hh      = document.getElementById('hh');
+  var shimmer = document.getElementById('logo-shimmer-sweep');
   var letters = Array.prototype.slice.call(document.querySelectorAll('#wordmark-en .letter'));
   var ar      = document.getElementById('ar');
 
@@ -219,27 +234,19 @@
       { opacity: 1, transform: 'translateY(0)' }
     ], { duration: 750, delay: 3050, easing: EASE_OUT });
 
-    /* Hold — gentle breathing + glow pulse while the site finishes loading */
+    /* Hold — infinite gentle breathing (slow scale pulse) */
     track(breath, [
       { transform: 'scale(1)' },
       { transform: 'scale(1.025)' },
       { transform: 'scale(1)' }
-    ], { duration: 1700, delay: 3900, easing: 'ease-in-out' });
+    ], { duration: 1700, delay: 3900, iterations: Infinity, easing: 'ease-in-out' });
 
-    
-
-    /* Exit — everything fades out, then the loop restarts */
-    var exit = track(all, [
-      { opacity: 1 },
-      { opacity: 0 }
-    ], { duration: 650, delay: 5600, easing: 'ease-in-out' });
-
-    exit.finished.then(function () {
-      if (!restarting) {
-        restarting = true;
-        setTimeout(play, 350);
-      }
-    }).catch(function () { /* cancelled by a manual replay */ });
+    /* Shimmer — light band sweeps across the whole logo, loops forever.
+       Starts and ends off-canvas, so it never pops or fades. */
+    track(shimmer, [
+      { transform: 'translateX(0px)' },
+      { transform: 'translateX(500px)' }
+    ], { duration: 2600, delay: 3850, iterations: Infinity, easing: 'ease-in-out' });
   }
 
   document.getElementById('loader').addEventListener('click', play);
