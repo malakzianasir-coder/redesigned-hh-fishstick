@@ -18,26 +18,24 @@ export function BrandLoader() {
 
   // 1. Initial Mount: Check Session Storage and Reduced Motion
   useLayoutEffect(() => {
+    const hasPlayed = sessionStorage.getItem('hh_brand_intro_played')
+
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    // Also consider Save-Data
     const connection = (navigator as any).connection
     const saveData = connection?.saveData === true
 
-    if (reduced || saveData) {
+    if (reduced || saveData || hasPlayed) {
       setIsReduced(true)
+      sessionStorage.setItem('hh_brand_intro_played', 'true')
+      setMode('hidden')
       return
     }
 
-    const hasPlayed = sessionStorage.getItem('hh_brand_intro_played')
-    if (hasPlayed) {
-      setMode('hidden')
-    } else {
-      setMode('intro')
-    }
-
-    // Remove the SSR blocking class so programmatic transitions can show the loader
-    document.documentElement.classList.remove('hide-brand-loader-initial')
-  }, []) // Empty dependency array, runs once on mount
+    setMode('intro')
+    // We intentionally LEAVE 'hide-brand-loader-initial' alone if it was set.
+    // If it was a first visit, it won't be on the html tag anyway.
+    // If it's a subsequent visit, the CSS will suppress the flash of opacity-0 transition!
+  }, [])
 
   // 2. Body scroll lock for intro mode
   useEffect(() => {
