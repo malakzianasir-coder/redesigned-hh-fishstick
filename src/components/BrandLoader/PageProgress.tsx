@@ -160,8 +160,8 @@ export function PageProgress() {
         style={{
           opacity: state === 'idle' ? 0 : 1,
           transition: state === 'idle' ? 'opacity 1500ms ease' : 'opacity 500ms ease',
-          backdropFilter: 'saturate(0.65)',
-          WebkitBackdropFilter: 'saturate(0.65)',
+          backdropFilter: 'saturate(0.90) blur(0.5px)',
+          WebkitBackdropFilter: 'saturate(0.90) blur(0.5px)',
         }}
       />
 
@@ -186,18 +186,6 @@ export function PageProgress() {
       {/* 2. The Magical Centered Glows (Crossfading Brand Colors) */}
       <div className="absolute top-0 left-0 w-full h-0">
         
-        {/* Volumetric Progressive Blur (Frosted light effect) */}
-        <div 
-          className="absolute top-0 left-1/2 w-[800px] h-[150px]"
-          style={{
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            maskImage: 'radial-gradient(ellipse at top, black 0%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at top, black 0%, transparent 70%)',
-            transform: 'translateX(-50%)',
-          }}
-        />
-
         {/* Illuminated Dots Grid */}
         <div 
           className="absolute top-0 left-1/2 w-[800px] h-[150px] opacity-40"
