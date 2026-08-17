@@ -16,25 +16,19 @@ export function BrandLoader() {
   const EASE_OUT = 'cubic-bezier(.22, 1, .36, 1)'
   const EASE_INOUT = 'cubic-bezier(.65, 0, .35, 1)'
 
-  // 1. Initial Mount: Check Session Storage and Reduced Motion
+  // 1. Initial Mount: Check Reduced Motion
   useLayoutEffect(() => {
-    const hasPlayed = sessionStorage.getItem('hh_brand_intro_played')
-
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const connection = (navigator as any).connection
     const saveData = connection?.saveData === true
 
-    if (reduced || saveData || hasPlayed) {
+    if (reduced || saveData) {
       setIsReduced(true)
-      sessionStorage.setItem('hh_brand_intro_played', 'true')
       setMode('hidden')
       return
     }
 
     setMode('intro')
-    // We intentionally LEAVE 'hide-brand-loader-initial' alone if it was set.
-    // If it was a first visit, it won't be on the html tag anyway.
-    // If it's a subsequent visit, the CSS will suppress the flash of opacity-0 transition!
   }, [])
 
   // 2. Body scroll lock for intro mode
@@ -109,7 +103,6 @@ export function BrandLoader() {
 
     // Hold and exit
     const exitTimer = setTimeout(() => {
-      sessionStorage.setItem('hh_brand_intro_played', 'true')
       setMode('hidden')
     }, 2800) // Held for a brief moment after animation finishes at ~2.2s
 

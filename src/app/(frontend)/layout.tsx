@@ -22,18 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
-        <style dangerouslySetInnerHTML={{ __html: `.hide-brand-loader-initial #brand-loader-overlay { display: none !important; }` }} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (sessionStorage.getItem('hh_brand_intro_played')) {
-                  document.documentElement.classList.add('hide-brand-loader-initial');
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
