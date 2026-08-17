@@ -38,14 +38,30 @@ export async function initiatePayment(req: MWalletPaymentRequest): Promise<MWall
   params.pp_SecureHash = generateSecureHash(params, config.integritySalt)
 
   const endpoint = ENDPOINTS[config.environment].mwallet
+  const headers = { 'Content-Type': 'application/json' }
   
+  console.log('\n================ JAZZCASH API REQUEST ================')
+  console.log('Timestamp:', new Date().toISOString())
+  console.log('Method:    POST')
+  console.log('Endpoint: ', endpoint)
+  console.log('Headers:  ', JSON.stringify(headers, null, 2))
+  console.log('Payload:  ', JSON.stringify(params, null, 2))
+  console.log('======================================================\n')
+
   const response = await fetch(endpoint, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify(params),
   })
 
   const rawResponse = await response.json()
+  
+  console.log('\n================ JAZZCASH API RESPONSE ===============')
+  console.log('Timestamp:', new Date().toISOString())
+  console.log('Status:   ', response.status, response.statusText)
+  console.log('Headers:  ', JSON.stringify(Object.fromEntries(response.headers.entries()), null, 2))
+  console.log('Payload:  ', JSON.stringify(rawResponse, null, 2))
+  console.log('======================================================\n')
   const normalizedResponse = normalizePayload(rawResponse)
   
   const isValidHash = verifySecureHash(normalizedResponse, config.integritySalt)
