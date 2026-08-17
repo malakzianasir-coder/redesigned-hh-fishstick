@@ -1350,3 +1350,41 @@ html[data-theme='light'] {
 .lb-root a[href*="liveblocks.io"] {
   display: none !important;
 }
+
+/* ---- Brand Loader ---- */
+.has-played-intro #moon, 
+.has-played-intro #hh, 
+.has-played-intro #wordmark-en .letter, 
+.has-played-intro #ar path { 
+  opacity: 1 !important; 
+}
+.has-played-intro #stage-slide { 
+  transform: none !important; 
+}
+
+/* Base styles for the SVG children */
+#moon, #hh, #wordmark-en .letter, #ar path {
+  opacity: 0;
+}
+#stage-slide {
+  transform: translateX(84.5px);
+}
+#moon, #hh, #stage-breath {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* The steady mode composed logo */
+@media (prefers-reduced-motion: reduce) {
+  #moon, #hh, #wordmark-en .letter, #ar path { opacity: 1 !important; }
+  #stage-slide { transform: none !important; }
+}
+.logo-steady-mode #moon, 
+.logo-steady-mode #hh, 
+.logo-steady-mode #wordmark-en .letter, 
+.logo-steady-mode #ar path { 
+  opacity: 1 !important; 
+}
+.logo-steady-mode #stage-slide { 
+  transform: none !important; 
+}

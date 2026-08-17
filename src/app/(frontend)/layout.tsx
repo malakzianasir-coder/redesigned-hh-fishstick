@@ -11,6 +11,7 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { getServerSideURL } from '@/utilities/getURL'
 import { LiveblocksContext } from '@/providers/LiveblocksContext'
 import { FeedbackTools } from '@/components/feedback/FeedbackTools'
+import { BrandLoader } from '@/components/BrandLoader'
 
 import './globals.css'
 
@@ -21,6 +22,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <InitTheme />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem('hh_brand_intro_played')) {
+                  document.documentElement.classList.add('has-played-intro');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -35,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {process.env.NEXT_PUBLIC_ENABLE_FEEDBACK === 'true' ? (
             <LiveblocksContext>
               <LenisProvider settings={settings.lenis}>
+                <BrandLoader />
                 <SiteHeader />
                 <main className="flex-1">{children}</main>
                 <SiteFooter />
@@ -43,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </LiveblocksContext>
           ) : (
             <LenisProvider settings={settings.lenis}>
+              <BrandLoader />
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
