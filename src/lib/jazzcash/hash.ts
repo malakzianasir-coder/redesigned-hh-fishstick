@@ -4,8 +4,10 @@ export function generateSecureHash(
   params: Record<string, string>,
   integritySalt: string
 ): string {
+  // Doc: "Select the request parameters whose name begins with pp (case-sensitive),
+  // excluding pp_SecureHash itself, and whose value is neither null nor blank."
   const sorted = Object.entries(params)
-    .filter(([key, value]) => key !== 'pp_SecureHash' && value !== '')
+    .filter(([key, value]) => key.startsWith('pp') && key !== 'pp_SecureHash' && value !== '')
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
 
   const valuesString = sorted.map(([, v]) => v).join('&')

@@ -59,24 +59,18 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
           })
         })
         
-        const data = await res.json()
+        const contentType = res.headers.get('content-type') || ''
         
-        if (data.success && data.endpoint && data.params) {
-          const form = document.createElement('form')
-          form.method = 'POST'
-          form.action = data.endpoint
-          
-          Object.entries(data.params).forEach(([key, value]) => {
-            const input = document.createElement('input')
-            input.type = 'hidden'
-            input.name = key
-            input.value = String(value)
-            form.appendChild(input)
-          })
-          
-          document.body.appendChild(form)
-          form.submit()
+        if (contentType.includes('text/html')) {
+          // Server returned auto-submitting HTML — write it to document to redirect
+          const html = await res.text()
+          document.open()
+          document.write(html)
+          document.close()
+          return // Page is now replaced, no further action needed
         } else {
+          // Server returned JSON error
+          const data = await res.json()
           setErrorMsg(data.message || 'Failed to initiate secure checkout. Please try again.')
         }
       }

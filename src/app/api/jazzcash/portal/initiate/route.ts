@@ -1,8 +1,31 @@
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { generatePortalParams, toBillReference, getJazzCashConfig } from '@/lib/jazzcash'
+import { generatePortalParams, toBillReference, getJazzCashConfig, redactJazzCashParams } from '@/lib/jazzcash'
 import { ENDPOINTS } from '@/lib/jazzcash'
+
+function buildAutoSubmitHtml(endpoint: string, params: Record<string, string>): string {
+  const hiddenFields = Object.entries(params)
+    .map(([key, value]) => {
+      const safeValue = value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      return `<input type="hidden" name="${key}" value="${safeValue}" />`
+    })
+    .join('\n      ')
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Redirecting to JazzCash...</title></head>
+<body>
+  <p style="text-align:center;margin-top:80px;font-family:sans-serif;color:#555;">
+    Redirecting you to JazzCash secure checkout&hellip;
+  </p>
+  <form id="jcForm" method="POST" action="${endpoint}">
+      ${hiddenFields}
+  </form>
+  <script>document.getElementById('jcForm').submit();</script>
+</body>
+</html>`
+}
 
 export async function POST(req: Request) {
   try {
@@ -10,28 +33,46 @@ export async function POST(req: Request) {
     const { donorName, amount, causeSlug, causeTitle } = body
 
     // 1. Validation
+    console.log('[JazzCash Portal Initiate] Step 1: Validating payload...')
+    if (!donorName || typeof donorName !== 'string') {
+      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Missing donorName')
+      return NextResponse.json({ success: false, message: 'Donor name is required.' }, { status: 400 })
+    }
     if (!amount || amount < 50 || amount > 10000000) {
+      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Invalid amount', amount)
       return NextResponse.json({ success: false, message: 'Invalid amount.' }, { status: 400 })
     }
 
     const billReference = toBillReference(causeSlug || 'general')
     const sanitizedDonorName = donorName.substring(0, 100)
 
-    // 2. Generate Portal Params (No HTTP request is made here)
+    // 2. Generate Portal Params
+    console.log('[JazzCash Portal Initiate] Step 2: Generating Hash and Portal Params...')
     const { txnRefNo, params } = generatePortalParams({
       amount,
       billReference,
       description: `Donation: ${causeTitle || 'General'}`,
     })
 
+    const config = getJazzCashConfig()
+    const endpoint = ENDPOINTS[config.environment].portal
+
+    console.log('\n================ JAZZCASH PORTAL CHECKOUT INITIATED ================')
+    console.log('Timestamp:', new Date().toISOString())
+    console.log('TxnRefNo: ', txnRefNo)
+    console.log('Action:   ', endpoint)
+    console.log('Payload:  ', JSON.stringify(redactJazzCashParams(params), null, 2))
+    console.log('====================================================================\n')
+
     // 3. Save pending transaction to Payload CMS
+    console.log(`[JazzCash Portal Initiate] Step 3: Saving pending transaction ${txnRefNo} to Payload CMS...`)
     const payload = await getPayload({ config: configPromise })
     await payload.create({
       collection: 'donations',
       data: {
         txnRefNo,
         donorName: sanitizedDonorName,
-        donorMobile: 'HostedCheckout', // Mobile not collected upfront
+        donorMobile: 'HostedCheckout',
         causeSlug,
         causeTitle,
         amountPKR: amount,
@@ -39,17 +80,22 @@ export async function POST(req: Request) {
         status: 'pending',
       },
     })
+    console.log(`[JazzCash Portal Initiate] Step 3 Complete: Transaction saved successfully.`)
 
-    // 4. Return params to frontend to build the form
-    const config = getJazzCashConfig()
-    return NextResponse.json({
-      success: true,
-      endpoint: ENDPOINTS[config.environment].portal,
-      params,
+    // 4. Return auto-submitting HTML — pp_Password never leaves the server as JSON
+    console.log(`[JazzCash Portal Initiate] Step 4: Returning auto-submit HTML to browser.`)
+    const html = buildAutoSubmitHtml(endpoint, params)
+
+    return new NextResponse(html, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+      },
     })
 
   } catch (error: unknown) {
-    console.error('JazzCash Portal Initiate Error:', error)
+    console.error('[JazzCash Portal Initiate] Fatal Error:', error)
     const msg = error instanceof Error ? error.message : 'Internal error'
     return NextResponse.json({ success: false, message: msg }, { status: 500 })
   }
