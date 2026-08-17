@@ -7,9 +7,11 @@ export const Donations: CollectionConfig = {
     defaultColumns: ['txnRefNo', 'donorName', 'amountPKR', 'status', 'createdAt'],
   },
   access: {
-    read: () => true, // Update based on auth reqs
-    create: () => true, // Usually server-only
-    update: () => true,
+    // Contains donor PII and payment data: REST/GraphQL access must stay authenticated.
+    // Server-side calls from the jazzcash routes use the Local API, which bypasses access control.
+    read: ({ req: { user } }) => Boolean(user),
+    create: ({ req: { user } }) => Boolean(user),
+    update: ({ req: { user } }) => Boolean(user),
     delete: () => false,
   },
   fields: [

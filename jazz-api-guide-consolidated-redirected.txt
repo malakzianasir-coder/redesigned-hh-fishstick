@@ -1,0 +1,234 @@
+azzCash Payment Gateway (v1)
+Download OpenAPI specification:Download
+
+REST API for the JazzCash Payment Gateway.
+
+All REST endpoints accept and return application/json. Request and response fields are prefixed with pp_ (core gateway fields) or ppmpf_ (merchant free-form pass-through fields). Every request is signed with an HMAC-SHA256 integrity signature (pp_SecureHash); every response carries a pp_ResponseCode and pp_ResponseMessage whose values are listed in the Response Codes reference below.
+
+Authentication & Secure Hash
+Requests are authenticated with your merchant credentials (pp_MerchantID / pp_Password) together with an integrity signature (pp_SecureHash) derived from the request payload and your Integrity Salt. The gateway recomputes the signature and rejects any request whose value does not match.
+
+Algorithm: HMAC-SHA256  |  Key: your Integrity Salt  |  Message encoding: ISO-8859-1 (Latin-1)  |  Output: uppercase hexadecimal
+
+Steps
+Select the request parameters whose name begins with pp (case-sensitive), excluding pp_SecureHash itself, and whose value is neither null nor blank. At least one parameter must qualify.
+Sort the selected parameter names in ordinal (byte-wise) order.
+Concatenate the selected values in that order, joined by &, and prefix the result with your Integrity Salt: {IntegritySalt}&{value1}&{value2}&...&{valueN}.
+Sign that string with HMAC-SHA256 using the Integrity Salt as the key, and render the digest as uppercase hexadecimal.
+Send the result as pp_SecureHash on the request.
+Worked example
+Integrity Salt: abcd1234efgh5678ijkl9012mnop3456
+
+Selected parameters (sorted): pp_Amount, pp_BillReference, pp_MerchantID, pp_TxnCurrency, pp_TxnDateTime, pp_TxnRefNo
+
+String to sign:
+
+abcd1234efgh5678ijkl9012mnop3456&100&B20251020210000&MC000000&PKR&20251020210000&T20251020210000
+Resulting pp_SecureHash (HMAC-SHA256, uppercase hex):
+
+7F5E94F96F2EDFBA53A75B0D9E0241AC93BE2FE24134E0D11F73C4A0234A373C
+Response Codes
+Every response returns a pp_ResponseCode indicating the outcome, alongside a human-readable pp_ResponseMessage. 000 indicates the transaction was processed successfully; every other code describes the specific outcome — a decline reason, a pending/interim state, or an error — as listed below.
+
+Code	Message
+000	Thank you for using JazzCash. Your transaction was processed successfully.
+001	Limit exceeded
+013	Your transaction has been received and is awaiting approval from your bank.
+066	No transactions allowed
+067	Invalid account status
+111	Transaction not allowed on Merchant/Bank
+124	Order is placed and waiting for financials to be received over the counter.
+129	Transaction is dropped.
+132	Sorry! The selected transaction cannot be refunded.
+156	Transaction failed. The CNIC and mobile number you provided do not match or the provided mobile number does not have a JazzCash Wallet. Please verify your details and try again.
+157	Transaction is pending.
+199	We could not complete your transaction because it has expired. Please try again.
+402	Your transaction was declined by your bank, please contact your bank
+403	Your transaction has timed out, please try again
+404	Your transaction was declined because your card is expired, please use a valid card
+405	Your transaction was declined because of insufficient balance in your card
+406	Sorry! Your transaction could not be processed at this time due to system error, please try again after few minutes
+407	Sorry! Your transaction could not be processed at this time due to internal system error, please try again after few minutes
+429	Your transaction has not been processed this time, please try again or contact your issuer bank.
+432	Server_busy
+459	Transaction declined due to invalid PIN
+922	The provided mobile number is not a valid JazzCash Account or the MPIN you entered is incorrect. Please verify your details and try again.
+923	Online gateway transactions are not allowed on this JazzCash account.
+925	Failed to match a reason type because the Initiator Type factor does not match.
+926	Transaction failed. Your account has exceeded its debit limit.
+929	The provided Jazzcash account has insufficient balance for this transaction.
+999	Sorry! Your transaction has failed. Please try again later.
+Payment Portal
+Payment via Payment Portal (Page Redirection)
+This endpoint handles the redirection process for payment transactions through Payment Portal integration. It creates a transaction and redirects the user to appropriate payment or error page based on the response.
+
+Request Body schema: multipart/form-data
+pp_Version
+required
+string
+Represents the payment version.
+
+Allowed values: "1.1, 2.0"
+
+pp_TxnType	
+string
+Represents the transaction type.
+
+This parameter is optional, if send value, the payment page will open only selected type.
+
+Allowed values: "MPAY, MWALLET, OTC, BNPL, RAASTQR, ACC"
+
+pp_MerchantID
+required
+string
+Represents the MerchantID.
+
+pp_Password
+required
+string
+Represents the merchant password for integration.
+
+pp_Language
+required
+string
+Represents the language.
+
+Allowed values: "EN"
+
+pp_SubMerchantID	
+string
+Represents the Sub Merchant ID.
+
+pp_BankID	
+string
+Represents the Bank ID.
+
+pp_ProductID	
+string
+Represents the Product ID.
+
+pp_TxnRefNo
+required
+string
+Represents the transaction reference number.
+
+This value should be unique.
+
+pp_Amount
+required
+string
+Represents the transaction amount.
+
+The last 2 digits are floating points.
+
+Example 123.45 -> 123.45
+
+pp_DiscountedAmount	
+string
+Represents the discounted amount.
+
+The last 2 digits are floating points.
+
+Example 123.45 -> 123.45
+
+pp_DiscountBank	
+string
+Represents the discount bank.
+
+pp_TxnCurrency
+required
+string
+Represents the transaction currency.
+
+The expected value is a three-letter currency code (ISO 4217 format)
+
+Allowed values: "PKR"
+
+pp_TxnDateTime
+required
+string
+Represents the transaction date and time by merchant perspective.
+
+pp_TxnExpiryDateTime
+required
+string
+Represents the transaction date and time by merchant perspective.
+
+pp_BillReference
+required
+string
+Represents the bill reference.
+
+pp_Description
+required
+string
+Represents the description.
+
+pp_ReturnURL
+required
+string
+Represents the return url parameter.
+
+This value should be the same with merchant payment credentials.
+
+pp_SecureHash
+required
+string
+Represents secure hash for the whole request.
+
+pp_IsRegisteredCustomer	
+string
+Represents is registered customer.
+
+Available for only pp_Version 2.0
+
+pp_TokenizedCardNumber	
+string
+Represents tokenized card number.
+
+Available for only pp_Version 2.0
+
+pp_CustomerID	
+string
+Represents customer identifier.
+
+Available for only pp_Version 2.0
+
+pp_CustomerEmail	
+string
+Represents customer email.
+
+Available for only pp_Version 2.0
+
+pp_CustomerMobile	
+string
+Represents customer mobile number.
+
+Available for only pp_Version 2.0
+
+pp_MerchantProductItems	
+string
+Represents product items.
+
+ppmpf_1	
+string
+Represents an optional metadata field, typically used to store additional information
+
+ppmpf_2	
+string
+Represents an optional metadata field, typically used to store additional information
+
+ppmpf_3	
+string
+Represents an optional metadata field, typically used to store additional information
+
+ppmpf_4	
+string
+Represents an optional metadata field, typically used to store additional information
+
+ppmpf_5	
+string
+Represents an optional metadata field, typically used to store additional information
+
+Responses
+3

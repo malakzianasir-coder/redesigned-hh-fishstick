@@ -1,43 +1,58 @@
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { getJazzCashConfig, normalizePayload, verifySecureHash, generateSecureHash } from '@/lib/jazzcash'
+import {
+  getJazzCashConfig,
+  normalizePayload,
+  verifySecureHash,
+  buildIpnAcknowledgement,
+  redactJazzCashParams,
+} from '@/lib/jazzcash'
+
+const IPN_SECRET_KEYS = new Set(['pp_Password', 'pp_SecureHash'])
+
+function stripSecrets(raw: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(
+    Object.entries(raw).filter(([key]) => !IPN_SECRET_KEYS.has(key)),
+  )
+}
 
 export async function POST(req: Request) {
   try {
-    const rawBody = await req.json()
-    const normalized = normalizePayload(rawBody)
+    const rawBody: unknown = await req.json()
+    const normalized = normalizePayload((rawBody ?? {}) as Record<string, unknown>)
     const config = getJazzCashConfig()
 
-    // 1. Verify Hash
     const isValid = verifySecureHash(normalized, config.integritySalt)
     if (!isValid) {
-      console.error('IPN Hash Verification Failed', normalized)
+      console.error(
+        'IPN Hash Verification Failed',
+        JSON.stringify(redactJazzCashParams(normalized)),
+      )
       return NextResponse.json({ error: 'Invalid Hash' }, { status: 400 })
     }
 
     const payload = await getPayload({ config: configPromise })
     const txnRefNo = normalized.pp_TxnRefNo
 
-    // 2. Find existing record
     const { docs } = await payload.find({
       collection: 'donations',
-      where: { txnRefNo: { equals: txnRefNo } }
+      where: { txnRefNo: { equals: txnRefNo } },
     })
 
     if (docs.length > 0) {
       const doc = docs[0]
       if (!doc) throw new Error('Transaction record missing')
       const responseCode = normalized.pp_ResponseCode || ''
-      
+
+      // IPN guide: 121 = successful; 199, 999 and all other codes = failed.
       let newStatus = doc.status
-      if (responseCode === '121' && doc.status !== 'confirmed') {
-        newStatus = 'confirmed'
-      } else if (['199', '999'].includes(responseCode) && doc.status !== 'failed') {
-        newStatus = 'failed'
+      if (responseCode === '121') {
+        if (doc.status !== 'confirmed') newStatus = 'confirmed'
+      } else if (responseCode !== '') {
+        if (doc.status !== 'failed') newStatus = 'failed'
       }
 
-      // 3. Update idempotently
       if (doc.status !== newStatus || !doc.ipnReceivedAt) {
         await payload.update({
           collection: 'donations',
@@ -49,26 +64,17 @@ export async function POST(req: Request) {
             authCode: normalized.pp_AuthCode,
             retrievalRefNo: normalized.pp_RetreivalReferenceNo || normalized.pp_RetrievalReferenceNo,
             ipnReceivedAt: new Date().toISOString(),
-            ipnPayload: rawBody
-          }
+            ipnPayload: stripSecrets(rawBody as Record<string, unknown>),
+          },
         })
       }
     } else {
-       console.warn(`IPN received for unknown txnRefNo: ${txnRefNo}`)
+      console.warn(`IPN received for unknown txnRefNo: ${txnRefNo}`)
     }
 
-    // 4. Construct response hash
-    const responseParams = {
-      pp_ResponseCode: '000',
-      pp_ResponseMessage: 'IPN received successfully',
-      pp_SecureHash: ''
-    }
-    responseParams.pp_SecureHash = generateSecureHash(responseParams, config.integritySalt)
-
-    return NextResponse.json(responseParams)
-
+    return NextResponse.json(buildIpnAcknowledgement(config.integritySalt))
   } catch (error) {
-    console.error('IPN Processing Error:', error)
+    console.error('JazzCash IPN Processing Error:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }

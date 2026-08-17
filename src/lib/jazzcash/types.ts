@@ -17,6 +17,12 @@ export type MWalletPaymentRequest = {
   description: string
 }
 
+export type HostedPaymentRequest = {
+  amount: number // In PKR
+  billReference: string
+  description: string
+}
+
 export type MWalletPaymentResponse = {
   success: boolean
   responseCode: string
@@ -24,5 +30,6 @@ export type MWalletPaymentResponse = {
   txnRefNo: string
   authCode?: string
   retrievalRefNo?: string
+  amountPKR?: number
   rawResponse: Record<string, string>
 }
