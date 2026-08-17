@@ -83,23 +83,22 @@
         <stop offset="1" stop-color="#AA4B5B"/>
       </radialGradient>
 
+      <!-- white glow: dilate shape 6px outward, then blur the edge -->
+      <filter id="moon-glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="spread"/>
+        <feGaussianBlur in="spread" stdDeviation="3" result="blur"/>
+        <feFlood flood-color="#FFFFFF" flood-opacity="1" result="flood"/>
+        <feComposite in="flood" in2="blur" operator="in" result="glow"/>
+        <feMerge>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
     </defs>
 
     <g id="all">
-      <!-- sliding group: starts centred, moves left to make room for the wordmark -->
-      <g id="stage-slide">
-        <g id="stage-breath">
 
-          <g id="moon">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8129 67.4409C81.1762 67.4409 90.113 73.5417 93.9889 82.2223C90.5507 76.3705 84.0601 72.4107 76.6455 72.4107C65.6587 72.4107 56.6974 81.1056 56.6974 91.7666C56.6974 102.427 65.6587 111.123 76.6455 111.123C84.3084 111.123 90.9845 106.892 94.3234 100.716C90.6477 109.812 81.4867 116.284 70.8129 116.284C56.9165 116.284 45.582 105.314 45.582 91.8623C45.582 78.4116 56.9165 67.4409 70.8129 67.4409Z" fill="url(#paint0_radial_186_1201)" stroke="#E30016" stroke-width="0.00970447"/>
-          </g>
-          <g id="hh">
-            <g filter="url(#filter0_i_186_1201)">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5743 76.3047C79.6465 76.4359 80.6853 76.6735 81.681 77.0064V87.2662H85.2313V78.7085C89.5542 81.4887 92.421 86.2955 92.421 91.7397C92.421 97.1842 89.5542 101.99 85.2313 104.77V92.0942H81.681V106.472C80.6853 106.805 79.6465 107.043 78.5743 107.174V76.3047ZM76.1777 107.287C75.0813 107.256 74.0127 107.114 72.9822 106.873V92.0942H67.7455V104.59C63.5752 101.786 60.8281 97.0687 60.8281 91.7397C60.8281 86.4106 63.5752 81.6934 67.7455 78.8887V87.2662H72.9822V76.6056C74.0127 76.3646 75.0813 76.2229 76.1777 76.1924V107.287Z" fill="#1B2441"/>
-            </g>
-          </g>
-        </g>
-      </g>
 
       <!-- English wordmark: one group per letter, revealed left to right -->
       <g id="wordmark-en" fill="#1B2441">
@@ -132,6 +131,21 @@
         <path d="M152.338 96.3585H149.594V93.9277H152.338V96.3585Z"/>
         <path d="M156.195 96.3585H153.449V93.9277H156.195V96.3585Z"/>
         <path d="M202.71 96.3585H199.859V93.9277H202.71V96.3585Z"/>
+      </g>
+
+            <!-- sliding group: starts centred, moves left to make room for the wordmark -->
+      <g id="stage-slide" filter="url(#moon-glow)">
+        <g id="stage-breath">
+
+          <g id="moon">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8129 67.4409C81.1762 67.4409 90.113 73.5417 93.9889 82.2223C90.5507 76.3705 84.0601 72.4107 76.6455 72.4107C65.6587 72.4107 56.6974 81.1056 56.6974 91.7666C56.6974 102.427 65.6587 111.123 76.6455 111.123C84.3084 111.123 90.9845 106.892 94.3234 100.716C90.6477 109.812 81.4867 116.284 70.8129 116.284C56.9165 116.284 45.582 105.314 45.582 91.8623C45.582 78.4116 56.9165 67.4409 70.8129 67.4409Z" fill="url(#paint0_radial_186_1201)" stroke="#E30016" stroke-width="0.00970447"/>
+          </g>
+          <g id="hh">
+            <g filter="url(#filter0_i_186_1201)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5743 76.3047C79.6465 76.4359 80.6853 76.6735 81.681 77.0064V87.2662H85.2313V78.7085C89.5542 81.4887 92.421 86.2955 92.421 91.7397C92.421 97.1842 89.5542 101.99 85.2313 104.77V92.0942H81.681V106.472C80.6853 106.805 79.6465 107.043 78.5743 107.174V76.3047ZM76.1777 107.287C75.0813 107.256 74.0127 107.114 72.9822 106.873V92.0942H67.7455V104.59C63.5752 101.786 60.8281 97.0687 60.8281 91.7397C60.8281 86.4106 63.5752 81.6934 67.7455 78.8887V87.2662H72.9822V76.6056C74.0127 76.3646 75.0813 76.2229 76.1777 76.1924V107.287Z" fill="#1B2441"/>
+            </g>
+          </g>
+        </g>
       </g>
     </g>
   </svg>
@@ -196,7 +210,7 @@
       track(el, [
         { opacity: 0, transform: 'translateY(7px)' },
         { opacity: 1, transform: 'translateY(0)' }
-      ], { duration: 550, delay: 2200 + i * 65, easing: EASE_OUT });
+      ], { duration: 550, delay: 1900 + i * 55, easing: EASE_OUT });
     });
 
     /* Stage 4b — Arabic wordmark rises in beneath */

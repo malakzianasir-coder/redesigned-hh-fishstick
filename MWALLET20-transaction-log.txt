@@ -1,0 +1,74 @@
+2026-08-17 18:01:51.634 [info] ================ JAZZCASH API REQUEST ================
+2026-08-17 18:01:51.635 [info] Timestamp: 2026-08-17T18:01:51.633Z
+2026-08-17 18:01:51.635 [info] Method:    POST
+2026-08-17 18:01:51.635 [info] Endpoint:  https://onlinepayments.jazzcash.com.pk/payment-orchestrator/api/v2/rest/payments/m-wallet
+2026-08-17 18:01:51.635 [info] Headers:   {
+  "Content-Type": "application/json"
+}
+2026-08-17 18:01:51.635 [info] Payload:   {
+  "pp_Amount": "500000",
+  "pp_BankID": "",
+  "pp_BillReference": "general",
+  "pp_CNIC": "111111",
+  "pp_Description": "Donation: General",
+  "pp_Language": "EN",
+  "pp_MerchantID": "MC990690",
+  "pp_MobileNumber": "03123456789",
+  "pp_Password": "yu0347wu8o",
+  "pp_ProductID": "",
+  "pp_SecureHash": "1737C97F31046CED3F1805E3B2993978115B9BCFCDC37AC82F123EAC776409B9",
+  "pp_SubMerchantID": "",
+  "pp_TxnCurrency": "PKR",
+  "pp_TxnDateTime": "20260817180151",
+  "pp_TxnExpiryDateTime": "20260818180151",
+  "pp_TxnRefNo": "HIJ20260817180151",
+  "ppmpf_1": "",
+  "ppmpf_2": "",
+  "ppmpf_3": "",
+  "ppmpf_4": "",
+  "ppmpf_5": ""
+}
+2026-08-17 18:01:51.635 [info] ======================================================
+2026-08-17 18:01:52.562 [info] ================ JAZZCASH API RESPONSE ===============
+2026-08-17 18:01:52.562 [info] Timestamp: 2026-08-17T18:01:52.558Z
+2026-08-17 18:01:52.562 [info] Status:    200 OK
+2026-08-17 18:01:52.562 [info] Headers:   {
+  "connection": "keep-alive",
+  "content-type": "application/json; charset=utf-8",
+  "date": "Mon, 17 Aug 2026 18:01:52 GMT",
+  "ratelimit-limit": "20",
+  "ratelimit-remaining": "19",
+  "ratelimit-reset": "1",
+  "set-cookie": "TS01d2839e=01c91ab267b12219739ec06e2bee1a66f05ad8b98cf9172a5c5cf9f310daa26cbf1f96fd3f81224b42885d008781a632c51976226e; Path=/; Domain=.onlinepayments.jazzcash.com.pk",
+  "strict-transport-security": "max-age=31536000; includeSubDomains",
+  "transfer-encoding": "chunked",
+  "x-forwarded-proto": "https",
+  "x-ratelimit-limit-second": "20",
+  "x-ratelimit-remaining-second": "19"
+}
+2026-08-17 18:01:52.562 [info] Payload:   {
+  "pp_TxnType": "",
+  "pp_Version": "",
+  "pp_Amount": "500000",
+  "pp_AuthCode": "",
+  "pp_BillReference": "general",
+  "pp_Language": "EN",
+  "pp_MerchantID": "MC990690",
+  "pp_ResponseCode": "999",
+  "pp_ResponseMessage": "Access denied. You are not permitted to perform this transaction.",
+  "pp_RetreivalReferenceNo": "",
+  "pp_SubMerchantId": "",
+  "pp_TxnCurrency": "PKR",
+  "pp_TxnDateTime": "20260817180151",
+  "pp_TxnRefNo": "HIJ20260817180151",
+  "pp_MobileNumber": "03123456789",
+  "pp_CNIC": "111111",
+  "pp_DiscountedAmount": "",
+  "ppmpf_1": "",
+  "ppmpf_2": "",
+  "ppmpf_3": "",
+  "ppmpf_4": "",
+  "ppmpf_5": "",
+  "pp_SecureHash": "30C37453EA4002800FD1F181F4D125A0AEF886DB15415B76BDDD3A784922784C"
+}
+2026-08-17 18:01:52.562 [info] ======================================================
