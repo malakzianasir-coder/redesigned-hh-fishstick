@@ -67,46 +67,50 @@ export function BrandLoader() {
     ar.style.opacity = '0'
 
     // We tighten the timeline from ~3.8s to ~2.6s total
+    const animations: Animation[] = []
 
     // Stage 1: Moon drops and scales
-    moon.animate([
+    animations.push(moon.animate([
       { opacity: 0, transform: 'scale(.72) translateY(-20px)' },
       { opacity: 1, transform: 'scale(1) translateY(0)', offset: .55 },
       { opacity: 1, transform: 'scale(1) translateY(0)' }
-    ], { duration: 600, easing: EASE_OUT, fill: 'both' })
+    ], { duration: 600, easing: EASE_OUT, fill: 'both' }))
 
     // Stage 2: HH monogram fades in
-    hh.animate([
+    animations.push(hh.animate([
       { opacity: 0, transform: 'scale(.8)' },
       { opacity: 1, transform: 'scale(1)' }
-    ], { duration: 500, delay: 400, easing: EASE_OUT, fill: 'both' })
+    ], { duration: 500, delay: 400, easing: EASE_OUT, fill: 'both' }))
 
     // Stage 3: Slide left
-    slide.animate([
+    animations.push(slide.animate([
       { transform: 'translateX(84.5px)' },
       { transform: 'translateX(0px)' }
-    ], { duration: 600, delay: 1000, easing: EASE_INOUT, fill: 'both' })
+    ], { duration: 600, delay: 1000, easing: EASE_INOUT, fill: 'both' }))
 
     // Stage 4a: English wordmark
     letters.forEach((el, i) => {
-      el.animate([
+      animations.push(el.animate([
         { opacity: 0, transform: 'translateY(7px)' },
         { opacity: 1, transform: 'translateY(0)' }
-      ], { duration: 400, delay: 1200 + i * 40, easing: EASE_OUT, fill: 'both' })
+      ], { duration: 400, delay: 1200 + i * 40, easing: EASE_OUT, fill: 'both' }))
     })
 
     // Stage 4b: Arabic wordmark
-    ar.animate([
+    animations.push(ar.animate([
       { opacity: 0, transform: 'translateY(7px)' },
       { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 500, delay: 1700, easing: EASE_OUT, fill: 'both' })
+    ], { duration: 500, delay: 1700, easing: EASE_OUT, fill: 'both' }))
 
     // Hold and exit
     const exitTimer = setTimeout(() => {
       setMode('hidden')
     }, 2800) // Held for a brief moment after animation finishes at ~2.2s
 
-    return () => clearTimeout(exitTimer)
+    return () => {
+      clearTimeout(exitTimer)
+      animations.forEach(anim => anim.cancel())
+    }
   }, [mode, isReduced])
 
   const isHidden = mode === 'hidden'
