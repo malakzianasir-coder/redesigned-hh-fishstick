@@ -42,8 +42,19 @@ export async function POST(req: Request) {
     const body = await req.json()
     const { donorName, amount, causeSlug, causeTitle, recaptchaToken } = body
 
-    // 1. Validation & Security Verification
-    console.log('[JazzCash Portal Initiate] Step 1: Validating payload and security...')
+    // 1. Validation — cheap field checks run before reCAPTCHA verification because
+    // each siteverify call consumes the user's single-use token.
+    console.log('[JazzCash Portal Initiate] Step 1: Validating payload...')
+    if (!donorName || typeof donorName !== 'string') {
+      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Missing donorName')
+      return NextResponse.json({ success: false, message: 'Donor name is required.' }, { status: 400 })
+    }
+    if (!amount || amount < 50 || amount > 10000000) {
+      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Invalid amount', amount)
+      return NextResponse.json({ success: false, message: 'Invalid amount.' }, { status: 400 })
+    }
+
+    // 2. Security verification
     const siteSettings = await import('@/lib/content/loaders').then(m => m.getSiteSettings())
     const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
 
@@ -60,20 +71,11 @@ export async function POST(req: Request) {
       }
     }
 
-    if (!donorName || typeof donorName !== 'string') {
-      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Missing donorName')
-      return NextResponse.json({ success: false, message: 'Donor name is required.' }, { status: 400 })
-    }
-    if (!amount || amount < 50 || amount > 10000000) {
-      console.warn('[JazzCash Portal Initiate] Step 1 Failed: Invalid amount', amount)
-      return NextResponse.json({ success: false, message: 'Invalid amount.' }, { status: 400 })
-    }
-
     const billReference = toBillReference(causeSlug || 'general')
     const sanitizedDonorName = donorName.substring(0, 100)
 
-    // 2. Generate Portal Params
-    console.log('[JazzCash Portal Initiate] Step 2: Generating Hash and Portal Params...')
+    // 3. Generate Portal Params
+    console.log('[JazzCash Portal Initiate] Step 3: Generating Hash and Portal Params...')
     const { txnRefNo, params } = generatePortalParams({
       amount,
       billReference,
@@ -90,8 +92,8 @@ export async function POST(req: Request) {
     console.log('Payload:  ', JSON.stringify(redactJazzCashParams(params), null, 2))
     console.log('====================================================================\n')
 
-    // 3. Save pending transaction to Payload CMS
-    console.log(`[JazzCash Portal Initiate] Step 3: Saving pending transaction ${txnRefNo} to Payload CMS...`)
+    // 4. Save pending transaction to Payload CMS
+    console.log(`[JazzCash Portal Initiate] Step 4: Saving pending transaction ${txnRefNo} to Payload CMS...`)
     const payload = await getPayload({ config: configPromise })
     await payload.create({
       collection: 'donations',
@@ -106,10 +108,10 @@ export async function POST(req: Request) {
         status: 'pending',
       },
     })
-    console.log(`[JazzCash Portal Initiate] Step 3 Complete: Transaction saved successfully.`)
+    console.log(`[JazzCash Portal Initiate] Step 4 Complete: Transaction saved successfully.`)
 
-    // 4. Return auto-submitting HTML — pp_Password never leaves the server as JSON
-    console.log(`[JazzCash Portal Initiate] Step 4: Returning auto-submit HTML to browser.`)
+    // 5. Return auto-submitting HTML — pp_Password never leaves the server as JSON
+    console.log(`[JazzCash Portal Initiate] Step 5: Returning auto-submit HTML to browser.`)
     const html = buildAutoSubmitHtml(endpoint, params)
 
     return new NextResponse(html, {

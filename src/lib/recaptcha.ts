@@ -67,6 +67,8 @@ export async function verifyRecaptchaToken(
       },
       body: formData.toString(),
       cache: 'no-store',
+      // Bound the verification call so a hung request cannot stall the donation flow.
+      signal: AbortSignal.timeout(10_000),
     })
 
     if (!response.ok) {

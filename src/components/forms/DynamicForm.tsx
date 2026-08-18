@@ -33,6 +33,9 @@ export function DynamicForm({ form }: DynamicFormProps) {
       if (!String(value || '').trim()) nextErrors[field.name] = 'Required'
     })
 
+    // Client-side gate only: this form has no submission endpoint yet, so the
+    // recaptchaToken is never verified server-side (unlike the JazzCash routes).
+    // Wire it into the future form-submission API before treating it as protection.
     if (form.recaptcha?.enabled && !recaptchaToken) {
       nextErrors.recaptcha = 'Please complete the security verification.'
     }

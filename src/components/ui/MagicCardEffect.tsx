@@ -10,30 +10,56 @@ export function MagicCardEffect() {
   const glowCoreRef = useRef<HTMLDivElement>(null)
   const defaultGlowRef = useRef<HTMLDivElement>(null)
 
+  const hoverStateRef = useRef({ isHovered: false, isIntersecting: false })
+  const rectRef = useRef<DOMRect | null>(null)
+  const animsRef = useRef<{
+    defaultAnim?: Animation
+    hoverAnims: Animation[]
+  }>({ hoverAnims: [] })
+
   useEffect(() => {
     const parent = ref.current?.closest('.group') as HTMLElement
     if (!parent) return
 
-    let isHovered = false
-
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isHovered) return
-      const rect = parent.getBoundingClientRect()
-      const x = e.clientX - rect.left
+      if (!hoverStateRef.current.isHovered || !rectRef.current) return
+      const x = e.clientX - rectRef.current.left
       parent.style.setProperty('--mouse-x', `${x}px`)
     }
 
+    const updatePlayStates = () => {
+      const { isHovered, isIntersecting } = hoverStateRef.current
+      const { defaultAnim, hoverAnims } = animsRef.current
+
+      if (defaultAnim) {
+        if (isIntersecting) {
+          if (defaultAnim.playState === 'paused') defaultAnim.play()
+        } else {
+          if (defaultAnim.playState === 'running') defaultAnim.pause()
+        }
+      }
+
+      hoverAnims.forEach(anim => {
+        if (isIntersecting && isHovered) {
+          if (anim.playState === 'paused') anim.play()
+        } else {
+          if (anim.playState === 'running') anim.pause()
+        }
+      })
+    }
+
     const handleMouseEnter = () => {
-      isHovered = true
+      hoverStateRef.current.isHovered = true
+      rectRef.current = parent.getBoundingClientRect()
+      updatePlayStates()
     }
 
     const handleMouseLeave = () => {
-      isHovered = false
+      hoverStateRef.current.isHovered = false
+      updatePlayStates()
     }
 
-    // Default to center if not hovered yet
     parent.style.setProperty('--mouse-x', '50%')
-
     parent.addEventListener('mouseenter', handleMouseEnter)
     parent.addEventListener('mouseleave', handleMouseLeave)
     parent.addEventListener('mousemove', handleMouseMove)
@@ -55,16 +81,13 @@ export function MagicCardEffect() {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const baseDur = 6000 // Slow 6-second color cycle
-
-    // Find this card's index among its siblings to create a sequential wave stagger
+    const baseDur = 6000 
     let childIndex = 0
     const parentCard = container.closest('.card-interactive')
     if (parentCard && parentCard.parentElement) {
       childIndex = Array.from(parentCard.parentElement.children).indexOf(parentCard)
     }
 
-    // Offset the start time deeply into the negative so there's no start delay.
     const staggerOffset = -(100000 - childIndex * 800)
 
     const redAnim = gRed.animate(
@@ -97,24 +120,34 @@ export function MagicCardEffect() {
       { duration: 4000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset },
     )
 
-    const anims = [redAnim, navyAnim, coreAnim, defaultAnim]
+    const hoverAnims = [redAnim, navyAnim, coreAnim]
+    
+    animsRef.current = { defaultAnim, hoverAnims }
 
-    // Pause immediately on mount until confirmed intersecting viewport
-    anims.forEach((anim) => anim.pause())
+    defaultAnim.pause()
+    hoverAnims.forEach(anim => anim.pause())
 
     const target = parentCard || container
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return
-        if (entry.isIntersecting) {
-          anims.forEach((anim) => {
-            if (anim.playState === 'paused') anim.play()
-          })
+        hoverStateRef.current.isIntersecting = entry.isIntersecting
+        
+        const { isHovered, isIntersecting } = hoverStateRef.current
+        
+        if (isIntersecting) {
+          if (defaultAnim.playState === 'paused') defaultAnim.play()
         } else {
-          anims.forEach((anim) => {
-            if (anim.playState === 'running') anim.pause()
-          })
+          if (defaultAnim.playState === 'running') defaultAnim.pause()
         }
+
+        hoverAnims.forEach(anim => {
+          if (isIntersecting && isHovered) {
+            if (anim.playState === 'paused') anim.play()
+          } else {
+            if (anim.playState === 'running') anim.pause()
+          }
+        })
       },
       { rootMargin: '50px 0px 50px 0px' },
     )
@@ -123,7 +156,8 @@ export function MagicCardEffect() {
 
     return () => {
       observer.disconnect()
-      anims.forEach((anim) => anim.cancel())
+      defaultAnim.cancel()
+      hoverAnims.forEach((anim) => anim.cancel())
     }
   }, [])
 

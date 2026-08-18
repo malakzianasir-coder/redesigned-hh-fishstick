@@ -58,6 +58,10 @@ export const Recaptcha = forwardRef<RecaptchaRef, RecaptchaProps>(function Recap
   const activeSiteKey = siteKey || process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
   const [isSimulatedChecked, setIsSimulatedChecked] = useState(false)
+  // Latest onError without adding it to the script-load effect deps — parents often
+  // pass an inline handler, which would otherwise re-run the effect on every re-render.
+  const onErrorRef = useRef(onError)
+  onErrorRef.current = onError
 
   // Reset imperative handle
   useImperativeHandle(
@@ -106,13 +110,28 @@ export const Recaptcha = forwardRef<RecaptchaRef, RecaptchaProps>(function Recap
 
     const existingScript = document.getElementById(SCRIPT_ID)
     if (existingScript) {
+      // Another instance is already loading the script; poll for readiness,
+      // but give up after 15s so a failed load can't spin this interval forever.
+      let cancelled = false
       const checkInterval = setInterval(() => {
         if (window.grecaptcha && window.grecaptcha.render) {
-          setIsScriptLoaded(true)
           clearInterval(checkInterval)
+          clearTimeout(giveUpTimer)
+          if (!cancelled) setIsScriptLoaded(true)
         }
       }, 100)
-      return () => clearInterval(checkInterval)
+      const giveUpTimer = setTimeout(() => {
+        clearInterval(checkInterval)
+        if (!cancelled) {
+          console.error('[reCAPTCHA] Script failed to load within 15s.')
+          onErrorRef.current?.()
+        }
+      }, 15_000)
+      return () => {
+        cancelled = true
+        clearInterval(checkInterval)
+        clearTimeout(giveUpTimer)
+      }
     }
 
     window.__recaptchaLoaded = () => {
@@ -124,6 +143,10 @@ export const Recaptcha = forwardRef<RecaptchaRef, RecaptchaProps>(function Recap
     script.src = 'https://www.google.com/recaptcha/api.js?onload=__recaptchaLoaded&render=explicit'
     script.async = true
     script.defer = true
+    script.addEventListener('error', () => {
+      console.error('[reCAPTCHA] Script failed to load.')
+      onErrorRef.current?.()
+    })
     document.head.appendChild(script)
 
     return () => {

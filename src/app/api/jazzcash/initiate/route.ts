@@ -32,19 +32,8 @@ export async function POST(req: Request) {
     const { donorName, mobileNumber, cnicLast6, amount, causeSlug, causeTitle, recaptchaToken } =
       (body ?? {}) as Record<string, unknown>
 
-    const siteSettings = await import('@/lib/content/loaders').then(m => m.getSiteSettings())
-    const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
-
-    if (recaptchaEnabled) {
-      const recaptchaResult = await verifyRecaptchaToken(
-        typeof recaptchaToken === 'string' ? recaptchaToken : undefined,
-        ip,
-      )
-      if (!recaptchaResult.success) {
-        return badRequest(recaptchaResult.message || 'Security verification failed.')
-      }
-    }
-
+    // Validate cheap fields before reCAPTCHA verification: each siteverify call
+    // consumes the user's single-use token, so a field error must not force a re-check.
     const name = typeof donorName === 'string' ? donorName.trim().slice(0, MAX_DONOR_NAME) : ''
     if (!name) {
       return badRequest('Donor name is required.')
@@ -59,6 +48,19 @@ export async function POST(req: Request) {
     const cnic = typeof cnicLast6 === 'string' ? cnicLast6.trim() : ''
     if (!/^\d{6}$/.test(cnic)) {
       return badRequest('CNIC last 6 digits are required.')
+    }
+
+    const siteSettings = await import('@/lib/content/loaders').then(m => m.getSiteSettings())
+    const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
+
+    if (recaptchaEnabled) {
+      const recaptchaResult = await verifyRecaptchaToken(
+        typeof recaptchaToken === 'string' ? recaptchaToken : undefined,
+        ip,
+      )
+      if (!recaptchaResult.success) {
+        return badRequest(recaptchaResult.message || 'Security verification failed.')
+      }
     }
 
     const slug = typeof causeSlug === 'string' ? causeSlug.trim().slice(0, 60) : ''

@@ -23,6 +23,19 @@ const HEADER_COOLDOWN_MS = 400
 const HEADER_REVERSE_PX = 48
 const HEADER_WHEEL_LOCK_MS = 1200
 
+/** Compact/expand CSS transition — keep in sync with `duration-300` on .site-header / .site-header__utility. */
+const HEADER_TRANSITION_MS = 300
+/** Delay before re-syncing --header-h after a compact/expand toggle: transition plus a small easing tail. */
+const HEADER_HEIGHT_SYNC_DELAY_MS = HEADER_TRANSITION_MS + 20
+
+function syncHeaderHeight(header: HTMLElement, compact: boolean) {
+  const height = `${header.offsetHeight}px`
+  document.documentElement.style.setProperty('--header-h', height)
+  if (!compact) {
+    document.documentElement.style.setProperty('--header-h-expanded', height)
+  }
+}
+
 function navClick(href: string, onNavigate?: () => void) {
   return (event: MouseEvent<HTMLAnchorElement>) => {
     onNavigate?.()
@@ -347,39 +360,29 @@ export function SiteHeader() {
     }
   }, [pathname])
 
-  // Sync header heights on mount and on window resize (steady state)
+  // Sync header heights on mount, on window resize, and once webfonts settle (steady state)
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
 
-    const updateHeaderHeights = () => {
-      const height = `${header.offsetHeight}px`
-      document.documentElement.style.setProperty('--header-h', height)
-      if (!header.classList.contains('is-compact')) {
-        document.documentElement.style.setProperty('--header-h-expanded', height)
-      }
-    }
+    const updateHeaderHeights = () => syncHeaderHeight(header, header.classList.contains('is-compact'))
 
     updateHeaderHeights()
     window.addEventListener('resize', updateHeaderHeights)
+    // Webfont swaps change the header height without firing a resize event.
+    document.fonts.ready.then(updateHeaderHeights)
 
     return () => {
       window.removeEventListener('resize', updateHeaderHeights)
     }
   }, [])
 
-  // Update --header-h once after the 300ms compact/expand transition settles, preventing layout thrashing during scroll
+  // Update --header-h once after the compact/expand transition settles, preventing layout thrashing during scroll
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
 
-    const timer = window.setTimeout(() => {
-      const height = `${header.offsetHeight}px`
-      document.documentElement.style.setProperty('--header-h', height)
-      if (!compact) {
-        document.documentElement.style.setProperty('--header-h-expanded', height)
-      }
-    }, 320)
+    const timer = window.setTimeout(() => syncHeaderHeight(header, compact), HEADER_HEIGHT_SYNC_DELAY_MS)
 
     return () => window.clearTimeout(timer)
   }, [compact])
