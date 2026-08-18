@@ -2,7 +2,6 @@
 
 import { MagnifyingGlass, User } from '@phosphor-icons/react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { useLenis } from 'lenis/react'
 import { useMemo, useState } from 'react'

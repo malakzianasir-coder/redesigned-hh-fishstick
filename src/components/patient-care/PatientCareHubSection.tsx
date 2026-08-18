@@ -1,5 +1,4 @@
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
-import Link from 'next/link'
 
 import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'

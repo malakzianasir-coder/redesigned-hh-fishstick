@@ -1,7 +1,6 @@
 'use client'
 
 import { ArrowRight } from '@phosphor-icons/react'
-import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
 import { cn } from '@/utilities/ui'

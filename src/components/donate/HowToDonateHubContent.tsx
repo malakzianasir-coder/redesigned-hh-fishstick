@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { ArrowRight, EnvelopeSimple, Phone, PhoneCall } from '@phosphor-icons/react/dist/ssr'
 

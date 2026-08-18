@@ -1,7 +1,6 @@
 'use client'
 
 import { ArrowRight } from '@phosphor-icons/react'
-import Link from 'next/link'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 
 import { HubFilterRail, type HubExternalLink } from '@/components/hub/HubFilterRail'
