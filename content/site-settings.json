@@ -17,8 +17,8 @@
   },
   "lenis": {
     "enabled": true,
-    "duration": 1.2,
-    "lerp": 0.2,
+    "duration": 0.8,
+    "lerp": 1.2,
     "smoothWheel": true,
     "syncTouch": false,
     "anchors": true

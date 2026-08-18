@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
-import { generatePortalParams, toBillReference, getJazzCashConfig, redactJazzCashParams } from '@/lib/jazzcash'
+import { generatePortalParams, toBillReference, getJazzCashConfig, redactJazzCashParams, clientIp, rateLimit } from '@/lib/jazzcash'
 import { ENDPOINTS } from '@/lib/jazzcash'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 function buildAutoSubmitHtml(endpoint: string, params: Record<string, string>): string {
   const hiddenFields = Object.entries(params)
@@ -28,12 +29,37 @@ function buildAutoSubmitHtml(endpoint: string, params: Record<string, string>): 
 }
 
 export async function POST(req: Request) {
+  const ip = clientIp(req)
+  const limit = rateLimit(`portal_initiate:${ip}`, 5, 60_000)
+  if (!limit.ok) {
+    return NextResponse.json(
+      { success: false, message: 'Too many requests. Please try again shortly.' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfterSec) } },
+    )
+  }
+
   try {
     const body = await req.json()
-    const { donorName, amount, causeSlug, causeTitle } = body
+    const { donorName, amount, causeSlug, causeTitle, recaptchaToken } = body
 
-    // 1. Validation
-    console.log('[JazzCash Portal Initiate] Step 1: Validating payload...')
+    // 1. Validation & Security Verification
+    console.log('[JazzCash Portal Initiate] Step 1: Validating payload and security...')
+    const siteSettings = await import('@/lib/content/loaders').then(m => m.getSiteSettings())
+    const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
+
+    if (recaptchaEnabled) {
+      const recaptchaResult = await verifyRecaptchaToken(
+        typeof recaptchaToken === 'string' ? recaptchaToken : undefined,
+        ip,
+      )
+      if (!recaptchaResult.success) {
+        return NextResponse.json(
+          { success: false, message: recaptchaResult.message || 'Security verification failed.' },
+          { status: 400 },
+        )
+      }
+    }
+
     if (!donorName || typeof donorName !== 'string') {
       console.warn('[JazzCash Portal Initiate] Step 1 Failed: Missing donorName')
       return NextResponse.json({ success: false, message: 'Donor name is required.' }, { status: 400 })

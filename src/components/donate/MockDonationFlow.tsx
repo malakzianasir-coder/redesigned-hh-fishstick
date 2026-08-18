@@ -7,6 +7,8 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { Recaptcha } from '@/components/forms/Recaptcha'
+
 type MockDonationFlowProps = {
   title: string
   causeLabel?: string
@@ -17,6 +19,8 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
   const router = useRouter()
   const [amount, setAmount] = useState(initialAmount && Number(initialAmount) > 0 ? initialAmount : '5000')
   const [name, setName] = useState('')
+  const [recaptchaToken, setRecaptchaToken] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
 
   return (
     <section className="bg-white">
@@ -37,9 +41,21 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
             className="card grid grid-cols-1 gap-4 p-6 lg:p-8"
             onSubmit={(event) => {
               event.preventDefault()
+              if (!recaptchaToken) {
+                setErrorMsg('Please complete the reCAPTCHA verification before proceeding.')
+                return
+              }
               router.push('/thank-you?mock=1')
             }}
           >
+            {errorMsg ? (
+              <div
+                className="rounded-xl border border-error/20 bg-redbg p-4 text-b14 font-medium text-error"
+                role="alert"
+              >
+                {errorMsg}
+              </div>
+            ) : null}
             <div>
               <label className="donation-field-label" htmlFor="donor-name">
                 Donor name
@@ -73,6 +89,16 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
                 {causeLabel}
               </p>
             ) : null}
+            <div>
+              <label className="donation-field-label">Security Verification</label>
+              <Recaptcha
+                onVerify={(token) => {
+                  setRecaptchaToken(token)
+                  setErrorMsg('')
+                }}
+                onExpire={() => setRecaptchaToken('')}
+              />
+            </div>
             <button type="submit" className="btn-primary">
               Proceed to JazzCash (Mock)
             </button>
@@ -82,3 +108,4 @@ export function MockDonationFlow({ title, causeLabel, initialAmount }: MockDonat
     </section>
   )
 }
+

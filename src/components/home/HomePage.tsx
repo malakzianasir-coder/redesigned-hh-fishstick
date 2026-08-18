@@ -79,28 +79,25 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
 
-            <div className="relative order-2 flex min-h-[320px] select-none justify-center lg:order-1 lg:col-span-6 lg:min-h-[420px]">
-
+            <div className="relative order-2 mx-auto flex w-full max-w-[320px] select-none justify-center sm:max-w-[380px] md:max-w-[420px] lg:order-1 lg:col-span-6 lg:max-w-[460px]">
               {content.intro.images.map((image, index) => (
-
                 <div
-
                   key={image.src}
-
-                  className={`relative aspect-[3/4] w-[46%] max-h-[340px] overflow-hidden rounded-xl shadow-e1 ${
-
-                    index === 0 ? 'translate-x-4 translate-y-10' : '-translate-x-4 -translate-y-6'
-
+                  className={`relative aspect-[3/4] w-[54%] shrink-0 overflow-hidden rounded-xl shadow-e1 ${
+                    index === 0
+                      ? 'z-0 mt-8 sm:mt-10 lg:mt-12'
+                      : 'z-10 -ml-7 mb-8 sm:-ml-9 sm:mb-10 lg:-ml-10 lg:mb-12'
                   }`}
-
                 >
-
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" sizes="240px" />
-
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 180px, (max-width: 1024px) 240px, 260px"
+                  />
                 </div>
-
               ))}
-
             </div>
 
             <div className="order-1 flex flex-col gap-[6px] text-center lg:order-2 lg:col-span-6 lg:text-start">

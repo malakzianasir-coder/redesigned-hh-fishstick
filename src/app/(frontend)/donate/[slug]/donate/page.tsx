@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { DonationCheckout } from '@/components/donate/DonationCheckout'
-import { getDonation, getDonations } from '@/lib/content/loaders'
+import { getDonation, getDonations, getSiteSettings } from '@/lib/content/loaders'
 
 type Args = {
   params: Promise<{ slug: string }>
@@ -26,12 +26,16 @@ export default async function DonateCausePage({ params, searchParams }: Args) {
   const cause = getDonation(slug)
   if (!cause) notFound()
 
+  const siteSettings = getSiteSettings()
+  const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
+
   return (
     <DonationCheckout
       title={`Donate to ${cause.title}`}
       causeLabel={cause.title}
       causeSlug={cause.slug}
       initialAmount={amount}
+      recaptchaEnabled={recaptchaEnabled}
     />
   )
 }

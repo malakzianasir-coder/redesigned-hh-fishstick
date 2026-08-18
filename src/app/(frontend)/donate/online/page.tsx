@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { DonationCheckout } from '@/components/donate/DonationCheckout'
+import { getSiteSettings } from '@/lib/content/loaders'
 
 export const metadata: Metadata = {
   title: 'Donate Online | Hijaz Hospital',
@@ -8,5 +9,8 @@ export const metadata: Metadata = {
 }
 
 export default function DonateOnlinePage() {
-  return <DonationCheckout title="Donate Online" />
+  const siteSettings = getSiteSettings()
+  const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
+
+  return <DonationCheckout title="Donate Online" recaptchaEnabled={recaptchaEnabled} />
 }

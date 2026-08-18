@@ -347,11 +347,12 @@ export function SiteHeader() {
     }
   }, [pathname])
 
+  // Sync header heights on mount and on window resize (steady state)
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
 
-    const setHeaderHeight = () => {
+    const updateHeaderHeights = () => {
       const height = `${header.offsetHeight}px`
       document.documentElement.style.setProperty('--header-h', height)
       if (!header.classList.contains('is-compact')) {
@@ -359,15 +360,28 @@ export function SiteHeader() {
       }
     }
 
-    setHeaderHeight()
-    const observer = new ResizeObserver(setHeaderHeight)
-    observer.observe(header)
-    window.addEventListener('resize', setHeaderHeight)
+    updateHeaderHeights()
+    window.addEventListener('resize', updateHeaderHeights)
 
     return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', setHeaderHeight)
+      window.removeEventListener('resize', updateHeaderHeights)
     }
+  }, [])
+
+  // Update --header-h once after the 300ms compact/expand transition settles, preventing layout thrashing during scroll
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+
+    const timer = window.setTimeout(() => {
+      const height = `${header.offsetHeight}px`
+      document.documentElement.style.setProperty('--header-h', height)
+      if (!compact) {
+        document.documentElement.style.setProperty('--header-h-expanded', height)
+      }
+    }, 320)
+
+    return () => window.clearTimeout(timer)
   }, [compact])
 
   useEffect(() => {

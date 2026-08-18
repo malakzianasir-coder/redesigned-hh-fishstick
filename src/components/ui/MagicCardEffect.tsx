@@ -14,70 +14,116 @@ export function MagicCardEffect() {
     const parent = ref.current?.closest('.group') as HTMLElement
     if (!parent) return
 
+    let isHovered = false
+
     const handleMouseMove = (e: MouseEvent) => {
+      if (!isHovered) return
       const rect = parent.getBoundingClientRect()
       const x = e.clientX - rect.left
       parent.style.setProperty('--mouse-x', `${x}px`)
     }
 
+    const handleMouseEnter = () => {
+      isHovered = true
+    }
+
+    const handleMouseLeave = () => {
+      isHovered = false
+    }
+
     // Default to center if not hovered yet
     parent.style.setProperty('--mouse-x', '50%')
 
+    parent.addEventListener('mouseenter', handleMouseEnter)
+    parent.addEventListener('mouseleave', handleMouseLeave)
     parent.addEventListener('mousemove', handleMouseMove)
-    return () => parent.removeEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      parent.removeEventListener('mouseenter', handleMouseEnter)
+      parent.removeEventListener('mouseleave', handleMouseLeave)
+      parent.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   useEffect(() => {
+    const container = ref.current
     const gRed = glowRedRef.current
     const gNavy = glowNavyRef.current
     const gCore = glowCoreRef.current
-    const gDefault = defaultGlowRef.current
-    if (!gRed || !gNavy || !gCore || !gDefault) return
+    const defaultGlow = defaultGlowRef.current
+    if (!container || !gRed || !gNavy || !gCore || !defaultGlow) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const baseDur = 6000 // Slow 6-second color cycle
-    
+
     // Find this card's index among its siblings to create a sequential wave stagger
     let childIndex = 0
-    const parentCard = gRed.closest('.card-interactive')
+    const parentCard = container.closest('.card-interactive')
     if (parentCard && parentCard.parentElement) {
       childIndex = Array.from(parentCard.parentElement.children).indexOf(parentCard)
     }
 
     // Offset the start time deeply into the negative so there's no start delay.
-    // Subtracting from a large base ensures Card 0 is ahead of Card 1 (left-to-right wave).
-    const staggerOffset = -(100000 - (childIndex * 800))
+    const staggerOffset = -(100000 - childIndex * 800)
 
-    const redAnim = gRed.animate([
-      { opacity: 1, offset: 0 },
-      { opacity: 0, offset: 0.33 },
-      { opacity: 0, offset: 0.66 },
-      { opacity: 1, offset: 1 }
-    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
-    
-    const navyAnim = gNavy.animate([
-      { opacity: 0, offset: 0 },
-      { opacity: 1, offset: 0.33 },
-      { opacity: 0, offset: 0.66 },
-      { opacity: 0, offset: 1 }
-    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
+    const redAnim = gRed.animate(
+      [
+        { opacity: 1, offset: 0 },
+        { opacity: 0, offset: 0.33 },
+        { opacity: 0, offset: 0.66 },
+        { opacity: 1, offset: 1 },
+      ],
+      { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset },
+    )
 
-    const coreAnim = gCore.animate([
-      { opacity: 0.3 },
-      { opacity: 0.8 },
-      { opacity: 0.3 }
-    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
+    const navyAnim = gNavy.animate(
+      [
+        { opacity: 0, offset: 0 },
+        { opacity: 1, offset: 0.33 },
+        { opacity: 0, offset: 0.66 },
+        { opacity: 0, offset: 1 },
+      ],
+      { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset },
+    )
 
-    const defaultAnim = gDefault.animate([
-      { opacity: 0.4 },
-      { opacity: 1.0 },
-      { opacity: 0.4 }
-    ], { duration: 4000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
+    const coreAnim = gCore.animate(
+      [{ opacity: 0.3 }, { opacity: 0.8 }, { opacity: 0.3 }],
+      { duration: 3000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset },
+    )
+
+    const defaultAnim = defaultGlow.animate(
+      [{ opacity: 0.4 }, { opacity: 1.0 }, { opacity: 0.4 }],
+      { duration: 4000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset },
+    )
+
+    const anims = [redAnim, navyAnim, coreAnim, defaultAnim]
+
+    // Pause immediately on mount until confirmed intersecting viewport
+    anims.forEach((anim) => anim.pause())
+
+    const target = parentCard || container
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return
+        if (entry.isIntersecting) {
+          anims.forEach((anim) => {
+            if (anim.playState === 'paused') anim.play()
+          })
+        } else {
+          anims.forEach((anim) => {
+            if (anim.playState === 'running') anim.pause()
+          })
+        }
+      },
+      { rootMargin: '50px 0px 50px 0px' },
+    )
+
+    observer.observe(target)
 
     return () => {
-      redAnim.cancel()
-      navyAnim.cancel()
-      coreAnim.cancel()
-      defaultAnim.cancel()
+      observer.disconnect()
+      anims.forEach((anim) => anim.cancel())
     }
   }, [])
 

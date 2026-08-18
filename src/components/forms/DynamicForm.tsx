@@ -1,7 +1,8 @@
 'use client'
 
-import { type FormEvent, useMemo, useState } from 'react'
+import { type FormEvent, useMemo, useRef, useState } from 'react'
 
+import { Recaptcha, type RecaptchaRef } from '@/components/forms/Recaptcha'
 import type { FormDefinition, FormFieldDefinition } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -10,7 +11,9 @@ type DynamicFormProps = {
 }
 
 export function DynamicForm({ form }: DynamicFormProps) {
+  const recaptchaRef = useRef<RecaptchaRef>(null)
   const [values, setValues] = useState<Record<string, string | boolean>>({})
+  const [recaptchaToken, setRecaptchaToken] = useState('')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -30,6 +33,10 @@ export function DynamicForm({ form }: DynamicFormProps) {
       if (!String(value || '').trim()) nextErrors[field.name] = 'Required'
     })
 
+    if (form.recaptcha?.enabled && !recaptchaToken) {
+      nextErrors.recaptcha = 'Please complete the security verification.'
+    }
+
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) {
       setSubmitted(false)
@@ -38,6 +45,8 @@ export function DynamicForm({ form }: DynamicFormProps) {
 
     setSubmitted(true)
     setValues({})
+    setRecaptchaToken('')
+    recaptchaRef.current?.reset()
   }
 
   const setValue = (fieldName: string, value: string | boolean) => {
@@ -64,10 +73,28 @@ export function DynamicForm({ form }: DynamicFormProps) {
       ))}
       <div className="lg:col-span-2">
         {form.recaptcha?.enabled ? (
-          <p className="mb-3 text-b12 text-dark-gray">
-            reCAPTCHA ({form.recaptcha.provider || 'provider'}) is configured at schema level and can be enabled at
-            runtime when keys are available.
-          </p>
+          <div className="mb-4">
+            <label className="donation-field-label">Security Verification</label>
+            <Recaptcha
+              ref={recaptchaRef}
+              siteKey={form.recaptcha.siteKey}
+              onVerify={(token) => {
+                setRecaptchaToken(token)
+                setErrors((prev) => {
+                  if (!prev.recaptcha) return prev
+                  const clone = { ...prev }
+                  delete clone.recaptcha
+                  return clone
+                })
+              }}
+              onExpire={() => setRecaptchaToken('')}
+              onError={() => {
+                setRecaptchaToken('')
+                setErrors((prev) => ({ ...prev, recaptcha: 'Security verification failed.' }))
+              }}
+            />
+            {errors.recaptcha ? <p className="mt-1 text-b14 text-error">{errors.recaptcha}</p> : null}
+          </div>
         ) : null}
         <button
           type="submit"

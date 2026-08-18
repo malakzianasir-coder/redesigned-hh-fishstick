@@ -1,28 +1,45 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
+import { Recaptcha, type RecaptchaRef } from '@/components/forms/Recaptcha'
 
 type DonationCheckoutProps = {
   title: string
   causeLabel?: string
   causeSlug?: string
   initialAmount?: string
+  recaptchaEnabled?: boolean
 }
 
-export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }: DonationCheckoutProps) {
+export function DonationCheckout({
+  title,
+  causeLabel,
+  causeSlug,
+  initialAmount,
+  recaptchaEnabled = true,
+}: DonationCheckoutProps) {
   const router = useRouter()
+  const recaptchaRef = useRef<RecaptchaRef>(null)
   const [paymentMethod, setPaymentMethod] = useState<'mwallet' | 'portal'>('mwallet')
   const [amount, setAmount] = useState(initialAmount && Number(initialAmount) > 0 ? initialAmount : '5000')
   const [name, setName] = useState('')
   const [mobileNumber, setMobileNumber] = useState('')
   const [cnicLast6, setCnicLast6] = useState('')
+  const [recaptchaToken, setRecaptchaToken] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setErrorMsg('')
+
+    if (recaptchaEnabled && !recaptchaToken) {
+      setErrorMsg('Please complete the reCAPTCHA verification to proceed.')
+      return
+    }
+
     setIsLoading(true)
 
     try {
@@ -36,15 +53,18 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
             cnicLast6,
             amount: Number(amount),
             causeSlug,
-            causeTitle: causeLabel
-          })
+            causeTitle: causeLabel,
+            recaptchaToken,
+          }),
         })
-        
+
         const data = await res.json()
-        
+
         if (data.success && data.redirectUrl) {
           router.push(data.redirectUrl)
         } else {
+          recaptchaRef.current?.reset()
+          setRecaptchaToken('')
           setErrorMsg(data.message || data.responseMessage || 'Transaction failed. Please try again.')
         }
       } else {
@@ -55,12 +75,13 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
             donorName: name,
             amount: Number(amount),
             causeSlug,
-            causeTitle: causeLabel
-          })
+            causeTitle: causeLabel,
+            recaptchaToken,
+          }),
         })
-        
+
         const contentType = res.headers.get('content-type') || ''
-        
+
         if (contentType.includes('text/html')) {
           // Server returned auto-submitting HTML — write it to document to redirect
           const html = await res.text()
@@ -71,10 +92,14 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
         } else {
           // Server returned JSON error
           const data = await res.json()
+          recaptchaRef.current?.reset()
+          setRecaptchaToken('')
           setErrorMsg(data.message || 'Failed to initiate secure checkout. Please try again.')
         }
       }
     } catch (_err) {
+      recaptchaRef.current?.reset()
+      setRecaptchaToken('')
       setErrorMsg('A network error occurred. Please try again.')
     } finally {
       setIsLoading(false)
@@ -93,24 +118,35 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
           </div>
 
           <form onSubmit={handleSubmit} className="card grid grid-cols-1 gap-6 p-6 lg:p-8">
-             {errorMsg && (
-              <div className="p-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+            {errorMsg ? (
+              <div
+                className="rounded-xl border border-error/20 bg-redbg p-4 text-b14 font-medium text-error"
+                role="alert"
+              >
                 {errorMsg}
               </div>
-            )}
-            
-            <div className="flex flex-col sm:flex-row gap-4 p-1 bg-gray-100 rounded-lg">
+            ) : null}
+
+            <div className="flex flex-col gap-2 rounded-2xl bg-cardbg p-1 sm:flex-row">
               <button
                 type="button"
                 onClick={() => setPaymentMethod('mwallet')}
-                className={`flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors ${paymentMethod === 'mwallet' ? 'bg-white text-primary-blue shadow' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`min-h-[44px] flex-1 rounded-xl px-4 text-b14 font-bold transition-all duration-300 ${
+                  paymentMethod === 'mwallet'
+                    ? 'bg-white text-primary-blue shadow-sm'
+                    : 'text-primary-blue/70 hover:text-primary-blue'
+                }`}
               >
                 JazzCash App Approval
               </button>
               <button
                 type="button"
                 onClick={() => setPaymentMethod('portal')}
-                className={`flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors ${paymentMethod === 'portal' ? 'bg-white text-primary-blue shadow' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`min-h-[44px] flex-1 rounded-xl px-4 text-b14 font-bold transition-all duration-300 ${
+                  paymentMethod === 'portal'
+                    ? 'bg-white text-primary-blue shadow-sm'
+                    : 'text-primary-blue/70 hover:text-primary-blue'
+                }`}
               >
                 Cards / Other Methods
               </button>
@@ -118,7 +154,9 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
 
             <div className="grid gap-4">
               <div>
-                <label className="donation-field-label" htmlFor="donor-name">Donor Name</label>
+                <label className="donation-field-label" htmlFor="donor-name">
+                  Donor Name
+                </label>
                 <input
                   id="donor-name"
                   className="donation-field"
@@ -134,7 +172,9 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
               {paymentMethod === 'mwallet' && (
                 <>
                   <div>
-                    <label className="donation-field-label" htmlFor="mobile-number">JazzCash Mobile Number</label>
+                    <label className="donation-field-label" htmlFor="mobile-number">
+                      JazzCash Mobile Number
+                    </label>
                     <input
                       id="mobile-number"
                       type="tel"
@@ -148,7 +188,9 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
                     />
                   </div>
                   <div>
-                    <label className="donation-field-label" htmlFor="cnic-last6">CNIC Last 6 Digits</label>
+                    <label className="donation-field-label" htmlFor="cnic-last6">
+                      CNIC Last 6 Digits
+                    </label>
                     <input
                       id="cnic-last6"
                       type="text"
@@ -166,7 +208,9 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
               )}
 
               <div>
-                <label className="donation-field-label" htmlFor="donation-amount">Amount (PKR)</label>
+                <label className="donation-field-label" htmlFor="donation-amount">
+                  Amount (PKR)
+                </label>
                 <input
                   id="donation-amount"
                   className="donation-field"
@@ -187,8 +231,31 @@ export function DonationCheckout({ title, causeLabel, causeSlug, initialAmount }
                 {causeLabel}
               </p>
             ) : null}
+
+            {recaptchaEnabled && (
+              <div>
+                <label className="donation-field-label">Security Verification</label>
+                <Recaptcha
+                  ref={recaptchaRef}
+                  onVerify={(token) => {
+                    setRecaptchaToken(token)
+                    setErrorMsg('')
+                  }}
+                  onExpire={() => setRecaptchaToken('')}
+                  onError={() => {
+                    setRecaptchaToken('')
+                    setErrorMsg('Security verification encountered an error. Please try again.')
+                  }}
+                />
+              </div>
+            )}
+
             <button type="submit" className="btn-primary" disabled={isLoading}>
-              {isLoading ? 'Processing...' : (paymentMethod === 'mwallet' ? 'Proceed with JazzCash App' : 'Proceed to Secure Checkout')}
+              {isLoading
+                ? 'Processing...'
+                : paymentMethod === 'mwallet'
+                  ? 'Proceed with JazzCash App'
+                  : 'Proceed to Secure Checkout'}
             </button>
           </form>
         </div>

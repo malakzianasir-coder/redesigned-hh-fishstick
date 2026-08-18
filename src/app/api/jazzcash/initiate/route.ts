@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { initiatePayment, toBillReference, clientIp, rateLimit } from '@/lib/jazzcash'
+import { verifyRecaptchaToken } from '@/lib/recaptcha'
 
 const MAX_DONOR_NAME = 100
 const MAX_CAUSE = 120
@@ -11,7 +12,8 @@ function badRequest(message: string) {
 }
 
 export async function POST(req: Request) {
-  const limit = rateLimit(`initiate:${clientIp(req)}`, 5, 60_000)
+  const ip = clientIp(req)
+  const limit = rateLimit(`initiate:${ip}`, 5, 60_000)
   if (!limit.ok) {
     return NextResponse.json(
       { success: false, message: 'Too many requests. Please try again shortly.' },
@@ -27,8 +29,21 @@ export async function POST(req: Request) {
       return badRequest('Invalid request body.')
     }
 
-    const { donorName, mobileNumber, cnicLast6, amount, causeSlug, causeTitle } =
+    const { donorName, mobileNumber, cnicLast6, amount, causeSlug, causeTitle, recaptchaToken } =
       (body ?? {}) as Record<string, unknown>
+
+    const siteSettings = await import('@/lib/content/loaders').then(m => m.getSiteSettings())
+    const recaptchaEnabled = siteSettings.forms?.recaptcha?.enabled ?? true
+
+    if (recaptchaEnabled) {
+      const recaptchaResult = await verifyRecaptchaToken(
+        typeof recaptchaToken === 'string' ? recaptchaToken : undefined,
+        ip,
+      )
+      if (!recaptchaResult.success) {
+        return badRequest(recaptchaResult.message || 'Security verification failed.')
+      }
+    }
 
     const name = typeof donorName === 'string' ? donorName.trim().slice(0, MAX_DONOR_NAME) : ''
     if (!name) {
