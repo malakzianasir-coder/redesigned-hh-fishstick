@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import { LenisProvider } from '@/components/providers/LenisProvider'
 import { SiteFooter } from '@/components/site/SiteFooter'
@@ -41,7 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className="flex-1">{children}</main>
                 <SiteFooter />
                 <FeedbackTools />
-                <PageProgress />
+                <Suspense fallback={null}>
+                  <PageProgress />
+                </Suspense>
               </LenisProvider>
             </LiveblocksContext>
           ) : (
@@ -50,7 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
-              <PageProgress />
+              <Suspense fallback={null}>
+                <PageProgress />
+              </Suspense>
             </LenisProvider>
           )}
         </Providers>
