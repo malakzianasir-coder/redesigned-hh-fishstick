@@ -390,6 +390,10 @@
             {
               "label": "Rights & Responsibilities",
               "href": "/patient-welfare/patient-rights"
+            },            
+            {
+              "label": "Patient Information Guide",
+              "href": "patient-welfare/patient-information-guide"
             },
             {
               "label": "Patient Stories",

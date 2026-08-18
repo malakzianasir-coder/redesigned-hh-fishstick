@@ -34,7 +34,7 @@ const RESOURCES = {
       media: { type: 'illustration', preset: 'page/admission-process' },
       links: [
         { label: 'Admission Steps', href: '#admission-process', variant: 'primary' },
-        { label: 'Patient Welfare Hub', href: '/patient-welfare', variant: 'ghost' },
+        { label: 'Patient Welfare', href: '/patient-welfare', variant: 'ghost' },
       ],
     },
     jumpLinks: [

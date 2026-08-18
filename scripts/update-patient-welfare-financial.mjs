@@ -279,7 +279,7 @@ const FINANCIAL = {
       media: { type: 'illustration', preset: 'page/free-meals' },
       links: [
         { label: 'Overview', href: '#overview', variant: 'primary' },
-        { label: 'Patient Welfare Hub', href: '/patient-welfare', variant: 'ghost' },
+        { label: 'Patient Welfare', href: '/patient-welfare', variant: 'ghost' },
       ],
     },
     jumpLinks: [{ label: 'Overview', href: '#overview' }],
@@ -315,7 +315,7 @@ const FINANCIAL = {
       media: { type: 'illustration', preset: 'page/sehat-sahulat' },
       links: [
         { label: 'Program Details', href: '#overview', variant: 'primary' },
-        { label: 'Patient Welfare Hub', href: '/patient-welfare', variant: 'ghost' },
+        { label: 'Patient Welfare', href: '/patient-welfare', variant: 'ghost' },
       ],
     },
     jumpLinks: [{ label: 'Overview', href: '#overview' }],
@@ -351,7 +351,7 @@ const FINANCIAL = {
       media: { type: 'illustration', preset: 'page/free-medical-camps' },
       links: [
         { label: 'Overview', href: '#overview', variant: 'primary' },
-        { label: 'Patient Welfare Hub', href: '/patient-welfare', variant: 'ghost' },
+        { label: 'Patient Welfare', href: '/patient-welfare', variant: 'ghost' },
       ],
     },
     jumpLinks: [{ label: 'Overview', href: '#overview' }],

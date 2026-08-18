@@ -145,7 +145,7 @@
           "variant": "primary"
         },
         {
-          "label": "Patient Welfare Hub",
+          "label": "Patient Welfare",
           "href": "/patient-welfare",
           "variant": "ghost"
         }
@@ -415,7 +415,7 @@
           "variant": "primary"
         },
         {
-          "label": "Patient Welfare Hub",
+          "label": "Patient Welfare",
           "href": "/patient-welfare",
           "variant": "ghost"
         }
@@ -635,7 +635,7 @@
           "variant": "primary"
         },
         {
-          "label": "Patient Welfare Hub",
+          "label": "Patient Welfare",
           "href": "/patient-welfare",
           "variant": "ghost"
         }
@@ -683,7 +683,7 @@
           "variant": "primary"
         },
         {
-          "label": "Patient Welfare Hub",
+          "label": "Patient Welfare",
           "href": "/patient-welfare",
           "variant": "ghost"
         }

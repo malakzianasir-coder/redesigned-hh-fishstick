@@ -1,7 +1,7 @@
 {
   "slug": "patient-welfare",
-  "title": "Patient Welfare",
-  "description": "Financial assistance, admission guidance, welfare programs, and patient rights at Hijaz Hospital.",
+  "title": "Patient Welfare & Care Resources",
+  "description": "From financial assistance, free meals, and medication to admission guides and patient rights—discover the full range of support services available at Hijaz Hospital.",
   "hero": {
     "kicker": "Patient Welfare",
     "title": "Financial & Community Support",
@@ -51,7 +51,7 @@
     }
   ],
   "hub": {
-    "kicker": "Patient Welfare Hub",
+    "kicker": "Patient Welfare",
     "heading": "How We Support Patients & Families",
     "lede": "Explore financial assistance, welfare programs, admission guidance, and patient rights — all designed to ensure dignified, accessible care.",
     "groups": [

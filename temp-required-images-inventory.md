@@ -100,7 +100,7 @@
 | Cause: Sponsor Free Surgeries | `.../sponsor-free-surgeries` | ILLUSTRATION | keep illustration | |
 | Cause: Support a Project | `.../support-a-project` | ILLUSTRATION | keep illustration | |
 | Donation types (zakat, general, sadaqah, eidi…) | `/donate/[slug]` | ILLUSTRATION | keep illustration | |
-| Patient welfare hub + pages | `/patient-welfare...` | ILLUSTRATION | keep illustration | |
+| Patient Welfare + pages | `/patient-welfare...` | ILLUSTRATION | keep illustration | |
 | Welfare dialysis-support | | ILLUSTRATION | keep illustration (or reuse dialysis hero) | |
 
 ## 5. Home (not slider)

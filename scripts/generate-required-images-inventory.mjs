@@ -604,7 +604,7 @@ const patientWelfareHub = readJson(path.join(CONTENT, 'patient-welfare-hub.json'
 addSlot({
   id: 'welfare-hub',
   category: 'Patient welfare',
-  page: patientWelfareHub.title || 'Patient Welfare hub',
+  page: patientWelfareHub.title || 'Patient Welfare',
   url: '/patient-welfare',
   slot: 'Hero illustration → replace with photo',
   aspect: 'banner',
