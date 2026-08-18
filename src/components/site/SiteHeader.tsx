@@ -574,6 +574,7 @@ export function SiteHeader() {
             onClick={navClick('/')}
           >
             <Image
+              id="site-header-logo"
               src="/hijaz-hospital-logo-dark.svg"
               alt="Hijaz Hospital"
               width={200}
