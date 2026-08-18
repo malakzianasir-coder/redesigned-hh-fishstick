@@ -225,13 +225,13 @@ donate pages (same cards / headers), rather than inventing new layouts.
 |---|---|---|
 | `BlockHeader` | `site/BlockHeader.tsx` | Kicker · title · lede · optional “View all” `btn-ghost` — default for hub-style sections |
 | `CenteredSectionStack` | `site/CenteredSectionStack.tsx` | Wrap centered `BlockHeader` + prose so body is not left-flush |
-| Media card | `.card-interactive` + `aspect-card` image + copy pad | Services, stories, news |
-| Icon action card | `.card-interactive` + `.icon-tile` + title + body + text CTA | Engage, donate cause grids |
+| Media card | `<InteractiveCard>` + `aspect-card` image + copy pad | Services, stories, news |
+| Icon action card | `<InteractiveCard>` + `.icon-tile` + title + body + text CTA | Engage, donate cause grids |
 | Founder card | `.founder-card` | Portrait + role + excerpt |
 | Event date chip | `bg-redbg` day/month tile beside copy | Events lists |
 | Section shell | `container mx-auto px-6 lg:px-[30px] py-[30px] lg:py-[60px]` | Every new section |
 
-**Cards:** interactive → `.card-interactive`; static → `.card` / bordered panels. Do not
+**Cards:** interactive → `<InteractiveCard>`; static → `<InteractiveCard>` / bordered panels. Do not
 card-wrap every paragraph (DESIGN-SYSTEM §7).
 
 **Icons:** Phosphor duotone in `.icon-tile`. Map through existing maps — do not invent
@@ -320,7 +320,7 @@ logo slot (e.g. Sehat Sahulat), in-card title at `h5` scale. Tokens live in
 | Pattern | Component / recipe | When |
 |---|---|---|
 | Block header | `BlockHeader` | Hub-style sections (home services/news/events; donate grids) |
-| Media card grid | `.card-interactive` + `aspect-card` | Services, stories, news teasers |
+| Media card grid | `<InteractiveCard>` + `aspect-card` | Services, stories, news teasers |
 | Icon feature / action grid | `card-grid--3`/`--4` + `icon-tile` | Engage, sponsorship options |
 | Approach / values list | `.approach-list` + `.icon-tile--sm` | Our Purpose Approach and Values (Title–body rows, 2-col grid) |
 | Paired feature cards | `card-grid--2` + `card-interactive` | Vision/mission-style dual points |

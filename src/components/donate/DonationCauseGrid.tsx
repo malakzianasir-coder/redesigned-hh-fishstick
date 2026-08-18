@@ -1,5 +1,5 @@
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
-import Link from 'next/link'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { DonationCauseCard } from '@/lib/content/types'
@@ -36,10 +36,10 @@ export function DonationCauseGrid({
           {causes.map((cause) => {
             const IconComponent = DONATION_ICON_MAP[cause.icon as keyof typeof DONATION_ICON_MAP]
             return (
-              <Link
+              <InteractiveCard
                 key={cause.slug}
                 href={cause.href}
-                className="card-interactive group flex flex-col gap-3 p-6"
+                className="flex flex-col gap-3 p-6"
               >
                 {IconComponent ? (
                   <span className="icon-tile">
@@ -59,7 +59,7 @@ export function DonationCauseGrid({
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </span>
-              </Link>
+              </InteractiveCard>
             )
           })}
         </div>

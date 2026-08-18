@@ -3,6 +3,7 @@
 import { MagnifyingGlass, User } from '@phosphor-icons/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { useLenis } from 'lenis/react'
 import { useMemo, useState } from 'react'
 
@@ -256,9 +257,9 @@ function DoctorCard({ doctor }: { doctor: DoctorRecord }) {
       : null
 
   return (
-    <Link
+    <InteractiveCard
       href={`/doctors/${doctor.slug}`}
-      className="card-interactive group flex items-center gap-4 overflow-hidden p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
+      className="flex items-center gap-4 overflow-hidden p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
     >
       <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full border border-dark-gray/15 bg-whitebg">
         {doctor.image ? (
@@ -281,6 +282,6 @@ function DoctorCard({ doctor }: { doctor: DoctorRecord }) {
         <p className="mt-1 text-b14 leading-[150%] text-primary-blue/85">{doctor.department}</p>
         {badge ? <span className="group-badge mt-2">{badge}</span> : null}
       </div>
-    </Link>
+    </InteractiveCard>
   )
 }

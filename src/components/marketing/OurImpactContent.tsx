@@ -6,6 +6,7 @@ import {
 } from '@phosphor-icons/react/dist/ssr'
 import Image from 'next/image'
 import Link from 'next/link'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 import { HeadlineStatsGrid } from '@/components/marketing/HeadlineStatsGrid'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
@@ -33,7 +34,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
         <section id="award" className="section-anchor bg-white">
           <div className="container mx-auto flex flex-col gap-8 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
             <BlockHeader kicker={page.award.kicker} title={page.award.kicker} />
-            <article className="card-interactive flex flex-col items-start gap-6 p-6 lg:flex-row lg:p-8">
+            <InteractiveCard as="article" className="flex flex-col items-start gap-6 p-6 lg:flex-row lg:p-8">
               {page.award.image ? (
                 <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-2xl border border-dark-gray/15 bg-white">
                   <Image
@@ -60,7 +61,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                   </p>
                 ))}
               </div>
-            </article>
+            </InteractiveCard>
           </div>
         </section>
       ) : null}
@@ -76,7 +77,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
             {page.healthPartners.groups.map((group) => {
               const IconComponent = group.icon ? MARKETING_ICON_MAP[group.icon as keyof typeof MARKETING_ICON_MAP] : null
               return (
-                <article key={group.title} className="card flex flex-col gap-5 p-6 lg:p-8">
+                <InteractiveCard as="article" key={group.title} className="flex flex-col gap-5 p-6 lg:p-8">
                   <div className="flex items-center gap-4">
                     {IconComponent ? (
                       <span className="icon-tile">
@@ -126,11 +127,11 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                           </>
                         )
                         const className =
-                          'card-interactive group flex flex-col items-center gap-3 p-5 text-center'
+                          'flex flex-col items-center gap-3 p-5 text-center'
 
                         if (partner.href) {
                           return (
-                            <a
+                            <InteractiveCard as="a"
                               key={partner.name}
                               href={partner.href}
                               target="_blank"
@@ -138,19 +139,19 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                               className={className}
                             >
                               {inner}
-                            </a>
+                            </InteractiveCard>
                           )
                         }
 
                         return (
-                          <div key={partner.name} className={className}>
+                          <InteractiveCard as="div" key={partner.name} className={className}>
                             {inner}
-                          </div>
+                          </InteractiveCard>
                         )
                       })}
                     </div>
                   ) : null}
-                </article>
+                </InteractiveCard>
               )
             })}
           </div>
@@ -254,10 +255,10 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
           <BlockHeader kicker="Our Impact" title="Highlights" lede={page.highlightsLede} />
           <div className="card-grid card-grid--3">
             {page.highlights.map((item) => (
-              <Link
+              <InteractiveCard
                 key={item.title}
                 href={item.href || '/news'}
-                className="card-interactive group flex flex-col overflow-hidden"
+                className="flex flex-col overflow-hidden"
               >
                 {/* Highlight photos are not provided yet — restore item.image when assets are ready. */}
                 <div className="flex flex-col gap-2 p-6">
@@ -267,7 +268,7 @@ export function OurImpactContent({ page }: { page: OurImpactRecord }) {
                   </h3>
                   <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
                 </div>
-              </Link>
+              </InteractiveCard>
             ))}
           </div>
         </div>

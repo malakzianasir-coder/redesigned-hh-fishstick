@@ -6,6 +6,7 @@ import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import type { OurSupportersRecord } from '@/lib/content/types'
 
 export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
@@ -75,22 +76,22 @@ export function OurSupportersContent({ page }: { page: OurSupportersRecord }) {
 
               if (donor.href) {
                 return (
-                  <a
+                  <InteractiveCard as="a"
                     key={donor.sn}
                     href={donor.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="card-interactive group flex flex-col items-center gap-3 p-4 text-center"
+                    className="flex flex-col items-center gap-3 p-4 text-center"
                   >
                     {inner}
-                  </a>
+                  </InteractiveCard>
                 )
               }
 
               return (
-                <article key={donor.sn} className="card flex flex-col items-center gap-3 p-4 text-center">
+                <InteractiveCard as="article" key={donor.sn} className="flex flex-col items-center gap-3 p-4 text-center">
                   {inner}
-                </article>
+                </InteractiveCard>
               )
             })}
           </div>

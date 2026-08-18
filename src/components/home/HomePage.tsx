@@ -17,6 +17,7 @@ import {
 import Image from 'next/image'
 
 import Link from 'next/link'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 
 
@@ -214,7 +215,7 @@ export function HomePage() {
 
               return (
 
-                <Link
+                <InteractiveCard
 
                   key={card.title}
 
@@ -224,7 +225,7 @@ export function HomePage() {
 
                   rel={card.external ? 'noopener noreferrer' : undefined}
 
-                  className="card-interactive group flex flex-col gap-3 p-6"
+                  className="flex flex-col gap-3 p-6"
 
                 >
 
@@ -262,7 +263,7 @@ export function HomePage() {
 
                   </span>
 
-                </Link>
+                </InteractiveCard>
 
               )
 
@@ -296,13 +297,13 @@ export function HomePage() {
 
             {content.services.cards.map((card) => (
 
-              <Link
+              <InteractiveCard
 
                 key={card.title}
 
                 href={card.href}
 
-                className="card-interactive group flex flex-col overflow-hidden"
+                className="flex flex-col overflow-hidden"
 
               >
 
@@ -338,7 +339,7 @@ export function HomePage() {
 
                 </div>
 
-              </Link>
+              </InteractiveCard>
 
             ))}
 
@@ -374,7 +375,7 @@ export function HomePage() {
 
             {content.founders.cards.map((founder, index) => (
 
-              <article key={founder.name} className="founder-card card-interactive group">
+              <InteractiveCard as="article" key={founder.name} className="founder-card group">
 
                 <div className="founder-card__media relative aspect-square overflow-hidden sm:aspect-auto">
 
@@ -434,7 +435,7 @@ export function HomePage() {
 
                 </div>
 
-              </article>
+              </InteractiveCard>
 
             ))}
 
@@ -466,13 +467,13 @@ export function HomePage() {
 
             {content.stories.items.map((item) => (
 
-              <Link
+              <InteractiveCard
 
                 key={item.title + item.image}
 
                 href={item.href}
 
-                className="card-interactive group flex flex-col overflow-hidden"
+                className="flex flex-col overflow-hidden"
 
               >
 
@@ -508,7 +509,7 @@ export function HomePage() {
 
                 </div>
 
-              </Link>
+              </InteractiveCard>
 
             ))}
 
@@ -564,13 +565,13 @@ export function HomePage() {
 
             {content.news.items.map((item) => (
 
-              <Link
+              <InteractiveCard
 
                 key={item.title}
 
                 href={item.href}
 
-                className="card-interactive group flex flex-col overflow-hidden"
+                className="flex flex-col overflow-hidden"
 
               >
 
@@ -622,7 +623,7 @@ export function HomePage() {
 
                 </div>
 
-              </Link>
+              </InteractiveCard>
 
             ))}
 
@@ -654,13 +655,13 @@ export function HomePage() {
 
             {content.events.items.map((item) => (
 
-              <Link
+              <InteractiveCard
 
                 key={item.title}
 
                 href={item.href}
 
-                className="card-interactive group flex items-start gap-4 p-6"
+                className="flex items-start gap-4 p-6"
 
               >
 
@@ -684,7 +685,7 @@ export function HomePage() {
 
                 </div>
 
-              </Link>
+              </InteractiveCard>
 
             ))}
 

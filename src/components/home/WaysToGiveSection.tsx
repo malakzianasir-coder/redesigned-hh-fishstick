@@ -25,7 +25,8 @@ import {
 import Image from 'next/image'
 
 import Link from 'next/link'
-
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
+import { BankAccountCard } from '@/components/donate/DonationMethodPanels'
 import { useState } from 'react'
 
 
@@ -190,7 +191,7 @@ export function WaysToGiveSection({
 
           <div className="ways-panel is-active" role="tabpanel">
 
-            <div className="card flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-8 lg:p-8">
+            <InteractiveCard as="div" className="flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:gap-8 lg:p-8">
 
               <div className="flex min-w-0 flex-1 flex-col gap-2">
 
@@ -240,7 +241,7 @@ export function WaysToGiveSection({
 
               </div>
 
-            </div>
+            </InteractiveCard>
 
           </div>
 
@@ -252,7 +253,7 @@ export function WaysToGiveSection({
 
           <div className="ways-panel is-active" role="tabpanel">
 
-            <article className="card till-hero p-6 lg:p-8">
+            <InteractiveCard as="article" className="till-hero p-6 lg:p-8">
 
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
 
@@ -316,7 +317,7 @@ export function WaysToGiveSection({
 
               </div>
 
-            </article>
+            </InteractiveCard>
 
           </div>
 
@@ -332,75 +333,7 @@ export function WaysToGiveSection({
 
               {content.bankAccounts.map((account) => (
 
-                <article key={account.title} className="card ways-bank-card flex flex-col gap-4 p-6">
-
-                  <div className="flex items-center gap-4">
-
-                    <div className="bank-logo">
-
-                      {account.logo ? (
-
-                        <Image
-
-                          src={account.logo}
-
-                          alt={account.bank}
-
-                          width={56}
-
-                          height={36}
-
-                          className="max-h-[36px] max-w-[56px] object-contain"
-
-                        />
-
-                      ) : (
-
-                        <span className="text-b12 font-bold text-primary-blue">{account.bank}</span>
-
-                      )}
-
-                    </div>
-
-                    <div>
-
-                      <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{account.title}</h3>
-
-                      <p className="text-b12 text-dark-gray">{account.bank}</p>
-
-                    </div>
-
-                  </div>
-
-                  <dl className="flex flex-col gap-2 text-b14">
-
-                    {account.fields.map((field) => (
-
-                      <div
-
-                        key={field.label}
-
-                        className="flex items-center justify-between gap-3 border-b border-dark-gray/15 pb-2"
-
-                      >
-
-                        <dt className="text-dark-gray">{field.label}</dt>
-
-                        <dd className="flex items-center gap-2 text-right font-mono text-primary-blue">
-
-                          {field.value}
-
-                          {field.copyValue ? <CopyChip value={field.copyValue} /> : null}
-
-                        </dd>
-
-                      </div>
-
-                    ))}
-
-                  </dl>
-
-                </article>
+                <BankAccountCard key={account.title} account={account} />
 
               ))}
 
@@ -424,14 +357,10 @@ export function WaysToGiveSection({
 
                 return (
 
-                  <Link
-
+                  <InteractiveCard
                     key={way.title}
-
                     href={way.href ?? '/donate'}
-
-                    className="card-interactive group flex flex-col gap-3 p-6"
-
+                    className="flex flex-col gap-3 p-6"
                   >
 
                     {IconComponent ? (
@@ -468,7 +397,7 @@ export function WaysToGiveSection({
 
                     </span>
 
-                  </Link>
+                  </InteractiveCard>
 
                 )
 

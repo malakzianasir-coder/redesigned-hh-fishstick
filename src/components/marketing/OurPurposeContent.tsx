@@ -7,6 +7,7 @@ import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingSh
 import { withJumpExternals } from '@/components/sections/withJumpExternals'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import { CenteredSectionStack } from '@/components/site/CenteredSectionStack'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import type { OurPurposeRecord } from '@/lib/content/types'
 
 export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
@@ -32,7 +33,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
             title={page.visionMissionHeading ?? 'Where We Aim'}
           />
           <div className="card-grid card-grid--2 mx-auto max-w-5xl">
-            <article className="card-interactive flex flex-col gap-3 p-6 lg:p-8">
+            <InteractiveCard as="article" className="flex flex-col gap-3 p-6 lg:p-8">
               <div className="flex items-center gap-3">
                 <span className="icon-tile">
                   <EyeIcon size={22} weight="duotone" />
@@ -40,8 +41,8 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                 <h3 className="text-h5M font-bold text-primary-blue lg:text-h5">Vision</h3>
               </div>
               <p className="text-b16 text-primary-blue/85">{page.vision}</p>
-            </article>
-            <article className="card-interactive relative flex flex-col gap-3 overflow-hidden border-primary-blue bg-primary-blue p-6 lg:p-8">
+            </InteractiveCard>
+            <InteractiveCard as="article" className="relative flex flex-col gap-3 overflow-hidden border-primary-blue bg-primary-blue p-6 lg:p-8">
               <div className="pointer-events-none absolute right-0 top-0 aspect-square w-[180px] rounded-full bg-light-blue opacity-40 blur-[120px]" />
               <div className="relative flex items-center gap-3">
                 <span className="icon-tile bg-white/10 text-white">
@@ -50,7 +51,7 @@ export function OurPurposeContent({ page }: { page: OurPurposeRecord }) {
                 <h3 className="text-h5M font-bold text-white lg:text-h5">Mission</h3>
               </div>
               <p className="relative text-b16 text-white/85">{page.mission}</p>
-            </article>
+            </InteractiveCard>
           </div>
         </div>
       </section>

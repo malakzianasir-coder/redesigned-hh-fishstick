@@ -1388,3 +1388,20 @@ html[data-theme='light'] {
 .logo-steady-mode #stage-slide { 
   transform: none !important; 
 }
+
+@keyframes ambient-glow-flow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(27,36,65,0.02);
+    border-color: rgba(27,36,65,0.03);
+  }
+  50% {
+    box-shadow: 0 12px 32px rgba(27,36,65,0.12), 0 0 0 1px rgba(27,36,65,0.08);
+    border-color: rgba(27,36,65,0.15);
+  }
+}
+.card-ambient-flow {
+  border: 1px solid transparent !important; /* override the static border */
+  box-shadow: none !important; /* override the static shadow */
+  animation: ambient-glow-flow 4s ease-in-out infinite;
+}
+

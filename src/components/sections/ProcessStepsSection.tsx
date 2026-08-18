@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { ProcessStepsSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
@@ -18,7 +19,7 @@ export function ProcessStepsSection({ section }: { section: ProcessStepsSectionD
         <BlockHeader kicker={kicker} title={heading} lede={intro} />
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
           {steps.map((step, index) => (
-            <article key={step.title} className="card flex items-start gap-4 p-6">
+            <InteractiveCard as="article" key={step.title} className="flex items-start gap-4 p-6">
               <span
                 className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-red font-display text-b18 font-bold text-white"
                 aria-hidden="true"
@@ -33,7 +34,7 @@ export function ProcessStepsSection({ section }: { section: ProcessStepsSectionD
                   </div>
                 ))}
               </div>
-            </article>
+            </InteractiveCard>
           ))}
         </div>
       </div>

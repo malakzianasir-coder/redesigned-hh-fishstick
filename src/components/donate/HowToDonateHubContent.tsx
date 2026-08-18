@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { ArrowRight, EnvelopeSimple, Phone, PhoneCall } from '@phosphor-icons/react/dist/ssr'
 
 import { HowToDonateMethodIcon, HowToDonateMethodNav } from '@/components/donate/HowToDonateMethodNav'
@@ -30,10 +31,10 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
           />
           <div className="card-grid card-grid--3">
             {content.methods.map((method) => (
-              <Link
+              <InteractiveCard
                 key={method.slug}
                 href={`/donate/how-to-donate/${method.slug}`}
-                className="card-interactive group flex flex-col gap-3 p-6"
+                className="flex flex-col gap-3 p-6"
               >
                 <span className="icon-tile">
                   <HowToDonateMethodIcon name={method.icon} />
@@ -50,7 +51,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </span>
-              </Link>
+              </InteractiveCard>
             ))}
           </div>
         </div>
@@ -58,15 +59,15 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
 
       <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
         <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-[30px] lg:grid-cols-12 lg:gap-16 lg:px-[30px] lg:py-[60px]">
-          <div className="card flex flex-col gap-3 p-6 lg:col-span-5 lg:p-8">
+          <InteractiveCard as="div" className="flex flex-col gap-3 p-6 lg:col-span-5 lg:p-8">
             <p className="kicker">Receipts</p>
             <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">
               {content.receipts.heading}
             </h2>
             <p className="text-b16 leading-[150%] text-primary-blue/85">{content.receipts.body}</p>
-          </div>
+          </InteractiveCard>
 
-          <div className="card flex flex-col gap-5 border-primary-red/30 bg-redbg p-6 lg:col-span-7 lg:p-8">
+          <InteractiveCard as="div" className="flex flex-col gap-5 border-primary-red/30 bg-redbg p-6 lg:col-span-7 lg:p-8">
             <div className="flex flex-col gap-2">
               <p className="kicker">Donations Office</p>
               <h2 className="text-h4M font-bold text-primary-blue lg:text-h4">
@@ -118,7 +119,7 @@ export function HowToDonateHubContent({ content }: { content: HowToDonateContent
                 </dd>
               </div>
             </dl>
-          </div>
+          </InteractiveCard>
         </div>
       </section>
 

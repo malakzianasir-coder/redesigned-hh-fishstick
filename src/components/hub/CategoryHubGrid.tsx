@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
 import { cn } from '@/utilities/ui'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 import { HubFilterRail } from './HubFilterRail'
 import { readHashSlug, subscribeHashSync, writeHashSlug } from './hubFilterHash'
@@ -103,43 +104,45 @@ export function CategoryHubGrid({
 
       <section id="hub-results" className="section-anchor bg-white">
         <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:pb-[60px]">
-          <div className="card-grid card-grid--3">
+        <div className="card-grid card-grid--3">
           {visibleCards.map((card) => {
             const IconComponent = ICON_MAP[card.icon as keyof typeof ICON_MAP]
             return (
-              <Link
+              <InteractiveCard
                 key={card.id}
                 href={card.href}
                 className={cn(
-                  'card-interactive group flex flex-col gap-3 p-6',
+                  'flex flex-col gap-3 p-6',
                   card.variant === 'outlined' && 'border-dashed',
                 )}
               >
-                {IconComponent ? (
-                  <span className="icon-tile">
-                    <IconComponent size={22} weight="duotone" />
+                <div className="flex flex-col gap-3 h-full">
+                  {IconComponent ? (
+                    <span className="icon-tile">
+                      <IconComponent size={22} weight="duotone" />
+                    </span>
+                  ) : null}
+                  {activeFilter === 'all' ? (
+                    <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">
+                      {card.categoryLabel}
+                    </p>
+                  ) : null}
+                  <h2 className="text-h5M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h5">
+                    {card.title}
+                  </h2>
+                  {card.excerpt ? (
+                    <p className="line-clamp-2 text-b14 text-primary-blue/85">{card.excerpt}</p>
+                  ) : null}
+                  <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
+                    {card.linkLabel ?? `View ${card.title}`}
+                    <ArrowRight
+                      size={16}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </span>
-                ) : null}
-                {activeFilter === 'all' ? (
-                  <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">
-                    {card.categoryLabel}
-                  </p>
-                ) : null}
-                <h2 className="text-h5M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h5">
-                  {card.title}
-                </h2>
-                {card.excerpt ? (
-                  <p className="line-clamp-2 text-b14 text-primary-blue/85">{card.excerpt}</p>
-                ) : null}
-                <span className="mt-auto inline-flex items-center gap-1 text-b14 font-bold text-primary-red">
-                  {card.linkLabel ?? `View ${card.title}`}
-                  <ArrowRight
-                    size={16}
-                    weight="bold"
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </span>
-              </Link>
+                </div>
+              </InteractiveCard>
             )
           })}
         </div>

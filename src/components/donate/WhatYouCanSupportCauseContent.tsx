@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { SupportCauseIcon, WhatYouCanSupportNav } from '@/components/donate/WhatYouCanSupportNav'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
@@ -50,13 +50,13 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
             />
             <div className="card-grid card-grid--2">
               {cause.optionItems.map((item) => (
-                <article key={item.title} className="card-interactive flex flex-col gap-3 p-6">
+                <InteractiveCard as="article" key={item.title} className="flex flex-col gap-3 p-6">
                   <span className="icon-tile">
                     <SupportCauseIcon name={cause.icon} />
                   </span>
                   <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{item.title}</h3>
                   <p className="text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
-                </article>
+                </InteractiveCard>
               ))}
             </div>
           </div>
@@ -69,10 +69,10 @@ export function WhatYouCanSupportCauseContent({ hub, cause }: WhatYouCanSupportC
             <BlockHeader kicker="Details" title={cause.listHeading || 'Details'} />
             <div className="card-grid card-grid--3">
               {cause.items.map((item) => (
-                <article key={item} className="card flex items-start gap-3 p-5">
+                <InteractiveCard as="article" key={item} className="flex items-start gap-3 p-5">
                   <span className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-primary-red" aria-hidden />
                   <p className="text-b14 font-semibold leading-[150%] text-primary-blue">{item}</p>
-                </article>
+                </InteractiveCard>
               ))}
             </div>
           </div>
@@ -128,7 +128,7 @@ function ImpactTableBlock({
     <section className="section-anchor border-t border-dark-gray/15 bg-whitebg">
       <div className="container mx-auto flex flex-col gap-6 px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
         <BlockHeader kicker="Impact" title={table.heading} lede={table.intro} />
-        <div className="card overflow-hidden">
+        <InteractiveCard as="div" className="overflow-hidden">
           <div className="hidden border-b border-dark-gray/15 bg-cardbg px-4 py-3 text-b12 font-semibold uppercase tracking-kicker text-dark-gray sm:grid sm:grid-cols-2 sm:gap-4">
             <span>Donation</span>
             <span>Impact</span>
@@ -142,7 +142,7 @@ function ImpactTableBlock({
               <p className="text-b14 text-primary-blue/85">{row.impact}</p>
             </div>
           ))}
-        </div>
+        </InteractiveCard>
         {table.note ? (
           <p className="text-center text-b12 text-dark-gray">{table.note}</p>
         ) : null}

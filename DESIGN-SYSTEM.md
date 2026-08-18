@@ -335,28 +335,37 @@ One boxed field system for light backgrounds, one underline variant for dark.
 
 ## 7. Cards & chips
 
-Canonical classes now exist in `globals.css` — use them:
+The **Soothing Game aesthetic** is the canonical style for all interactive cards. We use a unified React component (`<InteractiveCard>`) rather than bare CSS classes to ensure consistent interaction, motion, and accessibility.
+
+### 7.1 The `<InteractiveCard>` Component
+
+**Always** use `<InteractiveCard>` for any card that needs a hover state, glow effect, or clickable surface. It wraps the content in a continuous, smooth tracking glow effect (`MagicCardEffect`) that feels like a polished game interface. It supports polymorphic rendering via the `as` prop (`as="div"`, `as="article"`, `as="li"`, `as="a"`, etc.).
+
+```tsx
+// Example usage:
+<InteractiveCard as="article" className="flex flex-col gap-6 p-6 lg:p-8">
+  <div className="relative aspect-card overflow-hidden rounded-xl">
+    <Image fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+  </div>
+  <div className="flex flex-1 flex-col gap-2">
+    <p className="kicker">Tag</p>
+    <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
+      Title
+    </h3>
+    <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">Excerpt…</p>
+  </div>
+</InteractiveCard>
+```
+
+**Card Guidelines:**
+- **No inline layout classes:** Layout (flex, grids) should be passed via `className` to the `<InteractiveCard>` directly.
+- **Shadows:** Cards use the standard single-layer `shadow-e1` (resting) and `shadow-e2` (hover). **Do not use multilayered or stacked shadows** (e.g. `0 0 4px...`). Stick to the exact `e1`, `e2`, `e3` tokens defined in the config.
+- **Glow effect:** The `<InteractiveCard>` provides a subtle mouse-tracking glow (in `primary-red`, `primary-blue`, or `dark-gray` variants). Do not hand-roll separate hover glows.
+- **Legacy:** Bare `<div className="card">` or `<div className="card-interactive">` are deprecated and should be migrated to `<InteractiveCard>`.
+
+### 7.2 Chips & Skeletons
 
 ```html
-<!-- Static card -->
-<div class="card p-6">…</div>
-
-<!-- Interactive card (hover lift + e2 shadow) -->
-<a class="card-interactive group flex flex-col overflow-hidden">
-  <div class="relative aspect-card overflow-hidden">
-    <Image fill class="object-cover transition-transform duration-500 group-hover:scale-105" />
-  </div>
-  <div class="flex flex-1 flex-col gap-2 p-6">
-    <p class="kicker">Tag</p>
-    <h3 class="text-h6 font-bold leading-[120%] text-primary-blue
-      transition-colors group-hover:text-primary-red">Title</h3>
-    <p class="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">Excerpt…</p>
-  </div>
-</a>
-
-<!-- Overlay/media card: card + relative overflow-hidden, gradient
-     bg-gradient-to-b from-primary-blue/0 to-primary-blue, white text bottom-anchored -->
-
 <!-- Chip (filters, quick links) -->
 <button class="chip">Filter</button>
 

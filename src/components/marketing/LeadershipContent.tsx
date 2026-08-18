@@ -13,6 +13,7 @@ import { MARKETING_ICON_MAP } from '@/components/marketing/marketingIcons'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { JumpNav, MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { withJumpExternals } from '@/components/sections/withJumpExternals'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { LeadershipRecord } from '@/lib/content/types'
 
@@ -73,7 +74,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
           <BlockHeader kicker="Leadership & Governance" title="Our Founders" />
           <div className="card-grid card-grid--2">
             {page.founders.map((founder) => (
-              <article key={founder.name} className="card-interactive flex flex-col gap-4 p-6 lg:p-8">
+              <InteractiveCard as="article" key={founder.name} className="flex flex-col gap-4 p-6 lg:p-8">
                 <div className="flex items-start gap-4">
                   <PortraitSlot image={founder.image} alt={founder.name} />
                   <div className="flex-1">
@@ -105,7 +106,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                     Read full biography →
                   </Link>
                 ) : null}
-              </article>
+              </InteractiveCard>
             ))}
           </div>
         </div>
@@ -119,7 +120,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             {page.chairpersons.map((entry) => (
               <li key={entry.name} className="flex items-start gap-5">
                 <span className="tenure-dot" aria-hidden="true" />
-                <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
+                <InteractiveCard as="article" className="flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
                     <div className="flex flex-col gap-1">
@@ -135,7 +136,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                       <p className="text-b14 text-dark-gray">{entry.years}</p>
                     </div>
                   </div>
-                </article>
+                </InteractiveCard>
               </li>
             ))}
           </ol>
@@ -150,7 +151,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             {page.presidents.map((entry) => (
               <li key={entry.name} className="flex items-start gap-5">
                 <span className="tenure-dot" aria-hidden="true" />
-                <article className="card-interactive flex flex-1 flex-col gap-4 p-6">
+                <InteractiveCard as="article" className="flex flex-1 flex-col gap-4 p-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                     <PortraitSlot image={entry.image} alt={entry.name} size="logo" />
                     <div className="flex flex-col gap-1">
@@ -166,7 +167,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                       <p className="text-b14 text-dark-gray">{entry.years}</p>
                     </div>
                   </div>
-                </article>
+                </InteractiveCard>
               </li>
             ))}
           </ol>
@@ -179,13 +180,13 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
           <BlockHeader kicker="Leadership & Governance" title="Senior Management" />
           <div className="card-grid card-grid--3">
             {page.seniorManagement.map((member) => (
-              <article key={member.name} className="card-interactive flex items-center gap-4 p-5">
+              <InteractiveCard as="article" key={member.name} className="flex items-center gap-4 p-5">
                 <PortraitSlot image={member.image} alt={member.name} size="logo" />
                 <div>
                   <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{member.name}</h3>
                   <p className="text-b14 text-dark-gray">{member.role}</p>
                 </div>
-              </article>
+              </InteractiveCard>
             ))}
           </div>
         </div>
@@ -201,10 +202,10 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
           />
           <ol className="card-grid card-grid--3-xl4">
             {page.executiveCommittee.map((name, index) => (
-              <li key={name} className="card flex items-center gap-3 p-4">
+              <InteractiveCard as="li" key={name} className="flex items-center gap-3 p-4">
                 <span className="num-badge">{index + 1}</span>
                 <span className="text-b14 font-semibold text-primary-blue">{name}</span>
-              </li>
+              </InteractiveCard>
             ))}
           </ol>
         </div>
@@ -218,11 +219,10 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
             {page.coreCommittees.map((committee) => {
               const IconComponent = MARKETING_ICON_MAP[committee.icon as keyof typeof MARKETING_ICON_MAP]
               return (
-                <button
+                <InteractiveCard as="button"
                   key={committee.name}
-                  type="button"
                   onClick={() => setActiveCommittee(committee)}
-                  className="card-interactive text-left flex flex-col gap-2 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
+                  className="text-left flex flex-col gap-2 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-red/40 focus-visible:ring-offset-2"
                 >
                   {IconComponent ? (
                     <span className="icon-tile">
@@ -230,7 +230,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
                     </span>
                   ) : null}
                   <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{committee.name}</h3>
-                </button>
+                </InteractiveCard>
               )
             })}
           </div>

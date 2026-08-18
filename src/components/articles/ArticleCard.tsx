@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 import { cn } from '@/utilities/ui'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 export type ArticleCardProps = {
   title: string
@@ -39,7 +39,7 @@ export function ArticleCard({
 
   if (variant === 'event' && eventDay && eventMonth) {
     return (
-      <Link href={href} className={cn('card-interactive group flex items-start gap-4 p-6', className)}>
+      <InteractiveCard href={href} className={cn('flex items-start gap-4 p-6', className)}>
         <div className="flex shrink-0 flex-col items-center justify-center rounded-xl bg-redbg px-4 py-3 text-center text-primary-red">
           <span className="text-h5 font-bold leading-[110%]">{eventDay}</span>
           <span className="text-b12 font-semibold uppercase tracking-kicker">{eventMonth}</span>
@@ -51,13 +51,13 @@ export function ArticleCard({
           </h3>
           <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">{excerpt}</p>
         </div>
-      </Link>
+      </InteractiveCard>
     )
   }
 
   return (
-    <Link href={href} className={cn('card-interactive group flex flex-col overflow-hidden', className)}>
-      <div className="relative aspect-card overflow-hidden bg-cardbg">
+    <InteractiveCard href={href} className={cn('flex flex-col overflow-hidden', className)}>
+      <div className="aspect-card overflow-hidden bg-cardbg">
         {image ? (
           <Image
             src={image}
@@ -72,7 +72,7 @@ export function ArticleCard({
           </span>
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-2 p-6">
+      <div className="relative z-10 flex flex-1 flex-col gap-2 p-6">
         <div className="flex flex-wrap items-center gap-2">
           <p className="kicker">{kicker}</p>
           {date ? <span className="text-b12 font-semibold text-dark-gray">{date}</span> : null}
@@ -82,6 +82,6 @@ export function ArticleCard({
         </h3>
         <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">{excerpt}</p>
       </div>
-    </Link>
+    </InteractiveCard>
   )
 }

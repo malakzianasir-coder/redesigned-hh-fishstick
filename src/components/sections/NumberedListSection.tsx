@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { NumberedListSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
@@ -20,9 +21,9 @@ export function NumberedListSection({ section }: { section: NumberedListSectionD
         {/* Numbered items grid */}
         <div className="card-grid card-grid--2">
           {items.map((item, index) => (
-            <article
+            <InteractiveCard as="article"
               key={index}
-              className="card flex gap-4 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-e2"
+              className="flex gap-4 p-5 transition-all duration-300"
               style={{ transitionDelay: `${index * 40}ms` }}
             >
               {/* Number badge */}
@@ -50,7 +51,7 @@ export function NumberedListSection({ section }: { section: NumberedListSectionD
                   </ul>
                 ) : null}
               </div>
-            </article>
+            </InteractiveCard>
           ))}
         </div>
       </div>
