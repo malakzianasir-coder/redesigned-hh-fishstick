@@ -15,14 +15,19 @@
 
 @layer base {
   h1,
-  h2,
+  h2 {
+    font-size: unset;
+    font-weight: unset;
+    font-family: 'Zodiak', Georgia, serif;
+  }
+
   h3,
   h4,
   h5,
   h6 {
     font-size: unset;
     font-weight: unset;
-    font-family: 'Zodiak', Georgia, serif;
+    font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
   }
 
   :root {
@@ -131,7 +136,7 @@ html[data-theme='light'] {
 
 @layer components {
   .kicker {
-    @apply text-b12 font-bold uppercase tracking-kicker text-primary-red;
+    @apply text-b12 font-bold uppercase tracking-kicker text-primary-red leading-none;
   }
 
   .field-label-text {
@@ -555,7 +560,7 @@ html[data-theme='light'] {
   }
 
   .group-badge {
-    @apply inline-flex items-center rounded-full bg-redbg px-2.5 py-0.5 text-b12 font-bold text-primary-red;
+    @apply inline-flex w-fit self-start items-center rounded-full border border-dark-gray/15 bg-cardbg px-2.5 py-1 text-b12 font-semibold leading-none text-primary-blue/80;
   }
 
   .logo-slot-lg {

@@ -45,8 +45,6 @@ export const InteractiveCard = React.forwardRef<HTMLElement, InteractiveCardProp
         ref={ref as any}
         {...props}
       >
-        <MagicCardEffect />
-        
         {children ? (
           /* ESCAPE HATCH: Renders raw children for custom layouts (like founder-card) */
           children
@@ -58,13 +56,17 @@ export const InteractiveCard = React.forwardRef<HTMLElement, InteractiveCardProp
                 {/* Image rendering would go here */}
               </div>
             )}
-            <div className="flex flex-col gap-2 p-6 flex-1">
-              {kicker && <p className="kicker">{kicker}</p>}
-              {title && <h3 className="text-h6 font-bold text-primary-blue">{title}</h3>}
+            <div className="flex flex-col gap-3 p-6 flex-1">
+              <div className="flex flex-col gap-[6px]">
+                {kicker && <p className="kicker">{kicker}</p>}
+                {title && <h3 className="text-h6 font-bold text-primary-blue">{title}</h3>}
+              </div>
               {body && <p className="text-b14 text-primary-blue/85">{body}</p>}
             </div>
           </div>
         )}
+        
+        <MagicCardEffect />
       </Component>
     )
   }

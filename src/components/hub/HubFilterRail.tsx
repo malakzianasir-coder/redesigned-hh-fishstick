@@ -23,7 +23,7 @@ type HubFilterRailProps = {
   onSelect: (slug: string) => void
   externals?: HubExternalLink[]
   ariaLabel?: string
-  /** Show numeric counts on chips. Default false — enable for doctors / lab tests only. */
+  /** Show numeric counts on chips. Default true. */
   showCounts?: boolean
   /** Return a section id to scroll into view after a filter chip is selected. */
   scrollToTarget?: (slug: string) => string | null | undefined
@@ -35,7 +35,7 @@ export function HubFilterRail({
   onSelect,
   externals = [],
   ariaLabel = 'Filter by topic',
-  showCounts = false,
+  showCounts = true,
   scrollToTarget,
 }: HubFilterRailProps) {
   const lenis = useLenis()

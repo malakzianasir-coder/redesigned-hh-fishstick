@@ -1,6 +1,7 @@
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { PatientCareHubGroup } from '@/lib/content/types'
 
@@ -26,10 +27,10 @@ export function PatientCareHubSection({ kicker, heading, lede, groups }: Patient
                 {group.cards.map((card) => {
                   const IconComponent = PATIENT_CARE_ICON_MAP[card.icon as keyof typeof PATIENT_CARE_ICON_MAP]
                   return (
-                    <Link
+                    <InteractiveCard
                       key={card.href}
                       href={card.href}
-                      className="card-interactive group flex flex-col gap-3 p-6"
+                      className="flex flex-col gap-3 p-6"
                     >
                       {IconComponent ? (
                         <span className="icon-tile">
@@ -48,7 +49,7 @@ export function PatientCareHubSection({ kicker, heading, lede, groups }: Patient
                           className="transition-transform duration-300 group-hover:translate-x-1"
                         />
                       </span>
-                    </Link>
+                    </InteractiveCard>
                   )
                 })}
               </div>

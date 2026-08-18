@@ -1,6 +1,4 @@
-import Link from 'next/link'
-import React from 'react'
-
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import { sectionMeasureClasses } from '@/components/site/sectionMeasures'
 import type { ServiceGroupsSectionData } from '@/lib/content/types'
@@ -57,33 +55,23 @@ export function ServiceGroupsSection({ section }: { section: ServiceGroupsSectio
                     <span className="icon-tile">
                       <SectionIcon name={group.icon || iconForServiceHeading(group.heading)} />
                     </span>
-                    <span className="flex-1 text-h6M font-bold text-primary-blue lg:text-h6">
+                    <span className="flex-1 text-b16 font-bold text-primary-blue">
                       {group.heading}
                     </span>
                     <SectionIcon name="arrow-up-right" size={18} className="text-dark-gray" />
                   </>
                 )
 
-                if (group.href) {
-                  return (
-                    <Link
-                      key={group.slug || group.heading}
-                      href={group.href}
-                      className="card-interactive flex items-center gap-3 p-5"
-                      style={{ transitionDelay: `${index * 50}ms` }}
-                    >
-                      {content}
-                    </Link>
-                  )
-                }
-
                 return (
-                  <article
+                  <InteractiveCard
                     key={group.slug || group.heading}
-                    className="card-interactive flex items-center gap-3 p-5"
+                    href={group.href}
+                    as={group.href ? undefined : 'article'}
+                    className="flex items-center gap-3 p-5"
+                    style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     {content}
-                  </article>
+                  </InteractiveCard>
                 )
               })}
             </div>

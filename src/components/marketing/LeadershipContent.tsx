@@ -183,7 +183,7 @@ export function LeadershipContent({ page }: { page: LeadershipRecord }) {
               <InteractiveCard as="article" key={member.name} className="flex items-center gap-4 p-5">
                 <PortraitSlot image={member.image} alt={member.name} size="logo" />
                 <div>
-                  <h3 className="text-h6M font-bold text-primary-blue lg:text-h6">{member.name}</h3>
+                  <h3 className="text-b16 font-bold leading-[130%] text-primary-blue">{member.name}</h3>
                   <p className="text-b14 text-dark-gray">{member.role}</p>
                 </div>
               </InteractiveCard>

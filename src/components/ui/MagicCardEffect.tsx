@@ -8,6 +8,7 @@ export function MagicCardEffect() {
   const glowRedRef = useRef<HTMLDivElement>(null)
   const glowNavyRef = useRef<HTMLDivElement>(null)
   const glowCoreRef = useRef<HTMLDivElement>(null)
+  const defaultGlowRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const parent = ref.current?.closest('.group') as HTMLElement
@@ -35,34 +36,42 @@ export function MagicCardEffect() {
 
     const baseDur = 6000 // Slow 6-second color cycle
     
-    // Global stagger offset for this specific card
-    const staggerOffset = Math.random() * baseDur
+    // Find this card's index among its siblings to create a sequential wave stagger
+    let childIndex = 0
+    const parentCard = gRed.closest('.card-interactive')
+    if (parentCard && parentCard.parentElement) {
+      childIndex = Array.from(parentCard.parentElement.children).indexOf(parentCard)
+    }
+
+    // Offset the start time deeply into the negative so there's no start delay.
+    // Subtracting from a large base ensures Card 0 is ahead of Card 1 (left-to-right wave).
+    const staggerOffset = -(100000 - (childIndex * 800))
 
     const redAnim = gRed.animate([
       { opacity: 1, offset: 0 },
       { opacity: 0, offset: 0.33 },
       { opacity: 0, offset: 0.66 },
       { opacity: 1, offset: 1 }
-    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: -staggerOffset })
+    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
     
     const navyAnim = gNavy.animate([
       { opacity: 0, offset: 0 },
       { opacity: 1, offset: 0.33 },
       { opacity: 0, offset: 0.66 },
       { opacity: 0, offset: 1 }
-    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: -staggerOffset })
+    ], { duration: baseDur, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
 
     const coreAnim = gCore.animate([
       { opacity: 0.3 },
       { opacity: 0.8 },
       { opacity: 0.3 }
-    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out', delay: -staggerOffset })
+    ], { duration: 3000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
 
     const defaultAnim = gDefault.animate([
-      { opacity: 0.3 },
-      { opacity: 0.7 },
-      { opacity: 0.3 }
-    ], { duration: 4000, iterations: Infinity, easing: 'ease-in-out', delay: -staggerOffset })
+      { opacity: 0.4 },
+      { opacity: 1.0 },
+      { opacity: 0.4 }
+    ], { duration: 4000, iterations: Infinity, easing: 'ease-in-out', delay: staggerOffset })
 
     return () => {
       redAnim.cancel()
@@ -82,7 +91,7 @@ export function MagicCardEffect() {
           ref={defaultGlowRef}
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(400px 200px at 50% 0%, rgba(27, 36, 65, 0.08) 0%, transparent 100%)',
+            background: 'radial-gradient(400px 200px at 50% 0%, rgba(27, 36, 65, 0.12) 0%, transparent 100%)',
           }}
         />
       </div>

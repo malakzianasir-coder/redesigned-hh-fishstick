@@ -325,15 +325,19 @@ export function HomePage() {
 
                 </div>
 
-                <div className="flex flex-1 flex-col gap-2 p-6">
+                <div className="flex flex-1 flex-col gap-3 p-6">
 
-                  <p className="kicker">{card.kicker}</p>
+                  <div className="flex flex-col gap-[6px]">
 
-                  <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
+                    <p className="kicker">{card.kicker}</p>
 
-                    {card.title}
+                    <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
 
-                  </h3>
+                      {card.title}
+
+                    </h3>
+
+                  </div>
 
                   <p className="text-b14 leading-[150%] text-primary-blue/85">{card.body}</p>
 
@@ -495,15 +499,19 @@ export function HomePage() {
 
                 </div>
 
-                <div className="flex flex-1 flex-col gap-2 p-6">
+                <div className="flex flex-1 flex-col gap-3 p-6">
 
-                  <p className="kicker">Patient Story</p>
+                  <div className="flex flex-col gap-[6px]">
 
-                  <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
+                    <p className="kicker">Patient Story</p>
 
-                    {item.title}
+                    <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
 
-                  </h3>
+                      {item.title}
+
+                    </h3>
+
+                  </div>
 
                   <p className="text-b14 leading-[150%] text-primary-blue/85">{item.body}</p>
 
@@ -675,7 +683,7 @@ export function HomePage() {
 
                 <div className="flex flex-col gap-1">
 
-                  <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
+                  <h3 className="text-b16 font-bold leading-[130%] text-primary-blue transition-colors group-hover:text-primary-red">
 
                     {item.title}
 

@@ -274,13 +274,15 @@ function DoctorCard({ doctor }: { doctor: DoctorRecord }) {
           <User size={28} weight="duotone" className="text-dark-gray" aria-hidden />
         )}
       </div>
-      <div className="min-w-0 flex-1">
-        <p className="kicker">{doctor.specialty}</p>
-        <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors duration-200 group-hover:text-primary-red">
-          {doctor.name}
-        </h3>
-        <p className="mt-1 text-b14 leading-[150%] text-primary-blue/85">{doctor.department}</p>
-        {badge ? <span className="group-badge mt-2">{badge}</span> : null}
+      <div className="min-w-0 flex-1 flex flex-col items-start gap-1">
+        <div className="flex flex-col gap-[6px]">
+          <p className="kicker">{doctor.specialty}</p>
+          <h3 className="text-b16 font-bold leading-[130%] text-primary-blue transition-colors duration-200 group-hover:text-primary-red">
+            {doctor.name}
+          </h3>
+        </div>
+        <p className="text-b14 leading-[150%] text-primary-blue/85">{doctor.department}</p>
+        {badge ? <span className="group-badge mt-1 self-start">{badge}</span> : null}
       </div>
     </InteractiveCard>
   )

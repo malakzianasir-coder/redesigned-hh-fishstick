@@ -90,34 +90,37 @@ Tailwind palette colors (`slate-*`, `gray-*`, `red-500/600`, `blue-*`, `rose-*`,
 
 | Token | Stack | Usage |
 |---|---|---|
-| `font-display` | Zodiak → Georgia → serif | Display type on non-heading elements (rare) |
-| `font-sans` | Open Sans → system-ui | Explicit sans when overriding |
+| `font-display` | Zodiak → Georgia → serif | Page/hero titles (`h1`) and major section headings (`h2`) |
+| `font-sans` | Open Sans → system-ui | Body text, card titles (`h3`–`h6`), secondary headings, all UI |
 | `font-mono` | ui-monospace | Till/IBAN identifiers only |
 
-Body text inherits Open Sans automatically; **semantic `h1`–`h6` tags get Zodiak
-automatically** via base CSS. Always use real heading tags for headings — don't style a
-`p`/`div` as one.
+Body text, buttons, form fields, and **secondary headings / card titles (`h3`–`h6`)** inherit
+Open Sans automatically. **Semantic `h1` and `h2` tags get Zodiak automatically** via base CSS.
+Always use real heading tags for headings — don't style a `p`/`div` as one.
 
 ### 2.2 Scale
 
-| Token | Size | Mobile pair | Usage |
-|---|---|---|---|
-| `h1` | 42px | `h1M` 32px | Page/hero titles |
-| `h2` | 34px | `h2M` 28px | Major sections |
-| `h3` | 30px | `h3M` 24px | Block headings |
-| `h4` | 28px | `h4M` 22px | Sub-sections |
-| `h5` | 24px | `h5M` 20px | Card-group titles |
-| `h6` | 20px | `h6M` 18px | Card titles |
-| `b18` | 18px | — | Leads, pull quotes |
-| `b16` | 16px | — | Body |
-| `b14` | 14px | — | Small body, meta, dense UI |
-| `b12` | 12px | — | Kickers, tags, breadcrumbs |
-| `label` | 11px | — | Field/group labels |
+| Token | Size | Mobile pair | Font | Usage |
+|---|---|---|---|---|
+| `h1` | 42px | `h1M` 32px | Zodiak | Page/hero titles |
+| `h2` | 34px | `h2M` 28px | Zodiak | Major sections |
+| `h3` | 30px | `h3M` 24px | Open Sans | Block headings |
+| `h4` | 28px | `h4M` 22px | Open Sans | Sub-sections |
+| `h5` | 24px | `h5M` 20px | Open Sans | Card-group / secondary titles |
+| `h6` | 20px | `h6M` 18px | Open Sans | Card titles |
+| `b18` | 18px | — | Open Sans | Leads, pull quotes |
+| `b16` | 16px | — | Open Sans | Body |
+| `b14` | 14px | — | Open Sans | Small body, meta, dense UI |
+| `b12` | 12px | — | Open Sans | Kickers, tags, breadcrumbs |
+| `label` | 11px | — | Open Sans | Field/group labels |
 
 Rules:
 
-- Every heading is responsive: `text-h3M lg:text-h3` (never flat `text-h3`).
-- Line heights: `leading-[110%]` (h1), `leading-[120%]` (h2–h6), `leading-[150%]` (body).
+- **Card titles are always Open Sans** (`h6` scale: `text-h6M lg:text-h6`). Never apply `font-display` to card-level headings.
+- **Compact / horizontal cards use `b16 font-bold`** — any card that is a dense horizontal row (photo + name + role, icon + label + arrow, date badge + title + excerpt) should use `text-b16 font-bold leading-[130%]`, not `text-h6`. Tall vertical cards (image → title → excerpt) keep `text-h6`.
+- Zodiak is strictly reserved for page titles (`h1`) and primary section headings (`h2`).
+- Every heading is responsive: `text-h3M lg:text-h3` (never flat `text-h3`). Exception: `text-b16 font-bold` at both breakpoints (already a body-scale token with no mobile pair needed).
+- Line heights: `leading-[110%]` (h1), `leading-[120%]` (h2–h6), `leading-[130%]` (compact card names), `leading-[150%]` (body).
   No other leading values.
 - Display tracking: `tracking-display` (−0.32%) on h1-level titles only.
 - Weights: 400 / 600 / 700 only. No `font-extrabold`/`font-black`.
@@ -127,8 +130,15 @@ Rules:
 ### 2.3 Micro-styles (canonical classes)
 
 ```html
-<p class="kicker">Section eyebrow</p>            <!-- b12 bold uppercase 0.12em primary-red -->
+<p class="kicker">Section eyebrow</p>            <!-- b12 bold uppercase 0.12em primary-red leading-none -->
 <span class="field-label-text">Group label</span> <!-- 11px semibold uppercase wide blue/55 -->
+
+<!-- Kicker & Title Pairing Rule: Always group kicker and heading with a 6px gap -->
+<div class="flex flex-col gap-[6px]">
+  <p class="kicker">Category</p>
+  <h2 class="text-h3M font-bold text-primary-blue lg:text-h3">Title</h2>
+</div>
+```
 
 <!-- Breadcrumb — b12, single row. Overflow: show the end by default; pinned white fades. -->
 <nav aria-label="Breadcrumb" class="border-b border-dark-gray/15 bg-white">
@@ -360,8 +370,32 @@ The **Soothing Game aesthetic** is the canonical style for all interactive cards
 **Card Guidelines:**
 - **No inline layout classes:** Layout (flex, grids) should be passed via `className` to the `<InteractiveCard>` directly.
 - **Shadows:** Cards use the standard single-layer `shadow-e1` (resting) and `shadow-e2` (hover). **Do not use multilayered or stacked shadows** (e.g. `0 0 4px...`). Stick to the exact `e1`, `e2`, `e3` tokens defined in the config.
-- **Glow effect:** The `<InteractiveCard>` provides a subtle mouse-tracking glow (in `primary-red`, `primary-blue`, or `dark-gray` variants). Do not hand-roll separate hover glows.
+- **Glow effect:** The `<InteractiveCard>` provides a subtle mouse-tracking glow (in `primary-red`, `primary-blue`, or `dark-gray` variants) plus an ambient left-to-right breathing pulse that staggers across sibling cards. Do not hand-roll separate hover glows.
 - **Legacy:** Bare `<div className="card">` or `<div className="card-interactive">` are deprecated and should be migrated to `<InteractiveCard>`.
+
+**Card title sizing by density:**
+
+| Card layout | Title class |
+|---|---|
+| Tall vertical — image → kicker → title → excerpt | `text-h6 font-bold leading-[120%]` |
+| Compact horizontal row — photo + name + role | `text-b16 font-bold leading-[130%]` |
+| Compact horizontal row — icon + label + arrow | `text-b16 font-bold` |
+| Compact horizontal row — date badge + title + excerpt | `text-b16 font-bold leading-[130%]` |
+
+**Badge / role tags (`.group-badge`):**
+
+Use `.group-badge` for short attribute tags on a card (e.g. "Head of Department", "Visiting Consultant"). Always ensure the parent flex column has `items-start` so the pill doesn't stretch to full card width.
+
+```html
+<!-- Correct — parent has items-start, badge is self-contained -->
+<div class="flex flex-col items-start gap-1">
+  <h3 class="text-b16 font-bold …">Dr. Name</h3>
+  <p class="text-b14 …">Department</p>
+  <span class="group-badge">Head of Department</span>
+</div>
+```
+
+`.group-badge` style: `inline-flex w-fit self-start items-center rounded-full border border-dark-gray/15 bg-cardbg px-2.5 py-1 text-b12 font-semibold leading-none text-primary-blue/80`.
 
 ### 7.2 Chips & Skeletons
 
@@ -369,7 +403,7 @@ The **Soothing Game aesthetic** is the canonical style for all interactive cards
 <!-- Chip (filters, quick links) -->
 <button class="chip">Filter</button>
 
-<!-- Filter chip with count — Doctors / Lab tests only (`HubFilterRail showCounts`) -->
+<!-- Filter chip with count — on by default in HubFilterRail (`showCounts={true}`) -->
 <button class="chip">All <span class="chip-count">24</span></button>
 
 <!-- Status chips -->
@@ -612,9 +646,7 @@ Sticky filter bars: `<div class="sticky-bar">` (hairline + blur always; sticky o
   Header global in CMS.
 - **Hub filters vs content-page jump:** the chip rail looks the same. **Hubs filter**
   (`All` + on-page groups; selecting a chip hides the rest; hash-sync like Departments).
-  **Counts:** `HubFilterRail` `showCounts` defaults **off**. Show `chip-count` only on
-  **Doctors** and **Lab tests** filter chips (those hubs use their own chip UIs with counts
-  enabled). Other hubs (Donate, About Us, Departments, Services, …) omit counts.
+  **Counts:** `HubFilterRail` `showCounts` defaults **on** (`true`). All hub filter chips display item counts by default. Pass `showCounts={false}` explicitly only when counts would be misleading or noisy (e.g. a non-enumerable content type).
   Hub cards/items within each visible section must render in **A–Z** order by title
   (or name when title is unavailable), independent of source JSON order.
   **Innermost content-full pages scroll** (no `All` chip; hash chips jump to the section

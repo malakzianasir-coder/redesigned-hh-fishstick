@@ -46,7 +46,7 @@ export function ArticleCard({
         </div>
         <div className="flex flex-col gap-1">
           <p className="kicker">{kicker}</p>
-          <h3 className="text-h6 font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red">
+          <h3 className="text-b16 font-bold leading-[130%] text-primary-blue transition-colors group-hover:text-primary-red">
             {title}
           </h3>
           <p className="line-clamp-3 text-b14 leading-[150%] text-primary-blue/85">{excerpt}</p>

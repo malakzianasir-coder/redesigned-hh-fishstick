@@ -10,6 +10,7 @@ import { readHashSlug, subscribeHashSync, writeHashSlug } from '@/components/hub
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import type { MarketingHero } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
 
@@ -118,10 +119,10 @@ export function ContentHubPage({
                   ? CONTENT_HUB_ICON_MAP[card.icon as keyof typeof CONTENT_HUB_ICON_MAP]
                   : undefined
                 return (
-                  <Link
+                  <InteractiveCard
                     key={card.slug}
                     href={card.href}
-                    className="card-interactive group flex flex-col gap-3 p-6"
+                    className="flex flex-col gap-3 p-6"
                   >
                     {IconComponent ? (
                       <span className="icon-tile">
@@ -141,7 +142,7 @@ export function ContentHubPage({
                         className="transition-transform duration-300 group-hover:translate-x-1"
                       />
                     </span>
-                  </Link>
+                  </InteractiveCard>
                 )
               })}
             </div>

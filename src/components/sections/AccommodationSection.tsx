@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { AccommodationSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
@@ -30,9 +31,10 @@ export function AccommodationSection({ section }: { section: AccommodationSectio
           </h3>
           <div className="card-grid card-grid--4">
             {rooms.map((room, index) => (
-              <article
+              <InteractiveCard
                 key={room.label}
-                className="card-interactive flex flex-col gap-4 p-5"
+                as="article"
+                className="flex flex-col gap-4 p-5"
                 style={{ transitionDelay: `${index * 60}ms` }}
               >
                 {room.image?.src ? (
@@ -53,7 +55,7 @@ export function AccommodationSection({ section }: { section: AccommodationSectio
                   <span className="room-numeral">{room.count}</span>
                   <p className="pb-1 text-b16 font-semibold text-primary-blue">{room.label}</p>
                 </div>
-              </article>
+              </InteractiveCard>
             ))}
           </div>
         </div>

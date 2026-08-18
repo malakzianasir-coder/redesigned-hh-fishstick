@@ -35,21 +35,25 @@ const CATALOGS = [
   },
 ]
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
+
 export default function DsIndexPage() {
   return (
     <div className="container mx-auto px-6 py-[30px] lg:px-[30px] lg:py-[60px]">
-      <p className="kicker">Dev only</p>
-      <h1 className="text-h2M font-bold text-primary-blue lg:text-h2">Design System Catalogs</h1>
+      <div className="flex flex-col gap-[6px]">
+        <p className="kicker">Dev only</p>
+        <h1 className="text-h2M font-bold text-primary-blue lg:text-h2">Design System Catalogs</h1>
+      </div>
       <p className="mt-2 max-w-2xl text-b16 text-primary-blue/85">
         Design-system catalogs. Illustrations uses the live React renderer; other entries are HTML mockups.
       </p>
       <ul className="card-grid card-grid--3 mt-8">
         {CATALOGS.map((catalog) => (
           <li key={catalog.href}>
-            <a href={catalog.href} className="card-interactive flex flex-col gap-2 p-6">
+            <InteractiveCard href={catalog.href} className="flex flex-col gap-2 p-6">
               <h2 className="text-h6 font-bold text-primary-blue">{catalog.title}</h2>
               <p className="text-b14 text-primary-blue/85">{catalog.description}</p>
-            </a>
+            </InteractiveCard>
           </li>
         ))}
       </ul>

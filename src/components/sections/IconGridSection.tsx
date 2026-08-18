@@ -1,5 +1,4 @@
-import React from 'react'
-
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { BlockHeader } from '@/components/site/BlockHeader'
 import type { IconGridSectionData } from '@/lib/content/types'
 import { cn } from '@/utilities/ui'
@@ -26,16 +25,17 @@ export function IconGridSection({ section }: { section: IconGridSectionData }) {
         />
         <div className="card-grid card-grid--6 card-grid--gap-4">
           {items.map((item, index) => (
-            <article
+            <InteractiveCard
               key={item.label}
-              className="card-interactive flex flex-col items-center gap-2 p-4 text-center"
+              as="article"
+              className="flex flex-col items-center gap-2 p-4 text-center"
               style={{ transitionDelay: `${index * 50}ms` }}
             >
               <span className="icon-tile">
                 <SectionIcon name={item.icon} />
               </span>
               <p className="text-b14 font-semibold text-primary-blue">{item.label}</p>
-            </article>
+            </InteractiveCard>
           ))}
         </div>
       </div>

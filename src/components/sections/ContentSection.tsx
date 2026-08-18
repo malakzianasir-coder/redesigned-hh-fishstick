@@ -58,10 +58,12 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ section }) => {
           </div>
         ) : isStart ? (
           <div className="flex w-full flex-col gap-4 text-start">
-            {kicker ? <p className="kicker">{kicker}</p> : null}
-            {heading ? (
-              <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
-            ) : null}
+            <div className="flex flex-col gap-[6px]">
+              {kicker ? <p className="kicker">{kicker}</p> : null}
+              {heading ? (
+                <h2 className="text-h3M font-bold leading-[120%] text-primary-blue lg:text-h3">{heading}</h2>
+              ) : null}
+            </div>
             {paragraphs.length > 0 ? (
               <div className="flex w-full flex-col gap-4">
                 {paragraphs.map((paragraph, index) => (

@@ -122,14 +122,14 @@ export function CategoryHubGrid({
                       <IconComponent size={22} weight="duotone" />
                     </span>
                   ) : null}
-                  {activeFilter === 'all' ? (
-                    <p className="text-b12 font-bold uppercase tracking-kicker text-primary-red">
-                      {card.categoryLabel}
-                    </p>
-                  ) : null}
-                  <h2 className="text-h5M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h5">
-                    {card.title}
-                  </h2>
+                  <div className="flex flex-col gap-[6px]">
+                    {activeFilter === 'all' ? (
+                      <p className="kicker">{card.categoryLabel}</p>
+                    ) : null}
+                    <h3 className="text-h6M font-bold text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">
+                      {card.title}
+                    </h3>
+                  </div>
                   {card.excerpt ? (
                     <p className="line-clamp-2 text-b14 text-primary-blue/85">{card.excerpt}</p>
                   ) : null}

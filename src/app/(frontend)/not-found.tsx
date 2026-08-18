@@ -13,6 +13,7 @@ import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
 import { MarketingBreadcrumb } from '@/components/marketing/MarketingShell'
 import { BlockHeader } from '@/components/site/BlockHeader'
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 
 export const metadata: Metadata = {
   title: 'Page not found',
@@ -91,20 +92,20 @@ export default function NotFound() {
           />
           <div className="card-grid card-grid--3">
             {DESTINATIONS.map(({ title, href, excerpt, linkLabel, Icon }) => (
-              <Link
+              <InteractiveCard
                 key={href}
                 href={href}
-                className="card-interactive group flex flex-col gap-3 p-6"
+                className="flex flex-col gap-3 p-6"
               >
                 <span className="icon-tile">
                   <Icon size={22} weight="duotone" />
                 </span>
-                <h2 className="text-h6M font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">
+                <h3 className="text-h6M font-bold leading-[120%] text-primary-blue transition-colors group-hover:text-primary-red lg:text-h6">
                   {title}
-                </h2>
+                </h3>
                 <p className="text-b14 leading-[150%] text-primary-blue/85">{excerpt}</p>
                 <span className="mt-auto text-b14 font-bold text-primary-red">{linkLabel}</span>
-              </Link>
+              </InteractiveCard>
             ))}
           </div>
         </div>

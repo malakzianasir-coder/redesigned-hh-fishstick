@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 
+import { InteractiveCard } from '@/components/ui/InteractiveCard'
 import { SupportCauseIcon, WhatYouCanSupportNav } from '@/components/donate/WhatYouCanSupportNav'
 import { MarketingHeroSection } from '@/components/marketing/MarketingHero'
 import { MarketingSupportCTA } from '@/components/marketing/MarketingSupportCTA'
@@ -31,10 +32,10 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
           />
           <div className="card-grid card-grid--3">
             {causes.map((cause) => (
-              <Link
+              <InteractiveCard
                 key={cause.slug}
                 href={`/donate/what-you-can-support/${cause.slug}`}
-                className="card-interactive group flex flex-col gap-3 p-6"
+                className="flex flex-col gap-3 p-6"
               >
                 <span className="icon-tile">
                   <SupportCauseIcon name={cause.icon} />
@@ -51,7 +52,7 @@ export function WhatYouCanSupportHubContent({ content }: { content: WhatYouCanSu
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </span>
-              </Link>
+              </InteractiveCard>
             ))}
           </div>
         </div>
