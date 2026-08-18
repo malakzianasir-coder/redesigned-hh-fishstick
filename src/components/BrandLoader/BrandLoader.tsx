@@ -105,7 +105,7 @@ export function BrandLoader() {
     let isUnmounted = false
     const exitTimer = setTimeout(() => {
       if (!isUnmounted) setMode('exit')
-    }, 3800) // Held for a full second longer after animation finishes
+    }, 3300) // Held for half a second longer after animation finishes
 
     return () => {
       isUnmounted = true
