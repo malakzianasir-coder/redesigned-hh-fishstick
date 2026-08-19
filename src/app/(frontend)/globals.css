@@ -125,8 +125,33 @@ html {
 
 html,
 body {
+  /* Forces macOS/iOS to use subpixel text rendering (ultra-smooth fonts) */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Stops text from looking jagged during animations or shifts */
+  text-shadow: 0 0 1px rgba(0,0,0,0.01);
+  
+  /* Optimizes text layout and kerning for readability */
+  text-rendering: optimizeLegibility;
+
+  /* Prevents iOS/mobile browsers from automatically adjusting text size on rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  /* Removes the default grey/blue highlight box when tapping elements on touch devices */
+  -webkit-tap-highlight-color: transparent;
+
+  /* Prevents browsers from synthesizing "faux" bold/italic if the exact font weight isn't loaded, keeping typography pristine */
+  font-synthesis: none;
+}
+
+/* Ensure all images and icons scale smoothly without pixelation across all browsers */
+img, svg {
+  image-rendering: -webkit-optimize-contrast; /* Chrome / Safari */
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: crisp-edges; /* Standard fallback */
 }
 
 @layer utilities {
