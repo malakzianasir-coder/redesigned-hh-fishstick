@@ -191,7 +191,7 @@ html[data-theme='light'] {
   }
 
   .chip-count {
-    @apply text-label font-semibold tabular-nums leading-none text-dark-gray;
+    @apply text-label font-semibold tabular-nums text-dark-gray mt-[2px];
   }
 
   .chip:hover .chip-count {
