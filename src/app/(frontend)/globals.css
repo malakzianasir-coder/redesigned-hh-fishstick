@@ -183,11 +183,11 @@ html[data-theme='light'] {
   }
 
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-dark-gray/15 bg-white px-3 py-1.5 text-b14 font-semibold text-primary-blue transition-colors duration-200 hover:border-primary-red/40 hover:bg-redbg hover:text-primary-red;
+    @apply inline-flex items-center gap-2 rounded-full border border-dark-gray/15 bg-white px-3 py-1.5 text-b14 font-semibold text-primary-blue transition-colors duration-200 hover:border-primary-blue/40 hover:bg-primary-blue/5 hover:text-primary-blue;
   }
 
   .chip.is-active {
-    @apply border-primary-red bg-primary-red text-white hover:border-primary-red hover:bg-primary-red hover:text-white;
+    @apply border-primary-blue bg-primary-blue text-white hover:border-primary-blue hover:bg-primary-blue hover:text-white;
   }
 
   .chip-count {
@@ -195,7 +195,7 @@ html[data-theme='light'] {
   }
 
   .chip:hover .chip-count {
-    @apply text-primary-red;
+    @apply text-primary-blue;
   }
 
   .chip.is-active .chip-count,
@@ -1263,7 +1263,7 @@ html[data-theme='light'] {
   outline: none;
   box-shadow:
     0 0 0 2px #fff,
-    0 0 0 4px rgb(227 0 22 / 0.4);
+    0 0 0 4px rgba(27, 36, 65, 0.4);
 }
 
 .ways-panel {
@@ -1292,8 +1292,8 @@ html[data-theme='light'] {
 }
 
 .ways-amount.chip.is-active {
-  background: #e30016;
-  border-color: #e30016;
+  background: #1B2441;
+  border-color: #1B2441;
   color: #fff;
 }
 
