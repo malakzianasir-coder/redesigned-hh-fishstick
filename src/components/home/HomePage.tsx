@@ -51,10 +51,10 @@ const ICON_MAP = {
 
 
 
-export function HomePage() {
-
-  const content = getHomeContent()
-  const doctorsWithPhotos = getDoctorsHub().doctors.filter((doctor) => Boolean(doctor.image)).slice(0, 6)
+export function HomePage({ content: customContent, doctors: customDoctors }: { content?: any; doctors?: any[] } = {}) {
+  const content = customContent || getHomeContent()
+  const doctorsList = customDoctors || getDoctorsHub().doctors
+  const doctorsWithPhotos = doctorsList.filter((doctor) => Boolean(doctor.image)).slice(0, 6)
   const teamSlides = doctorsWithPhotos.map((doctor) => ({
     src: doctor.image!,
     alt: doctor.name,

@@ -16,6 +16,8 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { LegacyPages } from './collections/LegacyPages'
 import { LegacySiteConfig } from './globals/LegacySiteConfig'
+import { SiteSettings } from './globals/SiteSettings'
+import { Navigation } from './globals/Navigation'
 import { LabTests } from './collections/LabTests'
 import { Donations } from './collections/Donations'
 import { Doctors } from './collections/Doctors'
@@ -101,7 +103,7 @@ export default buildConfig({
     LegacyPages,
   ],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, LegacySiteConfig],
+  globals: [Header, Footer, LegacySiteConfig, SiteSettings, Navigation],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

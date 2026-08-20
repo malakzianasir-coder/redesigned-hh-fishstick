@@ -135,11 +135,15 @@ export interface Config {
     header: Header;
     footer: Footer;
     'legacy-site-config': LegacySiteConfig;
+    'site-settings': SiteSetting;
+    navigation: Navigation;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'legacy-site-config': LegacySiteConfigSelect<false> | LegacySiteConfigSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    navigation: NavigationSelect<false> | NavigationSelect<true>;
   };
   locale: null;
   widgets: {
@@ -884,15 +888,266 @@ export interface Donation {
 export interface Department {
   id: string;
   title: string;
-  /**
-   * e.g. Surgery & Allied Specialties
-   */
   category: string;
   categorySlug?: string | null;
   description?: string | null;
   excerpt?: string | null;
+  hero?: {
+    variant?: string | null;
+    kicker?: string | null;
+    title?: string | null;
+    tagline?: string | null;
+    excerpt?: string | null;
+    /**
+     * Static image path e.g. /media/doctor.webp or full URL
+     */
+    image?: string | null;
+    imageAlt?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    supportLine?: string | null;
+    chips?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          sublabel?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    sliderSlides?:
+      | {
+          kicker?: string | null;
+          title: string;
+          excerpt?: string | null;
+          image?: string | null;
+          ctaLabel?: string | null;
+          ctaHref?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  jumpLinks?:
+    | {
+        id: string;
+        label: string;
+      }[]
+    | null;
+  pageSections?:
+    | (
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            body?: string | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            actions?:
+              | {
+                  label: string;
+                  href: string;
+                  variant?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentSection';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            columns?: ('2' | '3' | '4') | null;
+            cards?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardGrid';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            stats?:
+              | {
+                  value: string;
+                  label: string;
+                  sublabel?: string | null;
+                  icon?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statsOrbit';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            description?: string | null;
+            primaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            styleVariant?: ('blue' | 'red' | 'light') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaBanner';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            options?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'waysToGive';
+          }
+        | {
+            heading?: string | null;
+            lede?: string | null;
+            donors?:
+              | {
+                  number?: number | null;
+                  name: string;
+                  category?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donorWall';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            milestones?:
+              | {
+                  year: string;
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'milestones';
+          }
+        | {
+            title?: string | null;
+            lede?: string | null;
+            logos?:
+              | {
+                  title: string;
+                  src: string;
+                  href?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceLogos';
+          }
+        | {
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            slides?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  image?: string | null;
+                  specs?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'machineryCarousel';
+          }
+      )[]
+    | null;
+  servicesList?:
+    | {
+        title: string;
+        description?: string | null;
+        href?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  contactInfo?: {
+    location?: string | null;
+    phone?: string | null;
+    timings?: string | null;
+  };
   /**
-   * Temporary JSON store for the Hero data until the new page builder blocks are defined.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyHero?:
     | {
@@ -904,7 +1159,7 @@ export interface Department {
     | boolean
     | null;
   /**
-   * Temporary JSON store for jump links.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyJumpLinks?:
     | {
@@ -916,7 +1171,7 @@ export interface Department {
     | boolean
     | null;
   /**
-   * Temporary JSON store for the legacy section blocks.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacySections?:
     | {
@@ -942,6 +1197,20 @@ export interface Doctor {
   specialty?: string | null;
   department?: string | null;
   role?: string | null;
+  qualifications?: string | null;
+  experience?: string | null;
+  bio?: string | null;
+  opdSchedule?:
+    | {
+        day: string;
+        timing: string;
+        room?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  contactPhone?: string | null;
+  email?: string | null;
+  image?: string | null;
   tags?:
     | {
         [k: string]: unknown;
@@ -951,7 +1220,6 @@ export interface Doctor {
     | number
     | boolean
     | null;
-  image?: string | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -968,8 +1236,263 @@ export interface Service {
   categorySlug?: string | null;
   description?: string | null;
   excerpt?: string | null;
+  hero?: {
+    variant?: string | null;
+    kicker?: string | null;
+    title?: string | null;
+    tagline?: string | null;
+    excerpt?: string | null;
+    /**
+     * Static image path e.g. /media/doctor.webp or full URL
+     */
+    image?: string | null;
+    imageAlt?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    supportLine?: string | null;
+    chips?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          sublabel?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    sliderSlides?:
+      | {
+          kicker?: string | null;
+          title: string;
+          excerpt?: string | null;
+          image?: string | null;
+          ctaLabel?: string | null;
+          ctaHref?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  jumpLinks?:
+    | {
+        id: string;
+        label: string;
+      }[]
+    | null;
+  pageSections?:
+    | (
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            body?: string | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            actions?:
+              | {
+                  label: string;
+                  href: string;
+                  variant?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentSection';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            columns?: ('2' | '3' | '4') | null;
+            cards?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardGrid';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            stats?:
+              | {
+                  value: string;
+                  label: string;
+                  sublabel?: string | null;
+                  icon?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statsOrbit';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            description?: string | null;
+            primaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            styleVariant?: ('blue' | 'red' | 'light') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaBanner';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            options?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'waysToGive';
+          }
+        | {
+            heading?: string | null;
+            lede?: string | null;
+            donors?:
+              | {
+                  number?: number | null;
+                  name: string;
+                  category?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donorWall';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            milestones?:
+              | {
+                  year: string;
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'milestones';
+          }
+        | {
+            title?: string | null;
+            lede?: string | null;
+            logos?:
+              | {
+                  title: string;
+                  src: string;
+                  href?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceLogos';
+          }
+        | {
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            slides?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  image?: string | null;
+                  specs?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'machineryCarousel';
+          }
+      )[]
+    | null;
+  keyProcedures?:
+    | {
+        name: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
   /**
-   * Temporary JSON store for the Hero data.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyHero?:
     | {
@@ -981,7 +1504,7 @@ export interface Service {
     | boolean
     | null;
   /**
-   * Temporary JSON store for jump links.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyJumpLinks?:
     | {
@@ -993,7 +1516,7 @@ export interface Service {
     | boolean
     | null;
   /**
-   * Temporary JSON store for the legacy section blocks.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacySections?:
     | {
@@ -1018,10 +1541,21 @@ export interface News {
   title: string;
   tagLine?: string | null;
   shortDescription?: string | null;
-  /**
-   * String path to media
-   */
   heroImage?: string | null;
+  articleBody?: string | null;
+  paragraphs?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  author?: {
+    name?: string | null;
+    role?: string | null;
+    avatar?: string | null;
+  };
+  publishedAt?: string | null;
+  featured?: boolean | null;
   categories?:
     | {
         [k: string]: unknown;
@@ -1040,19 +1574,8 @@ export interface News {
     | number
     | boolean
     | null;
-  author?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  publishedAt?: string | null;
-  featured?: boolean | null;
   /**
-   * Temporary JSON store for the legacy rich text body.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyContent?:
     | {
@@ -1087,6 +1610,21 @@ export interface Event {
   tagLine?: string | null;
   shortDescription?: string | null;
   heroImage?: string | null;
+  eventType?: string | null;
+  eventDate?: string | null;
+  eventTime?: string | null;
+  eventVenue?: string | null;
+  eventEntry?: string | null;
+  eventBody?: string | null;
+  paragraphs?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  registrationLink?: string | null;
+  publishedAt?: string | null;
+  featured?: boolean | null;
   categories?:
     | {
         [k: string]: unknown;
@@ -1096,15 +1634,8 @@ export interface Event {
     | number
     | boolean
     | null;
-  eventType?: string | null;
-  eventDate?: string | null;
-  eventTime?: string | null;
-  eventVenue?: string | null;
-  eventEntry?: string | null;
-  publishedAt?: string | null;
-  featured?: boolean | null;
   /**
-   * Temporary JSON store for the legacy rich text body.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyContent?:
     | {
@@ -1139,6 +1670,270 @@ export interface DonationCause {
   kind?: string | null;
   description?: string | null;
   excerpt?: string | null;
+  icon?: string | null;
+  zakatEligible?: boolean | null;
+  suggestedAmounts?:
+    | {
+        amount: number;
+        label: string;
+        impact?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bankAccounts?:
+    | {
+        bankName: string;
+        accountTitle: string;
+        accountNumber: string;
+        iban: string;
+        branch?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  hero?: {
+    variant?: string | null;
+    kicker?: string | null;
+    title?: string | null;
+    tagline?: string | null;
+    excerpt?: string | null;
+    /**
+     * Static image path e.g. /media/doctor.webp or full URL
+     */
+    image?: string | null;
+    imageAlt?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    supportLine?: string | null;
+    chips?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          sublabel?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    sliderSlides?:
+      | {
+          kicker?: string | null;
+          title: string;
+          excerpt?: string | null;
+          image?: string | null;
+          ctaLabel?: string | null;
+          ctaHref?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  jumpLinks?:
+    | {
+        id: string;
+        label: string;
+      }[]
+    | null;
+  pageSections?:
+    | (
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            body?: string | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            actions?:
+              | {
+                  label: string;
+                  href: string;
+                  variant?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentSection';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            columns?: ('2' | '3' | '4') | null;
+            cards?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardGrid';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            stats?:
+              | {
+                  value: string;
+                  label: string;
+                  sublabel?: string | null;
+                  icon?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statsOrbit';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            description?: string | null;
+            primaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            styleVariant?: ('blue' | 'red' | 'light') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaBanner';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            options?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'waysToGive';
+          }
+        | {
+            heading?: string | null;
+            lede?: string | null;
+            donors?:
+              | {
+                  number?: number | null;
+                  name: string;
+                  category?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donorWall';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            milestones?:
+              | {
+                  year: string;
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'milestones';
+          }
+        | {
+            title?: string | null;
+            lede?: string | null;
+            logos?:
+              | {
+                  title: string;
+                  src: string;
+                  href?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceLogos';
+          }
+        | {
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            slides?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  image?: string | null;
+                  specs?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'machineryCarousel';
+          }
+      )[]
+    | null;
+  /**
+   * Legacy bank account keys array
+   */
   bankAccountKeys?:
     | {
         [k: string]: unknown;
@@ -1148,6 +1943,9 @@ export interface DonationCause {
     | number
     | boolean
     | null;
+  /**
+   * Zakat calculator configuration
+   */
   zakatCalculator?:
     | {
         [k: string]: unknown;
@@ -1158,7 +1956,7 @@ export interface DonationCause {
     | boolean
     | null;
   /**
-   * Temporary JSON store for the Hero data.
+   * Legacy raw JSON store for fallback compatibility.
    */
   legacyHero?:
     | {
@@ -1169,6 +1967,9 @@ export interface DonationCause {
     | number
     | boolean
     | null;
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
   legacyJumpLinks?:
     | {
         [k: string]: unknown;
@@ -1178,6 +1979,9 @@ export interface DonationCause {
     | number
     | boolean
     | null;
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
   legacySections?:
     | {
         [k: string]: unknown;
@@ -1203,6 +2007,269 @@ export interface PatientWelfarePage {
   categorySlug?: string | null;
   description?: string | null;
   excerpt?: string | null;
+  hero?: {
+    variant?: string | null;
+    kicker?: string | null;
+    title?: string | null;
+    tagline?: string | null;
+    excerpt?: string | null;
+    /**
+     * Static image path e.g. /media/doctor.webp or full URL
+     */
+    image?: string | null;
+    imageAlt?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    supportLine?: string | null;
+    chips?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          sublabel?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    sliderSlides?:
+      | {
+          kicker?: string | null;
+          title: string;
+          excerpt?: string | null;
+          image?: string | null;
+          ctaLabel?: string | null;
+          ctaHref?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  jumpLinks?:
+    | {
+        id: string;
+        label: string;
+      }[]
+    | null;
+  pageSections?:
+    | (
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            body?: string | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            actions?:
+              | {
+                  label: string;
+                  href: string;
+                  variant?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentSection';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            columns?: ('2' | '3' | '4') | null;
+            cards?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardGrid';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            stats?:
+              | {
+                  value: string;
+                  label: string;
+                  sublabel?: string | null;
+                  icon?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statsOrbit';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            description?: string | null;
+            primaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            styleVariant?: ('blue' | 'red' | 'light') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaBanner';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            options?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'waysToGive';
+          }
+        | {
+            heading?: string | null;
+            lede?: string | null;
+            donors?:
+              | {
+                  number?: number | null;
+                  name: string;
+                  category?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donorWall';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            milestones?:
+              | {
+                  year: string;
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'milestones';
+          }
+        | {
+            title?: string | null;
+            lede?: string | null;
+            logos?:
+              | {
+                  title: string;
+                  src: string;
+                  href?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceLogos';
+          }
+        | {
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            slides?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  image?: string | null;
+                  specs?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'machineryCarousel';
+          }
+      )[]
+    | null;
+  eligibilityCriteria?:
+    | {
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  requiredDocuments?:
+    | {
+        documentName: string;
+        isMandatory?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  applicationSteps?:
+    | {
+        stepNumber: number;
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Temporary JSON store for the Hero data.
    */
@@ -1247,8 +2314,18 @@ export interface SuccessStory {
   title: string;
   heading?: string | null;
   subHeading?: string | null;
+  patientName?: string | null;
+  patientQuote?: string | null;
   category?: string | null;
-  format?: string | null;
+  format?: ('article' | 'video') | null;
+  storyParagraphs?:
+    | {
+        type?: string | null;
+        text?: string | null;
+        attribution?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   thumbnail?: string | null;
   videoUrl?: string | null;
   publishedDate?: string | null;
@@ -1271,6 +2348,9 @@ export interface SuccessStory {
     | number
     | boolean
     | null;
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
   legacyContent?:
     | {
         [k: string]: unknown;
@@ -1296,14 +2376,13 @@ export interface LabTest {
   reportingTime?: string | null;
   specimen?: string | null;
   isOutsourced?: boolean | null;
+  description?: string | null;
+  preparation?: string | null;
   alsoKnownAs?:
     | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
+        alias: string;
+        id?: string | null;
+      }[]
     | null;
   legacyDescription?:
     | {
@@ -1334,9 +2413,299 @@ export interface LabTest {
  */
 export interface LegacyPage {
   id: string;
+  title: string;
   slug: string;
-  title?: string | null;
   description?: string | null;
+  hero?: {
+    variant?: string | null;
+    kicker?: string | null;
+    title?: string | null;
+    tagline?: string | null;
+    excerpt?: string | null;
+    /**
+     * Static image path e.g. /media/doctor.webp or full URL
+     */
+    image?: string | null;
+    imageAlt?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+      variant?: string | null;
+    };
+    supportLine?: string | null;
+    chips?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          sublabel?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    sliderSlides?:
+      | {
+          kicker?: string | null;
+          title: string;
+          excerpt?: string | null;
+          image?: string | null;
+          ctaLabel?: string | null;
+          ctaHref?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  jumpLinks?:
+    | {
+        id: string;
+        label: string;
+      }[]
+    | null;
+  pageSections?:
+    | (
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            body?: string | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            actions?:
+              | {
+                  label: string;
+                  href: string;
+                  variant?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentSection';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            columns?: ('2' | '3' | '4') | null;
+            cards?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardGrid';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            stats?:
+              | {
+                  value: string;
+                  label: string;
+                  sublabel?: string | null;
+                  icon?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statsOrbit';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            description?: string | null;
+            primaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              href?: string | null;
+              variant?: string | null;
+            };
+            styleVariant?: ('blue' | 'red' | 'light') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaBanner';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            options?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  href?: string | null;
+                  icon?: string | null;
+                  badge?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'waysToGive';
+          }
+        | {
+            heading?: string | null;
+            lede?: string | null;
+            donors?:
+              | {
+                  number?: number | null;
+                  name: string;
+                  category?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donorWall';
+          }
+        | {
+            sectionId?: string | null;
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            milestones?:
+              | {
+                  year: string;
+                  title: string;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'milestones';
+          }
+        | {
+            title?: string | null;
+            lede?: string | null;
+            logos?:
+              | {
+                  title: string;
+                  src: string;
+                  href?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'complianceLogos';
+          }
+        | {
+            kicker?: string | null;
+            title?: string | null;
+            lede?: string | null;
+            slides?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  image?: string | null;
+                  specs?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'machineryCarousel';
+          }
+      )[]
+    | null;
+  homeSlider?:
+    | {
+        kicker?: string | null;
+        title: string;
+        excerpt?: string | null;
+        image: string;
+        ctaLabel?: string | null;
+        ctaHref?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  statsOrbit?:
+    | {
+        value: string;
+        label: string;
+        sublabel?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  donorWall?:
+    | {
+        number?: number | null;
+        name: string;
+        category?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  leadershipTeam?:
+    | {
+        name: string;
+        role: string;
+        description?: string | null;
+        image?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  complianceLogos?:
+    | {
+        title: string;
+        src: string;
+        href?: string | null;
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
   legacyHero?:
     | {
         [k: string]: unknown;
@@ -2149,6 +3518,279 @@ export interface DepartmentsSelect<T extends boolean = true> {
   categorySlug?: T;
   description?: T;
   excerpt?: T;
+  hero?:
+    | T
+    | {
+        variant?: T;
+        kicker?: T;
+        title?: T;
+        tagline?: T;
+        excerpt?: T;
+        image?: T;
+        imageAlt?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        supportLine?: T;
+        chips?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              sublabel?: T;
+              id?: T;
+            };
+        sliderSlides?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              excerpt?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              id?: T;
+            };
+      };
+  jumpLinks?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+      };
+  pageSections?:
+    | T
+    | {
+        contentSection?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              body?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              actions?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardGrid?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              columns?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statsOrbit?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    sublabel?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaBanner?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              description?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              styleVariant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        waysToGive?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              options?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        donorWall?:
+          | T
+          | {
+              heading?: T;
+              lede?: T;
+              donors?:
+                | T
+                | {
+                    number?: T;
+                    name?: T;
+                    category?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestones?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              milestones?:
+                | T
+                | {
+                    year?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceLogos?:
+          | T
+          | {
+              title?: T;
+              lede?: T;
+              logos?:
+                | T
+                | {
+                    title?: T;
+                    src?: T;
+                    href?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        machineryCarousel?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    specs?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  servicesList?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        href?: T;
+        id?: T;
+      };
+  contactInfo?:
+    | T
+    | {
+        location?: T;
+        phone?: T;
+        timings?: T;
+      };
   legacyHero?: T;
   legacyJumpLinks?: T;
   legacySections?: T;
@@ -2166,8 +3808,21 @@ export interface DoctorsSelect<T extends boolean = true> {
   specialty?: T;
   department?: T;
   role?: T;
-  tags?: T;
+  qualifications?: T;
+  experience?: T;
+  bio?: T;
+  opdSchedule?:
+    | T
+    | {
+        day?: T;
+        timing?: T;
+        room?: T;
+        id?: T;
+      };
+  contactPhone?: T;
+  email?: T;
   image?: T;
+  tags?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -2183,6 +3838,278 @@ export interface ServicesSelect<T extends boolean = true> {
   categorySlug?: T;
   description?: T;
   excerpt?: T;
+  hero?:
+    | T
+    | {
+        variant?: T;
+        kicker?: T;
+        title?: T;
+        tagline?: T;
+        excerpt?: T;
+        image?: T;
+        imageAlt?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        supportLine?: T;
+        chips?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              sublabel?: T;
+              id?: T;
+            };
+        sliderSlides?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              excerpt?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              id?: T;
+            };
+      };
+  jumpLinks?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+      };
+  pageSections?:
+    | T
+    | {
+        contentSection?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              body?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              actions?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardGrid?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              columns?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statsOrbit?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    sublabel?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaBanner?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              description?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              styleVariant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        waysToGive?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              options?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        donorWall?:
+          | T
+          | {
+              heading?: T;
+              lede?: T;
+              donors?:
+                | T
+                | {
+                    number?: T;
+                    name?: T;
+                    category?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestones?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              milestones?:
+                | T
+                | {
+                    year?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceLogos?:
+          | T
+          | {
+              title?: T;
+              lede?: T;
+              logos?:
+                | T
+                | {
+                    title?: T;
+                    src?: T;
+                    href?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        machineryCarousel?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    specs?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  keyProcedures?:
+    | T
+    | {
+        name?: T;
+        description?: T;
+        id?: T;
+      };
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   legacyHero?: T;
   legacyJumpLinks?: T;
   legacySections?: T;
@@ -2200,11 +4127,24 @@ export interface NewsSelect<T extends boolean = true> {
   tagLine?: T;
   shortDescription?: T;
   heroImage?: T;
-  categories?: T;
-  tags?: T;
-  author?: T;
+  articleBody?: T;
+  paragraphs?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  author?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        avatar?: T;
+      };
   publishedAt?: T;
   featured?: T;
+  categories?: T;
+  tags?: T;
   legacyContent?: T;
   legacyMeta?: T;
   slug?: T;
@@ -2221,14 +4161,22 @@ export interface EventsSelect<T extends boolean = true> {
   tagLine?: T;
   shortDescription?: T;
   heroImage?: T;
-  categories?: T;
   eventType?: T;
   eventDate?: T;
   eventTime?: T;
   eventVenue?: T;
   eventEntry?: T;
+  eventBody?: T;
+  paragraphs?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  registrationLink?: T;
   publishedAt?: T;
   featured?: T;
+  categories?: T;
   legacyContent?: T;
   legacyMeta?: T;
   slug?: T;
@@ -2245,6 +4193,284 @@ export interface DonationCausesSelect<T extends boolean = true> {
   kind?: T;
   description?: T;
   excerpt?: T;
+  icon?: T;
+  zakatEligible?: T;
+  suggestedAmounts?:
+    | T
+    | {
+        amount?: T;
+        label?: T;
+        impact?: T;
+        id?: T;
+      };
+  bankAccounts?:
+    | T
+    | {
+        bankName?: T;
+        accountTitle?: T;
+        accountNumber?: T;
+        iban?: T;
+        branch?: T;
+        id?: T;
+      };
+  hero?:
+    | T
+    | {
+        variant?: T;
+        kicker?: T;
+        title?: T;
+        tagline?: T;
+        excerpt?: T;
+        image?: T;
+        imageAlt?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        supportLine?: T;
+        chips?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              sublabel?: T;
+              id?: T;
+            };
+        sliderSlides?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              excerpt?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              id?: T;
+            };
+      };
+  jumpLinks?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+      };
+  pageSections?:
+    | T
+    | {
+        contentSection?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              body?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              actions?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardGrid?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              columns?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statsOrbit?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    sublabel?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaBanner?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              description?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              styleVariant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        waysToGive?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              options?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        donorWall?:
+          | T
+          | {
+              heading?: T;
+              lede?: T;
+              donors?:
+                | T
+                | {
+                    number?: T;
+                    name?: T;
+                    category?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestones?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              milestones?:
+                | T
+                | {
+                    year?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceLogos?:
+          | T
+          | {
+              title?: T;
+              lede?: T;
+              logos?:
+                | T
+                | {
+                    title?: T;
+                    src?: T;
+                    href?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        machineryCarousel?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    specs?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   bankAccountKeys?: T;
   zakatCalculator?: T;
   legacyHero?: T;
@@ -2265,6 +4491,286 @@ export interface PatientWelfarePagesSelect<T extends boolean = true> {
   categorySlug?: T;
   description?: T;
   excerpt?: T;
+  hero?:
+    | T
+    | {
+        variant?: T;
+        kicker?: T;
+        title?: T;
+        tagline?: T;
+        excerpt?: T;
+        image?: T;
+        imageAlt?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        supportLine?: T;
+        chips?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              sublabel?: T;
+              id?: T;
+            };
+        sliderSlides?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              excerpt?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              id?: T;
+            };
+      };
+  jumpLinks?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+      };
+  pageSections?:
+    | T
+    | {
+        contentSection?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              body?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              actions?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardGrid?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              columns?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statsOrbit?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    sublabel?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaBanner?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              description?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              styleVariant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        waysToGive?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              options?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        donorWall?:
+          | T
+          | {
+              heading?: T;
+              lede?: T;
+              donors?:
+                | T
+                | {
+                    number?: T;
+                    name?: T;
+                    category?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestones?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              milestones?:
+                | T
+                | {
+                    year?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceLogos?:
+          | T
+          | {
+              title?: T;
+              lede?: T;
+              logos?:
+                | T
+                | {
+                    title?: T;
+                    src?: T;
+                    href?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        machineryCarousel?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    specs?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  eligibilityCriteria?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  requiredDocuments?:
+    | T
+    | {
+        documentName?: T;
+        isMandatory?: T;
+        id?: T;
+      };
+  applicationSteps?:
+    | T
+    | {
+        stepNumber?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
   legacyHero?: T;
   legacyJumpLinks?: T;
   legacySections?: T;
@@ -2281,8 +4787,18 @@ export interface SuccessStoriesSelect<T extends boolean = true> {
   title?: T;
   heading?: T;
   subHeading?: T;
+  patientName?: T;
+  patientQuote?: T;
   category?: T;
   format?: T;
+  storyParagraphs?:
+    | T
+    | {
+        type?: T;
+        text?: T;
+        attribution?: T;
+        id?: T;
+      };
   thumbnail?: T;
   videoUrl?: T;
   publishedDate?: T;
@@ -2305,7 +4821,14 @@ export interface LabTestsSelect<T extends boolean = true> {
   reportingTime?: T;
   specimen?: T;
   isOutsourced?: T;
-  alsoKnownAs?: T;
+  description?: T;
+  preparation?: T;
+  alsoKnownAs?:
+    | T
+    | {
+        alias?: T;
+        id?: T;
+      };
   legacyDescription?: T;
   legacyPreparation?: T;
   slug?: T;
@@ -2318,9 +4841,313 @@ export interface LabTestsSelect<T extends boolean = true> {
  * via the `definition` "legacy-pages_select".
  */
 export interface LegacyPagesSelect<T extends boolean = true> {
-  slug?: T;
   title?: T;
+  slug?: T;
   description?: T;
+  hero?:
+    | T
+    | {
+        variant?: T;
+        kicker?: T;
+        title?: T;
+        tagline?: T;
+        excerpt?: T;
+        image?: T;
+        imageAlt?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              variant?: T;
+            };
+        supportLine?: T;
+        chips?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              sublabel?: T;
+              id?: T;
+            };
+        sliderSlides?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              excerpt?: T;
+              image?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              id?: T;
+            };
+      };
+  jumpLinks?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+      };
+  pageSections?:
+    | T
+    | {
+        contentSection?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              body?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              actions?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        cardGrid?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              columns?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        accordion?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statsOrbit?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    sublabel?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaBanner?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              description?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    variant?: T;
+                  };
+              styleVariant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        waysToGive?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              options?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    href?: T;
+                    icon?: T;
+                    badge?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        donorWall?:
+          | T
+          | {
+              heading?: T;
+              lede?: T;
+              donors?:
+                | T
+                | {
+                    number?: T;
+                    name?: T;
+                    category?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        milestones?:
+          | T
+          | {
+              sectionId?: T;
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              milestones?:
+                | T
+                | {
+                    year?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        complianceLogos?:
+          | T
+          | {
+              title?: T;
+              lede?: T;
+              logos?:
+                | T
+                | {
+                    title?: T;
+                    src?: T;
+                    href?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        machineryCarousel?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              lede?: T;
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    specs?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  homeSlider?:
+    | T
+    | {
+        kicker?: T;
+        title?: T;
+        excerpt?: T;
+        image?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+        id?: T;
+      };
+  statsOrbit?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        sublabel?: T;
+        icon?: T;
+        id?: T;
+      };
+  donorWall?:
+    | T
+    | {
+        number?: T;
+        name?: T;
+        category?: T;
+        id?: T;
+      };
+  leadershipTeam?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  complianceLogos?:
+    | T
+    | {
+        title?: T;
+        src?: T;
+        href?: T;
+        alt?: T;
+        id?: T;
+      };
   legacyHero?: T;
   legacyJumpLinks?: T;
   legacySections?: T;
@@ -2690,6 +5517,110 @@ export interface LegacySiteConfig {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: string;
+  hospitalName?: string | null;
+  tagline?: string | null;
+  missionStatement?: string | null;
+  contact?: {
+    uan?: string | null;
+    phone?: string | null;
+    emergencyPhone?: string | null;
+    generalEmail?: string | null;
+    donationsEmail?: string | null;
+    address?: string | null;
+    patientReportsUrl?: string | null;
+  };
+  socialLinks?: {
+    facebook?: string | null;
+    youtube?: string | null;
+    linkedin?: string | null;
+    twitter?: string | null;
+  };
+  newsletter?: {
+    enabled?: boolean | null;
+    label?: string | null;
+    placeholder?: string | null;
+    buttonLabel?: string | null;
+    successMessage?: string | null;
+    errorMessage?: string | null;
+  };
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
+  legacySettings?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface Navigation {
+  id: string;
+  utilityBar?: {
+    helpline?: string | null;
+    emergency?: string | null;
+    patientReportsLabel?: string | null;
+    patientReportsUrl?: string | null;
+    donateButtonLabel?: string | null;
+    donateButtonHref?: string | null;
+  };
+  mainNavItems?:
+    | {
+        id: string;
+        label: string;
+        href: string;
+        badge?: string | null;
+        moreLink?: {
+          label?: string | null;
+          href?: string | null;
+        };
+        groups?:
+          | {
+              title: string;
+              links?:
+                | {
+                    label: string;
+                    href: string;
+                    badge?: string | null;
+                    icon?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+      }[]
+    | null;
+  /**
+   * Legacy raw JSON store for fallback compatibility.
+   */
+  legacyNavigation?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2742,6 +5673,98 @@ export interface LegacySiteConfigSelect<T extends boolean = true> {
   legacyNavigation?: T;
   legacySettings?: T;
   legacyForms?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  hospitalName?: T;
+  tagline?: T;
+  missionStatement?: T;
+  contact?:
+    | T
+    | {
+        uan?: T;
+        phone?: T;
+        emergencyPhone?: T;
+        generalEmail?: T;
+        donationsEmail?: T;
+        address?: T;
+        patientReportsUrl?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        facebook?: T;
+        youtube?: T;
+        linkedin?: T;
+        twitter?: T;
+      };
+  newsletter?:
+    | T
+    | {
+        enabled?: T;
+        label?: T;
+        placeholder?: T;
+        buttonLabel?: T;
+        successMessage?: T;
+        errorMessage?: T;
+      };
+  legacySettings?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation_select".
+ */
+export interface NavigationSelect<T extends boolean = true> {
+  utilityBar?:
+    | T
+    | {
+        helpline?: T;
+        emergency?: T;
+        patientReportsLabel?: T;
+        patientReportsUrl?: T;
+        donateButtonLabel?: T;
+        donateButtonHref?: T;
+      };
+  mainNavItems?:
+    | T
+    | {
+        id?: T;
+        label?: T;
+        href?: T;
+        badge?: T;
+        moreLink?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        groups?:
+          | T
+          | {
+              title?: T;
+              links?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    badge?: T;
+                    icon?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  legacyNavigation?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

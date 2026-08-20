@@ -11,7 +11,7 @@ import { handleHeaderNavigation } from '@/utilities/headerNavigation'
 import { cn } from '@/utilities/ui'
 import { UtilityTopBar } from './UtilityTopBar'
 
-const navigation = navigationData as NavigationData
+const defaultNavigation = navigationData as NavigationData
 
 /** Compact/expand follows the wheel gesture, not Lenis interpolation (which overshoots once). */
 const HEADER_TOP_PX = 24
@@ -303,7 +303,8 @@ function MobileAccordion({
   )
 }
 
-export function SiteHeader() {
+export function SiteHeader({ navigation: customNav }: { navigation?: NavigationData } = {}) {
+  const navigation = customNav || defaultNavigation
   const pathname = usePathname()
   const [openItemId, setOpenItemId] = useState<string | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)

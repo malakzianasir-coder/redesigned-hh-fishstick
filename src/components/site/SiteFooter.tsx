@@ -109,8 +109,8 @@ const COMPLIANCE_LOGOS = [
   },
 ] as const
 
-export function SiteFooter() {
-  const settings = getSiteSettings()
+export function SiteFooter({ settings: customSettings }: { settings?: any } = {}) {
+  const settings = customSettings || getSiteSettings()
   const newsletter = settings.newsletter
 
   return (

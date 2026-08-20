@@ -23,8 +23,29 @@ if (typeof globalThis !== 'undefined' && globalThis.localStorage && typeof globa
   })
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const settings = getSiteSettings()
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  let settings = getSiteSettings()
+  let navigationData: any = undefined
+
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const siteConfig = await payload.findGlobal({
+      slug: 'legacy-site-config',
+    })
+    if (siteConfig) {
+      if (siteConfig.legacySettings) {
+        settings = siteConfig.legacySettings as any
+      }
+      if (siteConfig.legacyNavigation) {
+        navigationData = siteConfig.legacyNavigation as any
+      }
+    }
+  } catch (error) {
+    // Graceful fallback to static loaders if database not initialized
+  }
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -45,9 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <LiveblocksContext>
               <LenisProvider settings={settings.lenis}>
                 <BrandLoader />
-                <SiteHeader />
+                <SiteHeader navigation={navigationData} />
                 <main className="flex-1">{children}</main>
-                <SiteFooter />
+                <SiteFooter settings={settings} />
                 <FeedbackTools />
                 <Suspense fallback={null}>
                   <PageProgress />
@@ -57,9 +78,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ) : (
             <LenisProvider settings={settings.lenis}>
               <BrandLoader />
-              <SiteHeader />
+              <SiteHeader navigation={navigationData} />
               <main className="flex-1">{children}</main>
-              <SiteFooter />
+              <SiteFooter settings={settings} />
               <Suspense fallback={null}>
                 <PageProgress />
               </Suspense>
