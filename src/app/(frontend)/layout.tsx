@@ -15,6 +15,14 @@ import { BrandLoader, PageProgress } from '@/components/BrandLoader'
 
 import './globals.css'
 
+if (typeof globalThis !== 'undefined' && globalThis.localStorage && typeof globalThis.localStorage.getItem !== 'function') {
+  Object.defineProperty(globalThis, 'localStorage', {
+    value: { getItem: () => null, setItem: () => {}, removeItem: () => {} },
+    writable: true,
+    configurable: true
+  })
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const settings = getSiteSettings()
 

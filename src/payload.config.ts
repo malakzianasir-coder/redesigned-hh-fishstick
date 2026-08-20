@@ -14,7 +14,18 @@ import { NewsletterSubmissions } from './collections/NewsletterSubmissions'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
+import { LegacyPages } from './collections/LegacyPages'
+import { LegacySiteConfig } from './globals/LegacySiteConfig'
+import { LabTests } from './collections/LabTests'
 import { Donations } from './collections/Donations'
+import { Doctors } from './collections/Doctors'
+import { Services } from './collections/Services'
+import { DonationCauses } from './collections/DonationCauses'
+import { PatientWelfarePages } from './collections/PatientWelfarePages'
+import { SuccessStories } from './collections/SuccessStories'
+import { News } from './collections/News'
+import { Events } from './collections/Events'
+import { Departments } from './collections/Departments'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -78,9 +89,19 @@ export default buildConfig({
     Categories,
     Users,
     Donations,
+    Departments,
+    Doctors,
+    Services,
+    News,
+    Events,
+    DonationCauses,
+    PatientWelfarePages,
+    SuccessStories,
+    LabTests,
+    LegacyPages,
   ],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, LegacySiteConfig],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

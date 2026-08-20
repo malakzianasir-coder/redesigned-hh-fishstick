@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import React, { cache } from 'react'
 
 import { DonationCauseContent } from '@/components/donate/DonationCauseContent'
-import { getDonateContent, getDonation, getDonations } from '@/lib/content/loaders'
+import { getDonateContent } from '@/lib/content/loaders'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import { draftMode } from 'next/headers'
 
 type Args = {
   params: Promise<{
@@ -13,10 +17,44 @@ type Args = {
 /** Reserved under /donate — handled by dedicated routes, not giving-type cause pages. */
 const RESERVED_SLUGS = new Set(['how-to-donate', 'what-you-can-support', 'mock'])
 
+const queryGeneralCauseBySlug = cache(async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode()
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'donation-causes',
+    draft,
+    limit: 1,
+    pagination: false,
+    overrideAccess: draft,
+    where: {
+      and: [
+        { slug: { equals: slug } },
+        { kind: { equals: 'general' } }
+      ]
+    },
+  })
+
+  return result.docs?.[0] || null
+})
+
 export async function generateStaticParams() {
-  return getDonations()
-    .filter(({ slug, kind }) => !RESERVED_SLUGS.has(slug) && kind === 'general')
-    .map(({ slug }) => ({ slug }))
+  const payload = await getPayload({ config: configPromise })
+  const result = await payload.find({
+    collection: 'donation-causes',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    where: {
+      kind: { equals: 'general' }
+    },
+    select: { slug: true },
+  })
+
+  return result.docs
+    ?.filter(({ slug }) => slug && !RESERVED_SLUGS.has(slug))
+    .map(({ slug }) => ({ slug: slug! })) || []
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
@@ -25,7 +63,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     return { title: 'Donate | Hijaz Hospital' }
   }
 
-  const cause = getDonation(slug)
+  const cause = await queryGeneralCauseBySlug({ slug })
 
   if (!cause) {
     return { title: 'Cause Not Found' }
@@ -44,11 +82,23 @@ export default async function DonateSubpage({ params }: Args) {
     notFound()
   }
 
-  const cause = getDonation(slug)
+  const causeDoc = await queryGeneralCauseBySlug({ slug })
 
-  // Support causes live under /donate/what-you-can-support/[cause]
-  if (!cause || cause.kind !== 'general') {
+  if (!causeDoc) {
     notFound()
+  }
+  
+  const cause: any = {
+    slug: causeDoc.slug,
+    kind: causeDoc.kind,
+    title: causeDoc.title,
+    description: causeDoc.description,
+    excerpt: causeDoc.excerpt,
+    bankAccountKeys: causeDoc.bankAccountKeys,
+    zakatCalculator: causeDoc.zakatCalculator,
+    hero: causeDoc.legacyHero,
+    jumpLinks: causeDoc.legacyJumpLinks,
+    sections: causeDoc.legacySections,
   }
 
   const donateHub = getDonateContent()

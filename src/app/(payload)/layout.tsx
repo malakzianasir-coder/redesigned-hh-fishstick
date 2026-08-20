@@ -5,8 +5,16 @@ import '@payloadcms/next/css'
 import type { ServerFunctionClient } from 'payload'
 import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
-
 import { importMap } from './admin/importMap.js'
+
+if (typeof globalThis !== 'undefined' && globalThis.localStorage && typeof globalThis.localStorage.getItem !== 'function') {
+  Object.defineProperty(globalThis, 'localStorage', {
+    value: { getItem: () => null, setItem: () => {}, removeItem: () => {} },
+    writable: true,
+    configurable: true
+  })
+}
+
 import './custom.scss'
 
 type Args = {

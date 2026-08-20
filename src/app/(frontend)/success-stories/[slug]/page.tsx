@@ -1,49 +1,100 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import React, { cache } from 'react'
 
 import { ArticlePageTemplate } from '@/components/templates/ArticlePageTemplate'
 import {
   formatArticleDate,
   SUCCESS_STORY_CATEGORY_LABELS,
 } from '@/lib/content/article-helpers'
-import {
-  getRelatedSuccessStories,
-  getSuccessStory,
-  getSuccessStories,
-} from '@/lib/content/loaders'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import { draftMode } from 'next/headers'
 
 type Args = {
   params: Promise<{ slug: string }>
 }
 
+const queryStoryBySlug = cache(async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode()
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'success-stories',
+    draft,
+    limit: 1,
+    pagination: false,
+    overrideAccess: draft,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  return result.docs?.[0] || null
+})
+
 export async function generateStaticParams() {
-  return getSuccessStories().map((story) => ({ slug: story.slug }))
+  const payload = await getPayload({ config: configPromise })
+  const result = await payload.find({
+    collection: 'success-stories',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: { slug: true },
+  })
+  
+  return result.docs?.map(({ slug }) => ({ slug: slug! })) || []
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
-  const story = getSuccessStory(slug)
+  const story = await queryStoryBySlug({ slug })
 
   if (!story) {
     return { title: 'Story Not Found' }
   }
 
+  const legacyMeta: any = {} // Legacy success stories didn't really have meta fields, but just in case
+
   return {
-    title: story.meta?.title || `${story.title} | Hijaz Hospital Success Stories`,
-    description: story.meta?.description || story.subHeading,
+    title: legacyMeta.title || `${story.title} | Hijaz Hospital Success Stories`,
+    description: legacyMeta.description || story.subHeading,
   }
 }
 
 export default async function SuccessStoryPage({ params }: Args) {
   const { slug } = await params
-  const story = getSuccessStory(slug)
+  const story = await queryStoryBySlug({ slug })
 
   if (!story) {
     notFound()
   }
 
-  const body =
-    story.format === 'article' && story.articleContent ? story.articleContent : undefined
+  const payload = await getPayload({ config: configPromise })
+  const relatedResult = await payload.find({
+    collection: 'success-stories',
+    limit: 3,
+    sort: '-publishedDate',
+    where: {
+      slug: { not_equals: slug }
+    }
+  })
+
+  const related = relatedResult.docs.map(doc => ({
+    slug: doc.slug!,
+    title: doc.heading || doc.title,
+    excerpt: doc.subHeading || '',
+    category: SUCCESS_STORY_CATEGORY_LABELS[doc.category as import('@/lib/content/types').SuccessStoryCategory] || 'Success Story',
+    date: doc.publishedDate ? formatArticleDate(doc.publishedDate) : '',
+    href: `/success-stories/${doc.slug}`,
+    image: doc.thumbnail || undefined,
+    variant: 'story' as const,
+  }))
+
+  const body = story.format === 'article' && story.legacyContent ? (story.legacyContent as any) : undefined
 
   return (
     <ArticlePageTemplate
@@ -55,13 +106,13 @@ export default async function SuccessStoryPage({ params }: Args) {
       variant="story"
       title={story.heading || story.title}
       tagLine={story.title}
-      subtitle={story.subHeading}
-      date={formatArticleDate(story.publishedDate)}
-      heroImage={story.thumbnail}
+      subtitle={story.subHeading || undefined}
+      date={story.publishedDate ? formatArticleDate(story.publishedDate) : ''}
+      heroImage={story.thumbnail || undefined}
       body={body}
-      videoUrl={story.format === 'video' ? story.videoUrl : undefined}
-      categoryLabel={SUCCESS_STORY_CATEGORY_LABELS[story.category]}
-      related={getRelatedSuccessStories(story)}
+      videoUrl={story.format === 'video' ? story.videoUrl || undefined : undefined}
+      categoryLabel={SUCCESS_STORY_CATEGORY_LABELS[story.category as import('@/lib/content/types').SuccessStoryCategory]}
+      related={related}
       relatedHeading="More patient stories"
     />
   )

@@ -76,6 +76,16 @@ export interface Config {
     categories: Category;
     users: User;
     donations: Donation;
+    departments: Department;
+    doctors: Doctor;
+    services: Service;
+    news: News;
+    events: Event;
+    'donation-causes': DonationCause;
+    'patient-welfare-pages': PatientWelfarePage;
+    'success-stories': SuccessStory;
+    'lab-tests': LabTest;
+    'legacy-pages': LegacyPage;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -97,6 +107,16 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     donations: DonationsSelect<false> | DonationsSelect<true>;
+    departments: DepartmentsSelect<false> | DepartmentsSelect<true>;
+    doctors: DoctorsSelect<false> | DoctorsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    news: NewsSelect<false> | NewsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    'donation-causes': DonationCausesSelect<false> | DonationCausesSelect<true>;
+    'patient-welfare-pages': PatientWelfarePagesSelect<false> | PatientWelfarePagesSelect<true>;
+    'success-stories': SuccessStoriesSelect<false> | SuccessStoriesSelect<true>;
+    'lab-tests': LabTestsSelect<false> | LabTestsSelect<true>;
+    'legacy-pages': LegacyPagesSelect<false> | LegacyPagesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -114,10 +134,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'legacy-site-config': LegacySiteConfig;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'legacy-site-config': LegacySiteConfigSelect<false> | LegacySiteConfigSelect<true>;
   };
   locale: null;
   widgets: {
@@ -857,6 +879,532 @@ export interface Donation {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "departments".
+ */
+export interface Department {
+  id: string;
+  title: string;
+  /**
+   * e.g. Surgery & Allied Specialties
+   */
+  category: string;
+  categorySlug?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  /**
+   * Temporary JSON store for the Hero data until the new page builder blocks are defined.
+   */
+  legacyHero?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Temporary JSON store for jump links.
+   */
+  legacyJumpLinks?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Temporary JSON store for the legacy section blocks.
+   */
+  legacySections?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "doctors".
+ */
+export interface Doctor {
+  id: string;
+  name: string;
+  specialty?: string | null;
+  department?: string | null;
+  role?: string | null;
+  tags?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  image?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: string;
+  title: string;
+  category?: string | null;
+  categorySlug?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  /**
+   * Temporary JSON store for the Hero data.
+   */
+  legacyHero?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Temporary JSON store for jump links.
+   */
+  legacyJumpLinks?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Temporary JSON store for the legacy section blocks.
+   */
+  legacySections?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news".
+ */
+export interface News {
+  id: string;
+  title: string;
+  tagLine?: string | null;
+  shortDescription?: string | null;
+  /**
+   * String path to media
+   */
+  heroImage?: string | null;
+  categories?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  tags?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  author?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  publishedAt?: string | null;
+  featured?: boolean | null;
+  /**
+   * Temporary JSON store for the legacy rich text body.
+   */
+  legacyContent?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyMeta?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: string;
+  title: string;
+  tagLine?: string | null;
+  shortDescription?: string | null;
+  heroImage?: string | null;
+  categories?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  eventType?: string | null;
+  eventDate?: string | null;
+  eventTime?: string | null;
+  eventVenue?: string | null;
+  eventEntry?: string | null;
+  publishedAt?: string | null;
+  featured?: boolean | null;
+  /**
+   * Temporary JSON store for the legacy rich text body.
+   */
+  legacyContent?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyMeta?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donation-causes".
+ */
+export interface DonationCause {
+  id: string;
+  title: string;
+  kind?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  bankAccountKeys?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  zakatCalculator?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Temporary JSON store for the Hero data.
+   */
+  legacyHero?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyJumpLinks?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacySections?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "patient-welfare-pages".
+ */
+export interface PatientWelfarePage {
+  id: string;
+  title: string;
+  category?: string | null;
+  categorySlug?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  /**
+   * Temporary JSON store for the Hero data.
+   */
+  legacyHero?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyJumpLinks?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacySections?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "success-stories".
+ */
+export interface SuccessStory {
+  id: string;
+  title: string;
+  heading?: string | null;
+  subHeading?: string | null;
+  category?: string | null;
+  format?: string | null;
+  thumbnail?: string | null;
+  videoUrl?: string | null;
+  publishedDate?: string | null;
+  featured?: boolean | null;
+  departments?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  services?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyContent?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lab-tests".
+ */
+export interface LabTest {
+  id: string;
+  name: string;
+  category?: string | null;
+  reportingTime?: string | null;
+  specimen?: string | null;
+  isOutsourced?: boolean | null;
+  alsoKnownAs?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyDescription?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyPreparation?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legacy-pages".
+ */
+export interface LegacyPage {
+  id: string;
+  slug: string;
+  title?: string | null;
+  description?: string | null;
+  legacyHero?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyJumpLinks?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacySections?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyGroups?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyExternals?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyStats?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyRawData?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1080,6 +1628,46 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'donations';
         value: string | Donation;
+      } | null)
+    | ({
+        relationTo: 'departments';
+        value: string | Department;
+      } | null)
+    | ({
+        relationTo: 'doctors';
+        value: string | Doctor;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: string | Service;
+      } | null)
+    | ({
+        relationTo: 'news';
+        value: string | News;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: string | Event;
+      } | null)
+    | ({
+        relationTo: 'donation-causes';
+        value: string | DonationCause;
+      } | null)
+    | ({
+        relationTo: 'patient-welfare-pages';
+        value: string | PatientWelfarePage;
+      } | null)
+    | ({
+        relationTo: 'success-stories';
+        value: string | SuccessStory;
+      } | null)
+    | ({
+        relationTo: 'lab-tests';
+        value: string | LabTest;
+      } | null)
+    | ({
+        relationTo: 'legacy-pages';
+        value: string | LegacyPage;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1553,6 +2141,198 @@ export interface DonationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "departments_select".
+ */
+export interface DepartmentsSelect<T extends boolean = true> {
+  title?: T;
+  category?: T;
+  categorySlug?: T;
+  description?: T;
+  excerpt?: T;
+  legacyHero?: T;
+  legacyJumpLinks?: T;
+  legacySections?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "doctors_select".
+ */
+export interface DoctorsSelect<T extends boolean = true> {
+  name?: T;
+  specialty?: T;
+  department?: T;
+  role?: T;
+  tags?: T;
+  image?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  category?: T;
+  categorySlug?: T;
+  description?: T;
+  excerpt?: T;
+  legacyHero?: T;
+  legacyJumpLinks?: T;
+  legacySections?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news_select".
+ */
+export interface NewsSelect<T extends boolean = true> {
+  title?: T;
+  tagLine?: T;
+  shortDescription?: T;
+  heroImage?: T;
+  categories?: T;
+  tags?: T;
+  author?: T;
+  publishedAt?: T;
+  featured?: T;
+  legacyContent?: T;
+  legacyMeta?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  tagLine?: T;
+  shortDescription?: T;
+  heroImage?: T;
+  categories?: T;
+  eventType?: T;
+  eventDate?: T;
+  eventTime?: T;
+  eventVenue?: T;
+  eventEntry?: T;
+  publishedAt?: T;
+  featured?: T;
+  legacyContent?: T;
+  legacyMeta?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donation-causes_select".
+ */
+export interface DonationCausesSelect<T extends boolean = true> {
+  title?: T;
+  kind?: T;
+  description?: T;
+  excerpt?: T;
+  bankAccountKeys?: T;
+  zakatCalculator?: T;
+  legacyHero?: T;
+  legacyJumpLinks?: T;
+  legacySections?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "patient-welfare-pages_select".
+ */
+export interface PatientWelfarePagesSelect<T extends boolean = true> {
+  title?: T;
+  category?: T;
+  categorySlug?: T;
+  description?: T;
+  excerpt?: T;
+  legacyHero?: T;
+  legacyJumpLinks?: T;
+  legacySections?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "success-stories_select".
+ */
+export interface SuccessStoriesSelect<T extends boolean = true> {
+  title?: T;
+  heading?: T;
+  subHeading?: T;
+  category?: T;
+  format?: T;
+  thumbnail?: T;
+  videoUrl?: T;
+  publishedDate?: T;
+  featured?: T;
+  departments?: T;
+  services?: T;
+  legacyContent?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "lab-tests_select".
+ */
+export interface LabTestsSelect<T extends boolean = true> {
+  name?: T;
+  category?: T;
+  reportingTime?: T;
+  specimen?: T;
+  isOutsourced?: T;
+  alsoKnownAs?: T;
+  legacyDescription?: T;
+  legacyPreparation?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legacy-pages_select".
+ */
+export interface LegacyPagesSelect<T extends boolean = true> {
+  slug?: T;
+  title?: T;
+  description?: T;
+  legacyHero?: T;
+  legacyJumpLinks?: T;
+  legacySections?: T;
+  legacyGroups?: T;
+  legacyExternals?: T;
+  legacyStats?: T;
+  legacyRawData?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
@@ -1874,6 +2654,42 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legacy-site-config".
+ */
+export interface LegacySiteConfig {
+  id: string;
+  legacyNavigation?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacySettings?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  legacyForms?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1914,6 +2730,18 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legacy-site-config_select".
+ */
+export interface LegacySiteConfigSelect<T extends boolean = true> {
+  legacyNavigation?: T;
+  legacySettings?: T;
+  legacyForms?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

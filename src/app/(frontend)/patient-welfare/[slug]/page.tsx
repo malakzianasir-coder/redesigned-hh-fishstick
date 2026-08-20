@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import React from 'react'
+import React, { cache } from 'react'
 
 import { PatientWelfareDetailContent } from '@/components/patient-welfare/PatientWelfareDetailContent'
-import { getPatientWelfare, getPatientWelfarePages } from '@/lib/content/loaders'
+import configPromise from '@payload-config'
+import { getPayload } from 'payload'
+import { draftMode } from 'next/headers'
 
 type Args = {
   params: Promise<{
@@ -11,13 +13,43 @@ type Args = {
   }>
 }
 
+const queryPatientWelfareBySlug = cache(async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode()
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'patient-welfare-pages',
+    draft,
+    limit: 1,
+    pagination: false,
+    overrideAccess: draft,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  })
+
+  return result.docs?.[0] || null
+})
+
 export async function generateStaticParams() {
-  return getPatientWelfarePages().map(({ slug }) => ({ slug }))
+  const payload = await getPayload({ config: configPromise })
+  const result = await payload.find({
+    collection: 'patient-welfare-pages',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: { slug: true },
+  })
+  
+  return result.docs?.map(({ slug }) => ({ slug: slug! })) || []
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug } = await params
-  const page = getPatientWelfare(slug)
+  const page = await queryPatientWelfareBySlug({ slug })
 
   if (!page) {
     return { title: 'Page Not Found' }
@@ -31,10 +63,22 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 
 export default async function PatientWelfarePage({ params }: Args) {
   const { slug } = await params
-  const page = getPatientWelfare(slug)
+  const pageDoc = await queryPatientWelfareBySlug({ slug })
 
-  if (!page) {
+  if (!pageDoc) {
     notFound()
+  }
+  
+  const page: any = {
+    slug: pageDoc.slug,
+    title: pageDoc.title,
+    category: pageDoc.category,
+    categorySlug: pageDoc.categorySlug,
+    description: pageDoc.description,
+    excerpt: pageDoc.excerpt,
+    hero: pageDoc.legacyHero,
+    jumpLinks: pageDoc.legacyJumpLinks,
+    sections: pageDoc.legacySections,
   }
 
   return <PatientWelfareDetailContent page={page} />

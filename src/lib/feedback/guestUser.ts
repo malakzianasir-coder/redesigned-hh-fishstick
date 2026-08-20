@@ -25,18 +25,22 @@ function hashString(value: string): number {
 }
 
 export function getGuestUserId(): string {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || typeof window.localStorage === "undefined") {
     return "guest-reviewer-ssr"
   }
 
-  const existingId = localStorage.getItem(GUEST_ID_KEY)
-  if (existingId) {
-    return existingId
-  }
+  try {
+    const existingId = window.localStorage.getItem(GUEST_ID_KEY)
+    if (existingId) {
+      return existingId
+    }
 
-  const nextId = `guest-${crypto.randomUUID()}`
-  localStorage.setItem(GUEST_ID_KEY, nextId)
-  return nextId
+    const nextId = `guest-${crypto.randomUUID()}`
+    window.localStorage.setItem(GUEST_ID_KEY, nextId)
+    return nextId
+  } catch (e) {
+    return "guest-reviewer-fallback"
+  }
 }
 
 export function getGuestUserInfo(userId: string): GuestUserInfo {
