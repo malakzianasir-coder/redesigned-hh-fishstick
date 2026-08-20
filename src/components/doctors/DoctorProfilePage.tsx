@@ -97,11 +97,11 @@ export function DoctorProfilePage({ doctor }: { doctor: DoctorRecord }) {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="card p-6 lg:p-8">
                   <h2 className="text-h5M font-bold leading-[120%] text-primary-blue lg:text-h5">
-                    Qualifications and Specialty
+                    Qualifications and Job Title
                   </h2>
                   <div className="mt-4 flex flex-col gap-3 text-b14 leading-[150%] text-primary-blue/85">
                     <p>
-                      <span className="field-label-text mb-1 block">Specialty</span>
+                      <span className="field-label-text mb-1 block">Job Title</span>
                       {doctor.specialty}
                     </p>
                     <div>

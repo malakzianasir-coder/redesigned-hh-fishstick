@@ -46,7 +46,7 @@ const FLOAT_ACTIONS = [
     Icon: Stethoscope,
     variant: 'default' as const,
     pulse: false,
-    ariaLabel: 'Find a doctor by specialty or name',
+    ariaLabel: 'Find a doctor by job title or name',
   },
   {
     key: 'lab-reports',

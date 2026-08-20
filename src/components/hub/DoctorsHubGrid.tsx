@@ -130,7 +130,7 @@ export function DoctorsHubGrid({
                   type="search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search by name, specialty, or department…"
+                  placeholder="Search by name, job title, or department…"
                   aria-label="Search doctors"
                   className="search-input"
                 />
@@ -139,10 +139,10 @@ export function DoctorsHubGrid({
               <select
                 value={specialty}
                 onChange={(e) => setSpecialty(e.target.value)}
-                aria-label="Filter by specialty"
+                aria-label="Filter by job title"
                 className="min-h-[44px] rounded-full border border-dark-gray/25 bg-white px-4 text-b14 text-primary-blue focus:border-primary-red focus:outline-none focus:ring-2 focus:ring-primary-red/15 lg:min-w-[220px]"
               >
-                <option value="all">All specialties</option>
+                <option value="all">All job titles</option>
                 {specialties.map((spec) => (
                   <option key={spec} value={spec}>
                     {spec}

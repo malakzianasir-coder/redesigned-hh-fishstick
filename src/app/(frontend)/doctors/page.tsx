@@ -7,7 +7,7 @@ import { getDoctorsHub } from '@/lib/content/loaders'
 export const metadata: Metadata = {
   title: 'Find a Doctor | Hijaz Hospital',
   description:
-    'Browse Hijaz Hospital consultants and visiting doctors by specialty, department, and role.',
+    'Browse Hijaz Hospital consultants and visiting doctors by job title, department, and role.',
 }
 
 export default function DoctorsHubPage() {

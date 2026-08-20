@@ -9,7 +9,8 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": "/media/Dr. Faisal Farrukh Rana (Consultant Anesthetist).webp"
+      "image": "/media/Dr. Faisal Farrukh Rana (Consultant Anesthetist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-hani-gul",
@@ -17,7 +18,8 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-mehmood-ul-hassan",
@@ -25,7 +27,8 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": "/media/Dr. Mahmood Ul Hassan (Consultant Anesthetist).webp"
+      "image": "/media/Dr. Mahmood Ul Hassan (Consultant Anesthetist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-najam-us-saher",
@@ -33,7 +36,8 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": "/media/Dr. Najam U Sehar (Consultant Anesthetist).webp"
+      "image": "/media/Dr. Najam U Sehar (Consultant Anesthetist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-nighat-yasmin",
@@ -41,37 +45,35 @@
       "specialty": "Anesthetist",
       "department": "Anesthesia",
       "tags": [],
-      "image": "/media/Dr. Nighat Yasim (Consultant Anesthetist).webp"
+      "image": "/media/Dr. Nighat Yasim (Consultant Anesthetist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-sheikh-ziarat-ali",
       "name": "Dr. Sheikh Ziarat Ali",
       "specialty": "Anesthetist",
       "department": "Anesthesia",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Sheikh Ziyarat Ali (Consultant Anesthetist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Sheikh Ziyarat Ali (Consultant Anesthetist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-aftab-ahmad-tarique",
       "name": "Dr. Aftab Ahmad Tarique",
       "specialty": "Cardiologist",
       "department": "Cardiology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Aftab Ahmad Tarique (Cardiologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Aftab Ahmad Tarique (Cardiologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-fawad-tariq",
       "name": "Dr. Fawad Tariq",
       "specialty": "Dental Surgeon",
       "department": "Dental Surgery",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Fawad Tariq (Dental Surgeon).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Fawad Tariq (Dental Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-muhammad-hamza-khan",
@@ -79,27 +81,26 @@
       "specialty": "Dental Surgeon",
       "department": "Dental Surgery",
       "tags": [],
-      "image": "/media/Dr. Muhammad Hamza Khan (Dental Surgeon).webp"
+      "image": "/media/Dr. Muhammad Hamza Khan (Dental Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-damish-arsalan",
       "name": "Dr. Damish Arsalan",
-      "specialty": "ENT Consultant",
+      "specialty": "ENT Specialist",
       "department": "ENT",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Damish Arsalan (ENT Surgeon).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Damish Arsalan (ENT Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-attique-abou-bakr",
       "name": "Dr. Attique Abou Bakr",
       "specialty": "Gastroenterologist",
       "department": "ENT",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": null
+      "tags": ["head-of-department"],
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-ahsan-masud-chaudhary",
@@ -107,17 +108,17 @@
       "specialty": "General Surgeon",
       "department": "General Surgery",
       "tags": [],
-      "image": "/media/Dr. Ahsan Masud Chaudhry (General Surgeon).webp"
+      "image": "/media/Dr. Ahsan Masud Chaudhry (General Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-farrukh-shahzad",
       "name": "Dr. Farrukh Shahzad",
       "specialty": "General Surgeon",
       "department": "General Surgery",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Farukh Shahzad (General Surgeon).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Farukh Shahzad (General Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-wajahat-ameer",
@@ -125,17 +126,17 @@
       "specialty": "General Surgeon",
       "department": "General Surgery",
       "tags": [],
-      "image": "/media/Dr. Wajahat Amir (General Surgeon).webp"
+      "image": "/media/Dr. Wajahat Amir (General Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-ambreen-ijaz",
       "name": "Dr. Ambreen Ijaz",
       "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Ambreen Ijaz (Gynacologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Ambreen Ijaz (Gynacologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-ambreen-rafiq",
@@ -143,7 +144,8 @@
       "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": "/media/Dr. Ambreen Rafique (Gynacologist).webp"
+      "image": "/media/Dr. Ambreen Rafique (Gynacologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-syeda-aneeqa-bano",
@@ -151,7 +153,8 @@
       "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-tasmeen-afridi",
@@ -159,75 +162,80 @@
       "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-fatima-zubair",
       "name": "Dr. Fatima Zubair",
-      "specialty": "Gynecologist Consultant",
+      "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-hafiza-sadia-jafar",
       "name": "Dr. Hafiza Sadia Jafar",
-      "specialty": "Jr. Consultant Anesthesia",
+      "specialty": "Anesthetist",
       "department": "Jr. Consultant Anesthesia",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Junior Consultant"
     },
     {
       "slug": "dr-iffat-niazi",
       "name": "Dr. Iffat Niazi",
-      "specialty": "Jr. Consultant Obs & Gynae",
+      "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Junior Consultant"
     },
     {
       "slug": "dr-saima-afzal",
       "name": "Dr. Saima Afzal",
-      "specialty": "Jr. Consultant Obs & Gynae",
+      "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Junior Consultant"
     },
     {
       "slug": "dr-uzma-hanif",
       "name": "Dr. Uzma Hanif",
-      "specialty": "Jr. Consultant Obs & Gynae",
+      "specialty": "Gynecologist",
       "department": "Gynaecology & Obstetrics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Junior Consultant"
     },
     {
       "slug": "dr-muhammad-hasan",
       "name": "Dr. Muhammad Hasan",
-      "specialty": "Junior Consultant Ortho",
+      "specialty": "Orthopedic Surgeon",
       "department": "Orthopedics",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Junior Consultant"
     },
     {
       "slug": "dr-ayesha-azhar",
       "name": "Dr. Ayesha Azhar",
       "specialty": "Nephrologist",
       "department": "Nephrology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": null
+      "tags": ["head-of-department"],
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-jawad-bin-yameen-butt",
       "name": "Dr. Jawad Bin Yameen Butt",
       "specialty": "Ophthalmologist",
       "department": "Ophthalmology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Jawad bin Yamin (Ophthalmologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Jawad bin Yamin (Ophthalmologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-maqsood-ahmad",
@@ -235,45 +243,35 @@
       "specialty": "Orthopedic Surgeon",
       "department": "Orthopedics",
       "tags": [],
-      "image": "/media/Dr. Maqsood Ahmed (Orthopedic Surgeon).webp"
-    },
-    {
-      "slug": "dr-muhammad-afaq",
-      "name": "Dr. Muhammad Afaq",
-      "specialty": "Orthopedic Surgeon",
-      "department": "Orthopedics",
-      "tags": [],
-      "image": "/media/Dr. Muhammad Afaq (Orthopedic Surgeon).webp"
+      "image": "/media/Dr. Maqsood Ahmed (Orthopedic Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-hashmat-mumtaz-rao",
       "name": "Dr. Hashmat Mumtaz Rao",
       "specialty": "Pathologist",
       "department": "Pathology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Hashmat Rao (Hemagologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Hashmat Rao (Hemagologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-fozia-shareef",
       "name": "Dr. Fozia Shareef",
-      "specialty": "Pediatric Consultant",
+      "specialty": "Pediatrician",
       "department": "Pediatrics",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Fozia Sharif (Consultant Pediatric).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Fozia Sharif (Consultant Pediatric).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-muhammad-amir-ishaq",
       "name": "Dr. Muhammad Amir Ishaq",
       "specialty": "Pediatric Surgeon",
       "department": "Pediatric Surgery",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": null
+      "tags": ["head-of-department"],
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-hussan-ali-sarwar",
@@ -281,7 +279,8 @@
       "specialty": "Pediatrician",
       "department": "Pediatrics",
       "tags": [],
-      "image": "/media/Dr. Hassan Ali Sarwar ( Consultant Pediatric).webp"
+      "image": "/media/Dr. Hassan Ali Sarwar ( Consultant Pediatric).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-amna-faisal",
@@ -289,17 +288,17 @@
       "specialty": "Radiologist",
       "department": "Radiology",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-muhammad-jamil-akhtar",
       "name": "Dr. Muhammad Jamil Akhtar",
       "specialty": "Radiologist",
       "department": "Radiology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Jamil Akhter (Radiologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Jamil Akhter (Radiologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-najma-naeem-qaiser",
@@ -307,7 +306,8 @@
       "specialty": "Radiologist",
       "department": "Radiology",
       "tags": [],
-      "image": "/media/Dr. Najma Naeem (Sonologist).webp"
+      "image": "/media/Dr. Najma Naeem (Sonologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-sara-salman",
@@ -315,27 +315,26 @@
       "specialty": "Radiologist",
       "department": "Radiology",
       "tags": [],
-      "image": "/media/Dr. Sara Salman (Sonologist).webp"
+      "image": "/media/Dr. Sara Salman (Sonologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-wajid-ali",
       "name": "Dr. Wajid Ali",
       "specialty": "Urologist",
       "department": "Urology",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Wajid Ali (Urologist).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Wajid Ali (Urologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-m-asad-ullah-khawaja",
-      "name": "Dr. M.Asad Ullah Khawaja",
+      "name": "Dr. M. Asad Ullah Khawaja",
       "specialty": "General Surgeon",
       "department": "General Surgery",
-      "tags": [
-        "visiting"
-      ],
-      "image": "/media/Dr. Asad Ullah Khawaja (General Surgeon).webp"
+      "tags": ["visiting"],
+      "image": "/media/Dr. Asad Ullah Khawaja (General Surgeon).webp",
+      "role": "Consultant"
     },
     {
       "slug": "prof-farooq-hameed",
@@ -343,81 +342,71 @@
       "specialty": "Urologist",
       "department": "Urology",
       "tags": [],
-      "image": null
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-agha-nasarullah-khan",
       "name": "Dr. Agha Nasarullah Khan",
       "specialty": "Dermatologist",
       "department": "Dermatology",
-      "tags": [
-        "visiting"
-      ],
-      "image": "/media/Dr. Agha Nasarullah Khan (Dermatologist).webp"
+      "tags": ["visiting"],
+      "image": "/media/Dr. Agha Nasarullah Khan (Dermatologist).webp",
+      "role": "Consultant"
     },
     {
       "slug": "dr-nabiha-rizvi",
       "name": "Dr. Nabiha Rizvi",
       "specialty": "Nephrologist",
       "department": "Nephrology",
-      "tags": [
-        "visiting"
-      ],
-      "image": null
+      "tags": ["visiting"],
+      "image": null,
+      "role": "Consultant"
     },
     {
       "slug": "dr-muhammad-ali",
       "name": "Dr. Muhammad Ali",
-      "specialty": "Senior Registrar Medicine, FMH",
+      "specialty": "Medical Specialist",
       "department": "General Medicine",
-      "tags": [
-        "visiting",
-        "fmh-faculty"
-      ],
-      "image": null
+      "tags": ["visiting", "fmh-faculty"],
+      "image": null,
+      "role": "Senior Registrar"
     },
     {
       "slug": "dr-fatima-kamran",
       "name": "Dr. Fatima Kamran",
-      "specialty": "Senior Registrar General Surgery, FMH",
+      "specialty": "General Surgeon",
       "department": "Senior Registrar General Surgery, FMH",
-      "tags": [
-        "visiting",
-        "fmh-faculty"
-      ],
-      "image": null
+      "tags": ["visiting", "fmh-faculty"],
+      "image": null,
+      "role": "Senior Registrar"
     },
     {
       "slug": "dr-anum",
       "name": "Dr. Anum",
-      "specialty": "Senior Registrar Ophthalmology, FMH",
+      "specialty": "Ophthalmologist",
       "department": "Ophthalmology",
-      "tags": [
-        "visiting",
-        "fmh-faculty"
-      ],
-      "image": null
+      "tags": ["visiting", "fmh-faculty"],
+      "image": null,
+      "role": "Senior Registrar"
     },
     {
       "slug": "dr-unsia-rao",
       "name": "Dr. Unsia Rao",
-      "specialty": "Senior Registrar Ophthalmology, FMH",
+      "specialty": "Ophthalmologist",
       "department": "Ophthalmology",
-      "tags": [
-        "visiting",
-        "fmh-faculty"
-      ],
-      "image": null
+      "tags": ["visiting", "fmh-faculty"],
+      "image": null,
+      "role": "Senior Registrar"
     },
     {
       "slug": "dr-muhammad-afaq",
       "name": "Dr. Muhammad Afaq",
-      "specialty": "Orthopedics Surgeon",
+      "specialty": "Orthopedic Surgeon",
       "department": "Orthopedics",
-      "tags": [
-        "head-of-department"
-      ],
-      "image": "/media/Dr. Muhammad Afaq (Orthopedic Surgeon).webp"
+      "tags": ["head-of-department"],
+      "image": "/media/Dr. Muhammad Afaq (Orthopedic Surgeon).webp",
+      "role": "Consultant"
     }
   ]
 }
