@@ -42,9 +42,7 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const result = await payload.find({
     collection: 'donation-causes',
-    draft: false,
     limit: 1000,
-    overrideAccess: false,
     pagination: false,
     where: {
       kind: { equals: 'general' }

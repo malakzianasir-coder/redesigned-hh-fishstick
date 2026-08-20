@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
-import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { anyone } from '../access/anyone'
 import { slugField } from '@/fields/slug'
 import { heroGroup } from '@/fields/heroGroup'
 import { jumpLinksField } from '@/fields/jumpLinksField'
@@ -11,12 +11,12 @@ export const PatientWelfarePages: CollectionConfig = {
   slug: 'patient-welfare-pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'slug'],
+    defaultColumns: ['title', 'category', 'slug', 'updatedAt'],
   },
   access: {
     create: authenticated,
     delete: authenticated,
-    read: authenticatedOrPublished,
+    read: anyone,
     update: authenticated,
   },
   fields: [

@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
-import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { anyone } from '../access/anyone'
 import { slugField } from '@/fields/slug'
 import { heroGroup } from '@/fields/heroGroup'
 import { jumpLinksField } from '@/fields/jumpLinksField'
@@ -16,7 +16,7 @@ export const DonationCauses: CollectionConfig = {
   access: {
     create: authenticated,
     delete: authenticated,
-    read: authenticatedOrPublished,
+    read: anyone,
     update: authenticated,
   },
   fields: [

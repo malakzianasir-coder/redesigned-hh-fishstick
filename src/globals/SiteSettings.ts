@@ -1,12 +1,12 @@
 import type { GlobalConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
-import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { anyone } from '../access/anyone'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   access: {
-    read: authenticatedOrPublished,
+    read: anyone,
     update: authenticated,
   },
   fields: [

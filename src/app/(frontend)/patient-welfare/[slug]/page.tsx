@@ -37,9 +37,7 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const result = await payload.find({
     collection: 'patient-welfare-pages',
-    draft: false,
     limit: 1000,
-    overrideAccess: false,
     pagination: false,
     select: { slug: true },
   })

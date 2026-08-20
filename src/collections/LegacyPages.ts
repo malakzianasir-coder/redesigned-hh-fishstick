@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { authenticated } from '../access/authenticated'
-import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
+import { anyone } from '../access/anyone'
 import { heroGroup } from '@/fields/heroGroup'
 import { jumpLinksField } from '@/fields/jumpLinksField'
 import { pageSectionsField } from '@/blocks/pageBlocks'
@@ -15,7 +15,7 @@ export const LegacyPages: CollectionConfig = {
   access: {
     create: authenticated,
     delete: authenticated,
-    read: authenticatedOrPublished,
+    read: anyone,
     update: authenticated,
   },
   fields: [

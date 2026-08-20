@@ -368,7 +368,7 @@ async function seedEverything() {
     if (existing.docs.length > 0) {
       await payload.update({
         collection: 'legacy-pages',
-        id: existing.docs[0].id,
+        id: existing.docs[0]!.id,
         data: payloadData,
       })
       console.log(`✓ Updated structured LegacyPage: ${slug}`)
@@ -415,7 +415,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'departments',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured Department: ${dept.slug}`)
@@ -461,7 +461,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'services',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured Service: ${srv.slug}`)
@@ -508,7 +508,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'donation-causes',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured DonationCause: ${cause.slug}`)
@@ -547,7 +547,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'doctors',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured Doctor: ${doc.name}`)
@@ -597,7 +597,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'success-stories',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured SuccessStory: ${story.slug}`)
@@ -645,7 +645,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'news',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured News Article: ${article.slug}`)
@@ -691,7 +691,7 @@ async function seedEverything() {
       if (existing.docs.length > 0) {
         await payload.update({
           collection: 'events',
-          id: existing.docs[0].id,
+          id: existing.docs[0]!.id,
           data: dataToSave,
         })
         console.log(`✓ Updated structured Event: ${event.slug}`)

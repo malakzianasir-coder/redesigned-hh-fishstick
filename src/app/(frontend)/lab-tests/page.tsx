@@ -36,9 +36,9 @@ export default async function LabTestsPage() {
     reportingTime: doc.reportingTime || '',
     specimen: doc.specimen || '',
     isOutsourced: doc.isOutsourced || false,
-    alsoKnownAs: (doc.alsoKnownAs as string[]) || [],
-    description: (doc.legacyDescription as any) || undefined,
-    preparation: (doc.legacyPreparation as any) || undefined,
+    alsoKnownAs: Array.isArray(doc.alsoKnownAs) ? doc.alsoKnownAs.map((a: any) => typeof a === 'string' ? a : (a.alias || '')) : [],
+    description: (doc.legacyDescription as any) || (doc.description as any) || undefined,
+    preparation: (doc.legacyPreparation as any) || (doc.preparation as any) || undefined,
   }))
 
   const categories = Array.from(new Set(tests.map(t => t.category))).filter(Boolean).sort()
